@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-160-5</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-160-5</h1>
+<ul>
+<li><a href="../../manuals/A-160-5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a1605.htm">Doepfer A-160-5 Voltage Controlled Clock Multiplier / Ratcheting Controller - Official Manual</a></p>
+<hr />
+<h1>Doepfer A-160-5 Cheat Sheet</h1>
+<h2>Overview</h2>
+<p>The A-160-5 is a <strong>voltage controlled clock multiplier</strong> with <strong>ratcheting capability</strong>. It takes an incoming clock source and outputs a clock at a multiplied rate. The multiplication factor is manually set or controlled via CV (0 to +5V), with different factor modes selectable. Ideal for creating rhythmic complexity, especially "ratcheting" patterns as used by Tangerine Dream.</p>
+<hr />
+<h2>Quickstart</h2>
+<ol>
+<li><strong>Clock Input:</strong> Patch your main clock/Gate source to <code>Clock In</code>.</li>
+<li><strong>Clock Output:</strong> Patch <code>Clock Out</code> to send multiplied clock pulses to sequencers, ADSRs, etc.</li>
+<li><strong>Set Multiply Factor:</strong><ul>
+<li><em>Manual</em>: Use the <code>Manual</code> knob (no CV patched).</li>
+<li><em>CV Controlled</em>: Patch 0…+5V CV to <code>CV In</code> (overrides manual).</li>
+</ul>
+</li>
+<li><strong>Select Mode:</strong> Set the 3-way toggle to choose multiplication factors (Integers, Powers-of-two, or Mixed).</li>
+<li><strong>Monitor LEDs:</strong><ul>
+<li>8 LEDs: Show current multiplication factor.</li>
+<li>2 LEDs: Show live clock In and Out activity.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>Inputs &amp; Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>Jack/Control</th>
+<th>Type</th>
+<th>Details</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clock In</strong></td>
+<td>Input</td>
+<td>Receives external clock/gate signal</td>
+<td>Typical gate/clk</td>
+</tr>
+<tr>
+<td><strong>Clock Out</strong></td>
+<td>Output</td>
+<td>Multiplied clock output</td>
+<td>Same as input</td>
+</tr>
+<tr>
+<td><strong>CV In</strong></td>
+<td>Input</td>
+<td>Sets multiplication factor (overrides Manual Knob)</td>
+<td>0 to +5V</td>
+</tr>
+<tr>
+<td><strong>Manual</strong></td>
+<td>Knob</td>
+<td>Sets multiplication (normalled to CV In if unpatched)</td>
+<td>0 to +5V (internally generated)</td>
+</tr>
+<tr>
+<td><strong>Mode</strong></td>
+<td>3-way Switch</td>
+<td>Selects multiplication table:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>- Left: Integer values (1,2,3...8)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>- Middle: Powers of two (1,2,4,8...)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>- Right: Mixed values</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Reference – Controls</h2>
+<ul>
+<li><strong>Manual Knob:</strong> Adjusts multiplication factor (0V = mute).</li>
+<li><strong>Mode Toggle:</strong>  </li>
+<li><strong>Left</strong> (Ganzzahlige Werte): 1–8  </li>
+<li><strong>Middle</strong> (2er-Potenzen): 1, 2, 4, 8  </li>
+<li><strong>Right</strong> (Mix): 1, 2, 3, 4, 6, 8, etc.</li>
+<li><strong>LED Matrix:</strong> Indicates active multiplication factor (first LED = 1, up to 8).</li>
+<li><strong>"Clock In" LED:</strong> Blinks with incoming clock.</li>
+<li><strong>"Clock Out" LED:</strong> Blinks with outgoing (multiplied) clock.</li>
+</ul>
+<hr />
+<h2>Tips</h2>
+<ul>
+<li><strong>No Output at 0V:</strong> If your Manual knob or CV input is fully CCW/0V, module mutes the clock output.</li>
+<li><strong>Dynamic Ratcheting:</strong> Use sequencer CV lanes to automate ratchet counts for each step.</li>
+<li><strong>Allow Stabilization:</strong> After sudden clock changes, the output clock may lag a few pulses as it recalculates multiplication.</li>
+</ul>
+<hr />
+<h2>Technical Data</h2>
+<ul>
+<li><strong>Width:</strong> 4 HP (20mm)</li>
+<li><strong>Depth:</strong> 35mm</li>
+<li><strong>Current:</strong> +50mA (+12V), -0mA (-12V)</li>
+</ul>
+<hr />
+<h2>Patch Example</h2>
+<ul>
+<li><strong>Sequencer Clock:</strong> Out from A-155/A-154 to <code>Clock In</code>.</li>
+<li><strong>Gate Multiplication:</strong> <code>Clock Out</code> to envelope/trigger destination.</li>
+<li><strong>Ratchet Control:</strong> Sequencer CV to <code>CV In</code> to vary pulse count per step.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

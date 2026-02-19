@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Instruo_Tona</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Instruo — Tona</h1>
+<ul>
+<li><a href="../../manuals/Tona-Manual-A5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="sandbox:/mnt/data/tòna%20Oscillator%20User%20Manual.pdf"><strong>Download the Instruō tòna User Manual (PDF)</strong></a></p>
+<hr />
+<h1>Instruō Tòna Cheat Sheet</h1>
+<p><strong>Type:</strong> All-analog VCO with classic waveforms + analog wavefolder<br />
+<strong>Form factor:</strong> 12HP Eurorack<br />
+<strong>Power:</strong> +12V: 40mA, -12V: 40mA<br />
+<strong>Depth:</strong> 27mm</p>
+<hr />
+<h2>I/O Jack Reference</h2>
+<h3>Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Description</th>
+<th>Typical Voltage Swing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Square</td>
+<td>Output</td>
+<td>Square waveform</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>Sawtooth/Ramp</td>
+<td>Output</td>
+<td>Sawtooth/ramp waveform</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>Triangle</td>
+<td>Output</td>
+<td>Triangle waveform</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>Sine</td>
+<td>Output</td>
+<td>Sine waveform</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>Wavefold</td>
+<td>Output</td>
+<td>Folded sine via wavefolder</td>
+<td>±5V</td>
+</tr>
+</tbody>
+</table>
+<h3>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Description</th>
+<th>Voltage Range</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1V/Oct</td>
+<td>CV Input</td>
+<td>V/oct pitch tracking</td>
+<td>-∞ to +∞</td>
+<td>1V per octave standard</td>
+</tr>
+<tr>
+<td>Linear FM</td>
+<td>CV Input</td>
+<td>Linear FM on pitch</td>
+<td>-5V to +5V (typical)</td>
+<td>Bipolar, summed with Coarse/Fine</td>
+</tr>
+<tr>
+<td>Sync</td>
+<td>Gate/Trig Input</td>
+<td>Hard sync input - resets oscillator on rising edge</td>
+<td>&gt;2.5V triggers</td>
+<td>Use sharp-edged signals (square/ramp)</td>
+</tr>
+<tr>
+<td>Wavefold CV</td>
+<td>CV Input</td>
+<td>CV control of Wavefolder amount</td>
+<td>-5V to +5V (typical)</td>
+<td>Bipolar, summed with fader</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Knobs, Sliders, and Controls</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coarse</td>
+<td>Knob</td>
+<td>Sets base oscillator frequency (pitch)</td>
+</tr>
+<tr>
+<td>Fine</td>
+<td>Knob</td>
+<td>Fine adjustment of pitch, relative to Coarse</td>
+</tr>
+<tr>
+<td>Linear FM Attenuator</td>
+<td>Knob</td>
+<td>Attenuates depth of Linear FM input</td>
+</tr>
+<tr>
+<td>Wavefold Fader</td>
+<td>Slider</td>
+<td>Amount of wavefolding (left = pure sine, right = fully folded)</td>
+</tr>
+<tr>
+<td>Wavefold CV Attenuator</td>
+<td>Knob</td>
+<td>Attenuates depth of Wavefold CV input</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>QUICK REFERENCE PATCHING</h2>
+<h3>Basic Oscillator Out</h3>
+<ul>
+<li><strong>Connect:</strong> Any waveform output to your mixer/audio path.</li>
+<li><strong>Pitch Control:</strong> 1V/Oct input from sequencer/keyboard.</li>
+</ul>
+<h3>Wavefolded Out</h3>
+<ul>
+<li><strong>Connect:</strong> Wavefold output for timbre-rich, West Coast flavor.</li>
+<li><strong>Tweak:</strong> Wavefold fader/slider for amount; modulate with Wavefold CV for e.g., audio-rate timbre modulation.</li>
+</ul>
+<h3>Sync</h3>
+<ul>
+<li><strong>Apply:</strong> Connect another oscillator’s ramp/square to Sync for hard sync tones.</li>
+</ul>
+<h3>Linear FM</h3>
+<ul>
+<li><strong>Complex timbres:</strong> Feed another oscillator (audio rate preferred) to Linear FM input, set depth with FM Attenuator.</li>
+</ul>
+<hr />
+<h2>MODULATION/CV RANGES</h2>
+<ul>
+<li>All CV inputs respond to bipolar signals (±5V typical).</li>
+<li>Sync triggers on rising edge &gt;2.5V.</li>
+<li>Waveoutput swing: approximately ±5V.</li>
+</ul>
+<hr />
+<h2>DESCRIBED PATCH IDEAS</h2>
+<ul>
+<li><strong>East Coast Voice:</strong><br />
+  Mix square, saw, triangle &gt; filter &gt; VCA; envelope CV sweeps filter/VCA; 1V/Oct input from sequencer/keyboard.</li>
+<li><strong>FM Voice:</strong><br />
+  Use sine from a 2nd oscillator to tòna’s Linear FM in for FM timbres.</li>
+<li><strong>Audio-Rate Wavefold Mod:</strong><br />
+  Patch any output back to tòna’s own Wavefold CV input to modulate timbre with its own waveform.</li>
+</ul>
+<hr />
+<h2>PANEL DIAGRAM LEGEND</h2>
+<ol>
+<li>Square Out  </li>
+<li>Saw/Ramp Out  </li>
+<li>Triangle Out  </li>
+<li>Sine Out  </li>
+<li>Wavefold Out  </li>
+<li>Coarse knob  </li>
+<li>Fine knob  </li>
+<li>1V/Oct Input  </li>
+<li>Linear FM Input  </li>
+<li>Linear FM Atten.  </li>
+<li>Wavefold Fader  </li>
+<li>Wavefold CV Input  </li>
+<li>Wavefold CV Atten.  </li>
+<li>Sync Input</li>
+</ol>
+<hr />
+<h3>Notes</h3>
+<ul>
+<li>Reverse polarity protected.</li>
+<li>All controls are additive: CV is summed with manual settings.</li>
+<li>For all classic and experimental analog VCO &amp; West Coast patches!</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

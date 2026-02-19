@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mystic_Circuits_IDUM</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mystic Circuits — IDUM</h1>
+<ul>
+<li><a href="../../manuals/IDUM Manual Draft 7.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.mysticcircuits.com/manuals/IDUM_Manual.pdf">IDUM Official Manual (PDF)</a></p>
+<h1>Mystic Circuits IDUM — Eurorack Cheat Sheet</h1>
+<p><strong>IDUM</strong> is an intelligent gate/trigger manipulator designed to add probability, ratcheting, clock mangling, and live performance tricks to sequenced rhythms. It’s like an “effects processor” for your gates/triggers.</p>
+<hr />
+<h2>Panel Reference</h2>
+<h3>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CL</td>
+<td>Clock In</td>
+<td>External clock</td>
+<td>0–5V (Trig ≥ ~1.8V)</td>
+</tr>
+<tr>
+<td>TR1–TR4</td>
+<td>Trigger In</td>
+<td>4 external triggers/gates</td>
+<td>0–5V (Trig ≥ ~1.8V)</td>
+</tr>
+<tr>
+<td>CHANCE</td>
+<td>CV Input</td>
+<td>Probability CV</td>
+<td>0–5V</td>
+</tr>
+<tr>
+<td>MODE</td>
+<td>CV Input</td>
+<td>Mode Selection CV</td>
+<td>0–5V</td>
+</tr>
+<tr>
+<td>PARAM</td>
+<td>CV Input</td>
+<td>Parameter CV</td>
+<td>0–5V</td>
+</tr>
+<tr>
+<td>LENGTH</td>
+<td>CV Input</td>
+<td>Modification length CV</td>
+<td>0–5V</td>
+</tr>
+<tr>
+<td>LOOP</td>
+<td>Gate Input</td>
+<td>Toggles loop mode (see Setup)</td>
+<td>0–5V</td>
+</tr>
+</tbody>
+</table>
+<h3>Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CL</td>
+<td>Clock Out</td>
+<td>Modified clock out</td>
+<td>0–5V</td>
+</tr>
+<tr>
+<td>TR1–TR4</td>
+<td>Trigger Out</td>
+<td>4 processed gate/trigger outs</td>
+<td>0–5V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Modes Summary (Selected by MODE Knob)</h2>
+<ol>
+<li><strong>Hold</strong> — Probabilistically lengthen (CW) or skip/mute (CCW) incoming triggers.</li>
+<li><strong>Burst</strong> — Ratchets: Get fast bursts of triggers when a gate is received. PARAM = div/mult of clock.</li>
+<li><strong>Multiply/Divide</strong> — Ratchets based on distance between IN triggers. PARAM = div/mult of last trigger interval.</li>
+<li><strong>Bouncing Ball</strong> — Triggers speed up (CCW) or slow down (CW), simulating a bouncing ball (unquantized).</li>
+<li><strong>Rotate</strong> — Scrambles connections between triggers in/out. PARAM = Swap (CCW) or Rotate (CW).</li>
+<li><strong>Gate Delay</strong> — Delays outputs based on recent intervals. PARAM = Delay % (side to side applies delay per channel).</li>
+<li><strong>Break</strong> — Selects preset breakbeat-style rhythms (16 patterns via PARAM).</li>
+<li><strong>Skip</strong> — Manipulates clock only (not triggers): Step skipping (CCW), Clock ratchet (CW).</li>
+</ol>
+<blockquote>
+<p><em>All modes: CHANCE slider sets probability of effect activating (0–100%), LENGTH sets modification length (1–8 clocks), PARAM function is mode-dependent. GATE/Trigger out is active 0–5V.</em></p>
+</blockquote>
+<hr />
+<h2>Control Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Action/Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MODE</td>
+<td>Large Rotary</td>
+<td>Select active modification mode</td>
+</tr>
+<tr>
+<td>PARAM</td>
+<td>Small Rotary</td>
+<td>Mode-specific parameter (see table above)</td>
+</tr>
+<tr>
+<td>LENGTH</td>
+<td>Slider</td>
+<td>Duration (steps) of modification (1–8, can be CV controlled)</td>
+</tr>
+<tr>
+<td>CHANCE</td>
+<td>Slider</td>
+<td>Probability mod applies (0–100%, can be CV controlled)</td>
+</tr>
+<tr>
+<td>REMOVE MODE</td>
+<td>Button (top left)</td>
+<td>Tap: Remove (bypass) current mode · Long: Enter Setup menu</td>
+</tr>
+<tr>
+<td>LOOP</td>
+<td>Button (center)</td>
+<td>Tap: Toggle looper on/off (or use Loop CV input)</td>
+</tr>
+<tr>
+<td>CYCLE</td>
+<td>Switch (2-position)</td>
+<td>Up: “Tracks” original clock position (for sequencer sync), Down: Output can drift out of sync</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Output LEDs</h3>
+<ul>
+<li><strong>Blue</strong> = Incoming trigger detected</li>
+<li><strong>Red</strong> = Modified trigger outputting</li>
+<li><strong>Pink</strong> = Output is pass-through (not modified)</li>
+</ul>
+<hr />
+<h2>Looper Mode</h2>
+<ul>
+<li><strong>LOOP Button/Input</strong>: Capture and repeat last 8 steps of triggers + mods. Button toggles loop, input can toggle/momentary (set up in menu).</li>
+<li>While loop is active, panel controls adjust playback parameters:</li>
+<li><strong>MODE</strong>: Choose first step (“scrub” steps when length=1)</li>
+<li><strong>PARAM</strong>: Loop speed</li>
+<li><strong>LENGTH</strong>: Loop length (1–8)</li>
+<li><strong>CHANCE</strong>: Probability that the stored mod is applied on each step</li>
+</ul>
+<hr />
+<h2>Setup Menu (Long Press REMOVE MODE)</h2>
+<p><em>Setup options can restrict step/parameter values, clock bursts, and loop gate behavior.</em>
+- <strong>Parameter/Length Resolution</strong>: ODD/EVEN/POW2 steps only
+- <strong>Slow Clock</strong>: Slower clock burst for digital sequencers (LED off = slow)
+- <strong>16 Step</strong>: (future) Expand to 16 steps
+- <strong>Split</strong>: (future) Per-channel mode independence
+- <strong>Loop</strong>: Set LOOP input to latching (default) or momentary (LED on)</p>
+<hr />
+<h2>Cheat Sheet: Using IDUM</h2>
+<ol>
+<li><strong>Connect</strong> clock/gates and patch outputs to drums, synth, or sequencer.</li>
+<li><strong>Set CHANCE slider up</strong> for more effects, down for subtlety.</li>
+<li><strong>Set LENGTH slider</strong> for how many steps effect stays on.</li>
+<li><strong>Turn PARAM knob</strong> to mode-specific setting.</li>
+<li><strong>Select mode</strong> with MODE knob; tap REMOVE MODE to bypass undesired modes.</li>
+<li><strong>Engage LOOP</strong> with center button or gate for live remixing.</li>
+<li><strong>Use CYCLE switch</strong> up if synchronizing a sequencer to clock out.</li>
+</ol>
+<hr />
+<p><strong>For firmware updates, use micro-USB on rear; see the manual or Mystic Circuits GitHub for details.</strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,153 @@
+# After Later Audio — Ornament and Crime
+
+- [Manual PDF](../../manuals/ornament and crime.pdf)
+
+---
+
+```markdown
+# Ornament & Crime v1.3 – Eurorack Cheat Sheet
+
+*[Full Manual (PDF)](https://ornament-and-cri.me/user-manual-v1_3/)*
+
+---
+
+## Quickstart Overview
+
+The Ornament & Crime ("o_C") is a multifunction eurorack module. It offers multiple "apps" (programs) for pitch quantizing, sequencing, modulation, random/chaotic CV generation, envelopes, utilities, and much more. Apps are changed on-the-fly.
+
+- **4 CV inputs (CV1–CV4):** ±10V (recommended ±5V typical), 12-bit ADC precision (below 0V may not be usable for all apps)
+- **4 Trigger/gate inputs (TR1–TR4):** 0–5V triggers/gates/high=logic 1
+- **4 Outputs (A–D):** -3V to +6V range, 16-bit DAC precision
+
+---
+
+## Panel & Controls
+
+### Encoders
+- **Left Encoder**: 
+    - App-specific (often: channel select, note select, root note, frequency),
+    - In scale/sequence editors: move cursor/select item
+    - Press: select/apply, activate, toggle scale, channel, or feature (depends on app)
+    - Long Press: app-specific reset, copy, or clear, or enter alternate modes
+
+- **Right Encoder**:
+    - Scroll menus/settings, adjust values (in edit mode)
+    - Press: Toggles selection vs. value edit mode
+    - Long Press: Enter app selection menu (from anywhere)
+
+### Buttons
+- **Up Button**:
+    - App-specific, often transpose/octave up, next slot, or increment values
+    - Long Press: Enter screensaver from any mode
+
+- **Down Button**:
+    - App-specific, often transpose/octave down, previous slot, or freeze/buffer
+    - Long Press: Reset scale/chord mask, alternate behaviors
+
+### Display
+- **OLED Display (128x64)**: Text and graphics for menu navigation, editing, and visual feedback.
+
+---
+
+## Jack Reference (Typical/Default Mappings)
+| Label | Type    | Typical Function(s)                                                                       | Voltage Range   |
+|-------|---------|-------------------------------------------------------------------------------------------|-----------------|
+| CV1   | Input   | External CV in (quantizer, root note, freq, etc, app-dependent mapping)                   | ±10V (±5V typical)|
+| CV2   | Input   | Ext CV in or assignable (transpose, mask, duration, app-dependent)                        | ±10V            |
+| CV3   | Input   | Ext CV in or assignable (scale, step, phase, etc)                                         | ±10V            |
+| CV4   | Input   | Ext CV in or assignable (various modulations)                                             | ±10V            |
+| TR1   | Input   | Trigger/gate input (clock, reset, step, sample, etc)                                      | 0–5V logic      |
+| TR2   | Input   | Trig/gate, app-specific (freeze, chord trig, aux clock, etc)                              | 0–5V logic      |
+| TR3   | Input   | Trig/gate, app-specific (step, arpeggiator, modulation)                                   | 0–5V logic      |
+| TR4   | Input   | Trig/gate, app-specific (reset, metronome, freq meter, etc)                               | 0–5V logic      |
+| A     | Output  | Quantized CV, sequencer output, LFO, envelope, ref voltage, depends on app                | -3V to +6V      |
+| B     | Output  | As above, depends on app (eg, 2nd output, triad voice, etc)                              | -3V to +6V      |
+| C     | Output  | As above                                                                                  | -3V to +6V      |
+| D     | Output  | As above                                                                                  | -3V to +6V      |
+
+#### Note: Inputs and outputs are remapped according to app.
+
+---
+
+## Navigation & App Management
+
+- **Startup:**
+    - Hold **Left Encoder**: Enter calibration
+    - Hold **Right Encoder**: App selection menu
+    - **Normal boot**: Last saved app
+
+- **App Selection:** Long-press Right Encoder anytime; turn to select; press to enter app.
+
+- **Saving**: In app select menu, long-press Right Encoder to save all app settings and boot state (writes to EEPROM).
+
+- **Reset to Defaults:** Hold both Up + Down buttons during startup splash screen.
+
+---
+
+## Main Apps & What They Do (Summary)
+
+| App                | Purpose (quick)                             | Notable Params/Controls                                      |
+|--------------------|---------------------------------------------|--------------------------------------------------------------|
+| CopierMaschine     | 4-stage quantized digital shift register ASR| Scale, root, delay, mask, freeze, transposition (CV assign)  |
+| Harrington 1200    | Chord generator, Riemannian Tonnetz         | P/L/R (or N/S/H) transforms, root, inversion, Eucl. masks    |
+| Automatonnetz      | Chord/melody vector sequencer on 5x5 grid   | Grid dx/dy, state-mutation, transforms, offsets              |
+| Quantermain        | Quad channel quantizer, editable scales     | Per-chan scale, mask, CV src, clock/reset, int/random src    |
+| Meta-Q             | Dual quantizer w/ scale slots & sequencing  | 4 scale slots/chan, sequencing, LFSR CV, root/trns/oct masked|
+| Quadraturia        | 4-channel wavetable quadrature LFO          | Wave shape, phase/freq spread, AM/XOR, tap tempo             |
+| Low-rents          | Lorenz & Rössler chaotic LFOs               | Freq, chaos params, output assignment, per-generator controls |
+| Piqued             | Quad voltage-controlled envelope generator  | Env type, segment shapes, volt-control, Eucl. rhythm         |
+| Sequins            | 2x(4x16) step sequencer, seq chaining, CV   | Sequence edit, playmode, scale mask, randomization           |
+| Dialectic Ping Pong| Quad "bouncing ball" env                    | Gravity, bounce loss, amplitude, retriggers, CV mapping      |
+| Viznutcracker,sweet| Bytebeat signal/sequence generator          | Equation select, speed, params, step mode, CVs, output       |
+| Acid Curds         | Chord quantizer/sequencer                   | Chord seq, voicing, inversion, base note, progression CV     |
+| References         | Utility: ref voltages, tuning, bpm, calibration| Output voltages, BPM, display, closed-loop autotune          |
+
+---
+
+## Control Reference
+
+### Knobs/Encoders
+- **Left Encoder (turn):** Channel/note/freq/grid navigation, value select
+- **Left Encoder (press):** Select/activate/channel toggle
+- **Left Encoder (long):** App-defined, often reset/clear/copy (see app)
+- **Right Encoder (turn):** Menu param navigation or value change/edit
+- **Right Encoder (press):** Toggle navigation/edit mode, or enter/exit editors
+- **Right Encoder (long):** Enter app menu
+- **Both (Up+Down during boot):** Factory reset of app settings
+
+### Buttons
+- **Up (press):** Transpose/octave up, next (slot/sequence)
+- **Down (press):** Transpose/octave down, prev (slot/sequence)
+- **Up (long):** Screensaver (graphic feedback)
+- **Down (long):** Reset scale/chord mask (in editors), app-dependent alt
+
+---
+
+## Voltage Ranges
+
+- **Inputs (CV):** ±10V. Most useful musical range: ±5V.
+- **Inputs (Trigger):** Threshold ≈ 1.5V, accepts typical 5V gates.
+- **Outputs (CV):** -3V to +6V (not symmetric bipolar; level-shifter suggested for true bipolar LFOs).
+
+---
+
+## Special Notes
+
+- **All inputs and outputs are re-mapped per app and often per channel. Consult app-specific mapping in manual for deeper routing.**
+- **All settings are saved together via app menu > long Right Encoder press.**
+- **Scaling, quantization, and tuning options abound (microtonal, Bohlen-Pierce, user-tuning, etc).**
+- **DAC update rate ≈ 16.7 kHz. Minor audible aliasing can occur for audio applications.**
+- **OLED and DAC share data bus: audio quality not primary use-case.**
+
+---
+
+## Useful Links
+
+- [Manual (HTML version)](https://ornament-and-cri.me/user-manual-v1_3/)
+- [Ornament & Crime Extended Firmware on Github](https://github.com/mxmxmx/O_C/wiki/Ornaments-and-Crimes-extended-firmware)
+
+---
+
+[Generated With Eurorack Processor](https://github.com/nstarke/eurorack-processor)
+```
+Let me know if you want separate app-by-app summaries or have deeper patching questions!

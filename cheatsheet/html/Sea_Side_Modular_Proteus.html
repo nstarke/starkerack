@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Sea_Side_Modular_Proteus</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Sea Side Modular — Proteus</h1>
+<ul>
+<li><a href="../../manuals/ProteusManual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment://proteus_manual.pdf">Proteus Manual PDF</a></p>
+<hr />
+<h1>Proteus Eurorack Cheat Sheet</h1>
+<h2>Quick Start</h2>
+<ol>
+<li><strong>Power On</strong>: Connect power, shrouded header (-12V labeled), reverse polarity protected.</li>
+<li><strong>Patch Setup</strong>:  </li>
+<li><strong>Clock input</strong> → GATE IN  </li>
+<li><strong>GATE OUT</strong> → Envelope/voice  </li>
+<li><strong>V/OCT OUT</strong> → Oscillator pitch input</li>
+<li><strong>Knob Suggestions</strong> (for musical/generative patch):  </li>
+<li><strong>SCALE</strong>: Pick a scale  </li>
+<li><strong>LENGTH</strong>: 8 steps  </li>
+<li><strong>DENSITY</strong>: As desired  </li>
+<li><strong>PATIENCE</strong>: Noon  </li>
+<li><strong>OCTAVE, MUTATE, SLEEP</strong>: Fully CCW  </li>
+<li><strong>COMPLEXITY</strong>: Fully CW  </li>
+<li><strong>LOCK TOGGLE</strong>: Up (melody locked)  </li>
+<li><strong>NEW button</strong> = Generate new melody</li>
+</ol>
+<hr />
+<h3><strong>Panel Controls</strong></h3>
+<h4><strong>Knobs</strong></h4>
+<ul>
+<li><strong>LENGTH</strong>: Sequence steps (2–32). (CV: -5V to +5V)</li>
+<li><strong>DENSITY</strong>: % of active notes (rests vs notes). (CV: -5V to +5V)</li>
+<li><strong>SLEEP</strong>: Beats to rest before repeating sequence. (CV: -5V to +5V)</li>
+<li><strong>PATIENCE</strong>: How quickly randomizes, CCW=impatient, CW=infinite. (CV: -5V to +5V)</li>
+<li><strong>OCTAVE</strong>: Octave transposition probability. (CV: -5V to +5V)</li>
+<li><strong>MUTATE</strong>: Probability of single note mutation. (CV: -5V to +5V)</li>
+<li><strong>COMPLEXITY</strong>: Affects new melody complexity (CCW=simple, CW=complex). (CV: -5V to +5V)</li>
+<li><strong>SCALE</strong>: Selects scale (not voltage controlled)</li>
+</ul>
+<h4><strong>Toggles / Switches</strong></h4>
+<ul>
+<li><strong>LOCK TOGGLE</strong> (Melody Lock):  </li>
+<li>Up: Melody locked, no changes/transpose/mutate  </li>
+<li>Down: Melody evolves according to settings</li>
+<li><strong>MODE SWITCH</strong>:  </li>
+<li>Down: Regular operation  </li>
+<li>Up: Settings mode (silver labels apply)</li>
+</ul>
+<h4><strong>Buttons</strong></h4>
+<ul>
+<li><strong>NEW (center)</strong>: Generate new melody</li>
+<li><strong>Pattern Bank (1–4)</strong>: Save/load/erase melodies</li>
+<li><strong>Option buttons</strong> (Settings Mode):  </li>
+<li>Vary Gates with Rests  </li>
+<li>Add Slew to notes  </li>
+<li>Preserve Melody Parameters  </li>
+<li>Quantize Notes (for TRANSPOSE input)</li>
+</ul>
+<hr />
+<h3><strong>CV/IO Reference</strong></h3>
+<h4><strong>Inputs</strong></h4>
+<ul>
+<li><strong>GATE IN</strong>: Clock input (advances sequence)</li>
+<li><strong>NEW (jack)</strong>: Trigger = generate new melody</li>
+<li><strong>NEXT</strong>: Trigger = load next pattern bank slot</li>
+<li><strong>TRANSPOSE</strong>: v/oct input; added to melody (typically 1V/oct expected, -5V to +5V range for full sum), quantization optional.</li>
+<li><strong>CV Inputs</strong>: All knobs except SCALE have CV in (-5V to +5V, summed with knob value).</li>
+</ul>
+<h4><strong>Outputs</strong></h4>
+<ul>
+<li><strong>V/OCT OUT</strong>: Pitch CV output.  </li>
+<li>Default range: 1.0V–4.0V (base C3=2.0V, customizable), unipolar.</li>
+<li><strong>GATE OUT</strong>: Step gate output.</li>
+</ul>
+<hr />
+<h2>Sequence Memory / Pattern Bank</h2>
+<ul>
+<li><strong>4 Pattern slots</strong>: Save (press unlit), Load (press lit), Clear (long press lit)</li>
+<li><strong>Autopersist</strong>: Pattern saved to memory on clock stop, can change persistence in config</li>
+<li><strong>Cycle Patterns</strong>: Send trigger to NEXT</li>
+</ul>
+<hr />
+<h2>Tips/Notes</h2>
+<ul>
+<li><strong>Knob Lock Behavior</strong>: After mode switch or save/load, knobs “lock” until turned back to original value</li>
+<li><strong>Settings Mode</strong>: Access alternate knob functions (Gate length, Slew, LED brightness, Rotate, etc.)</li>
+<li><strong>Custom Scales</strong>: Up to 6 slots, set via <code>proteus_config.json</code> on USB drive (<a href="https://seaside.digital/proteusconfig/">customize here</a>)</li>
+<li><strong>Firmware Update</strong>: Place <code>.bin</code> on USB, reboot; recalibrate (see manual) if prompted.</li>
+<li><strong>Calibration</strong>: Required if pitch is off or transpose is inaccurate (see manual page 22).</li>
+</ul>
+<hr />
+<h3><strong>Color Legend</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Off</td>
+<td>Step not played (rest)</td>
+</tr>
+<tr>
+<td>Blue</td>
+<td>Active step</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>First step of sequence</td>
+</tr>
+<tr>
+<td>Orange</td>
+<td>Sleeping (rest cycle)</td>
+</tr>
+<tr>
+<td>Yellow</td>
+<td>Octave transpose (first step)</td>
+</tr>
+<tr>
+<td>Pink</td>
+<td>Step mutated</td>
+</tr>
+<tr>
+<td>Teal</td>
+<td>Slewed note</td>
+</tr>
+<tr>
+<td>Purple</td>
+<td>Locked parameters overlap (knob unlocking)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><em>Useful Links</em></h2>
+<ul>
+<li><a href="attachment://proteus_manual.pdf">Full Manual PDF</a></li>
+<li><a href="https://seaside.digital/proteusconfig/">Proteus Configurator</a></li>
+<li><a href="https://discord.gg/pNR2ZPgWgq">Official Discord Support</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

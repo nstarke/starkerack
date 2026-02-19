@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Numeric_Repetitor</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Numeric Repetitor</h1>
+<ul>
+<li><a href="../../manuals/NR_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.noiseengineering.us/manuals/NumericRepetitorManual.pdf">Noise Engineering Numeric Repetitor Manual (PDF)</a></p>
+<hr />
+<h1>Noise Engineering Numeric Repetitor – Cheat Sheet</h1>
+<p><strong>Type:</strong> Rhythmic Gate Generator<br />
+<strong>Size:</strong> 8HP Eurorack<br />
+<strong>Depth:</strong> 0.8"<br />
+<strong>Power:</strong> 2x5 Eurorack, +12V: 50mA, -12V: 5mA</p>
+<hr />
+<h2>What is Numeric Repetitor?</h2>
+<p>A binary-arithmetic-based rhythmic gate generator. It outputs four related rhythmic patterns based on a selected core rhythm ("Prime") and up to three rhythm modifiers ("Factor") using multiplication and binary logic.</p>
+<hr />
+<h2>Quick Start</h2>
+<ol>
+<li><strong>Patch a clock (trigger/gate) to <code>BEAT</code>.</strong></li>
+<li><strong>Patch <code>PRIME</code> and <code>PRODUCT 1-3</code> outputs to drum modules, envelopes, etc.</strong></li>
+<li>Rotate the <code>PRIME</code> knob to pick a core rhythm; adjust <code>FACTOR 1-3</code> to create variations.</li>
+<li>Patch CV or gates to <code>PRIME CV</code> or <code>FACTOR CV 1-3</code> for dynamic variations.</li>
+<li>Optionally patch a reset (start of bar) pulse to <code>MEASURE</code>.</li>
+</ol>
+<hr />
+<h2>Controls and Jacks Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PRIME</strong></td>
+<td>Knob</td>
+<td>Selects prime pattern (main rhythm)</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>PRIME CV</strong></td>
+<td>CV In</td>
+<td>Modulates <code>PRIME</code> pattern selection</td>
+<td>0–5V typical</td>
+</tr>
+<tr>
+<td><strong>FACTOR 1-3</strong></td>
+<td>Knobs</td>
+<td>Selects variation factor for each PRODUCT output</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>FACTOR CV 1-3</strong></td>
+<td>CV In</td>
+<td>Modulates each <code>FACTOR</code> knob</td>
+<td>0–5V typical</td>
+</tr>
+<tr>
+<td><strong>SET</strong></td>
+<td>Toggle/Switch</td>
+<td>Selects bank of rhythms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>BEAT</strong></td>
+<td>Trigger In</td>
+<td>Clock input; advances step on rising edge</td>
+<td>Standard gates/triggers</td>
+</tr>
+<tr>
+<td><strong>MEASURE</strong></td>
+<td>Trigger In</td>
+<td>Resets sequence to start of measure</td>
+<td>Standard gates/triggers</td>
+</tr>
+<tr>
+<td><strong>RST</strong></td>
+<td>Button</td>
+<td>Pauses time; resets to start when released</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>PRIME</strong></td>
+<td>Gate Out</td>
+<td>Main rhythm (core pattern gate)</td>
+<td>0V (low), 6V (high)</td>
+</tr>
+<tr>
+<td><strong>PRODUCT 1-3</strong></td>
+<td>Gate Out</td>
+<td>Three rhythm variations based on factors</td>
+<td>0V (low), 6V (high)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Output Voltage</h3>
+<ul>
+<li>All gate outputs are 0V (low) and 6V (high).</li>
+<li>Low impedance, compatible with most gate-driven modules.</li>
+</ul>
+<hr />
+<h2>Patch Suggestions</h2>
+<ul>
+<li><strong>Basic:</strong> Clock -&gt; BEAT; PRIME/PROD1-3 -&gt; Percussion Gates</li>
+<li><strong>Variation:</strong> Use CV/gates on <code>PRIME</code> or <code>FACTOR</code> for related, evolving patterns (e.g., send a random gate or modulated LFO to a FACTOR CV input).</li>
+<li><strong>Measure Reset:</strong> Trigger <code>MEASURE</code> to keep everything in sync with your main clock.</li>
+<li><strong>Creative CV:</strong> Divide clock, use sequencers or random sources to modulate FACTOR or PRIME CVs for pattern variation.</li>
+</ul>
+<hr />
+<h2>Notes on Patterns</h2>
+<ul>
+<li>32 handpicked rhythmic patterns ("Primes")—all 16 steps, always start on step 1, musically valid (see manual for detailed grid).</li>
+<li>Each <code>FACTOR</code> applies different binary arithmetic for human-friendly variations.</li>
+</ul>
+<hr />
+<h3>Tips</h3>
+<ul>
+<li>Turning FACTORs or applying CVs creates time offsets, fills, syncopations, and other pattern variations.</li>
+<li>Use SET bank switch for expanded pattern selection.</li>
+</ul>
+<hr />
+<p><strong>Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></strong></p>
+</body>
+</html>

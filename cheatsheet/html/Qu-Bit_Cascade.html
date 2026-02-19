@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Cascade</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Cascade</h1>
+<ul>
+<li><a href="../../manuals/Getting_Started_Cascade.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.qubitelectronix.com/shop/cascade"><strong>Cascade Manual (PDF)</strong></a></p>
+<h1>Cascade Eurorack Module Cheat Sheet</h1>
+<p><em>Cascade by Qu-Bit Electronix: Ratcheting envelope generator, VCA, sound source, compressor, and envelope follower.</em></p>
+<hr />
+<h2>BASIC OPERATION</h2>
+<ul>
+<li><strong>Powerful envelope generator normaled to a high-fidelity analog VCA (2164-based)</strong></li>
+<li><strong>Ratcheting, AD, ASR, ADSR, Envelope Follower &amp; Compressor modes</strong></li>
+<li><strong>Internal sound sources</strong>: White noise, 808 hi-hat, 808 kick, hi-frequency sine</li>
+<li><strong>Snappy envelopes down to 0.5ms, envelope/CV out: 0–10V</strong></li>
+<li><strong>Digital control with analog signal path</strong></li>
+</ul>
+<hr />
+<h1>1. PANEL CONTROLS</h1>
+<h2><strong>Knobs</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Knob</th>
+<th>Function</th>
+<th>CV Input</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Attack</strong></td>
+<td>Envelope attack time</td>
+<td>Yes</td>
+<td>0.5 ms – 5 s</td>
+</tr>
+<tr>
+<td><strong>Decay</strong></td>
+<td>Envelope decay/release time</td>
+<td>Yes</td>
+<td>0.5 ms – 10 s (or 5 s)</td>
+</tr>
+<tr>
+<td><strong>Curve</strong></td>
+<td>Changes envelope curve (logarithmic–linear–exponential/response)</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Repeats</strong></td>
+<td>Ratchet (# repeats, clock multiplier, or loop)</td>
+<td>Yes</td>
+<td>1–16/infinite loop, 1x–16x</td>
+</tr>
+<tr>
+<td><strong>Level</strong></td>
+<td>Envelope output level</td>
+<td>Yes</td>
+<td>0–10V</td>
+</tr>
+<tr>
+<td><strong>Offset</strong></td>
+<td>DC offset to envelope</td>
+<td>Yes</td>
+<td>0–10V</td>
+</tr>
+<tr>
+<td><strong>Sustain</strong></td>
+<td>(ADSR mode only) Sustain level</td>
+<td>No</td>
+<td>0V–Level knob setting</td>
+</tr>
+<tr>
+<td><strong>Threshold</strong></td>
+<td>(Follower/Compressor) Signal threshold</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Ratio</strong></td>
+<td>(Compressor) Compression ratio</td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2><strong>Buttons</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trig</strong></td>
+<td>Manually trigger envelope</td>
+</tr>
+<tr>
+<td><strong>Invert</strong></td>
+<td>Flip envelope (maintains selected voltage range, Green LED on)</td>
+</tr>
+<tr>
+<td><strong>Mode</strong></td>
+<td>Cycle through main modes (AD/ASR/ADSR/Follower/Compressor/Ratcheting, etc)</td>
+</tr>
+<tr>
+<td><strong>Shift</strong></td>
+<td>Shift for Edit/secondary functions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>2. JACKS (Inputs &amp; Outputs)</h1>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trigger</strong></td>
+<td>Input</td>
+<td>Triggers the envelope/controls repeat tempo</td>
+<td>Gate/Trigger (0–5V/10V)</td>
+</tr>
+<tr>
+<td><strong>VCA In</strong></td>
+<td>Input</td>
+<td>Audio input to VCA (feeds internal VCA and Follower/Compressor modes)</td>
+<td>Audio/CV</td>
+</tr>
+<tr>
+<td><strong>VCA CV</strong></td>
+<td>Input</td>
+<td>Overrides envelope out for external VCA control</td>
+<td>0–10V CV</td>
+</tr>
+<tr>
+<td><strong>Invert</strong></td>
+<td>Input</td>
+<td>CV for inverting envelope</td>
+<td>0–10V</td>
+</tr>
+<tr>
+<td><strong>GATE</strong></td>
+<td>Output</td>
+<td>Configurable: gate/trigger (varies by Edit Function)</td>
+<td>0–10V</td>
+</tr>
+<tr>
+<td><strong>VCA Out</strong></td>
+<td>Output</td>
+<td>Audio out (external/internal source, enveloped/compressed etc.)</td>
+<td>Audio/CV</td>
+</tr>
+<tr>
+<td><strong>ENV</strong></td>
+<td>Output</td>
+<td>Envelope CV out bundle</td>
+<td>0–10V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>3. MODES OVERVIEW</h1>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Unique Controls/Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ratcheting AD</strong></td>
+<td>Repeats ratcheted, clock-multiplied envelopes</td>
+</tr>
+<tr>
+<td><strong>AD</strong></td>
+<td>Basic Attack/Decay envelope (optionally looped)</td>
+</tr>
+<tr>
+<td><strong>ASR</strong></td>
+<td>Gate controls sustain; loopable</td>
+</tr>
+<tr>
+<td><strong>ADSR</strong></td>
+<td>Classic four-stage envelope</td>
+</tr>
+<tr>
+<td><strong>Envelope Follower</strong></td>
+<td>Follows input amplitude, outputs CV/gate</td>
+</tr>
+<tr>
+<td><strong>Compressor</strong></td>
+<td>Audio compression w/ virtual sidechain trigger</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>4. EDIT FUNCTIONS (Hold <strong>Shift</strong>)</h1>
+<h3><strong>Sound Source Select</strong></h3>
+<ul>
+<li>White Noise</li>
+<li>808 Hi-Hat</li>
+<li>808 Kick</li>
+<li>High Frequency Sine</li>
+</ul>
+<h3><strong>Gravity Modes (Envelope Scaling)</strong></h3>
+<ul>
+<li>No Gravity (standard)</li>
+<li>Amplitude Gravity (amplitude follows gravity)</li>
+<li>Amplitude &amp; Time Gravity</li>
+</ul>
+<h3><strong>Gate Output Modes</strong></h3>
+<ul>
+<li>6ms trigger at start of every envelope</li>
+<li><strong>EOD Mode:</strong> Gate HIGH except during decay</li>
+<li><strong>EOA Mode:</strong> Gate HIGH except during attack</li>
+</ul>
+<hr />
+<h1>5. QUICK PATCH EXAMPLES</h1>
+<ul>
+<li><strong>AD Envelope</strong>: Patch trigger source to <code>trigger</code>, take env to VCA CV or modulators.</li>
+<li><strong>VCA Control</strong>: Patch audio to <code>vca in</code>, enveloped audio is at <code>vca out</code>.</li>
+<li><strong>Use Internal Sound Source</strong>: Nothing patched to <code>vca in</code>—use internal sound from edit menu.</li>
+<li><strong>Compressor/Env Follower</strong>: Patch audio to <code>vca in</code>, configure in mode, audio out at <code>vca out</code>, envelope/CV at <code>env</code>.</li>
+</ul>
+<hr />
+<h5>For more examples and advanced setups visit the <a href="https://www.qubitelectronix.com/shop/cascade">product manual PDF</a>.</h5>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

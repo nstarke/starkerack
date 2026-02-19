@@ -1,0 +1,320 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_Mimeophon</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — Mimeophon</h1>
+<ul>
+<li><a href="../../manuals/mimeophon-manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.plus/m/d57a4b3e9a25ed99c839fd7a80abb03c2b680482fccb46d25c39523d9c6931b4.pdf">Mimeophon Manual PDF</a></p>
+<hr />
+<h1>Make Noise Soundhack Mimeophon Cheat Sheet</h1>
+<p>Stereo, multi-zone, color audio repeater (echo, delay, looping, flanger, Karplus-Strong, chorus, more).</p>
+<hr />
+<h2>Signal Flow Overview</h2>
+<ul>
+<li><strong>Inputs:</strong> L (mono), R (stereo), CV control inputs</li>
+<li><strong>Outputs:</strong> L, R, trigger rate out</li>
+</ul>
+<hr />
+<h2>Front Panel I/O, Knobs, Buttons</h2>
+<h3>Audio Inputs/Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L (Mono) In</strong></td>
+<td>Left channel/mono audio input (right is normalled to left)</td>
+<td>~10Vpp</td>
+</tr>
+<tr>
+<td><strong>R In</strong></td>
+<td>Right channel audio input</td>
+<td>~10Vpp</td>
+</tr>
+<tr>
+<td><strong>L Out</strong></td>
+<td>Left channel audio output</td>
+<td>~10Vpp</td>
+</tr>
+<tr>
+<td><strong>R Out</strong></td>
+<td>Right channel audio output</td>
+<td>~10Vpp</td>
+</tr>
+</tbody>
+</table>
+<h3>Main Knobs &amp; Associated CVs</h3>
+<table>
+<thead>
+<tr>
+<th>Panel Control</th>
+<th>Description</th>
+<th>CV Input</th>
+<th>CV Range</th>
+<th>CV Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mix</strong></td>
+<td>Dry/Wet blend or attenuates Mix CV if patched</td>
+<td>Mix CV</td>
+<td>0–8V</td>
+<td>Normalled to 8V</td>
+</tr>
+<tr>
+<td><strong>Repeats</strong></td>
+<td>Number of repeats, sets repeat start when HOLD is engaged</td>
+<td>Repeats CV</td>
+<td>0–5V DC</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Halo</strong></td>
+<td>Smears repeats in stereo space</td>
+<td>Halo CV</td>
+<td>0–5V DC</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Zone</strong></td>
+<td>Selects delay/echo length zone (see "Zones" below)</td>
+<td>Zone CV</td>
+<td>0–5V DC</td>
+<td>Bipolar attenuverter</td>
+</tr>
+<tr>
+<td><strong>Color</strong></td>
+<td>Timbre/character (tape&gt;digital&gt;oilcan&gt;dark/warm/BBD/etc.)</td>
+<td>Color CV</td>
+<td>0–5V DC</td>
+<td>Bipolar attenuverter</td>
+</tr>
+<tr>
+<td><strong>Rate</strong></td>
+<td>Frequency (time) of repeats within current zone</td>
+<td>Rate CV</td>
+<td>0–5V DC</td>
+<td>Bipolar attenuverter</td>
+</tr>
+<tr>
+<td><strong>μRate (micro)</strong></td>
+<td>Dedicated Doppler modulation (1V/oct in Zone 0; linear 1–7)</td>
+<td>μRate In</td>
+<td>±3V</td>
+<td>Unity gain</td>
+</tr>
+</tbody>
+</table>
+<h3>Time/Sync/Reverse/Loop Controls</h3>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Function</th>
+<th>IO Type</th>
+<th>Voltage/Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HOLD</strong></td>
+<td>Button/In</td>
+<td>Freezes the audio buffer (indefinite repeats; non-destructive)</td>
+<td>Gate In</td>
+<td>≥2.5V = ON</td>
+</tr>
+<tr>
+<td><strong>REPEATS</strong></td>
+<td>Knob</td>
+<td>Sets # of repeats (1 to ∞) / start during HOLD</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>FLIP</strong></td>
+<td>Button/In</td>
+<td>Reverses audio buffer/repeats playback (real-time or "Karplus" style in short zones)</td>
+<td>Gate In</td>
+<td>≥2.5V = ON/flip</td>
+</tr>
+<tr>
+<td><strong>TEMPO</strong></td>
+<td>In</td>
+<td>External clock input (for tempo-synced delays)</td>
+<td>Clock In</td>
+<td>≥2.5V, 0.25–50Hz</td>
+</tr>
+<tr>
+<td><strong>RATE OUT</strong></td>
+<td>Out</td>
+<td>Triggers/clock at current repeat rate, both L + R (OR'ed)</td>
+<td>Gate Out</td>
+<td>0V/8V pulses</td>
+</tr>
+<tr>
+<td><strong>SKEW</strong></td>
+<td>Button</td>
+<td>Skews L/R times/panning; hold to enable Ping Pong/Swap</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Core Features</h2>
+<h3>Mix Section</h3>
+<ul>
+<li>Set incoming signal (dry) vs repeated (wet) echoes</li>
+<li>When Mix CV is patched, knob acts as attenuator for the CV signal</li>
+</ul>
+<h3>Zones</h3>
+<ul>
+<li>Choose delay time range (Zone 0: &lt;2ms, to Zone 7: up to 42s)</li>
+<li>Instant switching: no Doppler (pitch) shift!</li>
+<li>Delay ranges overlap, moving up reveals ever-larger history</li>
+</ul>
+<h3>Rate</h3>
+<ul>
+<li>Change repeat time <em>within zone</em> (Doppler pitch with feedback, unless clocked)</li>
+<li>Rate CV input modulates this; microRate is for small "vibrato/flange/chorus" mod</li>
+</ul>
+<h3>Skew &amp; Ping Pong</h3>
+<ul>
+<li><strong>Skew:</strong> Offsets L/R repeat times in opposite directions for stereo spread</li>
+<li><strong>Ping Pong:</strong> (Hold Skew, Zone window flashes) Sums input mono, bounces repeats L/R</li>
+<li><strong>Swap:</strong> If Skew ON, holding also swaps feedback paths for phase-y stereo</li>
+</ul>
+<h3>Flip</h3>
+<ul>
+<li>Reverse the buffer for "reverse" playback, or protonic buffer-distortion in short zones</li>
+</ul>
+<h3>Hold</h3>
+<ul>
+<li>Freezes the buffer/loop, making it "infinite"</li>
+<li>Repeats knob while held sets <em>start point</em> in loop</li>
+</ul>
+<h3>Color &amp; Halo</h3>
+<ul>
+<li><strong>Color:</strong> Alters echo timbre from dark/dirty to clean/bright</li>
+<li><strong>Halo:</strong> Adds stereo spatial "smear" to echoes, especially dramatic at high settings</li>
+</ul>
+<h3>Tempo Sync</h3>
+<ul>
+<li>Use TEMPO input for syncing delays to external clock</li>
+<li>Rate = clock division/multiplier in any zone; no pitch shift when modulating</li>
+<li>After two tempo pulses, module keeps timing till Rate knob is moved</li>
+</ul>
+<hr />
+<h2>Voltage Controlled Inputs/Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>CV Input/Output</th>
+<th>Function</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mix CV</td>
+<td>Wet/dry blend</td>
+<td>0–8 V</td>
+</tr>
+<tr>
+<td>Repeats CV</td>
+<td>Number of repeats</td>
+<td>0–5 V</td>
+</tr>
+<tr>
+<td>Halo CV</td>
+<td>Stereo smear</td>
+<td>0–5 V</td>
+</tr>
+<tr>
+<td>Zone CV</td>
+<td>Delay time zone select</td>
+<td>0–5 V</td>
+</tr>
+<tr>
+<td>Color CV</td>
+<td>Echo timbre</td>
+<td>0–5 V</td>
+</tr>
+<tr>
+<td>Rate CV</td>
+<td>Delay/repeat speed</td>
+<td>0–5 V</td>
+</tr>
+<tr>
+<td>μRate In</td>
+<td>Micro pitch/chorus/flange/vibrato</td>
+<td>±3 V</td>
+</tr>
+<tr>
+<td>TEMPO In</td>
+<td>External clock</td>
+<td>≥2.5 V / 0.25–50Hz</td>
+</tr>
+<tr>
+<td>HOLD, FLIP Inputs</td>
+<td>Trigger/gate for Hold/Flip</td>
+<td>≥2.5 V = on</td>
+</tr>
+<tr>
+<td>RATE OUT</td>
+<td>Clock/trigger at repeat rate (OR'ed L/R)</td>
+<td>0 or 8V pulse</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Input Gain Level / Hidden Function</h2>
+<ul>
+<li><strong>Adjustment:</strong> Hold FLIP + HOLD</li>
+<li><strong>Zone Window:</strong>  </li>
+<li>Blue = -3dB  </li>
+<li>Green = 0dB (unity, default)  </li>
+<li>Orange = +3dB  </li>
+<li>Red = +6dB<br />
+  (Release both buttons to confirm selection.)</li>
+</ul>
+<hr />
+<h2>Quick Patch Ideas</h2>
+<ul>
+<li><strong>Tempo Echo:</strong> Tempo in → Z4/5, set Mix/Repeats to mid, Skew for stereo.</li>
+<li><strong>Dub Delay:</strong> Z3–5, Halo/Color up, hand-ride Rate/Repeats for feedback washes.</li>
+<li><strong>Karplus/Flange:</strong> Z0, fast triggers in, μRate with pitch, tweak Color/Halo for metallics.</li>
+<li><strong>Chorus:</strong> Z1–2, slow LFO to μRate, Skew ON, high Halo/Repeats.</li>
+<li><strong>Reverse:</strong> Flip ON, Z4 (vocals) for "reversed" speech at native cadence.</li>
+<li><strong>Sampler:</strong> Use Hold to freeze, Zone to browse, Repeats shifts start point.</li>
+<li><strong>Sound-on-Sound:</strong> High Repeats/Hold, manipulate Zone/Color for layered textures.</li>
+</ul>
+<hr />
+<h2>Firmware Notes</h2>
+<ul>
+<li>Recent firmwares add buffer clear (mp70), saves input gain on power cycle (mp82), lower noise floor (mp86).</li>
+<li>Check manual/website for current updates and installation: <a href="http://www.makenoisemusic.com/firmware/﻿">Make Noise Firmware</a></li>
+</ul>
+<hr />
+<h3>More Resources</h3>
+<ul>
+<li><a href="https://manuals.plus/m/d57a4b3e9a25ed99c839fd7a80abb03c2b680482fccb46d25c39523d9c6931b4.pdf">Mimeophon Manual PDF</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+<hr />
+</body>
+</html>

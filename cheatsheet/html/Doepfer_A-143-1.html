@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-143-1</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-143-1</h1>
+<ul>
+<li><a href="../../manuals/A1431_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/A1431_tec_eg.pdf">Doepfer A-143-1 Manual PDF (Doepfer Website)</a></p>
+<hr />
+<h1>Doepfer A-143-1 Quad AD/LFO Quick Reference Cheat Sheet</h1>
+<h2>SUMMARY</h2>
+<p><strong>The A-143-1 is a quad Attack/Decay envelope/LFO module</strong><br />
+Each generator can operate as a triggered AD envelope or a free-running exponential LFO. All controls and jacks are repeated for each of the 4 channels.<br />
+Generators can be linked (daisy-chained) internally for complex multi-stage envelopes or LFOs.</p>
+<h3>Basic Operation Modes:</h3>
+<ul>
+<li><strong>AD:</strong> Functions as a standard envelope (fires on trigger input)</li>
+<li><strong>LFO:</strong> Functions as a free-running exponential LFO (use dummy cable in Trig. In to prevent retriggering from previous channel)</li>
+</ul>
+<hr />
+<h2>FRONT PANEL CONTROLS &amp; INDICATORS</h2>
+<table>
+<thead>
+<tr>
+<th>Control/Jack</th>
+<th>Type</th>
+<th>Description</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. AD/LFO Switch</td>
+<td>Toggle</td>
+<td>AD = Envelope, LFO = Free-running LFO</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2. Attack</td>
+<td>Knob</td>
+<td>Controls attack (rise) time</td>
+<td>-</td>
+</tr>
+<tr>
+<td>3. Decay</td>
+<td>Knob</td>
+<td>Controls decay (fall) time</td>
+<td>-</td>
+</tr>
+<tr>
+<td>4. Mix Polarizer</td>
+<td>Knob</td>
+<td>Level/polarity of channel in mix output (center = 0; left = negative; right = positive add)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>5. Threshold</td>
+<td>Knob</td>
+<td>Sets level for comparator output “Cp Out”</td>
+<td>-</td>
+</tr>
+<tr>
+<td>6. Env LED</td>
+<td>LED</td>
+<td>Envelope activity visual indicator</td>
+<td>-</td>
+</tr>
+<tr>
+<td>7. Cp Out LED</td>
+<td>LED</td>
+<td>Comparator state visual indicator</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>ALL INPUTS AND OUTPUTS SUMMARY</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Description</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>! Trig. In</td>
+<td>Input</td>
+<td>Gate/trigger starts envelope or retriggers LFO. Internally normalled in a 4-stage chain.</td>
+<td>Gate: &gt;2.5V for trigger</td>
+</tr>
+<tr>
+<td>" EOA (EndOfAttack)</td>
+<td>Output</td>
+<td>Goes <strong>high</strong> at end of attack stage, <strong>low</strong> during attack. Can be used to trigger others.</td>
+<td>Digital logic (0V/8V)</td>
+</tr>
+<tr>
+<td>§ Env x</td>
+<td>Output</td>
+<td>Envelope/LFO output</td>
+<td>0...+8V (AD); +0.5...+8V (LFO)</td>
+</tr>
+<tr>
+<td>$ Cp x (Comp Out)</td>
+<td>Output</td>
+<td>Comparator. <strong>Low</strong> when envelope exceeds threshold; <strong>high</strong> otherwise.</td>
+<td>Digital logic (0V/8V)</td>
+</tr>
+<tr>
+<td>% Mix Out</td>
+<td>Output</td>
+<td>Mixer sum (sum of all envelopes/LFOs, level and inversion set by polarizers).</td>
+<td>Sum of 4 envs, up to ±32V?*</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>*Maximum summed voltage at Mix Out depends on how channels are set and mixed.</p>
+</blockquote>
+<h3>INTERNAL SIGNAL FLOW</h3>
+<ul>
+<li>Trig. In is normalled to the previous channel's Cp Out (default chaining: #1↔#4, #2↔#1, #3↔#2, #4↔#3)</li>
+<li>Envelope Out is pre-polarizer by factory default (can be configured internally to post-polarizer)</li>
+<li>Mix Out sums polarizer-processed envelope outputs from all channels</li>
+</ul>
+<hr />
+<h2>TIPS &amp; PATCH IDEAS</h2>
+<ul>
+<li><strong>4 Independent AD Envelopes:</strong> Set all switches to AD, patch triggers to Trig. In as required, take outputs from § Env x.</li>
+<li><strong>Complex Multi-Stage Envelope:</strong> Leave Trig. In #1 open, set all to AD, send trigger to input 1; others are chained for 4-stage envelope.</li>
+<li><strong>Free-running Multi-stage LFO:</strong> Switch to LFO mode, insert dummy jacks if you don’t want internal retrigger, patch from Mix Out or § Env x.</li>
+<li><strong>Creative Modulation:</strong> Use Envelope Outs or Mix Out to modulate VCOs, filters, VCAs, etc.</li>
+<li><strong>Comparator/EOA Outputs:</strong> Use EOA or Cp Outs as logic triggers for sequencing or rhythmical effects.</li>
+<li><strong>Mix Polarizer:</strong> Invert selected envelopes in the mix for complex waveforms or movement.</li>
+</ul>
+<hr />
+<h2>VOLTAGE RANGES</h2>
+<ul>
+<li>Envelope output:  </li>
+<li>AD: <strong>0...+8V</strong>  </li>
+<li>LFO: <strong>+0.5...+8V</strong></li>
+<li>Cp Out, EOA Out: <strong>0V (low) or +8V (high)</strong></li>
+<li>Input Trig. In: (Gate/trigger): <strong>&gt;2.5V</strong> threshold typical</li>
+</ul>
+<hr />
+<h2>MECHANICAL/POWER</h2>
+<ul>
+<li>Width: <strong>28 HP / 141.9 mm</strong></li>
+<li>Depth: <strong>Approx 65 mm</strong></li>
+<li>Power: <strong>70 mA</strong></li>
+</ul>
+<hr />
+<p>More details in the <a href="https://doepfer.de/A1431_tec_eg.pdf">Official Manual PDF (Doepfer)</a><br />
+Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></p>
+</body>
+</html>

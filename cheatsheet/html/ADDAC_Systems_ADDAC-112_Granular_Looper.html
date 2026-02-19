@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-112_Granular_Looper</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-112 Granular Looper</h1>
+<ul>
+<li><a href="../../manuals/ADDAC112_Granular_E_0.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p>Certainly! Here’s a concise <strong>cheat sheet</strong> for the <strong>ADDAC112 VC Looper &amp; Granular Processor</strong> Eurorack module, distilled from the manual you provided.<br />
+<em>(Images attached above for visual reference, but here’s a written summary.)</em></p>
+<hr />
+<h1>ADDAC112 VC Looper &amp; Granular Processor Cheat Sheet</h1>
+<p><strong>Manual PDF:</strong><br />
+<a href="https://media.addacsystem.com/firmwares/ADDAC112_firmware.zip">ADDAC112 User's Guide PDF (source: addacsystem.com)</a><br />
+<em>(Direct link to firmware, see <a href="https://addacsystem.com/en/products/modules/addac100-series/addac112">addacsystem.com</a> for updated docs.)</em></p>
+<hr />
+<h2>Module Overview</h2>
+<ul>
+<li><strong>Type:</strong> Stereo Looper, Granular Processor, &amp; Real-time Sample Manipulator</li>
+<li><strong>Sections:</strong> Looper Engine, Granular Engine, Output Mixer</li>
+<li><strong>Power:</strong> 240mA @ +12V / 70mA @ -12V / 32HP+13HP / 4.5cm deep</li>
+</ul>
+<hr />
+<h2>Inputs / Outputs (I/O) Summary</h2>
+<h3>Audio Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack Label</th>
+<th>Description</th>
+<th>Signal Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IN 1 (Mono/L)</td>
+<td>Mono input (synth or line)</td>
+<td>10Vpp Synth, 2Vpp Line</td>
+</tr>
+<tr>
+<td>IN 2 (Mono/R)</td>
+<td>Mono (normalled to IN 1 when unpatched)</td>
+<td>10Vpp Synth, 2Vpp Line</td>
+</tr>
+<tr>
+<td>STEREO LINE IN</td>
+<td>Stereo, line-level input</td>
+<td>2Vpp Line</td>
+</tr>
+</tbody>
+</table>
+<h3>Audio Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left Output</td>
+<td>Master stereo (L)</td>
+</tr>
+<tr>
+<td>Right Output</td>
+<td>Master stereo (R)</td>
+</tr>
+<tr>
+<td>Mono Output</td>
+<td>Sum of L+R</td>
+</tr>
+<tr>
+<td>INS MONO OUT</td>
+<td>Mixed input: all inputs summed to mono</td>
+</tr>
+</tbody>
+</table>
+<h3>CV &amp; Trigger Inputs <em>(All CV in: ±5V range typical, 0-10V functional, see notes)</em></h3>
+<ul>
+<li><strong>All front panel knob parameters</strong> have dedicated CV inputs<ul>
+<li>(Position, Deviation, Length, etc. – see controls list)</li>
+</ul>
+</li>
+<li><strong>Trigger Inputs:</strong>  <ul>
+<li>Playback and recording controls (NEW REC, REC, PLAY, STOP, FORWARD/REVERSE)</li>
+<li>Clock input (in 'Clocked Mode' via STOP jack)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Panel Controls Reference</h2>
+<h3>Knobs &amp; Sliders (Per section; each has CV in)</h3>
+<ul>
+<li><strong>Input Stage:</strong></li>
+<li>INPUT GAIN</li>
+<li><strong>Looper:</strong></li>
+<li>LOOP VOLUME</li>
+<li>LOOP SELECT</li>
+<li>LOOP PITCH</li>
+<li>OVERDUB DECAY</li>
+<li>REC PROBABILITY</li>
+<li>REC DELAY (and DELAY DEVIATION)</li>
+<li><strong>Granular:</strong></li>
+<li>GRAINS ACTIVE</li>
+<li>POSITION</li>
+<li>POSITION DEVIATION</li>
+<li>PLAY LENGTH</li>
+<li>LENGTH DEVIATION</li>
+<li>GRAIN LOOP DELAY &amp; DEVIATION</li>
+<li>GRAIN DIRECTION</li>
+<li>GRAIN PITCH</li>
+<li>VOLUME MIN / DEVIATION</li>
+<li>GRAIN PANNING</li>
+<li>ATTACK / DECAY (grain envelope)</li>
+<li>GRAINS VOLUME</li>
+<li>
+<p>GRAINS FEEDBACK</p>
+</li>
+<li>
+<p><strong>Output Mixer:</strong></p>
+</li>
+<li>DRY VOLUME</li>
+<li>LOOP VOLUME</li>
+<li>GRAINS VOLUME</li>
+</ul>
+<h3>Buttons (Looper Control)</h3>
+<ul>
+<li><strong>REC NEW</strong> – Start new loop (variable/fixed length)</li>
+<li><strong>REC</strong> – Overdub current loop</li>
+<li><strong>PLAY</strong> – Play/stop/retrigger loop</li>
+<li><strong>STOP</strong> – Stop playback/recording or quantize triggers in 'Clocked' mode</li>
+<li><strong>CLEAR</strong> – Clear loop (long press: erase from list)</li>
+<li><strong>MENU Encoder</strong> – Enter/confirm menu navigation</li>
+</ul>
+<h3>Toggles &amp; Switches</h3>
+<ul>
+<li><strong>RETRIG/PAUSE:</strong> Playhead triggers from start or toggles pause.</li>
+<li><strong>SYNC REC/UNSYNC:</strong> Rec head follows or is independent from playhead.</li>
+<li><strong>REC MODE:</strong> [STOP / LOOP / OVERDUB] - Determines end of rec behavior.</li>
+<li><strong>FORWARD/REVERSE:</strong> Loop playback direction.</li>
+<li><strong>REPEAT MODE:</strong> Grain repeat probability vs. number of repeats.</li>
+<li><strong>SIZE DIVISION:</strong> [FREE/8/16] for granular quantization.</li>
+<li><strong>Various Menu Options:</strong> (Quantize, Samplerate, Bit Depth, Pitch Tracking, Clocked Mode, etc.)</li>
+</ul>
+<hr />
+<h2>OLED Screen</h2>
+<ul>
+<li>Shows: Looper state, Levels, Quantization, # Grains, Loop selection, Pitch, Panning, Envelope, etc.</li>
+<li>Info &amp; Settings displayed via MENU</li>
+</ul>
+<hr />
+<h2>SD Card Handling</h2>
+<ul>
+<li>Used for storing/loading Banks (presets/loops)</li>
+<li>Up to 99 presets &amp; 99 loops per bank</li>
+<li>Max 30MB per bank</li>
+<li><strong>Format:</strong> FAT16 recommended</li>
+<li><strong>File structure:</strong> <code>/BANK[n]/WAV/*.wav</code></li>
+<li><strong>Save current bank before power down to keep data!</strong></li>
+<li>Loops as .WAV files, clean headers/no metadata recommended (use MediaHuman or similar if needed)</li>
+</ul>
+<hr />
+<h2>Voltage Control Reference</h2>
+<table>
+<thead>
+<tr>
+<th>CV Input</th>
+<th>Function</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All parameter CV In</td>
+<td>Modulates panel</td>
+<td>0-10V*</td>
+</tr>
+<tr>
+<td>Trigger In (REC, PLAY, etc.)</td>
+<td>Action</td>
+<td>Gate/Trig: &gt;2V</td>
+</tr>
+<tr>
+<td>CV Out?</td>
+<td>None (except INS MONO OUT - audio, not CV)</td>
+<td></td>
+</tr>
+<tr>
+<td>&gt; * Typical Eurorack 0-10V. Not officially specified in manual, but common for ADDAC.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Operating Steps (Quickstart)</h2>
+<ol>
+<li><strong>Audio In/Out:</strong> Patch input, set INPUT GAIN until LED indicates healthy level. Patch output.</li>
+<li><strong>Create/Load Bank:</strong> MENU &gt; BANK &gt; NEW/LOAD.</li>
+<li><strong>Record Loops:</strong><ul>
+<li>[NEW REC] to record, press [REC]/[PLAY]/[STOP] to finish.</li>
+<li>Select via [LOOP SELECT] or CV.</li>
+</ul>
+</li>
+<li><strong>Granular Processing:</strong> Engage grains with GRAINS VOLUME, adjust granular controls.</li>
+<li><strong>Save:</strong> MENU &gt; BANK &gt; SAVE to SD before switching off.</li>
+<li><strong>Navigate Presets/Loops:</strong> Use [PRESET SELECT]/[LOOP SELECT] knobs or CV.</li>
+</ol>
+<hr />
+<h2>Expert Features</h2>
+<ul>
+<li><strong>Quantized recording/playback &amp; scales (chromatic, major, etc.)</strong></li>
+<li><strong>Menu controls:</strong> Sample rate, bit depth, mono/stereo, overdub origin (play/rec/both), pitch range, etc.</li>
+<li><strong>Granular randomization/deviation via second knob per parameter</strong></li>
+<li><strong>Normalize loop volume:</strong> MENU + [REC]</li>
+<li><strong>Duplicate loop:</strong> MENU + [NEW REC]</li>
+<li><strong>Resize loop:</strong> MENU + [CLEAR BUFFER]</li>
+<li><strong>Firmware update:</strong> via rear USB and Chrome browser DFU tool</li>
+</ul>
+<hr />
+<h3>For more in-depth reference, see the original manual!</h3>
+<p><strong>Manual download:</strong><br />
+<a href="https://media.addacsystem.com/firmwares/ADDAC112_firmware.zip">ADDAC112 User's Guide PDF</a><br />
+<a href="https://addacsystem.com/en/products/modules/addac100-series/addac112">Official ADDAC112 product page (for updates)</a></p>
+<hr />
+<p><em>Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></em></p>
+</body>
+</html>

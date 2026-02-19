@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Dreadbox_Dystopia</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Dreadbox — Dystopia</h1>
+<ul>
+<li><a href="../../manuals/Manual_DreadBox_Dystopia.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://dreadbox-edu.com/manuals/DYSTOPIA_MANUAL.pdf"><strong>Download the Dreadbox Dystopia Manual PDF</strong></a></p>
+<hr />
+<h1>Dreadbox Dystopia Eurorack Module Cheat Sheet</h1>
+<h2>Panel Overview</h2>
+<p>The Dystopia is a versatile 10HP noise and bit-processing module with multiple filter options and external audio processing capability.</p>
+<hr />
+<h2>Controls &amp; Patch Points</h2>
+<h3><strong>Outputs</strong></h3>
+<ul>
+<li><strong>SCATTER (Top Output Jack)</strong></li>
+<li>Default: Noise (White Noise) output, bit crushed.</li>
+<li>With EXT IN: Negative voltage slicer of EXT IN signal.</li>
+<li>
+<p>Voltage: ±5V</p>
+</li>
+<li>
+<p><strong>ODDS (Middle Left Output Jack)</strong></p>
+</li>
+<li>Gate signal based on ODDS knob/CV.</li>
+<li>
+<p>Voltage: 0–5V</p>
+</li>
+<li>
+<p><strong>PINK (Middle Center Output Jack)</strong></p>
+</li>
+<li>Pink noise (filtered output).</li>
+<li>With EXT IN: 12dB/oct low pass filter on EXT IN.</li>
+<li>
+<p>Voltage: ±5V</p>
+</li>
+<li>
+<p><strong>BLUE (Middle Right Output Jack)</strong></p>
+</li>
+<li>Blue noise (filtered output).</li>
+<li>With EXT IN: 12dB/oct high pass filter on EXT IN.</li>
+<li>Voltage: ±5V</li>
+</ul>
+<hr />
+<h3><strong>Inputs</strong></h3>
+<ul>
+<li><strong>EXT IN (Top Left Input Jack)</strong></li>
+<li>
+<p>Cancels internal noise when patched; processes external audio or CV.</p>
+</li>
+<li>
+<p><strong>ODDS CV IN (Below ODDS knob)</strong></p>
+</li>
+<li>CV control for ODDS (gate probability).</li>
+<li>
+<p>Voltage: ±5V</p>
+</li>
+<li>
+<p><strong>BITS CV IN (Below BITS knob)</strong></p>
+</li>
+<li>CV control for BITS (bit crush rate).</li>
+<li>
+<p>Voltage: ±5V</p>
+</li>
+<li>
+<p><strong>PINK CV IN (Below PINK knob)</strong></p>
+</li>
+<li>CV for pink noise filter rolloff (low pass).</li>
+<li>
+<p>Voltage: ±5V</p>
+</li>
+<li>
+<p><strong>BLUE CV IN (Below BLUE knob)</strong></p>
+</li>
+<li>CV for blue noise filter rolloff (high pass).</li>
+<li>Voltage: ±5V</li>
+</ul>
+<hr />
+<h3><strong>Knobs</strong></h3>
+<ul>
+<li><strong>ODDS</strong></li>
+<li>
+<p>Sets probability of gate events on ODDS output.</p>
+</li>
+<li>
+<p><strong>BITS</strong></p>
+</li>
+<li>
+<p>Controls bit crusher clock frequency (effect on white noise or EXT IN).</p>
+</li>
+<li>
+<p><strong>PINK</strong></p>
+</li>
+<li>
+<p>Adjust LPF rolloff for pink output (12dB/oct).</p>
+</li>
+<li>
+<p><strong>BLUE</strong></p>
+</li>
+<li>Adjust HPF rolloff for blue output (12dB/oct).</li>
+</ul>
+<hr />
+<h2><strong>Special Functionality</strong></h2>
+<blockquote>
+<p><strong>Patching anything into EXT IN disables all internal noise and processes your external audio:</strong><br />
+- <strong>SCATTER:</strong> Negative voltage slicer<br />
+- <strong>ODDS:</strong> Gate from external audio (distortion based on BITS)<br />
+- <strong>CRUSH:</strong> Bit crusher<br />
+- <strong>PINK:</strong> Low Pass Filter (12dB/oct)<br />
+- <strong>BLUE:</strong> High Pass Filter (12dB/oct)</p>
+</blockquote>
+<hr />
+<h3><strong>I/O Reference Table</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Jack Label</th>
+<th>Type</th>
+<th>Function (Default / EXT IN)</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SCATTER</td>
+<td>Out</td>
+<td>Bitcrushed Noise / Sliced EXT IN</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>ODDS</td>
+<td>Out</td>
+<td>Gate based on ODDS / Distorted EXT IN</td>
+<td>0–5V</td>
+</tr>
+<tr>
+<td>PINK</td>
+<td>Out</td>
+<td>Pink Noise (LPF) / LPF EXT IN</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>BLUE</td>
+<td>Out</td>
+<td>Blue Noise (HPF) / HPF EXT IN</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>EXT IN</td>
+<td>In</td>
+<td>Replaces internal noise, injects audio/CV</td>
+<td></td>
+</tr>
+<tr>
+<td>ODDS CV</td>
+<td>In</td>
+<td>ODDS control voltage</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>BITS CV</td>
+<td>In</td>
+<td>BITS control voltage</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>PINK CV</td>
+<td>In</td>
+<td>PINK filter CV</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>BLUE CV</td>
+<td>In</td>
+<td>BLUE filter CV</td>
+<td>±5V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Quick Tips</strong></h2>
+<ul>
+<li><strong>No patch in EXT IN:</strong> Classic noise and bit crusher behavior.</li>
+<li><strong>Patch to EXT IN:</strong> Turns module into an audio/CV processor (filters, slicing, distortion, bit crushing).</li>
+<li><strong>CV accepts full modular levels:</strong> ±5V on all CV inputs.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

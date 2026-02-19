@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Unity</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Unity</h1>
+<ul>
+<li><a href="../../manuals/2hp_Unity.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Unity Manual PDF</a><br />
+<em>(You may need to supply the actual PDF link)</em></p>
+<hr />
+<h1>2hp Unity Mixer – Cheat Sheet</h1>
+<p>A dual unity-gain mixer for Eurorack, allowing for flexible mixing of both audio and CV signals in three different summing modes.</p>
+<hr />
+<h2>Controls</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Label</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>MODE</td>
+<td>Toggle</td>
+<td>3-position switch to select between Averaging, Unity, or Split mode</td>
+</tr>
+</tbody>
+</table>
+<h3>Mode Toggle Behavior</h3>
+<ul>
+<li><strong>Averaging Mode (UP):</strong> All inputs = gain of 1/3. Best for mixing audio, preserves relative loudness.</li>
+<li><strong>Unity Mode (MIDDLE):</strong> All inputs = gain of 1. Best for mixing control voltages (CV).</li>
+<li><strong>Split Mode (DOWN):</strong> Top mixer = gain 1; Bottom mixer = gain 1/3. Mix CV on top, audio on bottom.</li>
+</ul>
+<hr />
+<h2>Inputs and Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Label</th>
+<th>Type</th>
+<th>Description &amp; Normalization</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>Top 3 jacks</td>
+<td>IN</td>
+<td>Inputs to Mixer 1. Summed and sent to OUT 1. Each jack accepts audio or CV.</td>
+<td>±10V CV / Audio typical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>OUT (top)</td>
+<td>OUT</td>
+<td>Output of Mixer 1 (top 3 inputs). If patched, Mixer 1 only goes here; if unpatched, also sums to OUT 2.</td>
+<td>Up to input sum max</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Bottom 3 jacks</td>
+<td>IN</td>
+<td>Inputs to Mixer 2. Summed and sent to OUT 2. Each jack accepts audio or CV.</td>
+<td>±10V CV / Audio typical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>OUT (bottom)</td>
+<td>OUT</td>
+<td>Output of Mixer 2 (bottom 3 inputs). If OUT 1 unpatched, includes sum of both sections.</td>
+<td>Up to input sum max</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Quick Reference Operation</h2>
+<ul>
+<li><strong>6-to-1 Mixer:</strong> Leave OUT 1 unpatched; OUT 2 will output sum of all 6 inputs (based on mode).</li>
+<li><strong>2x3-to-1 Mixer:</strong> Patch both OUT 1 and OUT 2. Each OUT is the sum of their respective 3 inputs.</li>
+<li><strong>Split Mode:</strong> Mix CV with unity gain (top 3 jacks → OUT 1), audio with averaging gain (bottom 3 jacks → OUT 2).</li>
+</ul>
+<hr />
+<h2>Power &amp; Specs</h2>
+<ul>
+<li><strong>Width:</strong> 2 HP</li>
+<li><strong>Depth:</strong> 39.5 mm</li>
+<li><strong>+12V:</strong> 10mA</li>
+<li><strong>-12V:</strong> 6mA</li>
+</ul>
+<p><em>Install with red stripe (cable) down for -12V as per standard Eurorack orientation.</em></p>
+<hr />
+<h2>Typical Use Cases</h2>
+<ul>
+<li>Combine multiple modulation (CV) sources.</li>
+<li>Mix several audio sources without loss of amplitude (Averaging mode).</li>
+<li>Run hybrid CV+audio patching (Split mode).</li>
+<li>Simple, clean, and compact mixing utility.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

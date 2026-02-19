@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erica_Synths_Drum_Sequencer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erica Synths — Drum Sequencer</h1>
+<ul>
+<li><a href="../../manuals/Erica-Drum-Sequencer-Manual-New.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<pre><code class="language-markdown">[**Official Erica Synths Drum Sequencer Manual PDF**](https://www.ericasynths.lv/media/Drum_Sequencer_manual_FW_1.056.pdf)
+
+# Erica Synths Drum Sequencer — Cheat Sheet
+
+---
+## PANEL &amp; JACK REFERENCE
+
+### **Inputs**
+- **MIDI IN**: 3.5mm TRS (Adapter to 5-pin DIN supplied). Accepts MIDI clock/start/stop (usually 5V logic MIDI signals).
+- **CLK IN**: 3.5mm mono. Accepts analog clock pulses, 4 PPQN (4 pulses per quarter note), 5V logic.
+- **RST IN**: (Not typically present, but may be on some models) 3.5mm, 5V logic, resets the pattern.
+
+### **Outputs**
+- **TR1–16**: 16x 3.5mm mono, trigger/gate out. +10V standard, patchable to drum modules.
+- **ACC1–ACC12**: Accent outputs (Trigger Tracks 1–12 only), 3.5mm. Default +10V (or configurable to +5V).
+- **CV OUT**: 3.5mm, pitch CV for melodic track, 0–5V range (1V/oct, ~5 octaves).
+- **GATE OUT**: 3.5mm, gate for melodic track, 0/+10V.
+- **LFO1 &amp; LFO2**: 2x 3.5mm, assignable LFO signals, typically 0-5V or bipolar, selectable shape and speed (typ. -5V to +5V if bipolar).
+- **CLK OUT**: 3.5mm, outputs clock (configurable divisions/multiplications, 5V logic).
+
+### **Knobs / Encoders**
+- **ENC1**: Menu/data browse knob 1. Used to navigate/scroll through menu parameters.
+- **ENC2**: Value/data entry knob 2. Used to change parameter values/settings.
+
+### **Buttons**
+**Top Row:**
+- **BANK, PATTERN**: Change/select banks and patterns.
+- **COPY, PASTE**: Copy and paste tracks, patterns, steps.
+- **SHIFT**: Secondary functions when held. Combos for advanced functions.
+- **CLEAR**: Clears individual steps, tracks, patterns (when used with SHIFT).
+- **TRIG SEL**: Select tracks for editing or as paste destination.
+- **STEP/TAP**: Enter tap/record mode, live step input (use SHIFT for FILL mode).
+- **SHUFFLE**: Opens shuffle/swing settings (pattern or track).
+- **DRCTN**: Opens direction (fwd/back/ping-pong/random) settings (pattern or track).
+- **MUTE**: Opens mute mode for instant/performance mutes; with SHIFT for clear/arm.
+- **LAST STEP**: Set last step for pattern/track (length adjustment).
+
+**Transport:**
+- **PLAY (►)**: Start sequence. Hold SHIFT to enter settings page.
+- **STOP (■)**: Stop sequence. Double-tap to play. With SHIFT, enter settings page 2.
+- **RECORD (●)**: Save pattern, enable record functions, save states.
+
+**STEP KEYS 1-16:**  
+Used for pattern entry, step selection, track and pattern navigation, mute/solo, bar navigation, and advanced functions.
+
+### **Menu Shortcuts**
+- **Settings**: SHIFT + PLAY (first page), SHIFT + PLAY again for page 2
+- **Song Mode**: SHIFT + BANK (once: write, twice: play)
+
+---
+
+## JACK VOLTAGE RANGES
+
+| JACK TYPE            | VOLTAGE RANGE    | NOTES                          |
+|----------------------|------------------|--------------------------------|
+| Trigger Out (TRxx)   | +10V (default)   | Adjustable pulse width, 2-10ms |
+| Accent Out (ACCxx)   | +10V/+5V         | Configurable per accent out    |
+| CV OUT               | 0–5V / -3V to +4V| CV track, 1V/oct (see tuning)  |
+| GATE OUT/LFO OUT     | +10V / 0-5V      | Gate is standard 0V=low/10V=high|
+| CLK IN/OUT           | 5V logic         | 4 PPQN (in), divides/mults out |
+| MIDI IN              | 5V logic         | TTL MIDI via adapter           |
+
+---
+
+## QUICK OPERATIONS
+
+### **Selecting Banks, Patterns, and Tracks**
+- **BANK:** Hold BANK, press STEP KEY 1–8 to select bank (A–H).
+- **PATTERN:** Press STEP KEY 1–16 to choose pattern within current bank.
+- **TRIG SEL (Track Select):** Hold TRIG SEL, press STEP KEY 1–16 (TR1–TR16), or turn ENC2 with TRIG parameter highlighted. CV/Track: Hold TRIG SEL + ENC2.
+
+### **Entering/Editing Steps**
+- In Pattern Edit: Press STEP KEYS to toggle steps on/off.
+- Double-tap for ACCENTS (Tracks 1–12 only, accent must be enabled).
+- Hold LAST STEP + desired step to set last step (track length).
+
+### **Saving/Undo**
+- **Save:** Press RECORD (●) any time to save current state.
+- **Undo (&quot;Pattern Reload&quot;):** Hold ENC1, press ENC2 (restores last saved version).
+
+### **Copy &amp; Paste**
+- **Pattern:** COPY, select to copy; PASTE, select to paste.
+- **Track or Step:** COPY, TRIG SEL (select destination), PASTE. Use SHIFT for steps.
+- **Clear:** HOLD SHIFT + CLEAR to clear track/steps.
+
+### **Randomization (CV Track only)**
+- Hold SHIFT + SHUFFLE while in CV track mode for step/random settings.
+- Press BANK to randomize per chosen probability.
+- Save with RECORD.
+
+### **Direction &amp; Shuffle/Swing**
+- **Pattern**: Hold SHUFFLE/DRCTN in Pattern Play to set global pattern swing/direction.
+- **Track**: Hold SHUFFLE/DRCTN in Pattern Edit for per-track swing/direction.
+
+### **Mute/Solo**
+- MUTE button toggles Mute Mode; individual STEP KEYS mute/unmute tracks.
+- SHIFT + STEP KEY in MUTE Mode solos/un-solos.
+- SHIFT + MUTE clears all mutes. Hold MUTE, select STEP KEYS for Mute Arming.
+
+### **Tap (Live Record) Mode**
+- STEP/TAP: Enter live step entry, tap triggers live.
+- SHIFT + STEP/TAP: FILL submenu, for rolls/repeats.
+
+### **LFOs**
+- Hold TRIG SEL + ENC1 to enter LFO mode.
+- ENC2 scrolls between: LFO1/2, wave (SIN, TRI, SAW, SQU, S&amp;H), frequency, amplitude.
+- Save with RECORD.
+
+### **CV/Gate Track**
+- Hold TRIG SEL + ENC2 to access.
+- Note Edit: Press ENC1 in CV/Gate Track mode.
+- Set scale (SCL), root note (ROO), octave (OCT), gate length per step.
+- Step slides: Press two adjacent STEP KEYS in Note Edit to enable.
+
+### **Song Mode**
+- SHIFT + BANK: Write, twice for Play. Arrange/chains patterns with adjustable lengths.
+
+### **Settings**
+- SHIFT + PLAY: Enter settings (clock source, default BPM etc.)
+- SHIFT + PLAY again: Second page (reset out, bar auto copy, accent settings).
+
+---
+
+## TUNING TIPS
+- For 1V/oct, use a tuner and set CV/Track to C0/OCT 0, and tune oscillator C3 (130.81Hz) for basslines, or C6 (1,046.50Hz) for leads. Outputs 0–5V.
+
+---
+
+## FACTORY RESET
+1. Turn off unit.
+2. Hold PLAY + STOP while turning on.
+3. Wait for completion.
+
+---
+
+## [Full PDF Manual Link](https://www.ericasynths.lv/media/Drum_Sequencer_manual_FW_1.056.pdf)
+
+---
+
+[Generated With Eurorack Processor](https://github.com/nstarke/eurorack-processor)
+
+</code></pre>
+<hr />
+<p><strong>This sheet summarizes operational workflow, I/O references, voltage ranges, and fast-access combos for the Erica Synths Drum Sequencer (Firmware 1.056). Refer to the official manual above for deeper features, firmware updates, troubleshooting, and safety info!</strong></p>
+</body>
+</html>

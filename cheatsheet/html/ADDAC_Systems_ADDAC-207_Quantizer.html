@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-207_Quantizer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-207 Quantizer</h1>
+<ul>
+<li><a href="../../manuals/ADDAC_207_Quantizer_REV05.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://addacsystem.com/Manuals/ADDAC207.manual.pdf">ADDAC207 Intuitive Quantizer Manual PDF</a></p>
+<hr />
+<h1>ADDAC207 Intuitive Quantizer — Cheat Sheet</h1>
+<h4><strong>Quick Start</strong></h4>
+<ul>
+<li><strong>Outputs 1–4 → VCOs</strong></li>
+<li><strong>Tune VCOs</strong>: Use Keyboard Mode (<a href="#hardware-overview--controls">Hold Button 1</a>) → All notes ON except active key</li>
+<li><strong>Quantize</strong>: Exit Keyboard Mode ([Hold Button 1] again), patch CV to Note 1 IN, play C major by default; patch Note 2–4 for more voices</li>
+</ul>
+<hr />
+<h2><strong>Panel Overview</strong></h2>
+<h3><strong>Jacks (Left to Right, Top to Bottom)</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IN 1 – 4</td>
+<td>CV inputs for each voice/quantizer</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>OUT 1 – 4</td>
+<td>Quantized pitch CV outs for each voice</td>
+<td>0 to +10V</td>
+</tr>
+<tr>
+<td>GATE IN 1–4</td>
+<td>Trigger/Gate input for each voice (external timing)</td>
+<td>0 or +5V</td>
+</tr>
+<tr>
+<td>GATE OUT 1–4</td>
+<td>Quantized note triggers/gates</td>
+<td>0 or +5V</td>
+</tr>
+<tr>
+<td>ASSIGN</td>
+<td>CV input for menu assignment controls</td>
+<td>0 to +5V (rectifies –V)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3><strong>Knobs &amp; Switches</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rotary Switch</td>
+<td>Select Key/Octave (“KEY/OCTAVE”)</td>
+</tr>
+<tr>
+<td>MINOR/MAJOR Toggle</td>
+<td>Set scale type</td>
+</tr>
+<tr>
+<td>b/N/# Toggle</td>
+<td>Select root note accidental (flat/natural/sharp)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3><strong>Illuminated Buttons (12, numbered 1–12)</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Function (short press = activate note, long press = enter menu)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Toggle note 1 / Enter Mode Selection/Keyboard Mode</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Toggle note 2 / Set Note 2 interval/chord setting</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Toggle note 3 / Set Note 3 interval/chord setting</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Toggle note 4 / Set Note 4 interval/chord setting</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Toggle note 5 / Quantization Type</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Toggle note 6 / Gate Length Menu</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Toggle note 7 / Trigger Repeat Menu</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Toggle note 8 / Reaction Time</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Toggle note 9 / Octave Offset</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Toggle note 10 / Tuning &amp; Fine Tune Menu</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Toggle note 11 / Scale Mode, Tuning +, Assign</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Toggle note 12 / Preset Menu, Tuning –, Assign</td>
+</tr>
+</tbody>
+</table>
+<h4><em>Multi-button and hold combinations</em> enter/exit menus, assign CV, or store/load presets. Color coding for function (Black: overall, Yellow: chord/gen, Blue: scale/temper, White: scale mode).</h4>
+<hr />
+<h2><strong>Operation Modes</strong></h2>
+<h3><strong>Quantizer Mode</strong></h3>
+<ul>
+<li>CV Input is quantized to closest active note.</li>
+<li>LEDs light up for active scale notes.</li>
+<li>[Long press Button 1] toggles between Keyboard/Quantizer mode.</li>
+</ul>
+<h3><strong>Keyboard Mode</strong></h3>
+<ul>
+<li>User selects note manually—acts as simple keyboard.</li>
+<li>ALL LEDs ON except active note (the played note).</li>
+<li>Useful for tuning &amp; manual play.</li>
+<li><strong>Voices 2–4:</strong> can only play notes active in Quantizer Mode for chords.</li>
+</ul>
+<hr />
+<h2><strong>Menu Navigation</strong></h2>
+<ul>
+<li><strong>Long press (1s) any Button</strong>: Enters its menu</li>
+<li>Change option by pressing a button, confirm with a second press.</li>
+</ul>
+<h3><strong>Key Menu Functions</strong></h3>
+<ul>
+<li><strong>NOTE 2/3/4 (Buttons 2–4):</strong> Set output intervals for Voice 2/3/4 (Root/3rd/5th/etc.)</li>
+<li><strong>Q.TYPE (Button 5):</strong> Quantization type (Above/Ignore/Below, Buttons 3/5/6)</li>
+<li><strong>GATE LENGTH (Button 6):</strong> Set Gate Out length: 10–10240ms (Buttons 1–11), Button 12 for "Gate Off Condition"</li>
+<li><strong>TRIG REPEAT (Button 7):</strong> Re-triggering, Voice 1 Master/Slave, auto Gate In detection (Buttons 2/3/4/7)</li>
+<li><strong>REACT TIME (Button 8):</strong> Menu Hold Time (500ms–2700ms)</li>
+<li><strong>OCTAVE OFFSET (Button 9):</strong> Output offset in octaves (-3 to +8, Buttons 1–10)</li>
+<li><strong>TUNING (Button 10):</strong> Scale Temperament, Moog/Buchla standard (1V/Oct or 1.2V/Oct), Fine tuning per voice</li>
+<li><strong>SCALE MODE (Button 11):</strong> Ionian/Dorian/etc. (Usually bypassed)</li>
+<li><strong>PRESETS (Button 12):</strong> 11 user presets (Buttons 1–11, hold Button 12 to save)</li>
+</ul>
+<h3><strong>ASSIGN (CV Input Routing):</strong></h3>
+<p>Patch CV to ASSIGN jack, press [hold Buttons 4+7], select destination:
+- Button 1: Input Transpose
+- Button 2–4: Voice 2/3/4 interval
+- Button 5: Quantizer Type
+- Button 6: Gate Length
+- Button 7: Trigger Repeat
+- Button 9: Octave Offset
+- Button 11: Scale Transpose
+- Button 12: Preset Change</p>
+<hr />
+<h2><strong>Input/Output Reference</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Jack</th>
+<th>Voltage Range</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Note CV Input</td>
+<td>IN 1–4</td>
+<td>±5V</td>
+<td>1 for each voice</td>
+</tr>
+<tr>
+<td>Quantized Pitch Output</td>
+<td>OUT 1–4</td>
+<td>0 to +10V</td>
+<td>1 per voice, 1V/oct or 1.2V/oct</td>
+</tr>
+<tr>
+<td>Gate In</td>
+<td>GATE IN 1–4</td>
+<td>0 or +5V</td>
+<td>Triggers quantization</td>
+</tr>
+<tr>
+<td>Gate Out</td>
+<td>GATE OUT 1–4</td>
+<td>0 or +5V</td>
+<td>Trigger on new note</td>
+</tr>
+<tr>
+<td>CV Menu Assignment</td>
+<td>ASSIGN</td>
+<td>0 to +5V (rectifies –V)</td>
+<td>Assignable by menu</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Other Key Features</strong></h2>
+<ul>
+<li><strong>Microtonal Mode</strong>: Fine tune 1V/oct to support &gt;12 notes/octave</li>
+<li><strong>Temperaments</strong>: Equal, Just, Well Tuned, Bohlen-Pierce, Exotic</li>
+<li><strong>Moog/Buchla CV Compatibility</strong>: Switchable 1V/oct or 1.2V/oct</li>
+<li><strong>Nonvolatile Memory</strong>: Fine tunings, menu settings, 11 user presets</li>
+<li><strong>Gate, Trigger, and Chord Functions</strong>: Multi-voice quantization and interval setting</li>
+<li><strong>Tuning Reset</strong>: Hold [SET KEY] for 5 seconds</li>
+</ul>
+<hr />
+<h2><strong>Specs</strong></h2>
+<ul>
+<li><strong>Format</strong>: Eurorack, 10HP</li>
+<li><strong>Depth</strong>: 6cm</li>
+<li><strong>Max Current</strong>: 150mA</li>
+<li><strong>Bus</strong>: Standard 16-pin</li>
+</ul>
+<hr />
+<h2><strong>Major/Minor Scale Reference</strong></h2>
+<ul>
+<li>See manual pages 33–34 for all major and minor scale layouts.</li>
+</ul>
+<hr />
+<p>For full functionality and troubleshooting details, <a href="https://addacsystem.com/Manuals/ADDAC207.manual.pdf">consult the full manual PDF</a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

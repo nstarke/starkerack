@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Unity</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Unity</h1>
+<ul>
+<li><a href="../../manuals/unity-mixer_manual_2020.04.15.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://intellijel.com/downloads/manuals/Intellijel_Unity_Mixer_Manual_2020.pdf"><strong>Intellijel Unity Mixer Manual (PDF)</strong></a><br />
+<em>(Assuming the manual reflects the attached content)</em></p>
+<hr />
+<h1>Intellijel Unity Mixer Cheat Sheet</h1>
+<p><strong>Type:</strong> Dual 3:1 / 6:1 Unity Gain Mixer<br />
+<strong>HP:</strong> 2hp<br />
+<strong>Function:</strong> Mixes audio or CV signals with no attenuation or amplification (unity gain).<br />
+<strong>Current Draw:</strong> 11mA @ +12V; 14mA @ -12V<br />
+<strong>Max Output Voltage:</strong> ±10.5V</p>
+<hr />
+<h2>Panel Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Label (from top to bottom)</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>IN 1</td>
+<td>Top mixer input 1 (audio or CV, ±10.5V max)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>IN 2</td>
+<td>Top mixer input 2 (audio or CV, ±10.5V max)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>IN 3</td>
+<td>Top mixer input 3 (audio or CV, ±10.5V max)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>OUT 4</td>
+<td>Top mixer output (sum of IN 1, IN 2, IN 3)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>IN 5</td>
+<td>Bottom mixer input 1 (audio or CV, ±10.5V max)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>IN 6</td>
+<td>Bottom mixer input 2 (audio or CV, ±10.5V max)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>IN 7</td>
+<td>Bottom mixer input 3 (audio or CV, ±10.5V max)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>OUT 8</td>
+<td>Bottom mixer output (sum of IN 5, IN 6, IN 7, and—if OUT 4 is unpatched—also the sum from top mixer, for up to 6:1 mixing)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>No knobs, buttons, sliders, or toggles are present on this module.</strong></p>
+</blockquote>
+<hr />
+<h2>Connection Reference</h2>
+<ul>
+<li><strong>Inputs:</strong> Accept either audio or CV within ±10.5V range.</li>
+<li><strong>Outputs:</strong> Clip at ±10.5V if input sum is higher.</li>
+</ul>
+<h3>Dual Mixer Mode</h3>
+<ul>
+<li>[1], [2], [3] → summed to [4]</li>
+<li>[5], [6], [7] → summed to [8]</li>
+<li>Use as two independent 3:1 summing mixers.</li>
+</ul>
+<h3>6:1 Mixer Mode</h3>
+<ul>
+<li>If [4] is unpatched, both sums ([1]+[2]+[3]+[5]+[6]+[7]) appear at [8].</li>
+<li>Useful for summing up to 6 audio or CV signals to a single output.</li>
+</ul>
+<hr />
+<h2>Special Features</h2>
+<h3>Attenuation Jumpers (On Rear PCB)</h3>
+<ul>
+<li>Per-mixer -6dB option, set via circuit board jumper.</li>
+<li>Useful for giving extra headroom if using hot signals (e.g. raw VCOs).</li>
+<li><strong>-6dB attenuates summed output by half.</strong></li>
+<li><em>Access by removing the module from case; see manual page 5 for layout.</em></li>
+</ul>
+<hr />
+<h2>Usage Tips</h2>
+<ul>
+<li>Use for merging CV or audio without needing per-channel level control.</li>
+<li>Works well after/with dedicated attenuators (e.g., Intellijel Triatt/Quadratt).</li>
+<li>If lacking mix headroom, set rear jumper to -6dB for either section.</li>
+</ul>
+<hr />
+<h2>Quick Reference</h2>
+<ul>
+<li><strong>Inputs/Outputs:</strong> Accepts/buffers both audio and CV, ±10.5V max</li>
+<li><strong>Output headroom:</strong> +10.5V to -10.5V before clip</li>
+<li><strong>Attenuation:</strong> Optional rear jumper for -6dB per section</li>
+<li><strong>No local panel controls</strong></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor"><strong>Generated With Eurorack Processor</strong></a></p>
+</body>
+</html>

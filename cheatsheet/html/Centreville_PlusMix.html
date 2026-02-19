@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Centreville_PlusMix</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Centreville — PlusMix</h1>
+<ul>
+<li><a href="../../manuals/PlusMix _ centrevillage.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://centrevillage.net/products/PlusMix.html">PlusMix Manual PDF</a></p>
+<hr />
+<h1>PlusMix Eurorack Module Cheat Sheet</h1>
+<p><strong>Type:</strong> Utility Mixer (Unity / Precision CV Mixer) with Gate-Controlled Switching<br />
+<strong>Width:</strong> 2 HP<br />
+<strong>Depth:</strong> 35 mm<br />
+<strong>Current Draw:</strong> +12V 20mA / -12V 20mA / +5V 0mA<br />
+<strong>Price:</strong> 9,900 JPY</p>
+<hr />
+<h2>Panel Reference</h2>
+<h3>Inputs</h3>
+<ul>
+<li><strong>PLS1</strong> (Input)  </li>
+<li>Accepts: Audio or CV  </li>
+<li>Range: Typical Eurorack level (±5V / ±10V)  </li>
+<li><strong>PLS2</strong> (Input)  </li>
+<li>Accepts: Audio or CV  </li>
+<li>Range: Typical Eurorack level (±5V / ±10V)  </li>
+<li><strong>BASE</strong> (Input)  </li>
+<li>Accepts: Audio or CV  </li>
+<li>Always mixed  </li>
+<li>Range: Typical Eurorack level  </li>
+<li><strong>SW1</strong> (Gate Input)  </li>
+<li>Accepts: Gate/Trig signals  </li>
+<li>HIGH = ≥ 5V, LOW = 0V  </li>
+<li>Normalized to 5V when unpatched  </li>
+<li><strong>SW2</strong> (Gate Input)  </li>
+<li>Accepts: Gate/Trig signals  </li>
+<li>HIGH = ≥ 5V, LOW = 0V  </li>
+<li>Normalized to SW1 when unpatched  </li>
+</ul>
+<h3>Outputs</h3>
+<ul>
+<li><strong>MIX</strong> (Output)  </li>
+<li>Unity-mixed sum of enabled inputs  </li>
+<li>Range: Follows input levels (expect unity gain, max ±10V)  </li>
+</ul>
+<h3>Controls</h3>
+<ul>
+<li><strong>SW1PL</strong> (Toggle Switch)  </li>
+<li>Sets gate polarity for PLS1  </li>
+<li><strong>H</strong> (High): PLS1 mixed when SW1 gate is HIGH (≥5V)  </li>
+<li><strong>L</strong> (Low): PLS1 mixed when SW1 gate is LOW (0V)  </li>
+<li><strong>SW2PL</strong> (Toggle Switch)  </li>
+<li>Sets gate polarity for PLS2  </li>
+<li><strong>H</strong> (High): PLS2 mixed when SW2 gate is HIGH (≥5V)  </li>
+<li><strong>L</strong> (Low): PLS2 mixed when SW2 gate is LOW (0V)  </li>
+</ul>
+<hr />
+<h2>Usage Overview</h2>
+<ul>
+<li><strong>BASE</strong> input is always mixed/summed to the output.</li>
+<li><strong>PLS1</strong> is mixed if:</li>
+<li>SW1 gate is HIGH (≥5V) <strong>and</strong> SW1PL is in <strong>H</strong></li>
+<li>SW1 gate is LOW (0V) <strong>and</strong> SW1PL is in <strong>L</strong></li>
+<li><strong>PLS2</strong> is mixed under the same rules using SW2/SW2PL.</li>
+<li><strong>Manual Mute:</strong> With no gates patched to SW1/SW2, the SW1PL/SW2PL switches work as manual mute toggles.</li>
+<li><strong>Normalization:</strong></li>
+<li>SW1 normalled to 5V → PLS1 can be toggled manually if nothing patched.</li>
+<li>SW2 normalled to SW1 → Both can be manually toggled or linked.</li>
+</ul>
+<hr />
+<h2>Application Tips</h2>
+<ul>
+<li><strong>Pitch CV Mixing:</strong> High-precision summing means it's safe for pitch CV without drift.</li>
+<li><strong>Gate-Controlled Mutes:</strong> Use gate/CV sequencers for dynamic signal routing.</li>
+<li><strong>Audio Utility:</strong> Seamless for unity-gain audio muting and mixing.</li>
+<li><strong>Live Performance:</strong> Quick manual mutes via panel switches if no gate signals are inserted.</li>
+</ul>
+<hr />
+<h2>Quick Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Jack/Control</th>
+<th>Description</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PLS1</td>
+<td>Audio/CV Input 1 (gate-controlled mix)</td>
+<td>±5V / ±10V</td>
+</tr>
+<tr>
+<td>PLS2</td>
+<td>Audio/CV Input 2 (gate-controlled mix)</td>
+<td>±5V / ±10V</td>
+</tr>
+<tr>
+<td>BASE</td>
+<td>Audio/CV Input (always mixed)</td>
+<td>±5V / ±10V</td>
+</tr>
+<tr>
+<td>SW1</td>
+<td>Gate input for PLS1</td>
+<td>0V (LOW), 5V+ (HIGH)</td>
+</tr>
+<tr>
+<td>SW2</td>
+<td>Gate input for PLS2</td>
+<td>0V (LOW), 5V+ (HIGH)</td>
+</tr>
+<tr>
+<td>SW1PL</td>
+<td>Toggle: Mix PLS1 on HIGH (H) or LOW (L) gate</td>
+<td>(Polarity Selector)</td>
+</tr>
+<tr>
+<td>SW2PL</td>
+<td>Toggle: Mix PLS2 on HIGH (H) or LOW (L) gate</td>
+<td>(Polarity Selector)</td>
+</tr>
+<tr>
+<td>MIX</td>
+<td>Unity gain mix output</td>
+<td>Follows input levels</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Links</h2>
+<ul>
+<li><a href="https://centrevillage.net/products/PlusMix.html">Manual PDF &amp; Product Page</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+</body>
+</html>

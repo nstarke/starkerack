@@ -1,0 +1,549 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Instruo_Arbhar</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Instruo — Arbhar</h1>
+<ul>
+<li><a href="../../manuals/Arbhar-Manual-Firmware-2.0-A5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><strong><a href="https://www.instruomodular.com/wp-content/uploads/2023/01/arbhar_v2_user_manual.pdf">Instruō Arbhar Granular Audio Processor – User Manual (Firmware 2.0)</a></strong></p>
+<hr />
+<h1>Instruō arbhar Granular Audio Processor</h1>
+<p><strong>Quick Reference &amp; Cheat Sheet (Firmware 2.0)</strong></p>
+<hr />
+<h2>Basic Usage Overview</h2>
+<ul>
+<li><strong>Record Audio:</strong><br />
+  Press the <strong>Capture</strong> button to record audio into the selected layer. Each layer holds up to 10s audio.</li>
+<li><strong>Granular Playback:</strong><br />
+  Audio is broken into "grains" which can be scattered, reversed, repitched, panned, and layered for textural manipulation.</li>
+<li><strong>Layers:</strong><br />
+  6 layers (Alpha, Beta, Gamma, Delta, Epsilon, Zeta), each with a dedicated buffer. Omega mode links all layers for simultaneous access.</li>
+<li><strong>Granular Modes:</strong>  </li>
+<li><strong>Scan Mode:</strong> Use the <strong>Scan</strong> knob to "scrub"/freeze through audio.</li>
+<li><strong>Follow Mode:</strong> <strong>Scan</strong> knob controls speed/direction through audio (playback independent from pitch).</li>
+</ul>
+<hr />
+<h2>Panel Controls Reference</h2>
+<h3>Knobs</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Function</th>
+<th>CV Input (Range)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input Level</td>
+<td>Sets input/preamp gain, includes analog saturation</td>
+<td>No CV</td>
+</tr>
+<tr>
+<td>Output Level</td>
+<td>Sets output level</td>
+<td>No CV</td>
+</tr>
+<tr>
+<td>Dry/Wet</td>
+<td>Crossfades dry vs granular audio</td>
+<td>Yes (±5V summed, 10V total)</td>
+</tr>
+<tr>
+<td>Intensity</td>
+<td>Number/density/rate of grains</td>
+<td>Yes (±5V summed, 10V total)</td>
+</tr>
+<tr>
+<td>Grain Window</td>
+<td>Grain envelope (Square ↔ Gaussian ↔ Saw)</td>
+<td>Yes (±5V summed, 10V total)</td>
+</tr>
+<tr>
+<td>Grain Direction</td>
+<td>Probability (FWD↔REV) playback</td>
+<td>Yes (±5V summed, 10V total)</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>Grain duration (~4ms–3s, exp distribution)</td>
+<td>Yes (±5V summed, 10V total)</td>
+</tr>
+<tr>
+<td>Scan</td>
+<td>Grain position in buffer</td>
+<td>Yes (±5V summed, 10V total)</td>
+</tr>
+<tr>
+<td>Spray</td>
+<td>Range of randomization from scan position</td>
+<td>Yes (±5V summed, 10V total)</td>
+</tr>
+<tr>
+<td>Pitch</td>
+<td>Grain pitch</td>
+<td>Yes (1V/Oct; ±5V)</td>
+</tr>
+<tr>
+<td>Pitch Deviation</td>
+<td>Random/quantized per-grain pitch deviation (semitones)</td>
+<td>Yes (±5V summed, 10V total)</td>
+</tr>
+<tr>
+<td>Sensitivity (Sense)</td>
+<td>Sensitivity of onset detection OR input 2 level (stereo mode)</td>
+<td>No CV</td>
+</tr>
+<tr>
+<td>Hold</td>
+<td>Debounce/Min-record or min time between onsets/gates (5ms–10s)</td>
+<td>Yes (via Mod CV input)</td>
+</tr>
+<tr>
+<td>Dub</td>
+<td>Sound-on-Sound: Blend level of prior layer value when overdubbing</td>
+<td>Yes (±5V summed, 10V total)</td>
+</tr>
+<tr>
+<td>Layer</td>
+<td>Select the active layer (alpha–zeta/omega)</td>
+<td>Yes (±5V summed, 10V total)</td>
+</tr>
+</tbody>
+</table>
+<h3>Buttons</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capture</td>
+<td>Start/stop record (mode settable; see capture modes below)</td>
+</tr>
+<tr>
+<td>Shift</td>
+<td>Shift for alt/multi functions</td>
+</tr>
+<tr>
+<td>Strike</td>
+<td>Trigger a grain from Strike Granular Engine / accent / undo / erase etc.</td>
+</tr>
+</tbody>
+</table>
+<h3>Switches/Indicators</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layer Indicators</td>
+<td>Show selected layer; omega = all layers linked</td>
+</tr>
+<tr>
+<td>Granular Stream Display</td>
+<td>Shows layer, scan, grain activities, record/play state</td>
+</tr>
+<tr>
+<td>Grain Direction/LEDs</td>
+<td>Direction of active grains, indicates mode</td>
+</tr>
+<tr>
+<td>Onset Indicator/LED</td>
+<td>Status of onset detection</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Inputs &amp; Outputs</h2>
+<h3>Audio I/O</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input (In)</td>
+<td>Primary audio in (AC coupled); defaults to mic if unpatched</td>
+</tr>
+<tr>
+<td>Onset Input</td>
+<td>Audio in for onset detection, also becomes Right channel in Stereo mode</td>
+</tr>
+<tr>
+<td>Outputs 1 &amp; 2</td>
+<td>Main outputs (coin toss/mix grains; stereo/mono operation)</td>
+</tr>
+</tbody>
+</table>
+<h3>Pulse &amp; CV I/O</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>CV Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capture Pulse In</td>
+<td>Triggers/holds recording (mode selectable: Momentary/Latch/Retrigger)</td>
+<td>Trigger/gate</td>
+</tr>
+<tr>
+<td>Strike Input</td>
+<td>Pulse in, triggers single grain (Strike Engine)</td>
+<td>Trigger/gate</td>
+</tr>
+<tr>
+<td>1V/Oct Input</td>
+<td>Pitch CV</td>
+<td>±5V (1V/Oct)</td>
+</tr>
+<tr>
+<td>Intensity CV</td>
+<td>Controls Intensity knob</td>
+<td>±5V (10V total span)</td>
+</tr>
+<tr>
+<td>Length CV</td>
+<td>Controls grain Length</td>
+<td>±5V (10V total span)</td>
+</tr>
+<tr>
+<td>Scan CV</td>
+<td>Controls Scan position (or speed in Follow Mode)</td>
+<td>±5V (10V total span)</td>
+</tr>
+<tr>
+<td>Spray CV</td>
+<td>Controls grain Spray</td>
+<td>±5V (10V total span)</td>
+</tr>
+<tr>
+<td>Layer CV</td>
+<td>Voltage control over which layer(s) are active</td>
+<td>±5V (10V total span)</td>
+</tr>
+<tr>
+<td>Grain Dir. CV</td>
+<td>Per-grain direction probability</td>
+<td>±5V (10V total span)</td>
+</tr>
+<tr>
+<td>Grain Window CV</td>
+<td>Envelope shape modulation</td>
+<td>±5V (10V total span)</td>
+</tr>
+<tr>
+<td>Pitch Deviation CV</td>
+<td>Per-grain pitch deviation (random or quant)</td>
+<td>±5V (10V total span)</td>
+</tr>
+<tr>
+<td>Dub CV</td>
+<td>Overdub Blend (0=replacement, 50%=mix, 100%=sum)</td>
+<td>±5V (10V total span)</td>
+</tr>
+<tr>
+<td>Dry/Wet CV</td>
+<td>Modulate dry/wet balance</td>
+<td>±5V (10V total span)</td>
+</tr>
+<tr>
+<td>Mod CV (Expansion)</td>
+<td>Assignable: Hold, Reverb, Delay, Panning (preset.txt settable)</td>
+<td>±5V (10V total span)</td>
+</tr>
+<tr>
+<td>Pulse Output</td>
+<td>Trigger/gate based on onset/grain/strike/loop (mode settable)</td>
+<td>+5V, 10ms trig/gate</td>
+</tr>
+<tr>
+<td>USB Port</td>
+<td>Load/Save audio, update firmware, access scenes/layers/presets</td>
+<td>USB flash drive</td>
+</tr>
+</tbody>
+</table>
+<h4>Panel Inputs/Outputs Complete List</h4>
+<ul>
+<li><strong>Audio Input (In)</strong></li>
+<li><strong>Onset Input (2nd input / right in stereo)</strong></li>
+<li><strong>Capture Pulse Input</strong></li>
+<li><strong>Strike Input</strong></li>
+<li><strong>1V/Oct Input</strong></li>
+<li><strong>Intensity CV</strong></li>
+<li><strong>Length CV</strong></li>
+<li><strong>Scan CV</strong></li>
+<li><strong>Spray CV (Expansion)</strong></li>
+<li><strong>Layer CV (Expansion)</strong></li>
+<li><strong>Grain Window CV (Expansion)</strong></li>
+<li><strong>Pitch Deviation CV (Expansion)</strong></li>
+<li><strong>Dub CV (Expansion)</strong></li>
+<li><strong>Dry/Wet CV (Expansion)</strong></li>
+<li><strong>Mod CV (Expansion)</strong></li>
+<li><strong>Pulse Output</strong></li>
+<li><strong>Audio Output 1/2</strong></li>
+</ul>
+<hr />
+<h2>Special Modes &amp; Operations</h2>
+<h3>Input &amp; Output Modes</h3>
+<ul>
+<li><strong>Mono Input:</strong> Default. Input = mono, Onset = mono onset.</li>
+<li><strong>Stereo Input:</strong> Input = L, Onset = R, Sensitivity knob = R level.</li>
+<li><strong>Mono Output:</strong> Output 1 = mono mix; Output 2 is normalled unless patched.</li>
+<li><strong>Stereo Output:</strong> Patch both outs for stereo; phase switch can change 2nd out polarity.</li>
+</ul>
+<h3>Recording Modes</h3>
+<ul>
+<li><strong>Capture Modes:</strong>  </li>
+<li><em>Momentary (default):</em> Records as long as pulse/Capture button held</li>
+<li><em>Latching:</em> Start/stop with triggers</li>
+<li><em>Retrigger:</em> (preset only) Each retrigger restarts record head</li>
+<li><strong>Accumulative (Optional):</strong> Multiple passes add to one buffer position, rather than reset each time (toggle with Capture+Shift).</li>
+</ul>
+<h3>Synthesis Controls</h3>
+<ul>
+<li><strong>Intensity Knob:</strong> More grains (center) = denser, less (extreme) disables engine.</li>
+<li><strong>Strike Engine:</strong> Fire grains one at a time (for accents, rhythm) via Strike input or button.</li>
+<li><strong>Length Knob:</strong> Grain duration (~4ms–3s).</li>
+<li><strong>Scan Knob:</strong> Position in audio buffer (or speed in Follow Mode).</li>
+<li><strong>Spray Knob:</strong> Adds random offset to scan position (moving/randomness through audio).</li>
+<li><strong>Pitch/Pitch Dev.:</strong> Main pitch and random or quantized deviation per grain.</li>
+<li><strong>Grain Window &amp; Direction:</strong> Envelope per grain and probability of forward/reverse playback.</li>
+</ul>
+<h3>File System &amp; Scenes</h3>
+<ul>
+<li><strong>USB Flash Drive:</strong> Used for audio, scenes, presets, firmware.  <ul>
+<li><code>/arbhar_library/</code> for layers (36 x 10s files)</li>
+<li><code>/arbhar_scenes/</code> for full scenes (preset.txt + up to 6 files)</li>
+<li><code>_updater</code> for firmware</li>
+</ul>
+</li>
+<li><strong>Clone, Load, Save:</strong> Use Shift+Capture+Strike to access and navigate menu (layer knob for slot), Shift to audition or confirm.</li>
+<li><strong>Factory Reset:</strong> Hold Shift+Capture, press Strike 7x rapidly.</li>
+</ul>
+<hr />
+<h2>CV Expansion &amp; Voltage Ranges</h2>
+<ul>
+<li><strong>ALL CV Inputs:</strong> Bipolar ±5V for full knob travel; summed with knob position.<br />
+  (i.e., -5V = min, 0V = knob only, +5V = max; total range from -5V to +5V = 10V travel).</li>
+<li><strong>1V/Oct Input:</strong> Proper 1V/oct response, ±5V range.</li>
+<li><strong>Pulse Output:</strong> +5V triggers/gates (10ms or as set by mode).</li>
+</ul>
+<hr />
+<h2>Quick Reference: Front Panel (Numbers from Manual)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Name</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Condenser Microphone</td>
+<td>Onboard mic input</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Input</td>
+<td>Audio in (AC)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Input Level</td>
+<td>Preamplifier / gain</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Input Indicator</td>
+<td>Input presence/level LED</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dry/Wet</td>
+<td>Mix knob</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Output Level</td>
+<td>Output gain</td>
+</tr>
+<tr>
+<td>7/8</td>
+<td>Outputs 1/2</td>
+<td>Audio outs (mono/stereo modes)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Capture Button</td>
+<td>Start/stop recording</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Capture Pulse Input</td>
+<td>Pulse/gate record control</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Shift Button</td>
+<td>Alt/multi functions</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Layer</td>
+<td>Selects layer (alpha–zeta/omega)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Layer Indicators</td>
+<td>Layer identification</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Granular Stream Display</td>
+<td>Layer/scan/grain/rec/play LED bar</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Intensity</td>
+<td>Granulation density knob</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Intensity CV Input</td>
+<td>Grain density CV</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Strike Button</td>
+<td>Accent grain/undo/erase</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Strike Input</td>
+<td>Trigger grain</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Grain Window</td>
+<td>Envelope shape</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Grain Direction</td>
+<td>FWD/REV probability</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Grain Dir. Indicators</td>
+<td>FWD/REV grain LED</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Length</td>
+<td>Grain duration</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Length CV</td>
+<td>Duration CV</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Scan</td>
+<td>Position (or speed in Follow)</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Scan CV</td>
+<td>Position CV</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Spray</td>
+<td>Random offset</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Pulse Output</td>
+<td>Grain/onset/loop trigger/gate out</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Pitch</td>
+<td>Grain pitch</td>
+</tr>
+<tr>
+<td>29</td>
+<td>1V/Oct</td>
+<td>Pitch CV (1V/oct)</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Pitch Deviation</td>
+<td>Random/quant deviation</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Onset Input</td>
+<td>Audio onset detection input</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Onset Indicator</td>
+<td>Onset detection armed LED</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Sensitivity (Sense)</td>
+<td>Onset sens. or input 2 level</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Hold</td>
+<td>Min. time/gate length/loop time</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Dub</td>
+<td>Overdub/replacement ratio</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Additional Tips</h2>
+<ul>
+<li><strong>Shift + [Knob/button]:</strong> Many alternate functions/modes (see manual for combinations).</li>
+<li><strong>Wavetable Mode:</strong> Turn Length to full CCW—acts as a wavetable oscillator from the audio.</li>
+<li><strong>Accumulative Recording:</strong> Capture + Shift toggles accumulative mode for overdub collaging.</li>
+<li><strong>Track &amp; Hold:</strong> Shift (dbl tap+hold), then adjust parameters, they only activate on release.</li>
+</ul>
+<hr />
+<h3><a href="https://www.instruomodular.com/wp-content/uploads/2023/01/arbhar_v2_user_manual.pdf"><strong>Full Manual PDF (Instruō official)</strong></a></h3>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

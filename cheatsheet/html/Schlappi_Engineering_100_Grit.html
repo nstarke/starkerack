@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Schlappi_Engineering_100_Grit</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Schlappi Engineering — 100 Grit</h1>
+<ul>
+<li><a href="../../manuals/100_GRIT_MANUAL_20190826.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://schlappiengineering.com/100grit-manual.pdf">Schlappi Engineering 100 Grit Manual (PDF)</a><br />
+<em>(Manual also available via Schlappi Engineering website)</em></p>
+<hr />
+<h1><strong>Schlappi Engineering 100 Grit Cheat Sheet</strong></h1>
+<h2><strong>Module Overview</strong></h2>
+<ul>
+<li>Analog filter-based distortion/VCA with touch points for chaotic interaction.</li>
+<li>Based on a transistor ladder low-pass filter, OTA VCA, and distortion circuit.</li>
+<li>8 Touch Points for “circuit bending”-like performance.</li>
+</ul>
+<hr />
+<h2><strong>Panel Controls &amp; Functions</strong></h2>
+<h3><strong>Knobs</strong></h3>
+<ul>
+<li><strong>IN 1 / IN 2</strong>: Audio input gain for each input.</li>
+<li><strong>FREQUENCY (large center knob)</strong>: Filter cutoff frequency.</li>
+<li><strong>FM 1 / FM 2 (with CV pots under each)</strong>: Control cutoff via external CV.</li>
+<li><strong>RES</strong>: Filter resonance.</li>
+<li><strong>RES CV (with CV pot under RES)</strong>: External CV to resonance.</li>
+<li><strong>GAIN</strong>: Output/VCA gain and distortion amount.</li>
+<li><strong>GAIN CV (with CV pot under GAIN)</strong>: External CV to gain stage.</li>
+</ul>
+<h3><strong>Switches</strong></h3>
+<ul>
+<li><strong>Gain x100</strong>: Massive distortion/feedback switch.</li>
+</ul>
+<hr />
+<h2><strong>Input, Output, &amp; Touch Point Reference</strong></h2>
+<h3><strong>Audio Inputs</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Voltage Range</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IN 1</strong></td>
+<td>±12V (24Vpp)</td>
+<td>Main audio in (mixes to filter).</td>
+</tr>
+<tr>
+<td><strong>IN 2</strong></td>
+<td>±12V (24Vpp)</td>
+<td>Second audio in (mixes to filter).</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>CV Inputs</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Voltage Range</th>
+<th>Function</th>
+<th>Normalling/CV Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FM 1</strong></td>
+<td>±12V</td>
+<td>Filter cutoff CV (sums w/ FM 2).</td>
+<td>Norm: DIST (distortion output FM).</td>
+</tr>
+<tr>
+<td><strong>FM 2</strong></td>
+<td>±12V</td>
+<td>Filter cutoff CV (V/Oct okay for tracking).</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>RES CV</strong></td>
+<td>±12V</td>
+<td>Resonance CV.</td>
+<td>Norm: DIST (audio-rate resonance mod).</td>
+</tr>
+<tr>
+<td><strong>GAIN CV</strong></td>
+<td>±12V</td>
+<td>VCA gain and distortion depth.</td>
+<td>Norm: POLE 2 (second filter pole out FM).</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><em>Unity gain at 5V for GAIN and RES CV. Higher voltage = more gain.</em></li>
+</ul>
+<h3><strong>Audio Outputs</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Voltage Range</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OUT</strong></td>
+<td>up to ±11V</td>
+<td>Post-filter, pre-distortion (VCA/clean).</td>
+</tr>
+<tr>
+<td><strong>DIST</strong></td>
+<td>~±6V</td>
+<td>Distortion circuit output.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3><strong>Touch Points</strong></h3>
+<ul>
+<li><strong>Eight brass balls</strong> (shown in touch point map).  </li>
+<li>Each is a direct circuit node for “patching” with fingers, cables, clips, or conductive objects.</li>
+<li>Used for chaotic control and feedback.</li>
+</ul>
+<h4><strong>Touch Point Functions (Clockwise from top left)</strong></h4>
+<p><strong>Left Set:</strong>
+- DIST 2 OUT – Second distortion circuit out (audio).
+- GAIN CV – VCA gain CV node.
+- DIST 2 AMP PIN – Dist 2 amp core (capactive/feedback).
+- RES CV – Resonance CV node.</p>
+<p><strong>Right Set:</strong>
+- DIST 1 AMP PIN – Dist 1 amp core.
+- FREQ CV – Filter cutoff CV node.
+- DIST OUT – Main distortion out.
+- GAIN CV – Same as left.</p>
+<hr />
+<h2><strong>Headers (Jumpers)</strong></h2>
+<ul>
+<li><strong>J9: Input to Resonance</strong> – ON by default. Removes “bass drop” at high resonance. Remove for classic, whistling, self-oscillation style resonance.</li>
+<li><strong>J10: Output Source</strong> – Default right two pins (“VCA” output, OUT is post-VCA). Move to left pins for filter direct output.</li>
+</ul>
+<hr />
+<h2><strong>Calibration</strong></h2>
+<ul>
+<li><strong>RV3: Resonance Amplitude</strong> – Sets self-oscillation threshold.</li>
+<li><strong>RV4/RV8: Symmetry</strong> – Factory adjusted; do not touch.</li>
+</ul>
+<hr />
+<h2><strong>Typical Patch Setups</strong></h2>
+<h3><strong>VCF/VCA</strong></h3>
+<ul>
+<li>Audio In via IN 1, monitor OUT.</li>
+<li>GAIN above 75%: heavy distortion.</li>
+<li>ADD Env to GAIN CV for VCA.</li>
+<li>V/Oct to FM 2 = pitch tracking.</li>
+</ul>
+<h3><strong>Distortion</strong></h3>
+<ul>
+<li>Monitor DIST output.</li>
+<li>GAIN and GAIN CV = distortion level.</li>
+<li>Use RES CV for unique feedback sounds.</li>
+</ul>
+<h3><strong>Noise Box</strong></h3>
+<ul>
+<li>No input; monitor DIST out.</li>
+<li>All knobs ~25-60% up.</li>
+<li>Play touch points for chaotic noise.</li>
+</ul>
+<hr />
+<h2><strong>Extra Notes</strong></h2>
+<ul>
+<li><strong>All CV/audio inputs:</strong> Protected to ±12V (rails).</li>
+<li><strong>Touch Points:</strong> Safe to bridge/patch, always current-limited.</li>
+</ul>
+<hr />
+<h2><strong>Voltage Reference</strong></h2>
+<ul>
+<li><strong>Nominal input signals:</strong> ±5V (10Vpp), but up to ±12V is fine.</li>
+<li><strong>OUT:</strong> up to ±11V, rails possible with hot input/gain.</li>
+<li><strong>DIST:</strong> Up to ~±6V (clipped/limited by circuit).</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

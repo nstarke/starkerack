@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Acid_Rain_Constellation</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Acid Rain — Constellation</h1>
+<ul>
+<li><a href="../../manuals/Constellation_Manual_Firmware_1.1_4.7.2025.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><strong><a href="sandbox:/mnt/data/Constellation_Firmware_Manual_v1.1.pdf">Download: Constellation Firmware V1.1 Manual PDF</a></strong></p>
+<hr />
+<h1>Constellation Eurorack Cheat Sheet</h1>
+<h2>OVERVIEW</h2>
+<p><strong>Constellation</strong> is an 8-channel trigger/gate pattern generator with advanced Euclidean rhythm capabilities, rich logic, pattern modifiers (burst, ratchet, chance), polyrhythmic channel clocks, freely assignable CV modulation, and robust save/load options.</p>
+<hr />
+<h2>QUICK START</h2>
+<ol>
+<li><strong>Patch 1–5 Channel Outputs</strong> (top row of module) to drum modules:</li>
+<li>Ch1: Kick</li>
+<li>Ch2: Snare/Clap</li>
+<li>Ch3: Closed Hi-Hat</li>
+<li>Ch4: Open Hi-Hat</li>
+<li>
+<p>Ch5: Rimshot/other sound</p>
+</li>
+<li>
+<p><strong>Power on:</strong> Plays "4 on the floor" @120 BPM by default.</p>
+</li>
+<li>
+<p><strong>Press <code>load</code></strong> — select any of the 20 pulsing buttons (central 2 rows) for quick start patterns. Use <code>live</code> mode to play/save slots like a keyboard.</p>
+</li>
+<li>
+<p>Patch a slow-moving <strong>0–5 V CV</strong> source into CV Input I for pattern evolution.</p>
+</li>
+</ol>
+<hr />
+<h2>INPUT AND OUTPUT JACKS</h2>
+<h3>Inputs</h3>
+<ul>
+<li><strong>Clock (clk):</strong> External main clock input, expects 0–5V pulse. With cable inserted, switches to external clocking.</li>
+<li><strong>Reset:</strong> External reset (rising edge = reset).</li>
+<li><strong>CV Inputs (I–VIII):</strong></li>
+<li><strong>Assignable.</strong> Not fixed to channels; can independently or cascadingly control any parameter on any pattern/channel.</li>
+<li><strong>Voltage Ranges:</strong>  <ul>
+<li><code>Divide</code>, <code>Length</code>, <code>Ratchet</code>: <strong>0–5V (Unipolar)</strong></li>
+<li><code>Events</code>, <code>Rotate</code>, <code>Burst</code>, <code>Chance</code>, <code>Width</code>, <code>Mute</code>, <code>Load</code>: <strong>-5V to +5V (Bipolar)</strong>  </li>
+<li>See details below for modulation ranges.</li>
+</ul>
+</li>
+</ul>
+<h3>Outputs</h3>
+<ul>
+<li><strong>Clock:</strong> +5V/0V digital pulse (either internal or mirrored external clock, depending on clocking).</li>
+<li><strong>Reset:</strong> +5V pulse on reset event.</li>
+<li><strong>Channel Outputs (1–8):</strong> +5V when active, 0V inactive — outputting final channel pattern as trigger/gate.</li>
+</ul>
+<hr />
+<h2>FRONT PANEL CONTROL REFERENCE</h2>
+<h3>Buttons</h3>
+<ul>
+<li><strong>Top Row:</strong>  </li>
+<li><code>clock</code>, <code>reset</code>, <code>save</code>, <code>load</code>, <code>input</code>, <code>random</code></li>
+<li><strong>Middle Rows (Horizontal, 8 each):</strong>  </li>
+<li>Pattern Select (P1–P8), Channel Select (I–VIII), Channel Mute, Live</li>
+<li><strong>Pattern/Channel Parameter:</strong>  </li>
+<li><code>AND</code>, <code>OR</code>, <code>XOR</code>, <code>flop</code>, <code>width</code>, <code>burst</code>, <code>ratchet</code>, <code>chance</code>, <code>divide</code>, <code>rotate</code>, <code>events</code>, <code>length</code></li>
+<li><strong>Others:</strong>  </li>
+<li>Mute, Live, Flop, Logic, Pattern Select, Pattern Parameter</li>
+</ul>
+<h3>Encoder</h3>
+<ul>
+<li><strong>Navigation</strong> through channels/patterns/parameters/menus  </li>
+<li><strong>Adjust</strong> values (press for coarse/fine adjustment)</li>
+</ul>
+<hr />
+<h2>CHANNEL AND PARAMETER STRUCTURE</h2>
+<ul>
+<li><strong>8 Channels, each with 8 Patterns</strong> (64 patterns total)<ul>
+<li>Each pattern: Divide, Length, Events, Rotate, Burst, Ratchet, Chance</li>
+<li>Patterns combine via Logic (AND/OR/XOR).  </li>
+</ul>
+</li>
+<li><strong>Channel Parameters:</strong>  <ul>
+<li>Logic, Flip-flop (gate vs. trigger behavior), Width</li>
+</ul>
+</li>
+</ul>
+<h3>PATTERN MODIFIERS</h3>
+<ul>
+<li><strong>Burst:</strong> Each trigger = sequence of triggers (one per clock).</li>
+<li><strong>Ratchet:</strong> Each trigger repeated between clocks (dense cluster).</li>
+<li><strong>Chance:</strong> 0–100% probabilistic gate per event.</li>
+</ul>
+<hr />
+<h2>NAVIGATION &amp; MENUS</h2>
+<ul>
+<li><strong>Edit Mode:</strong> Default, full parameter editing.</li>
+<li><strong>Clock Menu:</strong> BPM (internal clock, tap tempo), main clock div/mult, swing, channel clocks per channel.<ul>
+<li><code>width</code> button: main clock swing (50–90%).</li>
+<li><code>mute</code> button: stops/starts internal clock.</li>
+<li><code>AND</code> button: tap tempo.</li>
+</ul>
+</li>
+<li><strong>Mute Menu:</strong> Mute channels/patterns; press again to unmute.</li>
+<li><strong>Save/Load Menu:</strong>  <ul>
+<li>Save/Load any channel/patterns into 20 slots per bank (999 banks).</li>
+<li>Save/load channel mutes, main clock, input assignments as options.</li>
+<li><code>reset</code> in load menu: forces re-sync.</li>
+</ul>
+</li>
+<li><strong>Live Mode:</strong>  <ul>
+<li>Play save slots "momentarily" (release = revert).</li>
+<li>Momentarily mute channels.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>CV INPUT MODULATION SUMMARY</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Volt. Range</th>
+<th style="text-align: left;">Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Divide</td>
+<td style="text-align: left;">0–5V unipolar</td>
+<td style="text-align: left;">1 to base value (set)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Length</td>
+<td style="text-align: left;">0–5V unipolar</td>
+<td style="text-align: left;">1 to base value (set)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Events</td>
+<td style="text-align: left;">-5V–+5V</td>
+<td style="text-align: left;">0 to length, centered at base value</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rotate</td>
+<td style="text-align: left;">-5V–+5V</td>
+<td style="text-align: left;">0 to length, centered at base value</td>
+</tr>
+<tr>
+<td style="text-align: left;">Burst</td>
+<td style="text-align: left;">-5V–+5V</td>
+<td style="text-align: left;">1 to max burst, centered at base value</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ratchet</td>
+<td style="text-align: left;">0–5V unipolar</td>
+<td style="text-align: left;">1 to base value (set)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Chance</td>
+<td style="text-align: left;">-5V–+5V</td>
+<td style="text-align: left;">0-100%, centered at base value</td>
+</tr>
+<tr>
+<td style="text-align: left;">Width</td>
+<td style="text-align: left;">-5V–+5V</td>
+<td style="text-align: left;">0–100%, centered at base value</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mute</td>
+<td style="text-align: left;">Gate/Trigger</td>
+<td style="text-align: left;">Mutes/unmutes on gate/trigger edge</td>
+</tr>
+<tr>
+<td style="text-align: left;">Load</td>
+<td style="text-align: left;">Gate/Trigger</td>
+<td style="text-align: left;">Loads selected save slot while high</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><em>CV is sampled once per rising edge of the channel clock.</em></li>
+</ul>
+<hr />
+<h2>TIPS AND UTILITIES</h2>
+<ul>
+<li><strong>Pattern Reset:</strong> Hold pattern button + press reset.</li>
+<li><strong>CV Inputs Cascade:</strong> Inputs I–VIII cascade L → R for multi-parameter modulation; can disable in settings (<code>cv_norm = 0</code>).</li>
+<li><strong>Save/Load Individual Channels:</strong> In save menu, press only channels to save.</li>
+<li><strong>Autosave:</strong> Module autosaves every few seconds.</li>
+<li><strong>Factory Reset:</strong> Delete all bank folders from SD card for blank state.</li>
+<li><strong>Restore Quickstart Patterns:</strong> Download <code>000.zip</code> from Acid Rain website.</li>
+</ul>
+<hr />
+<h2>LOGIC MODES (Channel):</h2>
+<ul>
+<li><strong>AND:</strong> Only outputs high if all active patterns are high.</li>
+<li><strong>OR:</strong> Outputs high if any active patterns are high.</li>
+<li><strong>XOR:</strong> Outputs high if odd number of patterns are high.</li>
+</ul>
+<hr />
+<h2>FIRMWARE UPDATES</h2>
+<ol>
+<li>Power off, remove/inject micro SD to PC.</li>
+<li>Download latest firmware; place <code>FW.BIN</code> on root.</li>
+<li>Reinsert SD, power on, wait for update animation.</li>
+</ol>
+<hr />
+<h2>QUICK REFERENCE: BUTTON SHORTCUTS</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Pattern Reset</td>
+<td style="text-align: left;">Hold Pattern + Press Reset</td>
+</tr>
+<tr>
+<td style="text-align: left;">Enter Mute Menu</td>
+<td style="text-align: left;">Press <code>mute</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Save/Load Bank</td>
+<td style="text-align: left;"><code>save</code> / <code>load</code>, select bank/slot</td>
+</tr>
+<tr>
+<td style="text-align: left;">Enter Clock Menu</td>
+<td style="text-align: left;">Press <code>clock</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Live Mode</td>
+<td style="text-align: left;">Press <code>live</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Coarse Adjust</td>
+<td style="text-align: left;">Encoder short press (flashing display)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Randomize Parameter</td>
+<td style="text-align: left;">Press <code>random</code> with parameter selected</td>
+</tr>
+<tr>
+<td style="text-align: left;">Remove CV Assign</td>
+<td style="text-align: left;">Hold Reset + Input button in Input Menu</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tap Tempo</td>
+<td style="text-align: left;">Press "AND" button in Clock Menu</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Manual &amp; Resources:</strong><br />
+- <a href="sandbox:/mnt/data/Constellation_Firmware_Manual_v1.1.pdf">Constellation Firmware Manual PDF</a><br />
+- <a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

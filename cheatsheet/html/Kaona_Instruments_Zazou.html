@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kaona_Instruments_Zazou</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Kaona Instruments — Zazou</h1>
+<ul>
+<li><a href="../../manuals/Zazou_manual_ENG_V1-0.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><strong><a href="https://www.kaona.fr/manuel-zazou-en.pdf">Zazou Eurorack Module Manual (PDF)</a></strong></p>
+<hr />
+<h1><strong>ZAZOU Cheat Sheet</strong></h1>
+<p><em>Eurorack Generative Sequencer (Firmware 1.0)</em></p>
+<hr />
+<h2><strong>Panel Overview &amp; Controls</strong></h2>
+<h3><strong>Encoders</strong></h3>
+<ul>
+<li><strong>Encoder 1:</strong> Menu navigation (short click = enter, long click = special functions)</li>
+<li><strong>Encoder 2:</strong> Select/adjust algorithms, sequences (short click = select, rotate = change value)</li>
+<li><strong>Encoder 3:</strong> Fine parameter changes, confirmations (click = confirm/select)</li>
+</ul>
+<h3><strong>Buttons (4, color-coded)</strong></h3>
+<ul>
+<li><strong>Track selection (Red, Yellow, Green, Blue)</strong></li>
+<li><strong>Base:</strong> Activate/deactivate tracks for parameter edits</li>
+<li><strong>Algorithms/Sequences:</strong> Manual gate (play note from track)</li>
+<li><strong>Live:</strong> Mute/unmute each track</li>
+</ul>
+<h3><strong>Transport Buttons</strong></h3>
+<ul>
+<li><strong>Play/Stop:</strong> Start/stop note generation (also via CV)</li>
+<li><strong>Reset:</strong> Restart sequence from beginning (also via CV)</li>
+<li><strong>Change:</strong> Advance sequence by one step (also via CV)</li>
+</ul>
+<hr />
+<h2><strong>Input/Output Jacks (with voltages)</strong></h2>
+<h3><strong>Inputs (CV)</strong></h3>
+<ul>
+<li><strong>Gate Inputs (x4, color-coded):</strong>  </li>
+<li><em>4 Tracks, triggers note generation per channel</em>  </li>
+<li><strong>Expected:</strong> Standard Eurorack gates/triggers (0V = low, ≥3V = high)</li>
+<li><strong>Play/Stop In:</strong> Gate input to globally start/stop sequences  </li>
+<li><strong>Expected:</strong> Gate/trig, ≥3V active</li>
+<li><strong>Reset In:</strong> Gate input to restart all sequences  </li>
+<li><strong>Expected:</strong> Gate/trig, ≥3V active</li>
+<li><strong>Change In:</strong> Gate input: advance steps  </li>
+<li><strong>Expected:</strong> Gate/trig, ≥3V active</li>
+</ul>
+<h3><strong>Outputs</strong></h3>
+<ul>
+<li><strong>Gate Outputs (x4):</strong>  </li>
+<li><em>One per channel; pulses active when note is sounding</em>  </li>
+<li><strong>Levels:</strong> Standard Eurorack gate (0V = low, 5V = high)</li>
+<li><strong>1V/Oct Note Outputs (x4):</strong>  </li>
+<li><em>Outputs pitch per note</em>  </li>
+<li><strong>Range:</strong> 1V/oct (transposable/octave range settable), up to 5V (default) or 8V max (set in config)</li>
+<li><strong>CV Outputs (x4):</strong>  </li>
+<li><em>Outputs note velocity</em>  </li>
+<li><strong>Range:</strong> 0–5V (or 0–8V, configurable)</li>
+<li><strong>MIDI Out (TRS-A/B configurable):</strong>  </li>
+<li><em>Poly/multitimbral MIDI note &amp; velocity output, up to 4 channels</em></li>
+<li><strong>MIDI Channel:</strong> Assignable per track</li>
+</ul>
+<h4><strong>Other Connections</strong></h4>
+<ul>
+<li><strong>SD Card:</strong> For saves, not needed to function but enables manual save/load</li>
+<li><strong>Gate Connector:</strong> For dedicated cable link to Skippy (rhythm generator)</li>
+<li><strong>USB Port:</strong> <em>Firmware updates only (never connect with power plugged in!)</em></li>
+<li><strong>Expander Port:</strong> Reserved for future use, do not connect anything!</li>
+</ul>
+<hr />
+<h2><strong>Main Modes / Menus</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Section</strong></th>
+<th><strong>Entry</strong></th>
+<th><strong>Functions</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base</td>
+<td>Short click Enc 1</td>
+<td>Set key/root, scale, global settings, per-track tuning</td>
+</tr>
+<tr>
+<td>Algorithms</td>
+<td>Short click Enc 2</td>
+<td>Choose &amp; parameterize melodic algorithm per track</td>
+</tr>
+<tr>
+<td>Sequences</td>
+<td>Long click Enc 2</td>
+<td>Set chord/note progressions, chain chords, steps</td>
+</tr>
+<tr>
+<td>Live</td>
+<td>Short click Enc 3</td>
+<td>Circle of fifths display, mute/unmute tracks</td>
+</tr>
+<tr>
+<td>Files</td>
+<td>Long click Enc 3</td>
+<td>Save/load presets/tracks/sequences (SD needed)</td>
+</tr>
+<tr>
+<td>Configuration</td>
+<td>Long click Enc 1</td>
+<td>Set MIDI channels, clock/ref BPM, output voltages</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Quick Reference: Algorithms</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Algorithm</strong></th>
+<th><strong>Description/Style</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RANDOM</td>
+<td>Random notes in scale/chord</td>
+</tr>
+<tr>
+<td>ARPEGGIO</td>
+<td>Many arpeggio styles &amp; patterns</td>
+</tr>
+<tr>
+<td>WALKINGBASS</td>
+<td>Basslines (jazz, blues, boogie, etc.)</td>
+</tr>
+<tr>
+<td>SERIAL</td>
+<td>Serialist (12-tone); chromatic only</td>
+</tr>
+<tr>
+<td>CANTOR</td>
+<td>Fractal; pattern via recursion</td>
+</tr>
+<tr>
+<td>FIBONACCI</td>
+<td>Fibo sequence; melodic propagation</td>
+</tr>
+<tr>
+<td>INTERVAL</td>
+<td>Repeated intervals (set multipliers)</td>
+</tr>
+<tr>
+<td>SIERPINSKI</td>
+<td>Fractal division/recurrence patterns</td>
+</tr>
+<tr>
+<td>MANDELBROT</td>
+<td>Complex → simple patterns</td>
+</tr>
+<tr>
+<td>JULIA</td>
+<td>Fractal, diverging/repetitive notes</td>
+</tr>
+</tbody>
+</table>
+<p><em>All algorithms have extensive parameters (chord, octave, duration, velocity, ornamentation, etc).</em></p>
+<hr />
+<h2><strong>Selections</strong></h2>
+<h3><strong>Scales (20+)</strong></h3>
+<p>Major, Minor, Nat/Harm Melodic minors, Pentatonics, Blues (M/m), Jazz modes (Ionian, Dorian, etc), Chromatic, Bebop, etc.</p>
+<h3><strong>Chord Types (selectable per algorithm)</strong></h3>
+<ul>
+<li>Major (M), Minor (m), 6, 7, M7, m7, sus, dim, aug, add9, add11, add13, etc.</li>
+<li>“SCALE” chord: allows access to all notes in selected scale.</li>
+</ul>
+<hr />
+<h2><strong>Other Settings</strong></h2>
+<ul>
+<li><strong>Root Note:</strong> Sets base key per track or globally</li>
+<li><strong>Sequences:</strong> Choose progression (II-V-I, Circle of 5ths/4ths, blues 12-bar, etc.) or random/root etc.</li>
+<li><strong>Velocity CV Output Voltage Range:</strong> 0–5V or 0–8V (set in Config)</li>
+<li><strong>1V/oct Note Output:</strong> Octave and max voltage clamped (5V/8V, configurable)</li>
+<li><strong>BPM:</strong> Fixed or measured from PLAY/STOP gate In</li>
+</ul>
+<hr />
+<h2><strong>Tips</strong></h2>
+<ul>
+<li><strong>All settings are per-track or global (when all track buttons active)</strong></li>
+<li><strong>All parameters are auto-saved. SD card enables manual save/load/recall.</strong></li>
+<li><strong>Muting/Unmuting in Live mode is instant via track color button.</strong></li>
+</ul>
+<hr />
+<h2><strong>Troubleshooting</strong></h2>
+<ul>
+<li><strong>MIDI TRS not working?</strong> Set TRS-A/B switch accordingly (change only while module is off)</li>
+<li><strong>Note voltage or velocity too high?</strong> Limit max output to 5V in config</li>
+<li><strong>USB use:</strong> <em>Never connect USB while module is powered!</em></li>
+</ul>
+<hr />
+<h2><strong>Voltage Ranges Reference</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Jack</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Voltage Range</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate Inputs</td>
+<td>Input (per track)</td>
+<td>≥3V = trigger</td>
+</tr>
+<tr>
+<td>Play/Reset/Change</td>
+<td>Input</td>
+<td>≥3V = trigger</td>
+</tr>
+<tr>
+<td>Gate Outputs</td>
+<td>Output (per track)</td>
+<td>0V or 5V</td>
+</tr>
+<tr>
+<td>1V/Oct Output</td>
+<td>Output (per track)</td>
+<td>0–5V (or 0–8V)</td>
+</tr>
+<tr>
+<td>CV Output</td>
+<td>Output (per track)</td>
+<td>0–5V (or 0–8V)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Links</strong></h2>
+<ul>
+<li><strong><a href="https://www.kaona.fr/manuel-zazou-en.pdf">Official Manual PDF</a></strong></li>
+<li><strong><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></strong></li>
+</ul>
+</body>
+</html>

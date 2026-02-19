@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Subharmonicon</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Subharmonicon</h1>
+<ul>
+<li><a href="../../manuals/Subharmonicon_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.moogmusic.com/sites/default/files/2020-09/Subharmonicon-Manual-v1-Web.pdf">Moog Subharmonicon User Manual PDF</a></p>
+<h1>Moog Subharmonicon Eurorack Cheat Sheet</h1>
+<p><strong>Type:</strong> Semi-modular analog polyrhythmic synthesizer (60HP Eurorack compatible)<br />
+<strong>Main Features:</strong><br />
+- 2 VCOs (each with 2 subharmonics, 1-16 integer division undertones)<br />
+- 4 Rhythm Generators (integer tempo divisions, create polyrhythms)<br />
+- 2 x 4-step Analog Sequencers<br />
+- Moog 4-pole Ladder Filter<br />
+- Dual Envelope Generators (Attack/Decay, for VCF &amp; VCA)<br />
+- 32-point Patchbay (17 In, 15 Out)</p>
+<hr />
+<h2>Quickstart</h2>
+<ol>
+<li><strong>Power:</strong> +12V only, 360mA max (no -12V). See manual for safe installation.</li>
+<li><strong>Audio Out:</strong> 1/4" on the back, or <code>VCA OUT</code> on patchbay (Eurorack level, 10Vpp).</li>
+<li><strong>Basic Flow:</strong> Oscillators &gt; Mixer &gt; Filter &gt; VCA &gt; Audio Out.</li>
+<li><strong>Rhythm Generators:</strong> Divide master tempo by 1-16 (per generator), assign to sequencers for polyrhythms.</li>
+<li><strong>Sequencers:</strong> 4 steps per, pitch (and optionally integer division for subosc), assign to VCO, Sub 1, and/or Sub 2.</li>
+<li><strong>Patchbay:</strong> Use to break internal routing and integrate with external CV/midi/eurorack.</li>
+</ol>
+<hr />
+<h2>Panel Controls</h2>
+<h3>Knobs</h3>
+<ul>
+<li><strong>VCO FREQ (1 &amp; 2):</strong> Oscillator frequency, 4 octave range (Middle C to C6).</li>
+<li><strong>SUB FREQ (x4):</strong> Division from 1-16 (clockwise = unison, counter = /16).</li>
+<li><strong>Waveform Select (toggle, x2):</strong> Square / PWM + Sub Saw / Saw.</li>
+<li><strong>Mixer Levels:</strong> VCO 1, SUB 1, SUB 2, VCO 2, SUB 1, SUB 2.</li>
+<li><strong>CUTOFF:</strong> VCF Cutoff, 20Hz–20kHz.</li>
+<li><strong>RESONANCE:</strong> Self-oscillate at max.</li>
+<li><strong>VOLUME:</strong> Main output level.</li>
+<li><strong>VCF EG:</strong> ATTACK (1ms–10s), DECAY (5ms–10s), AMT (bi-directional).</li>
+<li><strong>VCA EG:</strong> ATTACK (1ms–10s), DECAY (5ms–10s).</li>
+<li><strong>TEMPO:</strong> .333Hz–50Hz (20–3000 BPM).</li>
+</ul>
+<h3>Buttons</h3>
+<ul>
+<li><strong>SEQ n ASSIGN:</strong> Assign step CV to VCO, Sub 1, and/or Sub 2.</li>
+<li><strong>Quantize:</strong> 12-ET, 8-ET, 12-JI, 8-JI, OFF.</li>
+<li><strong>SEQ OCT:</strong> ±1, ±2, ±5 step range.</li>
+<li><strong>PLAY:</strong> Sequencers on/off.</li>
+<li><strong>RESET:</strong> Resets sequencers/rhythm.</li>
+<li><strong>NEXT:</strong> Advances step.</li>
+<li><strong>EG:</strong> On/Off/Held (Hold to tune with EGs open).</li>
+<li><strong>TRIGGER:</strong> Manual envelope retrigger.</li>
+</ul>
+<h3>Rhythm Gen Section</h3>
+<ul>
+<li><strong>RHYTHM (x4):</strong> Integer clock divider [1–16].</li>
+<li><strong>SEQ 1 &amp; SEQ 2 assign (x4):</strong> Assign rhythm output to sequencers.</li>
+</ul>
+<hr />
+<h2>Patchbay Reference</h2>
+<p><strong>Inputs</strong> (Normal text):<br />
+| Jack                | Function                          | Range        |
+|---------------------|-----------------------------------|--------------|
+| VCO 1 IN            | VCO 1 1V/Oct pitch CV             | -5V to +5V   |
+| VCO 1 SUB IN        | CV choose Sub 1/2 divisor         | -5V to +5V   |
+| VCO 1 PWM IN        | PWM Mod for VCO 1 &amp; subs          | -5V to +5V   |
+| VCA IN              | VCA CV (volume)                   | 0V to +8V    |
+| VCO 2 IN            | VCO 2 1V/Oct pitch CV             | -5V to +5V   |
+| VCO 2 SUB IN        | CV choose Sub 1/2 divisor         | -5V to +5V   |
+| VCO 2 PWM IN        | PWM Mod for VCO 2 &amp; subs          | -5V to +5V   |
+| CUTOFF IN           | Filter cutoff modulation           | -5V to +5V   |
+| PLAY IN             | Play/stop gate (rising/falling)    | 0V to +10V   |
+| RESET IN            | Sequencer/rhythm reset/trig/hold   | 0V to +10V   |
+| TRIGGER IN          | EG trig input                      | 0V to +10V   |
+| RHYTHM 1–4 IN       | Integer value, Rhythm (centered)   | -5V to +5V   |
+| MIDI IN             | Mini-jack, Type A                  | —            |
+| CLOCK IN            | External clock override            | 0V to +10V   |</p>
+<p><strong>Outputs</strong> (Reverse text):<br />
+| Jack                | Function                          | Range        |
+|---------------------|-----------------------------------|--------------|
+| VCA OUT             | Main Eurorack level audio out      | 10Vpp        |
+| VCO 1 OUT           | VCO 1 audio/CV                    | 10Vpp        |
+| VCO 1 SUB 1/2       | Sub oscillator outputs             | 10Vpp        |
+| VCO 2 OUT           | VCO 2 audio/CV                    | 10Vpp        |
+| VCO 2 SUB 1/2       | Sub oscillator outputs             | 10Vpp        |
+| SEQ 1 OUT           | Seq 1 CV out (follows quantize)    | -5V to +5V   |
+| SEQ 1 CLK OUT       | Seq 1 clock pulse                  | 0V to +5V    |
+| SEQ 2 OUT           | Seq 2 CV out (follows quantize)    | -5V to +5V   |
+| SEQ 2 CLK OUT       | Seq 2 clock pulse                  | 0V to +5V    |
+| CLOCK OUT           | Master clock (all sources)         | 0V to +10V   |
+| TRIGGER OUT         | EG trigger pulse                   | 0V to +5V    |
+| VCA EG OUT          | VCA envelope CV                    | 0V to +8V    |
+| VCF EG OUT          | VCF envelope CV                    | 0V to +8V    |</p>
+<hr />
+<h2>Voltage Ranges</h2>
+<ul>
+<li><strong>Pitch CV inputs (VCO 1/2 IN):</strong> 1V/oct, -5V to +5V</li>
+<li><strong>PWM, Subharmonic, Rhythm inputs:</strong> -5V to +5V</li>
+<li><strong>CUTOFF, VCA CV IN:</strong> CUTOFF: -5V to +5V; VCA: 0V to +8V</li>
+<li><strong>Gate/Trigger/Reset:</strong> 0V (low), +10V (high, trigger/gate)</li>
+<li><strong>Audio Outputs:</strong> 10V peak-to-peak (Eurorack level)</li>
+<li><strong>Envelope Outputs (VCA/VCF EG):</strong> 0V to +8V</li>
+</ul>
+<hr />
+<h2>MIDI &amp; Other Notes</h2>
+<ul>
+<li>MIDI input via included Type A minijack adapter: clock, note, CC messages (see manual for full CC list).</li>
+<li>Supports just intonation and equal temperament quantization.</li>
+<li>All functions can be decoupled from quantization/seq octave settings for advanced patching.</li>
+<li>All internal routing can be overridden with patch cables.</li>
+</ul>
+<hr />
+<h2>Links</h2>
+<ul>
+<li><a href="https://www.moogmusic.com/sites/default/files/2020-09/Subharmonicon-Manual-v1-Web.pdf">Moog Subharmonicon Manual PDF</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+</body>
+</html>

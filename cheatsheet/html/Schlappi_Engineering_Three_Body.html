@@ -1,0 +1,288 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Schlappi_Engineering_Three_Body</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Schlappi Engineering — Three Body</h1>
+<ul>
+<li><a href="../../manuals/three_body_manual_01302023a.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.schlappiengineering.com/downloads/schlappi_three_body_manual.pdf"><strong>Download the Three Body Manual (PDF)</strong></a><br />
+<em>Below is a condensed "cheat sheet" reference for the Schlappi Engineering Three Body oscillator module, including jack/knob/voltage details and an operator's quick-start guide.</em></p>
+<hr />
+<h1>Three Body Cheat Sheet</h1>
+<h2>Overview</h2>
+<ul>
+<li><strong>Triple digital oscillator</strong> for phase and FM synthesis.</li>
+<li>Flexible normalization between oscillators for complex stereo, drone, and FM patches.</li>
+<li>Switchable mode/state per oscillator for FREE (classic VCO/LFO) or RATIO (FM/phase/carrier).</li>
+</ul>
+<hr />
+<h2>Jack Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Voltage Range</th>
+<th>Function</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>V/OCT (per osc)</strong></td>
+<td>In</td>
+<td>-8V to +8V</td>
+<td>Linear pitch, best tracking -5V to +5V</td>
+<td>Tracks 1V/oct (+RATIO in ratio mode)</td>
+</tr>
+<tr>
+<td><strong>FM</strong></td>
+<td>In</td>
+<td>-8V to +8V</td>
+<td>Frequency modulation (Expo/Lin)</td>
+<td>Will clip above 16Vpp (bipolar), 8V (uni)</td>
+</tr>
+<tr>
+<td><strong>PHASE</strong></td>
+<td>In</td>
+<td>-8V to +8V</td>
+<td>Phase modulation</td>
+<td>Always active, state independent</td>
+</tr>
+<tr>
+<td><strong>FM/PHASE INDEX</strong></td>
+<td>In</td>
+<td>0V to +10V</td>
+<td>Index VCA CV (mod amount)</td>
+<td>Unipolar, will clip below 0V/above 10V</td>
+</tr>
+<tr>
+<td><strong>SYNC</strong></td>
+<td>In</td>
+<td>~0.7V threshold</td>
+<td>Hard sync or ratio tracking</td>
+<td>Rising edge triggers sync/tracking</td>
+</tr>
+<tr>
+<td><strong>TRANSPOSE</strong></td>
+<td>In</td>
+<td>-8V to +8V</td>
+<td>Global pitch offset</td>
+<td>No effect in ratio mode</td>
+</tr>
+<tr>
+<td><strong>SINE</strong></td>
+<td>Out</td>
+<td>-5V to +5V</td>
+<td>Sine wave</td>
+<td>Always available</td>
+</tr>
+<tr>
+<td><strong>COSINE</strong></td>
+<td>Out</td>
+<td>-5V to +5V</td>
+<td>Cosine wave (center osc only)</td>
+<td>90° ahead of sine (nominal, not under PM)</td>
+</tr>
+<tr>
+<td><strong>TRIANGLE</strong></td>
+<td>Out</td>
+<td>-5V to +5V</td>
+<td>Triangle wave</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SAW</strong></td>
+<td>Out</td>
+<td>-5V to +5V</td>
+<td>Saw wave</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>COSAW</strong></td>
+<td>Out</td>
+<td>-5V to +5V</td>
+<td>Cosine saw (center osc only)</td>
+<td>90° ahead of saw</td>
+</tr>
+<tr>
+<td><strong>SQUARE</strong></td>
+<td>Out</td>
+<td>-5V to +5V</td>
+<td>Square wave</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>All outputs are bipolar, DC-coupled, ~10V peak-to-peak.</em></p>
+<hr />
+<h2>Control Summary</h2>
+<h3>Knobs (per oscillator unless noted)</h3>
+<ul>
+<li><strong>COARSE/MULT</strong> – Coarse pitch / Ratio Multiplier</li>
+<li><strong>FINE/DIV</strong> – Fine pitch / Ratio Divider</li>
+<li><strong>FM INDEX</strong> – FM depth (outer oscillators)</li>
+<li><strong>PHASE CV</strong> – Phase modulation depth (outer oscillators)</li>
+<li><strong>PHASE INDEX 1/2</strong> – Phase mod index depth (center oscillator, two separate inputs)</li>
+<li><strong>FM CV</strong> – FM modulation depth (center oscillator)</li>
+</ul>
+<h3>Jacks (per oscillator)</h3>
+<ul>
+<li>See Jack Reference above</li>
+</ul>
+<h3>Switches (per oscillator)</h3>
+<ul>
+<li><strong>FREE</strong> / <strong>RATIO</strong></li>
+<li><em>FREE</em>: Classic VCO/LFO mode (expo/linear FM &amp; standard pitch)</li>
+<li><em>RATIO</em>: Tracks center or external via ratio (FM/phase in ratio domain)</li>
+<li><strong>LIN</strong> / <strong>EXP</strong> / <strong>PH (PHASE)</strong></li>
+<li>FM/Phase mode: Linear, Exponential, or Phase</li>
+<li><strong>HIGH/MULT</strong> / <strong>LOW/DIV</strong></li>
+<li>Range or multiply/divide for ratio/carrier frequency</li>
+<li>(Center has additional phase index controls)</li>
+</ul>
+<h3>Mode Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Free Expo</td>
+<td>LFO/VCO with exponential FM</td>
+</tr>
+<tr>
+<td>Free Lin</td>
+<td>LFO/VCO with linear FM</td>
+</tr>
+<tr>
+<td>Ratio Phase</td>
+<td>Tracking (FM/PM) with phase mod and CV over mult/div</td>
+</tr>
+<tr>
+<td>Ratio Lin</td>
+<td>Tracking with linear FM and CV over mult/div</td>
+</tr>
+</tbody>
+</table>
+<h3>Indicators/LEDs</h3>
+<ul>
+<li>Three large LEDs: Show sine output (blue=pos, red=neg, purple=audio rate)</li>
+<li>Four small LEDs: Show index VCA modulation activity</li>
+</ul>
+<hr />
+<h2>Voltage Ranges (Summary)</h2>
+<ul>
+<li><strong>V/OCT, PHASE, FM inputs:</strong> -8V to +8V accepted; best tracking -5V to +5V</li>
+<li><strong>INDEX / PHASE INDEX inputs:</strong> 0V to +10V unipolar (envelopes, will clip below/above)</li>
+<li><strong>SYNC in:</strong> ~0.7V rising edge triggers sync/tracking</li>
+<li><strong>Outputs:</strong> -5V to +5V typical, up to ~12Vpp on some systems</li>
+</ul>
+<hr />
+<h2>Basic Patching Tips</h2>
+<ul>
+<li><strong>Default Stereo FM:</strong> Use center oscillator as modulator, outer oscillators as ratios/carriers.</li>
+<li><strong>Phase Modulation:</strong> Center oscillator can receive phase mod from both outer oscillators, patched or normalized.</li>
+<li><strong>Cross Modulation:</strong> Patch outer phase or FM ins to opposite outs for wild textures.</li>
+<li><strong>Ratio Tracking:</strong> Outer oscillators in RATIO track to center osc, creating classic DX-style FM when modulating index/depth.</li>
+<li><strong>SYNC:</strong> Feed external clock/signal to SYNC for hard sync (FREE) or ratio tracking (RATIO).</li>
+</ul>
+<hr />
+<h2>Internal Normalization</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Normalized From</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Center PHASE (1/2)</td>
+<td>Outer oscillators' SINE outs</td>
+</tr>
+<tr>
+<td>Outer FM (L/R)</td>
+<td>Center SINE / COSINE out</td>
+</tr>
+<tr>
+<td>Outer PHASE (L&lt;-&gt;R)</td>
+<td>Opposite SINE out</td>
+</tr>
+<tr>
+<td>Outer RATIO SYNC</td>
+<td>Tracks center if nothing patched</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Power Draw</h2>
+<ul>
+<li><strong>+12V:</strong> 95mA</li>
+<li><strong>-12V:</strong> 50mA</li>
+<li><strong>Inrush:</strong> 200mA on +12V at power up</li>
+</ul>
+<hr />
+<h2>Back Panel Header Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expander</td>
+<td>Unused (future)</td>
+</tr>
+<tr>
+<td>PLL Mode</td>
+<td>On = Phase lock for external tracking (useful for LFO/oscilloscope)</td>
+</tr>
+<tr>
+<td>Ext. Filter</td>
+<td>Switches noise filtering for OSC1,3 PHASE &amp; OSC2 FM (Low/High)</td>
+</tr>
+<tr>
+<td>Sq. Phase</td>
+<td>Remove phase mod from square out for pure/sub recovery</td>
+</tr>
+<tr>
+<td>Phase Dir</td>
+<td>Same direction for all outs (preserves phase relationship)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Calibration</h2>
+<ul>
+<li>All units pre-calibrated; calibrate only if necessary (unlikely).</li>
+<li>Use back-panel buttons, 0V and 4V source, follow manual.</li>
+</ul>
+<hr />
+<h2>Quick Reference -- Basic Patch Ideas</h2>
+<ul>
+<li><strong>Unmodulated Ratio FM:</strong> Center FREE/HIGH, right RATIO, mult/div to tune harmonics.</li>
+<li><strong>Classic PM:</strong> Center SINE/COSINE outs, phase index up, cross modulate outers for rich stereo.</li>
+<li><strong>Dub Bass:</strong> Seq clock into left SYNC in ratio mode, mod input to left RATIO, monitor center out.</li>
+<li><strong>Rhythmic Creaks:</strong> Center FREE, LOW; outer RATIO or FREE, lots of phase index and cross mod.</li>
+</ul>
+<hr />
+<h2>More Info</h2>
+<ul>
+<li><a href="https://www.schlappiengineering.com/three-body">Schlappi Engineering - Three Body Page</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Abstract_Data_ADE-33_Event_Boss</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Abstract Data — ADE-33 Event Boss</h1>
+<ul>
+<li><a href="../../manuals/ADE33_Manual_v1_0.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.abstractdata.biz/ADE-33/ADE-33-User-Guide-v101.pdf"><strong>Download the ADE-33 Event Boss Manual PDF</strong></a></p>
+<hr />
+<h1>ADE-33 EVENT BOSS – CHEAT SHEET</h1>
+<p><strong>Rhythm and Pattern Creation and Manipulation Module</strong><br />
+<em>By Abstract Data Ltd. – v1.0.1</em></p>
+<hr />
+<h2>Quick Reference Panel Functions</h2>
+<h3>BUTTONS &amp; CONTROLS</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MODE SELECT</strong></td>
+<td>Click: Cycle forward Local/Global Modes <br> Double-Click: Cycle backward <br> Hold: Edit</td>
+</tr>
+<tr>
+<td><strong>GATE A1/A2 SELECT</strong></td>
+<td>Click: Toggle between IN: GATE A1 and A2 <br> Double-Click: Toggle backward <br> Hold: Edit</td>
+</tr>
+</tbody>
+</table>
+<h3>INDICATORS</h3>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MODE LEDs 1-6</strong></td>
+<td>Selected Local (or Global) Mode</td>
+</tr>
+<tr>
+<td><strong>A1/A2 SELECT LED 1-2</strong></td>
+<td>Displays active input (A1 or A2)</td>
+</tr>
+<tr>
+<td><strong>OUTPUT LED</strong></td>
+<td>Shows output status (On = High/+5V, Off = Low/0V)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>INPUT / OUTPUT JACKS</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Full Name</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IN: MODE SELECT/ RESET</strong></td>
+<td>Mode Select / Count Reset</td>
+<td>Event: Steps thru Local Modes; CV: Jumps by voltage</td>
+<td>0 to +5V</td>
+</tr>
+<tr>
+<td><strong>IN: GATE A1</strong></td>
+<td>Event Input A1</td>
+<td>Event input for all modes</td>
+<td>0 to +5V</td>
+</tr>
+<tr>
+<td><strong>IN: GATE A2</strong></td>
+<td>Event Input A2</td>
+<td>Event input for all modes</td>
+<td>0 to +5V</td>
+</tr>
+<tr>
+<td><strong>IN: GATE B/CV</strong></td>
+<td>Event or CV Input</td>
+<td>Event/CV input, function varies by Global Mode</td>
+<td>0 to +5V</td>
+</tr>
+<tr>
+<td><strong>OUT</strong></td>
+<td>Output</td>
+<td>Gate/trigger or clock signal output</td>
+<td>0 to +5V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>OPERATION ESSENTIALS</h2>
+<h3>GLOBAL &amp; LOCAL MODES</h3>
+<ul>
+<li><strong>6 Global Modes</strong> (e.g. Variables, Multiples, Probability, Logic, Phase, Gates)</li>
+<li><strong>Each Global Mode has 6 Local Modes</strong> (36 total)</li>
+<li>Mode select by holding both buttons until GLOBAL LED flashes → Change Global → Hold both to exit.<br />
+Then use MODE SELECT button to change Local Mode.</li>
+</ul>
+<h3>INPUT HANDLING</h3>
+<ul>
+<li><strong>Events:</strong> Clocks, gates, triggers, square/PWM-LFO or similar</li>
+<li><strong>CV Input:</strong> Any 0–5V CV source such as LFO, envelope, offset, etc.</li>
+<li>Most algorithms respond to non-square LFOs or variable CV for dynamic rhythmic changes</li>
+<li><strong>Output:</strong> High = +5V, Low = 0V</li>
+</ul>
+<hr />
+<h2>MODE OVERVIEW</h2>
+<table>
+<thead>
+<tr>
+<th>Global Mode</th>
+<th>Theme</th>
+<th>CV/Function Highlights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Variables</strong></td>
+<td>Variable Rhythmic Patterns</td>
+<td>CV sets <n> (1-8): pattern pass/block variations</td>
+</tr>
+<tr>
+<td><strong>2. Multiples</strong></td>
+<td>Clock Division/Multiplication</td>
+<td>CV sets division/mult (1-12): output tempo scales</td>
+</tr>
+<tr>
+<td><strong>3. Probability</strong></td>
+<td>Random/Chance pattern variations</td>
+<td>CV = percentage chance, probability, tie, coin flip</td>
+</tr>
+<tr>
+<td><strong>4. Logic</strong></td>
+<td>Logic Functions (AND, OR, XOR etc)</td>
+<td>Dual event logic, switch with CV/A1/A2</td>
+</tr>
+<tr>
+<td><strong>5. Phase</strong></td>
+<td>Phase/Delay/Swing</td>
+<td>CV sets phase offsets or mark/space ratios</td>
+</tr>
+<tr>
+<td><strong>6. Gates</strong></td>
+<td>Gate/Trigger Manipulation</td>
+<td>Extend, hold, alternate gate logic</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>MODE SHORTCUT REFERENCE</h2>
+<h3><strong>Global Mode 1: Variables</strong></h3>
+<ul>
+<li><strong>CV @ IN: GATE B/CV:</strong> Sets variable <n> (1-8)</li>
+<li>Patterns: nth Pass, nth Block, n Pass, n Block, toggles</li>
+</ul>
+<h3><strong>Global Mode 2: Multiples</strong></h3>
+<ul>
+<li><strong>CV @ IN: GATE B/CV:</strong> Sets division/mult (1-12)</li>
+<li>Modes: Divide /1, Multiply /1, Divide /2, Multiply /2, Divide /3, Multiply /3</li>
+</ul>
+<h3><strong>Global Mode 3: Probability</strong></h3>
+<ul>
+<li><strong>CV @ IN: GATE B/CV:</strong> 0–5V for 0–100% probability</li>
+<li>Modes: Pass chance, Block chance, Tie/Pass, Flip-Flop, Inversion</li>
+</ul>
+<h3><strong>Global Mode 4: Logic</strong></h3>
+<ul>
+<li><strong>IN: GATE A1/A2</strong> + <strong>IN: GATE B/CV</strong>: Standard two-input Boolean Logic (AND, NAND, OR, NOR, XOR, XNOR)</li>
+<li><strong>Global Event:</strong> Mutes output</li>
+</ul>
+<h3><strong>Global Mode 5: Phase</strong></h3>
+<ul>
+<li><strong>CV @ IN: GATE B/CV:</strong> Sets phase offset (quantized, %, ms)</li>
+<li>Modes: Phase-shift or alter mark/space ratio by CV</li>
+</ul>
+<h3><strong>Global Mode 6: Gates</strong></h3>
+<ul>
+<li><strong>CV @ IN: GATE B/CV:</strong> Pattern length/gate logic threshold (1-8 steps or 2.5V logic)</li>
+<li>Modes: n High, n High/Low, Logic Pass/Hold, toggles</li>
+</ul>
+<hr />
+<h2>POWER</h2>
+<ul>
+<li><strong>10-16 pin ribbon, RED stripe = -12V</strong></li>
+<li>Doepfer standard; 53mA ( +12V), 35mA ( -12V)</li>
+</ul>
+<hr />
+<h2>PATCH FLOW EXAMPLES</h2>
+<p><strong>Clock in A1 → OUT to Envelope</strong> = rhythmic gate<br />
+<strong>CV in GATE B/CV</strong> = pattern/swing/logic/randomness by mode<br />
+<strong>Second clock in A2</strong> = logic and complex rhythm modes<br />
+<strong>MODE SELECT input/CV</strong> = step through/switch patterns</p>
+<hr />
+<h2>PDF Manual</h2>
+<p><a href="https://www.abstractdata.biz/ADE-33/ADE-33-User-Guide-v101.pdf"><strong>ADE-33 User Guide</strong></a></p>
+<hr />
+<p>Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></p>
+</body>
+</html>

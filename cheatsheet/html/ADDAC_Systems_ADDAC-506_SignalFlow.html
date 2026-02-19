@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-506_SignalFlow</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-506 SignalFlow</h1>
+<ul>
+<li><a href="../../manuals/ADDAC506_SignalFlow.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://addacsystem.com/manuals/addac506_manual.pdf">ADDAC506 VC Stochastic Function Generator &amp; Expansion Manual (PDF)</a><br />
+<em>Cheat sheet generated from reference diagrams and descriptions.</em></p>
+<hr />
+<h1>ADDAC506 VC Stochastic Function Generator &amp; Expansion</h1>
+<p><strong>Quick Reference Cheat Sheet</strong></p>
+<hr />
+<h2>OVERVIEW</h2>
+<ul>
+<li><strong>4 Independent function generator/envelope channels</strong></li>
+<li><strong>Randomized Rise &amp; Fall times (with min/max limits), voltage controllable</strong></li>
+<li><strong>Sum, Average, and Random CV outputs</strong></li>
+<li><strong>Flexible operation: Slew/Trigger, Loop/Oneshot, Curve, Amplitude, Offset</strong></li>
+<li><strong>Expansion for external random retriggering</strong></li>
+</ul>
+<hr />
+<h2>PANEL CONTROLS</h2>
+<h3>Per Channel (x4):</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Initial</strong></td>
+<td>Knob</td>
+<td>Manual envelope amount; voltage range per envelope: 0V to 10V</td>
+</tr>
+<tr>
+<td><strong>CV Input</strong></td>
+<td>Jack</td>
+<td>Accepts CV, gate, trigger, or audio (Bipolar ±10V typical)</td>
+</tr>
+<tr>
+<td><strong>CV Input Attenuverter</strong></td>
+<td>Knob</td>
+<td>Amount and polarity of CV input modulation (-1 to +1 range)</td>
+</tr>
+<tr>
+<td><strong>Rise Time Min</strong></td>
+<td>Knob &amp; CV</td>
+<td>Sets minimum randomized rise time (0–10V normal range); CV input/attenuverter</td>
+</tr>
+<tr>
+<td><strong>Rise Time Max</strong></td>
+<td>Knob &amp; CV</td>
+<td>Sets maximum randomized rise time (0–10V); CV/attenuverter</td>
+</tr>
+<tr>
+<td><strong>Fall Time Min</strong></td>
+<td>Knob &amp; CV</td>
+<td>Sets min randomized fall time (0–10V); CV/attenuverter</td>
+</tr>
+<tr>
+<td><strong>Fall Time Max</strong></td>
+<td>Knob &amp; CV</td>
+<td>Sets max randomized fall time (0–10V); CV/attenuverter</td>
+</tr>
+<tr>
+<td><strong>Envelope Curve</strong></td>
+<td>Switch</td>
+<td>Logarithmic ↔ Linear shape selector</td>
+</tr>
+<tr>
+<td><strong>Amplitude</strong></td>
+<td>Knob</td>
+<td>-10V to +10V envelope level (center = 0V; max span 10Vpp)</td>
+</tr>
+<tr>
+<td><strong>Offset</strong></td>
+<td>Knob</td>
+<td>-10V to +10V shift (envelope baseline) (center = 0V)</td>
+</tr>
+<tr>
+<td><strong>LEDs</strong></td>
+<td>Output</td>
+<td>Visual envelope monitor (bipolar; shows amplitude/polarity)</td>
+</tr>
+<tr>
+<td><strong>Lock Button</strong></td>
+<td>Button</td>
+<td>Locks channel Rise/Fall settings from accidental changes</td>
+</tr>
+<tr>
+<td><strong>Loop / Oneshot</strong></td>
+<td>Toggle</td>
+<td>Envelope retriggers itself (Loop) or single cycle (Oneshot)</td>
+</tr>
+<tr>
+<td><strong>Slew / Trigger</strong></td>
+<td>Toggle</td>
+<td>Slew: follows input CV; Trigger: one-shot envelope cycle per input</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>GLOBAL CONTROLS</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Speed Range</strong></td>
+<td>Switch</td>
+<td>Low / Medium / High (overall envelope responsiveness)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>JACK REFERENCE</h2>
+<h3>Per Channel (x4):</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Direction</th>
+<th>Details</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Channel Input</strong></td>
+<td>Input</td>
+<td>CV, gates, triggers, or audio accepted</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td><strong>CV Output</strong></td>
+<td>Output</td>
+<td>Envelope output</td>
+<td>-10V to +10V</td>
+</tr>
+<tr>
+<td><strong>Gate Output</strong></td>
+<td>Output</td>
+<td>HIGH while in rise, LOW otherwise</td>
+<td>0V/5V</td>
+</tr>
+<tr>
+<td><strong>End of Rise (EOR)</strong></td>
+<td>Output</td>
+<td>Pulse at end of rise segment</td>
+<td>0V/5V or Gate (jumper)</td>
+</tr>
+<tr>
+<td><strong>End of Fall (EOF)</strong></td>
+<td>Output</td>
+<td>Pulse at cycle end</td>
+<td>0V/5V or Gate</td>
+</tr>
+</tbody>
+</table>
+<h3>Mixer/Global Outputs:</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Direction</th>
+<th>Details</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Average Mix Output</strong></td>
+<td>Output</td>
+<td>Average of all 4 envelopes</td>
+<td>-10V to +10V</td>
+</tr>
+<tr>
+<td><strong>Summing Mix Output</strong></td>
+<td>Output</td>
+<td>Sum of all 4 envelopes</td>
+<td>-40V to +40V (all channels maxed)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Expansion Jacks (per channel):</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Direction</th>
+<th>Details</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Random Trigger Input</strong></td>
+<td>Input</td>
+<td>Re-randomizes Rise &amp; Fall time at any point</td>
+<td>0V/5V</td>
+</tr>
+<tr>
+<td><strong>Random CV Output</strong></td>
+<td>Output</td>
+<td>Actual random Rise/Fall control CV for the cycle (selectable)</td>
+<td>0V to 10V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Miscellaneous</h3>
+<ul>
+<li><strong>Jumper on each Random CV Output:</strong> Selects if jack outputs Rise or Fall random value.</li>
+<li><strong>Envelope time randomization:</strong> Happens at new cycle trigger or via expansion random input.</li>
+</ul>
+<hr />
+<h2>OPERATION HINTS</h2>
+<ul>
+<li><strong>Set Rise/Fall Min above Max:</strong> Envelope time is fixed to Min knob (no random).</li>
+<li><strong>Lock/Unlock Button:</strong> Lock channel settings to tweak only the one you want.</li>
+<li><strong>Slew mode:</strong> Use as a voltage follower for any signal, not just gates/triggers.</li>
+<li><strong>Visual feedback:</strong> Use LEDs to watch envelope shape and output.</li>
+<li><strong>Mix &amp; route:</strong> Combine channels for complex modulation; sum/average/join outputs.</li>
+</ul>
+<hr />
+<h2>VOLTAGE RANGES</h2>
+<ul>
+<li><strong>Envelope Outputs:</strong> -10V to +10V (bipolar, with amplitude and offset).</li>
+<li><strong>CV Inputs:</strong> ±10V optimal.</li>
+<li><strong>Gate/EOR/EOF Outputs:</strong> Typically 0V (inactive) or 5V (active).</li>
+</ul>
+<hr />
+<h2>PATCH IDEAS</h2>
+<ul>
+<li>Use random CV outs for modulating other modules with true cycle-to-cycle randomness.</li>
+<li>Inject audio or noisy CV sources in Slew mode for envelope following/vactrol-like behavior.</li>
+<li>Lock some channels and randomize others for patch variety.</li>
+<li>Use sum/average outputs for macro modulation controls.</li>
+</ul>
+<hr />
+<p><strong>Reference:</strong> <a href="https://github.com/nstarke/eurorack-processor">Github: Generated With Eurorack Processor</a></p>
+<hr />
+</body>
+</html>

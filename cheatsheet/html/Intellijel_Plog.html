@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Plog</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Plog</h1>
+<ul>
+<li><a href="../../manuals/plog_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://intellijel.com/downloads/manuals/plog_manual.pdf">Download the Plog rev 1.0 Manual PDF</a></p>
+<hr />
+<h1>Intellijel Plog Cheat Sheet</h1>
+<p><strong>Plog</strong> is a flexible, voltage-controlled logic processor module with two 3-input logic blocks (A &amp; B), a toggle flip-flop (T), and a data flip-flop (D). Useful for creating complex patterns, clock/trigger manipulation, and experimental generative sequences.</p>
+<hr />
+<h2>Panel Controls &amp; Features</h2>
+<h3>Logic Blocks (A &amp; B)</h3>
+<ul>
+<li><strong>TYPE Button</strong>  </li>
+<li>Press: Cycle logic type (AND, OR, NOR, XOR, NAND, XNOR) for selected block  </li>
+<li>
+<p>Hold (1 sec): Load preset from memory</p>
+</li>
+<li>
+<p><strong>TYPE CV Attenuator (A &amp; B)</strong>  </p>
+</li>
+<li>
+<p>Mini knobs to scale incoming CV to TYPE A/B CV inputs</p>
+</li>
+<li>
+<p><strong>SELECT Button</strong>  </p>
+</li>
+<li>Press: Select which logic block (A or B) to edit  </li>
+<li>
+<p>Hold (1 sec): Save current logic states to memory</p>
+</li>
+<li>
+<p><strong>OUT A / OUT B (Outputs)</strong>  </p>
+</li>
+<li>
+<p>Main logic block outputs</p>
+</li>
+<li>
+<p><strong>TYPE A/B CV Input ([±5V], bipolar)</strong>  </p>
+</li>
+<li>Controls which logic type is selected for each block  </li>
+<li>LEDs indicate selected logic type  </li>
+<li>
+<p>Typical logic types per CV:  </p>
+<ul>
+<li>AND, OR, NOR, XOR, NAND, XNOR</li>
+</ul>
+</li>
+<li>
+<p><strong>X, Y, Z Inputs (Channel A &amp; B, [0-5V logic], protected ± overvoltage)</strong>  </p>
+</li>
+<li>X and Y of A are normalled to X and Y of B  </li>
+<li>Z is normalled to Y unless patched  </li>
+<li>0V = logic LOW; 5V = logic HIGH; comparator threshold ≈3V</li>
+</ul>
+<hr />
+<h3>Flip-Flop Section</h3>
+<ul>
+<li><strong>TRIGGER Button</strong>  </li>
+<li>Press: Sends trigger to Toggle input (T Flip-Flop)  </li>
+<li>
+<p>Hold (1 sec): Enter tap-tempo mode, tap to set clock, hold again to exit</p>
+</li>
+<li>
+<p><strong>TOGGLE Input (T, [0-5V logic], protected)</strong>  </p>
+</li>
+<li>Trigger for Toggle flip-flop  </li>
+<li>TRIGGER button normalled to this jack  </li>
+<li>
+<p>Jumper on back: can normal OUT B here</p>
+</li>
+<li>
+<p><strong>OUT T (Output, [0-5V pulses])</strong>  </p>
+</li>
+<li>Output of the Toggle flip-flop  </li>
+<li>
+<p>In tap-tempo mode: tempo clock output (square pulses)</p>
+</li>
+<li>
+<p><strong>CLK (Clock Input, [0-5V logic])</strong>  </p>
+</li>
+<li>Clock input for Data (D) flip-flop  </li>
+<li>
+<p>OUT T normalled to here</p>
+</li>
+<li>
+<p><strong>DATA (Input, [0-5V logic])</strong>  </p>
+</li>
+<li>
+<p>Data input for Data (D) flip-flop</p>
+</li>
+<li>
+<p><strong>OUT D (Output, [0-5V pulses])</strong>  </p>
+</li>
+<li>Output of the Data flip-flop</li>
+</ul>
+<hr />
+<h2>Logic Types and Truth Tables</h2>
+<table>
+<thead>
+<tr>
+<th>Logic Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND</td>
+<td>High only if all inputs are High</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>High if any input is High</td>
+</tr>
+<tr>
+<td>NOR</td>
+<td>High if all inputs are Low</td>
+</tr>
+<tr>
+<td>XOR</td>
+<td>High if odd number of inputs are High</td>
+</tr>
+<tr>
+<td>NAND</td>
+<td>High unless all inputs are High</td>
+</tr>
+<tr>
+<td>XNOR</td>
+<td>High if even number of inputs are High</td>
+</tr>
+</tbody>
+</table>
+<p>See manual Tables 1 &amp; 2 for detailed truth tables for 3 or 2 input modes.</p>
+<hr />
+<h2>Usage Ideas</h2>
+<ul>
+<li><strong>Clock Dividing:</strong> Use the flip-flops as /2, /4 clock dividers  </li>
+<li><strong>Randomized Triggers:</strong> Patch random and quantized sources into logic blocks for "real-time quantizer" effects  </li>
+<li><strong>Pattern Mutation:</strong> Use CV over logic type inputs to morph gate patterns  </li>
+<li><strong>CV Addressed Logic:</strong> Modulate TYPE A/B CV for evolving logic operations</li>
+</ul>
+<hr />
+<h2>Voltage Ranges</h2>
+<ul>
+<li><strong>Logic inputs:</strong> 0-5V pulses/gates/clocks (comparator @ 3V threshold, accepts non-square inputs)  </li>
+<li><strong>CV TYPE inputs:</strong> ±5V (bipolar, for logic type selection)</li>
+<li><strong>Outputs:</strong> 0-5V (unipolar pulses/gates/clocks)</li>
+</ul>
+<hr />
+<h2>Technical Specs (from manual)</h2>
+<ul>
+<li>8HP, 29mm depth  </li>
+<li>+12V 55mA / -12V 11mA</li>
+</ul>
+<hr />
+<h2>Example Patch (Quantized LFO)</h2>
+<ul>
+<li>Set A to AND  </li>
+<li>Random triggers (e.g. square LFO) → X  </li>
+<li>Clock (e.g. drum machine/sequencer) → Y  </li>
+<li>OUT A → Envelope → VCA  </li>
+<li>Modulate TYPE A CV for extra variation</li>
+</ul>
+<hr />
+<blockquote>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</blockquote>
+</body>
+</html>

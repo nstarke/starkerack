@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Clouds</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Clouds</h1>
+<ul>
+<li><a href="../../manuals/Mutable Instruments - Clouds.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/clouds/manual/"><strong>Mutable Instruments Clouds Manual PDF</strong></a></p>
+<hr />
+<h1><strong>Mutable Instruments Clouds – Cheat Sheet</strong></h1>
+<p>A quick-reference guide to the Clouds granular audio processor for Eurorack.</p>
+<hr />
+<h2><strong>Quick Start</strong></h2>
+<ol>
+<li><strong>Patch audio</strong> into L (and optionally R) input.</li>
+<li><strong>Patch stereo output</strong> (L/R) to mixer/output.</li>
+<li><strong>Twist knobs</strong> to manipulate grain position, size, pitch, density, texture.</li>
+<li><strong>[Optional] Patch CV</strong> into desired CV ins for dynamic modulation.</li>
+<li><strong>Press FREEZE</strong> to capture a sound, manipulate the buffer, or scan through frozen grains.</li>
+</ol>
+<hr />
+<h2><strong>Controls Reference</strong></h2>
+<h3><strong>Knobs</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Knob</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POSITION</td>
+<td>Where in the buffer grains are sourced (back in time: CW = earlier)</td>
+</tr>
+<tr>
+<td>SIZE</td>
+<td>Grain length</td>
+</tr>
+<tr>
+<td>PITCH</td>
+<td>Grain playback speed (12 o'clock = normal pitch)</td>
+</tr>
+<tr>
+<td>IN GAIN</td>
+<td>Audio input gain (-18dB to +6dB)</td>
+</tr>
+<tr>
+<td>DENSITY</td>
+<td>Grain overlap/timing (CW = denser/random, CCW = denser/constant, noon = none)</td>
+</tr>
+<tr>
+<td>TEXTURE</td>
+<td>Morphs grain envelope shape; past 2 o'clock activates diffuser</td>
+</tr>
+<tr>
+<td>BLEND</td>
+<td>Controls one of: Dry/Wet ↔ Spread ↔ Feedback ↔ Reverb (select via button B)</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>Buttons</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FREEZE (A)</td>
+<td>Capture/freeze buffer (toggle)</td>
+</tr>
+<tr>
+<td>Blend Parameter/Audio Quality (B)</td>
+<td>Select parameter for BLEND knob/CV, or hold+tap to set audio quality</td>
+</tr>
+<tr>
+<td>Load/Save (C)</td>
+<td>Load or save frozen buffers; double-action, see manual for details</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>LEDs</strong></h3>
+<ul>
+<li>Bargraph: Input/output level, setting indicators, parameter values.</li>
+<li>Color indicates: blend parameter (green), buffer slot (red/green), calibration (orange).</li>
+</ul>
+<hr />
+<h2><strong>Inputs &amp; Outputs [</strong>Voltage Range: All CV INs ±5V<strong>]</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Jack #</th>
+<th>Label/Use</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>FREEZE</td>
+<td>Gate In</td>
+<td>Gate high = freezes buffer (same as button).</td>
+</tr>
+<tr>
+<td>2</td>
+<td>TRIGGER</td>
+<td>Trig In</td>
+<td>Generates a single grain per trigger (micro-sample playback at DENSITY noon).</td>
+</tr>
+<tr>
+<td>3</td>
+<td>POS CV</td>
+<td>CV In</td>
+<td>Modulate grain buffer position (±5V)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SIZE CV</td>
+<td>CV In</td>
+<td>Modulate grain size (±5V)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>V/OCT</td>
+<td>CV In</td>
+<td>1V/Oct pitch tracking of grain playback (±5V)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>BLEND CV</td>
+<td>CV In</td>
+<td>Modulate selected blend parameter (±5V)</td>
+</tr>
+<tr>
+<td>7/8</td>
+<td>IN L / R</td>
+<td>Audio In</td>
+<td>Stereo input (R normalled to L if unpatched)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>DENSITY CV</td>
+<td>CV In</td>
+<td>Modulate grain density/overlap (±5V)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>TEXTURE CV</td>
+<td>CV In</td>
+<td>Modulate envelope/diffusion/texture (±5V)</td>
+</tr>
+<tr>
+<td>11/12</td>
+<td>OUT L / R</td>
+<td>Audio Out</td>
+<td>Stereo output</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Blend Parameters</strong></h2>
+<ul>
+<li><strong>Dry/Wet</strong>  </li>
+<li><strong>Stereo Spread</strong> (random panning per grain)  </li>
+<li><strong>Feedback Amount</strong>  </li>
+<li><strong>Reverb Amount</strong><br />
+Select parameter using Blend Parameter/AQ button (B); indicator LED shows selection.</li>
+</ul>
+<hr />
+<h2><strong>Freezing &amp; Saving</strong></h2>
+<ul>
+<li><strong>FREEZE:</strong> Stops recording; process sound in memory.</li>
+<li><strong>Save/Load Buffer:</strong>  </li>
+<li>Hold Load/Save 1s, select slot (1–4), confirm to save.</li>
+<li>Tap Load/Save, select slot, confirm to load.</li>
+</ul>
+<hr />
+<h2><strong>Calibration</strong></h2>
+<ul>
+<li>1V/Oct calibration: See manual (requires accurate CV source).</li>
+</ul>
+<hr />
+<h2><strong>Audio Quality</strong></h2>
+<ul>
+<li>Hold Blend Parameter/Audio Quality button for 1s; tap to cycle:  </li>
+<li>32kHz/16-bit  </li>
+<li>32kHz/8-bit µ-law  </li>
+<li>16kHz/16-bit  </li>
+<li>16kHz/8-bit µ-law  </li>
+</ul>
+<hr />
+<h2><strong>Tips</strong></h2>
+<ul>
+<li>Add random modulation to Position or Pitch for lush textures.</li>
+<li>Use audio out as modulation noise source.</li>
+<li>Fast note sequences to V/Oct = chord grains.</li>
+<li>Short FREEZE pulses = capture micro-textures.</li>
+</ul>
+<hr />
+<h2><strong>Troubleshooting</strong></h2>
+<ul>
+<li><strong>No effect?</strong>  </li>
+<li>Dry/Wet blend may be fully dry. Use Blend Parameter/AQ button to select dry/wet, adjust BLEND knob.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

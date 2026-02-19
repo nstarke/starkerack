@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Acid_Rain_Chainsaw</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Acid Rain — Chainsaw</h1>
+<ul>
+<li><a href="../../manuals/Chainsaw_Manual_1.1.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.acidraintechnology.com/chainsaw"><strong>Chainsaw Stereo Super-Oscillator Manual (PDF)</strong></a></p>
+<hr />
+<h1>Acid Rain Technology Chainsaw (Eurorack Cheat Sheet)</h1>
+<h2>Description</h2>
+<p><strong>Chainsaw</strong> is a 3-voice, 7-oscillator-per-voice digital oscillator focused on "super-saw" and "super-square" sounds, providing wide stereo imaging and extensive polyphonic possibilities.</p>
+<hr />
+<h2>FRONT PANEL OVERVIEW</h2>
+<table>
+<thead>
+<tr>
+<th>Ref.</th>
+<th>Control/Input/Output</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Encoder (push/turn)</td>
+<td>Root pitch (semitones) / Fine tune (cents) / Reset to C1</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>note LED</td>
+<td>Indicates root pitch mode</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>3</td>
+<td>alt LED</td>
+<td>Indicates fine tune mode</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Detune knob</td>
+<td>Detunes 7 waves per voice</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Wave morph knob</td>
+<td>Morphs saw→square for all waves</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>6</td>
+<td>CV in: Detune</td>
+<td>CV control of detune</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>7</td>
+<td>CV in: Wave Morph</td>
+<td>CV control of wave morph</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>8</td>
+<td>CV in: 1V/Oct Voice 1</td>
+<td>1V/Oct pitch for Voice 1</td>
+<td>0V (C0)–10V+</td>
+</tr>
+<tr>
+<td>9</td>
+<td>CV in: Linear FM</td>
+<td>Linear FM for all voices</td>
+<td>-5V to +5V (waves up to 2kHz)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>CV in: 1V/Oct Voice 2</td>
+<td>1V/Oct pitch for Voice 2</td>
+<td>0V (C0)–10V+</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Audio Out: L (Mono)</td>
+<td>Left output or mono out</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>12</td>
+<td>CV in: 1V/Oct Voice 3</td>
+<td>1V/Oct pitch for Voice 3</td>
+<td>0V (C0)–10V+</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Audio Out: R</td>
+<td>Right output (for stereo)</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>QUICK-START CHEAT SHEET</h2>
+<h3>Basic Use</h3>
+<ol>
+<li><strong>Patch outputs:</strong> Use OUT L (11) for mono, or OUT L (11) + OUT R (13) for full stereo super-saw/super-square sound.</li>
+<li><strong>Pitch control:</strong> Use encoder (1) to set the root note (1 semitone/step while "note" (2) LED is ON).<ul>
+<li><strong>Push encoder</strong> to toggle to fine tune (1 cent/step, "alt" (3) LED ON).</li>
+<li><strong>Long press (2 sec)</strong> to reset to C1 (32.7 Hz).</li>
+</ul>
+</li>
+<li><strong>Pitch Inputs:</strong> Patch 1V/Oct CV to Voice 1 (8), 2 (10), and/or 3 (12) for up to 3-voice polyphony (individual pitch per voice).</li>
+<li><strong>Detune:</strong> Adjust Detune knob (4) to spread the stacked waves for each voice. Use Detune CV (6) for voltage control (additive, -5V to +5V).</li>
+<li><strong>Morph:</strong> Adjust Morph knob (5) to sweep all oscillators from pure super-saw (ccw) to super-square (cw). Use Morph CV (7) for voltage control (additive, -5V to +5V).</li>
+<li><strong>FM:</strong> Patch linear frequency modulation CV to FM input (9), responds predictably up to 2kHz (use bipolar -5V to +5V LFOs, envelopes, etc. for FM).</li>
+</ol>
+<hr />
+<h2>INPUTS SUMMARY</h2>
+<ul>
+<li><strong>V/O 1 (8):</strong> 1V/Oct pitch control, activates Voice 1; precision-tracked.</li>
+<li><strong>V/O 2 (10):</strong> 1V/Oct pitch control, activates Voice 2.</li>
+<li><strong>V/O 3 (12):</strong> 1V/Oct pitch control, activates Voice 3.</li>
+<li><strong>Detune CV (6):</strong> Controls wave detune, -5V to +5V range.</li>
+<li><strong>Morph CV (7):</strong> Controls waveshape morph, -5V to +5V range.</li>
+<li><strong>FM (9):</strong> Linear frequency modulation, -5V to +5V (suitable up to 2kHz).</li>
+</ul>
+<h2>OUTPUTS SUMMARY</h2>
+<ul>
+<li><strong>OUT L (11):</strong> Left/Mono audio output (all 21 voices spread spatially).</li>
+<li><strong>OUT R (13):</strong> Right stereo output for spatial effect (use with OUT L for full stereo image).</li>
+</ul>
+<hr />
+<h2>POWER REQUIREMENTS</h2>
+<ul>
+<li><strong>+12V:</strong> 110mA</li>
+<li><strong>-12V:</strong> 10mA</li>
+<li><strong>Ribbon Orientation:</strong> Red stripe = -12V</li>
+<li><strong>Width/Depth:</strong> 4 HP / 35mm</li>
+<li><strong>Reverse Power Protection:</strong> Yes</li>
+</ul>
+<hr />
+<h2>REMINDERS</h2>
+<ul>
+<li>Use with +12V/-12V regulated Eurorack power supply (2x5 ribbon, red stripe = -12V).</li>
+<li>Outputs are line-level modular audio signals.</li>
+<li>Manual morph and detune controls can be automated with CV (modulation sources: LFOs, envelopes, sequencers, etc.).</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

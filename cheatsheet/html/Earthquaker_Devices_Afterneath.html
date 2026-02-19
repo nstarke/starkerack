@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Earthquaker_Devices_Afterneath</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Earthquaker Devices — Afterneath</h1>
+<ul>
+<li><a href="../../manuals/EQD-EU-Afterneath-Eurorack-R1.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.earthquakerdevices.com/afterneath-eurorack"><strong>Download the Afterneath Eurorack Module Manual (PDF)</strong></a></p>
+<hr />
+<h1>EarthQuaker Devices Afterneath Eurorack "Cheat Sheet"</h1>
+<h2>OVERVIEW</h2>
+<ul>
+<li><strong>Type:</strong> Reverberation Effect (Multi-delays → reverb-like echoes)</li>
+<li><strong>Audio Path:</strong> Analog dry, digital wet</li>
+<li><strong>Width:</strong> 16hp | <strong>Depth:</strong> 31.75 mm | <strong>+12V:</strong> 95mA, -12V/5V: 0mA</li>
+<li><strong>Skiff-friendly</strong></li>
+<li><strong>Input Level:</strong> Instrument to modular (set by Input knob)</li>
+</ul>
+<hr />
+<h2>CONTROLS SUMMARY</h2>
+<h3>Top Row (Left → Right):</h3>
+<ul>
+<li><strong>Input (knob):</strong> Adjusts gain for audio input (fully CW = instrument; fully CCW = modular)</li>
+<li><strong>Dampen (knob):</strong> Wet signal tone (CW = darker, CCW = brighter)</li>
+<li><strong>Reflect (knob):</strong> Feedback/regeneration (turn up for longer, self-oscillates at extremes; also an attenuator for Reflect Return)</li>
+<li><strong>Mix (knob):</strong> Wet/dry mix (not fully wet unless Dry Kill engaged)</li>
+<li><strong>Dry Kill (toggle):</strong> Kills dry signal (output = wet only)</li>
+</ul>
+<h3>Middle Row:</h3>
+<ul>
+<li><strong>Drag (knob):</strong> Space/spacing for delay lines = “warp speed” effect (CW = shorter, CCW = longer delays; pitch shift when changed live)</li>
+<li><strong>Mode (knob):</strong> Selects 1 of 9 Drag Modes (see below)</li>
+<li><strong>Diffuse (knob):</strong> Smears/smooths repeats (CW = more diffuse &amp; reverb-like, CCW = sharper)</li>
+<li><strong>Length (knob):</strong> Controls reverb decay</li>
+</ul>
+<hr />
+<h2>JACKS</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Function</th>
+<th>Notes/Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Input</strong></td>
+<td>Main audio input</td>
+<td>Instrument to modular, adjustable via Input knob</td>
+</tr>
+<tr>
+<td><strong>Reflect Send</strong></td>
+<td>Feedback loop send, for patching external FX etc.</td>
+<td>Signal always present, does not interrupt internal feedback</td>
+</tr>
+<tr>
+<td><strong>Reflect Return</strong></td>
+<td>Return for feedback loop; disables internal loop when patched</td>
+<td>Doubles as 2nd audio input if feedback not needed; Reflect knob attenuates</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td>Main audio output</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>CV INPUTS <strong><em>(All with Inverting Attenuators)</em></strong></h3>
+<ul>
+<li>Each parameter with CV has a dedicated inverting attenuator:  <ul>
+<li><strong>Unity gain</strong>: attenuator full CW  </li>
+<li><strong>Inverted</strong>: attenuator full CCW  </li>
+<li><strong>Fully attenuated (off)</strong>: at 12 o’clock</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Modulates</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Drag CV</strong></td>
+<td>Drag spacing</td>
+<td>Responds only to +1.6V to +4.1V (<strong>Caution:</strong> Bipolar signals need offset)</td>
+</tr>
+<tr>
+<td><strong>Mode CV</strong></td>
+<td>Mode selection</td>
+<td>Not specified (suggest ±5V standard; best results with 0-5V unipolar)</td>
+</tr>
+<tr>
+<td><strong>Diffuse CV</strong></td>
+<td>Diffuse smearing</td>
+<td>Not specified (±5V typical, see above)</td>
+</tr>
+<tr>
+<td><strong>Length CV</strong></td>
+<td>Reverb decay length</td>
+<td>Not specified (±5V typical, see above)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong><br />
+- Associated knobs act as offsets for incoming CV.<br />
+- When self-oscillating, Drag CV supports 1V/oct tracking (see below).</p>
+<hr />
+<h2>MODES (affect Drag CV/knob behavior)</h2>
+<ol>
+<li><strong>Unquantized:</strong> Smooth, unquantized over full range</li>
+<li><strong>Unquantized w/Slew:</strong> Same as above, but with lag (varispeed tape effect)</li>
+<li><strong>Unquantized 1V/oct:</strong> Smooth, scaled to 1V/oct (melodic modulation; self-oscillation VCO)</li>
+<li><strong>Chromatic Scale:</strong> 1V/oct CV quantized to chromatic scale</li>
+<li><strong>Major Scale:</strong>      1V/oct CV quantized to major scale</li>
+<li><strong>Minor Scale:</strong>      1V/oct CV quantized to minor scale</li>
+<li><strong>Pentatonic Scale:</strong> 1V/oct CV quantized to pentatonic</li>
+<li><strong>Oct &amp; Fifths:</strong>     1V/oct CV – only octaves and fifths</li>
+<li><strong>Octaves:</strong>          1V/oct CV – only octaves</li>
+</ol>
+<p><em>Use Mode knob or Mode CV to select. Mode LED displays current selection.</em></p>
+<hr />
+<h2>ADVANCED USAGE</h2>
+<ul>
+<li><strong>Self-Oscillation:</strong>  </li>
+<li>With Reflect/Length &gt;12:00, module can self-oscillate (“regenerated reverb” → turns into VCO)</li>
+<li>In Modes 3–9, Drag CV input follows 1V/oct (for keyboard/sequencer tracking)</li>
+<li><strong>Drag CV Input:</strong> Only positively responds to 1.6-4.1V unipolar</li>
+<li>
+<p>To scale properly:</p>
+<ol>
+<li>Drag CV attenuator full CW, Drag knob at noon</li>
+<li>Modes 3-9</li>
+<li>Length/Reflect &gt; 12:00</li>
+<li>Play octave CV source, find upper Drag knob limit, set just beyond</li>
+<li>Lower Length/Reflect to stop oscillation if needed</li>
+</ol>
+</li>
+<li>
+<p><strong>Pseudostereo:</strong>  </p>
+</li>
+<li>Output main &amp; Reflect Send to separate channels for spacious/multichannel effects.</li>
+<li>Patch Reflect Send to mults → other outputs/processing → Reflect Return.</li>
+</ul>
+<hr />
+<h2>TIPS</h2>
+<ul>
+<li>Input knob: Turn up for guitar/synth, down for modular signals.</li>
+<li>Use Inverting Attenuators to fine-tune CV ranges—start with knob noon, attenuator fully CW for external CV.</li>
+<li>Diffuse: Higher for ambient, lower for clarity.</li>
+<li>Self-oscillation = creative oscillator, can track pitch (not perfectly tuned).</li>
+</ul>
+<hr />
+<h2>QUICK REFERENCE: ALL CONTROLS &amp; JACKS</h2>
+<table>
+<thead>
+<tr>
+<th>Knob/Button/Toggle</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input</td>
+<td>Sets input gain</td>
+</tr>
+<tr>
+<td>Dampen</td>
+<td>Sets wet signal brightness</td>
+</tr>
+<tr>
+<td>Reflect</td>
+<td>Sets feedback amount</td>
+</tr>
+<tr>
+<td>Mix</td>
+<td>Wet/dry blend</td>
+</tr>
+<tr>
+<td>Dry Kill (toggle)</td>
+<td>Removes dry audio (true "wet-only" out)</td>
+</tr>
+<tr>
+<td>Drag</td>
+<td>Spacing/"warp" between reverb delays</td>
+</tr>
+<tr>
+<td>Mode</td>
+<td>Select Drag mode (9 choices)</td>
+</tr>
+<tr>
+<td>Diffuse</td>
+<td>Amount of smearing/ambience</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>Reverb decay time</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function/Modulates</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input</td>
+<td>Audio In</td>
+<td>Instrument/modular level</td>
+</tr>
+<tr>
+<td>Reflect Send</td>
+<td>Feedback signal out</td>
+<td>Audio</td>
+</tr>
+<tr>
+<td>Reflect Return</td>
+<td>Feedback signal in (bypass internal loop)</td>
+<td>Audio</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Main Audio Out</td>
+<td>Audio</td>
+</tr>
+<tr>
+<td>Drag CV</td>
+<td>Modulates Drag</td>
+<td>+1.6 to +4.1V (offset needed)</td>
+</tr>
+<tr>
+<td>Mode CV</td>
+<td>Modulates Mode selection</td>
+<td>(0-5V recommended)</td>
+</tr>
+<tr>
+<td>Diffuse CV</td>
+<td>Modulates Diffuse</td>
+<td>(0-5V recommended)</td>
+</tr>
+<tr>
+<td>Length CV</td>
+<td>Modulates Length</td>
+<td>(0-5V recommended)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

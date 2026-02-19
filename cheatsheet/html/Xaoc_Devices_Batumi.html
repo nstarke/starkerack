@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Xaoc_Devices_Batumi</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Xaoc Devices — Batumi</h1>
+<ul>
+<li><a href="../../manuals/xaoc_batumi2_poti2_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://xaocdevices.com/manuals/xaoc_batumi_II_manual.pdf"><strong>Xaoc Devices Batumi II &amp; Poti II Manual (PDF)</strong></a></p>
+<hr />
+<h1>Xaoc Devices BATUMI II + POTI II</h1>
+<p><strong>Quad LFO/OSC &amp; Expander</strong><br />
+Concise Cheat Sheet (2024/2.0, "Models of 1974")</p>
+<hr />
+<h2><strong>Panel Reference</strong></h2>
+<h3><strong>Sliders (x4, illuminated)</strong></h3>
+<ul>
+<li><strong>A (top):</strong> Always controls Channel A Frequency (0.01Hz–100Hz unpatched; up to 5kHz w/ CV).</li>
+<li><strong>B, C, D:</strong> Control Frequency, Phase, Divide, or Multiply depending on Global Mode.</li>
+</ul>
+<h3><strong>Buttons</strong></h3>
+<ul>
+<li><strong>MODE:</strong> Cycles through main modes:  </li>
+<li><strong>RED Free</strong> – 4 indep. LFOs/VCOs  </li>
+<li><strong>YELLOW Phase</strong> – B, C, D follow A freq, w/ phase offset  </li>
+<li><strong>BLUE Divide</strong> – B, C, D = A’s freq divided by integer  </li>
+<li><strong>TURQUOISE Mult</strong> – B, C, D = A’s freq multiplied by integer</li>
+<li><strong>WAVE:</strong> Cycles asgn waveform:  </li>
+<li>Red: Triangle  </li>
+<li>Yellow: Down Saw  </li>
+<li>Orange: Up Saw  </li>
+<li>Green: Trapezoid  </li>
+<li>Blue: Stepped Random  </li>
+<li>Turquoise: Smooth Random</li>
+<li><strong>MODE+WAVE (hold one, tap other):</strong> Toggles <strong>SYNC/RESET</strong> for sync inputs.</li>
+</ul>
+<hr />
+<h2><strong>Inputs &amp; Outputs (per channel)</strong></h2>
+<table>
+<thead>
+<tr>
+<th>JACK</th>
+<th>TYPE</th>
+<th>VOLTAGE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FRQ•PH•RTO</strong></td>
+<td>CV IN</td>
+<td>-10V/+10V</td>
+<td>Controls freq, phase, div/mult (V/oct in Free, ±5 cycles in Phase)</td>
+</tr>
+<tr>
+<td><strong>RESET•SYNC</strong></td>
+<td>Sync Trigger In</td>
+<td>5V gate/trig</td>
+<td>Resets or syncs the phase/freq; toggle mode per channel</td>
+</tr>
+<tr>
+<td><strong>SINE</strong></td>
+<td>Output</td>
+<td>±5V</td>
+<td>Anti-aliased sine wave output</td>
+</tr>
+<tr>
+<td><strong>ASGN</strong></td>
+<td>Output</td>
+<td>±5V</td>
+<td>Assignable wave (see above)</td>
+</tr>
+<tr>
+<td><strong>RECT</strong></td>
+<td>Output</td>
+<td>±5V</td>
+<td>Anti-aliased pulse/square output (fixed width in most modes)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>All outputs are bipolar ±5V.</strong></p>
+</blockquote>
+<hr />
+<h2><strong>Modes Overview</strong></h2>
+<ol>
+<li><strong>Free (indep. LFOs/VCOs, 1V/oct)</strong></li>
+<li>All channels independent.</li>
+<li>Sine, Rect, Asgn outputs.</li>
+<li>Use CV and sliders for full frequency sweep.</li>
+<li>
+<p>Random asgn are truly independent.</p>
+</li>
+<li>
+<p><strong>Phase (B-D = A freq, variable phase)</strong></p>
+</li>
+<li>Channels B-D are phase-shifted copies of A.</li>
+<li>CV modulates phase ±5 cycles per input.</li>
+<li>
+<p>Random waves: same sequence delayed.</p>
+</li>
+<li>
+<p><strong>Divide (B-D = A freq divided by 1/2/3/4/5/8/16/32)</strong></p>
+</li>
+<li>Division set by sliders &amp; CV.</li>
+<li>Random: Downsampled sequence from A.</li>
+<li>
+<p>Max cycle: up to 37.9 days at min freq/CV!</p>
+</li>
+<li>
+<p><strong>Mult (B-D = A freq multiplied by 1/2/3/4/5/8/16/32)</strong></p>
+</li>
+<li>Integer multiples of A’s cycle set by sliders/CV.</li>
+<li>Limited to 5 kHz max channel freq.</li>
+<li>Random: Upsampled sequence from A.</li>
+</ol>
+<hr />
+<h2><strong>Tempo Sync</strong></h2>
+<ul>
+<li><strong>RESET:</strong> Incoming trig/gate resets phase to 0.</li>
+<li><strong>SYNC:</strong> Follows tempo of external source, quantized frequency division after sync (as in Divide).</li>
+<li><strong>NOTE:</strong> All 4 channels can sync in Free; only A syncs in other modes.</li>
+</ul>
+<hr />
+<h2><strong>Poti II (Expander, 4HP) Controls</strong></h2>
+<h3><strong>Knobs (per channel, selected by button/LED)</strong></h3>
+<ul>
+<li><strong>FRQ•PH•RTO CV:</strong> Input CV Attenuation (per channel, ALL mode also)</li>
+<li><strong>SINE OUT:</strong> Sine output attenuation (per channel, ALL mode also)</li>
+<li><strong>ASGN OUT:</strong> Asgn output attenuation (per channel, ALL mode also)</li>
+</ul>
+<blockquote>
+<p><strong>Rect outputs cannot be attenuated.</strong></p>
+</blockquote>
+<h3><strong>Channel Button</strong></h3>
+<ul>
+<li><strong>Cycles between A/B/C/D/All</strong> (LED color changes). Stores settings per channel.  </li>
+<li><strong>Unplugging resets to default (no atten).</strong></li>
+</ul>
+<h3><strong>Wave CV Inputs and Switches</strong></h3>
+<ul>
+<li><strong>SHAPE (CV IN, ±5V):</strong>  </li>
+<li><strong>SINE:</strong> Wavefold (with amp comp)  </li>
+<li><strong>ASGN:</strong> Morphs through assignable waveforms  </li>
+<li><strong>RECT:</strong> Modulates pulse width  </li>
+<li><strong>Switch:</strong> Selects which output is modulated by CV for the selected channel.</li>
+</ul>
+<hr />
+<h2><strong>Quick Reference</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sliders (x4)</strong></td>
+<td>A: frequency; B/C/D: freq/phase/div/mult by mode</td>
+</tr>
+<tr>
+<td><strong>Mode Button</strong></td>
+<td>Mode (Free/Phase/Divide/Mult)</td>
+</tr>
+<tr>
+<td><strong>Wave Button</strong></td>
+<td>Sets (or morphs, with Poti II) asgn waveform</td>
+</tr>
+<tr>
+<td><strong>Mode+Wave</strong></td>
+<td>Toggles Sync/Reset (per channel, LED feedback)</td>
+</tr>
+<tr>
+<td><strong>FRQ•PH•RTO CV IN</strong></td>
+<td>Voltage (-10V/+10V), 1V/oct in Free, phase, or div/mult</td>
+</tr>
+<tr>
+<td><strong>RESET•SYNC</strong></td>
+<td>Gate/Trigger for phase/freq reset/sync</td>
+</tr>
+<tr>
+<td><strong>Sine/Asgn/Rect</strong></td>
+<td>Outputs, ±5V</td>
+</tr>
+<tr>
+<td><strong>Poti II Knobs</strong></td>
+<td>CV/sine/asgn attenuation, per channel, switchable</td>
+</tr>
+<tr>
+<td><strong>Shape CV + Switch</strong></td>
+<td>Choose and modulate sine/asgn/rect per channel</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Voltage Ranges</strong></h2>
+<ul>
+<li><strong>Outputs:</strong> ±5V</li>
+<li><strong>Input CV:</strong> –10V to +10V (FRQ•PH•RTO inputs)</li>
+<li><strong>Shape CV:</strong> ±5V</li>
+</ul>
+<hr />
+<h2><strong>Useful Tips</strong></h2>
+<ul>
+<li><strong>1V/oct tracking in Free mode only!</strong> (use as quad VCO)</li>
+<li><strong>External Sync</strong> disables continuous freq control (slider/CV = division factor).</li>
+<li>With <strong>Poti II</strong>, set attenuation per channel &amp; modulate wave shapes.  </li>
+<li><strong>Reset/Sync jacks on each channel:</strong> get polyrhythms/LFO sync tricks!</li>
+</ul>
+<hr />
+<h2><strong>Physical Installation</strong></h2>
+<ul>
+<li><strong>Batumi II:</strong> 10hp, 45mm deep, 90mA/+12V, 50mA/-12V</li>
+<li><strong>Poti II:</strong> 4hp, 32mm, 10mA/+12V (powered only via Batumi II)</li>
+<li><strong>DO NOT CONNECT Poti II TO BUS BOARD!</strong> Use supplied ribbon cable.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

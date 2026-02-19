@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Omnitone_Beatsi</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Omnitone — Beatsi</h1>
+<ul>
+<li><a href="../../manuals/Beatsi_Information_Package.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><strong><a href="attachment-link-placeholder">Beatsi Eurorack Module Manual (PDF)</a></strong></p>
+<hr />
+<h1>Beatsi Eurorack Cheat Sheet</h1>
+<blockquote>
+<p><strong>Beatsi</strong> is a compact, digital module for modular drum synthesis (not samples or physical modeling). Sounds are based on virtual drum-synth building blocks and organized into three "kits":<br />
+- <strong>Orange:</strong> Acoustic/Basic<br />
+- <strong>Blue:</strong> Low-fi<br />
+- <strong>Green:</strong> Alien</p>
+</blockquote>
+<hr />
+<h2>1. <strong>Panel Controls &amp; Navigation</strong></h2>
+<h3><strong>Encoders</strong></h3>
+<ul>
+<li><strong>Parameter Encoder:</strong>  </li>
+<li>Turn: Scroll parameters (Timbre, Pitch, Decay, Level) for each drum piece.  </li>
+<li>Short Press: Assign selected parameter to CV1.  </li>
+<li>Long Press: Edit <strong>attenuverting</strong> for CV1 on selected parameter.</li>
+<li><strong>Value Encoder:</strong>  </li>
+<li>Turn: Adjust the value for the selected parameter.  </li>
+<li>Short Press: Assign selected parameter to CV2.  </li>
+<li>Long Press: Edit <strong>attenuverting</strong> for CV2 on selected parameter.  </li>
+<li><strong>Press both encoders:</strong> Mute selected drum piece.</li>
+</ul>
+<h3><strong>Button</strong></h3>
+<ul>
+<li><strong>Hit:</strong> Plays (auditions) the selected drum voice.</li>
+</ul>
+<h3><strong>Grid Section</strong></h3>
+<p>Navigate between pieces and parameters (white cursor). The color of the value bar = kit currently in use for the piece.</p>
+<hr />
+<h2>2. <strong>Inputs &amp; Outputs Summary</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KICK</td>
+<td>Trigger Input (Kick)</td>
+<td>Trigger: 2V–10V</td>
+</tr>
+<tr>
+<td>SNARE</td>
+<td>Trigger Input (Snare)</td>
+<td>Trigger: 2V–10V</td>
+</tr>
+<tr>
+<td>HI-HAT</td>
+<td>Trigger/Gate Input (Hi-hat)</td>
+<td>Trigger/Gate: 2V–10V</td>
+</tr>
+<tr>
+<td>TOM</td>
+<td>Trigger Input (Tom)</td>
+<td>Trigger: 2V–10V</td>
+</tr>
+<tr>
+<td>TOM CV</td>
+<td>1V/Oct Pitch CV (Tom)</td>
+<td>CV: -5V to +5V</td>
+</tr>
+<tr>
+<td>CRASH</td>
+<td>Trigger Input (Crash)</td>
+<td>Trigger: 2V–10V</td>
+</tr>
+<tr>
+<td>CV1</td>
+<td>Assignable CV Mod Input</td>
+<td>CV: -5V to +5V</td>
+</tr>
+<tr>
+<td>CV2</td>
+<td>Assignable CV Mod Input</td>
+<td>CV: -5V to +5V</td>
+</tr>
+<tr>
+<td>OUT</td>
+<td><strong>All drum sounds (sum)</strong></td>
+<td>Audio out</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. <strong>Parameter Control &amp; CV Assignment</strong></h2>
+<ul>
+<li><strong>Each piece</strong> (Kick, Snare, Hi-hat, Tom, Crash) has parameters:</li>
+<li><strong>Timbre</strong></li>
+<li><strong>Pitch</strong></li>
+<li><strong>Decay</strong></li>
+<li><strong>Level</strong></li>
+<li><strong>CV Assignment:</strong></li>
+<li><strong>CV1:</strong> Assign by cursor + Parameter Encoder (short press)</li>
+<li><strong>CV2:</strong> Assign by cursor + Value Encoder (short press)</li>
+<li><strong>Attenuverting:</strong> Cursor on parameter + associated encoder (long press). Adjust range: +1 to -1 (top squares = normal, bottom = inverted)</li>
+<li><strong>Multiple parameters:</strong> Both CVs can be assigned to multiple params at once.</li>
+</ul>
+<hr />
+<h2>4. <strong>Kit Selection/Timbre Mod</strong></h2>
+<ul>
+<li><strong>Kits</strong>: Orange (acoustic), Blue (low-fi), Green (alien)</li>
+<li>Switch kit for piece:  </li>
+<li>Navigate timbre parameter to either end; value bar "rolls over," changing color.</li>
+</ul>
+<hr />
+<h2>5. <strong>Saving &amp; Reset</strong></h2>
+<ul>
+<li><strong>Auto-save:</strong> Wait 5 sec after last change/no trigger; cursor dims = settings stored.</li>
+<li><strong>Reset All Settings:</strong> Hold Hit, Parameter, Value buttons while powering up.</li>
+</ul>
+<hr />
+<h2>6. <strong>Drum Engine Theory (Quick Ref)</strong></h2>
+<ul>
+<li><strong>Kick/Tom:</strong> Modeled as VCO + envelopes (decay pitch, amp env.), plus optional noise/AM/FM for punch.</li>
+<li><strong>Snare:</strong> Modeled with noise burst + drum VCO base.</li>
+<li><strong>Cymbals/Crash/Hi-hat:</strong> Noise filtered, delays, fast amplitude env.  </li>
+<li><strong>Hi-hat:</strong> Trigger = closed, Gate = open.</li>
+</ul>
+<hr />
+<h2>7. <strong>Cheat Sheet Quick Reference</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Drum</th>
+<th>Trigger</th>
+<th>CV</th>
+<th>CV Dest. (Internal)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kick</td>
+<td>KICK</td>
+<td>CV1/2</td>
+<td>Any param.</td>
+</tr>
+<tr>
+<td>Snare</td>
+<td>SNARE</td>
+<td>CV1/2</td>
+<td>Any param.</td>
+</tr>
+<tr>
+<td>Hat</td>
+<td>HI-HAT</td>
+<td>CV1/2</td>
+<td>Any param.</td>
+</tr>
+<tr>
+<td>Tom</td>
+<td>TOM</td>
+<td>TOM CV</td>
+<td>Pitch, CV1/2</td>
+</tr>
+<tr>
+<td>Crash</td>
+<td>CRASH</td>
+<td>CV1/2</td>
+<td>Any param.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>All drums out via OUT.</strong></li>
+</ul>
+<hr />
+<h2>8. <strong>Tips</strong></h2>
+<ul>
+<li>Use external LFOs, random, or sequencer CVs into CV1/CV2 for morphing/animation.</li>
+<li>Fast triggers on hi-hat = closed; gates or longer triggers = open.</li>
+<li>Save/backup settings by waiting for auto-save (no triggers/edits for 5 sec).</li>
+</ul>
+<hr />
+<p><strong><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></strong></p>
+<hr />
+<p><strong>Note:</strong> If you want the official manual PDF, please contact the manufacturer/distributor as an online URL was not provided in the image. Replace "attachment-link-placeholder" above with the correct link if available.</p>
+</body>
+</html>

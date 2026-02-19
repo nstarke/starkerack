@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-135-1</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-135-1</h1>
+<ul>
+<li><a href="../../manuals/A135_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.doepfer.de/a100man/A135_anl.pdf">Doepfer A-135 VC-Mixer Manual (PDF)</a></p>
+<hr />
+<h1>Doepfer A-135 VC-Mixer (System A-100) Cheat Sheet</h1>
+<p>The <strong>Doepfer A-135 VC-Mixer</strong> is a 4-channel voltage-controlled mixer combining four linear VCAs and a mixer. It allows voltage-controlled mixing of up to 4 audio signals with individual CV or manual control, suited for both audio and some CV duties.</p>
+<hr />
+<h2>Inputs &amp; Outputs (Sockets)</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audio In 1-4 (<code>!</code>)</td>
+<td>Input (x4)</td>
+<td>Audio inputs for each VCA channel</td>
+<td>Audio levels (typ. ~10Vpp)</td>
+</tr>
+<tr>
+<td>Audio Out (<code>"</code>)</td>
+<td>Output</td>
+<td>Sum output of all 4 VCAs mixed</td>
+<td>Audio levels (~10Vpp)</td>
+</tr>
+<tr>
+<td>ext. CV 1-4 (<code>§</code>)</td>
+<td>Input (x4)</td>
+<td>CV input for each VCA</td>
+<td>0V (off) to +5V (max gain)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Controls</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Per VCA?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audio In</td>
+<td>Yes</td>
+<td>Attenuates the signal at the corresponding Audio In.</td>
+</tr>
+<tr>
+<td>Gain</td>
+<td>Yes</td>
+<td>Sets manual gain/offset for the channel. 0 = off, increasing gives more base gain.</td>
+</tr>
+<tr>
+<td>ext. CV</td>
+<td>Yes</td>
+<td>Attenuates the amount of external control voltage affecting the VCA.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Audio In (1-4):</strong> Use the knob to set initial signal level for each audio input.</li>
+<li><strong>Gain (1-4):</strong> Sets minimum VCA level (offset). Typically set to 0 for unipolar sources (like envelopes); increase for bipolar CV sources (like LFOs) to allow negative swings to have effect.</li>
+<li><strong>ext. CV (1-4):</strong> Attenuates the external CV input; sets how much modulation affects the VCA.</li>
+</ul>
+<hr />
+<h2>Reference Notes</h2>
+<ul>
+<li><strong>All VCAs are linear response.</strong></li>
+<li><strong>Typical use</strong>: Patch sources (VCOs, samplers, external signals, etc.) into Audio In 1-4. Output to sound system or further processing.</li>
+<li><strong>CV modulates amplitude</strong>: e.g. use envelopes for dynamics or LFOs/random for movement.</li>
+<li><strong>0V CV = VCA muted; +5V CV = VCA at max gain.</strong> Control sources include envelopes, LFOs, sequencers, random, etc. (see manual for examples).</li>
+</ul>
+<hr />
+<h2>Patch Example</h2>
+<ol>
+<li>Plug up to 4 audio sources into Audio In jacks.</li>
+<li>Optionally patch a control voltage (envelope, LFO, etc.) into ext. CV for one or more channels.</li>
+<li>Set Audio In and Gain knobs for basic level.</li>
+<li>Use ext. CV knob to set CV modulation depth.</li>
+<li>Main output is at Audio Out.</li>
+</ol>
+<hr />
+<h3>Module Panel Summary</h3>
+<ul>
+<li><strong>Inputs:</strong><br />
+<code>Audio In 1-4</code> (signal), <code>ext. CV 1-4</code> (0-5V, controls VCA)</li>
+<li><strong>Output:</strong><br />
+<code>Audio Out</code> (summed/mixed VCA outputs)</li>
+<li><strong>Knobs per channel:</strong><br />
+<em>Audio In</em> (attenuator), <em>Gain</em> (offset), <em>ext. CV</em> (CV attenuator)</li>
+<li><strong>No buttons, switches, or sliders.</strong></li>
+</ul>
+<hr />
+<h3>Additional References</h3>
+<ul>
+<li><strong>CEM3381</strong> VCA chips, high quality, linear response.</li>
+<li><strong>Voltage range:</strong> For full VCA opening, ext. CV input expects up to +5V (in addition to offset from Gain knob).</li>
+</ul>
+<hr />
+<p><strong>For detailed patch diagrams, refer to the Patch-Sheet section in the <a href="https://www.doepfer.de/a100man/A135_anl.pdf">full manual (PDF)</a>.</strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

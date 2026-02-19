@@ -1,0 +1,364 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Klavis_Grainity_VCF</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Klavis — Grainity VCF</h1>
+<ul>
+<li><a href="../../manuals/Klavis_-_Grainity_User_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.klavis.com/manuals/Grainity_UserManual_A.pdf">Download the Klavis Grainity User Manual PDF</a><br />
+<em>(Official source, verify up-to-date version at Klavis.com)</em></p>
+<hr />
+<h1>Klavis Grainity Granular VCF — Cheat Sheet</h1>
+<h2>Overview</h2>
+<ul>
+<li><strong>Dual VCF</strong>: Analog, digitally-controlled <strong>Granular VCF</strong> + standard <strong>Multimode VCF</strong>; patch separately or combine.</li>
+<li><strong>Mix Output</strong> provides blend of both filter sections, voltage-controllable with phase-invert.</li>
+<li><strong>Shared controls</strong> for frequency (cutoff) and resonance (Q).</li>
+<li><strong>Granular section</strong>: Pattern/"Structure" control, cycle Division, Phase/Track, Detect input for driving filter cycle by triggers or external oscillators.</li>
+<li><strong>Firmware updates</strong> via audio file to Struct jack.</li>
+</ul>
+<hr />
+<h2>Front Panel Controls</h2>
+<table>
+<thead>
+<tr>
+<th>Ctrl Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>F (Freq)</strong></td>
+<td>Slider</td>
+<td>Master cutoff freq for both filters</td>
+</tr>
+<tr>
+<td><strong>Q</strong></td>
+<td>Slider</td>
+<td>Master resonance for both filters (self-oscillates)</td>
+</tr>
+<tr>
+<td><strong>FM</strong></td>
+<td>Knob</td>
+<td>Bipolar attenuator for FM CV, center = 0, R = +, L = -</td>
+</tr>
+<tr>
+<td><strong>FM (jack)</strong></td>
+<td>Input</td>
+<td>Cutoff CV, ±5V</td>
+</tr>
+<tr>
+<td><strong>V/Oct (jack)</strong></td>
+<td>Input</td>
+<td>1V/oct tracking input, ±5V</td>
+</tr>
+<tr>
+<td><strong>Q (jack)</strong></td>
+<td>Input</td>
+<td>CV for resonance, 0–+5V</td>
+</tr>
+<tr>
+<td><strong>Q (knob)</strong></td>
+<td>Knob</td>
+<td>Unipolar attenuator for Q jack</td>
+</tr>
+<tr>
+<td><strong>Mix (knob)</strong></td>
+<td>Knob</td>
+<td>Blend multimode (left) ↔ granular (right) for Mix output; also CV-able</td>
+</tr>
+<tr>
+<td><strong>Mix (jack)</strong></td>
+<td>Input</td>
+<td>Mix amount CV; summed ±5V with knob</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Button</td>
+<td>Tap: select Multimode filter type (see below); Long press: toggle phase invert</td>
+</tr>
+<tr>
+<td><strong>Type LEDs</strong></td>
+<td>LED</td>
+<td>Shows active filter type; flashes if phase invert is active</td>
+</tr>
+<tr>
+<td><strong>inv</strong></td>
+<td>Button</td>
+<td>Long press: toggles Mix phase inversion</td>
+</tr>
+</tbody>
+</table>
+<h3>Granular Section Only</h3>
+<table>
+<thead>
+<tr>
+<th>Ctrl Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Struct (encoder)</strong></td>
+<td>Knob/Button</td>
+<td>Select structure (pattern); hold+turn = fast scroll</td>
+</tr>
+<tr>
+<td><strong>Struct (jack)</strong></td>
+<td>Input</td>
+<td>±5V summed to Structure for voltage/random sweeping</td>
+</tr>
+<tr>
+<td><strong>Div (knob)</strong></td>
+<td>Knob</td>
+<td>Adjust cycle Division, increases step length in Structure</td>
+</tr>
+<tr>
+<td><strong>Div (jack)</strong></td>
+<td>Input</td>
+<td>±5V summed to Div knob</td>
+</tr>
+<tr>
+<td><strong>Φ/Frq (knob)</strong></td>
+<td>Knob</td>
+<td>Phase delay (Track OFF), or Transpose amount (Track ON)</td>
+</tr>
+<tr>
+<td><strong>Φ/Frq (jack)</strong></td>
+<td>Input</td>
+<td>±5V Phase or Track amount CV</td>
+</tr>
+<tr>
+<td><strong>Track (button)</strong></td>
+<td>Button</td>
+<td>Track ON: Φ/Frq = Transpose (musically quantized); OFF = Φ/Frq = Phase</td>
+</tr>
+<tr>
+<td><strong>Track LED</strong></td>
+<td>LED</td>
+<td>Lit = Track mode ON</td>
+</tr>
+<tr>
+<td><strong>Detect (jack)</strong></td>
+<td>Input</td>
+<td>Triggers/Audio to clock granular section (replaces auto-zero-crossing)</td>
+</tr>
+<tr>
+<td><strong>Display (3-digit)</strong></td>
+<td>Numeric</td>
+<td>1st+2nd: Structure, 3rd: Division</td>
+</tr>
+</tbody>
+</table>
+<h3>Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Ctrl Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M.VCF (jack)</strong></td>
+<td>Output</td>
+<td>Multimode VCF output</td>
+</tr>
+<tr>
+<td><strong>G.VCF (jack)</strong></td>
+<td>Output</td>
+<td>Granular VCF output</td>
+</tr>
+<tr>
+<td><strong>Mix (jack)</strong></td>
+<td>Output</td>
+<td>Blend of M.VCF &amp; G.VCF (set by Mix knob/CV, phase invert possible)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Multimode Filter Types (M.VCF)</h2>
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>LED</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LP2</td>
+<td>1</td>
+<td>12dB/oct low pass</td>
+</tr>
+<tr>
+<td>LP4</td>
+<td>2</td>
+<td>24dB/oct low pass</td>
+</tr>
+<tr>
+<td>HP</td>
+<td>3</td>
+<td>24dB/oct high pass</td>
+</tr>
+<tr>
+<td>BP</td>
+<td>4</td>
+<td>12dB/oct bandpass</td>
+</tr>
+<tr>
+<td>BR</td>
+<td>5</td>
+<td>12dB/oct band reject</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>6</td>
+<td>Input only (bypass)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Voltage Ranges &amp; Signal Levels</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Range</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audio Input</td>
+<td>±5V pp</td>
+<td>DC coupled</td>
+</tr>
+<tr>
+<td>Detect Input</td>
+<td>≥300mV, AC coupled</td>
+<td>Audio or trigger/gate input</td>
+</tr>
+<tr>
+<td>CV Inputs</td>
+<td>±5V</td>
+<td>All CVs (Struct, Div, Φ/Frq, Mix)</td>
+</tr>
+<tr>
+<td>Q Input</td>
+<td>0 to +5V</td>
+<td>For resonance</td>
+</tr>
+<tr>
+<td>Outputs</td>
+<td>±5V pp</td>
+<td>Unity gain, open filter, no resonance</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Usage Tips</h2>
+<ul>
+<li><strong>Input audio</strong>: Use simple/complex VCO, chords, additive, sync, or even drums/mixed music.</li>
+<li><strong>Detect input</strong>: Feed separate VCO, LFO, trigger, or rhythm to clock granular structure for special effects (e.g. quantized filtering/chops).</li>
+<li><strong>Structure</strong>: Cycles through filter-phase patterns (2–8 step/user random); longer for more subharmonics.</li>
+<li><strong>Division</strong>: Repeat each pattern step; for harmonics/rhythms, or slows down cycles.</li>
+<li><strong>Phase/Track</strong>: Phase = flanging/chorus effects. Track = musical detuning/harmonic ratios.</li>
+<li><strong>Firmware Update</strong>: Audio file to Struct jack, hold Track+Type while powering.</li>
+</ul>
+<hr />
+<h2>Quick-Start Patch Recipe</h2>
+<ol>
+<li>Patch VCO to <strong>Input</strong>, output to system from <strong>Mix</strong> out.</li>
+<li>Use <strong>Type</strong> to select multimode filter flavor.</li>
+<li>Try <strong>Structure/Div/Track/Φ</strong> for subharmonics, harmonics or rhythm.</li>
+<li>Use <strong>Detect</strong> with VCO/gate for rhythmic or externally driven patterns.</li>
+<li>Fade/blend between granular/"classic" filter with <strong>Mix</strong> knob or CV.</li>
+</ol>
+<hr />
+<h2>Reference Table: Jacks &amp; Controls</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Function / Range for CV/Audio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Input</strong></td>
+<td>In</td>
+<td>Main audio, ±5V pp</td>
+</tr>
+<tr>
+<td><strong>Detect</strong></td>
+<td>In</td>
+<td>Audio or trigs, &gt;300mV AC</td>
+</tr>
+<tr>
+<td><strong>V/Oct</strong></td>
+<td>In</td>
+<td>1V/octave, ±5V</td>
+</tr>
+<tr>
+<td><strong>FM</strong></td>
+<td>In</td>
+<td>Frequency mod, ±5V</td>
+</tr>
+<tr>
+<td><strong>Q</strong></td>
+<td>In</td>
+<td>Resonance mod, 0–+5V</td>
+</tr>
+<tr>
+<td><strong>Struct</strong></td>
+<td>In</td>
+<td>Structure selection, ±5V</td>
+</tr>
+<tr>
+<td><strong>Div</strong></td>
+<td>In</td>
+<td>Division selection, ±5V</td>
+</tr>
+<tr>
+<td><strong>Mix</strong></td>
+<td>In</td>
+<td>Mix balance CV, ±5V</td>
+</tr>
+<tr>
+<td><strong>Φ/Frq</strong></td>
+<td>In</td>
+<td>Phase/track CV, ±5V</td>
+</tr>
+<tr>
+<td><strong>M.VCF</strong></td>
+<td>Out</td>
+<td>Multimode out, ±5V pp</td>
+</tr>
+<tr>
+<td><strong>G.VCF</strong></td>
+<td>Out</td>
+<td>Granular out, ±5V pp</td>
+</tr>
+<tr>
+<td><strong>Mix</strong></td>
+<td>Out</td>
+<td>Both sections mixed/blend, ±5V pp</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

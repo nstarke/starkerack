@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Synthesis_Technology_E340_Cloud_Generator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Synthesis Technology — E340 Cloud Generator</h1>
+<ul>
+<li><a href="../../manuals/E340_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://www.synthtech.com/docs/E340manual.pdf"><strong>E340 Cloud Generator Manual (PDF)</strong></a></p>
+<hr />
+<h1>E340 Cloud Generator (Synthesis Technology) Cheat Sheet</h1>
+<h2>OVERVIEW</h2>
+<ul>
+<li><strong>Dual-output VCO</strong> with up to 8 stacked "cloud" VCOs, each with detune and chaos modulation.</li>
+<li>Outputs super-saw and super-sine oscillations for fat, swarm-like timbres.</li>
+<li>No built-in CV attenuators—CVs should be attenuated externally if needed.</li>
+<li>CVs: -5V to +5V range for all modulation inputs.</li>
+</ul>
+<hr />
+<h2>Panel Controls &amp; Jacks Reference</h2>
+<h3>KNOBS &amp; SWITCHES</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>COARSE</strong></td>
+<td>Main frequency, spans 8 octaves.</td>
+</tr>
+<tr>
+<td><strong>FINE</strong></td>
+<td>Fine frequency, spans ~0.5 octave.</td>
+</tr>
+<tr>
+<td><strong>FM AMT</strong></td>
+<td>Attenuates FM CV input.</td>
+</tr>
+<tr>
+<td><strong>SPREAD</strong></td>
+<td>Detunes cloud VCOs relative to base pitch (exponential spread, center position = off).</td>
+</tr>
+<tr>
+<td><strong>CHAOS</strong></td>
+<td>Adds filtered noise (FM) to detuning, making each VCO "wiggle."</td>
+</tr>
+<tr>
+<td><strong>CHAOS BW</strong></td>
+<td>Sets bandwidth (speed) of chaos-noise in 6 steps (left = slow, right = fast).</td>
+</tr>
+<tr>
+<td><strong>DENSITY</strong></td>
+<td>Toggles active VCO count: <strong>2, 4, or 8</strong> VCOs. More VCOs = reduced amplitude to avoid clipping.</td>
+</tr>
+</tbody>
+</table>
+<h3>INPUT JACKS</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Voltage Range</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1V/OCT CV</strong></td>
+<td>-5V to +5V</td>
+<td>Pitch control for all VCOs (use for standard keyboard/gate CV).</td>
+</tr>
+<tr>
+<td><strong>FM IN</strong></td>
+<td>-5V to +5V</td>
+<td>Frequency modulation, mod depth set by FM AMT knob.</td>
+</tr>
+<tr>
+<td><strong>SYNC</strong></td>
+<td>&gt;+0.25V</td>
+<td>Hard sync input. Resets all VCOs to -5V.</td>
+</tr>
+<tr>
+<td><strong>SPREAD CV</strong></td>
+<td>-5V to +5V</td>
+<td>Modulates SPREAD detune, added to knob value.</td>
+</tr>
+<tr>
+<td><strong>CHAOS CV</strong></td>
+<td>-5V to +5V</td>
+<td>Modulates CHAOS depth, added to knob value.</td>
+</tr>
+<tr>
+<td><strong>CHAOS BW CV</strong></td>
+<td>-5V to +5V</td>
+<td>Modulates CHAOS BW (speed), added to knob value.</td>
+</tr>
+</tbody>
+</table>
+<h3>OUTPUT JACKS</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Voltage Range</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SAW OUT</strong></td>
+<td>-5V to +5V</td>
+<td>Sum of detuned saw waves (DC-coupled).</td>
+</tr>
+<tr>
+<td><strong>SINE OUT</strong></td>
+<td>-5V to +5V</td>
+<td>Sum of detuned sine waves (DC-coupled).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>QUICK START</h2>
+<ol>
+<li><strong>Patch 1V/OCT</strong> to sequencer/keyboard CV.</li>
+<li><strong>OUT to VCA/Mixer:</strong> Choose <strong>Saw Out</strong> or <strong>Sine Out</strong>.</li>
+<li><strong>Tune</strong> with coarse/fine knobs.</li>
+<li><strong>Set DENSITY:</strong> Choose 2, 4, or 8 VCOs.</li>
+<li><strong>SPREAD:</strong> Turn up for "cloud" detune effect; patch external CV to sweep amount.</li>
+<li><strong>CHAOS/CHAOS BW:</strong> Add and shape random "wiggle" for extra thickness.</li>
+<li><strong>Sync:</strong> For hard-edge tones, patch clock/square LFO to SYNC.</li>
+<li><strong>FM:</strong> Patch external CV source/noise/LFO/another VCO for classic FM effects. Use FM AMT for depth.</li>
+</ol>
+<hr />
+<h2>POWER</h2>
+<ul>
+<li><strong>Eurorack:</strong> +12V @ 55mA, -12V @ 25mA.</li>
+<li><strong>MOTM:</strong> +15V @ 45mA, -15V @ 15mA.</li>
+<li><strong>All panel CV inputs:</strong> -5V to +5V nominal, DC to 8kHz.</li>
+</ul>
+<hr />
+<h2>TIPS</h2>
+<ul>
+<li>Overdriving inputs can shift pitch—keep input levels within -5V/+5V if possible.</li>
+<li>Each control voltage input is summed with associated knob for total effect.</li>
+<li>Use external attenuators if finer CV control is needed.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

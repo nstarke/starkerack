@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Micro_VCF</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Micro VCF</h1>
+<ul>
+<li><a href="../../manuals/uvcf_manual_2021.08.15.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://intellijel.com/downloads/manuals/uVCF.pdf">µVCF State Variable Filter Manual PDF</a></p>
+<hr />
+<h1>µVCF State Variable Filter — CHEAT SHEET</h1>
+<h2>MODULE OVERVIEW</h2>
+<ul>
+<li><strong>3 Simultaneous Filter Outputs:</strong>  </li>
+<li>2-pole (12 dB/oct) Low Pass (LPF)</li>
+<li>2-pole (12 dB/oct) High Pass (HPF)</li>
+<li>1-pole Band Pass (BPF)</li>
+<li><strong>Precise 1V/Oct Tracking</strong> (FM1) — Can act as a sine VCO with self-oscillation  </li>
+<li><strong>Compact (6hp), low noise, easy FM, ideal for smaller racks</strong></li>
+</ul>
+<hr />
+<h2>KNOB &amp; CONTROL REFERENCE</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FREQ</strong></td>
+<td>Knob</td>
+<td>Sets filter cutoff frequency. Modulated by FM1 &amp; FM2 inputs.</td>
+</tr>
+<tr>
+<td><strong>Q</strong></td>
+<td>Knob</td>
+<td>Sets resonance. Max = self-oscillating sine (no input needed for sine VCO).</td>
+</tr>
+<tr>
+<td><strong>FM2</strong></td>
+<td>Knob</td>
+<td>Amount &amp; polarity of FM2 CV input. CW = normal; CCW = inverted; noon = off.</td>
+</tr>
+<tr>
+<td><strong>Input Atten</strong></td>
+<td>Knob</td>
+<td>Attenuates input signal (IN). CW = no attenuation.</td>
+</tr>
+<tr>
+<td><strong>FM1 Atten</strong></td>
+<td>Knob</td>
+<td>Attenuates FM1 CV input. CW = no attenuation (standard 1V/oct).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>JACK-IN &amp; OUT SUMMARY</h2>
+<table>
+<thead>
+<tr>
+<th>Jack Label</th>
+<th>Type</th>
+<th>Description</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IN [A]</strong></td>
+<td>Audio In</td>
+<td>Filter audio input</td>
+<td>±5V typical</td>
+</tr>
+<tr>
+<td><strong>FM1 [B]</strong></td>
+<td>CV In</td>
+<td>Cutoff freq. CV; 1V/Oct if full CW on FM1 Atten</td>
+<td>±8V typical, 1V/oct tracking</td>
+</tr>
+<tr>
+<td><strong>LPF [C]</strong></td>
+<td>Audio Out</td>
+<td>2-pole low pass out</td>
+<td>±5V typical</td>
+</tr>
+<tr>
+<td><strong>FM2 [D]</strong></td>
+<td>CV In</td>
+<td>Second cutoff CV; polarity/amount via FM2 knob</td>
+<td>±8V typical</td>
+</tr>
+<tr>
+<td><strong>BPF [E]</strong></td>
+<td>Audio Out</td>
+<td>1-pole bandpass out</td>
+<td>±5V typical</td>
+</tr>
+<tr>
+<td><strong>HPF [F]</strong></td>
+<td>Audio Out</td>
+<td>2-pole high pass out</td>
+<td>±5V typical</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>USAGE FLOW</h2>
+<ol>
+<li><strong>Patch your source</strong> into IN [A]. Adjust Input Attenuator to desired level.</li>
+<li><strong>Patch output</strong>:  </li>
+<li>LPF [C] = low pass  </li>
+<li>HPF [F] = high pass  </li>
+<li>BPF [E] = bandpass<br />
+   Take one (or more) to your VCA or mixer.</li>
+<li><strong>Set FREQ</strong> to taste.  </li>
+<li><strong>Set Q</strong> for resonance. Full CW = self-oscillation, sine oscillator—no input necessary.</li>
+<li><strong>Patch CV for modulation</strong> (optional):</li>
+<li>FM1 [B]: Typical envelope/LFO/pitch, tracks 1V/oct with FM1 Atten fully CW.</li>
+<li>FM2 [D]: Additional CV, amount/direction as set by FM2 knob.</li>
+<li>Use white/pink noise as input to demo filter types.</li>
+</ol>
+<hr />
+<h2>QUICK REFERENCE (TIP SUMMARY)</h2>
+<ul>
+<li><strong>FM1 fully CW:</strong> True 1V/octave tracking, ideal for playing notes or VCO use.</li>
+<li><strong>Q fully CW, nothing patched to IN:</strong> Sine-wave oscillator (2Hz–20kHz).</li>
+<li><strong>LPF, HPF, BPF outputs may all be used simultaneously.</strong></li>
+<li><strong>Self-resonance = clean, low-distortion sine wave.</strong></li>
+</ul>
+<hr />
+<h3>TECHNICAL</h3>
+<ul>
+<li><strong>Width:</strong> 6hp</li>
+<li><strong>Power:</strong> +12V @ 25mA, -12V @ 24mA</li>
+<li><strong>Depth:</strong> 21mm</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

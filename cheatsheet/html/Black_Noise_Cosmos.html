@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Black_Noise_Cosmos</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Black Noise — Cosmos</h1>
+<ul>
+<li><a href="../../manuals/BLACK-NOISE_COSMOS_User-Manual_V1.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://blacknoisemodular.com/wp-content/uploads/2024/03/COSMOS_USER_MANUAL_V1.0.pdf"><strong>View COSMOS by Black Noise — Official User Manual (PDF)</strong></a><br />
+<em>(Link from Black Noise Modular — ensure version and link match latest official document)</em></p>
+<hr />
+<h1>COSMOS Eurorack Module Cheat Sheet</h1>
+<p><strong>Quick Reference for Patch, Logic, &amp; Signal Processing</strong></p>
+<hr />
+<h2><strong>Inputs (Jacks &amp; Touch Pads)</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Description</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X IN</td>
+<td>3.5mm jack</td>
+<td>Main analog input (accepts CV, audio, gate, trigger, uni- or bipolar signals)</td>
+<td>-10V to +10V</td>
+</tr>
+<tr>
+<td>Y IN</td>
+<td>3.5mm jack</td>
+<td>Secondary analog input (as above)</td>
+<td>-10V to +10V</td>
+</tr>
+<tr>
+<td>X Pad</td>
+<td>Capacitive Touch</td>
+<td>Normalled to X In if jack is unpatched. Touch-controlled (performance) analog voltage.</td>
+<td>~0V to +5V*</td>
+</tr>
+<tr>
+<td>Y Pad</td>
+<td>Capacitive Touch</td>
+<td>Normalled to Y In if jack is unpatched.</td>
+<td>~0V to +5V*</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>*Touch pad voltage dependent on skin contact and pressure.</p>
+</blockquote>
+<hr />
+<h2><strong>Outputs (all 3.5mm jacks)</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Type</th>
+<th>Description</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Analog Outs</td>
+<td>Analog</td>
+<td>1:1 buffered X, 1:1 buffered Y, Inverted X, Inverted Y, (X+Y)/2, (X-Y)/2, Inverted (X+Y)/2, Inverted (X-Y)/2</td>
+<td>-10V to +10V</td>
+</tr>
+<tr>
+<td>MIN</td>
+<td>Analog</td>
+<td>Minimum of X and Y (AND function for logic/gates)</td>
+<td>-10V to +10V</td>
+</tr>
+<tr>
+<td>MAX</td>
+<td>Analog</td>
+<td>Maximum of X and Y (OR function for logic/gates)</td>
+<td>-10V to +10V</td>
+</tr>
+<tr>
+<td>INV MIN, INV MAX</td>
+<td>Analog</td>
+<td>Min/Max with opposite phase</td>
+<td>-10V to +10V</td>
+</tr>
+<tr>
+<td>TZ CLIPPER, INV TZ</td>
+<td>Analog</td>
+<td>Through-zero clipper (unique wave/ring mod/XOR effect), and its inverse</td>
+<td>-10V to +10V</td>
+</tr>
+<tr>
+<td>Logic Gates (Gate)</td>
+<td>Digital Gate</td>
+<td>AND, OR, XOR, NOR, NAND, XNOR — logic gates output HIGH when analog outs above 0V (mirrored/not on lower hemisphere)</td>
+<td>0V (LOW), +10V (HIGH)</td>
+</tr>
+<tr>
+<td>NOT Gates (Gate)</td>
+<td>Digital Gate</td>
+<td>NOT logic of each gate (lower hemisphere)</td>
+<td>0V (LOW), +10V (HIGH)</td>
+</tr>
+<tr>
+<td>Trigger Outs</td>
+<td>Digital Trigger</td>
+<td>Fires on rising edge (main hemisphere) or falling edge (lower hemisphere) when gate crosses 0V</td>
+<td>10ms trigger</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Controls</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Control Location</th>
+<th>Type</th>
+<th>Function</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rear (PCB trimmers)</td>
+<td>Trimmers</td>
+<td>Calibration of thresholds for gate conversion (adjust if needed; usually set at factory)</td>
+<td>Only adjust if malfunctioning</td>
+</tr>
+<tr>
+<td>Touch Pads (Front)</td>
+<td>Touch</td>
+<td>Generates voltage when touched; replaces jack input when unpatched</td>
+<td>Performance CV control</td>
+</tr>
+<tr>
+<td>No knobs, buttons, or sliders on panel*</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>*All core CV and gate manipulation occurs via patching, normalization, and external CV/utility modules.</p>
+<hr />
+<h2><strong>Patching Quick Reference</strong></h2>
+<p><strong>Combine PEG, logic, and analog</strong>
+- <strong>Standard Analog Combo:</strong><br />
+  - (X+Y)/2, (X-Y)/2, MIN, MAX
+- <strong>Digital Logic Outputs:</strong><br />
+  - Gates for AND, OR, XOR, NOR, NAND, XNOR
+  - Triggers (rising and falling edge) both hemispheres
+  - NOT versions always mirrored on the lower row</p>
+<p><strong>Special Functions:</strong>
+- <strong>Clipping/Ringmod:</strong> TZ Clipper outs for unique analog XOR, ring mod, analog comparators
+- <strong>Envelope/Rectifier:</strong> Patch both X and Y with signal/inverted, use MIN, MAX for half/full wave rectification
+- <strong>VCA/VC Clipper:</strong> Patch signal and modulation envelope to X/Y, use TZ outputs for clamping/distortion
+- <strong>Oscillator:</strong> Self-patch XNOR gate back to input (with/followed by slew/LPF for frequency control)
+- <strong>Logic/CV/Gate Manipulation:</strong> Use MAX/MIN for window comparators, clock doubling, random rhythmic Gates with external S&amp;H/noise</p>
+<hr />
+<h2><strong>Typical Voltage Ranges</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Signal Type</th>
+<th>Patchable Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CV/Audio In/Out</td>
+<td>Bipolar (±10V typical)</td>
+</tr>
+<tr>
+<td>Gates/Triggers</td>
+<td>0V (LOW), 10V (HIGH)</td>
+</tr>
+<tr>
+<td>Pads</td>
+<td>0V to ~+5V (touch)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Other Notes</strong></h2>
+<ul>
+<li><strong>No menus, switches, or modes:</strong> Everything is patch-dependent!</li>
+<li><strong>Install with provided ribbon cable only</strong> (special orientation, 10→16 pin).</li>
+<li><strong>Module Depth:</strong> 30mm</li>
+<li><strong>Width:</strong> 14 HP</li>
+<li><strong>Current draw:</strong> +12V: 65mA / -12V: 65mA</li>
+</ul>
+<hr />
+<h2><strong>Usage Examples</strong></h2>
+<ul>
+<li><strong>Half/Full Wave Rectifier, Comparator, Window Comparator, Envelope Follower</strong></li>
+<li><strong>VCA, Ring Mod, Oscillator, Clock Multiplier, Random Gate Sequencer</strong></li>
+<li><strong>AND/OR/NOT/XOR/NAND/XNOR gates for advanced trigger/logic patching</strong></li>
+<li><strong>Wave Shaping, Harmonic Enhancement, Phase-Locked Loops</strong></li>
+</ul>
+<p>Review the <a href="https://blacknoisemodular.com/wp-content/uploads/2024/03/COSMOS_USER_MANUAL_V1.0.pdf">manual PDF</a> for detailed patch diagrams and example setups.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

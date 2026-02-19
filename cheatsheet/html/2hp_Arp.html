@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Arp</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Arp</h1>
+<ul>
+<li><a href="../../manuals/2hp_Arp_Manual_2023.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://twohp.com/modules/arp">Download the 2hp Arp Manual (PDF)</a></p>
+<hr />
+<h1>2hp Arp Cheat Sheet</h1>
+<p><strong>Gate-Driven Arpeggiator Module (2HP, Depth: 45mm)</strong></p>
+<h2><strong>Inputs &amp; Outputs Reference</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TRIG</strong></td>
+<td>Advances the arpeggio when &gt; 0.4V</td>
+<td>Gate/Trigger</td>
+</tr>
+<tr>
+<td><strong>RESET</strong></td>
+<td>Restarts the arpeggio at the root note when &gt; 0.4V</td>
+<td>Gate/Trigger</td>
+</tr>
+<tr>
+<td><strong>ROOT CV IN</strong></td>
+<td>CV input for the Root knob (selects chord root)</td>
+<td>0 to +5V</td>
+</tr>
+<tr>
+<td><strong>CHORD CV IN</strong></td>
+<td>CV input for the Chord knob (selects chord type)</td>
+<td>0 to +5V</td>
+</tr>
+<tr>
+<td><strong>OUT</strong></td>
+<td>V/Oct arpeggio output</td>
+<td>0 to +5V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Controls</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Control (Knob)</th>
+<th>Function</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ROOT</strong></td>
+<td>Sets the initial pitch offset (chord's root note)</td>
+<td>Manual or voltage controlled</td>
+</tr>
+<tr>
+<td><strong>CHORD</strong></td>
+<td>Selects which chord is arpeggiated; LEDs indicate active chord</td>
+<td>Manual or voltage controlled</td>
+</tr>
+<tr>
+<td><strong>MODE</strong></td>
+<td>Selects arpeggio playback mode</td>
+<td>8 modes (see below)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Chord Types and LED Indications</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>M/m LED</th>
+<th>7TH LED</th>
+<th>* LED</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Major</td>
+<td>●</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Major 7</td>
+<td>●</td>
+<td>●</td>
+<td></td>
+</tr>
+<tr>
+<td>Dominant 7</td>
+<td></td>
+<td>●</td>
+<td></td>
+</tr>
+<tr>
+<td>Minor</td>
+<td></td>
+<td></td>
+<td>●</td>
+</tr>
+<tr>
+<td>Minor 7</td>
+<td></td>
+<td>●</td>
+<td>●</td>
+</tr>
+<tr>
+<td>Diminished</td>
+<td>● (Off)</td>
+<td></td>
+<td>● (Off)</td>
+</tr>
+<tr>
+<td>Half Diminished 7</td>
+<td></td>
+<td>●</td>
+<td>● (Off)</td>
+</tr>
+<tr>
+<td>Full Diminished 7</td>
+<td></td>
+<td></td>
+<td>Blinking</td>
+</tr>
+<tr>
+<td>Augmented</td>
+<td></td>
+<td>●</td>
+<td>Blinking</td>
+</tr>
+<tr>
+<td>Augmented 7</td>
+<td>●</td>
+<td>●</td>
+<td>Blinking</td>
+</tr>
+<tr>
+<td>Sus 4</td>
+<td></td>
+<td></td>
+<td>Blinking</td>
+</tr>
+<tr>
+<td>Sus 4 Maj 7</td>
+<td></td>
+<td>●</td>
+<td>Blinking</td>
+</tr>
+<tr>
+<td>Sus 4 Min 7</td>
+<td>●</td>
+<td>●</td>
+<td>Blinking</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Arpeggio Modes (Mode Knob)</strong></h2>
+<ul>
+<li>Ascending (1 octave)</li>
+<li>Ascending (2 octaves)</li>
+<li>Descending (1 octave)</li>
+<li>Descending (2 octaves)</li>
+<li>Pendulum (1 octave)</li>
+<li>Pendulum (2 octaves)</li>
+<li>Random (1 octave)</li>
+<li>Random (2 octaves)</li>
+</ul>
+<hr />
+<h2><strong>Power Consumption</strong></h2>
+<ul>
+<li>+12V: 40mA  </li>
+<li>-12V: 3mA  </li>
+<li>+5V: 0mA</li>
+</ul>
+<hr />
+<h2><strong>Installation Tips</strong></h2>
+<ul>
+<li>2HP wide; align the red stripe on the power cable with the white line on the module’s PCB.</li>
+<li>Connect either row of 5 pins (if using a 10-pin cable) but always check alignment.</li>
+<li>Mount securely before powering on your rack.</li>
+</ul>
+<hr />
+<h2><strong>Quick Workflow</strong></h2>
+<ol>
+<li><strong>Patch your clock or gate to the TRIG input.</strong></li>
+<li><strong>Select chord root (ROOT knob or ROOT CV IN) and chord type (CHORD knob or CHORD CV IN).</strong></li>
+<li><strong>Choose arpeggio mode and range using the MODE knob.</strong></li>
+<li><strong>Patch OUT to your VCO or voice.</strong></li>
+<li><em>(Optional)</em> Use RESET to jump the arpeggio back to the root.</li>
+</ol>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

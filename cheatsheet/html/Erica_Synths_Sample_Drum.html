@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erica_Synths_Sample_Drum</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erica Synths — Sample Drum</h1>
+<ul>
+<li><a href="../../manuals/FINAL_sample_drum_instrukcija_A4.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.ericasynths.lv/media/SampleDrum_Manual_1.04.pdf"><strong>Erica Synths Sample Drum Manual (PDF)</strong></a></p>
+<hr />
+<h1>Erica Synths Sample Drum Cheat Sheet</h1>
+<h2>Overview</h2>
+<p>Dual-channel, performance-focused sample player. Each channel is independently addressable and features:
+- Fast sample playback and triggering
+- Live and auto/manual slicing
+- Extensive CV assignment
+- FX and envelopes per channel
+- Sample recording and trimming
+- Project memory</p>
+<hr />
+<h2>Front Panel Controls &amp; Features</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Control/Jack</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>A/DATA</strong></td>
+<td style="text-align: left;">Main data/selection encoder (push to confirm/select)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>B, C, D/BACK, E, F</strong></td>
+<td style="text-align: left;">Context-sensitive encoders (see menus/functions below). D/BACK: also acts as a back/return button.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>TRG1/PLAY</strong></td>
+<td style="text-align: left;">Manual Trigger button Ch1 (Performance mode only); preview sample</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>TRG2/SHIFT</strong></td>
+<td style="text-align: left;">Manual Trigger button Ch2; also SHIFT for accessing secondary functions; preview waveform/sample info</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>OLED Screen</strong></td>
+<td style="text-align: left;">Visual feedback, waveforms, menues, scopes</td>
+</tr>
+<tr>
+<td style="text-align: center;">**SD Card Slot</td>
+<td style="text-align: left;">For sample/projects management (microSD, must keep directory structure as specified)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>CH1/CH2 Toggle</strong></td>
+<td style="text-align: left;">Select which channel (for sample loading/editing/assign)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Input/Output Jack Summary</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">I/O</th>
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>TRIG 1, 2</strong></td>
+<td style="text-align: left;">Trigger Inputs (Ch1 &amp; Ch2 sample playback)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>CV1, CV2, CV3 (x2)</strong></td>
+<td style="text-align: left;">3 Assignable CV per Channel: tune/sample/start/end/loop/slice FX/env, etc.<br><strong>CV3 on CH2 used for sample recording</strong></td>
+<td style="text-align: left;">Configurable: <br> -5V to +5V<br> -10V to +10V <br> 0V to +5V <br> 0V to +10V <br> 1V/Oct (no depth setting)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>OUT 1, 2</strong></td>
+<td style="text-align: left;">Individual Channel Audio Outputs</td>
+<td style="text-align: left;">10V ptp max (settable via menu)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>SD</strong></td>
+<td style="text-align: left;">MicroSD slot for samples/projects</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Power</strong></td>
+<td style="text-align: left;">Standard Eurorack header (65mA @ +12V, 2mA @ -12V)</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Top-Level Workflow</h2>
+<h3>1. <strong>Loading Samples</strong></h3>
+<ul>
+<li>Prepare mono 16-bit, 48kHz (or lower) WAVs, store in <code>SAMPLES</code> folder on SD card.</li>
+<li>In <code>LIBRARY</code> Menu, select samples with A/DATA encoder; push to upload to RAM.</li>
+<li>Preview with TRG1/PLAY (audio), TRG2/SHIFT (waveform/size).</li>
+</ul>
+<h3>2. <strong>Sample Editing (SAMPLE Menu)</strong></h3>
+<ul>
+<li>Access playback start, loop, end; play direction/mode (forward, backward, looping).</li>
+<li>Assign tuning (supports proper 1V/Oct).</li>
+<li>Enter slicing (auto: linear/zero-cross; or manual with ADD/REMOVE slices).</li>
+<li>Slices: up to 32 per sample; playback modes: FWD, BKW, RND, CV, NONE.</li>
+<li>Adjust envelope: attack, hold, decay (time &amp; shape); Short/Mid/Long/Relative scaling.</li>
+</ul>
+<h3>3. <strong>Recording Samples</strong></h3>
+<ul>
+<li>In LIBRARY menu, select RECORD for sample input via CV3 (CH2).</li>
+<li>Set input RANGE, LEVEL, and THRESHOLD.</li>
+<li>48kHz, 12-bit ADC, 30 sec max.</li>
+<li>Trim edit, slice and save to SD.</li>
+</ul>
+<h3>4. <strong>CV Assignment</strong></h3>
+<ul>
+<li>Assign any CV input on each channel to nearly any parameter (tune, playback mode, start, end, envelope stages/shape, FX params, slice, etc.).</li>
+<li>Set CV input range:</li>
+<li>-5V/+5V (default, most LFOs)</li>
+<li>-10V/+10V</li>
+<li>0/+5V (for sequenced sources)</li>
+<li>0/+10V (envelopes)</li>
+<li>1V/Oct (for pitch/slice/sample)</li>
+<li>Assign depth for mod destinations. View incoming signals on scope.</li>
+</ul>
+<h3>5. <strong>FX</strong></h3>
+<ul>
+<li>Delay, Reverb, Lowpass/Highpass, Bitcrush, Fold, Drive (per channel).</li>
+<li>3 parameters each, CV-assignable.</li>
+</ul>
+<h3>6. <strong>Performance Menu</strong></h3>
+<ul>
+<li>Assign 6 main encoders (A–F) to instantly tweak any assignable parameter per channel.</li>
+<li>Encoders: A/B/C for Ch1, D/E/F for Ch2.</li>
+</ul>
+<h3>7. <strong>Projects &amp; Settings</strong></h3>
+<ul>
+<li>Save all settings (samples, edits, FX, CV, encoder assignments) as Projects (Single: one channel, Double: both).</li>
+<li>Recall instantly for performance. Double loads interrupt playback.</li>
+<li>Update system, adjust output levels, display settings, and trigger delays in SETTINGS.</li>
+</ul>
+<hr />
+<h2>Quick Reference</h2>
+<h3>KNOBS/ENCODERS</h3>
+<ul>
+<li><strong>A/DATA:</strong> select, confirm, menu navigate (push to enter).</li>
+<li><strong>B/C/D/E/F:</strong> context: start/loop/end/slice/fx/env/assign CV parameters, etc.</li>
+<li><strong>D/BACK:</strong> "return/back" to previous screen.</li>
+</ul>
+<h3>BUTTONS</h3>
+<ul>
+<li><strong>TRG1/PLAY:</strong> Manual trig Ch1.</li>
+<li><strong>TRG2/SHIFT:</strong> Manual trig Ch2 or SHIFT (hold).</li>
+<li><strong>CH1/CH2 Toggle Switch:</strong> Select channel for edit/load/assign.</li>
+</ul>
+<h3>INPUT JACKS</h3>
+<ul>
+<li><strong>CH1:</strong> TRIG1, CV1, CV2, CV3</li>
+<li><strong>CH2:</strong> TRIG2, CV1, CV2, CV3 (CV3 = REC input)</li>
+</ul>
+<h3>OUTPUT JACKS</h3>
+<ul>
+<li><strong>OUT1:</strong> Audio out ch1</li>
+<li><strong>OUT2:</strong> Audio out ch2</li>
+</ul>
+<hr />
+<h2>Technical Specs</h2>
+<ul>
+<li><strong>Sample Playback</strong>: ~5 min mono RAM per load</li>
+<li><strong>Sample Rate</strong>: 48kHz, 16bit (ADC record: 48kHz, 12bit)</li>
+<li><strong>Pitch</strong>: 1V/Oct accurate (C0–C8 range)</li>
+<li><strong>Panel</strong>: 14HP, 30mm depth</li>
+<li><strong>Power</strong>: 65mA @ +12V, 2mA @ -12V</li>
+</ul>
+<hr />
+<h1><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></h1>
+</body>
+</html>

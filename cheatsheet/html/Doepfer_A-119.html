@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-119</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-119</h1>
+<ul>
+<li><a href="../../manuals/A119_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100man/A119_man.pdf">Doepfer A-119 Manual PDF</a></p>
+<hr />
+<h1>Doepfer A-119 Ext. Input / Envelope Follower</h1>
+<p><strong>Cheat Sheet</strong></p>
+<p><em>The Doepfer A-119 is for integrating external audio (instruments, mics, etc.) into your modular, providing pre-amped audio, an envelope follower, and a gate comparator.</em></p>
+<hr />
+<h2>Inputs</h2>
+<table>
+<thead>
+<tr>
+<th>Jack Label</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Asym. In (!) (3.5mm)</strong></td>
+<td>Unbalanced (mono)</td>
+<td>For line-level signals (e.g., synths, drum machines). [Gain x0–20]</td>
+</tr>
+<tr>
+<td><strong>Symm. In (") (6.3mm)</strong></td>
+<td>Balanced (TRS)</td>
+<td>For mic/instrument-level signals (e.g., guitar, microphone). [Gain x0–500]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Only use one input at a time. If both are used, mixed with a 1:25 ratio.</p>
+<hr />
+<h2>Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>Jack Label</th>
+<th>Type</th>
+<th>Voltage Range</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Audio Out (§/$)</strong></td>
+<td>Unbalanced audio</td>
+<td>up to ±10V*</td>
+<td>Pre-amped signal (2 linked outputs, “mini-mult”).</td>
+</tr>
+<tr>
+<td><strong>Envelope Out (%)</strong></td>
+<td>CV (envelope)</td>
+<td>0–~8V (typical max output)</td>
+<td>Follows amplitude contour of input.</td>
+</tr>
+<tr>
+<td><strong>Gate Out (&amp;)</strong></td>
+<td>Gate</td>
+<td>0V (off), +12V (on)</td>
+<td>High when envelope &gt; threshold.</td>
+</tr>
+</tbody>
+</table>
+<p>* <strong>Audio Out Overload:</strong> Outputs can clip with input gain set too high; watch Overload LED.</p>
+<hr />
+<h2>Controls, Buttons, Indicators</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Range / Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gain (1)</strong></td>
+<td>Knob</td>
+<td>Sets input preamp gain (see ranges above)</td>
+</tr>
+<tr>
+<td><strong>Thres. (5)</strong></td>
+<td>Knob</td>
+<td>Sets gate threshold (relative to envelope out)</td>
+</tr>
+<tr>
+<td><strong>Overload LED (2)</strong></td>
+<td>LED</td>
+<td>Lights if preamp output &gt;10V (audio clipping)</td>
+</tr>
+<tr>
+<td><strong>Envelope LED (3)</strong></td>
+<td>LED</td>
+<td>Indicates current envelope level</td>
+</tr>
+<tr>
+<td><strong>Gate LED (4)</strong></td>
+<td>LED</td>
+<td>Indicates gate output status (= high)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Quick Patching Examples</h2>
+<ul>
+<li><strong>Bring in External Audio:</strong>  </li>
+<li>Plug audio into <strong>Asym. In</strong> or <strong>Symm. In</strong>  </li>
+<li>Set <strong>Gain</strong> so Overload LED barely lights on peaks  </li>
+<li>
+<p>Take pre-amped signal from <strong>Audio Out (§/$)</strong></p>
+</li>
+<li>
+<p><strong>Envelope Following (e.g. for VCF/VCAs):</strong>  </p>
+</li>
+<li>
+<p>Use <strong>Envelope Out (%)</strong> for a dynamic CV</p>
+</li>
+<li>
+<p><strong>External Gate Source (e.g. for ADSRs):</strong>  </p>
+</li>
+<li>
+<p>Use <strong>Gate Out (&amp;)</strong> when envelope passes threshold</p>
+</li>
+<li>
+<p><strong>Typical Gate Output Threshold:</strong>  </p>
+</li>
+<li>
+<p>Adjust with <strong>Thres.</strong> until desired triggering</p>
+</li>
+<li>
+<p><strong>Tip:</strong> If Envelope Out (%) is "noisy" with low-frequency inputs (&lt;50 Hz), route through a slew limiter like A-170.</p>
+</li>
+</ul>
+<hr />
+<h2>Voltage Ranges</h2>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Audio Out</strong></td>
+<td>up to ±10V (clipping past 10V)</td>
+</tr>
+<tr>
+<td><strong>Envelope Out</strong></td>
+<td>0–~8V (typical)</td>
+</tr>
+<tr>
+<td><strong>Gate Out</strong></td>
+<td>0V (low), +12V (high)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Additional Notes</h2>
+<ul>
+<li><strong>Use only one input at a time.</strong></li>
+<li><strong>Overload LED</strong>: Avoid sustained overload for clean audio.</li>
+<li><strong>Envelope Out</strong> is a full-wave rectified, low-passed envelope of audio input.</li>
+<li><strong>Gate Out</strong> is held HIGH as long as the envelope stays above threshold.</li>
+<li><strong>Two preamp outputs for easy splitting (“mini-mult”).</strong></li>
+</ul>
+<hr />
+<p><strong>Reference:</strong><br />
+<a href="https://doepfer.de/a100man/A119_man.pdf">Doepfer A-119 Manual PDF</a><br />
+<a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

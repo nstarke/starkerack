@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Quanalog_Instruments_Boubou</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Quanalog Instruments — Boubou</h1>
+<ul>
+<li><a href="../../manuals/Boubou – Quanalog Instruments.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://quanalog.com/boubou/">Quanalog Boubou Manual (Website)</a></p>
+<h1>Quanalog Boubou Eurorack Drum Synthesizer Cheat Sheet</h1>
+<p><strong>Module Size:</strong> 28HP<br />
+<strong>Voices:</strong> 5 (Kick, Lo Tom, Hi Tom, Snare, Hats)<br />
+<strong>Build:</strong> All-metal pots, switches, and jacks, black and gold panel</p>
+<hr />
+<h2>Quick Start</h2>
+<ul>
+<li><strong>Patch simple short triggers into TRIG inputs for normal drum hits.</strong></li>
+<li><strong>Apply CV or audio rate signals to TRIG and CV jacks for experimental sounds and dynamic variation.</strong></li>
+<li><strong>Use outputs independently or layer/feedback between voices using additional patching.</strong></li>
+</ul>
+<hr />
+<h2>Channel Reference</h2>
+<h3>KICK DRUM</h3>
+<ul>
+<li><strong>Outputs:</strong>  </li>
+<li><em>Kick Out</em></li>
+<li><strong>Inputs:</strong>  </li>
+<li><em>Trig In</em> – accepts triggers/gates/audio (standard: 5V trigger; accepts cv/audio: -5V to +5V)</li>
+<li><em>Tune CV</em> – pitch (typical 0–5V; V/oct scaling not guaranteed)</li>
+<li><em>Decay CV</em> – decay (approx. 0–5V)</li>
+<li><strong>Knobs/Controls:</strong>  </li>
+<li><em>Freq, Resonance</em> – tuning the fundamental</li>
+<li><em>Click Freq, Click Mix</em> – shape and mix attack click</li>
+<li><em>Volume</em> – output level</li>
+<li><em>Overdrive</em> – analog drive for harder sounds</li>
+<li><em>Compression</em> (toggle/knob?) – soft, punchy, overdriven</li>
+<li><strong>Special:</strong>  </li>
+<li><em>Audio-rate at TRIG = wavefolder/bitcrushing FX</em></li>
+<li><em>Can self-resonate as sine oscillator (with Overdrive high)</em></li>
+<li><em>Classic 808/909-style sounds</em></li>
+</ul>
+<hr />
+<h3>DUAL TOM (LO/HI)</h3>
+<ul>
+<li><strong>Outputs:</strong>  </li>
+<li><em>Lo Tom Out, Hi Tom Out</em></li>
+<li><strong>Inputs:</strong>  </li>
+<li><em>Trig In (per voice)</em> – triggers (standard: 5V), audio/CV possible (-5V to +5V)</li>
+<li><em>Resonance CV</em> (per voice) – tune/drum pitch (0–5V)</li>
+<li><strong>Knobs/Controls:</strong></li>
+<li><em>Freq, Resonance</em> (per voice) – set tom pitch/body</li>
+<li><em>Retrig</em> (shared) – controls volume of retriggered note (creates rolls/flams/“hand play” feel)</li>
+<li><em>Volume</em> – per tom</li>
+<li><strong>Special:</strong>  </li>
+<li><em>Without trigger: become dual notch filters with CV freq</em></li>
+<li><em>Feed other engines for filtering/harmonic FX</em></li>
+</ul>
+<hr />
+<h3>SNARE</h3>
+<ul>
+<li><strong>Outputs:</strong>  </li>
+<li><em>Snare Out</em></li>
+<li><strong>Inputs:</strong>  </li>
+<li><em>Trig In</em> – triggers (standard: 5V), audio/CV (-5V to +5V)</li>
+<li><em>Decay CV</em> – snare tail (0–5V)</li>
+<li><em>Resonance CV</em> – snare pitch (0–5V)</li>
+<li><strong>Knobs/Controls:</strong>  </li>
+<li><em>Freq, Resonance</em> – snare body/“spring” sharpness</li>
+<li><em>Decay</em> – envelope length</li>
+<li><em>Volume</em> – output</li>
+<li><strong>Special:</strong>  </li>
+<li><em>If Hi Tom Trig not patched, Hi Tom acts as resonance/body for snare (patching separates them)</em></li>
+<li><em>Wide sound range — snare, clap, noise hats</em></li>
+</ul>
+<hr />
+<h3>HATS</h3>
+<ul>
+<li><strong>Outputs:</strong>  </li>
+<li><em>Hats Out</em></li>
+<li><strong>Inputs:</strong>  </li>
+<li><em>Trig In</em> – open/close hat (5V triggers), CV/audio (-5V to +5V)</li>
+<li><em>Decay CV</em> – envelope length (0–5V)</li>
+<li><em>External In</em> – mix another VCO/sound for custom hats</li>
+<li><strong>Knobs/Controls:</strong>  </li>
+<li><em>Freq, Resonance</em> – hat sizzle/character</li>
+<li><em>Decay</em> – open/close time</li>
+<li><em>Noise Mix, Ext In Mix</em> – blend noise/osc input</li>
+<li><strong>Special:</strong>  </li>
+<li><em>Acts as decay VCA for Ext In if noise turned off</em></li>
+<li><em>Can ring external VCO, create noise VCO FX</em></li>
+</ul>
+<hr />
+<h3>GLOBAL / SHARED NOTES</h3>
+<ul>
+<li><strong>Each section’s CV inputs:</strong>  </li>
+<li><em>Pitch/Tune/Resonance</em> CV: 0–5V</li>
+<li><em>Decay CV</em>: 0–5V</li>
+<li><em>Trigger Inputs</em>: Accept short pulses, gates, audio, step CV (-5V to +5V gives velocity sens)</li>
+<li><strong>All voices can process audio as signal processors (filters, wave-shaping) if you patch audio to Trig/CV/Ext In.</strong></li>
+<li><strong>Natural accenting possible with gate/trigger length or step CV into Trig.</strong></li>
+</ul>
+<hr />
+<h2>Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Voice</th>
+<th>Trig In</th>
+<th>CV Pitch/Res</th>
+<th>CV Decay</th>
+<th>Audio In</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kick</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Trig</td>
+<td>Out</td>
+</tr>
+<tr>
+<td>Lo Tom</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+<td>Trig</td>
+<td>Out</td>
+</tr>
+<tr>
+<td>Hi Tom</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+<td>Trig</td>
+<td>Out</td>
+</tr>
+<tr>
+<td>Snare</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Trig</td>
+<td>Out</td>
+</tr>
+<tr>
+<td>Hats</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>Ext In</td>
+<td>Out</td>
+</tr>
+</tbody>
+</table>
+<p><em>All CV and audio inputs typ. -5V to +5V safe, 0–5V recommended for musical range, 5V triggers standard.</em></p>
+<hr />
+<h2>Tips &amp; Tricks</h2>
+<ul>
+<li><strong>Low/Hi Tom unpatched behave as filters for other voices.</strong></li>
+<li><strong>Try patching section outputs to other section Trig inputs for experimental modulation!</strong></li>
+<li><strong>Adjust Retrig for flam/rolls (varied gate length triggers).</strong></li>
+<li><strong>Patch velocity or envelope CVs for dynamic hits.</strong></li>
+<li><strong>External In on Hats for custom cymbal/metallic timbres.</strong></li>
+</ul>
+<hr />
+<h2>Further Reading</h2>
+<ul>
+<li><a href="https://quanalog.com/boubou/">Manual/Website – Full details &amp; sound examples</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+</body>
+</html>

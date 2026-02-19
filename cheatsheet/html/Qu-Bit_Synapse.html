@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Synapse</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Synapse</h1>
+<ul>
+<li><a href="../../manuals/Synapse.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://qu-bit-electronix.com/files/synapse_manual.pdf">Qu-Bit Synapse Manual PDF</a></p>
+<h1>Qu-Bit Synapse Cheat Sheet</h1>
+<p>A powerful crossfade switch with digital routing/mixing, memory presets, DC modulation, LFOs, and flexible CV control for Eurorack.</p>
+<hr />
+<h2>Controls Reference</h2>
+<h3>Knobs &amp; Encoders</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Crossfade (4x)</strong></td>
+<td>Set blend between A and B inputs per channel. CV controllable (<code>-5V</code> to <code>+5V</code>).</td>
+</tr>
+<tr>
+<td><strong>Terminal Encoder</strong></td>
+<td>Shifts channel outputs to different output jacks (routing). Press to reset positions. CV controllable (<code>-5V</code> to <code>+5V</code>).</td>
+</tr>
+<tr>
+<td><strong>Memory Knob</strong></td>
+<td>Selects memory bank (8 total); load preset crossfade positions. Bypass memory fully CCW. Also sets LFO phase relationship and DC offset in edit modes.</td>
+</tr>
+<tr>
+<td><strong>Inertia Knob</strong></td>
+<td>Sets slew/smooth (0–5s), affects fader, memory, and CV changes. Also controls LFO frequency in edit mode. Also enables click-less switching in edit mode.</td>
+</tr>
+</tbody>
+</table>
+<h3>Buttons</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Save</strong></td>
+<td>Store current crossfade/routing to memory bank.</td>
+</tr>
+<tr>
+<td><strong>Scatter</strong></td>
+<td>Shuffle output channel positions.</td>
+</tr>
+<tr>
+<td><strong>Advance</strong></td>
+<td>Move all outputs one to the right (sequential switch).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Inputs &amp; Outputs</h2>
+<h3>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Voltage Range</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A (4x)</strong></td>
+<td>Signal In</td>
+<td>Audio/CV (DC)</td>
+<td>Main per-channel input</td>
+</tr>
+<tr>
+<td><strong>B (4x)</strong></td>
+<td>Signal In</td>
+<td>Audio/CV (DC)</td>
+<td>Alternate per-channel input, can be normalled to +5V offset</td>
+</tr>
+<tr>
+<td><strong>Crossfade (4x)</strong></td>
+<td>CV In</td>
+<td><code>-5V</code> to <code>+5V</code></td>
+<td>Crossfader per channel; adds to knob position</td>
+</tr>
+<tr>
+<td><strong>Terminal</strong></td>
+<td>CV In</td>
+<td><code>-5V</code> to <code>+5V</code></td>
+<td>Shifts output routing</td>
+</tr>
+<tr>
+<td><strong>Advance</strong></td>
+<td>Trigger/Gate</td>
+<td>N/A</td>
+<td>Steps all outputs one to the right</td>
+</tr>
+<tr>
+<td><strong>Scatter</strong></td>
+<td>Trigger/Gate</td>
+<td>N/A</td>
+<td>Randomizes output routes</td>
+</tr>
+</tbody>
+</table>
+<h3>Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Out (1–4)</strong></td>
+<td>Audio/CV Out</td>
+<td>Final output of each switch channel post crossfade and routing</td>
+</tr>
+<tr>
+<td><strong>1+2</strong></td>
+<td>Sum Out</td>
+<td>Sum of output from Out 1 and Out 2</td>
+</tr>
+<tr>
+<td><strong>3+4</strong></td>
+<td>Sum Out</td>
+<td>Sum of output from Out 3 and Out 4</td>
+</tr>
+<tr>
+<td><strong>Sum</strong></td>
+<td>Sum Out</td>
+<td>Pre-switch sum of each crossfade channel output</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Special/Shift Functions (Hold + Action)</h2>
+<table>
+<thead>
+<tr>
+<th>Hold...</th>
+<th>While Turning...</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Terminal</td>
+<td>Crossfade knob</td>
+<td>Per-channel master volume</td>
+</tr>
+<tr>
+<td>Terminal</td>
+<td>Memory knob</td>
+<td>+5V DC offset to B inputs (center point on/off)</td>
+</tr>
+<tr>
+<td>Terminal</td>
+<td>Inertia knob</td>
+<td>Click-less switching on/off</td>
+</tr>
+<tr>
+<td>Terminal</td>
+<td>Scatter button</td>
+<td>Set linear/constant loudness fade curve</td>
+</tr>
+<tr>
+<td>Terminal</td>
+<td>Save button</td>
+<td>Factory reset</td>
+</tr>
+<tr>
+<td>Save</td>
+<td>Scatter button</td>
+<td>Randomize memory positions</td>
+</tr>
+<tr>
+<td>Save</td>
+<td>Terminal button</td>
+<td>Reset all memory to A only</td>
+</tr>
+<tr>
+<td>Scatter</td>
+<td>Crossfade knob</td>
+<td>Set LFO amplitude per channel</td>
+</tr>
+<tr>
+<td>Scatter</td>
+<td>Memory knob</td>
+<td>Set LFO phase relationships</td>
+</tr>
+<tr>
+<td>Scatter</td>
+<td>Inertia knob</td>
+<td>Set LFO frequency</td>
+</tr>
+<tr>
+<td>Scatter</td>
+<td>Terminal button</td>
+<td>Reset LFOs to default</td>
+</tr>
+<tr>
+<td>Scatter</td>
+<td>Save button</td>
+<td>Randomize internal modulation (LFOs)</td>
+</tr>
+</tbody>
+</table>
+<p><em>LEDs will indicate status for certain functions.</em></p>
+<hr />
+<h2>Voltage Control Summary</h2>
+<ul>
+<li><strong>All CV Inputs:</strong> Range <code>-5V</code> to <code>+5V</code></li>
+<li><strong>Crossfade:</strong> CV adds/subtracts from knob position</li>
+<li><strong>Terminal:</strong> CV positive = right, negative = left output shift</li>
+</ul>
+<hr />
+<h2>Quick Operation Examples</h2>
+<ul>
+<li><strong>Crossfade between A/B:</strong> Turn crossfade knob per channel, or patch CV.</li>
+<li><strong>Sequencer Mode:</strong> Enable +5V DC offset to B inputs; modulate crossfade with CVs.</li>
+<li><strong>Switch outputs:</strong> Turn Terminal knob or use Terminal CV input.</li>
+<li><strong>Shuffle/Advance routing:</strong> Use Scatter or Advance buttons/inputs.</li>
+<li><strong>Save/Recall Scene:</strong> Set crossfades/routing, select memory slot, press Save.</li>
+<li><strong>LFO Modulation:</strong> Hold Scatter, turn crossfade knob for per-channel LFO amount; adjust inertia for speed.</li>
+</ul>
+<hr />
+<p>For more advanced usage, see <a href="https://qu-bit-electronix.com/files/synapse_manual.pdf">Qu-Bit Synapse Manual PDF</a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

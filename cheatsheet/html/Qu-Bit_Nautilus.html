@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Nautilus</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Nautilus</h1>
+<ul>
+<li><a href="../../manuals/Nautilus_v1.1.3.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.qubitelectronix.com/_files/ugd/2d1459_1e95d666b54541e99911603995dd7c3d.pdf"><strong>Download the Qu-Bit Nautilus Manual PDF</strong></a></p>
+<hr />
+<h1>Qu-Bit Nautilus Eurorack Cheat Sheet</h1>
+<h4><strong>Overview</strong></h4>
+<ul>
+<li>Stereo, underwater-inspired delay network with 8 addressable delay lines (up to 20s each)</li>
+<li>Multi-mode delays: Fade, Doppler, Shimmer, De-Shimmer</li>
+<li>Advanced feedback, filtering, distortion, CV/gate outputs</li>
+</ul>
+<hr />
+<h2><strong>Panel and Controls</strong></h2>
+<h3><strong>Knobs</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Knob</th>
+<th>Function</th>
+<th>CV Input (Range)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mix</strong></td>
+<td>Wet/dry blend</td>
+<td>Yes (-5V to +5V)</td>
+</tr>
+<tr>
+<td><strong>Resolution</strong></td>
+<td>Delay subdivision/multiplier (div/mult clock rate: 512th to 2 bars)</td>
+<td>Yes (-5V to +5V)</td>
+</tr>
+<tr>
+<td><strong>Feedback</strong></td>
+<td>Number of repeats; infinite at max</td>
+<td>Yes (-5V to +5V, attenuverter assignable)</td>
+</tr>
+<tr>
+<td><strong>Sensors</strong></td>
+<td>Number of delay lines active (1–8)</td>
+<td>Yes (-5V to +5V)</td>
+</tr>
+<tr>
+<td><strong>Dispersal</strong></td>
+<td>Spacing between delay lines (for polyrhythms &amp; strums); fine tune at 1 sensor</td>
+<td>Yes (-5V to +5V, attenuverter assignable)</td>
+</tr>
+<tr>
+<td><strong>Reversal</strong></td>
+<td>Controls which delay lines play backwards (per delay line, not just on/off)</td>
+<td>Yes (-5V to +5V)</td>
+</tr>
+<tr>
+<td><strong>Chroma</strong></td>
+<td>Selects internal effect/filter in feedback path</td>
+<td>Yes (-5V to +5V)</td>
+</tr>
+<tr>
+<td><strong>Depth</strong></td>
+<td>Amount of Chroma effect applied</td>
+<td>Yes (-5V to +5V)</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>Buttons</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tap</strong></td>
+<td>Sets internal clock rate or enters Tap Secondary Functions (see below)</td>
+</tr>
+<tr>
+<td><strong>Freeze</strong></td>
+<td>Freezes (loops) current buffer—creates beat repeat/glitch effects</td>
+</tr>
+<tr>
+<td><strong>Purge</strong></td>
+<td>Clears all delay lines</td>
+</tr>
+<tr>
+<td><strong>Delay Mode</strong></td>
+<td>Selects delay mode: Fade, Doppler, Shimmer (up), De-Shimmer (down)</td>
+</tr>
+<tr>
+<td><strong>Feedback Mode</strong></td>
+<td>Selects feedback network: Normal, Ping Pong, Cascade, Adrift</td>
+</tr>
+</tbody>
+</table>
+<h4><strong>Tap Secondary Functions (Hold Tap)</strong></h4>
+<ul>
+<li><strong>+ Purge:</strong> Resets input level/delay mode/feedback mode to default</li>
+<li><strong>+ Dispersal Attenuverter:</strong> Adjusts input gain (-12dB to +12dB, indicated by left LEDs)</li>
+</ul>
+<hr />
+<h2><strong>Inputs &amp; Outputs</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function/Type</th>
+<th>Range / Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Left In</strong></td>
+<td>Audio Input (left, AC-coupled)</td>
+<td>10Vpp</td>
+</tr>
+<tr>
+<td><strong>Right In</strong></td>
+<td>Audio Input (right, AC-coupled)</td>
+<td>10Vpp (norms from left if none plugged in)</td>
+</tr>
+<tr>
+<td><strong>Left Out</strong></td>
+<td>Audio Output (left)</td>
+<td>10Vpp</td>
+</tr>
+<tr>
+<td><strong>Right Out</strong></td>
+<td>Audio Output (right)</td>
+<td>10Vpp</td>
+</tr>
+<tr>
+<td><strong>Clock In</strong></td>
+<td>Gate Input for clock sync</td>
+<td>Threshold: 0.4V; Range: 0.25Hz–1kHz</td>
+</tr>
+<tr>
+<td><strong>Freeze In</strong></td>
+<td>Gate (mirrors Freeze button)</td>
+<td>Threshold: 0.4V</td>
+</tr>
+<tr>
+<td><strong>Purge In</strong></td>
+<td>Gate (mirrors Purge button)</td>
+<td>Threshold: 0.4V</td>
+</tr>
+<tr>
+<td><strong>Mix CV</strong></td>
+<td>CV control of Mix knob</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>Resolution CV</strong></td>
+<td>CV for subdivision/multiplier</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>Feedback CV</strong></td>
+<td>CV control of Feedback</td>
+<td>-5V to +5V (attenuverter assignable)</td>
+</tr>
+<tr>
+<td><strong>Sensors CV</strong></td>
+<td>CV for number of delay lines</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>Dispersal CV</strong></td>
+<td>CV for delay spacing</td>
+<td>-5V to +5V (attenuverter assignable)</td>
+</tr>
+<tr>
+<td><strong>Reversal CV</strong></td>
+<td>Which delay lines are reversed</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>Chroma CV</strong></td>
+<td>Chroma internal FX selection</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>Depth CV</strong></td>
+<td>Depth/amount of effect</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>Sonar Out</strong></td>
+<td>Algorithmic CV or gate based on delay topology</td>
+<td>CV: 0–5V; Gate: +5V (50% duty cycle); type set via software; patchable as mod source or clock pass-through</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Chroma Effects</strong></h2>
+<ul>
+<li><strong>Blue</strong>: Oceanic Absorption – 4-pole lowpass filter</li>
+<li><strong>Green</strong>: White Water – 4-pole highpass filter</li>
+<li><strong>Purple</strong>: Refraction Interference – Variable bitcrusher/sample rate</li>
+<li><strong>Orange</strong>: Pulse Amplification – Soft/warm saturation</li>
+<li><strong>Cyan</strong>: Receptor Malfunction – Wavefolding distortion</li>
+<li><strong>Red</strong>: SOS – Heavy distortion</li>
+</ul>
+<p><em>Depth</em> knob controls intensity (except bitcrusher is random stepped).</p>
+<hr />
+<h2><strong>Delay Modes (Button cycles)</strong></h2>
+<ul>
+<li><strong>Fade</strong> (blue): Smooth interpolation of delay time (no pitch artifacts)</li>
+<li><strong>Doppler</strong> (green): Classic vari-speed pitch effect on time change</li>
+<li><strong>Shimmer</strong> (orange): Octave-up pitch shift in feedback path (configurable semitones via USB)</li>
+<li><strong>De-Shimmer</strong> (purple): Octave-down pitch shift (configurable)</li>
+</ul>
+<hr />
+<h2><strong>Feedback Modes</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Normal</strong></td>
+<td>Standard stereo matched to input</td>
+</tr>
+<tr>
+<td><strong>Ping Pong</strong></td>
+<td>Alternates left/right in feedback</td>
+</tr>
+<tr>
+<td><strong>Cascade</strong></td>
+<td>Delays in serial per channel for extra-long delay</td>
+</tr>
+<tr>
+<td><strong>Adrift</strong></td>
+<td>Cross-channel serial cascade/collage</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Other Features</strong></h2>
+<ul>
+<li>All CV inputs are -5V to +5V; assignable attenuverters for fine CV mapping</li>
+<li>Onboard USB-A for firmware/configuration via Narwhal web app—no drive required to operate, any FAT32 USB sticks supported</li>
+<li>Lifetime free repairs (excl. cosmetic/damage abuse)</li>
+</ul>
+<hr />
+<h2><strong>Links</strong></h2>
+<p><a href="https://www.qubitelectronix.com/_files/ugd/2d1459_1e95d666b54541e99911603995dd7c3d.pdf"><strong>Full Nautilus Manual PDF</strong></a><br />
+<a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

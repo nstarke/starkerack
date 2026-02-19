@@ -1,0 +1,313 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Plaits</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Plaits</h1>
+<ul>
+<li><a href="../../manuals/Mutable Instruments - Plaits.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p>Certainly! Here’s a concise cheat sheet for the Mutable Instruments Plaits Eurorack module, ideal for quick reference and performance.<br />
+<strong>Note: This is based on the content above, not an official PDF. <a href="https://mutable-instruments.net/modules/plaits/manual/">Official Mutable Plaits manual PDF link</a></strong></p>
+<hr />
+<h1>Mutable Instruments Plaits Cheat Sheet</h1>
+<h3>Power</h3>
+<ul>
+<li><strong>-12V / +12V power supply</strong>  </li>
+<li>2x5 pin connector (make sure red stripe matches “Red stripe” mark)  </li>
+<li><strong>Current draw:</strong> +12V: 50mA, -12V: 5mA</li>
+</ul>
+<hr />
+<h2>Front Panel Controls</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Model Buttons &amp; LEDs</td>
+<td>Select Synthesis Model (2 banks × 8 models; LEDs show selection)</td>
+</tr>
+<tr>
+<td>B</td>
+<td>FREQUENCY</td>
+<td>Coarse tuning (default: 8 oct, adjustable to 14 semitones via settings)</td>
+</tr>
+<tr>
+<td>C</td>
+<td>HARMONICS</td>
+<td>Model-dependent timbre (details vary)</td>
+</tr>
+<tr>
+<td>D</td>
+<td>TIMBRE</td>
+<td>Model-dependent texture/detail control</td>
+</tr>
+<tr>
+<td>E</td>
+<td>MORPH</td>
+<td>Model-dependent adjustment (often morph/pulse width)</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Attenuverters</td>
+<td>For TIMBRE, FM, MORPH CVs—set modulation depth; when unpatched, controls from env</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>I/O Jacks Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Description &amp; Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MODEL CV</td>
+<td>Input</td>
+<td>Selects model. 0V to +5V (LEDs show current/CV)</td>
+</tr>
+<tr>
+<td>HARM, TIMBRE, MORPH, FREQ CV</td>
+<td>Input</td>
+<td>Model parameter modulation, typically -5V to +5V, expect CV scaling varies by model</td>
+</tr>
+<tr>
+<td>TRIG</td>
+<td>Input</td>
+<td>Gate/trigger (&gt; 1.5V = trigger) – excites, envelopes, etc</td>
+</tr>
+<tr>
+<td>LEVEL</td>
+<td>Input</td>
+<td>VCA/LPG/Accent (audio-rate OK); ~0V (closed) to +5V (open)</td>
+</tr>
+<tr>
+<td>V/OCT</td>
+<td>Input</td>
+<td>Pitch CV, -3V to +7V for C0–C8 (1V/octave standard)</td>
+</tr>
+<tr>
+<td>OUT</td>
+<td>Output</td>
+<td>Main audio output (10Vpp max typical, bipolar audio)</td>
+</tr>
+<tr>
+<td>AUX</td>
+<td>Output</td>
+<td>Variant/sidekick/byproduct audio (10Vpp max typical)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Fast Usage Guide</h2>
+<ol>
+<li><strong>Patch Power &amp; Audio</strong>: Connect power as instructed. Patch OUT (and AUX if desired) to mixer/VCA.</li>
+<li><strong>Model Selection</strong>:  </li>
+<li>Use upper/lower (A) buttons to select model/bank. LEDs will indicate which.  </li>
+<li>Patch MODEL CV for voltage control (0–+5V). When triggered, only changes at next TRIG.</li>
+<li><strong>Tuning</strong>:  </li>
+<li>Set FREQUENCY (B). For fine range (14 semitones), hold 2nd button (A) and turn HARMONICS.</li>
+<li><strong>Sound Shaping</strong>:  </li>
+<li>HARMONICS / TIMBRE / MORPH knobs: Adjusted per model (see summary below).</li>
+<li>Modulate parameters via their CV ins, depth set by attenuverters (F).</li>
+<li><strong>Pitch CV</strong>:  </li>
+<li>Patch 1V/oct source to V/OCT.</li>
+<li><strong>Percussive/LPG</strong>:  </li>
+<li>TRIG fires an internal decay envelope/excites models, unless LEVEL is patched (then, LEVEL acts as VCA/Accent).</li>
+</ol>
+<hr />
+<h2>Settings (Hold Button A Combos)</h2>
+<ul>
+<li><strong>Adjust LPG/Envelope</strong>: Hold 1st button (A), turn TIMBRE (VCFA↔VCA response) or MORPH (LPG ring time/envelope decay).  </li>
+<li><strong>FREQ Knob Range</strong>: Hold 2nd button (A), turn HARMONICS. 8 settings: C0±7st, ..., all LEDs = C0–C8 (8 octaves).</li>
+<li><strong>Any knob used for these settings is not 'live' on main function until matched with physical position.</strong></li>
+</ul>
+<hr />
+<h2>Synthesis Models: Parameter Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>HARMONICS</th>
+<th>TIMBRE</th>
+<th>MORPH</th>
+<th>AUX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Virtual Analog</td>
+<td>Detuning</td>
+<td>Pulse shape</td>
+<td>Saw notch width</td>
+<td>Hardsync sum waveform</td>
+</tr>
+<tr>
+<td>Wavefolder</td>
+<td>Waveshaper curve</td>
+<td>Fold amount</td>
+<td>Asymmetry</td>
+<td>Alt wavefolder shape (Warps style)</td>
+</tr>
+<tr>
+<td>FM Synthesis (2op)</td>
+<td>Ratio</td>
+<td>Mod. index</td>
+<td>Feedback/Chaos</td>
+<td>Suboscillator</td>
+</tr>
+<tr>
+<td>Formants</td>
+<td>F1/FM2 ratio</td>
+<td>Formant freq</td>
+<td>Formant width/shape</td>
+<td>Filtered waveform type (filter morph)</td>
+</tr>
+<tr>
+<td>Additive</td>
+<td>Spectral bumps</td>
+<td>Bump position</td>
+<td>Bump width/shape</td>
+<td>Hammond drawbars partials</td>
+</tr>
+<tr>
+<td>Wavetable</td>
+<td>Bank (A-D)</td>
+<td>Row (brightness)</td>
+<td>Column (varied)</td>
+<td>5-bit lo-fi output</td>
+</tr>
+<tr>
+<td>Chords</td>
+<td>Chord type</td>
+<td>Inversion/transp.</td>
+<td>Waveform select</td>
+<td>Root note of chord</td>
+</tr>
+<tr>
+<td>Speech</td>
+<td>Vowel/Word crossfade</td>
+<td>Species</td>
+<td>Phoneme/Word segment</td>
+<td>Pure vocal fold signal</td>
+</tr>
+<tr>
+<td>Granular Cloud (Swarm)</td>
+<td>Pitch randomization</td>
+<td>Grain density</td>
+<td>Grain overlap/duration</td>
+<td>Sine grain variant</td>
+</tr>
+<tr>
+<td>Filtered Noise</td>
+<td>LP↔BP↔HP morph</td>
+<td>Clock freq</td>
+<td>Filter resonance</td>
+<td>Dual BP filter, separation = HARM</td>
+</tr>
+<tr>
+<td>Dust Noise</td>
+<td>Freq randomization</td>
+<td>Density</td>
+<td>Allpass↔BP morph</td>
+<td>Raw dust noise</td>
+</tr>
+<tr>
+<td>Inharmonic String/Resonator</td>
+<td>Material/inhar.</td>
+<td>Brightness/density</td>
+<td>Decay time</td>
+<td>Exciter only (mini-Rings)</td>
+</tr>
+<tr>
+<td>Kick Drum (Analog)</td>
+<td>Attack/OD</td>
+<td>Brightness</td>
+<td>Decay</td>
+<td>FM triangle drum synth</td>
+</tr>
+<tr>
+<td>Snare Drum</td>
+<td>Harm↔Noise balance</td>
+<td>Drum mode balance</td>
+<td>Decay</td>
+<td>FM + noise-based snare</td>
+</tr>
+<tr>
+<td>Hi-Hat (Analog)</td>
+<td>Metal↔Noise</td>
+<td>HPF cutoff</td>
+<td>Decay</td>
+<td>Ring-mod metal + clean VCA</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Calibration &amp; Firmware</h2>
+<ul>
+<li><strong>Calibration</strong>: Hold both buttons; see detailed steps above.</li>
+<li><strong>Update/Firmware</strong>: Listen to firmware audio file at MODEL CV in, freq knob at noon.</li>
+</ul>
+<hr />
+<h2>Troubleshooting Highlights</h2>
+<ul>
+<li><strong>Settings lost?</strong> Change model after tweaking to save.</li>
+<li><strong>Unexpected clicks?</strong> Check Frequency knob range.</li>
+<li><strong>Trigger not working?</strong> Recalibrate.</li>
+<li><strong>2 LEDs lit (1 blinking)?</strong> MODEL CV is not at 0V (unpatched or power fault).</li>
+</ul>
+<hr />
+<h2>Voltage Ranges</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Range/Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MODEL CV</td>
+<td>0–5V (mod selects from full model set)</td>
+</tr>
+<tr>
+<td>HARM, TIMBRE, MORPH, FREQ CV</td>
+<td>-5V to +5V typical, CV scaling varies</td>
+</tr>
+<tr>
+<td>TRIG</td>
+<td>&gt;1.5V for trigger</td>
+</tr>
+<tr>
+<td>LEVEL</td>
+<td>0–5V (acts as VCA; percussive accent if TRIG patched)</td>
+</tr>
+<tr>
+<td>V/OCT</td>
+<td>-3V to +7V (C0–C8, 1V/octave)</td>
+</tr>
+</tbody>
+</table>
+<p>Outputs are typical audio modular levels, ±5V (10Vpp), unipolar in models with percussive envelopes, per model.</p>
+<hr />
+<h2>Reference Links</h2>
+<ul>
+<li><a href="https://mutable-instruments.net/modules/plaits/manual/">Official Plaits Manual PDF</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+</body>
+</html>

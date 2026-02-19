@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Toadstool_Tech_Ectocore</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Toadstool Tech — Ectocore</h1>
+<ul>
+<li><a href="../../manuals/ectocore_quickstart.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://cdn.discordapp.com/attachments/1041147095957966899/1248495278915553330/ectocore_quickstart.png">Download the Ectocore Manual PDF (image source)</a></p>
+<hr />
+<h1><strong>Ectocore Cheat Sheet</strong></h1>
+<p>A reference and performance guide for the <strong>Ectocore</strong> eurorack sample FX sequencer by Toadstool Tech x infinitedigits.</p>
+<hr />
+<h2><strong>Jacks: Input &amp; Output Summary</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Voltage Range</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Output L</strong></td>
+<td>Audio Out</td>
+<td>Typical eurorack</td>
+<td>Main left audio output</td>
+</tr>
+<tr>
+<td><strong>Output R</strong></td>
+<td>Audio Out</td>
+<td>Typical eurorack</td>
+<td>Main right audio output</td>
+</tr>
+<tr>
+<td><strong>CV Inputs</strong></td>
+<td>CV In</td>
+<td>0V–5V †</td>
+<td>Modulates various parameters (see below)</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td>Trigger</td>
+<td>0-5V (standard)</td>
+<td>Trig output (configurable trigger events)</td>
+</tr>
+<tr>
+<td><strong>Clk Out</strong></td>
+<td>Clock</td>
+<td>0-5V (standard)</td>
+<td>Clock output</td>
+</tr>
+<tr>
+<td><strong>Clk In</strong></td>
+<td>Clock In</td>
+<td>0-5V (standard)</td>
+<td>External clock input</td>
+</tr>
+</tbody>
+</table>
+<p>† (unless otherwise specified)</p>
+<hr />
+<h2><strong>Front Panel Controls</strong></h2>
+<h3><strong>Knobs</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Break</strong></td>
+<td>Controls FX density. Up = more frequent FX, scoped to current Grimoire selection.</td>
+</tr>
+<tr>
+<td><strong>Grimoire</strong></td>
+<td>Selects active FX group: each glyph determines which subset of the 16 FX can be active.</td>
+</tr>
+<tr>
+<td><strong>Sample</strong></td>
+<td>Selects currently playing sample within the current bank. LED ring indicates selection.</td>
+</tr>
+<tr>
+<td><strong>Bank</strong></td>
+<td>Selects active sample bank (16 available). Hold <strong>Bank + Sample</strong> for quick bank select.</td>
+</tr>
+<tr>
+<td><strong>Amen</strong></td>
+<td>Controls random slice-looping (Turing machine-style). Left = sequential, right = max random. 1–16 steps; LED ring shows step count. Full right: new loop pattern per cycle w/ FX fill.  Reroll pattern by turning fully right then back.</td>
+</tr>
+<tr>
+<td><strong>Amen Attenurandomizer</strong></td>
+<td>Left = random chaos; right = predictable (closer to playhead). When CV is patched, attenuates/randomizes incoming CV signal.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3><strong>Buttons</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tap Tempo</strong></td>
+<td>Set internal clock tempo (double-tap). When clocking externally, acts as reset. Also used as a shift function with other controls.</td>
+</tr>
+<tr>
+<td><strong>Clock Mult/Div</strong></td>
+<td>Tap to multiply (faster); hold to divide (slower) the clock.</td>
+</tr>
+</tbody>
+</table>
+<h4><strong>Advanced / Combo Functions</strong></h4>
+<ul>
+<li><strong>Tap + Break:</strong> [Special function, not detailed in this image]</li>
+<li><strong>Tap + Amen:</strong> [Special function, not detailed in this image]</li>
+<li><strong>Tap + Sample:</strong> [Special function, not detailed in this image]</li>
+</ul>
+<hr />
+<h2><strong>Other Features</strong></h2>
+<ul>
+<li><strong>Trig Output Modes</strong>: Cycle trigger behaviors via the Trigger Mode (details not described here — refer to full manual).</li>
+<li><strong>FX Types</strong>: 16 total; grouped by Grimoire knob positions/glyphs. </li>
+<li><strong>Sample Banks</strong>: 16, each with multiple samples addressable via Sample knob.</li>
+<li><strong>LED Ring</strong>: Displays sample selection and, for Amen, step count.</li>
+</ul>
+<hr />
+<h2><strong>Typical Patch Example</strong></h2>
+<ol>
+<li>Patch <strong>Audio Output L/R</strong> to mixer/interface.</li>
+<li>Send clock to <strong>Clk In</strong> <em>(0-5V Eurorack clock)</em> or tap tempo.</li>
+<li>Use <strong>Grimoire</strong> to choose FX group, <strong>Break</strong> to set FX density.</li>
+<li>Select bank/sample; dial in <strong>Amen</strong>/<strong>Amen Attenurandomizer</strong> for looping effects and randomization.</li>
+<li>Utilize <strong>CV inputs</strong> to modulate parameters for hands-off or sequenced variation.</li>
+</ol>
+<hr />
+<h2><strong>Quick Reference Table</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Where</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audio Out</td>
+<td>Output L/R</td>
+<td>Left/Right channel out</td>
+</tr>
+<tr>
+<td>CV Mod</td>
+<td>CV Inputs</td>
+<td>See Amen Attenurandomizer for dynamic randomization</td>
+</tr>
+<tr>
+<td>Trig Out</td>
+<td>Output</td>
+<td>Assignable via Trigger Mode</td>
+</tr>
+<tr>
+<td>Clock Out</td>
+<td>Clk Out</td>
+<td>Pulse per beat/event</td>
+</tr>
+<tr>
+<td>Clock In</td>
+<td>Clk In</td>
+<td>Accepts 0–5V clock, tap for manual tempo/reset</td>
+</tr>
+<tr>
+<td>FX Density</td>
+<td>Break knob</td>
+<td>More = busier FX</td>
+</tr>
+<tr>
+<td>FX Group</td>
+<td>Grimoire knob</td>
+<td>Glyph determines which FX subset is active</td>
+</tr>
+<tr>
+<td>Sample #</td>
+<td>Sample knob + LED ring</td>
+<td>Instant selection</td>
+</tr>
+<tr>
+<td>Bank #</td>
+<td>Bank knob, hold w/Sample</td>
+<td>16 total</td>
+</tr>
+<tr>
+<td>Slices/Loops</td>
+<td>Amen knob</td>
+<td>Turing loop control, LED ring = 1–16 steps</td>
+</tr>
+<tr>
+<td>Randomness</td>
+<td>Amen Attenurandomizer + CV</td>
+<td>Chaotic left, tamer right, also attenuates CV input</td>
+</tr>
+<tr>
+<td>Clock Multi/Div</td>
+<td>Clock Mult/Div button</td>
+<td>Tap for multiply, hold for divide</td>
+</tr>
+<tr>
+<td>Combo Fn.</td>
+<td>Tap + (Break/Amen/Sample)</td>
+<td>See manual for “super cool” extras</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p>For deeper dives (including CV routings, external sample management, and bonus functions) <strong>consult the full PDF manual</strong>.</p>
+</blockquote>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

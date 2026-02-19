@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Basimilus_Iteritas_Alia</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Basimilus Iteritas Alia</h1>
+<ul>
+<li><a href="../../manuals/Basimilus Iteritas Alia Manual - Noise Engineering Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.noiseengineering.us/bia/"><strong>Basimilus Iteritas Alia Manual PDF</strong></a></p>
+<hr />
+<h1>Basimilus Iteritas Alia Cheat Sheet</h1>
+<blockquote>
+<p><strong>Analog-inspired digital drum/percussion &amp; synth voice. 6 oscillators (additive/FM), extreme wavefolding, morphing waveforms, multi-algorithm, patchable.</strong></p>
+</blockquote>
+<hr />
+<h2>I/O Jack Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trig</strong></td>
+<td>Envelope trigger input</td>
+<td>&gt; +1.8V threshold</td>
+<td>Accepts gates/triggers</td>
+</tr>
+<tr>
+<td><strong>Pitch CV</strong></td>
+<td>Oscillator pitch (1V/octave)</td>
+<td>-2V to +5V</td>
+<td>Alia version only</td>
+</tr>
+<tr>
+<td><strong>Env Out</strong></td>
+<td>Envelope output</td>
+<td>0V to +5V</td>
+<td>Matches internal envelope</td>
+</tr>
+<tr>
+<td><strong>Out</strong></td>
+<td>Main audio output</td>
+<td>14Vpp max</td>
+<td>Level depends on patch</td>
+</tr>
+<tr>
+<td><strong>Decay CV</strong></td>
+<td>Decay control CV input</td>
+<td>0 to +5V</td>
+<td>Offsets Decay knob</td>
+</tr>
+<tr>
+<td><strong>Attack CV</strong></td>
+<td>Attack control CV input</td>
+<td>0 to +5V</td>
+<td>Offsets Attack knob</td>
+</tr>
+<tr>
+<td><strong>Morph CV</strong></td>
+<td>Waveform morphing CV input</td>
+<td>0 to +5V</td>
+<td>Offsets Morph knob</td>
+</tr>
+<tr>
+<td><strong>Fold CV</strong></td>
+<td>Wavefolder threshold CV input</td>
+<td>0 to +5V</td>
+<td>Offsets Fold knob</td>
+</tr>
+<tr>
+<td><strong>Harmonic CV</strong></td>
+<td>Harmonic/partials blend/decay CV input</td>
+<td>0 to +5V</td>
+<td>Offsets Harm knob</td>
+</tr>
+<tr>
+<td><strong>Spread CV</strong></td>
+<td>Inharmonicity/spacing CV input</td>
+<td>0 to +5V</td>
+<td>Offsets Spread knob</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Controls Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pitch (Encoder)</strong></td>
+<td>Fine (turn) &amp; coarse (press+turn) frequency tuning</td>
+</tr>
+<tr>
+<td><strong>Decay</strong></td>
+<td>Adjusts decay time for all oscillators; CV offsets this knob</td>
+</tr>
+<tr>
+<td><strong>Attack</strong></td>
+<td>Left: Adds noise, Center: Analog "pop", Right: Slows attack; CV offsets</td>
+</tr>
+<tr>
+<td><strong>Morph</strong></td>
+<td>Waveform morphs (sine → tri → saw → square); CV offsets</td>
+</tr>
+<tr>
+<td><strong>Fold</strong></td>
+<td>Active wavefolder; adds harmonics; top ¼ mixes pulse train; CV offsets</td>
+</tr>
+<tr>
+<td><strong>Harmonic</strong></td>
+<td>Partial/harmonic decay blend; from single tone → many; CV offsets</td>
+</tr>
+<tr>
+<td><strong>Spread</strong></td>
+<td>Inharmonicity; spreads partials; CV offsets</td>
+</tr>
+<tr>
+<td><strong>S/L/M Switch</strong></td>
+<td>Skin (additive), Liquid (additive + pitch env), Metal (FM/phase mod) algo</td>
+</tr>
+<tr>
+<td><strong>B/A/T Switch</strong></td>
+<td>Bass/Alto/Treble: pitch offset by octaves</td>
+</tr>
+<tr>
+<td><strong>Hit Button</strong></td>
+<td>Manual trigger for envelope/oscillator hit</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Sound Design Shortcuts</h2>
+<ul>
+<li><strong>Kick</strong>: Low Pitch/Bass, Skin or Liquid mode, quick Attack/Decay.</li>
+<li><strong>Snare</strong>: Higher Pitch, Skin or Liquid, moderate noise via Attack left, Harm for snappier tone.</li>
+<li><strong>Hat/Cymbal</strong>: High Pitch/Treble, Metal or Liquid for noisier, short Decay, Fold for brightness.</li>
+<li><strong>Clap</strong>: Middle pitch, Metal mode, rapid Decay, fold for metallic snap.</li>
+<li><strong>Supersaw/Leads</strong>: Spread and Harmonic for detuning, Morph for waveform blending, tune via Pitch input.</li>
+</ul>
+<hr />
+<h2>Calibration, Firmware, &amp; Power</h2>
+<ul>
+<li><strong>Autocalibration:</strong> Just power on with nothing patched to Pitch CV for self-cal (Alia only).</li>
+<li><strong>Firmware Swap:</strong> Connect USB (back header) &amp; use <a href="https://noiseengineering.us/portal/firmware/">Noise Engineering Portal</a>.</li>
+<li><strong>Power:</strong> 2x5pin ribbon; +12V (105mA), -12V (10mA); align red stripe to -12V.</li>
+<li><strong>Pitch Input:</strong> 1V/oct tracking.</li>
+</ul>
+<hr />
+<h2>Voltage Ranges (Alia)</h2>
+<ul>
+<li>Trigger in: &gt; +1.8V</li>
+<li>Pitch CV: -2V to +5V</li>
+<li>All CVs: 0V to +5V (except pitch)</li>
+<li>Envelope Out: 0V to +5V</li>
+<li>Audio Out: up to 14Vpp</li>
+</ul>
+<hr />
+<h2>Quick Reference – Controls &amp; Jacks</h2>
+<pre><code>[ In: Trig | Pitch CV | Decay CV | Attack CV | Morph CV | Fold CV | Harmonic CV | Spread CV ]
+[ Out: Audio | Envelope ]
+Controls: Pitch(encoder), Decay, Attack, Morph, Fold, Harmonic, Spread, S/L/M (Skin/Liquid/Metal algo), B/A/T (octave switch), Hit (manual trig)
+</code></pre>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>TAKAAB_Odd_Clock_Divider</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>TAKAAB — Odd Clock Divider</h1>
+<ul>
+<li><a href="../../manuals/TAKAAB OCD - Odd Clock Divider – Siam Modular.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://siammodular.com/products/takaab-ocd-odd-clock-divider?srsltid=AfmBOopTsJBGyNaC6WtMfJJU3EFzdu1WvzDldMz3y6eA2c-lwQCE1iKj"><strong>TAKAAB OCD - Odd Clock Divider Manual</strong></a></p>
+<hr />
+<h1>TAKAAB OCD Odd Clock Divider — Cheat Sheet</h1>
+<h2>Module Quickstart</h2>
+<ul>
+<li><strong>Type:</strong> Clock Divider (Odd and uncommon divisions)</li>
+<li><strong>Width:</strong> 2HP</li>
+<li><strong>Power:</strong> Standard eurorack power</li>
+</ul>
+<h3>How It Works</h3>
+<ul>
+<li>Input a clock (2.5V–10V, up to 10KHz); module outputs divided clocks at 1/3, 1/5, 1/7, 1/9, and 1/10 (or by jumper: 1/3, 1/5, 1/7, 1/6, 1/10).</li>
+<li>All output clocks are 6V signals, 50% duty cycle, rounded down to the nearest pulse.</li>
+<li>Reset input or button restarts all divided clocks to the first step.</li>
+</ul>
+<hr />
+<h2>Panel Controls &amp; Connections</h2>
+<h3>Jacks</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLOCK IN</td>
+<td>Input</td>
+<td>Main clock input for division</td>
+<td>2.5V–10V, up to 10kHz</td>
+</tr>
+<tr>
+<td>RESET</td>
+<td>Input</td>
+<td>Resets outputs to first pulse (trigger/gate/up-edge)</td>
+<td>2.5V–10V, up to 10kHz</td>
+</tr>
+<tr>
+<td>1/3 OUT</td>
+<td>Output</td>
+<td>Outputs clock divided by 3 (HIGH:LOW = 1:2 for 1/3)</td>
+<td>6V</td>
+</tr>
+<tr>
+<td>1/5 OUT</td>
+<td>Output</td>
+<td>Outputs clock divided by 5 (1:4)</td>
+<td>6V</td>
+</tr>
+<tr>
+<td>1/7 OUT</td>
+<td>Output</td>
+<td>Outputs clock divided by 7 (3:4)</td>
+<td>6V</td>
+</tr>
+<tr>
+<td>1/9 OUT*</td>
+<td>Output</td>
+<td>Outputs clock divided by 9 (4:5) (*see jumper note)</td>
+<td>6V</td>
+</tr>
+<tr>
+<td>1/10 OUT</td>
+<td>Output</td>
+<td>Outputs clock divided by 10 (5:5)</td>
+<td>6V</td>
+</tr>
+</tbody>
+</table>
+<p>* By internal jumper, the 1/9 out can be set to 1/6 (ratio 4:2 HIGH:LOW).</p>
+<h3>Panel Controls</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RESET Button</td>
+<td>Button</td>
+<td>Manually resets all outputs to initial state</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Internal Jumpers/Headers</h2>
+<ul>
+<li><strong>1/9 to 1/6 Jumper:</strong> Onboard jumper changes 1/9 output to 1/6 (4:2 HIGH:LOW).</li>
+<li><strong>Normalize Headers:</strong> 2-pin headers for chaining CLOCK IN/RESET signals between O/ECD modules (use Dupont jumper cable, one included).</li>
+<li><strong>Chained Reset:</strong> Header for linking an adjacent unit’s reset with the manual RESET button.</li>
+</ul>
+<hr />
+<h2>Usage Tips</h2>
+<ul>
+<li>For clock divisions not covered by common modules (odd/prime/polyrhythms).</li>
+<li>Use the RESET input/button to keep multiple dividers in musical sync.</li>
+<li>Chain with Takaab UXS for front-panel jumper control.</li>
+<li>All outputs are pulse (square) at 6V max.</li>
+</ul>
+<hr />
+<h2>Signal Reference Summary</h2>
+<ul>
+<li><strong>CLOCK IN:</strong> 2.5-10V, up to 10kHz, rising edge triggers.</li>
+<li><strong>RESET IN:</strong> 2.5-10V, up to 10kHz, rising edge resets.</li>
+<li><strong>All OUTs:</strong> 6V, square, 50% duty except 1/6 (4:2).</li>
+<li><strong>Manual RESET:</strong> Button for instant sync.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

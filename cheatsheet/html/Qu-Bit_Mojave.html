@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Mojave</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Mojave</h1>
+<ul>
+<li><a href="../../manuals/mojave_getting_started.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://qubitelectronix.com">Qu-Bit Mojave Quickstart Manual (PDF)</a></p>
+<hr />
+<h1>Qu-Bit Mojave Eurorack Module Cheat Sheet</h1>
+<p><strong>Overview:</strong><br />
+<strong>Mojave</strong> is a live granular processor and stochastic event generator. Patch audio in, modulate the parameters, and sculpt grains (tiny audio snippets) for lush textures, glitchy rhythms, and evolving sonic landscapes.</p>
+<hr />
+<h2>🛠 <strong>Front Panel: Controls and Functions</strong></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">CV Range</th>
+<th style="text-align: left;">Gate Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Mix</strong></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Dry/Wet balance.</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tap/Clock</strong></td>
+<td style="text-align: left;">Button/Jack</td>
+<td style="text-align: left;">Tap sets grain clock. External clock sync.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.4V</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gen</strong></td>
+<td style="text-align: left;">Button/Jack</td>
+<td style="text-align: left;">Manually generate grains.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.4V</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate</strong></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Grain rate (from very slow to audio rate).</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Distribute</strong></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Rhythmic/random timing of grain trig (glitch/ratchet).</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Structure</strong></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Algorithmic harmonic/melodic displacement (arpeggios, harmonies, etc).</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Drift</strong></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Randomizes audio buffer position for each grain.</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Whirl</strong></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Spatialization of grains</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gust</strong></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Left = feedback, Right = reverb amount</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Size</strong></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Grain size &amp; playback direction (left=reverse, right=forward)</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zone</strong></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Sets buffer position to sample grains from</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Speed</strong></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Grain pitch (1V/oct tracking)</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Window</strong></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Grain envelope shape selection</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lock</strong></td>
+<td style="text-align: left;">Button/Jack</td>
+<td style="text-align: left;">Freezes buffer input; grains come from locked buffer only</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.4V</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Freeze</strong></td>
+<td style="text-align: left;">Button/Jack</td>
+<td style="text-align: left;">Loops current grains, halts new grain creation (buffer keeps refreshing)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.4V</td>
+</tr>
+</tbody>
+</table>
+<h3>Modes/Functions (Color Indicated via LED/button):</h3>
+<ul>
+<li><strong>Gen Mode (hold to cycle):</strong></li>
+<li><em>Erode (Blue):</em> Auto generate grains per clock</li>
+<li><em>Shear (Green):</em> Audio-level triggered grains</li>
+<li><em>Chisel (Gold):</em> Grains only generated by trigger</li>
+<li><strong>Clock Mode:</strong></li>
+<li><em>Free (Blue):</em> Rate knob smooth</li>
+<li><em>Quantized (Gold):</em> Rate knob is clock divider/multiplier</li>
+<li><strong>Sky Mode:</strong></li>
+<li><em>Dawn (Blue):</em> Major scale; <em>Day (Green):</em> Minor; <em>Dusk (Gold):</em> Chromatic; <em>Twilight (Purple):</em> Free/no scale</li>
+</ul>
+<hr />
+<h2>🔌 <strong>Inputs &amp; Outputs Reference</strong></h2>
+<h3><strong>Audio Inputs:</strong></h3>
+<ul>
+<li><strong>Left Audio In</strong></li>
+<li>10Vpp (AC-coupled)</li>
+<li>Normals to right if right is unpatched</li>
+<li><strong>Right Audio In</strong></li>
+<li>10Vpp (AC-coupled)</li>
+</ul>
+<h3><strong>Audio Outputs:</strong></h3>
+<ul>
+<li><strong>Left Audio Out</strong></li>
+<li>10Vpp (DC-coupled)</li>
+<li><strong>Right Audio Out</strong></li>
+<li>10Vpp (DC-coupled)</li>
+</ul>
+<h3><strong>CV Inputs (All -5V to +5V Range):</strong></h3>
+<ul>
+<li>Mix</li>
+<li>Distribute</li>
+<li>Structure</li>
+<li>Drift</li>
+<li>Whirl</li>
+<li>Gust</li>
+<li>Size</li>
+<li>Zone</li>
+<li>Speed</li>
+<li>Window</li>
+<li>Rate</li>
+</ul>
+<h3><strong>Gate/Trigger Inputs:</strong></h3>
+<ul>
+<li><strong>Tap/Clock (syncs to external clock):</strong> 0.4V threshold</li>
+<li><strong>Gen (generate grains):</strong> 0.4V threshold</li>
+<li><strong>Lock:</strong> 0.4V threshold</li>
+<li><strong>Freeze:</strong> 0.4V threshold</li>
+</ul>
+<h3><strong>CV/Gate Output:</strong></h3>
+<ul>
+<li><strong>Dune Out (Default: 0V to +5V CV)</strong></li>
+<li>Behavior configurable via Narwhal app</li>
+</ul>
+<h3><strong>USB Port:</strong></h3>
+<ul>
+<li>For firmware update/configuration (use Narwhal app/website)</li>
+</ul>
+<h3><strong>Onboard MEMS Microphone</strong></h3>
+<ul>
+<li>Normalled to left input by default (switchable via button combo)</li>
+<li>Modes: Normalled / Off / Summed (cycling via Clock Mode + Lock button)</li>
+</ul>
+<hr />
+<h2>🧩 <strong>Quick-Start Workflow</strong></h2>
+<ol>
+<li><strong>Plug into a powered case (14HP, 167mA).</strong></li>
+<li><strong>Patch audio in (left, mono, or stereo).</strong></li>
+<li><strong>Set Mix knob for balance.</strong></li>
+<li><strong>Set Rate, Size, Zone, Structure, Whirl, Drift, etc, for desired sound.</strong></li>
+<li><strong>Patch CVs to any parameter for dynamic animation.</strong></li>
+<li><strong>Use Tap to set grain clock or sync to an external clock.</strong></li>
+<li><strong>Mode select as needed (Gen, Clock, Sky).</strong></li>
+<li><strong>Explore Lock/Freeze for creative buffer mangling.</strong></li>
+</ol>
+<hr />
+<h2>🗒 <strong>Extra Tips</strong></h2>
+<ul>
+<li><strong>Input Level Adjustment:</strong> Hold Clock Mode + turn Mix to set mic gain.</li>
+<li><strong>Mic Modes:</strong> Hold Clock Mode + tap Lock to cycle.</li>
+<li><strong>Firmware/Settings:</strong> Use USB port and Narwhal config app for customization.</li>
+</ul>
+<hr />
+<p>For more info and deep-dives: <strong><a href="https://qubitelectronix.com">Full Manual: qubitelectronix.com</a></strong><br />
+Generated With Eurorack Processor: <a href="https://github.com/nstarke/eurorack-processor">https://github.com/nstarke/eurorack-processor</a></p>
+</body>
+</html>

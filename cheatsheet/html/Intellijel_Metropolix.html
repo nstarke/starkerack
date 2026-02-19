@@ -1,0 +1,458 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Metropolix</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Metropolix</h1>
+<ul>
+<li><a href="../../manuals/metropolix_manual_v1.4_2022.04.04.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manual.intellijel.com/Metropolix_Manual_1.4.pdf">Metropolix Manual PDF</a></p>
+<h1>Intellijel Metropolix — Eurorack Sequencer Cheat Sheet</h1>
+<blockquote>
+<p>Highly performance-oriented <strong>8-stage, dual-track pitch/gate/clock MOD sequencer</strong> with deep hands-on and CV control.</p>
+</blockquote>
+<hr />
+<h2>Quick Reference Table</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>UI Element</th>
+<th>Functionality / Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Jacks</strong></td>
+<td><strong>TRACK 1 PITCH OUT</strong> (D)</td>
+<td>1V/Oct pitch (default: TRK 1). Swappable. 0–+5V typical.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>TRACK 1 GATE OUT</strong> (E)</td>
+<td>Gate output (0V = off, +5V = on). Swappable.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>TRACK 2 PITCH OUT</strong> (F)</td>
+<td>1V/Oct pitch (default: TRK 2), swapped as above.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>TRACK 2 GATE OUT</strong> (G)</td>
+<td>Gate (0/+5V), swappable as above.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>CLOCK OUT</strong> (C)</td>
+<td>Clock out, division settable, 0V low, +5V trigger.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>A OUT / B OUT</strong> (A/B)</td>
+<td>User-assignable: CV, MOD, gates, velocity, clock, trigger, etc. -5V to +5V range.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>CLOCK IN</strong> (H)</td>
+<td>External clock, expects trigger/gate. +1.5V min, typically 0/+5V (range -5V to +5V OK).</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>RESET IN</strong> (I)</td>
+<td>Resets sequence (trig), reassignable as RUN input. +1.5V = trig/gate (0–+5V typical).</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>X / Y / Z IN</strong> (X, Y, Z)</td>
+<td>AUX CV inputs, assignable. Accepts -5V to +5V (full parameter range).</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>I2C</strong> (back)</td>
+<td>Gx/Qx expander support.</td>
+</tr>
+<tr>
+<td><strong>Sliders/Toggles</strong></td>
+<td><strong>PITCH SLIDERS</strong></td>
+<td>8 per stage; default pitch per stage, 1–4 octaves, root/scale quantizing.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>PULSE COUNT</strong></td>
+<td>8 toggles, 1–8 pulses per stage.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>GATE TYPE</strong></td>
+<td>8 switches: Hold, Multi, Single, Rest.</td>
+</tr>
+<tr>
+<td><strong>Knobs</strong></td>
+<td><strong>CTRL 1 &amp; 2</strong></td>
+<td>Assignable to pitch, gate, division, root, scale, velocity, etc. -5V to +5V out when set.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>AUX Attenuverters</strong></td>
+<td>X, Y, Z inputs manual scaling/polarity.</td>
+</tr>
+<tr>
+<td><strong>Buttons</strong></td>
+<td><strong>RUN</strong></td>
+<td>Start/stop sequence.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>RESET</strong></td>
+<td>Manual reset (to "first" stage, resets accumulators).</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>LOOPY</strong></td>
+<td>Loopy mode (momentary/latch subloops, manual/key mode).</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>SETUP/BPM/SCALE</strong></td>
+<td>Global configuration, tempo, quantizer/scale/root.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>ORDER/LEN/DIV/SWING/SLIDE/GATE</strong></td>
+<td>Per-track: playback direction/order, length, clock div, swing (trk 1&amp;2), slide, gate time.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>EDIT/SLIDE/SKIP/PITCH/GATE/RATCH/PROB/ACCUM/CV</strong></td>
+<td>Per-stage, per-track/lane editing (or per MOD lane).</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>ALT</strong></td>
+<td>Access alternate button/slider functions (preset save/load, output, mod assign, etc).</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>TRACK SELECT</strong> (TRK 1/TRK 2/MOD)</td>
+<td>Select which "track" or mod lane is active for editing.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Screen Encoder</strong></td>
+<td>Menu navigation, value adjustment, press for confirm/toggle/parameter select.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>AUX X/Y/Z Buttons</strong></td>
+<td>Input routing, also randomization shortcuts.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Inputs Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Label</th>
+<th>Use</th>
+<th>Range (V)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLOCK IN</td>
+<td>H</td>
+<td>Advances seq</td>
+<td>-5 to +5</td>
+</tr>
+<tr>
+<td>RESET IN</td>
+<td>I</td>
+<td>Resets seq</td>
+<td>-5 to +5</td>
+</tr>
+<tr>
+<td>X AUX IN</td>
+<td>X</td>
+<td>CV/Trig mod</td>
+<td>-5 to +5</td>
+</tr>
+<tr>
+<td>Y AUX IN</td>
+<td>Y</td>
+<td>CV/Trig mod</td>
+<td>-5 to +5</td>
+</tr>
+<tr>
+<td>Z AUX IN</td>
+<td>Z</td>
+<td>CV/Trig mod</td>
+<td>-5 to +5</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Outputs Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Label</th>
+<th>Use</th>
+<th>Out Range (V)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TRACK 1 PITCH OUT</td>
+<td>D</td>
+<td>1V/Oct, swappable</td>
+<td>0 to +5 (typ)</td>
+</tr>
+<tr>
+<td>TRACK 1 GATE OUT</td>
+<td>E</td>
+<td>Gate, swappable</td>
+<td>0/+5</td>
+</tr>
+<tr>
+<td>TRACK 2 PITCH OUT</td>
+<td>F</td>
+<td>1V/Oct, swappable</td>
+<td>0 to +5 (typ)</td>
+</tr>
+<tr>
+<td>TRACK 2 GATE OUT</td>
+<td>G</td>
+<td>Gate, swappable</td>
+<td>0/+5</td>
+</tr>
+<tr>
+<td>CLOCK OUT</td>
+<td>C</td>
+<td>Divided clock</td>
+<td>0/+5 trig</td>
+</tr>
+<tr>
+<td>A OUT</td>
+<td>A</td>
+<td>User assignable (CV, MOD, etc)</td>
+<td>-5 to +5</td>
+</tr>
+<tr>
+<td>B OUT</td>
+<td>B</td>
+<td>User assignable</td>
+<td>-5 to +5</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Panel Controls At-a-Glance</h2>
+<h3>Sliders &amp; Toggles (Top)</h3>
+<ul>
+<li><strong>PITCH SLIDERS:</strong> Set root pitch for each stage (1–8). Quantize using SCALE. 1–4 octave range.</li>
+<li><strong>PULSE COUNT:</strong> (Switches below each slider) 1–8 pulses per stage – affects rhythmic length.</li>
+<li><strong>GATE TYPE:</strong> (Switches below Pulse Count) Choose:  <ul>
+<li>HOLD = sustain gate through all pulses</li>
+<li>MULTI = gate per pulse</li>
+<li>SINGLE = one gate per stage</li>
+<li>REST = no gate</li>
+</ul>
+</li>
+</ul>
+<h3>Center Section</h3>
+<ul>
+<li><strong>Screen + Encoder:</strong> Deep editing, assign destinations, menu navigation.</li>
+<li><strong>TRACK BUTTONS:</strong> TRK 1, TRK 2, MOD (8 MOD lanes); track/parameter selection.</li>
+<li><strong>EXIT:</strong> Go back / Home screen / Sync panel.</li>
+<li><strong>TRANSPORT:</strong>  <ul>
+<li><strong>RUN:</strong> Play/Stop (or Pause in config)</li>
+<li><strong>RESET:</strong> Reset sequence/stage/accum.</li>
+<li><strong>LOOPY:</strong> Enter Loopy subloop/manual play mode.</li>
+</ul>
+</li>
+<li><strong>GLOBAL SETTINGS:</strong>  <ul>
+<li><strong>SETUP:</strong> System/global settings.</li>
+<li><strong>BPM:</strong> Set/see tempo, tap with button, mod with CV/ctrl/mod.</li>
+<li><strong>SCALE:</strong> Quantizer scale/root, user scales, chord locks.</li>
+</ul>
+</li>
+</ul>
+<h3>TRACK SETTINGS:</h3>
+<ul>
+<li><strong>ORDER:</strong> Sequence direction/order (linear, random, shuffle, pendulum, etc).</li>
+<li><strong>LEN:</strong> Number of stages/total pulses/offset (polyrhythm/phase patterns).</li>
+<li><strong>DIV:</strong> Clock divider (for track &amp; mod lanes).</li>
+<li><strong>SWING:</strong> Groove; not present on MOD lanes.</li>
+<li><strong>SLIDE TIME:</strong> Portamento for slid stages; analog/tempo/acid.  </li>
+<li><strong>(TRACK) GATE:</strong> Gate time/scale per track (with per-stage override via STAGE GATE).</li>
+</ul>
+<h3>STAGE EDIT (EDIT + Button)</h3>
+<ul>
+<li><strong>SLIDE / SKIP / PITCH / GATE / RATCH / PROB / ACCUM / CV:</strong><ul>
+<li>Per-stage per-track editing for each above function (see table below for summary).</li>
+</ul>
+</li>
+</ul>
+<h3>ALT Functions</h3>
+<ul>
+<li><strong>LOAD (ALT+1):</strong> Load preset/bank.</li>
+<li><strong>SAVE (ALT+2):</strong> Save preset/bank (confirm overwrites).</li>
+<li><strong>OUT A, OUT B (ALT+3/4):</strong> Assign output function/track (A or B jack).</li>
+<li><strong>CLK (ALT+5):</strong> Configure clock out division/offset.</li>
+<li><strong>MX (ALT+6):</strong> Expander output routing.</li>
+<li><strong>LIM (ALT+7):</strong> Accumulator (ACCUM) transposition limit/polarities/modes.</li>
+<li><strong>TYPE (ALT+8):</strong> Set CV Lane output type (Voltage / Gate Toggle).</li>
+</ul>
+<hr />
+<h2>MOD Lanes</h2>
+<ul>
+<li><strong>8 lanes</strong>, parallel to main sequencer.</li>
+<li>Each has: order (playback), length (stages/pulses), div (clock), and parameter destination (internal param, or OUT A/B)</li>
+<li>Each lane: 8 stage voltages (or gates if routed to gate-type param), ±5V output range for OUT jacks.</li>
+</ul>
+<hr />
+<h2>Core Per-Stage Parameters (All CV-automatable via AUX/MOD)</h2>
+<table>
+<thead>
+<tr>
+<th>EDIT Mode</th>
+<th>Function</th>
+<th>Range / Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SLIDE</td>
+<td>Slide (portamento enabled/disabled)</td>
+<td>per stage</td>
+</tr>
+<tr>
+<td>SKIP</td>
+<td>Stage skipped or not</td>
+<td>binary</td>
+</tr>
+<tr>
+<td>PITCH</td>
+<td>Override note/scale (or inherit slider)</td>
+<td>C0–C5 (quantized/locked)</td>
+</tr>
+<tr>
+<td>GATE</td>
+<td>Per-stage override length or rest/hold</td>
+<td>--/rest/1–100%</td>
+</tr>
+<tr>
+<td>RATCH</td>
+<td>Subdivisions per-pulse/ratchet</td>
+<td>1–8</td>
+</tr>
+<tr>
+<td>PROB</td>
+<td>Probability gate triggers (stage or pulse)</td>
+<td>0–100%</td>
+</tr>
+<tr>
+<td>ACCUM</td>
+<td>Per-stage accumulate amount/trigger</td>
+<td>±1–7 scale deg, stage/pulse/ratch trigger modes</td>
+</tr>
+<tr>
+<td>CV</td>
+<td>Per-stage control voltage (or gate if type set)</td>
+<td>–5V to +5V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Cheat Sheet: Essential Moves</h2>
+<p><strong>Run/Stop:</strong><br />
+- Press RUN.<br />
+<strong>Reset:</strong><br />
+- Press RESET to restart sequence from Offset.
+<strong>Set BPM:</strong><br />
+- Press BPM, turn encoder.<br />
+- Long-press BPM for fine.<br />
+- Tap BPM button for tempo tap.
+<strong>Change Scale:</strong><br />
+- Press SCALE, encoder chooses scale/root.
+<strong>Load/Save Preset:</strong><br />
+- ALT+1: Load, ALT+2: Save (bank select with encoder, choose slot 1-8 with stage buttons).
+<strong>Per-Track Parameter Edits:</strong><br />
+- Select TRK 1/2/MOD, press corresponding ORDER/LEN/etc.
+<strong>Per-Stage Edits:</strong><br />
+- Select track (TRK 1/2), EDIT + parameter (SLIDE etc), then press stage button 1–8 to edit.
+<strong>Assign Output Functions:</strong><br />
+- ALT+3/A or ALT+4/B for OUT A/B, select parameter output (CV, MOD max ±5V).
+<strong>AUX Inputs:</strong><br />
+- Patch CV -5V to +5V. Press X/Y/Z button to assign param, set attenuverter for range/polarity.</p>
+<p><strong>Loopy Mode:</strong><br />
+- Press LOOPY. Hold stage button(s) to loop single or range.<br />
+- Latch: Release/unlatch via LOOPY. Stage buttons become a "manual keyboard" in stop mode.</p>
+<hr />
+<h2>CV &amp; MIDI Integration</h2>
+<ul>
+<li>All assignable modulation: AUX inputs, MOD lanes, CTRL knobs, MIDI in/out (USB micro port; see manual on SysEx and channel/CC assign).</li>
+<li>Inputs accept -5V to +5V for full range mapping. Outputs provide up to ±5V (A/B jack assignments, MOD) or standard 1V/Oct (+0-5V typ) for pitch.</li>
+</ul>
+<hr />
+<h2>Tips</h2>
+<ul>
+<li><strong>Muting:</strong> Hold LOOPY, then TRK 1/2/MOD or MOD lane to mute/unmute.</li>
+<li><strong>Copy/Paste:</strong> Hold source (track/stage), press target (see manual for details).</li>
+<li><strong>Randomization:</strong> ALT + AUX X = full random, ALT + AUX Y = morph, ALT + AUX Z = undo (Active in editing screen).</li>
+<li><strong>Panel Sync:</strong> Long-press EXIT — clear overrides, use front panel positions.</li>
+</ul>
+<hr />
+<h2>Useful Ranges &amp; Specs</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Voltage Range</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All CV INs</td>
+<td>-5V to +5V</td>
+<td>Full param</td>
+</tr>
+<tr>
+<td>A/B/MOD CV OUT</td>
+<td>-5V to +5V</td>
+<td>User/mapped</td>
+</tr>
+<tr>
+<td>Pitch OUT</td>
+<td>0V to +5V (typ)</td>
+<td>1V/octave, adjustable</td>
+</tr>
+<tr>
+<td>Gate Outputs</td>
+<td>0V (low), +5V (high)</td>
+<td>Triggers/gates</td>
+</tr>
+<tr>
+<td>MIDI</td>
+<td>USB micro-B (rear panel)</td>
+<td>Use Intellijel extender if needed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>See full manual for details and advanced configuration:</strong><br />
+<a href="https://manual.intellijel.com/Metropolix_Manual_1.4.pdf">Metropolix Manual PDF</a></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

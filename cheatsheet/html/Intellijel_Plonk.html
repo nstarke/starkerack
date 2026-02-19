@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Plonk</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Plonk</h1>
+<ul>
+<li><a href="../../manuals/plonk_manual_v1.16_2020.11.08.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment:Plonk_Manual_1.16.pdf"><strong>Plonk Manual PDF</strong></a></p>
+<hr />
+<h1>Intellijel Plonk Cheat Sheet</h1>
+<h2>Overview</h2>
+<p>Plonk is a physical modeling percussion synthesizer capable of creating both realistic and synthetic percussive sounds. It uses separate Exciter and Resonator sections, is duophonic (2-voice), and supports deep modulation and preset storage.</p>
+<hr />
+<h2><strong>Inputs, Outputs, and Controls Reference</strong></h2>
+<h3><strong>Jacks/Input/Outputs</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Purpose</th>
+<th>Voltage Range</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A. X</strong></td>
+<td>CV In</td>
+<td>Modulate X-assigned parameter</td>
+<td>±5V</td>
+<td>Summed with X knob/param. Attenuverter present.</td>
+</tr>
+<tr>
+<td><strong>B. MOD</strong></td>
+<td>CV In</td>
+<td>Modulate MOD-assigned parameter or special control</td>
+<td>±5V</td>
+<td>Attenuverter present. Gate &gt;1.5V for gate-based.</td>
+</tr>
+<tr>
+<td><strong>C. DECAY</strong></td>
+<td>CV In</td>
+<td>Offset DECAY knob/param</td>
+<td>±5V</td>
+<td>Attenuverter present.</td>
+</tr>
+<tr>
+<td><strong>D. Y</strong></td>
+<td>CV In</td>
+<td>Modulate Y-assigned parameter</td>
+<td>±5V</td>
+<td>Summed with Y knob/param. Attenuverter present.</td>
+</tr>
+<tr>
+<td><strong>E. PITCH</strong></td>
+<td>CV In</td>
+<td>1V/oct pitch input</td>
+<td>±5V</td>
+<td>Only updates while TRIG high.</td>
+</tr>
+<tr>
+<td><strong>F. TRIG</strong></td>
+<td>Gate In</td>
+<td>Triggers Exciter</td>
+<td>Std. gate, &gt;1ms</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>G. VEL</strong></td>
+<td>CV In</td>
+<td>Velocity/expression</td>
+<td>0 to +5V (norm. +5V)</td>
+<td>Controls accent, dynamics, or volume by menu.</td>
+</tr>
+<tr>
+<td><strong>H. OUT</strong></td>
+<td>Audio Out</td>
+<td>Main mono audio</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3><strong>Knobs and Front Panel Controls</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PITCH</strong> (knob)</td>
+<td>Base pitch of resonator.</td>
+</tr>
+<tr>
+<td><strong>DECAY</strong> (knob)</td>
+<td>Scales overall sound/resonator decay.</td>
+</tr>
+<tr>
+<td><strong>X / Y</strong> (knobs)</td>
+<td>Manual modulation for X/Y assigned parameter (bipolar).</td>
+</tr>
+<tr>
+<td><strong>ENCODER</strong></td>
+<td>Menu navigation/value change (push+turn function).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3><strong>Buttons</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DISPLAY</strong></td>
+<td>OLED screen with activity LEDs for both voices.</td>
+</tr>
+<tr>
+<td><strong>PITCH</strong></td>
+<td>Opens pitch menu (Octave/Quantize).</td>
+</tr>
+<tr>
+<td><strong>TRIGGER</strong></td>
+<td>Manually fires exciter for preview.</td>
+</tr>
+<tr>
+<td><strong>EXCITER</strong></td>
+<td>Opens exciter menu (mallet/noise/shaping/etc.).</td>
+</tr>
+<tr>
+<td><strong>OBJECT</strong></td>
+<td>Opens resonator menu (model/decay/tone/etc.).</td>
+</tr>
+<tr>
+<td><strong>MOD</strong></td>
+<td>Assign MOD CV input (+ depth).</td>
+</tr>
+<tr>
+<td><strong>CONFIG</strong></td>
+<td>System config/output/FX/global.</td>
+</tr>
+<tr>
+<td><strong>LOAD/SAVE</strong></td>
+<td>Load/save presets and manage memory.</td>
+</tr>
+<tr>
+<td><strong>X / Y</strong></td>
+<td>Assign X/Y CV input (+ depth).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Quick Start</strong></h2>
+<ol>
+<li><strong>Default Patch:</strong> Power on, output to system audio, set PITCH/X/Y (12:00), DECAY full CW.</li>
+<li><strong>Trigger:</strong> Press TRIGGER to play.</li>
+<li><strong>Preset:</strong> LOAD → scroll/select/preview with ENCODER → click to load.</li>
+<li><strong>Sequencer:</strong> TRIG from sequencer to TRIG; CV to PITCH; optionally VEL for velocity.</li>
+<li><strong>Live Modulate:</strong> MOD input for preset stepping/kits (factory presets 1/5/9/13 support).</li>
+<li><strong>Edit Sounds:</strong> Use EXCITER and OBJECT menus.</li>
+</ol>
+<hr />
+<h2><strong>Menus and Modulation</strong></h2>
+<ul>
+<li><strong>Exciter Parameters:</strong> Mallet/Noise mix, Mallet stiffness, Noise attack/decay/density/filters/envelope type.</li>
+<li><strong>Object Parameters:</strong> Resonator type (String/Beam/Marimba/Drumhead/Membrane/Plate), Decay, Tone, Position, Inharmonicity, Low Cut, Pitch Envelope amt/decay, Polyphony (1/2).</li>
+<li><strong>Modulation Destinations:</strong> Most exciter/object parameters can be mapped to X, Y, or MOD, plus bitcrusher and saturation FX.</li>
+<li><strong>Special MOD:</strong> Choke (Res, Noise, Both), Preset Step, Morph, Randomize.</li>
+</ul>
+<hr />
+<h2><strong>Preset Management</strong></h2>
+<ul>
+<li><strong>128 memory slots.</strong> Panel knobs are always live and override/offset preset values!</li>
+<li><strong>Load:</strong> LOAD → ENCODER scroll → preview with TRIGGER → click to load.</li>
+<li><strong>Save:</strong> SAVE → ENCODER pick slot → SAVE or click ENCODER to enter name → confirm with Y.</li>
+<li><strong>Transfer (USB-MIDI):</strong> See manual for SysEx instructions.</li>
+</ul>
+<hr />
+<h2><strong>Other Notes</strong></h2>
+<ul>
+<li><strong>Calibration:</strong> See CONFIG &gt; Global Config.</li>
+<li><strong>Firmware/Changelog:</strong> Many expanded FX/modulation since v1.10.</li>
+<li><strong>Size/Power:</strong> 12hp, 44mm deep, 170mA @ +12V, 6mA @ -12V.</li>
+</ul>
+<hr />
+<h2><strong>Parameter Modulation Depths</strong></h2>
+<ul>
+<li>Depth settings: LOW (±16), MEDIUM (±32), HIGH (±64), FULL (±128) for X, Y, MOD.</li>
+</ul>
+<hr />
+<h2>Links</h2>
+<ul>
+<li><a href="attachment:Plonk_Manual_1.16.pdf">Intellijel Plonk Manual PDF</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+<hr />
+<p><strong>Tip:</strong> Plonk is highly dynamic—experiment, assign modulation, and morph between presets for maximum variety!</p>
+</body>
+</html>

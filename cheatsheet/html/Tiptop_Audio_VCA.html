@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_VCA</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — VCA</h1>
+<ul>
+<li><a href="../../manuals/Tiptop Audio VCA user manual_6.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://tiptopaudio.com/vca/">Tiptop Audio VCA Manual PDF</a></p>
+<hr />
+<h1>Tiptop Audio VCA Eurorack Cheat Sheet</h1>
+<p>A single-channel, variable-slope Voltage Controlled Amplifier (VCA) with full morphing between Logarithmic, Linear, and Exponential curves. Suitable for clean amplification, modulation, FM index control, audio/CV mixing, and sidechaining.</p>
+<hr />
+<h2>Controls Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LEVEL</strong></td>
+<td>Knob</td>
+<td>Sets output volume (post-VCA gain). Useful for gain staging or matching shapes.</td>
+</tr>
+<tr>
+<td><strong>SHAPE</strong></td>
+<td>Knob</td>
+<td>Continuously morphs the CV response curve: Logarithmic ← Linear → Exponential.</td>
+</tr>
+<tr>
+<td><strong>OFFSET</strong></td>
+<td>Knob</td>
+<td>Adds offset to CV, manually opens/closes the VCA, or shifts bipolar mod sources for full bipolar modulation.</td>
+</tr>
+<tr>
+<td><strong>CV IN</strong></td>
+<td>Knob</td>
+<td>Attenuates incoming CV (from CV IN jack). Helps prevent CV clipping.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Input/Output Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CV IN</strong></td>
+<td>Input</td>
+<td>CV control of the VCA or for Amplitude Modulation with audio-rate CVs.</td>
+<td>±10V recommended</td>
+</tr>
+<tr>
+<td><strong>Audio IN</strong></td>
+<td>Input</td>
+<td>Audio or CV signals to be amplified/processed.</td>
+<td>Up to ~20Vpp*</td>
+</tr>
+<tr>
+<td><strong>Audio OUT</strong></td>
+<td>Output</td>
+<td>Final amplified/processed audio/CV signal.</td>
+<td>Up to ~20Vpp*</td>
+</tr>
+</tbody>
+</table>
+<p>*Precise limits not stated, but standard for Eurorack; incoming signal clipping is indicated with a red LED.</p>
+<hr />
+<h2>LED Indicators</h2>
+<table>
+<thead>
+<tr>
+<th>LED</th>
+<th>Location</th>
+<th>Indicates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CV Clip LED</strong></td>
+<td>Panel</td>
+<td>CV IN signal is clipping</td>
+</tr>
+<tr>
+<td><strong>Audio Clip LED</strong></td>
+<td>Panel</td>
+<td>Audio IN signal is clipping</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Typical Voltage Ranges</h2>
+<ul>
+<li>CV IN: Designed for ±10V (unipolar envelopes, LFOs, or bipolar LFOs). Envelope peaks should avoid clipping as indicated by the CV LED.</li>
+<li>Audio IN: Typical Eurorack audio (±5V, 10Vp-p).</li>
+</ul>
+<hr />
+<h2>Key Functions</h2>
+<ul>
+<li><strong>Dynamic Volume Control</strong>: Control over audio amplitude via envelopes, LFOs, sequencers, etc.</li>
+<li><strong>CV Attenuation and Offset</strong>: Tune incoming control signals for mod depth and baseline.</li>
+<li><strong>SHAPE Morphing</strong>: Sweep through log/lin/exp responses for nuanced dynamics or CV shaping.</li>
+<li><strong>Amplitude Modulation (AM)</strong>: Use audio-rate CVs for audio AM effects.</li>
+<li><strong>FM Index Control</strong>: Use VCA to modulate amount of FM sent to other oscillators or destinations.</li>
+<li><strong>Sidechaining</strong>: Invert envelope CV for “ducking” effects.</li>
+<li><strong>FX Send Automation</strong>: Dynamically automate effect sends.</li>
+</ul>
+<hr />
+<h2>Quick Start</h2>
+<ol>
+<li>Set SHAPE to center (linear).</li>
+<li>Patch audio to Audio IN, Audio OUT to sound system.</li>
+<li>LEVEL to max, OFFSET up to bring signal through.</li>
+<li>Patch envelope/LFO to CV IN, adjust CV IN knob for modulation amount.</li>
+<li>Adjust SHAPE to hear curve differences.</li>
+</ol>
+<hr />
+<h2>Calibration Trimmers (on module rear, factory set)</h2>
+<table>
+<thead>
+<tr>
+<th>Trimmer</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BIAS ADJ TR2</td>
+<td>Matches output level across shape morphing</td>
+</tr>
+<tr>
+<td>OTA OFFSET T1</td>
+<td>Minimizes DC offset at output</td>
+</tr>
+<tr>
+<td>CV OFFSET T3</td>
+<td>Minimizes bleed when VCA is “closed”</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Patch Tips</h2>
+<ul>
+<li><strong>Linear:</strong> Best for controlling CV/mod signals.</li>
+<li><strong>Exponential:</strong> Best for audio amplitude (matches human hearing).</li>
+<li><strong>Logarithmic:</strong> Creative modulation source shaping or special effects.</li>
+<li><strong>OFFSET</strong>: Center for bipolar LFOs, LEFT for silence, adjust for sustained S&amp;H/no silence envelopes.</li>
+<li><strong>CV IN+LEVEL:</strong> Both affect final gain; use together for precise control.</li>
+</ul>
+<hr />
+<h2>Example Uses</h2>
+<ul>
+<li><strong>Envelope-controlled VCA</strong>: Patch envelope to CV IN to shape amplitude of incoming audio.</li>
+<li><strong>Modulated Filter FM</strong>: VCA controls modulation amount into filter cutoff.</li>
+<li><strong>Audio-rate AM/FM</strong>: Send VCO to CV IN for ring/AM/FM effects, index controlled by OFFSET or envelope.</li>
+<li><strong>Automated FX Sends</strong>: Sequence wet/dry FX amounts via CV automation.</li>
+<li><strong>Sidechaining</strong>: Invert envelope for ducking audio during drum hits.</li>
+</ul>
+<hr />
+<h2>Module Inputs/Outputs &amp; Controls Table (Summary for Quick Reference)</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Jack/Control</th>
+<th>Function</th>
+<th>Typical Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LEVEL</td>
+<td>Knob</td>
+<td>Output level</td>
+<td>N/A (audio gain)</td>
+</tr>
+<tr>
+<td>SHAPE</td>
+<td>Knob</td>
+<td>Morph between log/lin/exp curves</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>OFFSET</td>
+<td>Knob</td>
+<td>Adds DC to CV in</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>CV IN</td>
+<td>Knob</td>
+<td>Attenuates CV input</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>CV IN</td>
+<td>Jack</td>
+<td>Control voltage input (CV or audio)</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td>Audio IN</td>
+<td>Jack</td>
+<td>Audio or CV in</td>
+<td>±5V to ±10V typical</td>
+</tr>
+<tr>
+<td>OUT</td>
+<td>Jack</td>
+<td>Audio or CV out</td>
+<td>Module powered output</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

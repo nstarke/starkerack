@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Blur</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Blur</h1>
+<ul>
+<li><a href="../../manuals/2hp_Blur.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.twohp.com/modules/blur">2hp Blur Manual PDF</a></p>
+<hr />
+<h1>2hp Blur Eurorack Module Cheat Sheet</h1>
+<p><strong>Description:</strong><br />
+Blur is a spectral processor that transforms audio by smearing frequency content, enabling reverb-esque pads and time-stretched textures.</p>
+<hr />
+<h2>Panel Overview</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Jack/Control</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>IN</code></td>
+<td style="text-align: left;">Input</td>
+<td style="text-align: left;">Main audio input</td>
+<td style="text-align: left;">10Vpp</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>TIME</code></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Amount of spectral time stretch; x1 at center, up to x16 to the right</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>TIME</code> (CV)</td>
+<td style="text-align: left;">CV In</td>
+<td style="text-align: left;">Controls Time parameter</td>
+<td style="text-align: left;">-5V to +5V</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VIBE</code></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Spectral spread/frequency wash; left = clear, right = smeared/washed out</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VIBE</code> (CV)</td>
+<td style="text-align: left;">CV In</td>
+<td style="text-align: left;">Controls Vibe parameter</td>
+<td style="text-align: left;">-5V to +5V</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>MIX</code></td>
+<td style="text-align: left;">Knob</td>
+<td style="text-align: left;">Dry/Wet blend; left = dry, right = wet</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>MIX</code> (CV)</td>
+<td style="text-align: left;">CV In</td>
+<td style="text-align: left;">Controls Mix balance</td>
+<td style="text-align: left;">-5V to +5V</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>OUT</code></td>
+<td style="text-align: left;">Output</td>
+<td style="text-align: left;">Audio output</td>
+<td style="text-align: left;">10Vpp</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Quickstart</h2>
+<ol>
+<li><strong>Patch audio into <code>IN</code>.</strong></li>
+<li><strong>Patch from <code>OUT</code> into your system.</strong></li>
+<li><strong>Set <code>TIME</code> to control stretch:</strong></li>
+<li>Left = normal/short playback</li>
+<li>Center = original speed</li>
+<li>Right = up to x16 stretch</li>
+<li><strong>Set <code>VIBE</code>:</strong></li>
+<li>Left = original timbre</li>
+<li>Right = washed spectral pad</li>
+<li><strong>Set <code>MIX</code>:</strong></li>
+<li>Left = dry (original signal)</li>
+<li>Right = wet (processed)</li>
+<li><strong>Modulate with CV:</strong></li>
+<li>Patch CV (−5V to +5V) into <code>TIME</code>, <code>VIBE</code>, or <code>MIX</code> for dynamic control.</li>
+</ol>
+<hr />
+<h2>Voltage Reference</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">CV Input</th>
+<th style="text-align: left;">Voltage Range</th>
+<th style="text-align: left;">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>TIME</code> (CV)</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;">Spectral time-stretch amount</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VIBE</code> (CV)</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;">Frequency spread/smear</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>MIX</code> (CV)</td>
+<td style="text-align: left;">-5V to +5V</td>
+<td style="text-align: left;">Dry/Wet blending</td>
+</tr>
+<tr>
+<td style="text-align: left;">Input Audio</td>
+<td style="text-align: left;">~10Vpp</td>
+<td style="text-align: left;">Line/Eurorack level</td>
+</tr>
+<tr>
+<td style="text-align: left;">Output Audio</td>
+<td style="text-align: left;">~10Vpp</td>
+<td style="text-align: left;">Line/Eurorack level</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Power &amp; Physical</h2>
+<ul>
+<li>Width: <strong>2HP</strong></li>
+<li>Depth: <strong>46mm</strong></li>
+<li>Power: +12V 85mA, -12V 7mA, +5V 0mA</li>
+</ul>
+<p><strong>Connect the power cable with the red stripe aligning with the module's white line marking!</strong></p>
+<hr />
+<h2>Patch Ideas</h2>
+<ul>
+<li><strong>Pad/Pluck:</strong> Pair with transient-rich sources (e.g. Pluck) for ambient pads</li>
+<li><strong>Layered Ambience:</strong> Use before or after reverb for wider pads (e.g. 2x Blur → Verb)</li>
+<li><strong>Pitch Processing:</strong> Chain with pitch shifting for harmonic textures</li>
+<li><strong>Super Saws/Pulse:</strong> Hyper saws (Swarm) sound lush when blurred</li>
+</ul>
+<hr />
+<p><strong><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></strong></p>
+</body>
+</html>

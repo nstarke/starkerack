@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Marbles</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Marbles</h1>
+<ul>
+<li><a href="../../manuals/Mutable Instruments - Marbles.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/marbles/manual.pdf">Marbles Original Printed Manual (PDF)</a></p>
+<h1>Mutable Instruments Marbles Cheat Sheet</h1>
+<p>Marbles is a random sampler and generator designed for creating organic and musical gates and CV patterns, with looping and quantization options. Use it for innovative rhythms, melodies, and lively random modulations.</p>
+<hr />
+<h2>Panel Overview</h2>
+<p><strong>Sections:</strong></p>
+<ul>
+<li><strong>t Section (Clock &amp; Gates) — Left</strong></li>
+<li><strong>X Section (Random Voltages) — Right</strong></li>
+</ul>
+<hr />
+<h2>Input &amp; Output Reference</h2>
+<h3>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Section</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clock IN</td>
+<td>t</td>
+<td>External clock</td>
+<td>-5V to +5V (max: +8V)</td>
+</tr>
+<tr>
+<td>Jitter CV</td>
+<td>t</td>
+<td>Controls clock jitter</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>Bias CV</td>
+<td>t</td>
+<td>Rhythm generator bias</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>DejaVu CV</td>
+<td>t/X</td>
+<td>Loop/shuffle probability</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>Spread CV</td>
+<td>X</td>
+<td>Distribution spread of random voltage</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>Bias CV</td>
+<td>X</td>
+<td>Skew random voltage up/down</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>Stepping/Slew CV</td>
+<td>X</td>
+<td>Quantization/Slew amount</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>X External CV</td>
+<td>X</td>
+<td>Replaces internal random voltage (loopable)</td>
+<td>-5V to +5V</td>
+</tr>
+</tbody>
+</table>
+<h3>Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Section</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>t1, t2, t3 OUT</td>
+<td>t</td>
+<td>Clock/gate outputs</td>
+<td>0V (low) to +8V (high)</td>
+</tr>
+<tr>
+<td>X1, X2, X3 OUT</td>
+<td>X</td>
+<td>Random CV outputs</td>
+<td>0 to +2V / 0 to +5V / -5V to +5V (settable)</td>
+</tr>
+<tr>
+<td>X4 (Varies)</td>
+<td>X</td>
+<td>Auxiliary/random output (depends on settings)</td>
+<td>same as above</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Controls Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Section</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLOCK</td>
+<td>Knob</td>
+<td>t</td>
+<td>Set internal clock rate (or divide/mult ext. clk w/button)</td>
+</tr>
+<tr>
+<td>JITTER</td>
+<td>Knob + CV</td>
+<td>t</td>
+<td>Add timing randomness to clock</td>
+</tr>
+<tr>
+<td>BIAS</td>
+<td>Knob + CV</td>
+<td>t</td>
+<td>Distribute rhythm b/w outputs</td>
+</tr>
+<tr>
+<td>GATE LENGTH</td>
+<td>Knob</td>
+<td>t</td>
+<td>Gate/trig duration; can be randomized per step</td>
+</tr>
+<tr>
+<td>STEPS</td>
+<td>Knob + CV</td>
+<td>X</td>
+<td>Steps/Quant (CW = more quant, CCW = more slew)</td>
+</tr>
+<tr>
+<td>SPREAD</td>
+<td>Knob + CV</td>
+<td>X</td>
+<td>Adjust output voltage distribution (bell, uniform, etc.)</td>
+</tr>
+<tr>
+<td>BIAS</td>
+<td>Knob + CV</td>
+<td>X</td>
+<td>Pushes CV up/down</td>
+</tr>
+<tr>
+<td>OUTPUT RANGE</td>
+<td>Button</td>
+<td>X</td>
+<td>Selects CV output voltage: 0-2V, 0-5V, or -5V/+5V</td>
+</tr>
+<tr>
+<td>QUANTIZE SCALE</td>
+<td>Programmable</td>
+<td>X</td>
+<td>Play in samples to teach scale (6 scales storable)</td>
+</tr>
+<tr>
+<td>DEJAVU</td>
+<td>Knob + CV</td>
+<td>t/X</td>
+<td>Probability looping/replaying/shuffling material</td>
+</tr>
+<tr>
+<td>LOOP LENGTH</td>
+<td>Button (Shift)</td>
+<td>t/X</td>
+<td>Selects loop length (1-16 steps)</td>
+</tr>
+<tr>
+<td>DIV/MULT RANGE</td>
+<td>Button</td>
+<td>t</td>
+<td>Sets clock division/multiplication factor</td>
+</tr>
+<tr>
+<td>GENERATION MODE</td>
+<td>Button</td>
+<td>t</td>
+<td>Switches between routing, division, drum pattern models</td>
+</tr>
+<tr>
+<td>FOLLOW/PREDICT</td>
+<td>Rhythm Follower</td>
+<td>t</td>
+<td>Locks to complex external patterns automatically</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Quick Feature Rundown</h2>
+<ul>
+<li><strong>Random Gate Generator:</strong> Generates three gate streams with related or independently randomized timing.</li>
+<li><strong>Master Clock:</strong> Internal or external synchronization, with division/multiplication and jitter.</li>
+<li><strong>Random Rhythm Models:</strong> Random routing, division, or "Grids-style" drum patterns.</li>
+<li><strong>Random Voltage Generator:</strong> Up to three simultaneous CVs, clocked by t outputs or external clock, with flexible distribution and range.</li>
+<li><strong>Quantization/Slew:</strong> Step or smooth outputs; programmable scales learned by playing them in.</li>
+<li><strong>Random Looping (DejaVu):</strong> Loop/reorder random sequences; up to 16 steps, looped or randomly shuffled.</li>
+<li><strong>CV Post-processing:</strong> All CV transformations (spread, bias, quant, slew, deja vu, etc.) can be applied to external signals.</li>
+<li><strong>Output Diversity:</strong> Each output (t/x) can operate with shared or complementary randomness.</li>
+<li><strong>High Quality Spec:</strong> 14-bit DAC (error &lt;1mV), 12-bit CV capture, Computer Modern typeface.</li>
+</ul>
+<hr />
+<h2>Typical Use Flow</h2>
+<ol>
+<li><strong>Patch t OUT(s) to trigger your envelopes/drums/sequencers.</strong></li>
+<li><strong>Patch X OUT(s) to pitch, filter, CV, or other destinations.</strong></li>
+<li><strong>Dial in clock rate, jitter, and rhythm model for desired groove.</strong></li>
+<li><strong>Select voltage range and spread/bias for melody/CV flavor.</strong></li>
+<li><strong>Set STEPS for classic steps or turn CCW for smooth modulation.</strong></li>
+<li><strong>Use DEJAVU to create loops or variations in the randomness.</strong></li>
+<li><strong>Quantize to a scale by teaching it the notes (jam in the scale via buttons as described in full manual).</strong></li>
+<li><strong>Inject external clock/CV for interactive or synced results.</strong></li>
+</ol>
+<hr />
+<h2>Reference</h2>
+<ul>
+<li><strong>HP:</strong> 18</li>
+<li><strong>Power:</strong> +12V 80mA, -12V 20mA</li>
+<li><strong>Depth:</strong> 25mm</li>
+<li><strong>CV Input Range:</strong> -5V/+5V</li>
+<li><strong>CV Output Range:</strong> 0-2V, 0-5V, -5/+5V (selectable)</li>
+<li><strong>Gate Output:</strong> 0V to +8V</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

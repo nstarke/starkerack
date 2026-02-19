@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Data_Bender</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Data Bender</h1>
+<ul>
+<li><a href="../../manuals/QB_Data_Bender.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://qubitelectronix.com/manuals/Data_Bender_Manual.pdf">Download the Data Bender Manual PDF</a></p>
+<hr />
+<h1>Qu-Bit Data Bender Cheat Sheet</h1>
+<p><em>Data Bender is a circuit bent digital audio buffer module for Eurorack, with high-fidelity 96kHz/24-bit audio, stereo I/O, and extensive real-time control for lo-fi, glitch, "bent" audio manipulation.</em></p>
+<hr />
+<h2>I/O Reference</h2>
+<h3>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range / Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td>Audio In, Left (normals to right if empty)</td>
+<td>Modular/Line Level*</td>
+</tr>
+<tr>
+<td>right</td>
+<td>Audio In, Right</td>
+<td>Modular/Line Level*</td>
+</tr>
+<tr>
+<td>clock</td>
+<td>External Clock In</td>
+<td>Standard modular gate/trigger</td>
+</tr>
+<tr>
+<td>time</td>
+<td>Time (buffer length) CV</td>
+<td>-5V to +5V (adds to knob)</td>
+</tr>
+<tr>
+<td>repeats</td>
+<td>Repeats CV</td>
+<td>-5V to +5V (adds to knob)</td>
+</tr>
+<tr>
+<td>bend</td>
+<td>Macro: Bend on/off (Gate/Trig), Micro: playback reverse (Gate/Trig)</td>
+<td>Modular gate/trigger</td>
+</tr>
+<tr>
+<td>break</td>
+<td>Macro: Break on/off (Gate/Trig), Micro: Traverse/Silence select (Gate/Trig)</td>
+<td>Modular gate/trigger</td>
+</tr>
+<tr>
+<td>corrupt</td>
+<td>Corrupt on/off (Gate/Trig, or secondary: Reset Input)</td>
+<td>Modular gate/trigger</td>
+</tr>
+<tr>
+<td>freeze</td>
+<td>Freeze buffer on/off (Gate/Trig)</td>
+<td>Modular gate/trigger</td>
+</tr>
+<tr>
+<td>mix</td>
+<td>Mix CV</td>
+<td>-5V to +5V (adds to knob)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>*Input is modular level (up to ~10Vpp), accept line level but beware of extra loud outputs if saturation is introduced.</p>
+</blockquote>
+<h3>Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range / Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td>Audio Out, Left</td>
+<td>Modular level, typically up to 14Vpp</td>
+</tr>
+<tr>
+<td>right</td>
+<td>Audio Out, Right</td>
+<td>Modular level, typically up to 14Vpp</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Panel Controls</h2>
+<h3>Knobs</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+<th>CV Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time</td>
+<td>Sets buffer length/sample period; Internal: 16s – 80Hz / External: clock div/mult</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>repeats</td>
+<td>Divides buffer for "stutter"; 0 = off, more = faster stutter</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>mix</td>
+<td>Dry/Wet blend: input/live vs. bent audio</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>corrupt</td>
+<td>Decimate: Bit-reduce/downsample<br>Dropout: Glitch/mute sections<br>Destroy: Saturate/clip<br>Selected by button</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>bend</td>
+<td>Macro: tape/vinyl actions; Micro: playback speed/range/reverse</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>break</td>
+<td>Macro: CD skips/stutter/silence; Micro: select buffer fragment or silence amount</td>
+<td>-5V to +5V</td>
+</tr>
+</tbody>
+</table>
+<h3>Buttons &amp; LEDs</h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Function / LED</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shift</td>
+<td>Access secondary (edit) actions (hold) / blue when held</td>
+</tr>
+<tr>
+<td>clock</td>
+<td>Toggle Internal/External clock mode / LED blue (int), white (ext)</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>Macro (blue)/Micro (green) toggle</td>
+</tr>
+<tr>
+<td>bend</td>
+<td>Enable/disable macro bend or reverse(micro); disables at knob min</td>
+</tr>
+<tr>
+<td>break</td>
+<td>Macro: enable/disable; Micro: Traverse/Silence toggle</td>
+</tr>
+<tr>
+<td>corrupt</td>
+<td>Step through Decimate/Dropout/Destroy modes; color-coded</td>
+</tr>
+<tr>
+<td>freeze</td>
+<td>Freeze buffer (latch or momentary, edit menu)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Core Functions Summary</h2>
+<ul>
+<li><strong>Time</strong>: Sets main buffer window (memory period).  <ul>
+<li><em>Int</em>: 16s–80Hz (knob sweep)  </li>
+<li><em>Ext</em>: Clock div/mult (-16x to +8x), selected at detents. LED briefly gold when crossing div/mult border.  </li>
+<li>CV (-5V–+5V) applies to knob.</li>
+</ul>
+</li>
+<li><strong>Repeats</strong>: Divides buffer (repeat/stutter), more = smaller subsections. CV (-5/+5V) applies to knob.</li>
+<li><strong>Mix</strong>: Dry/wet blend from live input (left) to max buffer effect (right). CV (-5/+5V).</li>
+<li><strong>Corrupt</strong>: Three modes toggled by button (hold Corrupt):<ul>
+<li><strong>Decimate (Blue)</strong>: Bitcrush/downsample.  </li>
+<li><strong>Dropout (Green)</strong>: Random silences, adjust length/density.  </li>
+<li><strong>Destroy (Gold)</strong>: Soft/hard saturation; full right = hard clipped.  </li>
+</ul>
+</li>
+<li><strong>Freeze</strong>: Toggle "freeze" (buffer is locked/all parameters still editable); latching or momentary set in edit mode.</li>
+<li><strong>Bend</strong> (Macro Mode):  <ul>
+<li>Simulates tape/vinyl: random playback speed, reverse, stops/pops/clicks.  </li>
+<li>Knob affects probability/depth and complexity.</li>
+<li>Gate/button toggles on/off.  </li>
+</ul>
+</li>
+<li><strong>Break</strong> (Macro Mode):  <ul>
+<li>CD skip style: glitches, stutter, buffer jumps, silence.  </li>
+<li>Knob controls repeat probability and silence fraction.  </li>
+<li>Gate/button toggles on/off.</li>
+</ul>
+</li>
+<li><strong>Bend</strong> (Micro Mode):  <ul>
+<li>Precise playback speed set (±3 octaves), press for reverse.</li>
+<li>LED color: blue-forward, green-reverse, cyan/gold at integer octaves.</li>
+</ul>
+</li>
+<li><strong>Break</strong> (Micro Mode):  <ul>
+<li>Knob/Repeats choose buffer subsection (Traverse).</li>
+<li>Press to toggle Traverse/Silence (LED on = silence duty control).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Secondary (Shifted) Controls</h2>
+<p><em>Hold Shift + press below for extra features:</em></p>
+<ul>
+<li><strong>Shift + Time</strong>: Glitch Windowing (ramps/click smoothing, indicated by Shift LED brightness/color).</li>
+<li><strong>Shift + Bend</strong>: Stereo Mode — auto effects unique (blue) or shared (green) per channel.</li>
+<li><strong>Shift + Break</strong>: Factory Reset (Break LED pulses white/blue confirm).  </li>
+<li><strong>Shift + Corrupt</strong>: Corrupt jack toggles from Corrupt Gate (blue) to Reset Input (green), resets buffer clock.</li>
+<li><strong>Shift + Freeze</strong>: Freeze latching (blue) or momentary (green).</li>
+<li><strong>Shift + Clock</strong>: All gate inputs latching (blue) or momentary (green).</li>
+</ul>
+<hr />
+<h2>Example Quick Start: "Lo-Fi Tape"</h2>
+<ul>
+<li>Mode: Micro (Mode LED green)</li>
+<li>Mix: 100% (all the way up)</li>
+<li>Time: ~30% (set buffer window)</li>
+<li>Repeats: 0% (single buffer)</li>
+<li>Bend: ~45% (for tape effects)</li>
+<li>Corrupt: ~45% (for subtle noise/dropouts)</li>
+<li>SHIFT + TIME (Glitch Window): 0% (hard/no ramp for clicks &amp; pops)</li>
+</ul>
+<hr />
+<h2>General Specs</h2>
+<ul>
+<li><strong>Width/Depth</strong>: 14HP / 28mm</li>
+<li><strong>Power</strong>: +12V: 58mA, -12V: 60mA</li>
+<li><strong>Sampling</strong>: 96kHz, 24-bit, &gt;1 min stereo memory</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

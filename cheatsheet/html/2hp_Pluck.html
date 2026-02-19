@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Pluck</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Pluck</h1>
+<ul>
+<li><a href="../../manuals/2hp_Pluck.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Pluck Manual PDF</a> <!-- Replace "#" with the actual URL if available --></p>
+<hr />
+<h1><strong>Pluck (2hp) Cheat Sheet</strong></h1>
+<p>Karplus-Strong string synthesizer with 4-voice polyphony for resonant, percussive, and melodic string timbres in Eurorack.</p>
+<hr />
+<h2><strong>Quick Reference</strong></h2>
+<h3><strong>Inputs</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TRIG</td>
+<td>Trigger input</td>
+<td>-</td>
+<td>Triggers a new note (up to 4 voices)</td>
+</tr>
+<tr>
+<td>DAMP</td>
+<td>Dampening amount CV input</td>
+<td>-5 V to +5 V</td>
+<td>Modulates harmonics/tone on new notes</td>
+</tr>
+<tr>
+<td>DECAY</td>
+<td>Decay amount CV input</td>
+<td>-5 V to +5 V</td>
+<td>Modulates decay time on new notes</td>
+</tr>
+<tr>
+<td>V/OCT</td>
+<td>1V/Oct Pitch input</td>
+<td>0 V and up</td>
+<td>Adds to pitch knob (standard scaling)</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>Outputs</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OUT</td>
+<td>Audio output (main)</td>
+<td>10 Vpp</td>
+<td>Main module output</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Controls</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DAMP</td>
+<td>Knob</td>
+<td>Sets string dampening (harmonics). Left = dull, right = bright</td>
+</tr>
+<tr>
+<td>DECAY</td>
+<td>Knob</td>
+<td>Sets decay length. Left = short, right = long</td>
+</tr>
+<tr>
+<td>PITCH</td>
+<td>Knob</td>
+<td>Sets fundamental pitch. Active for latest note, even if sustaining</td>
+</tr>
+<tr>
+<td>Out LED</td>
+<td>LED</td>
+<td>Visualizes output amplitude</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3><strong>How to Use</strong></h3>
+<ol>
+<li><strong>Patch TRIG</strong> to a gate/trigger for plucked notes. Each new trigger can play a new polyphonic voice (max 4).</li>
+<li><strong>Set DAMP knob/CV</strong>: Left for muted/plucky, right for bright/ringing. CV (-5V to +5V, summed with knob).</li>
+<li><strong>Set DECAY knob/CV</strong>: Controls how long each note rings. CV (-5V to +5V, summed with knob).</li>
+<li><strong>Tune with PITCH knob/V/OCT</strong>: PITCH knob provides coarse tuning; add V/OCT for external pitch control.</li>
+<li><strong>Monitor OUT/LED</strong>: Patch OUT to mixer/audio, use LED for level reference.</li>
+</ol>
+<hr />
+<p><strong>Power:</strong> +12V (83.45mA), -12V (4.5mA) | Depth: 42mm | Width: 2hp</p>
+<hr />
+<h3><strong>Summary Table</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Jack/Knob</th>
+<th>Function</th>
+<th>Range/Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TRIG</td>
+<td>Input</td>
+<td>Trigger</td>
+<td>Create new note</td>
+</tr>
+<tr>
+<td>DAMP</td>
+<td>Knob/Input</td>
+<td>Knob / -5V to +5V CV</td>
+<td>Harmonic content</td>
+</tr>
+<tr>
+<td>DECAY</td>
+<td>Knob/Input</td>
+<td>Knob / -5V to +5V CV</td>
+<td>Length of note</td>
+</tr>
+<tr>
+<td>V/OCT</td>
+<td>Input</td>
+<td>1V/Oct</td>
+<td>Standard pitch CV</td>
+</tr>
+<tr>
+<td>PITCH</td>
+<td>Knob</td>
+<td>-</td>
+<td>Set baseline pitch</td>
+</tr>
+<tr>
+<td>OUT</td>
+<td>Output</td>
+<td>10Vpp audio</td>
+<td>Main sound output</td>
+</tr>
+<tr>
+<td>Out LED</td>
+<td>Output</td>
+<td>Visual</td>
+<td>Output amplitude</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Rnd</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Rnd</h1>
+<ul>
+<li><a href="../../manuals/2hp_Rnd.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://2hp.com/manuals/Rnd.pdf">Download the Rnd Manual PDF</a></p>
+<hr />
+<h1>2hp Rnd Module - Cheat Sheet</h1>
+<p>2hp Rnd is a compact dual random generator for Eurorack—perfect for modulation and unpredictable rhythmic sources.</p>
+<hr />
+<h2>Panel Overview</h2>
+<p><strong>Top to Bottom:</strong>
+1. <strong>INT/EXT Switch</strong><br />
+2. <strong>CLOCK Jack</strong><br />
+3. <strong>RATE Knob &amp; LED</strong>
+4. <strong>GATE Output</strong>
+5. <strong>SMOOTH Attenuator &amp; Output</strong>
+6. <strong>QUANT Attenuator &amp; Output</strong></p>
+<hr />
+<h2>Controls &amp; Jacks Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Description</th>
+<th>Range / Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INT / EXT</td>
+<td>Switch</td>
+<td>Selects clock source: Internal (L) or External (R)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>CLOCK</td>
+<td>Jack</td>
+<td>- INT: CV for internal clock rate<br>- EXT: Clock input</td>
+<td>CV Input: 0V-10V</td>
+</tr>
+<tr>
+<td>RATE</td>
+<td>Knob &amp; LED</td>
+<td>- INT Clock: Internal clock rate<br>- EXT Clock: Gate randomness rate<br>- Smooth: Rate of change</td>
+<td>Slow (L) → Fast (R)</td>
+</tr>
+<tr>
+<td>GATE</td>
+<td>Output</td>
+<td>- INT: 50% duty cycle clock output<br>- EXT: Random gate output</td>
+<td>0V (low), 10V (high)</td>
+</tr>
+<tr>
+<td>SMOOTH Attenuator</td>
+<td>Knob</td>
+<td>Sets output level of Smooth random voltage</td>
+<td>0V–10V</td>
+</tr>
+<tr>
+<td>SMOOTH</td>
+<td>Output</td>
+<td>Continuously changing random voltage, rate set by Rate knob</td>
+<td>0V–10V</td>
+</tr>
+<tr>
+<td>QUANT Attenuator</td>
+<td>Knob</td>
+<td>Sets output level for Quant output</td>
+<td>0V–10V</td>
+</tr>
+<tr>
+<td>QUANT</td>
+<td>Output</td>
+<td>New random voltage at every clock pulse (stepped)</td>
+<td>0V–10V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Quick Operation Guide</h2>
+<ul>
+<li><strong>Internal Clock Mode</strong>: (Switch left)</li>
+<li>Use RATE to set clock speed. GATE outputs steady clock, QUANT changes every tick.</li>
+<li>
+<p>CLOCK jack can take CV to modulate clock rate.</p>
+</li>
+<li>
+<p><strong>External Clock Mode</strong>: (Switch right)</p>
+</li>
+<li>CLOCK jack receives external clock.</li>
+<li>GATE outputs random gates ("eruptions"); RATE sets probability/rate of rand gates.</li>
+<li>
+<p>QUANT outputs new stepped random voltage every external clock pulse.</p>
+</li>
+<li>
+<p><strong>SMOOTH Output</strong></p>
+</li>
+<li>Continuously changing random voltage.</li>
+<li>
+<p>Rate of change and output level set via RATE and SMOOTH ATTEN.</p>
+</li>
+<li>
+<p><strong>QUANT Output</strong></p>
+</li>
+<li>New value each time the module is clocked (internal/external).</li>
+<li>Output level set via QUANT ATTEN.</li>
+</ul>
+<hr />
+<h2>Voltage Ranges</h2>
+<ul>
+<li>All outputs (GATE, SMOOTH, QUANT): <strong>0V–10V</strong></li>
+<li>CLOCK CV Input: <strong>0V–10V</strong></li>
+</ul>
+<hr />
+<h2>Patch Tips</h2>
+<ul>
+<li>Use <strong>GATE</strong> to trigger envelopes or events unpredictably.</li>
+<li>Use <strong>SMOOTH</strong> for organic, flowing modulations (filters, FM, etc).</li>
+<li>Use <strong>QUANT</strong> for stepped random sequences or pitch modulation.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

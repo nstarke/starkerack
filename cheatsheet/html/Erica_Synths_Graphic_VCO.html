@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erica_Synths_Graphic_VCO</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erica Synths — Graphic VCO</h1>
+<ul>
+<li><a href="../../manuals/graphic_vco_manual_web.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.ericasynths.lv/media/GraphicVCO_manual_2020.pdf">Erica Synths Graphic VCO User Manual (PDF)</a></p>
+<hr />
+<h1>Erica Synths Graphic VCO</h1>
+<p><strong>Quick Cheat Sheet / Reference</strong></p>
+<hr />
+<h2>I. OVERVIEW</h2>
+<ul>
+<li>Eurorack digital VCO with fully programmable/drawable waveforms and FX.</li>
+<li>Morph between two waves, wavetable, and matrix wavetable modes.</li>
+<li>Extensive FX: FM, Phase Distort, Ring Mod, Wavefold, Wavewrap, Bitcrush.</li>
+<li>Save/recall waveforms, wavetables, FX, and full module states ("snapshots").</li>
+</ul>
+<hr />
+<h2>II. FRONT PANEL CONTROLS</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Function / Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LCD SCREEN</strong></td>
+<td>Visual feedback. Shows menus, waveforms, wavetables, oscilloscope, etc.</td>
+</tr>
+<tr>
+<td><strong>Left Encoder</strong></td>
+<td>Main menu navigation, selects/edits left (A) wave, scrolls through menus or list, confirms by push.</td>
+</tr>
+<tr>
+<td><strong>Right Encoder</strong></td>
+<td>Secondary settings, selects/edits right (B) wave, FX parameters, oscillators, confirms by push.</td>
+</tr>
+<tr>
+<td><strong>BACK Button</strong></td>
+<td>Go back one menu up. Hold 2s to save snapshot.</td>
+</tr>
+<tr>
+<td><strong>TUNE Knob</strong></td>
+<td>Master tuning, 16Hz–4kHz (wider range with 1V/oct CV).</td>
+</tr>
+<tr>
+<td><strong>FX Amount Knob</strong></td>
+<td>Set FX depth or works as CV attenuator if CV patched (unipolar, 0–10V).</td>
+</tr>
+<tr>
+<td><strong>FX Param Knob</strong></td>
+<td>Set FX param (e.g. FM freq). Attenuates FX CV if present (bipolar, -10V–+10V).</td>
+</tr>
+<tr>
+<td><strong>MORPH Knob</strong></td>
+<td>Morph between A &amp; B (or X in matrix), attenuates Morph CV (-10V–+10V).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>III. INPUT/OUTPUT JACKS &amp; VOLTAGE RANGES</h2>
+<table>
+<thead>
+<tr>
+<th>Jack Label</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1V/OCT</strong></td>
+<td>Pitch CV input</td>
+<td>0 to +8V (8 octaves)</td>
+</tr>
+<tr>
+<td><strong>FX AMT CV IN</strong></td>
+<td>FX amount control (unipolar)</td>
+<td>0 to +10V</td>
+</tr>
+<tr>
+<td><strong>FX CV IN</strong></td>
+<td>FX parameter (bipolar)</td>
+<td>-10V to +10V</td>
+</tr>
+<tr>
+<td><strong>MORPH CV IN</strong></td>
+<td>Morph CV (bipolar; matrix = vertical axis)</td>
+<td>-10V to +10V</td>
+</tr>
+<tr>
+<td><strong>MAIN OUT</strong></td>
+<td>Audio Output (main)</td>
+<td>10Vptp</td>
+</tr>
+<tr>
+<td><strong>SUB/MIX OUT</strong></td>
+<td>Sub out or mix (configurable)</td>
+<td>10Vptp</td>
+</tr>
+</tbody>
+</table>
+<p><em>In matrix mode: FX CV = horizontal (X axis), Morph CV = vertical (Y axis).</em></p>
+<hr />
+<h2>IV. MAIN OPERATING MODES</h2>
+<ol>
+<li><strong>Morph Mode</strong>  </li>
+<li>Morph between two waves (A &amp; B).</li>
+<li>Draw/edit waves or select from presets.</li>
+<li>
+<p>Apply FX globally.</p>
+</li>
+<li>
+<p><strong>Wavetable Mode</strong>  </p>
+</li>
+<li>
+<p>Select/play 16-wave wavetables, morph within.</p>
+</li>
+<li>
+<p><strong>Wavetable Bank Matrix Mode</strong>  </p>
+</li>
+<li>2D matrix of wavetables (rows) and waves (cols); morph through X/Y or via CV.</li>
+</ol>
+<hr />
+<h2>V. FX (EFFECTS)</h2>
+<ul>
+<li><strong>Frequency Modulation (FM):</strong> Internal OSC/Ext CV/manual; depth, freq, sync options; amount CV (unipolar: 0–10V), param CV (bipolar: -10V to +10V).</li>
+<li><strong>Ring Modulator:</strong> Manual/internal/Ext mod; amount/param as above.</li>
+<li><strong>Phase Distortion:</strong> Depth/amount.</li>
+<li><strong>Wavefolder/Wavewrapper:</strong> Gain &amp; offset for ext; select FOLD/WRAP.</li>
+<li><strong>Bitcrush:</strong> Reduces bit/sample rate.</li>
+<li><strong>Overdrive:</strong> Saturation.</li>
+<li><em>FX are applied globally (not suboscillator, except FM).</em></li>
+</ul>
+<hr />
+<h2>VI. WAVETABLE/WAVE DESIGN</h2>
+<ul>
+<li>Select, draw, or edit waves with encoders (incl. classic waveforms, line/pencil sketch, partials edit).</li>
+<li>Use morphing for in-between shapes.</li>
+<li>Save waves/wavetables to user memory.</li>
+<li>Manage, rename, delete waves and wavetables via the Manage menu.</li>
+</ul>
+<hr />
+<h2>VII. SUBOSCILLATOR</h2>
+<ul>
+<li>OUT2 outputs configurable suboscillator or mix.</li>
+<li>Parameters: Frequency offset (up to -24 semitones), detune (+-50 cents), mix % (out1 vs out2), assignable waveform.</li>
+</ul>
+<hr />
+<h2>VIII. SYSTEM MENUS / SNAPSHOTS</h2>
+<ul>
+<li><strong>Snapshots:</strong> Save/load ALL settings (hold BACK 2s to save, menu to recall/delete/rename).</li>
+<li><strong>Oscilloscope:</strong> Inspect wave, FX, and performance.</li>
+<li><strong>Device Setup:</strong> CV in gain/bias, display settings, info, firmware update (via USB &amp; Chrome app).</li>
+</ul>
+<hr />
+<h2>IX. QUICK VOLTAGE REFERENCE</h2>
+<ul>
+<li><strong>1V/Oct Input:</strong> 0 – +8V (8 octaves)</li>
+<li><strong>FX Amount CV:</strong> 0 – +10V (unipolar)</li>
+<li><strong>FX Parameter CV:</strong> -10V – +10V (bipolar)</li>
+<li><strong>Morph CV:</strong> -10V – +10V (bipolar)</li>
+<li><strong>Audio Outputs:</strong> 10Vptp</li>
+</ul>
+<hr />
+<h2>X. FIRMWARE UPDATE</h2>
+<ul>
+<li>Requires USB mini connection, Chrome app, push both encoders while powering for bootloader.</li>
+</ul>
+<hr />
+<h2>XI. SAFETY</h2>
+<ul>
+<li>Not water resistant.  </li>
+<li>Operates -20° to +50°C.  </li>
+<li>Ship only in original packaging for support/warranty.</li>
+</ul>
+<hr />
+<p><strong>For the complete manual, reference the official <a href="https://www.ericasynths.lv/media/GraphicVCO_manual_2020.pdf">Erica Synths PDF</a>.</strong><br />
+<strong>Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></strong></p>
+</body>
+</html>

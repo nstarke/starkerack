@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Worng_Electronics_Vector_Space</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Worng Electronics — Vector Space</h1>
+<ul>
+<li><a href="../../manuals/Vector Space Manual v1.00.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.worngelectronics.com/manuals/WORNG_Vector_Space_Manual.pdf">WORNG Electronics Vector Space Manual (PDF)</a></p>
+<hr />
+<h1>WORNG Electronics Vector Space</h1>
+<p><strong>Eurorack Cheat Sheet</strong></p>
+<hr />
+<h2>Overview</h2>
+<p><strong>Vector Space</strong> is an analog CV/mixing processor that combines 3 input sources into 17 unique, interrelated outputs for complex modulation and voltage processing.</p>
+<ul>
+<li><strong>Maximum input/output voltage:</strong> ±10V  </li>
+<li><strong>Accepts and generates CV/audio signals</strong></li>
+</ul>
+<hr />
+<h2>Quick Reference</h2>
+<h3>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+<th>Switch</th>
+<th>Switch Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>Main CV/Audio Input 1</td>
+<td>±5V or 0–10V</td>
+<td>++ / +-</td>
+<td>Choose bipolar (+/-5V) or unipolar (0–10V) operation. Switch acts as an offset when toggled.</td>
+</tr>
+<tr>
+<td>j</td>
+<td>Main CV/Audio Input 2</td>
+<td>±5V or 0–10V</td>
+<td>++ / +-</td>
+<td>As above</td>
+</tr>
+<tr>
+<td>k</td>
+<td>Main CV/Audio Input 3</td>
+<td>±5V or 0–10V</td>
+<td>++ / +-</td>
+<td>As above</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Switches ("++/+-")</strong> above each input select unipolar or bipolar range for that channel.</li>
+<li><strong>Offset:</strong> Switching also offsets voltage regardless of unipolar/bipolar for live use/performance.</li>
+</ul>
+<hr />
+<h3>Outputs</h3>
+<h4>Cube Outputs (8 total)</h4>
+<ul>
+<li><strong>Location:</strong> Corners of the "cube" graphical diagram  </li>
+<li><strong>Signal:</strong> In- and out-of-phase combinations of i, j, k  </li>
+<li><strong>LEDs:</strong> Green (positive), Red (negative)  </li>
+<li><strong>Voltage Range:</strong> Typically within ±10V  </li>
+<li><strong>Usage:</strong> Quadrature LFO, panned audio, logic combinations</li>
+</ul>
+<h4>Plane Outputs (6 total)</h4>
+<ul>
+<li><strong>Location:</strong> Centers of the cube's faces/intersections  </li>
+<li><strong>Signal:</strong> Mix of 2x rectified inputs + one in/out of phase input  </li>
+<li><strong>LEDs:</strong> Gold (positive), Red (negative)  </li>
+<li><strong>Special:</strong> Outputs are always skewed positive, can double modulation frequency if input oscillator is bipolar  </li>
+<li><strong>Voltage Range:</strong> 0–10V typical (rectification skews toward positive)</li>
+</ul>
+<h4>Sphere Outputs (3 total)</h4>
+<ul>
+<li><strong>Location:</strong> Center column, with special LED indicators  </li>
+<li><strong>Outputs:</strong>  </li>
+<li><strong>Sphere:</strong> Sum of all rectified inputs (maximal "distance from center")  <ul>
+<li><strong>LED:</strong> Pink/purple nearby  </li>
+<li><strong>Voltage Range:</strong> 0–10V typical    </li>
+</ul>
+</li>
+<li><strong>NegSphere:</strong> Inverted Sphere output (negative sum)  <ul>
+<li><strong>Voltage Range:</strong> 0 to –10V typical  </li>
+</ul>
+</li>
+<li><strong>UnSphere:</strong> "Distance to closest edge"; +5V when inputs are zero, drops as point moves outward  <ul>
+<li><strong>LED:</strong> White  </li>
+<li><strong>Voltage Range:</strong> +5V (center), drops towards 0V (edges)  </li>
+</ul>
+</li>
+<li><strong>Usage:</strong> Randomization, audio, special morphs/envelopes</li>
+</ul>
+<hr />
+<h3>Controls</h3>
+<ul>
+<li><strong>3 Input Switches (labelled ++/+-):</strong>  </li>
+<li>Set for unipolar (0–10V) or bipolar (–5V to +5V) range for each input jack (i, j, k).</li>
+<li>Act as live offset for additional performance modulation.</li>
+</ul>
+<hr />
+<h2>Voltage Ranges</h2>
+<ul>
+<li><strong>Input:</strong> ±5V (bipolar) or 0–10V (unipolar) for all three input jacks</li>
+<li><strong>Output:</strong> Up to ±10V (audio or CV) for all 17 outputs</li>
+</ul>
+<hr />
+<h2>Patch Tips</h2>
+<ul>
+<li><strong>Generative counterpoint:</strong> Three sequencers/randoms into i/j/k, Plane outs → quantizers → VCOs.</li>
+<li><strong>Ultimate LFO logic:</strong> Three LFOs into inputs, use Plane/Cube/Sphere outs for complex modulations.</li>
+<li><strong>Spatialization (Quad/Cubic):</strong> Joystick to i/j, Cube outs to VCAs for quad panning; add k for cubic.</li>
+<li><strong>Vector Synthesis:</strong> Five VCO waveshapes → VCAs → mixer, VCAs modulated from Cube/UnSphere/joystick for timbre morphing.</li>
+<li><strong>Timbral garden:</strong> Three close-frequency VCOs into i/j/k, audition all outputs for rich combinations/panning.</li>
+</ul>
+<hr />
+<h2>Installation Notes</h2>
+<ul>
+<li>Fits any Eurorack case with +12V/-12V supply.  </li>
+<li><strong>Current draw:</strong> ~150 mA per rail  </li>
+<li><strong>Ribbon cable:</strong> Red stripe DOWN (marked "STRIPE")  </li>
+</ul>
+<hr />
+<h2>Resources</h2>
+<p><a href="https://www.worngelectronics.com/manuals/WORNG_Vector_Space_Manual.pdf">WORNG Electronics Vector Space Manual (PDF)</a><br />
+<a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

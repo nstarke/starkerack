@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Rebel_Technology_Stoicheia</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Rebel Technology — Stoicheia</h1>
+<ul>
+<li><a href="../../manuals/Stoicheia – Rebel Technology.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><strong><a href="https://www.rebeltech.org/product/stoicheia/">Stoicheia (Στοιχεῖα) Eurorack Module Manual</a></strong></p>
+<hr />
+<h1><strong>Stoicheia: Concise Cheat Sheet</strong></h1>
+<h2><strong>Quick Start</strong></h2>
+<ul>
+<li><strong>Connect Clock IN A/B:</strong> Plug an LFO or clock into the left/right bottom jack(s).</li>
+<li><strong>Connect OUT A/B:</strong> Connect left/right OUT jack to your drum or gate-enabled modules.</li>
+<li><strong>Middle Switch (both rows):</strong> Center for OFF, UP for Trigger, DOWN for Alternating (see Modes).</li>
+<li><strong>Set Knobs:</strong></li>
+<li>Bottom: Fills (# of gates per pattern, CCW=1, Center=50%, CW=all)</li>
+<li>Middle: Length (steps, 1–16, center=8)</li>
+<li>Top: Rotation (start position; left/right rotates sequence)</li>
+</ul>
+<hr />
+<h2><strong>Panel Controls</strong></h2>
+<h3><strong>Jacks</strong></h3>
+<ul>
+<li><strong>OUT A/B (top left/right jacks):</strong> Rhythmic gate outputs</li>
+<li>Low: 0V, High: 5.1V</li>
+<li>Impedance: &lt; 1.1kΩ</li>
+<li><strong>RESET (middle jack):</strong> Trigger resets <em>both</em> sequences to their start position.</li>
+<li>Input: &gt; 100kΩ  </li>
+<li><strong>CLOCK A/B IN (bottom left/right):</strong>  Clock/trigger for left/right sequence.</li>
+<li>Input: &gt; 100kΩ</li>
+</ul>
+<h3><strong>Knobs (each sequence, left/right columns)</strong></h3>
+<ol>
+<li><strong>Top (Rotation):</strong> Step offset/rotation of sequence start</li>
+<li><strong>Middle (Length):</strong> 1–16 steps, center=8</li>
+<li><strong>Bottom (Fills):</strong> Number of "on" steps (gates), 1–length, center=half, CW=max</li>
+</ol>
+<h3><strong>Switches</strong></h3>
+<ul>
+<li><strong>Sequence Switch (each sequence, 3-way):</strong></li>
+<li><strong>UP:</strong> Trigger mode—output follows input clock edges, pulse width matches clock</li>
+<li><strong>CENTER:</strong> Off</li>
+<li><strong>DOWN:</strong> Alternating/Tied mode—output toggles, holding high until next on-beat</li>
+<li><strong>Chained Mode:</strong> Center switch down enables chaining (A then B, outputs merged)</li>
+</ul>
+<hr />
+<h2><strong>Modes</strong></h2>
+<ul>
+<li><strong>Trigger Mode:</strong> Gate outputs follow the input clock width (UP position)</li>
+<li><strong>Alternating Mode:</strong> Output toggles on each on-beat (DOWN position)</li>
+<li><strong>Chained Mode:</strong> Both sequences run consecutively (via center switch DOWN)</li>
+</ul>
+<hr />
+<h2><strong>Patterns</strong></h2>
+<ul>
+<li><strong>E(x,y):</strong> x fills, y steps, auto-Euclidean distribution</li>
+<li>Example: E(3,4) = [x . x x] (Calypso)</li>
+<li>E(2,5): [x . x . .] (Take Five, Tchaikovsky)</li>
+<li>E(5,8): [x . x x . x x .] (Cuban cinquillo, Persian)</li>
+<li>E(7,12): [x . x x . x x . x . x .]</li>
+<li>E(9,16): [x . x x . x . x x . x . x . x .]</li>
+</ul>
+<hr />
+<h2><strong>Voltage/Current Specs</strong></h2>
+<ul>
+<li><strong>Power:</strong> +12V &lt;10mA, +5V &lt;25mA, -12V 0mA</li>
+<li><strong>Output range:</strong> 0V (low), 5.1V (high)</li>
+</ul>
+<hr />
+<h2><strong>Reference</strong></h2>
+<ul>
+<li><a href="https://www.rebeltech.org/product/stoicheia/">Official Manual</a></li>
+<li><a href="http://cgm.cs.mcgill.ca/~godfried/publications/banff.pdf">Euclidean Patterns Paper by Toussaint (PDF)</a></li>
+<li><a href="https://github.com/pingdynasty/EuclideanSequencer">All source &amp; schematic on Github</a></li>
+</ul>
+<hr />
+<h2><strong>Hacking / Open Hardware</strong></h2>
+<ul>
+<li><strong>MCU:</strong> ATMega168 (Arduino bootloader, FTDI compatible)</li>
+<li><strong>Firmware:</strong> Open source, <a href="https://github.com/pingdynasty/EuclideanSequencer">see repo</a></li>
+</ul>
+<hr />
+<p><strong>Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></strong></p>
+</body>
+</html>

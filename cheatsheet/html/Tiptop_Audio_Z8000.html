@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_Z8000</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — Z8000</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_z8000.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://tiptopaudio.com/manuals/z8000.pdf">Z8000 Matrix Sequencer Official Manual (PDF)</a></p>
+<hr />
+<h1>Z8000 Matrix Sequencer "Cheat Sheet"</h1>
+<p>The Tiptop Audio Z8000 is a powerful, compact matrix sequencer offering <strong>10 separate sequencer outputs</strong> (eight 4-step and two 16-step). You can clock, reset, and control the direction of each sequencer independently to create complex, polyrhythmic modulation and pitch patterns.</p>
+<hr />
+<h2>FRONT PANEL JACK &amp; CONTROL REFERENCE</h2>
+<h3>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Input Jack</strong></th>
+<th><strong>Function</strong></th>
+<th><strong>Voltage Range</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLK (Clock)</td>
+<td>Advances sequencer steps</td>
+<td>Gate, any Pulse</td>
+</tr>
+<tr>
+<td>DIR (Direction)</td>
+<td>Sets direction; Low=Forward, High=Backwards</td>
+<td>Gate, any logic-level</td>
+</tr>
+<tr>
+<td>RT (Reset)</td>
+<td>Resets to step 1 on high</td>
+<td>Gate, any logic-level</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Notes:</strong><ul>
+<li>Each of the 10 sequencers (8x 4-step, 2x 16-step) has individual DIR, RT, and CLK inputs.</li>
+<li>The 4-step sequencers’ CLK jacks are <strong>normalized</strong> in groups of four, so one jack can drive up to four rows/columns unless patched individually. DIR &amp; RT are not normalized.</li>
+</ul>
+</li>
+</ul>
+<h3>Outputs</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Output Jack</strong></th>
+<th><strong>Function</strong></th>
+<th><strong>Voltage Range</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CVx</td>
+<td>Stepped CV output for each sequencer</td>
+<td>0–10V (default), 0–5V (jumper-selectable)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>8x</strong> 4-step sequencer CV outs (horizontal: 1-4, vertical: A-D)</li>
+<li><strong>2x</strong> 16-step sequencer CV outs (one aggregates all horizontal, one all vertical)</li>
+<li><strong>Labeling matches panel graphics</strong></li>
+</ul>
+<hr />
+<h2>KNOBS &amp; CONTROLS</h2>
+<h3>Knobs (16 total)</h3>
+<ul>
+<li>Set the voltage for each step in the 4×4 grid (steps 1–4, A–D).</li>
+<li>The active step is indicated by LEDs.</li>
+</ul>
+<hr />
+<h2>LED INDICATORS</h2>
+<ul>
+<li><strong>Red</strong>: Active step in 4-step sequencers (8 total).</li>
+<li><strong>Green</strong>: Active step in 16-step sequencers (2 total).</li>
+<li><strong>Yellow</strong>: LED intersection—when a step is active in both a 4-step and 16-step sequence. Increases in brightness if two 4-step sequencers coincide.</li>
+</ul>
+<hr />
+<h2>CV OUT RANGE (JUMPER CONFIGURATION)</h2>
+<ul>
+<li><strong>Factory Default</strong>: 0–10V on all outputs.</li>
+<li><strong>Change to 0–5V:</strong> Remove the corresponding jumper(s) on the rear labeled "CV RANGE" for desired sequencers.</li>
+<li><strong>10 jumpers total:</strong> 2 for 16-step, 8 for 4-step sequencers.</li>
+</ul>
+<hr />
+<h2>BASIC USAGE</h2>
+<ol>
+<li><strong>Patch CV Out:</strong> Choose a sequencer output (CVx) and connect to your destination (VCO for pitch, VCF for modulation, etc.).</li>
+<li><strong>Patch Clocks:</strong> Send clock signal(s) to CLK input(s). Use normalization for grouped 4-steps, or separate clocks for polyrhythms.</li>
+<li><strong>Set Direction/Reset:</strong> Patch in gates to DIR for forward/backward or to RT for reset-to-step-1.</li>
+<li><strong>Adjust Steps:</strong> Set voltages for each step with the corresponding knob in the matrix grid.</li>
+<li><strong>Monitor LEDs:</strong> Use red/green/yellow LEDs for visual sequence position and overlaps.</li>
+<li><strong>Advanced:</strong> Quantum/quasi-quantized with external quantizer; create polyrhythms by patching multiple clocks; patch CV outs to clock ins for generative rhythms.</li>
+</ol>
+<hr />
+<p><em>For more patch ideas, consult the <a href="https://tiptopaudio.com/manuals/z8000.pdf">full manual (PDF)</a></em></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

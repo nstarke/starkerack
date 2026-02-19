@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-140</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-140</h1>
+<ul>
+<li><a href="../../manuals/A140_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100man/a140_man.pdf">Doepfer A-140 ADSR Manual (PDF)</a></p>
+<hr />
+<h1>Doepfer A-140 ADSR Cheat Sheet</h1>
+<p>The <strong>Doepfer A-140 ADSR</strong> is a classic envelope generator for the Eurorack modular system. It outputs a voltage envelope shaped by Attack, Decay, Sustain, and Release (ADSR) stages, and is a modulation source for VCAs, VCFs, VCOs, and more.</p>
+<hr />
+<h2>Quick Operation</h2>
+<ol>
+<li><strong>Connect a Gate</strong> (from sequencer, keyboard, LFO, etc.) to the <strong>Gate</strong> ( ! ) input or use internal INT.GATE.</li>
+<li><strong>Set A, D, S, R</strong> knobs to your desired envelope shape.</li>
+<li><strong>Patch Output</strong> ( § or $ ) to the destination to modulate (VCA, VCF, etc.).</li>
+<li>(Optional) Use <strong>Retrig</strong> ( " ) to re-trigger the envelope while the gate is high (great with LFOs/clocks).</li>
+<li><strong>Select envelope time range</strong> (H, M, L) with the 3-way switch.</li>
+</ol>
+<hr />
+<h2>Panel Control Reference</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Control/Input</th>
+<th>Type</th>
+<th>Description</th>
+<th>Range / Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>A (Attack)</strong></td>
+<td>Knob</td>
+<td>Sets the attack time</td>
+<td>0~10; ms to minutes (L-H range)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>D (Decay)</strong></td>
+<td>Knob</td>
+<td>Sets the decay time</td>
+<td>0~10; ms to minutes (L-H range)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>S (Sustain)</strong></td>
+<td>Knob</td>
+<td>Sets the sustain level (hold voltage)</td>
+<td>0~10; 0V to max (approx. +8V)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>R (Release)</strong></td>
+<td>Knob</td>
+<td>Sets the release time</td>
+<td>0~10; ms to minutes (L-H range)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>ADSR Control</strong></td>
+<td>LED</td>
+<td>Visual indicator of envelope activity</td>
+<td>-</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Time Range</strong></td>
+<td>3-way Switch</td>
+<td>Sets overall envelope time scale</td>
+<td>H (hours), M (mid), L (&lt;100 µs)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Inputs &amp; Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Jack Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Typical Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>!</td>
+<td>Gate</td>
+<td>Input</td>
+<td>Starts envelope on rising edge</td>
+<td>Threshold: +0.8V / &gt; 2V</td>
+</tr>
+<tr>
+<td>"</td>
+<td>Retrig</td>
+<td>Input</td>
+<td>Retriggers attack while gate is high</td>
+<td>&gt;+2V pulse recommended</td>
+</tr>
+<tr>
+<td>§, $</td>
+<td>Output</td>
+<td>Output</td>
+<td>Normal (positive) envelope voltage</td>
+<td>0V (rest) to +8V typ, up to +12V</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Inverse Output</td>
+<td>Output</td>
+<td>Inverted envelope voltage</td>
+<td>0V (rest) to -8V typ</td>
+</tr>
+</tbody>
+</table>
+<p><em>Each output simultaneously provides the same envelope. Both outputs ( §, $ ) are available for patch flexibility.</em></p>
+<hr />
+<h3>Voltage Ranges</h3>
+<ul>
+<li><strong>Envelope Out/Inverted Out</strong>:  </li>
+<li>Normal: 0V (rest) up to approx. +8V (max, up to +12V)  </li>
+<li>Inverse: 0V (rest) down to approx. -8V (min)</li>
+<li><strong>Gate/Trig Inputs</strong>:  </li>
+<li>Triggered at +0.8V ("gate on" &gt;+2V safe)</li>
+<li>Retrig: &gt;+2V pulse recommended</li>
+</ul>
+<hr />
+<h2>User Examples</h2>
+<ul>
+<li><strong>ADSR → VCA:</strong>  Volume envelope for dynamic articulation.</li>
+<li><strong>ADSR → VCF:</strong>  Moving filter envelope for sweeps.</li>
+<li><strong>ADSR → VCO PWM:</strong>  Modulates pulse width, giving timbral movement.</li>
+<li><strong>ADSR → VCO Pitch:</strong>  Creates pitch swoops/attack transient effects.</li>
+<li><strong>ADSR → Effects (Phase, LFO freq):</strong>  Modulates FX or LFO for evolving patches.</li>
+</ul>
+<hr />
+<h2>Patch Notes</h2>
+<ul>
+<li>Gate input is normalled to INT.GATE (from system bus/keyboard) unless a cable is inserted.</li>
+<li>Retrig re-triggers attack phase on each pulse received, while gate is high.</li>
+<li>Use the three time ranges to fit applications from percussive plucks (L), standard synth envelopes (M), to very slow pads (H).</li>
+<li>Inverse output can be used for complementary modulation.</li>
+</ul>
+<hr />
+<p><strong>Reference: <a href="https://doepfer.de/a100man/a140_man.pdf">Doepfer A-140 ADSR Manual (PDF)</a></strong></p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

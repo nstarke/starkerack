@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Chord</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Chord</h1>
+<ul>
+<li><a href="../../manuals/QB_Chord.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><strong><a href="https://qubitelectronix.com/manuals/Chord-V2-Manual.pdf">Chord v2 Manual PDF</a></strong></p>
+<h1>Chord v2 Eurorack Module – Quick Cheat Sheet</h1>
+<p>A fast guide with references for all controls, inputs, and outputs, including essential tips and voltage ranges.</p>
+<hr />
+<h2>Overview</h2>
+<ul>
+<li><strong>Polyphonic oscillator:</strong> 4 voices, various chord qualities, inversions, custom/user chords &amp; wavetables.</li>
+<li><strong>Modes:</strong> Chord (diatonic), Free Poly (independent), and Unison Poly.</li>
+<li><strong>Waveform sources:</strong> 8 internal banks + user wavetable via SD card.</li>
+<li><strong>Voltage control:</strong> All parameters via knob &amp; -5V to +5V CV (unless noted).</li>
+</ul>
+<hr />
+<h2>Front Panel Reference</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Label</th>
+<th>Type</th>
+<th>Description</th>
+<th>Voltage Range / Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>frequency</td>
+<td>Knob</td>
+<td>Root note pitch (Coarse: 7 octaves / Fine: +/- P4)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2</td>
+<td>bank</td>
+<td>Knob</td>
+<td>Select waveform bank</td>
+<td>-5V to +5V CV</td>
+</tr>
+<tr>
+<td>3</td>
+<td>waveform</td>
+<td>Knob</td>
+<td>Select/blend waveform within bank</td>
+<td>-5V to +5V CV</td>
+</tr>
+<tr>
+<td>4</td>
+<td>linear fm</td>
+<td>In + At.</td>
+<td>FM input + attenuator</td>
+<td>-</td>
+</tr>
+<tr>
+<td>5</td>
+<td>voicing</td>
+<td>Knob</td>
+<td>Chord inversion/octave spacing</td>
+<td>-5V to +5V CV</td>
+</tr>
+<tr>
+<td>6</td>
+<td>quality</td>
+<td>Knob</td>
+<td>Chord type (Maj, min, 7th, dim, sus etc)</td>
+<td>-5V to +5V CV</td>
+</tr>
+<tr>
+<td>7</td>
+<td>mode</td>
+<td>Btn+LED</td>
+<td>Chord/Free Poly/Unison Poly/Melody (blue/green/teal)</td>
+<td>(see Modes below)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>harm</td>
+<td>Btn+LED</td>
+<td>Auto-harm/Quantize major/minor/chromatic/off</td>
+<td>(blue/green/teal/off)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>triad</td>
+<td>Btn+LED</td>
+<td>Mix out 7th omit/included</td>
+<td>LED blue = 7th omitted</td>
+</tr>
+<tr>
+<td>10</td>
+<td>v/oct</td>
+<td>In</td>
+<td>1V/oct input (root pitch)</td>
+<td>0V–5V</td>
+</tr>
+<tr>
+<td>11</td>
+<td>lead</td>
+<td>In</td>
+<td>1V/oct or independent voice (Mode-dependent)</td>
+<td>0V–5V</td>
+</tr>
+<tr>
+<td>12</td>
+<td>root</td>
+<td>Out</td>
+<td>Chord root audio out</td>
+<td>Audio</td>
+</tr>
+<tr>
+<td>13</td>
+<td>third</td>
+<td>Out</td>
+<td>Chord third audio out</td>
+<td>Audio</td>
+</tr>
+<tr>
+<td>14</td>
+<td>fifth</td>
+<td>Out</td>
+<td>Chord fifth audio out</td>
+<td>Audio</td>
+</tr>
+<tr>
+<td>15</td>
+<td>seventh</td>
+<td>Out</td>
+<td>Chord seventh audio out</td>
+<td>Audio</td>
+</tr>
+<tr>
+<td>16</td>
+<td>mix</td>
+<td>Out</td>
+<td>Summed audio (all, or omits 7th via triad button)</td>
+<td>Audio</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Modes (Mode Button &amp; LED)</h3>
+<ul>
+<li><strong>Chord</strong> <em>(LED off)</em>: Serial control, classic chord behavior.</li>
+<li><strong>Melody (LED blue):</strong> 'lead' input controls an independent 7th melody.</li>
+<li><strong>Free Poly (LED green):</strong> Each voice is fully independent, separate pitch input per voice.</li>
+<li><strong>Unison Poly (LED teal):</strong> All oscillators tune together but have separate 1V/oct inputs for each voice.</li>
+</ul>
+<hr />
+<h3>Auto-Harm/Quantize (Harm Button &amp; LED)</h3>
+<ul>
+<li><strong>Off:</strong> No quantization.</li>
+<li><strong>Blue:</strong> Major scale quantize.</li>
+<li><strong>Green:</strong> Minor scale quantize.</li>
+<li><strong>Teal:</strong> Chromatic quantize (Poly modes only).</li>
+</ul>
+<hr />
+<h3>Creating &amp; Saving User Chords</h3>
+<ul>
+<li><strong>Access:</strong> Hold <em>Harm</em> for 3s → Quality knob selects user chord.</li>
+<li><strong>Edit:</strong> Hold <em>Harm</em>, press <em>Mode</em> (in user chord mode) → Adjust chord with knobs; Mode btn to save.</li>
+<li><strong>SD Chord File:</strong> CHORD_#=x,y,z (semitone intervals for 3rd, 5th, 7th).</li>
+</ul>
+<hr />
+<h3>User Wavetables</h3>
+<ul>
+<li><strong>Load:</strong> Hold <em>Mode</em> for 3s → switches factory/custom banks (SD card needed).</li>
+<li><strong>Format:</strong> 32kB mono .wav (created in WaveEdit: 256 samples, 64 waves).</li>
+</ul>
+<hr />
+<h3>Calibration</h3>
+<ul>
+<li>Enter calibration: Hold Triad for 3s, follow LED/jack prompts (+1V/+3V for 1V/oct calibration steps).</li>
+</ul>
+<hr />
+<h2>Reference Tables</h2>
+<h3>Voicings Table Highlights</h3>
+<ul>
+<li><strong>17 Voicing positions</strong> (various closed/dropped/raised/spread intervals, see appendix for all).</li>
+</ul>
+<h3>Chord Qualities</h3>
+<ul>
+<li><strong>Major 7:</strong> 3rd: +4st, 5th: +7st, 7th: +11st</li>
+<li><strong>Minor 7:</strong> 3rd: +3st, 5th: +7st, 7th: +10st</li>
+<li><strong>Dominant 7:</strong> 3rd: +4st, 5th: +7st, 7th: +10st</li>
+<li><strong>Half Dim, Dim, Sus, Aug, etc...</strong> (see manual)</li>
+</ul>
+<hr />
+<h2>Typical Patches</h2>
+<ul>
+<li><strong>Chord drone:</strong> Just audio out from Mix—or all outputs multed!</li>
+<li><strong>Sequenced chords:</strong> Use V/Oct input from sequencer/external controller.</li>
+<li><strong>Independent voices:</strong> Use Free Poly mode and separate 1V/Oct inputs for each.</li>
+<li><strong>Melody over chord:</strong> Melody mode, use Lead cv input for top voice.</li>
+</ul>
+<hr />
+<h3>Tips</h3>
+<ul>
+<li>All CV inputs: <strong>Bipolar, -5V to +5V, summed with knob</strong></li>
+<li>Digital wave morphing: Smooth blending, CV or knob sweep.</li>
+<li>SD card slot: For custom chords, wavetables, and configuration.</li>
+</ul>
+<hr />
+<p><strong><a href="https://qubitelectronix.com/manuals/Chord-V2-Manual.pdf">Full Manual PDF Link</a></strong><br />
+<a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

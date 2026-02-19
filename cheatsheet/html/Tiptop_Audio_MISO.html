@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_MISO</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — MISO</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_miso.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://tiptopaudio.com/manuals/MISO%20Manual.pdf">Tiptop Audio MISO Manual (PDF)</a></p>
+<hr />
+<h1>Tiptop Audio MISO Eurorack Cheat Sheet</h1>
+<p><strong>MISO = Mix, Invert, Scale, Offset</strong><br />
+Utility module for manipulating and combining up to four signals (audio or CV). Two identical sections (Top: 1+2, Bottom: A+B) plus voltage-controlled crossfader.</p>
+<hr />
+<h2>Inputs, Outputs &amp; Controls</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Jack/Control</strong></th>
+<th><strong>Section</strong></th>
+<th><strong>Function</strong></th>
+<th><strong>Voltage Range</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1 IN</code></td>
+<td>Top (Channel 1)</td>
+<td>Signal input</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td><code>2 IN</code></td>
+<td>Top (Channel 2)</td>
+<td>Signal input</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td><code>A IN</code></td>
+<td>Bottom (Channel A)</td>
+<td>Signal input</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td><code>B IN</code></td>
+<td>Bottom (Channel B)</td>
+<td>Signal input</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td><code>OUT 1</code></td>
+<td>Top (Channel 1)</td>
+<td>Channel 1 processed output</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td><code>OUT 2</code></td>
+<td>Top (Channel 2)</td>
+<td>Channel 2 processed output</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td><code>OUT A</code></td>
+<td>Bottom (Channel A)</td>
+<td>Channel A processed output</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td><code>OUT B</code></td>
+<td>Bottom (Channel B)</td>
+<td>Channel B processed output</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td><code>1+2 OUT</code></td>
+<td>Top</td>
+<td>Mix of Top channels (1+2) after processing</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td><code>A+B OUT</code></td>
+<td>Bottom</td>
+<td>Mix of Bottom channels (A+B) after processing</td>
+<td>±10V</td>
+</tr>
+<tr>
+<td><code>CV</code></td>
+<td>Center</td>
+<td>Crossfade control voltage input</td>
+<td>±10V (center = 0V)</td>
+</tr>
+<tr>
+<td><code>Σ (Sigma)</code></td>
+<td>Center</td>
+<td>Final Crossfader mix output</td>
+<td>±10V</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Knobs:</strong>
+- <strong>Scale/Invert Knob (each channel):</strong><br />
+  Adjusts gain and inverts signal (center is unity/no invert, left = inverted, right = positive gain)
+- <strong>Offset Knob (each channel):</strong><br />
+  Adds DC voltage (±10V max) to processed signal
+- <strong>Crossfade Knob (center):</strong><br />
+  Manual control of the crossfader (blends between Top and Bottom sections, or can be modulated by CV)</p>
+<p><strong>Indicators:</strong>
+- <strong>LED on Mix Out (1+2 &amp; A+B):</strong><br />
+  Yellow = positive voltage, Red = negative voltage</p>
+<hr />
+<h2>Quick Reference Summary</h2>
+<ul>
+<li><strong>Each section has two independent channels:</strong> 1/2 (Top), A/B (Bottom).</li>
+<li><strong>Each channel offers:</strong>  </li>
+<li>Input jack (accepts CV or audio)</li>
+<li>Scale/Invert knob: adjusts gain and polarity</li>
+<li>Offset knob: adds constant voltage</li>
+<li>
+<p>Output jack</p>
+</li>
+<li>
+<p><strong>Mix Out</strong>: Outputs the sum of both channels within the section</p>
+</li>
+<li><strong>Crossfader</strong>: Blends between Top and Bottom mixes, modulated by center CV or manual knob</li>
+<li><strong>Sigma (Σ) Output</strong>: Final crossfader output</li>
+</ul>
+<hr />
+<h2>Typical Patch Examples</h2>
+<ul>
+<li>Offset generator: Leave input unpatched, use Offset knob to manually create CV</li>
+<li>Attenuverter: Use Scale/Invert knob to adjust level and invert, pass signal through channel</li>
+<li>Mixer: Use both inputs in a section, summed at Mix Out</li>
+<li>CV crossfade: Send two different modulations into 1+2 and A+B, crossfade between them (manual or CV)</li>
+<li>Complex LFO shaping: Mix and morph LFO shapes using scale, offset, and crossfader</li>
+</ul>
+<hr />
+<h2>Power &amp; Specs</h2>
+<ul>
+<li><strong>Size:</strong> 10HP, Depth: 42mm</li>
+<li><strong>Power:</strong> +12V 55mA / -12V 55mA</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor"><strong>Generated With Eurorack Processor</strong></a></p>
+</body>
+</html>

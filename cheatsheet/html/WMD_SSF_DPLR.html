@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>WMD_SSF_DPLR</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>WMD SSF — DPLR</h1>
+<ul>
+<li><a href="../../manuals/DPLRmanual1.3.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://wmdevices.com/products/ssf-dplr">Link to DPLR Manual (PDF)</a></p>
+<h1>DPLR Eurorack Dual/Stereo Delay Cheat Sheet</h1>
+<h2>Overview</h2>
+<p>DPLR is a dual/stereo delay module with voltage control, cross-channel feedback (XTALK), and variable low-pass filtering. It offers classic, ping-pong, and experimental delay effects.</p>
+<hr />
+<h2><strong>Inputs and Outputs:</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Notes/Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IN</strong></td>
+<td>Signal input to the delay</td>
+<td>Audio level (typical modular)</td>
+</tr>
+<tr>
+<td><strong>DLY CV</strong></td>
+<td>CV input for main DELAY time (A/B)</td>
+<td>0–5V CV</td>
+</tr>
+<tr>
+<td><strong>SPRD CV</strong></td>
+<td>CV input for SPREAD (offset delay for B)</td>
+<td>0–5V CV</td>
+</tr>
+<tr>
+<td><strong>RGN CV</strong></td>
+<td>CV input for REGEN (feedback amount)</td>
+<td>0–5V CV</td>
+</tr>
+<tr>
+<td><strong>OUT A</strong></td>
+<td>Main delay output + mixed B XTALK</td>
+<td>Audio out</td>
+</tr>
+<tr>
+<td><strong>OUT B</strong></td>
+<td>B delay out, affected by SPREAD/XTALK</td>
+<td>Audio out</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Controls:</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>D / DELAY AMOUNT</strong></td>
+<td>Sets delay time (40ms – 700ms, manual &amp; CV)</td>
+</tr>
+<tr>
+<td><strong>R / REGEN AMOUNT</strong></td>
+<td>Adjusts feedback for repeats, manual &amp; CV</td>
+</tr>
+<tr>
+<td><strong>S / AMOUNT</strong></td>
+<td>Sets WET signal (0%–100%; 2x gain at max)</td>
+</tr>
+<tr>
+<td><strong>L1 / DELAY A</strong></td>
+<td>Delay time for A output (linked to DELAY knob)</td>
+</tr>
+<tr>
+<td><strong>L2 / SPREAD (B)</strong></td>
+<td>Offsets B delay from A, ping-pong/dual delays</td>
+</tr>
+<tr>
+<td><strong>M / MODE SELECT XTALK / FILTER</strong></td>
+<td>Tap to cycle XTALK (cross-feedback) modes, hold for filter slope levels</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Button/LED Functions:</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>XTALK LEVEL LED</strong></td>
+<td>Shows XTALK amount (RED: none, BLUE: max)</td>
+</tr>
+<tr>
+<td><strong>FILTER SLOPE LED</strong></td>
+<td>Shows low pass filtering level (brighter = more filtering)</td>
+</tr>
+<tr>
+<td><strong>M / MODE Button</strong></td>
+<td>Short press: XTALK mode; Hold 1s: Filter slope mode</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3><strong>XTALK Modes:</strong></h3>
+<ul>
+<li><strong>Cycles through 7 settings</strong>: Cross-feedback from A ↔ B increases with higher settings.</li>
+</ul>
+<h3><strong>FILTER Modes:</strong></h3>
+<ul>
+<li><strong>Cycles through 4 filter slopes</strong>: From minimal ("noisy") to heavy ("smooth, dark").</li>
+</ul>
+<hr />
+<h2><strong>Basic Use:</strong></h2>
+<ol>
+<li><strong>Patch Input</strong>: Send audio to <strong>IN</strong> jack.</li>
+<li><strong>Set Delay</strong>: Rotate <strong>D/DELAY AMOUNT</strong> knob to adjust time; patch CV for modulation.</li>
+<li><strong>Spread for Stereo</strong>: Use <strong>L2/SPREAD</strong> knob to offset B channel; CV input for animation.</li>
+<li><strong>Adjust Feedback</strong>: <strong>R/REGEN</strong> knob for repeats; patch CV for evolving textures.</li>
+<li><strong>Wet/Dry Mix</strong>: <strong>S/AMOUNT</strong> knob combines dry/wet; max = all wet (x2 gain).</li>
+<li><strong>Experiment with Modes</strong>: Tap <strong>M</strong> for XTALK; hold for filter.</li>
+<li><strong>Output</strong>: Use <strong>OUT A</strong> and/or <strong>OUT B</strong> for mono or stereo effects.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>Tip:</strong> Use XTALK and SPREAD to create dynamic ping-pong delays, stereo widening, or wild feedback networks!</p>
+</blockquote>
+<hr />
+<h2><strong>Reference: Voltage Control</strong></h2>
+<ul>
+<li><strong>All CV Inputs</strong>: 0–5V for full range modulation.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

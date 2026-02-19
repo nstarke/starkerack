@@ -1,0 +1,531 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Atlantix</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Atlantix</h1>
+<ul>
+<li><a href="../../manuals/atlantix_manual_2024.09.12.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment://manual.pdf">Atlantix Manual (PDF)</a></p>
+<h1>Atlantix Eurorack Synth Voice Cheat Sheet</h1>
+<h2>Overview</h2>
+<ul>
+<li><strong>Standalone analog dual-VCO synth voice</strong> (VCO A + B)</li>
+<li>Extensive normalization and modulation routing, full patch override</li>
+<li>Mixer with noise/sub/aux routing, multi-mode filter (VCF/Phaser), ADSR + linear VCA, S&amp;H/T&amp;H, Expander</li>
+<li><strong>All signals and modulations available via jacks.</strong></li>
+</ul>
+<hr />
+<h2>Quick Reference Guide</h2>
+<h3>1. <strong>VCO A</strong> (Oscillator 1)</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function/Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[1.1] OCTAVE A</strong></td>
+<td>8-position coarse tune (octaves)</td>
+</tr>
+<tr>
+<td><strong>[1.2] PITCH A</strong></td>
+<td>Fine tune (~±1 semitone), tracks <strong>PITCH A IN</strong> (1V/Oct)</td>
+</tr>
+<tr>
+<td><strong>[1.3] IM slider</strong></td>
+<td>FM index mod source amount (default: Envelope)</td>
+</tr>
+<tr>
+<td><strong>[1.4] INDEX</strong></td>
+<td>Base FM1 amount (depth)</td>
+</tr>
+<tr>
+<td><strong>[1.5] FM2</strong></td>
+<td>FM2 depth (Exponential FM, default: Envelope)</td>
+</tr>
+<tr>
+<td><strong>[1.6] PWM</strong></td>
+<td>Pulse width mod amount, default: VCO B sine or Envelope</td>
+</tr>
+<tr>
+<td><strong>[1.7] PWM SRC</strong></td>
+<td>PWM modulation source select</td>
+</tr>
+<tr>
+<td><strong>[1.8] PW</strong></td>
+<td>Pulse width setting (50%–~95%, full mod to 100% = silence)</td>
+</tr>
+<tr>
+<td><strong>[1.9] PULSE POS</strong></td>
+<td>Center/Edge pulse position switch</td>
+</tr>
+<tr>
+<td><strong>[1.10] TZFM/EXP</strong></td>
+<td>Linear Thru-Zero FM or Exponential FM</td>
+</tr>
+<tr>
+<td><strong>[1.11] AC/DC</strong></td>
+<td>DC = deeper, AC = accurate (only for linear FM)</td>
+</tr>
+<tr>
+<td><strong>[1.12] SYNC TYPE</strong></td>
+<td>Hard / None / Soft sync selection</td>
+</tr>
+<tr>
+<td><strong>[1.13] SYNC SRC</strong></td>
+<td>VCO B Saw or GATE default for sync src</td>
+</tr>
+</tbody>
+</table>
+<h4>VCO A Jacks</h4>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[1.A] PITCH A IN</strong></td>
+<td>1V/Oct pitch CV input</td>
+<td>0–+5V typical</td>
+</tr>
+<tr>
+<td><strong>[1.B] SYNC A IN</strong></td>
+<td>Sync input (Ext overrides norm)</td>
+<td>Logic/Audio signal</td>
+</tr>
+<tr>
+<td><strong>[1.C] IM IN</strong></td>
+<td>FM index mod CV (FM1 depth)</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[1.D] FM1 IN</strong></td>
+<td>Linear/Exp FM input</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[1.E] FM2 IN</strong></td>
+<td>Exponential FM input</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[1.F] PWM IN</strong></td>
+<td>Pulse width modulation</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[1.G] SINE OUT</strong></td>
+<td>Sine output</td>
+<td>10Vpp</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>2. <strong>VCO B</strong> (Oscillator 2 / LFO)</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function/Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[2.1] OCTAVE B</strong></td>
+<td>8-position coarse tune</td>
+</tr>
+<tr>
+<td><strong>[2.2] PITCH B</strong></td>
+<td>Fine tune, tracks <strong>PITCH B IN</strong> (1V/Oct)</td>
+</tr>
+<tr>
+<td><strong>[2.3] PITCH SRC</strong></td>
+<td>Pitch A + B or B only</td>
+</tr>
+<tr>
+<td><strong>[2.4] VCO/LFO</strong></td>
+<td>Switch: audio rate or LFO (50s cycle)</td>
+</tr>
+<tr>
+<td><strong>[2.5] Indicator</strong></td>
+<td>Bi-color LED shows polarity/rate</td>
+</tr>
+</tbody>
+</table>
+<h4>VCO B Jacks</h4>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[2.A] PITCH B IN</strong></td>
+<td>1V/Oct pitch CV input</td>
+<td>0–+5V typical</td>
+</tr>
+<tr>
+<td><strong>[2.B] FM B IN</strong></td>
+<td>Exponential FM input</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[2.C] SYNC B IN</strong></td>
+<td>Hard sync input</td>
+<td>Logic/Audio</td>
+</tr>
+<tr>
+<td><strong>[2.D] SPIKE OUT</strong></td>
+<td>Spike waveform out</td>
+<td>10Vpp</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>3. <strong>MIXER</strong></h3>
+<p><strong>Mixes: VCO A Pulse/Saw, Sub, Noise, AUX1 (Tri/Square), AUX2 (Sine/Saw, route to MIXER or VCA)</strong><br />
+<strong>Sub, Noise, and AUX waveforms selectable by switches</strong></p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[3.1] PULSE</strong></td>
+<td>VCO A pulse level</td>
+</tr>
+<tr>
+<td><strong>[3.2] SAW</strong></td>
+<td>VCO A saw level</td>
+</tr>
+<tr>
+<td><strong>[3.3] SUB</strong></td>
+<td>SUB level, type: -1/-2/OR</td>
+</tr>
+<tr>
+<td><strong>[3.4] NOISE</strong></td>
+<td>Noise level, type: WHITE/PINK</td>
+</tr>
+<tr>
+<td><strong>[3.5] AUX1</strong></td>
+<td>AUX1 level, source: VCO A TRI/B SQUARE</td>
+</tr>
+<tr>
+<td><strong>[3.6] AUX2</strong></td>
+<td>AUX2 level, source: VCO A SINE/B SAW, routing</td>
+</tr>
+<tr>
+<td><strong>[3.7] AUX2 ROUTE</strong></td>
+<td>Route AUX2 pre/post filter (MIXER/VCA)</td>
+</tr>
+<tr>
+<td><strong>[3.8-3.11] Switches</strong></td>
+<td>Set Noise/Sub/AUX1/AUX2 source types</td>
+</tr>
+</tbody>
+</table>
+<h4>MIXER Jacks</h4>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[3.A] AUX1 IN</strong></td>
+<td>External input to mixer</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[3.B] AUX2 IN</strong></td>
+<td>External input (pre/post VCA)</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[3.C] MIXER OUT</strong></td>
+<td>Mixed output (default to VCF in)</td>
+<td>10Vpp</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>4. <strong>VCF / Phaser</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function/Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[4.1] FM1</strong></td>
+<td>FM1 depth (default: MOD Y)</td>
+</tr>
+<tr>
+<td><strong>[4.2] FM2</strong></td>
+<td>FM2 depth (default: VCO A pitch), polarity switchable</td>
+</tr>
+<tr>
+<td><strong>[4.3] ENV</strong></td>
+<td>Envelope FM depth, polarity switchable</td>
+</tr>
+<tr>
+<td><strong>[4.4] FREQ</strong></td>
+<td>Cutoff freq</td>
+</tr>
+<tr>
+<td><strong>[4.5] Q</strong></td>
+<td>Resonance (CV offset at Q IN)</td>
+</tr>
+<tr>
+<td><strong>[4.6] Mode</strong></td>
+<td>LP/BP/HP (High = always 4-pole), PHZ/Filter toggle</td>
+</tr>
+<tr>
+<td><strong>[4.7] 4P/2P</strong></td>
+<td>2/4 pole (LP/BP mode only)</td>
+</tr>
+<tr>
+<td><strong>[4.8] PHZ/Filter</strong></td>
+<td>Phaser/Filter switch</td>
+</tr>
+<tr>
+<td><strong>[4.9] FM2 Polarity</strong></td>
+<td>Invert FM2 CV</td>
+</tr>
+<tr>
+<td><strong>[4.10] ENV Polarity</strong></td>
+<td>Invert envelope CV</td>
+</tr>
+</tbody>
+</table>
+<h4>VCF Jacks</h4>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[4.A] FM1 IN</strong></td>
+<td>Filter CV 1 (attenuated)</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[4.B] FM2 IN</strong></td>
+<td>Filter CV 2 (attenuated)</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[4.C] VCF IN</strong></td>
+<td>Main audio in (defaults to mixer)</td>
+<td>10Vpp</td>
+</tr>
+<tr>
+<td><strong>[4.D] Q IN</strong></td>
+<td>Resonance CV</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[4.E] VCF OUT</strong></td>
+<td>Main filter audio out</td>
+<td>10Vpp</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>5. <strong>ENVELOPE / VCA</strong></h3>
+<p><strong>Classic ADSR, routed to VCA, FM, PWM, filter</strong>
+| Control                   | Function/Range                                  |
+|---------------------------|-------------------------------------------------|
+| <strong>[5.1] A</strong>               | Attack time (time varies by <strong>RATE</strong> switch)    |
+| <strong>[5.2] D</strong>               | Decay time                                      |
+| <strong>[5.3] S</strong>               | Sustain level (0–5V)                            |
+| <strong>[5.4] R</strong>               | Release time                                    |
+| <strong>[5.5] RATE</strong>            | Envelope speed: FAST/MED/SLOW                   |
+| <strong>[5.6] ENV/GATE</strong>        | VCA controlled by ENV or GATE                   |
+| <strong>[5.7] DRIVE</strong>           | VCA drive: Sym/None/Asym                        |
+| <strong>[5.8] MAN GATE</strong>        | Manual gate trigger (momentary button)          |</p>
+<h4>Envelope/VCA Jacks</h4>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[5.A] GATE IN</strong></td>
+<td>Gate trigger input</td>
+<td>Gate/Trigger</td>
+</tr>
+<tr>
+<td><strong>[5.B] RETRIG</strong></td>
+<td>Retrigger (while gating)</td>
+<td>Trigger</td>
+</tr>
+<tr>
+<td><strong>[5.C] LEVEL</strong></td>
+<td>Envelope output VCA (defaults 5V)</td>
+<td>0–5V CV</td>
+</tr>
+<tr>
+<td><strong>[5.D] ENV OUT</strong></td>
+<td>Envelope out</td>
+<td>0–5V</td>
+</tr>
+<tr>
+<td><strong>[5.E] INV ENV OUT</strong></td>
+<td>Inverted envelope</td>
+<td>0–-5V</td>
+</tr>
+<tr>
+<td><strong>[5.F] VCA IN</strong></td>
+<td>VCA signal in (defaults to VCF O)</td>
+<td>10Vpp</td>
+</tr>
+<tr>
+<td><strong>[5.G] OUT</strong></td>
+<td>Main audio output</td>
+<td>10Vpp</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>6. <strong>MODS (X, Y, S&amp;H, Noise)</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[6.1/6.5] MOD X/Y SRC</strong></td>
+<td>8-way selector: VCO B (Sine, Tri, Saw, Sq), S&amp;H, Noise, VCF, (X: VCA; Y: Mixer)</td>
+</tr>
+<tr>
+<td><strong>[6.2/6.6] UNIPOLAR</strong></td>
+<td>UP: unipolar (0–5V); DOWN: bipolar (-5–+5V)</td>
+</tr>
+<tr>
+<td><strong>[6.4/6.8] POLARITY</strong></td>
+<td>UP: normal, DOWN: inverted</td>
+</tr>
+<tr>
+<td><strong>[6.9] HOLD SRC</strong></td>
+<td>S&amp;H hold: VCO B Sq or Gate</td>
+</tr>
+<tr>
+<td><strong>[6.10] S&amp;H/T&amp;H</strong></td>
+<td>S&amp;H (sample-hold rising edge), T&amp;H (track-hold low)</td>
+</tr>
+</tbody>
+</table>
+<h4>MOD Jacks</h4>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[6.A] S&amp;H HOLD</strong></td>
+<td>S&amp;H sample trigger/gate</td>
+<td>Gate/Clk</td>
+</tr>
+<tr>
+<td><strong>[6.B] S&amp;H SAMP</strong></td>
+<td>S&amp;H input (default: WhiteNoise)</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[6.C] S&amp;H OUT</strong></td>
+<td>S&amp;H output</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>[6.D] NOISE OUT</strong></td>
+<td>Dedicated noise out</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[6.E] MOD X OUT</strong></td>
+<td>X source out (audio or CV)</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td><strong>[6.F] MOD Y OUT</strong></td>
+<td>Y source out (audio or CV)</td>
+<td>±5V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>7. <strong>ATLX Expander Jacks</strong></h3>
+<ul>
+<li><strong>[X.A] LP OUT:</strong> Lowpass out      | <strong>[X.B] HP OUT:</strong> Highpass out  </li>
+<li><strong>[X.C] BP OUT:</strong> Bandpass out     | <strong>[X.D] PHZ OUT:</strong> Phaser out  </li>
+<li><strong>[X.E] SUB OUT:</strong> Sub osc out     | <strong>[X.F] RING OUT:</strong> Ring mod out  </li>
+<li><strong>[X.G/H] X/Y IN:</strong> Ring mod inputs (default: A/B Sine)  </li>
+<li><strong>[X.I-X.L] A outputs:</strong> Sine, Tri, Saw, Pulse  </li>
+<li><strong>[X.M-X.P] B outputs:</strong> Sine, Tri, Saw, Square  </li>
+</ul>
+<hr />
+<h2><strong>Voltage Ranges</strong></h2>
+<ul>
+<li><strong>CV Inputs:</strong> Most use ±5V, envelopes/sources generally 0–5V, outputs 10Vpp audio</li>
+<li><strong>Gate/Trigger:</strong> Standard 5V logic</li>
+<li><strong>Keep CV within ±12V for safety when patching external gear.</strong></li>
+</ul>
+<hr />
+<h2><strong>Key Internal Normalizations</strong></h2>
+<ul>
+<li>Patch points override normaled routing.</li>
+<li>Envelope, MOD X/Y, and default oscillator and modulator connections pre-wired.</li>
+<li>Mixer output normalled to filter, filter output normalled to VCA, VCA to OUT.</li>
+</ul>
+<hr />
+<h2><strong>Tips</strong></h2>
+<ul>
+<li>Use <strong>VCO B</strong> as audio or LFO in mod matrix; Exponential/Linear FM available</li>
+<li><strong>Drive</strong> switch on VCA for saturation/color</li>
+<li><strong>AUX2</strong> can be routed post-filter (VCA) for parallel processing</li>
+<li><strong>MODS</strong>: Noise, S&amp;H, VCO/VCF/MIX sources as mod or audio</li>
+<li><strong>Expander</strong> gives direct outs for advanced patching (filter breakouts, ring mod, etc)</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Vermona_Melodicer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Vermona — Melodicer</h1>
+<ul>
+<li><a href="../../manuals/melodicer manual en 1.1 web.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.vermona.com/fileadmin/vermona/downloads/manuals/melodicer_user_guide_en.pdf"><strong>Download the full meloDICER Manual (PDF)</strong></a></p>
+<hr />
+<h1>Vermona meloDICER – Eurorack Cheat Sheet</h1>
+<p><strong>meloDICER</strong> is a stochastic (probability-based) melody and rhythm sequencer module for Eurorack, with intuitive per-step and probability controls.</p>
+<hr />
+<h2>Inputs and Outputs — Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CLK IN</strong></td>
+<td>Clock input</td>
+<td>0…+12V (Thresh: +2V)</td>
+<td>External quarter note clock. Overrides internal clock.</td>
+</tr>
+<tr>
+<td><strong>CV IN 1</strong></td>
+<td>Pitch control input</td>
+<td>0…+5V (max 12V)</td>
+<td>Adds/transposes sequence or modulates pitch range.</td>
+</tr>
+<tr>
+<td><strong>CV IN 2</strong></td>
+<td>Rhythm control input</td>
+<td>0…+5V (max 12V)</td>
+<td>Modulates rhythm section parameters (except NOTE VALUE/VARIATION).</td>
+</tr>
+<tr>
+<td><strong>GATE IN 1</strong></td>
+<td>Gate/trig input</td>
+<td>0…+12V (Thresh: +2V)</td>
+<td>Various assignable functions (toggle dice, re-dice, restart, etc).</td>
+</tr>
+<tr>
+<td><strong>GATE IN 2</strong></td>
+<td>Gate/trig input</td>
+<td>0…+12V (Thresh: +2V)</td>
+<td>Mutes sequencer, and other assignable functions.</td>
+</tr>
+<tr>
+<td><strong>GATE OUT</strong></td>
+<td>Gate out</td>
+<td>+10V</td>
+<td>Triggers your envelope/voice.</td>
+</tr>
+<tr>
+<td><strong>1V/OCT</strong></td>
+<td>CV out (pitch sequence)</td>
+<td>0…+5V</td>
+<td>Standard pitch voltage output.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Controls</h2>
+<h3>Knobs &amp; Sliders</h3>
+<ul>
+<li><strong>NOTE VALUE</strong> (Knob): Sets base step length (1/16, 1/8, quarter note, etc.)</li>
+<li><strong>VARIATION</strong> (Knob): Probability of alternate step lengths (left = longer, right = shorter).</li>
+<li><strong>LEGATO</strong> (Knob): Probability of notes sliding (no retrigger) between steps.</li>
+<li><strong>REST</strong> (Knob): Probability of silent (rest) steps.</li>
+<li><strong>RANGE (Faders/Sliders 2 &amp; 8):</strong> Set lowest and highest note of scale.</li>
+<li><strong>SEMITONE FADERS (C–B):</strong> Probability of each semitone in pattern (higher = more likely).</li>
+<li><strong>Rotary Encoder:</strong> Sets pattern position, chooses banks/steps in menus.</li>
+<li><strong>Pattern Length Buttons (to right of encoder):</strong> Set first and last step of pattern range (hold &amp; turn).</li>
+</ul>
+<h3>Buttons</h3>
+<ul>
+<li><strong>DICE (Rhythm &amp; Melody):</strong> New random dice for rhythm/melody pattern. Hold to switch to “realtime” random.</li>
+<li><strong>M (Mute):</strong> Mutes gate out. Blinks when muted.</li>
+<li><strong>LOCK:</strong> Freeze parameter updates—edits will not be applied until unlocked.</li>
+<li><strong>S (Save):</strong> Store current pattern in memory slot.</li>
+<li><strong>L (Load):</strong> Recall pattern.</li>
+<li><strong>E (Edit):</strong> Access/edit global parameters and input/gate routing.</li>
+</ul>
+<h3>LEDs</h3>
+<ul>
+<li>Around encoder: Shows pattern position in 16 steps.</li>
+<li>Button LEDs: Indicate active settings, modes, and states.</li>
+</ul>
+<hr />
+<h2>Operating Basics</h2>
+<ol>
+<li><strong>Connect Gate Out</strong> to your voice’s envelope input and <strong>1V/OCT Out</strong> to your oscillator’s pitch input.</li>
+<li><strong>Set initial faders/knobs</strong> (see manual fig. 1).</li>
+<li><strong>Clock internally</strong> (TAP button) or externally (CLK IN, 0–+12V, 1 PPQN).</li>
+<li><strong>Set NOTE VALUE</strong> and optionally add VARIATION.</li>
+<li><strong>Adjust LEGATO &amp; REST</strong> for expressive/random rhythms.</li>
+<li><strong>Set octave and desired scale</strong> using lowest (2) and highest (8) faders and semitone faders.</li>
+<li><strong>Dice pattern(s)</strong>: Tap DICE (rhythm/melody) for new random value set (or hold for realtime probability).</li>
+<li><strong>Store/Recall patterns</strong>: Use S/L and rotary encoder.</li>
+<li><strong>LOCK mode:</strong> Toggle LOCK to stage edits before applying.</li>
+</ol>
+<hr />
+<h2>Pattern and Storage</h2>
+<ul>
+<li><strong>Patterns</strong> are the sum of all knob, fader, step, and mode settings, NOT explicit sequences.</li>
+<li>Storage: Up to 16 user patterns.</li>
+<li><strong>Saving:</strong> S → Select slot (encoder) → Press encoder.</li>
+<li><strong>Loading:</strong> L → Select slot → Press encoder. Loads in LOCK mode.</li>
+</ul>
+<hr />
+<h2>Modes (Hold E, then A/B/C/D):</h2>
+<ul>
+<li><strong>A:</strong> Full sequencer — default &amp; all features.</li>
+<li><strong>B:</strong> Seq+Gate (melody from melody section, triggered by gate at GATE IN 1).</li>
+<li><strong>C:</strong> Quantizer 1 (CV IN 2 quantized by fader scale, outputs 1V/OCT).</li>
+<li><strong>D:</strong> Quantizer 2 (gate at GATE IN 2 determines sample/hold of quantized CV IN 2).</li>
+</ul>
+<hr />
+<h2>Edit Menu (press E)</h2>
+<ul>
+<li>Use encoder (1–7) to scroll; A/B/C/D to set options per parameter.</li>
+<li>Typical assignments:<ul>
+<li><strong>CV IN 1:</strong> Add/Transpose sequence, modulate range</li>
+<li><strong>CV IN 2:</strong> Modulate rhythm section (except NOTE VALUE/VARIATION in firmware R19)</li>
+<li><strong>GATE INs:</strong> Toggle Dice (rhythm/melody), Re-dice, Mute, Restart</li>
+<li><strong>MUTE mode:</strong> Continue (A) / Restart pattern (B)</li>
+<li><strong>NOTE VARIATION:</strong> Limit allowed step lengths for VARIATION knob</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Quick Reference: voltages</h2>
+<ul>
+<li><strong>Inputs:</strong> 0…+5V for CV, up to +12V signal tolerated, +2V threshold for triggers/gates.</li>
+<li><strong>Outputs:</strong> 0…+5V 1V/OCT pitch, +10V gate.</li>
+</ul>
+<hr />
+<h2>Quick Tips</h2>
+<ul>
+<li><strong>Internal clock = TAP tempo.</strong> External clock overrides.</li>
+<li><strong>Mute:</strong> Press M (button B) or GATE IN 2.</li>
+<li><strong>Pattern restart:</strong> Push rotary encoder or GATE IN 1 (if assigned).</li>
+<li><strong>LOCK mode:</strong> Stage edits before applying.</li>
+<li><strong>Probability faders:</strong> Only semitones within pitch range (set by 2/8) are available.</li>
+<li><strong>Realtime mode:</strong> Hold DICE to enable, disables set pattern and generates on the fly.</li>
+</ul>
+<hr />
+<p><strong>Manufacturer:</strong> <a href="https://www.vermona.com/en/products/modules/product/melodicer/">Vermona – meloDICER product page</a></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor"><strong>Generated With Eurorack Processor</strong></a></p>
+</body>
+</html>

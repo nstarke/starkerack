@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Pittsburgh_Modular_Gamesystem</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Pittsburgh Modular — Gamesystem</h1>
+<ul>
+<li><a href="../../manuals/game_system_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1>Pittsburgh Modular <strong>Game System</strong> — Cheat Sheet</h1>
+<p><a href="https://pittsburghmodular.com/storage/manuals/GameSystemManual.pdf"><strong>Download Manual PDF</strong></a><br />
+<em>(Direct link to manufacturer PDF, use for full details and graphics.)</em></p>
+<hr />
+<h2>Quickstart Overview</h2>
+<p><strong>Game System</strong> offers 6 sequencer "games" (5 CV/Gate sequencing, 1 Euclidean rhythm generator), joystick/button control, all fully CV/gate controllable.</p>
+<hr />
+<h2>Panel Controls / Inputs / Outputs</h2>
+<h3><strong>Buttons</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GAME</strong></td>
+<td>Cycle "games"; hold 2s to enter settings menu</td>
+</tr>
+<tr>
+<td><strong>MODE</strong></td>
+<td>Game-dependent mode (see below)</td>
+</tr>
+<tr>
+<td><strong>RESET</strong></td>
+<td>Resets open game</td>
+</tr>
+<tr>
+<td><strong>CLOCK</strong></td>
+<td>Tap tempo (internal clock), or clock divider (external clock)</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>Joystick</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Movement</th>
+<th>Function (Game Dependent)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All Directions</td>
+<td>Steps cursor, selects steps/params, per game</td>
+</tr>
+<tr>
+<td>Press</td>
+<td>Select/confirm/toggle step on/off; set last step (hold 2s)</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>Inputs (CV/Gate)</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Emulates</th>
+<th>Action/Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BUTTON</td>
+<td>Joystick Button</td>
+<td>&gt;threshold gate/CV = press</td>
+</tr>
+<tr>
+<td>MODE</td>
+<td>Mode Button</td>
+<td>same</td>
+</tr>
+<tr>
+<td>RESET</td>
+<td>Reset Button</td>
+<td>same</td>
+</tr>
+<tr>
+<td>CLOCK</td>
+<td>External Clock</td>
+<td>Used in ExtClk mod</td>
+</tr>
+<tr>
+<td>LEFT</td>
+<td>Joystick Left</td>
+<td>same</td>
+</tr>
+<tr>
+<td>RIGHT</td>
+<td>Joystick Right</td>
+<td>same</td>
+</tr>
+<tr>
+<td>UP</td>
+<td>Joystick Up</td>
+<td>same</td>
+</tr>
+<tr>
+<td>DOWN</td>
+<td>Joystick Down</td>
+<td>same</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Trigger threshold not specified; expect typical eurorack gate logic (anything &gt;+2V likely works).</strong></li>
+</ul>
+<h3><strong>Outputs</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Jack Type</th>
+<th>Voltage Range</th>
+<th>Game Usage (See Game Summaries)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OUTPUT 1</td>
+<td>CV or Gate</td>
+<td>0–5V CV; Gate</td>
+<td>Game-specific: CV (1V/Oct), gate, clock</td>
+</tr>
+<tr>
+<td>OUTPUT 2</td>
+<td>CV or Gate</td>
+<td>0–5V CV; Gate</td>
+<td>Game-specific: CV (1V/Oct), gate, clock</td>
+</tr>
+<tr>
+<td>OUTPUT 3</td>
+<td>Gate only</td>
+<td>~5V (typ.)</td>
+<td>Game-specific: gate only</td>
+</tr>
+<tr>
+<td>OUTPUT 4</td>
+<td>Gate only</td>
+<td>~5V (typ.)</td>
+<td>Game-specific: gate only</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>CV Outputs calibrated 1V/Octave, 0–5V (for melody CV, random CV, etc.)</strong></li>
+<li><strong>See individual game for which jack does what.</strong></li>
+</ul>
+<hr />
+<h2><strong>Game Summaries</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Game</th>
+<th>Description</th>
+<th>Key Controls</th>
+<th>Outputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1: Meteor Shower</strong></td>
+<td>Arcade-style, dodge meteors; random voltage &amp; gates from explosions</td>
+<td>Joystick: Move; JBtn: # of meteors (hold); Mode: Autopilot</td>
+<td>O1: Random CV (1V/oct, 0–5V) (on ship/meteor); O2: Gate (on ship/meteor); O3: Gate (meteor/ground); O4: Step clock</td>
+</tr>
+<tr>
+<td><strong>2: Music Sequencer</strong></td>
+<td>Classic 1–32 step CV/gate; per-step voltages</td>
+<td>JS: Left/right: step, up/down: CV, JBtn: Toggle step (hold: set last), Mode: Dir</td>
+<td>O1+O2: CV (1V/oct, 0–5V); O3: Gate on active step; O4: Step clock</td>
+</tr>
+<tr>
+<td><strong>3: Drum Sequencer</strong></td>
+<td>Four 16-step gate sequencers (percussion)</td>
+<td>JS: Move cursor; JBtn: Toggle step (hold: set last); Mode: Flip seqs</td>
+<td>O1: Top green seq gate; O2: Top red seq gate; O3: Btm green; O4: Btm red</td>
+</tr>
+<tr>
+<td><strong>4: Time Traveller</strong></td>
+<td>4 outruns "grid", 2D clock divider (div 1–8, offset)</td>
+<td>JS: Move select out; JBtn: Change selected out; Mode: Free roam (random movement)</td>
+<td>O1–O4: Gate when given out overlays green clock div</td>
+</tr>
+<tr>
+<td><strong>5: Probability Machine</strong></td>
+<td>2D probability field for complex/chaotic CV/gate</td>
+<td>JS: Red arrow pos; JBtn: Complexity (1–4); Mode: Computer control</td>
+<td>O1: Rand CV w/ O3 gate; O2: Rand CV w/ O4 gate (1V/oct, 0–5V); O3: Gate; O4: Gate</td>
+</tr>
+<tr>
+<td><strong>6: Euclidean Rhythms</strong></td>
+<td>Euclidean gate generator (geo patterns)</td>
+<td>JS: L/R: seq len, U/D: # of beats, JBtn: Invert pattern; Mode: Dir</td>
+<td>O1: Random CV (active step, 1V/oct, 0–5V); O2: Gate on active step; O3: Gate on inactive; O4: Step clock</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Settings Menu</strong></h2>
+<p>Press and hold <strong>GAME</strong> button (2s), use joystick to cycle, GAME to exit.
+- <strong>1. Clock Source:</strong> Internal (tap tempo via CLOCK) / External (use CLOCK jack; CLOCK btn is divider)
+- <strong>2. Display Brightness</strong>
+- <strong>3. Gate Length:</strong> 40/80/160/240ms
+- <strong>4. Factory Reset:</strong> JS UP ×3, explosion confirms
+- <strong>5. Static Voltages:</strong> Select + calibrate CV outputs (adjust trim for 1V/oct 0–5V)</p>
+<hr />
+<h2><strong>Voltage/CV Details</strong></h2>
+<ul>
+<li>All CV outputs: <strong>0–5V, 1V/Octave calibration</strong> where applicable.</li>
+<li>Gates: <strong>~0–5V typical</strong>.</li>
+<li>CV/Gate input triggers: <strong>Any voltage above trigger threshold (spec not given; typically &gt;+2V in Eurorack).</strong></li>
+</ul>
+<hr />
+<h2><strong>Links</strong></h2>
+<p><a href="https://pittsburghmodular.com/storage/manuals/GameSystemManual.pdf">Game System Manual PDF</a><br />
+<a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

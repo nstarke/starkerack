@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Arturia_Keystep_Pro</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Arturia — Keystep Pro</h1>
+<ul>
+<li><a href="../../manuals/keystep-pro_Manual_1_1_0_EN.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.arturia.com/pdf/KeyStep_Pro_EN.pdf">Arturia KeyStep Pro – Full User Manual PDF</a></p>
+<hr />
+<h1>Arturia KeyStep Pro – Eurorack Cheat Sheet</h1>
+<p><em>(Controller/Sequencer for Modular &amp; MIDI Gear - Essentials Guide)</em></p>
+<hr />
+<h2>Hardware Overview</h2>
+<ul>
+<li><strong>Type:</strong> 37-key MIDI/CV controller &amp; sequencer</li>
+<li><strong>Power:</strong> 12V DC, 1.0A (Center Positive)</li>
+<li><strong>Computer Connection:</strong> USB MIDI Class Compliant  </li>
+<li><strong>Standalone:</strong> Yes (DC power jack)</li>
+</ul>
+<hr />
+<h2>I/O Connections</h2>
+<h3><strong>Analog Voice Outputs (for Modular)</strong></h3>
+<ul>
+<li><strong>Voice Outs (1–4):</strong></li>
+<li><strong>Pitch CV (1V/Oct, 1.2V/Oct, or Hz/V)</strong><ul>
+<li><strong>Range:</strong> 0–10V (assignable per voice)</li>
+<li><strong>Set in Utility/MIDI Control Center</strong></li>
+<li><strong>Default:</strong> 1V/Oct for Eurorack</li>
+</ul>
+</li>
+<li><strong>Velo/Mod CV (velocity or aftertouch, assignable)</strong><ul>
+<li><strong>Range:</strong> 0–10V (max settable 1–10V)</li>
+<li><strong>Default:</strong> Velocity</li>
+</ul>
+</li>
+<li><strong>Gate CV</strong><ul>
+<li><strong>Range:</strong> 0 or +5V/+10V (V-Trig, S-Trig selectable)</li>
+<li><strong>Default:</strong> +5V (V-Trig)</li>
+</ul>
+</li>
+</ul>
+<h3><strong>Drum Gates (Track 1/Drum Mode)</strong></h3>
+<ul>
+<li><strong>Outputs 1–8:</strong>  </li>
+<li><strong>Trig/Gate:</strong> 0V/+5V (or +12V, S-Trig assignable)</li>
+<li><strong>For triggering modular drums or EGs</strong></li>
+<li><strong>Drum outputs map to the lowest 8 keys</strong>  </li>
+<li><strong>MIDI Note assignment customizable</strong></li>
+</ul>
+<h3><strong>Clock Section</strong></h3>
+<ul>
+<li><strong>In:</strong> Accepts 1 pulse/step, 2/step, 24ppq, 48ppq (0–5V)</li>
+<li><strong>Out:</strong> Outputs settable clock types (same rates, 0–5V)</li>
+<li><strong>Reset Out:</strong> +5V, 4ms pulse (when STOP/RESET sent)</li>
+</ul>
+<h3><strong>MIDI Section</strong></h3>
+<ul>
+<li><strong>MIDI In:</strong> 5-pin DIN</li>
+<li><strong>MIDI Out 1/Out 2:</strong> 5-pin DIN (x2)</li>
+<li><strong>Can send/receive all MIDI notes, CCs, sync, transport</strong></li>
+</ul>
+<h3><strong>USB MIDI</strong></h3>
+<ul>
+<li><strong>Type B port</strong></li>
+<li>Class compliant – driverless. Can power via USB but hardware recommends using power supply for modular/CV use.</li>
+</ul>
+<h3><strong>Power</strong></h3>
+<ul>
+<li><strong>12V DC</strong>, center positive, 1A, barrel connector</li>
+</ul>
+<hr />
+<h2>Controls</h2>
+<h3><strong>Knobs/Encoders</strong></h3>
+<p><strong>Main Encoders (x5, touch-sensitive):</strong>
+  1. Pitch
+  2. Gate length
+  3. Velocity
+  4. Time Shift
+  5. Randomness</p>
+<ul>
+<li><strong>Function depends on mode:</strong>  </li>
+<li><strong>Seq/Drum:</strong> Encode step parameters  </li>
+<li><strong>Control Mode:</strong> Send MIDI CCs (assignable)</li>
+</ul>
+<p><strong>Tempo/Fine</strong><br />
+- Set project/global tempo, or shift for fine adjust</p>
+<p><strong>Swing/Offset</strong><br />
+- Set swing per-sequence/project (+track offset with Shift)</p>
+<p><strong>Metronome Level (back panel)</strong><br />
+- Retractable knob</p>
+<hr />
+<h3><strong>Buttons</strong></h3>
+<ul>
+<li><strong>Transport:</strong> PLAY, STOP, RECORD/QUANTIZE</li>
+<li><strong>Step (16):</strong> For programming, selecting, copy, page select (for steps 1–64)</li>
+<li><strong>Track (1–4):</strong> Select sequencer/track</li>
+<li><strong>Seq/Arp/Drum:</strong> Toggle track mode (Track 1 = Drum, 2-4 = Arp)</li>
+<li><strong>Pattern, Scene, Chain:</strong> Pattern and arrangement management</li>
+<li><strong>Mute/Solo:</strong> Per-track</li>
+<li><strong>Overdub, Tie/Rest/Chord, Hold, Transpose, Shift</strong></li>
+<li><strong>Looper touch strip:</strong> Live loop length &amp; position</li>
+</ul>
+<hr />
+<h3><strong>Keybed</strong></h3>
+<ul>
+<li>37 SlimKeys, velocity + aftertouch</li>
+<li><strong>Oct +/−, Pitch strip, Mod strip:</strong> Touch controls</li>
+</ul>
+<hr />
+<h2>CV/Gate, Input/Output Reference &amp; Voltage Ranges</h2>
+<table>
+<thead>
+<tr>
+<th>Jack Name</th>
+<th>Type</th>
+<th>Signal</th>
+<th>Voltage Range</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Voice 1–4 Pitch</td>
+<td>Output</td>
+<td>CV (1V/Oct, etc)</td>
+<td>0–10V (default)</td>
+<td>Eurorack, Buchla, Hz/V assign.</td>
+</tr>
+<tr>
+<td>Voice 1–4 Velo/Mod</td>
+<td>Output</td>
+<td>CV</td>
+<td>0–10V (default)</td>
+<td>Velocity or Aftertouch</td>
+</tr>
+<tr>
+<td>Voice 1–4 Gate</td>
+<td>Output</td>
+<td>Trigger/Gate</td>
+<td>0/+5V (default), +10V</td>
+<td>V-Trig/S-Trig select</td>
+</tr>
+<tr>
+<td>Drum 1–8</td>
+<td>Output</td>
+<td>Trigger/Gate</td>
+<td>0/+5V (default), +12V</td>
+<td>For modular drum triggers</td>
+</tr>
+<tr>
+<td>Clock In</td>
+<td>Input</td>
+<td>Sync Pulse</td>
+<td>0–5V (typical, TTL)</td>
+<td>1step to 48ppq</td>
+</tr>
+<tr>
+<td>Clock Out</td>
+<td>Output</td>
+<td>Sync Pulse</td>
+<td>0–5V (typical, TTL)</td>
+<td>Configurable ppq</td>
+</tr>
+<tr>
+<td>Reset Out</td>
+<td>Output</td>
+<td>Gate</td>
+<td>+5V/4ms pulse</td>
+<td>Step/sequence reset</td>
+</tr>
+<tr>
+<td>MIDI In</td>
+<td>Input</td>
+<td>MIDI DIN</td>
+<td>—</td>
+<td>Standard MIDI</td>
+</tr>
+<tr>
+<td>MIDI Out 1/2</td>
+<td>Output</td>
+<td>MIDI DIN</td>
+<td>—</td>
+<td>Standard MIDI</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>Bi-dir</td>
+<td>USB MIDI</td>
+<td>—</td>
+<td>Sends/receives MIDI</td>
+</tr>
+<tr>
+<td>Sustain</td>
+<td>Input</td>
+<td>Footswitch</td>
+<td>—</td>
+<td>Momentary</td>
+</tr>
+<tr>
+<td>Metronome Out</td>
+<td>Output</td>
+<td>Audio (click)</td>
+<td>Line level</td>
+<td>For click track</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>Input</td>
+<td>12V DC, 1A</td>
+<td>—</td>
+<td>2.1mm ID, 5.5mm OD, C+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Key Performance Functions</h2>
+<ul>
+<li><strong>Four Sequencers or three + drum sequencer</strong></li>
+<li><strong>Poly sequencing:</strong> Up to 16 notes per step  </li>
+<li><strong>Step input, realtime input, overdub</strong>  </li>
+<li><strong>Arpeggios:</strong> 3 tracks, multiple modes, scales/octave/patt</li>
+<li><strong>CV Assign:</strong> Route any track to any CV out</li>
+<li><strong>Drum Triggers:</strong> Track 1 only, polymeters possible</li>
+<li><strong>Instant pattern change, pattern chains/scenes</strong></li>
+<li><strong>Flexible clocking:</strong> MIDI, DIN, analog</li>
+<li><strong>SHIFT shortcuts everywhere:</strong> Step operations, scale, root, CV assignment, pattern ops, time division...</li>
+</ul>
+<hr />
+<h2>Programming &amp; Performance Quick Tips</h2>
+<ul>
+<li><strong>Connect to Modular:</strong></li>
+<li>CV/Gate as described above; set correct standard (1V/Oct, V-trig, etc) in Utility or MIDI Control Center</li>
+<li>Use Drum Gate outputs for triggering modular drums</li>
+<li><strong>Split keyboard:</strong> Two tracks, upper/lower split (hold two Track buttons, set split note)</li>
+<li><strong>Assign CV:</strong></li>
+<li><code>SHIFT + G#/A/A#/B</code> (top octave): Route track to any CV voice(es)</li>
+<li><strong>Set scales quickly:</strong>  </li>
+<li><code>SHIFT + Key</code> (upper row, blue text) for scale select, root, and custom scales</li>
+<li><strong>Polyrhythms:</strong>  </li>
+<li>Track length, polymeter per Drum track (Drum mode Poly)</li>
+<li><strong>Pattern management:</strong></li>
+<li>Copy, paste, clear, undo, chain, scenes all accessible with dedicated/shift + buttons.</li>
+</ul>
+<hr />
+<h2>Control Summary (Knobs, Buttons, Controls)</h2>
+<ul>
+<li><strong>Knobs/Encoders:</strong></li>
+<li>5x Encoder (Pitch, Gate, Velocity, Time Shift, Random), 1x Tempo, 1x Swing</li>
+<li>Metronome level (back panel)</li>
+<li><strong>Switches/Buttons</strong></li>
+<li>Per above - Transport, Track select/mode, Pattern, Scene, Chain, Step, Mute, Solo, Utility, Control, Overdub, Hold, Chord, Tie/Rest, Octave, Looper</li>
+<li><strong>Touchstrips:</strong> Pitch, Mod, Looper (horizontal)</li>
+</ul>
+<h3><strong>SHIFT + [Key]</strong></h3>
+<ul>
+<li>Pattern direction, scale, root, time division, chord mode, CV routing, clear, nudge, quantize, transpose, step skip, etc.</li>
+</ul>
+<hr />
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://manuals.arturia.com/pdf/KeyStep_Pro_EN.pdf">Full Manual PDF (Arturia)</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+<hr />
+<h3><strong>Modular Setup Reminder</strong></h3>
+<ul>
+<li>Always power off before connecting CV/Gate!</li>
+<li>Confirm voltage/trig standard with your synthesizer's documentation.</li>
+<li>Use MIDI Control Center or Utility menu for advanced configuration.</li>
+</ul>
+<hr />
+<p><em>This cheat sheet covers essentials for modular/Eurorack users. For deep dives (scenes, DAW integration, firmware-specific features), refer to the full manual above.</em></p>
+</body>
+</html>

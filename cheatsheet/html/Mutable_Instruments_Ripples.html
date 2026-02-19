@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Ripples</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Ripples</h1>
+<ul>
+<li><a href="../../manuals/Manual - Mutable Instruments Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/ripples/manual.pdf"><strong>Ripples 2020 Manual PDF</strong></a><br />
+<em>(Note: Replace with the actual PDF link if available; Mutable Instruments usually hosts manuals here.)</em></p>
+<hr />
+<h1>Mutable Instruments Ripples 2020 — Cheat Sheet</h1>
+<h2><strong>OVERVIEW</strong></h2>
+<ul>
+<li><strong>Type:</strong> Eurorack analog multimode VCF (Voltage Controlled Filter)</li>
+<li><strong>Modes:</strong> High-pass, Band-pass, Low-pass</li>
+<li><strong>Features:</strong> Switchable 2-pole/4-pole for BP/LP, voltage-controlled resonance, soft-limiting, built-in VCA on LP out</li>
+</ul>
+<hr />
+<h2><strong>FRONT PANEL CONTROLS</strong></h2>
+<p><strong>A. Cutoff Frequency (knob)</strong>
+- Range: 20 Hz → 20 kHz</p>
+<p><strong>B. Filter Slope (toggle switch)</strong>
+- 2-pole (12dB/oct; down)
+- 4-pole (24dB/oct; up)
+- <em>Affects BP and LP outputs only</em></p>
+<p><strong>C. Resonance (knob)</strong>
+- Self-oscillation: ~75% and up</p>
+<p><strong>D. Input 1 Level (knob)</strong>
+- Gain: 0 → 5 (soft clip = overdrive at high setting)</p>
+<p><strong>E. FM Attenuverter (knob)</strong>
+- Adjusts amount &amp; polarity of cutoff modulation via FM CV input</p>
+<hr />
+<h2><strong>INPUTS &amp; OUTPUTS SUMMARY</strong></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Jack</th>
+<th style="text-align: center;">Function</th>
+<th style="text-align: center;">Voltage Range</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">In 1</td>
+<td style="text-align: center;">Audio input 1</td>
+<td style="text-align: center;">Modular level</td>
+<td style="text-align: left;">Soft-clipping circuit for overdrive</td>
+</tr>
+<tr>
+<td style="text-align: center;">In 2</td>
+<td style="text-align: center;">Audio input 2</td>
+<td style="text-align: center;">Modular level</td>
+<td style="text-align: left;">Clean input, vintage tone</td>
+</tr>
+<tr>
+<td style="text-align: center;">FM (CV)</td>
+<td style="text-align: center;">Cutoff CV (FM) input</td>
+<td style="text-align: center;">±5V typical</td>
+<td style="text-align: left;">Mod amount set by E; responds to attenuverter</td>
+</tr>
+<tr>
+<td style="text-align: center;">V/OCT</td>
+<td style="text-align: center;">1V/oct cutoff tracking</td>
+<td style="text-align: center;">0–5V (typical)</td>
+<td style="text-align: left;">Keyboard/sequencer pitch CV in</td>
+</tr>
+<tr>
+<td style="text-align: center;">RES (CV)</td>
+<td style="text-align: center;">Resonance voltage control</td>
+<td style="text-align: center;">0–5V</td>
+<td style="text-align: left;">Exponential response</td>
+</tr>
+<tr>
+<td style="text-align: center;">LP GAIN (CV)</td>
+<td style="text-align: center;">VCA for LP output</td>
+<td style="text-align: center;">0V = mute;<br>5V = 1x</td>
+<td style="text-align: left;">&gt;5V compresses; 7V normalized if unpatched</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>HP OUT</strong></td>
+<td style="text-align: center;">High-pass output</td>
+<td style="text-align: center;">Modular audio</td>
+<td style="text-align: left;">Slope varies w/ resonance</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>BP OUT</strong></td>
+<td style="text-align: center;">Band-pass output</td>
+<td style="text-align: center;">Modular audio</td>
+<td style="text-align: left;">2-/4-pole selectable</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>LP OUT</strong></td>
+<td style="text-align: center;">Low-pass output</td>
+<td style="text-align: center;">Modular audio</td>
+<td style="text-align: left;">2-/4-pole selectable, final output has VCA</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>USAGE TIPS</strong></h2>
+<ul>
+<li><strong>Mix both audio inputs</strong> for more complex filtering (Input 1 for overdrive, Input 2 for clean).</li>
+<li><strong>Select filter slope</strong> with the B switch (only BP/LP).</li>
+<li><strong>Voltage-control resonance</strong> via Res CV for animated textures &amp; pinging.</li>
+<li><strong>Self-oscillation:</strong> Use as a sine oscillator if resonance is up.</li>
+<li><strong>VCA on LP out:</strong> Use LP Gain CV for dynamic level modulation or remove cable to use default 7V (fully open).</li>
+<li><strong>1V/Oct tracking:</strong> Use V/OCT input if you want filter cutoff tracked by sequencer/keyboard (calibrate as needed).</li>
+</ul>
+<hr />
+<h2><strong>CALIBRATION SUMMARY</strong></h2>
+<ol>
+<li>FREQ ~10 o'clock, RES max, no input or FM CV.</li>
+<li>Connect keyboard/sequencer to V/OCT.</li>
+<li>Listen to LP out, adjust on-board trimmer for proper octave tracking (~4 octaves).</li>
+</ol>
+<hr />
+<h2><strong>Power Requirements</strong></h2>
+<ul>
+<li>+12V: 35mA; -12V: 35mA  </li>
+<li>Connect bus cable with -12V (red stripe) matching markings.</li>
+</ul>
+<hr />
+<h3><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></h3>
+</body>
+</html>

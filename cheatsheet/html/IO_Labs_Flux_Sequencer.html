@@ -1,0 +1,369 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>IO_Labs_Flux_Sequencer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>IO Labs — Flux Sequencer</h1>
+<ul>
+<li><a href="../../manuals/IO Labs - Flux Sequencer - 107 User Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://iolabs.co.uk/flux/Open_Beta_Flux_v1_07_Manual.pdf"><strong>Flux Open Beta V1.07 User Manual (PDF)</strong></a></p>
+<hr />
+<h1>FLUX Eurorack Sequencer Cheat Sheet</h1>
+<p>A quick-reference guide for using the IOLabs FLUX Temporal Modulation Synthesis® Eurorack module.</p>
+<hr />
+<h2>Overview</h2>
+<p><strong>FLUX</strong>: A four-channel, 16-step rhythm and CV sequencer featuring novel "Temporal Modulation Synthesis" (TMS) for advanced polyrhythm and timing, per-step parameter locking, internal modulation, and full MIDI and CV support.</p>
+<h3>Power Consumption</h3>
+<ul>
+<li><strong>+12V:</strong> 160mA</li>
+<li><strong>-12V:</strong> 50mA</li>
+<li><strong>5V:</strong> Not used</li>
+</ul>
+<hr />
+<h2>Connections</h2>
+<h3>Outputs (0–8V for CV outs)</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Range/Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>CH1 Main Rhythm Out (gate/trigger)</td>
+<td>0–5V or 0–8V (typical trigger/gate)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>CH1 Aux 1 Rhythm Out</td>
+<td>0–5V or 0–8V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>CH1 Aux 2 Rhythm Out</td>
+<td>0–5V or 0–8V</td>
+</tr>
+<tr>
+<td>4</td>
+<td>CH1 CV Out</td>
+<td>0–8V</td>
+</tr>
+<tr>
+<td>5</td>
+<td>CH2 Main Rhythm Out</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>CH2 Aux 1 Rhythm Out</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>CH2 Aux 2 Rhythm Out</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>CH2 CV Out</td>
+<td>0–8V</td>
+</tr>
+<tr>
+<td>9</td>
+<td>CH3 Main Rhythm Out</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>CH3 Aux 1 Rhythm Out</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>CH3 Aux 2 Rhythm Out</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>CH3 CV Out</td>
+<td>0–8V</td>
+</tr>
+<tr>
+<td>13</td>
+<td>CH4 Main Rhythm Out</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>CH4 Aux 1 Rhythm Out</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>CH4 Aux 2 Rhythm Out</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>CH4 CV Out</td>
+<td>0–8V</td>
+</tr>
+</tbody>
+</table>
+<h3>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Range/Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>17</td>
+<td>External Clock</td>
+<td>0–8V logic-level pulses</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Reset</td>
+<td>0–8V trigger/gate</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Start/Stop</td>
+<td>0–8V logic</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Mute All Rhythm Outs</td>
+<td>0–8V logic</td>
+</tr>
+<tr>
+<td>21</td>
+<td>CV In A</td>
+<td>0–8V</td>
+</tr>
+<tr>
+<td>22</td>
+<td>CV In B</td>
+<td>0–8V</td>
+</tr>
+<tr>
+<td>23</td>
+<td>CV In C</td>
+<td>0–8V</td>
+</tr>
+<tr>
+<td>24</td>
+<td>CV In D</td>
+<td>0–8V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Panel Elements</h2>
+<h3>Pots &amp; Encoders</h3>
+<table>
+<thead>
+<tr>
+<th>No.</th>
+<th>Name</th>
+<th>Function</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25</td>
+<td>Macro Pot 1</td>
+<td>Manual modulation source</td>
+<td>Assignable to parameters</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Macro Pot 2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>Macro Pot 3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Macro Pot 4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Navigation Encoder</td>
+<td>Selects parameters/pages (push = channel -)</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>Param Encoder</td>
+<td>Changes parameter value (push = channel +)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Buttons</h3>
+<table>
+<thead>
+<tr>
+<th>No.</th>
+<th>Button</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>31</td>
+<td>Coarse Nav/Param (*)</td>
+<td>Coarse (xN) navigation or parameter change</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Edit All (ALL)</td>
+<td>Edit all steps at once</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Micro SD</td>
+<td>Micro SD menu (load/save/rename presets)</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Step Select &lt;&lt;</td>
+<td>Previous step</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Step Select &gt;&gt;</td>
+<td>Next step</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Step On/Off</td>
+<td>Toggle step on/off</td>
+</tr>
+<tr>
+<td>37</td>
+<td>MOD</td>
+<td>Enter modulation pages (Evolve LFO, Macro Pots, CV Inputs)</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Start/Stop</td>
+<td>Start or Stop sequencer</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Quick Parameter Guide</h2>
+<h3>Rhythm Parameters (Per Step, Channel)</h3>
+<ul>
+<li><strong>PROB:</strong> Probability % (step or per-trigger)</li>
+<li><strong>LOOP:</strong> Sequence loop range (start &gt; end)</li>
+<li><strong>MOD:</strong> Select modulation bus (Yellow/Grey/Purple)</li>
+<li><strong>GATE:</strong> Gate length (% of step/trigger time)</li>
+<li><strong>DENS:</strong> Trigger density (# per step)</li>
+<li><strong>CURV:</strong> Temporal curve type</li>
+<li><strong>VAL:</strong> Temporal curve value (log/lin/exp)</li>
+<li><strong>DIFF:</strong> Curve division parameter</li>
+<li><strong>COMP:</strong> Compression/expansion of triggers</li>
+<li><strong>PHAS:</strong> Phase shift (in degrees)</li>
+<li><strong>LENG:</strong> Step length (in 16ths)</li>
+<li><strong>HUMA:</strong> Humanize (1–127, subtle/extreme)</li>
+<li><strong>MASK:</strong> Logical mute mask (e.g. 1in2, 2in3)</li>
+<li><strong>MSK&gt;:</strong> Mask shift (starting trigger)</li>
+<li><strong>AUX1/AUX2:</strong> Select auxiliary output mode (see below)</li>
+</ul>
+<h3>CV Output Parameters (Per Step, Channel)</h3>
+<ul>
+<li><strong>CVSEL:</strong> LFO, Envelope, Voltage, Random</li>
+<li><strong>S+H:</strong> Sample &amp; Hold (per step/trigger)</li>
+<li><strong>MINV/MAXV:</strong> Min/Max CV output (0–8V)</li>
+<li><strong>ATK/REL:</strong> Attack/Release (Envelope modes, ms?)</li>
+<li><strong>CURV:</strong> Attack/Release curve shape</li>
+<li><strong>FREQ:</strong> LFO frequency (Hz or divisions)</li>
+<li><strong>SYNC:</strong> LFO/envelope retrigger mode (step/trig)</li>
+<li><strong>QUAN:</strong> # of quantization nodes per V/oct (1–24)</li>
+<li><strong>QUAN NODES:</strong> Enable/disable individual quant steps</li>
+</ul>
+<hr />
+<h2>Aux Output Modes (Per Step, Per Out)</h2>
+<ul>
+<li><strong>OFF:</strong> No out</li>
+<li><strong>ON:</strong> High while running</li>
+<li><strong>START/SOS/1st/Last:</strong> Trig at start-of-sequence/step/first/last</li>
+<li><strong>DEL1–8:</strong> Delayed main rhythm out, 1–8 steps/gates</li>
+<li><strong>TL1–16:</strong> Clock divider by N</li>
+<li><strong>&amp;, !&amp;, ||, !||, x|| (AND/OR logic):</strong> Real-time logic on main/AUX outs</li>
+<li><strong>CV&gt;1–7V / CV&lt;1–7V:</strong> Out high if CV above/below threshold</li>
+<li><strong>PPQ 1–48:</strong> Clock generator, pulses-per-quarter</li>
+<li><strong>/1–16:</strong> Master divider</li>
+</ul>
+<hr />
+<h2>Modulation Buses</h2>
+<ul>
+<li><strong>Yellow, Grey, Purple:</strong> Assignable per step for selective modulation routing (manual pots, CV, evolve-LFO modulation)</li>
+</ul>
+<hr />
+<h2>Workflow—Basic Steps</h2>
+<ol>
+<li><strong>Install &amp; Power</strong>: Mount, use correct ribbon orientation (red stripe = -12V).  </li>
+<li><strong>Select Channel/Step</strong>: Use encoders (push left = previous, right = next channel; &gt;&gt;/&lt;&lt; for steps).</li>
+<li><strong>Set Parameters</strong>: On main UI, use left encoder to select, right to change.</li>
+<li><strong>Edit All Steps</strong>: Press ALL, edit applies to all steps.</li>
+<li><strong>Setup Modulation</strong>: Press MOD for modulation pages (Evolve LFOs, Macro Pots, CV Ins). Assign depths/destinations.</li>
+<li><strong>Sequence/Loop</strong>: Adjust LOOP/step count, per-step densities, and TMS (CURV/VAL) for unique grooves.</li>
+<li><strong>Aux Logic Outs</strong>: Assign per-step utility clocks, logic/gates, delay, dividers.</li>
+<li><strong>CV Outs</strong>: Set mode and range for envelopes, LFOs, or stepped voltages—use quantization for pitch output.</li>
+<li><strong>Presets</strong>: Press Micro SD to Save/Load. Name up to 8 characters.  </li>
+<li><strong>Start/Stop</strong>: Use button or external input/MIDI (configure clock mode in CONFIG).</li>
+</ol>
+<h3>MIDI</h3>
+<ul>
+<li>Full clock, note &amp; control support (see iolabs.co.uk/downloads for MIDI guide)</li>
+</ul>
+<hr />
+<h2>Display</h2>
+<ul>
+<li>IPS. Mount flat for best viewing.</li>
+<li>Blinking * = coarse mode; ALL = all-steps editing.</li>
+</ul>
+<hr />
+<h2>Tips &amp; Pitfalls</h2>
+<ul>
+<li><strong>No Triggers?</strong> Check PHAS, COMP, DENS, MASK, and MOD bus assignment.</li>
+<li><strong>Dropped Triggers:</strong> Lower DENS if slave devices can't keep up.</li>
+<li><strong>External Sync:</strong> Prefer EXTS clock mode for best DAW/clock integration.</li>
+<li><strong>CV Outs:</strong> 0–8V range, quantize as needed.</li>
+<li><strong>Preset Auto-load:</strong> Last loaded/saved preset loads on next power-up.</li>
+</ul>
+<hr />
+<h2>Reference Links</h2>
+<ul>
+<li><a href="https://iolabs.co.uk/flux/Open_Beta_Flux_v1_07_Manual.pdf"><strong>Official Manual PDF</strong></a></li>
+<li><a href="https://iolabs.co.uk/downloads"><strong>Support/Downloads</strong></a></li>
+<li><a href="mailto:flux@iolabs.co.uk"><strong>Contact</strong></a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

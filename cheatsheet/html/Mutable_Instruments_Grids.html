@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Grids</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Grids</h1>
+<ul>
+<li><a href="../../manuals/Manual - Mutable Instruments Grids Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/grids/manual.pdf"><strong>Mutable Instruments Grids Manual (PDF)</strong></a></p>
+<hr />
+<h1>Mutable Instruments Grids Cheat Sheet</h1>
+<h3>Overview</h3>
+<p>Grids is a 3-channel clock-driven trigger generator designed to create and morph rhythmic drum patterns. It interpolates between learned rhythms on a 2D map (X/Y), with adjustable density ("fill") and randomization ("chaos"). 3 outputs are typically for BD (kick), SD (snare), and HH (hi-hat), but can be patched freely.</p>
+<hr />
+<h2>Panel Controls</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Control Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>Knob</td>
+<td>Internal clock rate: 40–240 BPM (fully CCW disables internal clock; expects external clock)</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>Button</td>
+<td>Tap/Reset: Tap twice for tempo, tap once to unlock CLOCK knob. Flashes on beat.</td>
+</tr>
+<tr>
+<td><strong>C1</strong></td>
+<td>Knob</td>
+<td>Map X: Selects X-position on rhythm map (CV-controllable 0–5V)</td>
+</tr>
+<tr>
+<td><strong>C2</strong></td>
+<td>Knob</td>
+<td>Map Y: Selects Y-position on rhythm map (CV-controllable 0–5V)</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>Knob</td>
+<td>Chaos: Amount of randomization/ghost notes (CV-controllable 0–5V)</td>
+</tr>
+<tr>
+<td><strong>E1</strong></td>
+<td>Knob</td>
+<td>Fill 1 Density (BD): Channel 1 density (CV-controllable 0–5V)</td>
+</tr>
+<tr>
+<td><strong>E2</strong></td>
+<td>Knob</td>
+<td>Fill 2 Density (SD): Channel 2 density (CV-controllable 0–5V)</td>
+</tr>
+<tr>
+<td><strong>E3</strong></td>
+<td>Knob</td>
+<td>Fill 3 Density (HH): Channel 3 density (CV-controllable 0–5V)</td>
+</tr>
+<tr>
+<td></td>
+<td>3 LEDs</td>
+<td>Indicate clock resolution, tap/reset, swing, euclidean mode, triggers/gates, and output layout (in options mode)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Input &amp; Output Jack Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLOCK</td>
+<td>Input</td>
+<td>External clock input; active if INT clock off (A fully CCW).</td>
+<td>0–+5V (higher OK)</td>
+</tr>
+<tr>
+<td>RESET</td>
+<td>Input</td>
+<td>External reset (pattern start)</td>
+<td>0–+5V (higher OK)</td>
+</tr>
+<tr>
+<td>MAP X</td>
+<td>CV Input</td>
+<td>Modulate X position (C1)</td>
+<td>0–5V (sum with knob)</td>
+</tr>
+<tr>
+<td>MAP Y</td>
+<td>CV Input</td>
+<td>Modulate Y position (C2)</td>
+<td>0–5V (sum with knob)</td>
+</tr>
+<tr>
+<td>CHAOS</td>
+<td>CV Input</td>
+<td>Modulate Chaos randomness (D)</td>
+<td>0–5V (sum with knob)</td>
+</tr>
+<tr>
+<td>FILL 1</td>
+<td>CV Input</td>
+<td>Modulate Fill 1 density (E1)</td>
+<td>0–5V (sum with knob)</td>
+</tr>
+<tr>
+<td>FILL 2</td>
+<td>CV Input</td>
+<td>Modulate Fill 2 density (E2)</td>
+<td>0–5V (sum with knob)</td>
+</tr>
+<tr>
+<td>FILL 3</td>
+<td>CV Input</td>
+<td>Modulate Fill 3 density (E3)</td>
+<td>0–5V (sum with knob)</td>
+</tr>
+<tr>
+<td>TRIG 1</td>
+<td>Output</td>
+<td>Channel 1 trigger (BD)</td>
+<td>+5V, 1ms default</td>
+</tr>
+<tr>
+<td>TRIG 2</td>
+<td>Output</td>
+<td>Channel 2 trigger (SD)</td>
+<td>+5V, 1ms default</td>
+</tr>
+<tr>
+<td>TRIG 3</td>
+<td>Output</td>
+<td>Channel 3 trigger (HH)</td>
+<td>+5V, 1ms default</td>
+</tr>
+<tr>
+<td>ACC 1</td>
+<td>Output</td>
+<td>Channel 1 accent</td>
+<td>+5V, 1ms pulse</td>
+</tr>
+<tr>
+<td>ACC 2</td>
+<td>Output</td>
+<td>Channel 2 accent</td>
+<td>+5V, 1ms pulse</td>
+</tr>
+<tr>
+<td>ACC 3</td>
+<td>Output</td>
+<td>Channel 3 accent</td>
+<td>+5V, 1ms pulse</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Under alternate output configuration, ACC outputs can be set to ACC/CLK/RST (see Options below).</p>
+<hr />
+<h2>Quick Start</h2>
+<ol>
+<li><strong>Connect outputs:</strong> TRIG 1, 2, 3 to drum modules.</li>
+<li><strong>Set clock:</strong> Use internal clock (A knob) or patch external clock to CLOCK input (A fully CCW).</li>
+<li><strong>Select rhythm:</strong> Use C1 (Map X) and C2 (Map Y) to pick a rhythm base.</li>
+<li><strong>Set density:</strong> Use E1, E2, E3 to control pattern fill for each channel.</li>
+<li><strong>Chaos:</strong> Turn D knob for probabilistic ghost notes/variation.</li>
+<li><strong>Accent:</strong> Feed ACC outputs to modules for accents.</li>
+</ol>
+<hr />
+<h2>Options Menu (hold TAP/Reset button for 0.5s, unplug CV inputs!)</h2>
+<ul>
+<li>Cycle through settings by turning the specified knob. LEDs indicate mode.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Control</th>
+<th>LEDs On</th>
+<th>LEDs Off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clock Resolution</strong></td>
+<td>E1</td>
+<td>4, 8, 24 ppqn (LEDs show selection)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Tap Tempo/Reset Mode</strong></td>
+<td>E2</td>
+<td>Tap sets TEMPO</td>
+<td>Tap resets pattern</td>
+</tr>
+<tr>
+<td><strong>Swing (internal clock only)</strong></td>
+<td>E3</td>
+<td>CHAOS sets Swing</td>
+<td>CHAOS is randomization</td>
+</tr>
+<tr>
+<td><strong>Euclidean Mode</strong></td>
+<td>C1</td>
+<td>Grids pattern generator</td>
+<td>Euclidean sequencer</td>
+</tr>
+<tr>
+<td><strong>Trig/Gate Output</strong></td>
+<td>C2</td>
+<td>Gates (length = clock hi duration)</td>
+<td>1ms triggers</td>
+</tr>
+<tr>
+<td><strong>Alt ACC Outputs</strong></td>
+<td>D</td>
+<td>ACC/CLK/RST</td>
+<td>ACC1/2/3 (default accent outs)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Power / Installation</h2>
+<ul>
+<li>16HP width, ribbon cable: -12V/+12V (2x5)</li>
+<li>Power: −12V rail = 1mA, +12V rail = 25mA</li>
+<li><strong>Red stripe</strong> must match board marking ("Red stripe")</li>
+</ul>
+<hr />
+<h2>Modulation Summary</h2>
+<ul>
+<li><strong>All major params (Map X, Map Y, Chaos, Fill 1/2/3) are CV-controllable (0–5V). Sum with panel setting.</strong></li>
+<li><strong>CLOCK/RESET expects typical eurorack 0–5V logic.</strong></li>
+<li><strong>Outputs (TRIG, ACC):</strong> +5V logic, 1ms (trigger) or gate (if option set).</li>
+</ul>
+<hr />
+<h2><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></h2>
+</body>
+</html>

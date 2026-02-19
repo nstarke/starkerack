@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Drummer_From_Another_Mother</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Drummer From Another Mother</h1>
+<ul>
+<li><a href="../../manuals/DFAM_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.moogmusic.com/sites/default/files/2018-03/DFAM_Manual_0.pdf">Download the Moog DFAM Manual PDF</a></p>
+<hr />
+<h1>Moog DFAM (Drummer From Another Mother) Eurorack Cheat Sheet</h1>
+<h3>Eurorack Specs</h3>
+<ul>
+<li><strong>Width:</strong> 60HP  </li>
+<li><strong>Max Depth:</strong> 26mm  </li>
+<li><strong>Power Draw:</strong> +12V (230mA max), -12V (Not used)  </li>
+<li><strong>Ribbon:</strong> 10-pin  </li>
+<li><strong>All signals: ±5V (10Vpp) Eurorack compatible</strong></li>
+</ul>
+<hr />
+<h2>Quickstart</h2>
+<ul>
+<li><strong>Power On:</strong> No power switch; powered when adapter is connected or installed in rack.</li>
+<li><strong>Warm-up:</strong> Allow a few minutes after power-on for oscillator/frequency stability.</li>
+</ul>
+<hr />
+<h2>Controls Overview</h2>
+<h3>Knobs</h3>
+<ul>
+<li><strong>VCO 1 Frequency, VCO 2 Frequency:</strong> Set pitch of both oscillators</li>
+<li><strong>VCO 1/2 EG Amount:</strong> Bipolar, amount of envelope to VCO pitch (-/center/+)</li>
+<li><strong>VCO Decay:</strong> Envelope decay for VCO mod.</li>
+<li><strong>VCO 1/2 Level:</strong> Mixer volume for each oscillator</li>
+<li><strong>Noise/Ext Level:</strong> Level for noise generator or external input</li>
+<li><strong>Filter Cutoff:</strong> Master cutoff frequency for filter</li>
+<li><strong>Resonance:</strong> Filter resonance; self-oscillation in LP</li>
+<li><strong>VCF EG Amount:</strong> Bipolar, amount of envelope to cutoff</li>
+<li><strong>VCF Decay:</strong> Envelope decay for filter</li>
+<li><strong>Noise/VCF Mod:</strong> Amount of noise (or CV) modulating filter cutoff</li>
+<li><strong>VCA Decay:</strong> Overall output envelope decay</li>
+<li>
+<p><strong>Mixer Volume:</strong> Output gain</p>
+</li>
+<li>
+<p><strong>8x Pitch Knobs:</strong> Step pitches for sequencer</p>
+</li>
+<li>
+<p><strong>8x Velocity Knobs:</strong> Step velocity for sequencer</p>
+</li>
+<li>
+<p><strong>Sequencer Tempo:</strong> Global tempo</p>
+</li>
+</ul>
+<hr />
+<h3>Switches/Toggles</h3>
+<ul>
+<li><strong>VCO 1 Wave, VCO 2 Wave:</strong> Triangle / Square </li>
+<li><strong>Hard Sync:</strong> Off/On (Osc 2 phase resets to Osc 1)</li>
+<li><strong>Seq Pitch Mod:</strong> [VCO 1&amp;2 / Off / VCO 2]</li>
+<li><strong>Filter Mode:</strong> [Low Pass / High Pass]</li>
+<li><strong>VCA EG:</strong> [Fast/Slow] (Envelope attack speed)</li>
+</ul>
+<hr />
+<h3>Buttons</h3>
+<ul>
+<li><strong>Run/Stop:</strong> Start/stop sequencer</li>
+<li><strong>Advance:</strong> Manually advance sequencer (step)</li>
+<li><strong>Trigger:</strong> Trigger selected step (no advance)</li>
+</ul>
+<hr />
+<h2>Patchbay Reference</h2>
+<blockquote>
+<p><strong>All jacks: 3.5mm.  Inputs: 0–+5V or ±5V, Outputs: ±5V (unless noted).</strong><br />
+<em>(Eurorack ±5V = 10Vpp modular standard)</em></p>
+</blockquote>
+<h3>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack Name</th>
+<th>Description</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TRIGGER</strong></td>
+<td>Fires ENV (all 3 EGs) @ selected velocity</td>
+<td>0–+5V Pulse/Gate (+10V toler)</td>
+</tr>
+<tr>
+<td><strong>VCA CV</strong></td>
+<td>Add'l CV for amp level (summed w/ EG)</td>
+<td>0–+8V</td>
+</tr>
+<tr>
+<td><strong>VELOCITY</strong></td>
+<td>Step ENV max amp</td>
+<td>0–+5V</td>
+</tr>
+<tr>
+<td><strong>VCA DECAY</strong></td>
+<td>Controls VCA envelope decay</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>EXT AUDIO</strong></td>
+<td>Audio in (replaces noise in mixer)</td>
+<td>10Vpp</td>
+</tr>
+<tr>
+<td><strong>VCF DECAY</strong></td>
+<td>Controls VCF envelope decay</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>NOISE LEVEL</strong></td>
+<td>CV for noise/external audio level</td>
+<td>0–+8V</td>
+</tr>
+<tr>
+<td><strong>VCO DECAY</strong></td>
+<td>Controls VCO EG decay</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>VCF MOD</strong></td>
+<td>CV for filter cutoff (replaces noise)</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>VCO 1 CV</strong></td>
+<td>1V/octave control for Oscillator 1</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>1→2 FM AMT</strong></td>
+<td>Mod amount CV (linear FM, VCO1→VCO2)</td>
+<td>0–+8V</td>
+</tr>
+<tr>
+<td><strong>VCO 2 CV</strong></td>
+<td>1V/octave control for Oscillator 2</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>TEMPO</strong></td>
+<td>1V/oct (audio-rate possible)</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>RUN/STOP</strong></td>
+<td>Gate for sequencer (- off, + on)</td>
+<td>0–+5V Gate (+10V tol)</td>
+</tr>
+<tr>
+<td><strong>ADV/CLOCK</strong></td>
+<td>Clock / advance input (external clock)</td>
+<td>0–+5V Clock (+10V tol)</td>
+</tr>
+</tbody>
+</table>
+<h3>Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack Name</th>
+<th>Description</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VCA</strong></td>
+<td>Main audio out (pre volume knob)</td>
+<td>-5V to +5V audio</td>
+</tr>
+<tr>
+<td><strong>VCA EG</strong></td>
+<td>ENV out for VCA</td>
+<td>0–+8V CV (unipolar)</td>
+</tr>
+<tr>
+<td><strong>VCF EG</strong></td>
+<td>ENV out for Filter</td>
+<td>0–+8V CV (unipolar)</td>
+</tr>
+<tr>
+<td><strong>VCO EG</strong></td>
+<td>ENV out for VCO pitch</td>
+<td>0–+8V CV (unipolar)</td>
+</tr>
+<tr>
+<td><strong>VCO 1</strong></td>
+<td>Raw signal out (wave chosen by switch)</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>VCO 2</strong></td>
+<td>Raw signal out (wave chosen by switch)</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td><strong>TRIGGER</strong></td>
+<td>Sequencer clock output</td>
+<td>0–+5V (1ms pulse)</td>
+</tr>
+<tr>
+<td><strong>VELOCITY</strong></td>
+<td>Step velocity CV out</td>
+<td>0–+5V</td>
+</tr>
+<tr>
+<td><strong>PITCH</strong></td>
+<td>Step pitch CV out</td>
+<td>-5V to +5V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Signal Path (Summary)</h2>
+<ol>
+<li><strong>VCO 1 &amp; VCO 2</strong>: Select tri/square waveform, tune frequency, hard sync, FM.</li>
+<li><strong>Mixer</strong>: Blend VCOs and/or Noise/External In.</li>
+<li><strong>VCF</strong>: HP/LP, cutoff, resonance, modulation (EG + Noise/CV).</li>
+<li><strong>VCA</strong>: EG-controlled amplitude, velocity and decay variation.</li>
+<li><strong>Sequencer</strong>: 8 steps, each with pitch &amp; velocity; analog clock &amp; patchable.</li>
+</ol>
+<hr />
+<h2>Tips &amp; Tricks</h2>
+<ul>
+<li>All EG amount knobs are bipolar (negative at left, neutral at center, positive at right).</li>
+<li>Set pitch modulation with SEQ PITCH MOD toggle.</li>
+<li>Use the patchbay to sequence or modulate ANY parameter via CV.</li>
+<li>Noise/EXT Jack can be replaced with external audio (removes noise).</li>
+<li>Filter self-oscillates in low-pass mode with high resonance; can be used as an additional tone source.</li>
+<li>Perfect for cross-modulation (“FM Toys” patch: VCO2 FM’ing filter cutoff!).</li>
+<li>Both Osc1 and Osc2 pitch can be externally controlled (1V/oct).</li>
+<li>Sequencer can act as CV or trigger source for other gear via patch outputs.</li>
+<li>Designed to immediately fit 60HP Eurorack systems.</li>
+<li>All inputs/outputs Eurorack voltages.</li>
+</ul>
+<hr />
+<h2>Troubleshooting</h2>
+<ul>
+<li><strong>No Sound?</strong>  </li>
+<li>Check VCO FREQ, EG AMT, Filter cutoff/resonance, patch section for dead-end connections.</li>
+<li><strong>Levels too low?</strong>  </li>
+<li>EXT IN expects modular level (10Vpp). Amplify external line-level sources.</li>
+</ul>
+<hr />
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://www.moogmusic.com/sites/default/files/2018-03/DFAM_Manual_0.pdf">Moog DFAM Official Manual PDF</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+</body>
+</html>

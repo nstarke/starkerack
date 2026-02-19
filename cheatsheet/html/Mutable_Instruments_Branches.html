@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Branches</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Branches</h1>
+<ul>
+<li><a href="../../manuals/branches_quickstart.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/branches/manual">Branches Manual (PDF)</a></p>
+<hr />
+<h1>Mutable Instruments Branches – Cheat Sheet</h1>
+<p>Dual Bernoulli Gate<br />
+<strong>Purpose:</strong> Route incoming triggers/gates to one of two outputs with voltage-controllable probability, or as a toggle/latchable switch.</p>
+<hr />
+<h2>Input/Output &amp; Controls Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Description</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IN (1, 2)</td>
+<td>Input Jack</td>
+<td>Trigger/gate input (Section 2 normalled to Section 1)</td>
+<td>Standard trigger/gate</td>
+</tr>
+<tr>
+<td>PROB CV (2)</td>
+<td>Input Jack</td>
+<td>CV for probability control (per section)</td>
+<td>0V–5V</td>
+</tr>
+<tr>
+<td>OUT A (3)</td>
+<td>Output Jack</td>
+<td>Trigger/gate output "A"</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>OUT B (4)</td>
+<td>Output Jack</td>
+<td>Trigger/gate output "B"</td>
+<td>+5V</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Knob:</strong><br />
+- <strong>Probability Knob (A):</strong> Adjusts probability between outputs A and B (higher = more to A).<br />
+  - Counterclockwise: Output B only<br />
+  - Center: 50/50 random<br />
+  - Clockwise: Output A only</p>
+<p><strong>Button:</strong><br />
+- <strong>Switch (B):</strong><br />
+  - Quick press: Toggle "Toggle Mode" (output flips only when tails).<br />
+  - Hold (&gt;1s): Toggle "Latch Mode" (output stays high until next trigger on opposite output).</p>
+<hr />
+<h2>Modes</h2>
+<ul>
+<li><strong>Classic (Bernoulli) Gate:</strong>  </li>
+<li>Each input trigger randomly routed to OUT A or OUT B based on probability knob/CV.</li>
+<li>
+<p>In extremes, acts as a VC switch.</p>
+</li>
+<li>
+<p><strong>Toggle Mode:</strong>  </p>
+</li>
+<li>
+<p>Outcome decides whether to keep outputting to the same jack, or flip to the other.</p>
+</li>
+<li>
+<p><strong>Latch Mode:</strong>  </p>
+</li>
+<li>OUT A or OUT B stays high (+5V) until the other output is activated.</li>
+</ul>
+<hr />
+<h2>Power and Other Specs</h2>
+<ul>
+<li><strong>Power:</strong> +12V: 10mA, -12V: 1mA</li>
+<li><strong>Connect power cable so the red stripe (-12V) matches the marked side on the PCB!</strong></li>
+</ul>
+<hr />
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://mutable-instruments.net/modules/branches/manual">Branches Full Manual</a></li>
+<li><a href="https://mutable-instruments.net/forum">Mutable Instruments Forum</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

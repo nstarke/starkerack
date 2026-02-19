@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Korg_Volca_FM2</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Korg — Volca FM2</h1>
+<ul>
+<li><a href="../../manuals/volca-fm2_OM_EFGSCJ3.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p>It looks like the manual you’ve provided is for the <strong>Korg volca fm2</strong>, which is a <em>standalone digital FM synthesizer</em> (not an Eurorack module). However, it features MIDI, analog sync, and 3.5mm jacks which can integrate with modular systems and DAWs via adapters and creative signaling (e.g., with the right analog clocking/conversion and MIDI-to-CV modules).</p>
+<p>Below, you’ll find a concise “cheat sheet" for eurorack-style integration and operational use—perfect for modular synth musicians.</p>
+<hr />
+<h2><a href="https://www.korg.com/us/support/download/manual/0/529/4663/">Korg volca fm2 - Digital FM Synthesizer Manual (PDF)</a></h2>
+<h3>Quick Reference Cheat Sheet</h3>
+<h4>Inputs &amp; Outputs</h4>
+<table>
+<thead>
+<tr>
+<th>Jack/Port</th>
+<th>Type</th>
+<th>Description &amp; Specs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DC 9V</strong></td>
+<td>Power</td>
+<td>DC power input (use only specified Korg adapter)</td>
+</tr>
+<tr>
+<td><strong>Headphones</strong></td>
+<td>3.5mm TRS</td>
+<td>Mini-jack stereo audio output; plugging in mutes the built-in speaker</td>
+</tr>
+<tr>
+<td><strong>SYNC IN</strong></td>
+<td>3.5mm TS</td>
+<td>Analog clock in; 20V max input; triggers sequencer steps</td>
+</tr>
+<tr>
+<td><strong>SYNC OUT</strong></td>
+<td>3.5mm TS</td>
+<td>Analog clock out; 5V pulse output at each 16-step sequencer step (15 ms)</td>
+</tr>
+<tr>
+<td><strong>MIDI IN</strong></td>
+<td>3.5mm TRS</td>
+<td>MIDI - Type A (adapter to DIN needed); accepts note, CC, SYX (DX7)</td>
+</tr>
+<tr>
+<td><strong>MIDI OUT</strong></td>
+<td>3.5mm TRS</td>
+<td>MIDI - Type A; outputs note/events; use adapter to 5-pin DIN if needed</td>
+</tr>
+</tbody>
+</table>
+<h4>Panel Controls</h4>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>POWER</strong></td>
+<td>Button</td>
+<td>Press to turn on; hold for 1s to turn off</td>
+</tr>
+<tr>
+<td><strong>TRANSPOSE</strong></td>
+<td>Slider</td>
+<td>Shifts pitch ±octaves or semitones; semitone mode via FUNC+TRANSPOSE</td>
+</tr>
+<tr>
+<td><strong>VELOCITY</strong></td>
+<td>Slider</td>
+<td>Sets velocity in Play mode; Value in Edit mode</td>
+</tr>
+<tr>
+<td><strong>OCTAVE</strong></td>
+<td>Button (&lt;, &gt;)</td>
+<td>Shift keyboard range up/down 1 octave per press; in Edit, select operator</td>
+</tr>
+<tr>
+<td><strong>OPERATOR +/-</strong></td>
+<td>Button</td>
+<td>Select FM operator (1-6 or All) in Edit mode</td>
+</tr>
+<tr>
+<td><strong>PROGRAM</strong></td>
+<td>Knob</td>
+<td>Selects presaved program (Play); selects FM parameter (Edit)</td>
+</tr>
+<tr>
+<td><strong>ALGRTM</strong></td>
+<td>Knob</td>
+<td>FM operator algorithm (32 types, DX7 compatible)</td>
+</tr>
+<tr>
+<td><strong>MEMORY</strong></td>
+<td>Button</td>
+<td>Hold + 1-16 to load sequence; Func+MEMORY+1-16 to save</td>
+</tr>
+<tr>
+<td><strong>SAVE/EXPORT</strong></td>
+<td>Button</td>
+<td>Save/Export current program/sequences (see “Exporting” below)</td>
+</tr>
+<tr>
+<td><strong>EDIT</strong></td>
+<td>Button</td>
+<td>Toggle PLAY/Edit mode</td>
+</tr>
+<tr>
+<td><strong>FUNC</strong></td>
+<td>Button</td>
+<td>Hold for alt functions (e.g. FX, chain, global config, mode select)</td>
+</tr>
+<tr>
+<td><strong>PLAY</strong></td>
+<td>Button</td>
+<td>Sequence play/stop</td>
+</tr>
+<tr>
+<td><strong>REC</strong></td>
+<td>Button</td>
+<td>Sequence record/erase</td>
+</tr>
+<tr>
+<td><strong>STEP KEYS 1-16</strong></td>
+<td>Buttons</td>
+<td>Used as keyboard, step buttons, selector for other functions</td>
+</tr>
+<tr>
+<td><strong>MOD/EG KNOBS</strong></td>
+<td>Knob</td>
+<td>Attack/Decay for Modulator and Carrier ops</td>
+</tr>
+<tr>
+<td><strong>LFO RATE/P.DEPTH</strong></td>
+<td>Knob</td>
+<td>Controls FM LFO speed and depth</td>
+</tr>
+<tr>
+<td><strong>TYPE/DIV</strong></td>
+<td>Knobs</td>
+<td>Arpeggiator pattern (TYPE) and division (DIV)</td>
+</tr>
+<tr>
+<td><strong>TEMPO</strong></td>
+<td>Knob</td>
+<td>Global tempo for seq/arp</td>
+</tr>
+<tr>
+<td><strong>VOLUME</strong></td>
+<td>Knob</td>
+<td>Master output volume</td>
+</tr>
+</tbody>
+</table>
+<h4>Global Configuration &amp; Utility</h4>
+<ul>
+<li><strong>Set MIDI Channel:</strong> Power up holding MEMORY, select 1-16 on keyboard.</li>
+<li><strong>Set Battery Type:</strong> FUNC hold + Power, Key 2 toggles Alkaline/NiMH.</li>
+<li><strong>Sync Polarity:</strong> FUNC hold + Power, Key 3/4 toggles SYNC direction.</li>
+<li><strong>Tempo Range:</strong> FUNC hold + Power, Key 5 toggles full/narrow.</li>
+<li><strong>Restore Defaults:</strong> FUNC+MEMORY hold, power up, REC to confirm (erases all data).</li>
+</ul>
+<h4>Key Functions with FUNC</h4>
+<ul>
+<li><strong>FUNC+ARP ON/OFF:</strong> Toggle arpeggiator</li>
+<li><strong>FUNC+MONO/UNISON:</strong> Voice modes</li>
+<li><strong>FUNC+CHORUS/REVERB:</strong> FX, edit level with FUNC+ARP TYPE/DIV</li>
+<li><strong>FUNC+PROGRAM RANDOM:</strong> Random FM patch</li>
+<li><strong>FUNC+MOTION SEQ ON/OFF:</strong> Knob automation on/off</li>
+<li><strong>FUNC+1/1, 1/2, 1/4:</strong> Tempo division for external sync</li>
+</ul>
+<h4>Voltage Ranges (Inputs/Outputs)</h4>
+<table>
+<thead>
+<tr>
+<th>Input/Output</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SYNC IN</strong></td>
+<td>0–20V Max</td>
+</tr>
+<tr>
+<td><strong>SYNC OUT</strong></td>
+<td>5V pulse, 15ms</td>
+</tr>
+<tr>
+<td><strong>MIDI In/Out</strong></td>
+<td>Standard MIDI voltages via TRS or adapter (not analog CV!)</td>
+</tr>
+<tr>
+<td><strong>Headphones Out</strong></td>
+<td>Line level audio/standard headphones</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>NOTE:</strong> This unit does NOT accept standard Eurorack CV/Gate for pitch/trigs! It is clockable via analog clock volts (SYNC IN, 5V or higher trigger) but melodic, modulation CV requires MIDI-to-CV conversion.</p>
+</blockquote>
+<h3>Exporting Patches/Sequences</h3>
+<ul>
+<li><strong>Save:</strong> SAVE/EXPORT, choose slot (PROGRAM knob), press again to save</li>
+<li><strong>Export:</strong> EDIT mode, SAVE/EXPORT, scroll to desired item, press again to transmit via SYNC OUT</li>
+</ul>
+<hr />
+<h2>Example Eurorack Integrations</h2>
+<ul>
+<li><strong>Tempo Sync:</strong> Use a Eurorack clock out (5V trigger) to SYNC IN for step-advance, or sync OUT from volca fm to clock external sequencers (with trigger-to-clock conversion if needed).</li>
+<li><strong>Sequencer Use:</strong> Drive external MIDI modules via MIDI OUT (needs DIN adapter and MIDI-to-CV module).</li>
+<li><strong>Audio Output:</strong> Patch headphone out into Eurorack line input module.</li>
+</ul>
+<hr />
+<h2>Reference Links</h2>
+<ul>
+<li><a href="https://www.korg.com/us/support/download/manual/0/529/4663/">Korg Official Manual PDF (English)</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+<hr />
+<h5>If you have more specific workflow goals (e.g., integrating with MIDI-to-CV, or using sequenced clocks in a patch), just ask!</h5>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Euclid</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Euclid</h1>
+<ul>
+<li><a href="../../manuals/2hp_Euclid.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://2hp.com/assets/files/euclid_manual.pdf">2hp Euclid Manual (PDF)</a></p>
+<hr />
+<h1>2hp Euclid Cheat Sheet</h1>
+<p>Euclid is a 2hp rhythmic pattern generator based on Euclidean algorithms, producing cyclic and musical trigger patterns with flexible step and offset controls.</p>
+<hr />
+<h2>I/O Jack Reference</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Jack / Control</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Voltage Range / Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>TRIG IN</strong></td>
+<td style="text-align: center;">Advances the pattern one step</td>
+<td style="text-align: center;">Trigger/Gate Input</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>RESET IN</strong></td>
+<td style="text-align: center;">Resets pattern to first step</td>
+<td style="text-align: center;">Trigger/Gate Input</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>LENGTH CV</strong></td>
+<td style="text-align: center;">CV control of pattern length</td>
+<td style="text-align: center;">0–5V; summed w/ knob</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>STEPS CV</strong></td>
+<td style="text-align: center;">CV control of active steps</td>
+<td style="text-align: center;">0–5V; summed w/ knob</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>TRIGGER OUT</strong></td>
+<td style="text-align: center;">Output trigger when active step fires</td>
+<td style="text-align: center;">+5V, 6ms pulse</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Control Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LENGTH (Knob)</strong></td>
+<td>Sets pattern length (1–16 steps)</td>
+<td>Full Left: 1, Full Right: 16</td>
+</tr>
+<tr>
+<td><strong>STEPS (Pot)</strong></td>
+<td>Sets # of active steps in pattern</td>
+<td>Min: 1 step, Center: ½ length, Max: full length</td>
+</tr>
+<tr>
+<td><strong>OFFSET POT</strong></td>
+<td>Sets pattern offset (initial step shift)</td>
+<td>Full Left: No offset, Full Right: Offset by Length-1</td>
+</tr>
+<tr>
+<td><strong>OUTPUT LED</strong></td>
+<td>Shows trigger output activity</td>
+<td>Lights when pattern fires an active step</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Quick Usage</h2>
+<ol>
+<li><strong>Connect</strong> TRIG IN to your clock source. Each clock pulse advances the sequence.</li>
+<li><strong>Connect</strong> TRIGGER OUT to your drum(s) or destination module.</li>
+<li><strong>Select pattern length</strong> (LENGTH knob/CV) from 1 to 16 steps.</li>
+<li><strong>Set active steps</strong> (STEPS pot/CV) to distribute triggers within the pattern length.</li>
+<li><strong>Apply offset</strong> (OFFSET pot) to shift the starting point of the pattern.</li>
+<li><strong>RESET IN</strong> can be used to re-sync pattern start.</li>
+</ol>
+<p><strong>All CV inputs accept 0–5V; values add to their respective knobs/pots.</strong></p>
+<hr />
+<h2>Module Specs</h2>
+<ul>
+<li><strong>Width:</strong> 2hp</li>
+<li><strong>Current:</strong> +12V 21mA / -12V 2mA</li>
+<li><strong>Depth:</strong> 42mm</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erica_Synths_Compressor</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erica Synths — Compressor</h1>
+<ul>
+<li><a href="../../manuals/compressor_manual_2023.04.04.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.ericasynths.lv/media/Compressor_manual_2022.pdf">Erica Synths Stereo Compressor Manual (PDF)</a><br />
+<em>(Link provided according to typical Erica Synths documentation URLs for further reading)</em></p>
+<hr />
+<h1>Erica Synths Stereo Compressor</h1>
+<p><strong>Eurorack Module Cheat Sheet</strong></p>
+<hr />
+<h2><strong>Overview</strong></h2>
+<ul>
+<li><strong>Stereo THAT-chip-based compressor</strong> for Eurorack.</li>
+<li>Designed for percussion, live modular mixes, basslines, and sidechain ducking.</li>
+<li>Features <strong>DC-coupled sidechain</strong> and full independent or linked stereo operation.</li>
+</ul>
+<hr />
+<h2><strong>Specs</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audio Input Level</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>Threshold</td>
+<td>-40dB to +10dB</td>
+</tr>
+<tr>
+<td>Makeup Gain</td>
+<td>-12dB to +12dB</td>
+</tr>
+<tr>
+<td>Ratio</td>
+<td>1:1 to ∞</td>
+</tr>
+<tr>
+<td>Power Consumption</td>
+<td>+60mA / -22mA</td>
+</tr>
+<tr>
+<td>Width/Depth</td>
+<td>10HP / 35mm</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Inputs &amp; Outputs</strong></h2>
+<h3><strong>Front Panel Jacks</strong></h3>
+<ul>
+<li><strong>IN L / IN R</strong>  </li>
+<li><strong>Type:</strong> Audio Input (Left/Right)</li>
+<li><strong>Range:</strong> -5V to +5V</li>
+<li>
+<p><strong>Use:</strong> Main stereo audio input.</p>
+</li>
+<li>
+<p><strong>OUT L / OUT R</strong>  </p>
+</li>
+<li><strong>Type:</strong> Audio Output (Left/Right)</li>
+<li><strong>Range:</strong> Typical eurorack audio levels</li>
+<li>
+<p><strong>Use:</strong> Main stereo output.</p>
+</li>
+<li>
+<p><strong>SIDE IN L / SIDE IN R</strong>  </p>
+</li>
+<li><strong>Type:</strong> CV/Audio Input (Left/Right)</li>
+<li><strong>Range:</strong> -5V to +5V</li>
+<li>
+<p><strong>Use:</strong> External sidechain trigger/ducking per channel – patch a drum or kick for beat-based ducking.</p>
+</li>
+<li>
+<p><strong>SIDE OUT L / SIDE OUT R</strong>  </p>
+</li>
+<li><strong>Type:</strong> Buffered Output (Copy of IN L/IN R)</li>
+<li><strong>Range:</strong> -5V to +5V</li>
+<li><strong>Use:</strong> Pass-through copy of input for splitting or other processing.</li>
+</ul>
+<hr />
+<h2><strong>Controls</strong></h2>
+<ul>
+<li><strong>INPUT LVL</strong> <em>(Knob)</em>  </li>
+<li>
+<p>Adjusts input level before compression.</p>
+</li>
+<li>
+<p><strong>GAIN</strong> <em>(Knob)</em>  </p>
+</li>
+<li>
+<p>Sets compressor’s makeup gain, from -12dB to +12dB.</p>
+</li>
+<li>
+<p><strong>THRESHOLD</strong> <em>(Knob)</em>  </p>
+</li>
+<li>
+<p>Sets the level at which compression kicks in (-40dB to +10dB).</p>
+</li>
+<li>
+<p><strong>COMP.AMT (Compression Amount / Ratio)</strong> <em>(Knob)</em>  </p>
+</li>
+<li>
+<p>Controls how much compression, from 1:1 (none) to ∞ (limiting).</p>
+</li>
+<li>
+<p><strong>STEREO LINK / PROCESS</strong> <em>(Toggle Switch)</em>  </p>
+</li>
+<li><strong>STEREO LINK ON:</strong> Link level detectors for both channels (consistent stereo image).</li>
+<li>
+<p><strong>PROCESS:</strong> Engages compression circuit.</p>
+</li>
+<li>
+<p><strong>BYPASS</strong> <em>(Button)</em>  </p>
+</li>
+<li>
+<p>Instant bypass of compression (audition unprocessed sound).</p>
+</li>
+<li>
+<p><strong>8-SEGMENT VU METER</strong>  </p>
+</li>
+<li><strong>Visual:</strong> Shows output level post-compression.</li>
+</ul>
+<hr />
+<h2><strong>Panel Reference</strong></h2>
+<pre><code class="language-mermaid">flowchart LR
+  A(IN L) --&gt; F[COMPRESSOR]
+  B(IN R) --&gt; F
+  C(SIDE IN L) --&gt; F
+  D(SIDE IN R) --&gt; F
+  F --&gt; E(OUT L)
+  F --&gt; G(OUT R)
+  F --&gt; H(SIDE OUT L)
+  F --&gt; I(SIDE OUT R)
+</code></pre>
+<hr />
+<h2><strong>Operational Tips</strong></h2>
+<ul>
+<li>Use <strong>STEREO LINK ON</strong> for consistent compression and stereo image (great for percussion &amp; full mixes).</li>
+<li>Insert a <strong>sidechain signal</strong> (typically drums/kick) to duck/move melodic content (pump effect).</li>
+<li>If processing very different L/R signals, <strong>stereo linking</strong> avoids wild panning shifts due to channel-independent gain reduction.</li>
+<li>Tweak <strong>THRESHOLD</strong> and <strong>COMP.AMT</strong> for subtle glue or aggressive slap.</li>
+</ul>
+<hr />
+<h2><strong>Safety/Usage</strong></h2>
+<ul>
+<li>Never expose to liquids or extreme temps.</li>
+<li>Only ship in original packaging for warranty!</li>
+</ul>
+<hr />
+<h2><strong>Links</strong></h2>
+<ul>
+<li><a href="https://www.ericasynths.lv/">Erica Synths Official</a></li>
+<li><a href="https://www.ericasynths.lv/support/terms-and-conditions/">Full Warranty Info</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Labyrinth</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Labyrinth</h1>
+<ul>
+<li><a href="../../manuals/Labyrinth Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://cdn.shopify.com/s/files/1/0274/7781/4651/files/Labyrinth_Manual_Web.pdf">Moog Labyrinth User’s Manual PDF</a></p>
+<hr />
+<h1>Moog Labyrinth Eurorack Module Cheat Sheet</h1>
+<h3>OVERVIEW</h3>
+<p><strong>Moog Labyrinth</strong> is a semi-modular, parallel generative analog synthesizer with dual sequencers, two parallel audio paths (VC wavefolder &amp; state-variable filter), individual VCAs, dual decay envelopes, extensive patching, and advanced generative sequencing features.</p>
+<hr />
+<h2>Quickstart</h2>
+<ol>
+<li><strong>Power Up</strong>: Plug in the +12 VDC power supply (draws ~290 mA in Eurorack), or use included wall adapter.</li>
+<li><strong>Audio Out</strong>: Patch the rear AUDIO OUT (1/4” TS) to a mixer or active speaker. Use the VOLUME knob to adjust.</li>
+<li><strong>Warm Up</strong>: Allow a few minutes for analog tuning stability.</li>
+<li><strong>Initialize</strong>: Hold <code>BUFFER + RESET</code> for 1 sec to clear sequencers.</li>
+<li><strong>Sequencer</strong>: Enable steps with <code>BIT FLIP</code>. Use <code>RUN/STOP</code> to start and hear sound. Adjust pattern using LENGTH, BIT SHIFT, CV RANGE, and CORRUPT knobs.</li>
+<li><strong>Sound Shaping</strong>: Wavefolder (VCW) and filter (VCF) paths are mixed/crossfaded via BLEND.<br />
+Set ORDER:  </li>
+<li>PARALLEL: VCW and VCF run side by side</li>
+<li>VCW&gt;VCF: VCW feeds into VCF  </li>
+<li>VCF&gt;VCW: VCF feeds into VCW</li>
+</ol>
+<hr />
+<h2>Controls Summary</h2>
+<h3>Oscillators</h3>
+<table>
+<thead>
+<tr>
+<th>Knob/Button</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCO FREQUENCY</td>
+<td>Main sine VCO pitch (~20 Hz - ~5 kHz)</td>
+</tr>
+<tr>
+<td>VCO EG1 AMT</td>
+<td>Bipolar env (EG1) to VCO pitch</td>
+</tr>
+<tr>
+<td>VCO SEQ1 AMT</td>
+<td>SEQ1 amount (set to QTZ for quantized)</td>
+</tr>
+<tr>
+<td>MOD VCO FREQUENCY</td>
+<td>Mod/triangle VCO pitch (LFO–~1.3kHz, below audio range = LFO/Drums)</td>
+</tr>
+<tr>
+<td>MOD VCO EG1 AMT</td>
+<td>Bipolar env (EG1) to MOD VCO</td>
+</tr>
+<tr>
+<td>MOD VCO SEQ2 AMT</td>
+<td>SEQ2 amount (set to QTZ for quantized)</td>
+</tr>
+<tr>
+<td>MOD VCO FM AMT</td>
+<td>Amount of FM from MOD VCO to VCO (thru-zero for proper tuning)</td>
+</tr>
+</tbody>
+</table>
+<h3>Mixer Section</h3>
+<table>
+<thead>
+<tr>
+<th>Knob</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCO LVL</td>
+<td>Sine VCO level (+ overdrives past 12:00)</td>
+</tr>
+<tr>
+<td>RING MOD LVL</td>
+<td>Ring mod level (adds metallic tones)</td>
+</tr>
+<tr>
+<td>MOD VCO LVL</td>
+<td>MOD VCO level</td>
+</tr>
+<tr>
+<td>NOISE LVL</td>
+<td>Noise level</td>
+</tr>
+<tr>
+<td>NOISE TONE</td>
+<td>Noise HF/LF tilt</td>
+</tr>
+</tbody>
+</table>
+<h3>Wavefolder (VCW) Section</h3>
+<table>
+<thead>
+<tr>
+<th>Knob</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCW FOLD</td>
+<td>Depth of wavefolding (clean left, max right)</td>
+</tr>
+<tr>
+<td>VCW EG1/CV AMT</td>
+<td>Bipolar env or CV to VCW FOLD (patch breaks EG1 norm)</td>
+</tr>
+<tr>
+<td>VCW SEQ1 AMT</td>
+<td>SEQ1 amount to VCW FOLD</td>
+</tr>
+<tr>
+<td>VCW BIAS</td>
+<td>DC bias (for asymm. folding)</td>
+</tr>
+</tbody>
+</table>
+<h3>Filter (VCF) Section</h3>
+<table>
+<thead>
+<tr>
+<th>Knob</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCF CUTOFF</td>
+<td>Filter cutoff frequency (~20 Hz - 20 kHz)</td>
+</tr>
+<tr>
+<td>VCF EG1/CV AMT</td>
+<td>Bipolar env or CV to cutoff (patch breaks)</td>
+</tr>
+<tr>
+<td>VCF SEQ2 AMT</td>
+<td>SEQ2 amount to VCF cutoff</td>
+</tr>
+<tr>
+<td>RESONANCE</td>
+<td>Adds peak at cutoff (no bass loss)</td>
+</tr>
+<tr>
+<td>FILTER MODE</td>
+<td>LP↔BP crossfade left→right</td>
+</tr>
+</tbody>
+</table>
+<h3>Blending/VCAs</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BLEND</td>
+<td>Crossfades VCW ↔ VCF paths</td>
+</tr>
+<tr>
+<td>VOLUME</td>
+<td>Final output and VCA out patch bay level</td>
+</tr>
+<tr>
+<td>ORDER</td>
+<td>Routing: PARALLEL/VCW-VCF/VCF-VCW</td>
+</tr>
+<tr>
+<td>U MIX 1 LVL</td>
+<td>Level for utility submixer 1 (normalled to ringmod, patch breaks)</td>
+</tr>
+</tbody>
+</table>
+<h3>Envelopes</h3>
+<table>
+<thead>
+<tr>
+<th>Knob/Button</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EG1 DECAY</td>
+<td>Percussive envelope 1 decay (mod, VCO, VCF, VCW)</td>
+</tr>
+<tr>
+<td>EG2 DECAY</td>
+<td>Envelope 2 decay (controls both built-in VCAs by default)</td>
+</tr>
+<tr>
+<td>EG TRIG MIX</td>
+<td>Trig blend between SEQ1 and SEQ2 triggers to envs</td>
+</tr>
+<tr>
+<td>TRIGGER (btn)</td>
+<td>Manually triggers both EG1 and EG2</td>
+</tr>
+</tbody>
+</table>
+<h3>Sequencer (per SEQ1, SEQ2)</h3>
+<table>
+<thead>
+<tr>
+<th>Knob/Button</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RUN/STOP</td>
+<td>Start/stop sequencer</td>
+</tr>
+<tr>
+<td>BUFFER</td>
+<td>Save buffer state (hold 1s for save, short press to reload)</td>
+</tr>
+<tr>
+<td>CHAIN SEQ</td>
+<td>Chain SEQ1 &amp; SEQ2 for 16-step sequence</td>
+</tr>
+<tr>
+<td>ADVANCE</td>
+<td>Move play/write heads ahead one bit</td>
+</tr>
+<tr>
+<td>LENGTH</td>
+<td>Sequence step length (1–8, cycles)</td>
+</tr>
+<tr>
+<td>BIT SHIFT</td>
+<td>Rotates active bits</td>
+</tr>
+<tr>
+<td>BIT FLIP</td>
+<td>Flips current write head's bit on/off (generates random voltage)</td>
+</tr>
+<tr>
+<td>CORRUPT</td>
+<td>Probabilistic mutation of step voltages/bits</td>
+</tr>
+<tr>
+<td>CV RANGE</td>
+<td>Attenuates voltage span of sequence (-5V...+5V in, scales down)</td>
+</tr>
+<tr>
+<td>RESET</td>
+<td>Resets play head to step 1</td>
+</tr>
+<tr>
+<td>Various combos</td>
+<td>Quantizer, shift offsets, special ops (see Button Combos ref)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sequencer Button Combos:</strong><br />
+See p.37 for list—hold/combine BIT SHIFT, ADVANCE, etc. to offset, reset, select quantizer, etc.</p>
+<hr />
+<h2>Patch Bay Reference</h2>
+<p><strong>32 x 3.5mm Jacks (20 IN, 12 OUT), all Eurorack compatible</strong></p>
+<h3>Inputs (White text, Black Body)</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCO 1V/OCT</td>
+<td>VCO pitch control (sum with panel)</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>M VCO 1V/OCT</td>
+<td>MOD VCO pitch control (sum)</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>M VCO SYNC</td>
+<td>Resets triangle MOD VCO</td>
+<td>0V to +5V</td>
+</tr>
+<tr>
+<td>BLEND</td>
+<td>Crossfader VC for BLEND</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>VCW IN</td>
+<td>Audio in to wavefolder</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>FOLD</td>
+<td>CV in for fold depth</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>VCW VCA CV</td>
+<td>VCA level for VCW side</td>
+<td>0V to +8V</td>
+</tr>
+<tr>
+<td>VCF IN</td>
+<td>Audio in to VCF</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>CUTOFF</td>
+<td>VCF cutoff CV (sum)</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>VCF VCA CV</td>
+<td>VCA level for VCF side</td>
+<td>0V to +8V</td>
+</tr>
+<tr>
+<td>U MIX 1 (RING)</td>
+<td>Utility mixer 1 input (default: ring mod)</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>U MIX 2</td>
+<td>Utility mixer 2 input</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>EG2 TRIG</td>
+<td>Triggers EG2 envelope (rising edge)</td>
+<td>0V to +10V</td>
+</tr>
+<tr>
+<td>CLOCK 1</td>
+<td>Ext clock SEQ1 (or both if 2 is unpatched)</td>
+<td>0V to +10V</td>
+</tr>
+<tr>
+<td>BIT FLIP 1</td>
+<td>Digital in, flips current write step for SEQ1</td>
+<td>0V to +10V</td>
+</tr>
+<tr>
+<td>CLOCK 2</td>
+<td>Ext clock SEQ2 (norm: from 1)</td>
+<td>0V to +10V</td>
+</tr>
+<tr>
+<td>BIT FLIP 2</td>
+<td>Digital in, flips current write step for SEQ2</td>
+<td>0V to +10V</td>
+</tr>
+<tr>
+<td>MIDI</td>
+<td>3.5mm MIDI In (Clock, Note On, Start/Stop/Continue)</td>
+<td>MIDI signals</td>
+</tr>
+<tr>
+<td>TRIGGER</td>
+<td>Triggers both EGs (rising edge), unless EG2 patched</td>
+<td>0V to +10V</td>
+</tr>
+<tr>
+<td>RESET</td>
+<td>Resets sequencer play head to step 1</td>
+<td>0V to +10V</td>
+</tr>
+</tbody>
+</table>
+<h3>Outputs (Black text, White Body)</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCA</td>
+<td>Mono main output (Eurorack level)</td>
+<td>-5V to +5V (10Vpp)</td>
+</tr>
+<tr>
+<td>M VCO</td>
+<td>MOD VCO triangle out</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>NOISE</td>
+<td>Noise generator out</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>MIXER</td>
+<td>Mixer output (raw: VCO, MOD VCO, etc.)</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>EG1</td>
+<td>Envelope 1 out</td>
+<td>0V to +8V</td>
+</tr>
+<tr>
+<td>EG2</td>
+<td>Envelope 2 out</td>
+<td>0V to +8V</td>
+</tr>
+<tr>
+<td>U MIX 1+2</td>
+<td>Utility mixer summed output</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>SEQ1 CV</td>
+<td>Sequencer 1 CV (attenuated, quantized)</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>SEQ1 TRIG</td>
+<td>Sequencer 1 trigger out (step is on)</td>
+<td>0V to +5V</td>
+</tr>
+<tr>
+<td>SEQ2 CV</td>
+<td>Sequencer 2 CV (attenuated, quantized)</td>
+<td>-5V to +5V</td>
+</tr>
+<tr>
+<td>SEQ2 TRIG</td>
+<td>Sequencer 2 trigger out</td>
+<td>0V to +5V</td>
+</tr>
+<tr>
+<td>CLOCK</td>
+<td>Labyrinth clock out/MIDI clock out</td>
+<td>0V to +5V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Quantizer Modes</h2>
+<ul>
+<li>15 built-in scales, plus unquantized (see manual p. 38 for mappings).</li>
+<li>Select quantization mode by <code>BIT SHIFT</code> + <code>BIT FLIP</code> (SEQ1) while running.</li>
+</ul>
+<hr />
+<h2>Reference: Voltages &amp; Ranges</h2>
+<ul>
+<li>Most CV/audio: <strong>-5V to +5V</strong> (Eurorack norm)</li>
+<li>Envelope outs: <strong>0V to +8V</strong></li>
+<li>Triggers/gates: <strong>0V to +5V</strong> (5V logic)</li>
+<li>VCA CV inputs: <strong>0V–+8V</strong></li>
+<li>Clock/Trig in: works with <strong>0V–+5/10V</strong></li>
+<li>Main output: <strong>-5V to +5V (10Vpp)</strong> for modular, [1/4” rear audio out] for line level</li>
+</ul>
+<hr />
+<h2>Pro Tips</h2>
+<ul>
+<li>Each path (VCW/VCF) has its own VCA (EG2 by default).</li>
+<li>Use PATCH BAY to break normals and customize routing.</li>
+<li>The sequencer is truly generative; use CORRUPT and BUFFER for evolving/locking patterns.</li>
+<li>U MIX allows you to submix and process external signals.</li>
+<li>BLEND can be CV modulated—try crossfading via envelope or sequencer.</li>
+<li>All parameters bolded in the manual correspond to actual knobs, sliders, buttons, or toggles.</li>
+</ul>
+<hr />
+<h2>Links</h2>
+<ul>
+<li>Full <a href="https://cdn.shopify.com/s/files/1/0274/7781/4651/files/Labyrinth_Manual_Web.pdf">Moog Labyrinth User’s Manual PDF</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+<hr />
+</body>
+</html>

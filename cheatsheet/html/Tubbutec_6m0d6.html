@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tubbutec_6m0d6</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tubbutec — 6m0d6</h1>
+<ul>
+<li><a href="../../manuals/6m0d6-User-Manual-1.0.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p>Certainly! Here’s a concise <strong>cheat sheet</strong> for the <strong>LPZW &amp; Tubbutec 6m0d6 Eurorack Drum Module</strong> based on the manual you provided. This guide covers essential usage, controls, inputs/outputs, and voltage ranges.</p>
+<hr />
+<h2><a href="https://tubbutec.de/files/6m0d6_Manual.pdf">6m0d6 User Manual (Official PDF)</a></h2>
+<h1>6m0d6 Quick Reference Cheat Sheet</h1>
+<h3>Overview</h3>
+<ul>
+<li>7 Analog Drum Voices: Bass Drum, Snare Drum, Low Tom, High Tom, Cymbal, Open Hihat, Closed Hihat</li>
+<li>Enhanced parameter set for each drum (beyond classic TR-606)</li>
+<li><strong>CV + MIDI control, Dynamic triggers</strong></li>
+<li>Individual outs and mix out</li>
+</ul>
+<hr />
+<h2><strong>Inputs and Outputs</strong></h2>
+<h3>Instrument Triggers</h3>
+<ul>
+<li><strong>7 x Trigger Inputs</strong> (BD, SD, LT, HT, CY, OH, CH)  </li>
+<li><strong>Voltage:</strong> 1V to 15V  </li>
+<li>Trigger &gt; 1V = fire drum</li>
+<li>Individual instrument can be patched or normalized from LINK/MIDI</li>
+</ul>
+<h3>Accent Section</h3>
+<ul>
+<li><strong>Accent Amount (AC.AMT)</strong>  </li>
+<li><strong>CV input:</strong> 0V to 5V (acts as gain/attenuator for instrument when accent ON)</li>
+<li><strong>Accent Gate</strong>  </li>
+<li><strong>Gate input:</strong> On/Off (normalised to ON, can be set to OFF via config)</li>
+<li><strong>Accent Amount Knob</strong>  </li>
+<li>Manual accent/gain control if jack unpatched</li>
+</ul>
+<h3>Decay CV Inputs</h3>
+<ul>
+<li><strong>SN.Dec, CY.Dec, HH.Dec</strong>  </li>
+<li>CV decay control for Snare, Cymbal, and Hihats  </li>
+<li><strong>Bipolar:</strong> -5V to +5V</li>
+</ul>
+<h3>Noise / Metal Modulation</h3>
+<ul>
+<li><strong>Noise Tune CV</strong>: (controls lofi/bit-crush character or noise tuning)</li>
+<li><strong>Metal Tune CV</strong>: (1V/oct compatible, plays metal layer chromatically)</li>
+<li><strong>Metal Spread CV</strong>: +/-5V (detune spread between the 6 oscillators)</li>
+</ul>
+<h3>LINK Input</h3>
+<ul>
+<li><strong>Tubbutec 6equencer</strong> connectivity for direct triggering &amp; accenting via back panel LINK</li>
+</ul>
+<h3>MIDI IN</h3>
+<ul>
+<li><strong>TRS MIDI A &amp; B</strong> (autodetect)</li>
+<li>Drum triggers on Channel 10 (see mapping table)</li>
+<li>Accent: Velocity 127 or note 34/A#1 held</li>
+<li>Velocity &lt; 64: shorter pulse (lower volume), more dynamic</li>
+<li>Can play "metal" voice as 6-voice synth via Channel 1</li>
+</ul>
+<h3>Outputs</h3>
+<ul>
+<li><strong>7 x Individual Outs</strong>: (BD, SD, LT, HT, CY, OH, CH)</li>
+<li>Patch cable here removes drum from Mix Out</li>
+<li><strong>1 x Mix Out</strong>: summed signal of all drums not patched individually</li>
+</ul>
+<hr />
+<h2><strong>Front Panel Controls</strong></h2>
+<h3>Global / Shared</h3>
+<ul>
+<li><strong>Accent Amount Pot</strong></li>
+<li><strong>Accent Gate Jack</strong></li>
+<li><strong>Accent CV Jack</strong></li>
+<li><strong>Mixer Out</strong></li>
+<li><strong>CY.Pulse Button</strong>: Toggles cymbal pulse shaping / enters config menu (hold 3+ sec)</li>
+</ul>
+<h3>Instrument Parameters <em>(per drum, varies by voice)</em></h3>
+<ul>
+<li><strong>Tune</strong> (BD, SD, LT, HT, CY)</li>
+<li><strong>Tone/Body</strong> (BD, CY)</li>
+<li><strong>Decay</strong> (BD, SD, LT, HT, CY, OH, CH)</li>
+<li><strong>Click</strong> (BD)</li>
+<li><strong>Snappy</strong> (SD)</li>
+<li><strong>Noise Source</strong> <em>(Switch: Noise, Metal, XOR)</em> (SD, CY, HH)</li>
+<li><strong>Metal Tune, Metal Spread</strong> (CY, HH)</li>
+<li><strong>Pulse Shape Select (CY/Pulse Button)</strong> - disables pulse shaping for CY to allow "drone/string" sounds</li>
+</ul>
+<h3>Hihat &amp; Cymbal Specials</h3>
+<ul>
+<li><strong>Swap</strong>: Inverts Open/Closed hihat order</li>
+<li><strong>OH.Decay, CH.Decay</strong></li>
+<li><strong>CY.Pulse</strong>: enables/disables trigger length gating</li>
+</ul>
+<h3>Tom Specials</h3>
+<ul>
+<li><strong>HT Tune, LT Tune</strong></li>
+<li><strong>Sub Tom</strong>: drops LT by 1 octave (toggle)</li>
+<li><strong>Noise Amt</strong>: alters reverb (noise-based)</li>
+</ul>
+<hr />
+<h2><strong>Config Menu</strong></h2>
+<ul>
+<li>Enter: Hold <code>CY.Pulse</code> button 3 seconds</li>
+<li>Accent Gate Normalization: Use <code>M.Tune knob</code> (left=OFF, right=ON)</li>
+<li>Exit: Press <code>CY.Pulse</code> again (config saved)</li>
+</ul>
+<hr />
+<h2><strong>MIDI Trigger Reference</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Drum</th>
+<th>MIDI Note</th>
+<th>Voice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bass Drum</td>
+<td>35 (B0)</td>
+<td>BD</td>
+</tr>
+<tr>
+<td>Snare</td>
+<td>38 (D1)</td>
+<td>SD</td>
+</tr>
+<tr>
+<td>Low Tom</td>
+<td>45 (A1)</td>
+<td>LT</td>
+</tr>
+<tr>
+<td>High Tom</td>
+<td>50 (D2)</td>
+<td>HT</td>
+</tr>
+<tr>
+<td>Cymbal</td>
+<td>49 (C#2)</td>
+<td>CY</td>
+</tr>
+<tr>
+<td>Open Hihat</td>
+<td>46 (A#1)</td>
+<td>OH</td>
+</tr>
+<tr>
+<td>Closed Hihat</td>
+<td>42 (F#1)</td>
+<td>CH</td>
+</tr>
+<tr>
+<td>- <strong>Accent:</strong> Note 34 (A#1) or velocity 127</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Metal Synthesis: MIDI Channel 1, play up to 6-note chords on CY/HH/SD metal source</em></p>
+<hr />
+<h2><strong>Voltage Ranges Recap</strong></h2>
+<ul>
+<li>All CV &amp; modulation inputs: -5V to +5V (survives up to +/-12V)</li>
+<li>Trigger/Accent Inputs: 1V to 15V</li>
+<li>Accent Amount: 0V–5V</li>
+<li>Metal Tune: 1V/oct compatible</li>
+</ul>
+<hr />
+<h2><strong>Quick Tips</strong></h2>
+<ul>
+<li>CV all "tune/decay/spread" parameters for evolving, expressive rhythms</li>
+<li>Plug individual outputs to isolate sounds; unplug for MIX OUT</li>
+<li>MIDI for deep, velocity-sensitive control; external CC for parameter automation</li>
+<li>Use Metal and XOR noise sources for highly experimental timbres</li>
+<li>Hold CY.Pulse for config, adjust M.Tune knob for Accent Gate norm</li>
+<li>Play chords on MIDI Ch.1 for metallic 6-voice pseudo-synth sounds</li>
+</ul>
+<hr />
+<p><strong>Full Manual &amp; More:</strong><br />
+<a href="https://tubbutec.de/files/6m0d6_Manual.pdf">Read the official PDF manual (tubbutec.de)</a></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

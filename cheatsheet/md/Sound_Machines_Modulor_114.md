@@ -1,0 +1,233 @@
+# Sound Machines — Modulor 114
+
+- [Manual PDF](../../manuals/MODULOR114-MANUAL-SEP16-V01.pdf)
+
+---
+
+```markdown
+## Soundmachines MODULÖR114 Eurorack Cheat Sheet
+
+**Official Manual PDF:**  
+[MODULÖR114 Analog Modular Synthesizer Owner’s Manual](https://www.sound-machines.it/download/MODULOR114-MANUAL-V1.0.pdf)
+
+---
+
+### Quick Panel Overview
+
+- **Type:** Self-contained full voice modular synthesizer, 84hp, Eurorack compatible (removable panel for rack mounting)
+- **Power:** 5V 300mA via USB (type B), or +12Vdc (Eurorack 250mA).
+- **Signal Level Standard:** Control and audio signals ~5V amplitude
+- **Patching:** Normalled "SYNTH!" mode for instant play, or fully modular patching via front panel
+
+---
+
+### Module Blocks: Controls, Jacks & Voltage Reference
+
+#### MIDI SECTION
+
+- **BUTTONS:**
+  - SYNTH! — Set/clear internal normalled patch.
+  - USB Host/Device switch — Connects to PC/MAC or MIDI USB controller.
+- **LEDS:** PWR, STAT (Blue=Host, Green=Device)
+- **INPUTS & OUTPUTS:**
+  - MIDI USB in/out (type B)
+  - MIDI to CV outputs:
+    - PITCH CV OUT: 0-5V, 1V/octave (C1–C6 = 5 octaves)
+    - GATE OUT: 0V (off), 5V (on, responds to MIDI)
+    - MOD/Q OUT: 0-5V (modwheel or quantizer)
+    - 16th CLOCK OUT: 0-5V, MIDI clock divided by 6, 16th note timing
+    - CV#30, CV#31: 0-5V (MIDI CC#30, 31)
+    - CV#32: 0-5V (attenuator via MIDI CC#32)
+    - CV#33: 0-5V (slew via MIDI CC#33)
+
+----
+
+#### VCO1 (Oscillator 1)
+
+- **KNOBS:**
+  - TUNE (coarse), FINE (fine)
+  - PWM (Pulse Width Manual)
+- **INPUTS:**
+  - V/OCT (pitch, 1V/oct, 0-5V)
+  - CV (modulation, ~0-5V)
+  - SYNC (oscillator sync in, 0-5V pulse)
+  - PWM IN (0-5V)
+- **OUTPUTS:**
+  - SAW, TRI, SQU (audio outs, ~±5V, DC-coupled)
+  - SUB (one octave below)
+  - MIDI (hardwired MIDI-controlled DCO square output)
+  - NOISE (White, Pink; unfiltered, ±5V)
+
+**Freq Range:** ~30Hz base, tracks 6-7 octaves, sub out as low as 15Hz.
+
+---
+
+#### VCO2 / LFO1 (Oscillator 2 / LFO)
+
+- **SWITCH:** VCO/LFO (lowers freq ~2 octaves)
+- **KNOBS:** TUNE, FINE
+- **INPUTS:**
+  - V/OCT (pitch, 1V/oct, 0-5V)
+- **OUTPUTS:**
+  - SAW, TRI (audio outs)
+**LFO Range:** as low as 0.4Hz
+
+---
+
+#### ENVELOPE (ADSR)
+
+- **KNOBS:** ATTACK, DECAY, SUSTAIN, RELEASE
+- **TOGGLES:**
+  - LONG (longer timing), LOOP (envelope cycles with gate held)
+- **INPUTS:**
+  - GATE (0/5V)
+- **OUTPUTS:**
+  - ENV OUT (0-5V)
+  - GATE OUT (for chaining/clocking)
+
+---
+
+#### VCF (Filter)
+
+- **TYPE:** 12dB/OCT Lowpass & Bandpass (OTA based)
+- **KNOBS:** FREQ, RESONANCE
+- **INPUTS:**
+  - IN (signal in)
+  - CV (cutoff mod, 0-5V)
+- **OUTPUTS:**
+  - LP (low pass), BP (band pass)
+- Self-oscillates at high resonance (>5V swing)
+
+---
+
+#### VCA (Amplifier)
+
+- **TYPE:** Linear, AC-coupled (audio only!)
+- **KNOBS:** INITIAL (offset/level)
+- **INPUTS:**
+  - IN1, IN2 (audio in)
+  - CV (amplitude mod, 0-5V)
+- **OUTPUT:**
+  - OUT (audio out, soft saturation at high levels)
+
+---
+
+#### MIXERS
+
+- **MIX1:** 2 input DC-coupled mixer w/ attenuation, sum for audio/CV
+- **MIX2:** 3 input DC-coupled, no attenuation.
+- **MIX3:** 3 input w/ preset 1/3 attenuation per input.
+
+---
+
+#### ATTENUATORS
+
+- **ATT1, ATT2, ATT3:** Passive, for any audio/CV signal (0-5V)
+
+---
+
+#### MANUAL CONTROLS
+
+- **GEN1, GEN2:** Manual CV sources, 0-5V via knob.
+
+---
+
+#### ADDSUB (Adder/Subtractor)
+
+- **ADDSUB 1/2:** IN+, IN-, OUT (OUT = IN+ minus IN-, saturated to 0-5V range)
+
+---
+
+#### RIBBON CONTROLLER
+
+- **TOUCH STRIP:** 10cm, position = 0-5V
+- **OUTPUTS:**
+  - CV (live voltage), CV HOLD (sampled, held when finger released)
+  - GATE OUT (0/5V on touch)
+
+---
+
+#### S&H (Sample & Hold) / T&H
+
+- **INPUTS:** IN (CV), SAMPLE (clock/gate in), TRACK (T&H mode)
+- **OUTPUT:** OUT (held CV)
+- **VOLTAGE:** 0-5V
+
+---
+
+#### SLEW
+
+- **KNOB:** Time constant (lag up to 1s)
+- **INPUT:** IN (CV)
+- **OUTPUT:** OUT (smoothed CV, 0-5V)
+
+---
+
+#### LFO2
+
+- **OUTPUTS:** TRI, SQU (0.3-150Hz, 0-5V)
+
+---
+
+#### QUANTIZER
+
+- **INPUT:** Q IN (CV 0-4V for 4 octaves)
+- **OUTPUT:** MOD/Q (quantized pitch; 0-5V)
+
+---
+
+#### MULTI (Multiples)
+
+- **MULTI1, MULTI2:** Passive, 1-to-3 multiples for distributing sources
+
+---
+
+#### FX UNIT
+
+- **KNOBS:** DRY/WET, PARAM1, PARAM2
+- **BUTTON:** TAP TEMPO
+- **INPUTS:** CV for params, clock in (FX sync/select)
+- **OUTPUT:** Audio, with clip LED
+- **TYPES:** Delay, reverb, chorus etc. with CV modulation
+
+---
+
+#### DIGITAL MODULES
+
+- **CLKDIV:** Clock divider with 4 outputs & reset in (0-5V)
+- **LOGIC GATES:** AND, NAND, XOR, NOT for gates (0-5V logic)
+- **BUTTONS:** Two manual trigger/gate pushbuttons
+- **VOLTAGE:** All digital logic/gate IOs are 0V (low), 5V (high).
+
+---
+
+### Typical Signal Flow (Default SYNTH! Mode)
+```
+VCO1 (SAW) + VCO2 (SAW) → MIX1 → VCF (LP) → VCA → FX → OUTPUT  
+VCOs, ENV, filter, and VCA pre-patched for immediate play.
+```
+Everything can be repatched manually for full modular exploration.
+
+---
+
+### Key Voltage Ranges
+
+- **CV Pitch/Mod/ENV:** 0-5V
+- **Gate/Trigger:** 0V low, 5V high
+- **Audio:** Approx ±5V
+- **LFO/S&H/GEN:** 0-5V
+
+---
+
+### Installation Notes
+
+- Can be used standalone or installed as 84HP in a Eurorack case (250mA +12V).
+- Power via USB, 12V jack, or Eurorack ribbon (16-pin, -12V goes to lower pin!)
+
+---
+
+### Further Reference
+
+- [**Manual PDF**](https://www.sound-machines.it/download/MODULOR114-MANUAL-V1.0.pdf)
+- [**Generated With Eurorack Processor**](https://github.com/nstarke/eurorack-processor)
+```

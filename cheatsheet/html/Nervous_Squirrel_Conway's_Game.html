@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Nervous_Squirrel_Conway&#x27;s_Game</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Nervous Squirrel — Conway's Game</h1>
+<ul>
+<li><a href="../../manuals/Nervous Squirrel - Conway's Game.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment:/ConwaysGameManual.pdf">Conway's Game Eurorack Module Manual (PDF)</a><br />
+<em>(Based on images provided above)</em></p>
+<hr />
+<h1>Conway's Game Eurorack Module Cheat Sheet</h1>
+<p>A pattern generator using Conway’s Game of Life, and a 64-output MIDI-to-trigger/gate converter.</p>
+<h2>Inputs &amp; Outputs</h2>
+<h3>Inputs</h3>
+<ul>
+<li><strong>MIDI IN:</strong>  </li>
+<li>Accepts standard MIDI (5-pin DIN).  </li>
+<li>Responds to notes C2 (36) – E7 (100)  </li>
+<li>
+<p>Controls which outputs are triggered in MIDI mode.</p>
+</li>
+<li>
+<p><strong>CLOCK IN:</strong>  </p>
+</li>
+<li>Accepts gates/triggers or audio-rate signals to set simulation speed.  </li>
+<li>
+<p>Internal clock: 10Hz default, external up to ~270Hz (can operate "weird" above this).</p>
+</li>
+<li>
+<p><strong>RESET:</strong>  </p>
+</li>
+<li>Button input (likely can be used with external trigger/gate).  </li>
+<li>Clears current Game of Life loop and all stuck MIDI notes.</li>
+</ul>
+<h3>Outputs</h3>
+<ul>
+<li><strong>64 TRIGGER/GATE OUTPUTS (8x8 grid):</strong>  </li>
+<li>One output per Game of Life cell.  </li>
+<li><strong>Voltage:</strong> 8V (trigger/gate)  </li>
+<li><strong>Trigger Length:</strong> 20ms (in trigger mode)  </li>
+<li>Used for sequencing drums, envelopes, or other modules.</li>
+</ul>
+<h2>Controls / Switches</h2>
+<ul>
+<li><strong>MIDI/LIFE Toggle:</strong>  </li>
+<li>
+<p>Switches between MIDI mode (manual trigger control) and Game of Life automaton mode.</p>
+</li>
+<li>
+<p><strong>TRIGGERS/GATES Toggle:</strong>  </p>
+</li>
+<li>
+<p>Sets all outputs to either:</p>
+<ul>
+<li><strong>Trigger Mode:</strong> Fires a 20ms trigger pulse on every event.</li>
+<li><strong>Gate Mode:</strong> Output remains HIGH (8V) as long as cell is alive.</li>
+</ul>
+</li>
+<li>
+<p><strong>RESET Button:</strong>  </p>
+</li>
+<li>Manually resets simulation/start conditions and clears stuck MIDI notes.</li>
+</ul>
+<h2>Usage Summary</h2>
+<ul>
+<li><strong>Game of Life Mode</strong></li>
+<li>Select random start (auto or via RESET).</li>
+<li>Cells evolve per GOL rules, driving 64 output jacks.</li>
+<li>
+<p>Simulation resets when cells die out or stabilize.</p>
+</li>
+<li>
+<p><strong>MIDI Mode</strong></p>
+</li>
+<li>Incoming notes C2–E7 each trigger corresponding output.</li>
+<li>
+<p>Can trigger all 64 outputs via MIDI.</p>
+</li>
+<li>
+<p><strong>Clock Control</strong></p>
+</li>
+<li>Use internal or external clock (LFO, VCO, audio) for step timing.</li>
+<li>
+<p>Very high rates (&gt;270 Hz) may yield experimental behaviors.</p>
+</li>
+<li>
+<p><strong>Output Function</strong></p>
+</li>
+<li>All 64 jacks output TRIG or GATE signals per pattern/mode.</li>
+<li>Patch directly to drums, envelopes, sequential logic, etc.</li>
+</ul>
+<h2>Technical Details</h2>
+<ul>
+<li><strong>Width:</strong> 20HP  </li>
+<li><strong>Depth:</strong> 43.5mm (behind 2mm panel)  </li>
+<li><strong>Current Draw:</strong>  </li>
+<li>+12V: 80mA (GOL mode typical), max 215mA (all LEDs lit via MIDI)  </li>
+<li>-12V: 0mA  </li>
+<li><strong>Outputs:</strong> 8V, 20ms (trigger), 64 outputs</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

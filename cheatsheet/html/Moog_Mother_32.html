@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Mother_32</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Mother 32</h1>
+<ul>
+<li><a href="../../manuals/Mother_32_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.moogmusic.com/sites/default/files/2019-02/Mother-32-Manual-v4.pdf">Moog Mother-32 User Manual (PDF)</a></p>
+<hr />
+<h1>Moog Mother-32 — Eurorack Cheat Sheet</h1>
+<p>A semi-modular analog synthesizer &amp; sequencer in 60HP. Includes 32-point patchbay, 100% analog signal path, and patchable control voltage inputs/outputs.</p>
+<hr />
+<h2>Panel Controls</h2>
+<p><strong>Knobs:</strong>
+- <strong>VCO FREQUENCY</strong>: Coarse tune oscillator (±1 octave)
+- <strong>PULSE WIDTH</strong>: VCO pulse wave duty cycle (2%-98%)
+- <strong>VCO MOD AMOUNT</strong>: Modulation depth for selected mod source/destination
+- <strong>LFO RATE</strong>: LFO frequency (0.1Hz – 350Hz normal, 600Hz max via CV)
+- <strong>MIX</strong>: Blend VCO wave (CCW) vs Noise/EXT AUDIO (CW)
+- <strong>CUTOFF</strong>: VCF cutoff frequency (20Hz–20kHz)
+- <strong>RESONANCE</strong>: VCF feedback / self-oscillation (CW &gt; 3 o’clock)
+- <strong>VCF MOD AMT</strong>: Amount of modulation applied to VCF cutoff
+- <strong>ATTACK</strong>: Envelope generator attack time (fast←→slow)
+- <strong>DECAY</strong>: Envelope generator decay time (fast←→slow)
+- <strong>GLIDE</strong>: Portamento time (smooth note transitions)
+- <strong>VOLUME</strong>: Final output level</p>
+<p><strong>Switches/Toggles:</strong>
+- <strong>VCO WAVE</strong>: Sawtooth or Pulse wave output
+- <strong>VCO MOD SOURCE</strong>: LFO, EG, or External
+- <strong>VCO MOD DEST</strong>: Frequency or Pulse Width
+- <strong>LFO WAVE</strong>: Square or Triangle
+- <strong>VCF MODE</strong>: Low Pass or High Pass
+- <strong>VCF MOD SOURCE</strong>: LFO or EG
+- <strong>VCF MOD POLARITY</strong>: + or –
+- <strong>VCA MODE</strong>: EG or ON (drone)
+- <strong>SUSTAIN</strong>: EG sustain enabled/disabled</p>
+<p><strong>Buttons:</strong>
+- 13-note keyboard (C–C)
+- 8 Step buttons (pattern editing/selection)
+- LEFT/RIGHT arrows (octaves/pages)
+- SHIFT
+- PATTERN (pattern select)
+- RUN/STOP
+- HOLD/REST
+- RESET/ACCENT
+- REC</p>
+<hr />
+<h2>Patchbay</h2>
+<h3>Inputs</h3>
+<p><em>(all 3.5mm unless noted, all unipolar CVs are 0 to +5V unless indicated)</em></p>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Function</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EXT AUDIO</td>
+<td>Audio in (replace noise in mixer)</td>
+<td>±5V typical</td>
+</tr>
+<tr>
+<td>MIX CV</td>
+<td>Mixer crossfade CV</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>VCA CV</td>
+<td>VCA level (mod for tremolo, etc.)</td>
+<td>EG: 0–+8V / ON: ±5V</td>
+</tr>
+<tr>
+<td>VCF CUTOFF</td>
+<td>Filter cutoff</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>VCF RES</td>
+<td>Filter resonance</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>VCO 1V/OCT</td>
+<td>Main pitch CV input</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>VCO LIN FM</td>
+<td>Linear FM input</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>VCO MOD</td>
+<td>VCO mod (overrides MOD switch, goes through attenuator)</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>LFO RATE</td>
+<td>LFO speed</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>MIX 1</td>
+<td>VC MIX input A (default 0V)</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>MIX 2</td>
+<td>VC MIX input B (default +5V)</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>VC MIX CTRL</td>
+<td>VC mix crossfade</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>MULT IN</td>
+<td>Buffer/splitter input</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>TEMPO</td>
+<td>Clock/Tempo in (see manual for DIN/clock/CV modes)</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>GATE IN</td>
+<td>Envelope trigger (0/+5V, up to +10V tolerated)</td>
+<td>0V or +5V</td>
+</tr>
+<tr>
+<td>RUN/STOP</td>
+<td>Gate: run seq while +5V</td>
+<td>0V or +5V/up to +15V</td>
+</tr>
+<tr>
+<td>RESET</td>
+<td>Gate: resets seq to step 1 while +5V</td>
+<td>0V or +5V/up to +15V</td>
+</tr>
+<tr>
+<td>HOLD</td>
+<td>Gate: repeats current seq step while +5V</td>
+<td>0V or +5V/up to +15V</td>
+</tr>
+</tbody>
+</table>
+<h3>Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Function</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCA OUT</td>
+<td>Post-VCA (pre-volume)</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>NOISE</td>
+<td>White noise</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>VCF OUT</td>
+<td>Post-filter audio</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>VCO SAW</td>
+<td>Sawtooth wave</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>VCO PULSE</td>
+<td>Pulse wave</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>LFO SQUARE</td>
+<td>LFO square</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>LFO TRIANGLE</td>
+<td>LFO triangle</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>VC MIX OUT</td>
+<td>VC mixer blended output</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>MULT 1/2</td>
+<td>MULT outputs (buffered copy of MULT IN)</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>ASSIGN</td>
+<td>16 programmable outputs (clock, accent, MIDI CC, random, etc.)</td>
+<td>See manual</td>
+</tr>
+<tr>
+<td>EG OUT</td>
+<td>Envelope (env gen) output</td>
+<td>0 to +7.5V</td>
+</tr>
+<tr>
+<td>KB OUT</td>
+<td>Keyboard/sequencer/MIDI CV out</td>
+<td>–5V to +5V</td>
+</tr>
+<tr>
+<td>GATE OUT</td>
+<td>Keyboard/sequencer/MIDI gate (note ON)</td>
+<td>0V or +5V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Performance/Sequencer</h2>
+<ul>
+<li>32-step sequencer (8 banks x 8 patterns)</li>
+<li>Two input modes: Keyboard (KB) for step record/play, or Step mode for direct editing</li>
+<li>Pattern editing: notes, rests, ties, gate length, accents, glide, ratchets (1–4 per step), swing</li>
+<li>Save/recall 64 patterns (Hold SHIFT+RUN/STOP, then specify bank/location)</li>
+<li>MIDI IN (5-pin DIN): Notes, clock, CC, program change, etc.</li>
+<li><strong>Preset Functions:</strong> Reset, restore factory patch, transpose, live accent/mute/ratchet, rotate patterns</li>
+</ul>
+<hr />
+<h2>Typical Patch Examples</h2>
+<ul>
+<li><strong>Basic Patch:</strong> VCO → VCF → VCA → OUT (all internally routed)</li>
+<li><strong>Blend VCO/Noise:</strong> MIX knob</li>
+<li><strong>Modulate PWM:</strong> LFO to VCO MOD, switch to Pulse Width</li>
+<li><strong>Filter FM:</strong> VCO to VCF CUTOFF input</li>
+<li><strong>Audio-rate modulation:</strong> LFO or VCO to VCO LIN FM input</li>
+<li><strong>Process external audio:</strong> EXT AUDIO IN, MIX knob CW</li>
+</ul>
+<hr />
+<h2>Voltage &amp; Eurorack Details</h2>
+<ul>
+<li>Power: +12V DC, 230mA max ([Red Stripe] -12V, not used)</li>
+<li>Input CVs typically –5V to +5V (unless stated)</li>
+<li>Audio IO: ±5V = Euro standard</li>
+<li>Patch cables: 3.5mm TS</li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Manual Reference:</strong> <a href="https://www.moogmusic.com/sites/default/files/2019-02/Mother-32-Manual-v4.pdf">Moog Mother-32 User Manual PDF</a></p>
+</blockquote>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

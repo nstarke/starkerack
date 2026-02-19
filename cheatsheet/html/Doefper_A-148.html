@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doefper_A-148</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doefper — A-148</h1>
+<ul>
+<li><a href="../../manuals/A148_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100man/a148_man.pdf">Doepfer A-148 Dual S&amp;H Manual PDF</a></p>
+<hr />
+<h1>Doepfer A-148 Dual S&amp;H – Cheat Sheet</h1>
+<h2>Quick Overview</h2>
+<p>The Doepfer A-148 is a dual Sample &amp; Hold (S&amp;H) and Track &amp; Hold (T&amp;H) module. It can generate random or stepped voltages for controlling other modules. Each of the two identical sections can be independently set to S&amp;H or T&amp;H by internal jumpers (for modules manufactured from Aug 2005 on).</p>
+<hr />
+<h2>Panel Controls &amp; Features</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trig In</strong></td>
+<td>Jack</td>
+<td>Input for the trigger signal (sampling clock)</td>
+<td>Any A-100 trigs/gates</td>
+</tr>
+<tr>
+<td><strong>Smp In</strong></td>
+<td>Jack</td>
+<td>Input for the signal to be sampled/held</td>
+<td>-12V ... +12V</td>
+</tr>
+<tr>
+<td><strong>S&amp;H Out</strong></td>
+<td>Jack</td>
+<td>Output for the sampled and held (or tracked and held) voltage</td>
+<td>-12V ... +12V</td>
+</tr>
+<tr>
+<td><strong>LEDs</strong></td>
+<td>Visual</td>
+<td>Shows the polarity of the output voltage (+ LED: positive, - LED: negative)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Jumper (int.)</strong></td>
+<td>Header</td>
+<td>Sets upper/lower circuit to S&amp;H or T&amp;H mode (default: Upper = S&amp;H, Lower = T&amp;H)</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>How it Works</h2>
+<ul>
+<li><strong>Sample &amp; Hold (S&amp;H):</strong> At each positive edge on Trig In, the voltage at Smp In is "captured" and held until the next trigger.</li>
+<li><strong>Track &amp; Hold (T&amp;H):</strong> The output follows the input while Trig In is high; when Trig In goes low, it holds the last value.</li>
+</ul>
+<hr />
+<h2>Input/Output Reference</h2>
+<h3>Inputs</h3>
+<ul>
+<li><strong>Trig In</strong></li>
+<li><strong>Type:</strong> Gate/Trigger input</li>
+<li><strong>Purpose:</strong> Determines when to sample Smp In</li>
+<li><strong>Smp In</strong></li>
+<li><strong>Type:</strong> CV/Audio input</li>
+<li><strong>Purpose:</strong> Signal to be sampled or tracked</li>
+<li><strong>Voltage Range:</strong> -12V to +12V (modules after Aug 2005; previous versions: -8V to +8V)</li>
+</ul>
+<h3>Outputs</h3>
+<ul>
+<li><strong>S&amp;H Out</strong></li>
+<li><strong>Type:</strong> CV output</li>
+<li><strong>Purpose:</strong> Output the last sampled/tracked value</li>
+<li><strong>Voltage Range:</strong> Follows input within -12V to +12V (post-2005)</li>
+</ul>
+<hr />
+<h2>Typical Patch Examples</h2>
+<ol>
+<li><strong>Random Arpeggios:</strong>  </li>
+<li>Patch white noise (A-118) to Smp In, LFO to Trig In, S&amp;H Out to VCO CV.</li>
+<li><strong>Glissando:</strong>  </li>
+<li>Keyboard CV through slew limiter to Smp In, LFO to Trig In, S&amp;H Out to VCO CV.</li>
+<li><strong>Random Filter:</strong>  </li>
+<li>Noise to Smp In, keyboard gate to Trig In, S&amp;H Out to filter CV input.</li>
+</ol>
+<hr />
+<h2>Version Differences &amp; Jumpers</h2>
+<ul>
+<li><strong>Pre-Aug 2005:</strong> Max input/output voltage range -8V to +8V.</li>
+<li><strong>Post-Aug 2005:</strong> Full A-100 range, -12V to +12V, and S&amp;H/T&amp;H selectable via jumpers JP2 (upper), JP3 (lower).</li>
+</ul>
+<hr />
+<h2>Useful Tips</h2>
+<ul>
+<li><strong>LEDs</strong> helpful for monitoring whether the last held voltage is positive or negative.</li>
+<li><strong>Voltage Range:</strong> Always ensure input voltages are within Doepfer’s -12V to +12V standard.</li>
+<li><strong>Mode Setting:</strong> Factory default is S&amp;H (upper), T&amp;H (lower).</li>
+</ul>
+<hr />
+<p><strong><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></strong></p>
+</body>
+</html>

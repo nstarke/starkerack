@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ALM_ALM034_-_Pam&#x27;s_Pro_Workout</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ALM — ALM034 - Pam's Pro Workout</h1>
+<ul>
+<li><a href="../../manuals/alm034-manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://busycircuits.com/alm034/manual/"><strong>Official Pamela’s Pro Workout Manual PDF</strong></a></p>
+<hr />
+<h1>Pamela’s Pro Workout Cheat Sheet</h1>
+<p><strong>Pamela’s Pro Workout</strong> is a powerful programmable clocked modulation and trigger source for Eurorack—with deep parameter editing and extensive external CV modulation.<br />
+This guide puts everything at your fingertips for fast, creative patching!</p>
+<hr />
+<h2>Panel Reference</h2>
+<pre><code> ____________________________
+|  Pamela’s Pro Workout      |
+|                            |  
+| [Clk] [Run] [CV1] [CV2]    | &lt;--- Inputs (Top Row)
+|                            |
+| [Color LCD]                |
+|                            |
+| [Program Knob] [Start/Stop]| &lt;--- Main Controls
+|                            |
+| 1 2 3 4 5 6 7 8            | &lt;--- 8 Outputs (Bottom Row)
+|____________________________|
+</code></pre>
+<hr />
+<h2>Jacks, Button, and Knob Reference</h2>
+<h3>Inputs (Top row, left to right)</h3>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clk</td>
+<td>External clock input, or assignable as CV in or bank switch</td>
+<td>0–5V logic (edge 0.7V min)</td>
+</tr>
+<tr>
+<td>Run</td>
+<td>Clock run/stop gate, or RESET, CV in, prev bank, or output rotate trigger</td>
+<td>0–5V logic (edge 0.7V min)</td>
+</tr>
+<tr>
+<td>CV1</td>
+<td>Assignable analog CV input for parameter modulation</td>
+<td>0–5V (outside ignored)</td>
+</tr>
+<tr>
+<td>CV2</td>
+<td>Assignable analog CV input for parameter modulation</td>
+<td>0–5V (outside ignored)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>NOTE:</strong> CV inputs can be assigned as additional CV or trigger sources depending on settings.</p>
+</blockquote>
+<hr />
+<h3>Outputs (Bottom row, 1–8 left to right)</h3>
+<ul>
+<li><strong>8 outputs:</strong> Each programmable with clocks, triggers, envelopes, modulation, LFOs, etc.<ul>
+<li><strong>Voltage Range:</strong> 0–5V, 12-bit resolution, up to 3.8 kHz update frequency</li>
+<li><strong>Dedicated green LED per output</strong></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>Expander Connections (Rear)</h3>
+<ul>
+<li><strong>Axon-1 / Axon-2:</strong> Adds 4x extra CV ins (0–5V), assignable, with Axon-2 offering 2 assignable buttons</li>
+<li><strong>PPEXP1 / PPEXP2:</strong> Adds external DIN Sync/MIDI clock outputs and fixed division triggers</li>
+</ul>
+<hr />
+<h3>Main Controls</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Program Knob</strong> (push/turn)</td>
+<td>Navigate/edit parameters, push to select, hold for ‘extended’ per-output params, long hold (in main screen) opens settings</td>
+</tr>
+<tr>
+<td><strong>Start/Stop Button</strong></td>
+<td>Starts or stops the clock, resets on stop</td>
+</tr>
+</tbody>
+</table>
+<h4>Shortcuts:</h4>
+<ul>
+<li><strong>Hold Start/Stop and turn knob</strong>: Quick-jump same parameter across outputs</li>
+<li><strong>Hold Start/Stop and click knob</strong>: Mute/unmute current output</li>
+</ul>
+<hr />
+<h2>Basic Operation Summary</h2>
+<ol>
+<li><strong>Set Clock BPM:</strong>  </li>
+<li>Main screen: Turn/push program knob to set BPM (10–330 BPM).</li>
+<li><strong>Navigate Outputs / Select Output Modifier:</strong>  </li>
+<li>Without selecting, turning knob scrolls through 8 outputs.  </li>
+<li>Push to highlight an output’s "modifier" (mult/divide/utility/triggered).</li>
+<li>Turn to set time division or type. Push to exit.</li>
+<li><strong>Edit Output Parameters (Waveforms &amp; More):</strong>  </li>
+<li>With output selected, <em>push+hold</em> knob (&gt;1 sec) to open parameter page.</li>
+<li>Scroll &amp; edit: Shape, Level, Width/Slew, Offset, Phase, Euclid, Probability, Loop, Cross-Op, Flex, Quantizer, Scope, etc.</li>
+<li>
+<p>Push+hold knob again to exit.</p>
+</li>
+<li>
+<p><strong>CV Assignment:</strong></p>
+</li>
+<li>Many parameters: Scroll to CV in menu, assign to CV1, CV2 (or Axon if present).</li>
+<li>
+<p>Set attenuation/offset for each CV assignment (full bipolar/attenuverter logic).</p>
+</li>
+<li>
+<p><strong>Save/Load Banks:</strong></p>
+</li>
+<li>Whole module or per-output, up to 64 banks.</li>
+<li>All settings persist across power cycles.</li>
+</ol>
+<hr />
+<h2>Output Waveforms &amp; Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shape</strong></td>
+<td>Pulse/square, ratchets, triangle, trapezoid, sine, hump, expo/log env, random, etc.</td>
+</tr>
+<tr>
+<td><strong>Width/Slew</strong></td>
+<td>Changes width (pwm, ratchet density), slew makes wave more/less sharp</td>
+</tr>
+<tr>
+<td><strong>Level</strong></td>
+<td>Output voltage, 0–5V (in percent)</td>
+</tr>
+<tr>
+<td><strong>Offset</strong></td>
+<td>Adds DC offset (percent of 0–5V); with Level=0, can output fixed CV</td>
+</tr>
+<tr>
+<td><strong>Phase</strong></td>
+<td>Phase shift/moves start point of waveform</td>
+</tr>
+<tr>
+<td><strong>Probability</strong></td>
+<td>Chance step will trigger/send output, 0–100%</td>
+</tr>
+<tr>
+<td><strong>Euclidean</strong></td>
+<td>Steps / Triggers / Pad / Shift for Euclidean rhythm generation</td>
+</tr>
+<tr>
+<td><strong>Loop</strong></td>
+<td>Output pattern or randomness can reset/repeat after X beats (incl. nap/wake)</td>
+</tr>
+<tr>
+<td><strong>Cross Op</strong></td>
+<td>Combine output with another output/CV using logic, mix, sample+hold, etc.</td>
+</tr>
+<tr>
+<td><strong>Flex Op</strong></td>
+<td>Micro-timing: Swing, Human, Ramp Up/Down, Hump, Delay, PWR2</td>
+</tr>
+<tr>
+<td><strong>Quantiser</strong></td>
+<td>Quantizes to music scales (Chromatic, Major, Minor, User, etc.)</td>
+</tr>
+<tr>
+<td><strong>Invert</strong></td>
+<td>Invert output voltage</td>
+</tr>
+<tr>
+<td><strong>Scope</strong></td>
+<td>Real time waveform view</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Inputs/Outputs Voltage Ranges</h2>
+<table>
+<thead>
+<tr>
+<th>Jack Type</th>
+<th>Range</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Outputs 1–8</td>
+<td>0 to +5V</td>
+<td>CV/triggers/LFO, 12-bit, 3.8kHz</td>
+</tr>
+<tr>
+<td>Inputs (CV 1,2)</td>
+<td>0 to +5V</td>
+<td>Assignable analog CV</td>
+</tr>
+<tr>
+<td>Clk/Run Inputs</td>
+<td>0 to +5V logic, 0.7V rising</td>
+<td>Clock/logic, can be used as assignable CV (0–5V, see above)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Settings Menu (press+hold encoder from BPM/main screen)</h2>
+<ul>
+<li><strong>Clk/Run input assignment:</strong> (Clock, CV, bank switching, rotation, etc.)</li>
+<li><strong>EXT PPQN:</strong> Set expected clock pulses per quarter note (default 24)</li>
+<li><strong>UI theme</strong> (visual style)</li>
+<li><strong>Encoder hold time</strong> (customize hold duration)</li>
+<li><strong>Bank load/save</strong></li>
+<li><strong>Reset all</strong></li>
+</ul>
+<hr />
+<h2>Expander Info (back panel)</h2>
+<ul>
+<li><strong>AUX headers ONLY!</strong> See manual for correct header usage.</li>
+</ul>
+<hr />
+<h2>Useful Tips</h2>
+<ul>
+<li>Any parameter with a % can be modulated by CV!</li>
+<li>Multiple parameters can be assigned to the same CV input, each with custom attenuate/offset.</li>
+<li>Utility output types: GATE (held high = playing), OFF, START (pulse on start), STOP (pulse on stop).</li>
+<li>Use 'Scope' to view your output wave and its shape in real-time.</li>
+</ul>
+<hr />
+<h2>External Sync</h2>
+<ul>
+<li>For precise sync: set PPQN to 24, use DIN Sync-standard clock/run (Run recommended for pre-sync).</li>
+<li>Supports CV control of BPM via clock input.</li>
+</ul>
+<hr />
+<h2>Links</h2>
+<ul>
+<li><a href="https://busycircuits.com/alm034/manual/">Official Manual PDF</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+</body>
+</html>

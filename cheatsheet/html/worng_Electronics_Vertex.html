@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>worng_Electronics_Vertex</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>worng Electronics — Vertex</h1>
+<ul>
+<li><a href="../../manuals/Vertex manual v1.00.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<pre><code class="language-markdown">**WORNG Electronics Vertex Cheat Sheet**  
+[Download the Manual (images above, not direct PDF)](#)
+
+---
+
+### Quick Reference
+
+#### Overview
+- **Vertex** is a high-quality, voltage-controlled analog stereo VCA/auto-panner for Eurorack.
+- Uses 4 VCAs (2 linear, 2 exponential: per channel) for advanced stereo processing and control.
+- 8hp, 25mm depth.  
+- All analog, DC coupled (handles CV and audio).
+
+---
+
+### Panel Controls
+
+#### Knobs
+
+| Control           | Function                                                                                                           |
+|-------------------|--------------------------------------------------------------------------------------------------------------------|
+| **Gain**          | Baseline gain for both L+R VCAs (manual &quot;drone&quot; or always-on level); fully CW = unity gain.                       |
+| **Gain CV Amt**   | Attenuates (+/-) incoming Gain CV. Fully CCW = 0V, noon = 10V envelope for full open, CW = 5V envelope for full.  |
+| **Skew**          | Balances stereo image. Noon = even. CCW = loud L, quiet R. CW = loud R, quiet L.                                  |
+| **Skew CV Amt**   | Attenuverts Skew CV; noon = 0. CW = +, CCW = -.                                                                   |
+
+#### Inputs
+
+| Jack           | Details                                                                         | Voltage Range/Type                                                              |
+|----------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| **Gain CV**    | Controls gain of both L+R channels (affected by Gain CV Amt).                   | -10V to +10V (handles +/-5 to 10V envelopes, accepts bipolar CVs)                |
+| **Skew CV**    | Modulates Skew control (attenuverted by Skew CV Amt).                           | +/-10V bipolar (DC to audio rate for panning/LFOs etc.)                          |
+| **L In**       | Left audio/CV in; normalled to R if R unpatched (mono to stereo).               | Audio or CV, 0-10V typical modular signal range                                  |
+| **R In**       | Right audio/CV input.                                                           | Audio or CV, 0-10V typical                                                       |
+
+#### Outputs
+
+| Jack         | Details                | Type            |
+|--------------|------------------------|-----------------|
+| **L Out**    | Left processed signal  | Audio or CV     |
+| **R Out**    | Right processed signal | Audio or CV     |
+
+---
+
+### Indicator LEDs
+- **L/R LEDs** show level of control voltage sent to each VCA (combined action of Gain, Gain CV, Skew, Skew CV).
+
+---
+
+### Voltage Ranges &amp; Signal Handling
+- **VCAs cap at unity gain** – won't amplify above input level, even if overdriven with CV.
+- Overdriving CV (CV &gt; needed for unity) “clips” envelopes, changing contour from e.g. AD to AHD without adding audio distortion.
+- All CVs are analog, work at audio rates (use for AM/panning/LFOs/etc).
+
+---
+
+### Example Patch Recipes
+
+**1. Stereo Tremolo:**  
+- Stereo in to L/R inputs, output L/R.
+- Gain at noon to 3:00.
+- LFO to Skew CV, Skew CV Amt ~1:00.
+- Result: Moving/panning tremolo FX.
+
+**2. Voltage-Controlled Panning:**  
+- Mono in to L input, R input unpatched.
+- Gain full CW.
+- Adjust Skew or send Skew CV for voltage-controlled panning.
+- Pro tip: Envelope to Gain CV for shaped panning without changing peaks.
+
+**3. Dual VCAs for CV or XY Processing:**  
+- Patch independent CVs to L+R inputs/outputs, one envelope to Gain CV.
+- Use Skew for balancing/offset.
+- Works well for oscilloscope XY or laser modulation.
+
+---
+
+### Panel Cleaning
+- Matte black panel can show fingerprints; clean with soft cloth &amp; a little isopropyl alcohol.
+
+---
+
+### Reference
+
+- All I/O is **3.5mm mono jacks** (Eurorack standard).
+- To use TRS stereo, break out to mono L/R.
+- **Depth:** 25mm
+- **HP:** 8hp
+
+---
+
+[Generated With Eurorack Processor](https://github.com/nstarke/eurorack-processor)
+</code></pre>
+</body>
+</html>

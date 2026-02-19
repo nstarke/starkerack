@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Integra_Funkitus</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Integra Funkitus</h1>
+<ul>
+<li><a href="../../manuals/Integra Funkitus - Noise Engineering Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.noiseengineering.us/if/"><strong>Integra Funkitus Manual (PDF)</strong></a></p>
+<hr />
+<h1>Integra Funkitus — Cheat Sheet</h1>
+<p><strong>Type:</strong> Rhythm Modifier<br />
+<strong>Format:</strong> 8HP Eurorack<br />
+<strong>Depth:</strong> 0.8"<br />
+<strong>Power:</strong> +12 V: 50 mA, -12 V: 11 mA (2x5 header)</p>
+<hr />
+<h2>Panel Controls and Jacks</h2>
+<h3>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack/Control</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Part Input 1–4</strong></td>
+<td>Gate input channels. Each receives a separate rhythm.</td>
+<td>Gates &gt; 2 V</td>
+</tr>
+<tr>
+<td><strong>Mod 1–4 Jack</strong></td>
+<td>CV input for corresponding Mod Knob (1–4). Modulates the modification of that channel.</td>
+<td>Typical Euro CV; knob acts as attenuator</td>
+</tr>
+</tbody>
+</table>
+<h3>Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Jack/Control</th>
+<th>Function</th>
+<th>Voltage Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Part Output 1–4</strong></td>
+<td>Gate output channels (modified/combo rhythms).</td>
+<td>6 V gate signals</td>
+</tr>
+</tbody>
+</table>
+<h3>Controls</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mode Switch</strong></td>
+<td>3-way toggle: selects "Trigger" (T), "Gate" (G), or "Logic" (L) mode of operation</td>
+</tr>
+<tr>
+<td><strong>Mod Knob 1–4</strong></td>
+<td>Sets probability/combo for corresponding channel (and acts as attenuator for CV input when patched)</td>
+</tr>
+<tr>
+<td></td>
+<td>- <strong>Trigger Mode (T):</strong> Probability that a rising edge on Input passes to Output (falling edge always passes)</td>
+</tr>
+<tr>
+<td></td>
+<td>- <strong>Gate Mode (G):</strong> Probability that both rising and falling edges of Input pass to Output</td>
+</tr>
+<tr>
+<td></td>
+<td>- <strong>Logic Mode (L):</strong> Which inputs are logically combined for the Output; fully CCW = direct pass, fully CW = mute</td>
+</tr>
+<tr>
+<td><strong>Burn Button</strong></td>
+<td>Instant “fill” — forcibly combines all inputs to all outputs, overriding mode and knob settings</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Usage Quick Reference</h2>
+<ol>
+<li><strong>Patch up to four gate signals</strong> into Part Input 1–4 (e.g., clock, rhythm generators like Numeric Repetitor).</li>
+<li><strong>Connect Part Outputs 1–4</strong> to drum/percussion modules or other gate destinations.</li>
+<li><strong>Set the Mode Switch</strong>:</li>
+<li><strong>Trigger (T):</strong> Out = random-per-event gate passes (rising), knob sets probability.</li>
+<li><strong>Gate (G):</strong> Out = random-per-edge gate passes (rising + falling), knob sets probability (pulses get longer).</li>
+<li><strong>Logic (L):</strong> Out = logical combination of other ins, knob selects combo or mute.</li>
+<li><strong>Mod Knobs 1–4</strong>: Select probability/combo for each channel.<br />
+   Or patch CV into Mod 1–4 Jacks for voltage control (knobs become attenuators).</li>
+<li><strong>Tap Burn</strong> for instant all-in variation (“fill” effect).</li>
+</ol>
+<hr />
+<h2>Voltage Summary</h2>
+<ul>
+<li><strong>Inputs (Gate):</strong> &gt;2 V triggers event.</li>
+<li><strong>Outputs (Gate):</strong> 6 V gates.</li>
+<li><strong>Mod CV:</strong> Euro CV standard (typically -5 V to +5 V or 0–10 V; manual doesn’t specify but compatible with typical modular voltage ranges).</li>
+</ul>
+<hr />
+<h2>Tips</h2>
+<ul>
+<li>Want simple muting? Turn Logic Mode knob fully clockwise.</li>
+<li>Use CV for evolving, auto-probability changes.</li>
+<li>Combine different modes for evolving, fill-variation percussion lines.</li>
+<li><strong>Burn</strong> to instantly combine everything for fills/breaks.</li>
+</ul>
+<hr />
+<p>For more details, see the full <a href="https://manuals.noiseengineering.us/if/"><strong>Integra Funkitus Manual</strong></a><br />
+Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Mavis</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Mavis</h1>
+<ul>
+<li><a href="../../manuals/MAVIS_MANUAL_V2_06.27.2022.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.moogmusic.com/sites/default/files/2022-05/Manual_Mavis_v2.2_WEB.pdf">Moog Mavis User Manual PDF</a></p>
+<hr />
+<h1>Moog Mavis Eurorack Module Cheat Sheet</h1>
+<h2>Power &amp; Installation</h2>
+<ul>
+<li><strong>Eurorack Power</strong>: 44 HP wide; draws 175mA from +12V only (does not use -12V)</li>
+<li>Connect 10-pin ribbon (pin 1/-12V red stripe UP, but only uses +12V)</li>
+<li>Max depth: ~26mm</li>
+</ul>
+<hr />
+<h2>Panel Controls</h2>
+<h3>Oscillator (VCO)</h3>
+<ul>
+<li><strong>PITCH</strong>: Coarse pitch (8Hz – 8kHz)</li>
+<li><strong>VCO WAVE</strong>: Fade Saw⬄Pulse</li>
+<li><strong>PULSE WIDTH</strong>: Pulse duty (5%-50%)</li>
+<li><strong>VCO MOD MIX</strong>: LFO⬄EG modulation mix to VCO</li>
+<li><strong>PITCH MOD AMT</strong>: Mod amount to Pitch</li>
+<li><strong>PWM AMT</strong>: Mod amount to Pulse Width</li>
+</ul>
+<h3>Filter (VCF)</h3>
+<ul>
+<li><strong>CUTOFF</strong>: 4-pole LPF cutoff (30Hz–20kHz)</li>
+<li><strong>RESONANCE</strong>: Add resonance/self-oscillation</li>
+<li><strong>VCF MOD MIX</strong>: LFO⬄EG modulation mix to filter</li>
+<li><strong>VCF MOD AMT</strong>: Bipolar mod amount to Cutoff (center=off, left=invert, right=normal)</li>
+</ul>
+<h3>LFO</h3>
+<ul>
+<li><strong>LFO RATE</strong>: 0.1–550Hz (audio-rate capable)</li>
+<li><strong>LFO WAVE</strong>: Fade Tri⬄Square</li>
+</ul>
+<h3>EG (Envelope Generator)</h3>
+<ul>
+<li><strong>ATTACK</strong>: (0.8ms–5.5s)</li>
+<li><strong>DECAY</strong>: (3ms–18s)</li>
+<li><strong>SUSTAIN</strong>: 0–8V level</li>
+<li><strong>RELEASE</strong>: (3ms–18s)</li>
+</ul>
+<h3>VCA</h3>
+<ul>
+<li><strong>VOLUME</strong>: Output/headphones level</li>
+<li><strong>VCA MODE [TOGGLE]</strong>: DRONE (on)/normal EG control</li>
+</ul>
+<h3>Keyboard Section</h3>
+<ul>
+<li><strong>13-button C-to-C keyboard</strong></li>
+<li><strong>KB SCALE</strong>: 1V/octave (1 octave) to 5V/octave (5 octaves)</li>
+<li><strong>GLIDE</strong>: Portamento time (max ~9s)</li>
+</ul>
+<h3>Utilities</h3>
+<ul>
+<li><strong>FOLD</strong>: Amount of wave folding (wavefolder)</li>
+<li><strong>ONE LVL</strong>: Mixer ch.1 Level (ONE input)</li>
+<li><strong>ATTENUATOR</strong>: Attenuate +5V or input signal</li>
+</ul>
+<hr />
+<h2>Patchbay Jack Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Row/Col</th>
+<th>Function &amp; Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/VCA</td>
+<td>Out</td>
+<td>R1;C1</td>
+<td>Main audio/headphone out: -5V/+5V</td>
+</tr>
+<tr>
+<td>KB CV</td>
+<td>Out</td>
+<td>R1;C2</td>
+<td>Keyboard 0–1V (CCW KB scale), 0–5V (CW)</td>
+</tr>
+<tr>
+<td>FOLD IN</td>
+<td>In</td>
+<td>R1;C3</td>
+<td>Wavefolder input: -5V/+5V</td>
+</tr>
+<tr>
+<td>1V/OCT</td>
+<td>In</td>
+<td>R2;C1</td>
+<td>Pitch CV: -5V/+5V</td>
+</tr>
+<tr>
+<td>PWM</td>
+<td>In</td>
+<td>R2;C2</td>
+<td>Pulse Width CV: -5V/+5V</td>
+</tr>
+<tr>
+<td>ONE (-5)</td>
+<td>In</td>
+<td>R2;C3</td>
+<td>Mixer ch.1 in: -10V/+10V</td>
+</tr>
+<tr>
+<td>ONE</td>
+<td>Out</td>
+<td>R3;C3</td>
+<td>Mixer ch.1 out: -8V/+8V</td>
+</tr>
+<tr>
+<td>LFO RATE</td>
+<td>In</td>
+<td>R3;C1</td>
+<td>LFO rate CV: -5V/+5V</td>
+</tr>
+<tr>
+<td>CUTOFF</td>
+<td>In</td>
+<td>R3;C2</td>
+<td>Filter cutoff CV: -5V/+5V</td>
+</tr>
+<tr>
+<td>TWO</td>
+<td>In</td>
+<td>R4;C3</td>
+<td>Mixer ch.2 in: -10V/+10V</td>
+</tr>
+<tr>
+<td>GATE</td>
+<td>In</td>
+<td>R4;C1</td>
+<td>EG gate in: 0V=OFF, +5V=ON (1.5–3.5V)</td>
+</tr>
+<tr>
+<td>VCA CV</td>
+<td>In</td>
+<td>R4;C2</td>
+<td>VCA level: 0V–8V</td>
+</tr>
+<tr>
+<td>ONE+TWO</td>
+<td>Out</td>
+<td>R5;C3</td>
+<td>Mixer sum out: -8V/+8V</td>
+</tr>
+<tr>
+<td>VCO</td>
+<td>Out</td>
+<td>R5;C1</td>
+<td>Raw oscillator out: -5V/+5V</td>
+</tr>
+<tr>
+<td>S+H (VCO)</td>
+<td>In</td>
+<td>R5;C2</td>
+<td>S+H sample input: -5V/+5V</td>
+</tr>
+<tr>
+<td>LFO</td>
+<td>Out</td>
+<td>R6;C1</td>
+<td>LFO out: -5V/+5V</td>
+</tr>
+<tr>
+<td>S+H GATE</td>
+<td>In</td>
+<td>R6;C2</td>
+<td>S+H clock in: 0–+5V, rising edge</td>
+</tr>
+<tr>
+<td>ATTN (+5)</td>
+<td>In</td>
+<td>R6;C3</td>
+<td>Attenuator in: -10V/+10V</td>
+</tr>
+<tr>
+<td>EG</td>
+<td>Out</td>
+<td>R7;C1</td>
+<td>Envelope out: 0–8V</td>
+</tr>
+<tr>
+<td>S+H</td>
+<td>Out</td>
+<td>R7;C2</td>
+<td>S+H out: -5V/+5V</td>
+</tr>
+<tr>
+<td>ATTN</td>
+<td>Out</td>
+<td>R7;C3</td>
+<td>Attenuator out: -10V/+10V</td>
+</tr>
+<tr>
+<td>MULT</td>
+<td>In</td>
+<td>R8;C1</td>
+<td>Passive mult in: any CV/audio</td>
+</tr>
+<tr>
+<td>MULT 1</td>
+<td>Out</td>
+<td>R8;C2</td>
+<td>Passive mult out (copy of MULT in)</td>
+</tr>
+<tr>
+<td>MULT 2</td>
+<td>Out</td>
+<td>R8;C3</td>
+<td>Passive mult out (copy of MULT in)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Internal Modules (Patchable via Patchbay)</h2>
+<ul>
+<li><strong>Wavefolder</strong>: Patch-in via FOLD IN, enable with FOLD knob.</li>
+<li><strong>Mixer</strong>: Inputs: ONE (-5), TWO; Output: ONE+TWO (balance ONE LVL knob).</li>
+<li><strong>Attenuator</strong>: ATTN (+5) in, ATTN out, set amount via knob.</li>
+<li><strong>Sample+Hold</strong>: S+H (VCO) in, S+H GATE in, S+H out. Defaults: sample VCO, gate from LFO.</li>
+<li><strong>MULT</strong>: 1 in, 2 outs.</li>
+</ul>
+<hr />
+<h2>Patch Examples (Quick Reference)</h2>
+<ul>
+<li><strong>Engage Wavefolder</strong>: VCO out → FOLD IN</li>
+<li><strong>Add S+H filter modulation</strong>: S+H out → CUTOFF in</li>
+<li><strong>Mixer as audio sum</strong>: LFO (audio rate) → ONE in, VCO out → TWO in, ONE+TWO out → signal path</li>
+<li><strong>MULT</strong>: One source (e.g., S+H) to two destinations (e.g., pitch and cutoff)</li>
+<li><strong>External pitch</strong>: CV/gate controller → 1V/OCT in &amp; GATE in</li>
+</ul>
+<hr />
+<h2>Voltage Ranges (Quick Reference)</h2>
+<ul>
+<li><strong>Patchbay Inputs</strong>: Most -5V/+5V (mixer/attenuator -10V/+10V)</li>
+<li><strong>Pitch CV</strong>: 1V/oct standard</li>
+<li><strong>Gate in</strong>: rises &gt;3.5V triggers EG, drops &lt;1.5V releases EG</li>
+<li><strong>All outputs (audio/CV)</strong>: labeled per jack above</li>
+</ul>
+<hr />
+<p>For more detail, see the <a href="https://www.moogmusic.com/sites/default/files/2022-05/Manual_Mavis_v2.2_WEB.pdf">official manual PDF</a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

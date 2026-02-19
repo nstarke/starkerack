@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Omnitone_Rhythmi</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Omnitone — Rhythmi</h1>
+<ul>
+<li><a href="../../manuals/Rhythmi_Information_Package.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><strong><a href="#">Rhythmi Manual PDF - Download Link</a></strong><br />
+<em>(Replace with the actual URL if available, as it was not provided in your upload.)</em></p>
+<hr />
+<h1>Rhythmi Eurorack Drum Sequencer — Cheat Sheet</h1>
+<h3>Quickstart</h3>
+<ul>
+<li><strong>Power up, patch outputs to your drum voices.</strong></li>
+<li><strong>Dial in your groove using 'Density' and 'Synco' for each part.</strong></li>
+<li><strong>Explore new rhythmic variations by adjusting 'Evolve'.</strong></li>
+<li><strong>Shape fills and drive with 'Energy.'</strong></li>
+<li><strong>Set loop length, swing, and clock division/multiplication as needed.</strong></li>
+</ul>
+<hr />
+<h2>Section Reference</h2>
+<h3>Input/Output Jacks</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In</td>
+<td>Input</td>
+<td>External clock input</td>
+<td>Standard clock level</td>
+</tr>
+<tr>
+<td>Reset</td>
+<td>Input</td>
+<td>Resets pattern to start</td>
+<td>Gate/trigger</td>
+</tr>
+<tr>
+<td>Out</td>
+<td>Output</td>
+<td>Master clock output (follows int/ext clock, division, and swing)</td>
+<td>0–5V trigger/gate</td>
+</tr>
+<tr>
+<td>KICK</td>
+<td>Output</td>
+<td>Kick drum trigger</td>
+<td>0–5V pulse</td>
+</tr>
+<tr>
+<td>SNARE</td>
+<td>Output</td>
+<td>Snare drum trigger</td>
+<td>0–5V pulse</td>
+</tr>
+<tr>
+<td>TOM</td>
+<td>Output</td>
+<td>Tom drum trigger</td>
+<td>0–5V pulse</td>
+</tr>
+<tr>
+<td>TOM CV</td>
+<td>Output</td>
+<td>Tom pitch - 1v/oct quantized minor pentatonic</td>
+<td>0–5V (1V/octave)</td>
+</tr>
+<tr>
+<td>CRASH</td>
+<td>Output</td>
+<td>Crash drum trigger</td>
+<td>0–5V pulse</td>
+</tr>
+<tr>
+<td>HI-HAT</td>
+<td>Output</td>
+<td>Combined Closed/Open hat: gate = open, short trigger = closed</td>
+<td>0–5V trigger/gate</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>No explicit CV inputs other than for 'Evolve' randomization (see below).</em></p>
+</blockquote>
+<hr />
+<h3>Knobs, Buttons, and Sliders</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Encoder (Main)</td>
+<td>Knob/Push</td>
+<td>Global</td>
+<td>Loop length (press for base pattern change), evolve (turn), press evolve for variation randomize</td>
+</tr>
+<tr>
+<td>Speed Encoder</td>
+<td>Knob</td>
+<td>Clock</td>
+<td>Internal clock speed; Divider/multiplier if external clock in</td>
+</tr>
+<tr>
+<td>CHH / OHH</td>
+<td>Knob</td>
+<td>Customize</td>
+<td>Adjust density/syncopation for closed/open hi-hat</td>
+</tr>
+<tr>
+<td>Synco</td>
+<td>Knobs</td>
+<td>Customize</td>
+<td>Set syncopated:non-syncopated ratio for each piece</td>
+</tr>
+<tr>
+<td>Density</td>
+<td>Knobs</td>
+<td>Customize</td>
+<td>Total number of hits for each piece</td>
+</tr>
+<tr>
+<td>Tom Amount</td>
+<td>Knob</td>
+<td>Customize</td>
+<td>How many pitches for tom</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>Encoder</td>
+<td>Global</td>
+<td>Loop length in pulses (2–32)</td>
+</tr>
+<tr>
+<td>Energy</td>
+<td>Knob</td>
+<td>Global</td>
+<td>Macro: increases kick/snare/tom density &amp; syncopation; enables crash/fill at top end</td>
+</tr>
+<tr>
+<td>Evolve</td>
+<td>Encoder</td>
+<td>Global</td>
+<td>Morph between rhythmic variations; randomize via push/CV</td>
+</tr>
+<tr>
+<td>Swing</td>
+<td>Knob</td>
+<td>Global</td>
+<td>Moves every 2nd pulse between 50–90% offset (0 = no swing)</td>
+</tr>
+<tr>
+<td>Progress LEDs</td>
+<td>Lights</td>
+<td>Global</td>
+<td>Pattern progress; color shows base pattern</td>
+</tr>
+<tr>
+<td>Vertical LEDs</td>
+<td>Lights</td>
+<td>Clock/Global</td>
+<td>Show clock speed, division, energy/cursor/red = fill/crash fired, animations</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>CV Control &amp; Special Operations</h3>
+<ul>
+<li><strong>Evolve CV randomization:</strong>  </li>
+<li>Hold 'Speed Encoder' + press 'Evolve Encoder' (LEDs green).  </li>
+<li>CV above 75% = pattern randomizes (vertical LEDs animate).  </li>
+<li>Repeat combo (LEDs red) to disable.  </li>
+<li><strong>State Save:</strong> Pausing clock saves all key state to internal memory.</li>
+</ul>
+<hr />
+<h2>Rhythmic Logic</h2>
+<ul>
+<li>Density + Synco = “Root Rhythm” (when Evolve/Energy at min).</li>
+<li>Evolve = morph between root and randomized preset variations (smooth, persistent).</li>
+<li>Swing = moves every 2nd clock hit to create shuffle/groove.</li>
+<li>Energy at max = adds crash+kick at loop head, crash output can be used as a global reset/trigger.</li>
+</ul>
+<hr />
+<h2>Tips</h2>
+<ul>
+<li><strong>HI-HAT OUT:</strong> Patch to VCA envelope for length control—gate = open, trigger = closed.</li>
+<li><strong>Base Patterns:</strong> Long-press main encoder to swap feel (color in LEDs).</li>
+<li><strong>Tom Pitch:</strong> TOM CV out is 1V/oct, minor pentatonic, range set by 'Tom Amount.'</li>
+<li><strong>Fills:</strong> Energy up = more fills/variation at loop end.</li>
+</ul>
+<hr />
+<h2>Reference Links</h2>
+<ul>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+</body>
+</html>

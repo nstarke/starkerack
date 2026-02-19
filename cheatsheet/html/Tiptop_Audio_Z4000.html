@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_Z4000</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — Z4000</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_z4000.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://tiptopaudio.com/z4000-ns/">Z4000 Voltage Controlled Envelope Generator Manual PDF</a></p>
+<h1>Tiptop Audio Z4000 VC-EG Cheat Sheet</h1>
+<p><strong>The Z4000 is a four-stage envelope generator (Attack, Decay, Sustain, Release) with unique CV processing features (Attenuverter/Deviater) for shaping, scaling, inverting, mirroring, or offsetting the envelope.</strong></p>
+<hr />
+<h2>🛠 <strong>Panel Controls Summary</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Function</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A (Attack)</strong></td>
+<td>Knob</td>
+<td>Sets attack time; voltage controllable</td>
+<td>0ms to minutes (via knob &amp; CV)</td>
+</tr>
+<tr>
+<td><strong>D (Decay)</strong></td>
+<td>Knob</td>
+<td>Sets decay time; voltage controllable</td>
+<td>0ms to minutes (via knob &amp; CV)</td>
+</tr>
+<tr>
+<td><strong>S (Sustain)</strong></td>
+<td>Knob</td>
+<td>Sets sustain level; voltage controllable</td>
+<td>0V (min) to ~8V (max, via knob &amp; CV)</td>
+</tr>
+<tr>
+<td><strong>R (Release)</strong></td>
+<td>Knob</td>
+<td>Sets release time; voltage controllable</td>
+<td>0ms to ∞ (fully CW) (via knob &amp; CV)</td>
+</tr>
+<tr>
+<td><strong>Attack Curve Switch (ATK)</strong></td>
+<td>Toggle</td>
+<td>Selects attack curve slope (exponential/logarithmic)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Attenuverter</strong></td>
+<td>Knob</td>
+<td>Scales and inverts envelope output; 12h = 0V, CW = full pos, CCW = full neg</td>
+<td>± envelope out</td>
+</tr>
+<tr>
+<td><strong>Deviater</strong></td>
+<td>Knob</td>
+<td>Offsets envelope output voltage (+ or - static voltage)</td>
+<td>± static V</td>
+</tr>
+<tr>
+<td><strong>Deviater CV Amt</strong></td>
+<td>Knob</td>
+<td>Level of external signal mapped by Deviater VC input</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🔌 <strong>Jacks Reference (Inputs &amp; Outputs)</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Jack Label</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GATE</strong></td>
+<td>In</td>
+<td>Gate/trigger input to start envelope</td>
+<td>+2V min (typical)</td>
+</tr>
+<tr>
+<td><strong>RTRG (Retrigger)</strong></td>
+<td>In</td>
+<td>Pulse retriggers envelope during held gate</td>
+<td>+2V min (typical)</td>
+</tr>
+<tr>
+<td><strong>A, D, S, R</strong></td>
+<td>In</td>
+<td>Voltage control for Attack, Decay, Sustain, Release</td>
+<td>0–5V = 0–100% of parameter; summed w/ knob</td>
+</tr>
+<tr>
+<td><strong>DEVIATER VC</strong></td>
+<td>In</td>
+<td>Modulates Deviater offset</td>
+<td>0–5V for full range</td>
+</tr>
+<tr>
+<td><strong>OUT</strong></td>
+<td>Out</td>
+<td>Main envelope output (processed by Attenuverter and Deviater)</td>
+<td>±8V maximum (scaled/inverted/offset)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🚦 <strong>Usage Quick Start</strong></h2>
+<ol>
+<li><strong>Basic Envelope</strong>  </li>
+<li>Plug gate into <strong>GATE</strong>  </li>
+<li>Set envelope shape:  <ul>
+<li><strong>Attack=Min, Decay=50%, Sustain=50%, Release=50%</strong></li>
+</ul>
+</li>
+<li>Set <strong>Attenuverter</strong> to full CW (full pos)</li>
+<li>Set <strong>Deviater</strong> to center (0 offset)</li>
+<li>
+<p>Patch <strong>OUT</strong> to desired CV input (VCA, filter, etc.)</p>
+</li>
+<li>
+<p><strong>Sculpt Envelope</strong></p>
+</li>
+<li>Adjust <strong>A/D/S/R</strong> for shape and timing.</li>
+<li><strong>First 50%</strong>: fine tuning, ultra-fast percussive/transient control  </li>
+<li><strong>Above 50%</strong>: extends segment times up to minutes <em>or infinite Sustain</em></li>
+<li>
+<p>Switch <strong>ATK</strong> (Attack Curve) for subtle slope changes.</p>
+</li>
+<li>
+<p><strong>Advanced Shaping</strong></p>
+</li>
+<li><strong>Attenuverter</strong>:  <ul>
+<li>Center = 0V</li>
+<li>CW = normal</li>
+<li>CCW = inverted envelope  </li>
+<li>LED indicates polarity (red = pos, yellow = neg)</li>
+</ul>
+</li>
+<li>
+<p><strong>Deviater</strong>  </p>
+<ul>
+<li>CW = +V offset</li>
+<li>CCW = -V offset  </li>
+<li>Modulate with <strong>Deviater VC</strong> or external signal for dynamic shifting, mirroring, clipping etc.</li>
+</ul>
+</li>
+<li>
+<p><strong>Voltage Control</strong></p>
+</li>
+<li>Patch CV sources (sequencer, LFO, other envelopes) into <strong>A/D/S/R</strong> or <strong>Deviater VC</strong> as desired  </li>
+<li>
+<p>0–5V = full range for segment control (CV is summed with knob)</p>
+</li>
+<li>
+<p><strong>Retrigger</strong></p>
+</li>
+<li>Send pulses to <strong>RTRG</strong> (while GATE is held) to restart Attack for accents, modulation, or rhythmic variations</li>
+</ol>
+<hr />
+<h2>🛑 <strong>Protection</strong></h2>
+<ul>
+<li><strong>Reverse Polarity Power Protection</strong>: Module is fully protected, cannot be damaged by reverse power plug-in.</li>
+</ul>
+<hr />
+<h2><strong>Summary Table</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Jack/Control</th>
+<th>Voltage/Action</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Envelope Gate</td>
+<td>GATE (In)</td>
+<td>&gt;2V trigger/gate</td>
+<td></td>
+</tr>
+<tr>
+<td>Retrigger</td>
+<td>RTRG (In)</td>
+<td>&gt;2V pulse retrigger</td>
+<td></td>
+</tr>
+<tr>
+<td>Attack CV</td>
+<td>A (In)</td>
+<td>0–5V</td>
+<td>Summed w/ knob</td>
+</tr>
+<tr>
+<td>Decay CV</td>
+<td>D (In)</td>
+<td>0–5V</td>
+<td>Summed w/ knob</td>
+</tr>
+<tr>
+<td>Sustain CV</td>
+<td>S (In)</td>
+<td>0–5V</td>
+<td>Summed w/ knob</td>
+</tr>
+<tr>
+<td>Release CV</td>
+<td>R (In)</td>
+<td>0–5V</td>
+<td>Summed w/ knob</td>
+</tr>
+<tr>
+<td>Deviater Mod</td>
+<td>DEVIATER VC (In)</td>
+<td>0–5V</td>
+<td>Summed w/ knob</td>
+</tr>
+<tr>
+<td>Envelope Output</td>
+<td>OUT (Out)</td>
+<td>-8V to +8V (max)</td>
+<td>Depends on Attenuverter/Deviater settings</td>
+</tr>
+<tr>
+<td>Attack Curve</td>
+<td>ATK Switch</td>
+<td>Expo/Log selection</td>
+<td>Subtle, long Attack best auditioned</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

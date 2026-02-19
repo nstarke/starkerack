@@ -1,0 +1,336 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_MultiGrain</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — MultiGrain</h1>
+<ul>
+<li><a href="../../manuals/multigrain_manual_v1.2_2025.09.02.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#"><strong>Intellijel Multigrain v1.2 Manual (PDF Previewed)</strong></a><br />
+<em>(Replace with actual link to PDF if available online)</em></p>
+<hr />
+<h1>Intellijel Multigrain v1.2 Cheat Sheet</h1>
+<p><strong>Live Stereo Morphing Granular Sampler</strong></p>
+<hr />
+<h2>Inputs &amp; Outputs (Jack Reference)</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Voltage Range</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IN L</td>
+<td>Input</td>
+<td>Audio</td>
+<td>Left audio input</td>
+</tr>
+<tr>
+<td>IN R</td>
+<td>Input</td>
+<td>Audio</td>
+<td>Right audio input</td>
+</tr>
+<tr>
+<td>OUT L</td>
+<td>Output</td>
+<td>Audio</td>
+<td>Left audio output</td>
+</tr>
+<tr>
+<td>OUT R</td>
+<td>Output</td>
+<td>Audio</td>
+<td>Right audio output</td>
+</tr>
+<tr>
+<td>NEXT</td>
+<td>Input</td>
+<td>&gt;2V trigger</td>
+<td>Advances to next Sound; can be set as RESET for SCAN</td>
+</tr>
+<tr>
+<td>GATE</td>
+<td>Input</td>
+<td>&gt;2V gate</td>
+<td>Triggers current Sound</td>
+</tr>
+<tr>
+<td>SELECT</td>
+<td>Input</td>
+<td>-10V to +10V (±10V, rectified)</td>
+<td>Selects which Sound to play</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Input</td>
+<td>-10V to +10V (±10V)</td>
+<td>Assignable CV modulation input</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Input</td>
+<td>-10V to +10V (±10V)</td>
+<td>Assignable CV modulation input</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Input</td>
+<td>-10V to +10V (±10V)</td>
+<td>Assignable CV modulation input</td>
+</tr>
+<tr>
+<td>MORPH</td>
+<td>Input</td>
+<td>-10V to +10V (±10V)</td>
+<td>CV input for MORPH fader</td>
+</tr>
+<tr>
+<td>SYNC</td>
+<td>Input</td>
+<td>&gt;2V clock/pulse</td>
+<td>Syncs grain rate/position for Sounds/Live input</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Output</td>
+<td>-5V to +5V (±5V)</td>
+<td>Assignable CV output (options per Alt Panel)</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Output</td>
+<td>-5V to +5V (±5V)</td>
+<td>Assignable CV output (options per Alt Panel)</td>
+</tr>
+<tr>
+<td>SD Card</td>
+<td></td>
+<td>N/A (microSD slot)</td>
+<td>microSD for samples, projects, presets (≤32GB, FAT-32)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Panel Controls Overview</h2>
+<h3>Knobs (with LEDs)</h3>
+<ul>
+<li><strong>START</strong>: Grain starting position in sample/buffer</li>
+<li><strong>WRAP</strong>: Scan area range window</li>
+<li><strong>SCAN</strong>: Speed/direction to scan sample area</li>
+<li><strong>SHAPE</strong>: Grain window shape (7 types, discrete)</li>
+<li><strong>BLUR</strong>: Reverb amount</li>
+<li><strong>LEVEL</strong>: Grain output volume</li>
+<li><strong>RATE</strong>: Grain trigger rate (0–130.8 Hz, or clocked/linked)</li>
+<li><strong>SIZE</strong>: Grain length (20ms–4s)</li>
+<li><strong>PITCH</strong>: Pitch shift (-2 to +2 octaves, CV up to ±3)</li>
+<li><strong>TONE</strong>: 2-pole LPF (CCW) — HPF (CW)</li>
+</ul>
+<h3>Fader</h3>
+<ul>
+<li><strong>MORPH</strong>: Scene A ↔ Scene B interpolation (CV, w/ attenuverter*)</li>
+</ul>
+<h3>Buttons</h3>
+<ul>
+<li><strong>◎SAMPLE</strong>: Record/assign sample, resample, freeze (read mode-dependent)</li>
+<li><strong>RATE–SIZE (Link)</strong>: Ties RATE and SIZE behavior </li>
+<li><strong>SIZE–PITCH (Link)</strong>: Ties SIZE and PITCH behavior </li>
+<li><strong>REVERSE</strong>: Grain playback direction (or ping-pong, hold to enable)</li>
+<li><strong>SCENE A / SCENE B</strong>: Select/use/edit either scene per Sound</li>
+<li><strong>ALT / EXIT</strong>: Hold/tap for Alt/settings/exit page</li>
+<li><strong>CLEAR</strong>: Clear/reset modulation, scenes, sounds, memory etc</li>
+<li><strong>RAND / X / Y / Z</strong>: Assignable mod pages, per-parameter attenuversion for random/external CV</li>
+<li><strong>THRU</strong>: Input monitoring/bypass to output (and Blur, with latch/lock options)</li>
+<li><strong>LATCH</strong>: Sustain sound, toggle latching</li>
+<li><strong>SOUND 1–8</strong>: Trigger/select 8 Sounds (manual or CV control)</li>
+</ul>
+<h3>Other Functions / Hidden Shortcuts</h3>
+<ul>
+<li><strong>Combo Holds:</strong> Hold + press for many actions (see shortcuts below)</li>
+<li><strong>Long Presses:</strong> Enter ping-pong, quick save/load, etc.</li>
+</ul>
+<p>* <strong>MORPH ATT</strong> (not panel-labeled): Attenuverter for Morph CV</p>
+<hr />
+<h2>Voltage/Control Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Source</th>
+<th>Range</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X/Y/Z Inputs</td>
+<td>CV in</td>
+<td>±10V</td>
+<td>Mod-assigned to (almost) any parameter, incl. Reverse</td>
+</tr>
+<tr>
+<td>Morph Input</td>
+<td>CV in</td>
+<td>±10V (±5V sweeps)</td>
+<td>Fader position modulated</td>
+</tr>
+<tr>
+<td>Gate/Next Input</td>
+<td>Gate/Trig</td>
+<td>&gt;2V</td>
+<td>Trigger Sound or advance/scan/reset</td>
+</tr>
+<tr>
+<td>Select Input</td>
+<td>CV in</td>
+<td>±10V (rectified)</td>
+<td>Sound selection via CV (0V–5V mapped 1–8)</td>
+</tr>
+<tr>
+<td>Sync Input</td>
+<td>Trig/Clock</td>
+<td>&gt;2V</td>
+<td>Syncs grain rate or Live Sound positions</td>
+</tr>
+<tr>
+<td>A/B Outputs</td>
+<td>CV out</td>
+<td>±5V</td>
+<td>Envelope, S&amp;H, random, morph, grain triggers, etc. (assignable)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Core Workflows</h2>
+<h3>Loading &amp; Assigning Sounds</h3>
+<ul>
+<li><strong>Load sample:</strong> ALT &gt; /PROJECT, /WAVS, /RECS &gt; assign to SOUND (preview by pressing/latching)</li>
+<li><strong>Record sample:</strong> Press ◎SAMPLE to record; press ◎SAMPLE again to stop; assign to SOUND or save  </li>
+<li><strong>Live Sound:</strong> Hold SOUND, press ◎SAMPLE (button turns magenta/pink)</li>
+</ul>
+<h3>Playing Sounds/Grains</h3>
+<ul>
+<li><strong>Trigger:</strong> Press/hold SOUND 1–8 (or gate)</li>
+<li><strong>Latch:</strong> Enable latch, press SOUND (continues sound)</li>
+<li><strong>Morph:</strong> Move MORPH fader between A↔B for morphing</li>
+</ul>
+<h3>Editing Parameters</h3>
+<ul>
+<li><strong>Adjust Knobs:</strong> Direct control over granular/sample params  </li>
+<li><strong>Assign Mods:</strong> On RAND/X/Y/Z mod page, turn knob for attenuversion  </li>
+<li><strong>Copy/Randomize:</strong> Hold/press relevant controls (e.g. Hold SCENE A, press SCENE B to copy)</li>
+</ul>
+<h3>Scenes &amp; Morphing</h3>
+<ul>
+<li><strong>Edit Scene:</strong> Select Scene A / B, adjust parameters</li>
+<li><strong>Morph:</strong> Crossfade using fader (CV controllable)</li>
+<li><strong>Copy Scene:</strong> Hold SCENE, press the other to paste  </li>
+<li><strong>Randomize Scene:</strong> Hold RAND, press SCENE</li>
+</ul>
+<h3>Sampling &amp; Trimming</h3>
+<ul>
+<li><strong>Live/Looping:</strong> Loop: Hold SOUND + press ◎SAMPLE. Freeze w/ ◎SAMPLE. Save to SD by long-press.</li>
+<li><strong>Trim:</strong> After capture, long-press ◎SAMPLE for advanced trimming/editing.</li>
+</ul>
+<hr />
+<h2>Reference: Quick Shortcuts</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Combo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clear Sound</td>
+<td>Hold CLEAR, press SOUND (once=settings; twice=delete sample)</td>
+</tr>
+<tr>
+<td>Latch sound, keep latched, edit</td>
+<td>Enable LATCH, press SOUND, adjust params</td>
+</tr>
+<tr>
+<td>Copy Sound</td>
+<td>Hold SOUND, press destination SOUND</td>
+</tr>
+<tr>
+<td>Morph All Scenes/Sounds</td>
+<td>Hold LATCH, or Scene, or both, then move knob</td>
+</tr>
+<tr>
+<td>Assign modulation</td>
+<td>Hold RAND/X/Y/Z (mod page), turn knob</td>
+</tr>
+<tr>
+<td>Modulate Param Across Sounds</td>
+<td>Hold LATCH + param on mod page</td>
+</tr>
+<tr>
+<td>Enable Live Sound</td>
+<td>Hold SOUND, press ◎SAMPLE</td>
+</tr>
+<tr>
+<td>Randomize Scene/Sound/X/Y/Z</td>
+<td>Hold RAND, press SCENE/SOUND/X/Y/Z</td>
+</tr>
+<tr>
+<td>Enable THRU/Bypass/Lock</td>
+<td>Press/hold LATCH + THRU; hold to lock</td>
+</tr>
+<tr>
+<td>Enter System Settings Page</td>
+<td>ALT + long-press PROJECT (~4s)</td>
+</tr>
+<tr>
+<td>Reboot Module</td>
+<td>Hold LATCH + CLEAR (~4s)</td>
+</tr>
+<tr>
+<td>Quick Open Quantizer</td>
+<td>Long press QUANT</td>
+</tr>
+<tr>
+<td>Quick Save/Load Preset</td>
+<td>Long press SAVE or LOAD</td>
+</tr>
+</tbody>
+</table>
+<p>(For a full shortcut table, see manual page 53–54)</p>
+<hr />
+<h2>Assignable CV Output Modes (A/B Outs)</h2>
+<ul>
+<li>Morph fader (GREEN)</li>
+<li>Grain trigger pulse (AMBER)</li>
+<li>Grain envelope (BLUE)</li>
+<li>Input envelope follower (MAGENTA)</li>
+<li>Output envelope follower (RED)</li>
+<li>Random S&amp;H per grain (WHITE)</li>
+<li>Grain pitch (CYAN, v1.2+)</li>
+</ul>
+<hr />
+<h2>Sample/Format Requirements</h2>
+<ul>
+<li>WAV, 48 kHz, 16 bit, Stereo, ≤32 seconds  </li>
+<li>microSD, FAT-32, ≤32GB recommended</li>
+</ul>
+<hr />
+<h2>Other Tips</h2>
+<ul>
+<li><strong>Projects/Presets:</strong> 48 Projects (6x8); 48 Presets per Project</li>
+<li><strong>Samples:</strong> /PROJECT (per-project: 128), /WAVS (global: 128), /RECS (global: 1024)</li>
+<li><strong>Firmware Upgrades:</strong> USB-C, hold boot and follow Intellijel Updater</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor"><strong>Generated With Eurorack Processor</strong></a></p>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-160-2</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-160-2</h1>
+<ul>
+<li><a href="../../manuals/A-160-2.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a1602.htm">Doepfer A-160-2 Manual (Source)</a></p>
+<h1>Doepfer A-160-2 Clock/Trigger Divider II</h1>
+<p><strong>Cheat Sheet</strong></p>
+<hr />
+<h2>Summary</h2>
+<p>The A-160-2 is an advanced clock/trigger/gate divider. It takes a clock input and produces seven simultaneous divided outputs (with selectable division patterns and output types). It’s useful for rhythm generation, clocking sequencers, and related timing duties in a Eurorack system.</p>
+<hr />
+<h2>Inputs &amp; Outputs</h2>
+<h3>1. Clock In</h3>
+<ul>
+<li><strong>Use:</strong> Receives external clock, gate, or trigger.</li>
+<li><strong>Voltage Range:</strong> Digital signal (logic) e.g. 0V = low, +10V = high.</li>
+<li><strong>Sources:</strong> LFO, MIDI sync, MIDI-CV gate, etc.</li>
+<li><strong>Note:</strong> Clock edge (rising or falling) can be set via PCB jumper.</li>
+</ul>
+<h3>2. Reset In</h3>
+<ul>
+<li><strong>Use:</strong> Resets output state according to mode.</li>
+<li><strong>Voltage Range:</strong> High = &gt;2.5V, Low = &lt;1V.</li>
+<li><strong>Configurable by Jumpers:</strong></li>
+<li>Level vs. edge trigger</li>
+<li>Respond to positive or negative edge/level</li>
+</ul>
+<h3>3. Seven Clock Divided Outputs (per mode)</h3>
+<ul>
+<li><strong>Voltage Range:</strong> 0V (low), ≈ +10V (high)</li>
+<li><strong>Output Polarity:</strong> Select non-inverted/inverted via PCB jumper</li>
+</ul>
+<h4>Output Division Types (selected via 3-way switch):</h4>
+<ul>
+<li><strong>Powers of 2:</strong> /2, /4, /8, /16, /32, /64, /128  </li>
+<li><strong>Prime Numbers:</strong> /2, /3, /5, /7, /11, /13, /17  </li>
+<li><strong>Integer:</strong> /2, /3, /4, /5, /6, /7, /8  </li>
+</ul>
+<hr />
+<h2>Front Panel Controls</h2>
+<ul>
+<li>
+<p><strong>Division Set Selector (3-way toggle):</strong><br />
+  Selects between:<em>Powers of Two, Prime Numbers, Integer Sequences</em></p>
+</li>
+<li>
+<p><strong>Output Mode Selector (3-way toggle):</strong>  </p>
+</li>
+<li><strong>Gate:</strong> Each output stays "high" for half its division cycle.  </li>
+<li><strong>Trig:</strong> Each output is AND-wired with the incoming clock (follow clock pulsewidth).  </li>
+<li><strong>"Cst" (Custom):</strong> Not implemented in current firmware.</li>
+</ul>
+<p><em>No knobs, buttons, or sliders are present on the panel.</em></p>
+<hr />
+<h2>Internal Jumpers (on PCB, for advanced configuration)</h2>
+<ul>
+<li><strong>Clock Edge:</strong> Rising or falling edge triggers output state change.</li>
+<li><strong>Reset Behavior:</strong> Level vs edge, positive vs negative.</li>
+<li><strong>Output Polarity:</strong> Outputs normal or inverted.</li>
+</ul>
+<p>For jumper locations/functions, see: <a href="https://doepfer.de/a1602_jp.pdf">A160_2_jumpers.pdf (Doepfer)</a></p>
+<hr />
+<h2>Physical Specs</h2>
+<ul>
+<li><strong>Width:</strong> 4 HP (20mm)</li>
+<li><strong>Depth:</strong> 35mm</li>
+<li><strong>Current:</strong> +12V: 50mA, -12V: 0mA</li>
+</ul>
+<hr />
+<h2>Key Usage Tips</h2>
+<ul>
+<li>Connect your master clock source to "Clock In".</li>
+<li>Use "Reset In" for synchronized resets (e.g. when syncing rhythm to bar start).</li>
+<li>Use the top toggle to select which division family best fits your patch.</li>
+<li>Use the mode toggle to pick Gate or Trigger type outputs.</li>
+<li>All outputs are available simultaneously for creative patching.</li>
+<li>Unused center "Cst" output mode may offer new features with future firmware.</li>
+</ul>
+<hr />
+<h2>Reference Links</h2>
+<ul>
+<li><a href="https://doepfer.de/a1602.htm">Doepfer A-160-2 Product Page &amp; Manual</a></li>
+<li><a href="https://doepfer.de/a1602_jp.pdf">A160_2_jumpers.pdf (jumper config)</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+</body>
+</html>

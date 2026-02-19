@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Arcus_Audio_Unity_Mixer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Arcus Audio — Unity Mixer</h1>
+<ul>
+<li><a href="../../manuals/Unity Mixer - Arcus Audio.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><strong><a href="https://arcusaudio.com/product/unity_mixer/">Unity Mixer Manual PDF</a></strong></p>
+<hr />
+<h1>Unity Mixer (Arcus Audio) – Cheat Sheet</h1>
+<h3>Overview</h3>
+<ul>
+<li><strong>Type</strong>: Dual 3:1 Unity Gain Mixer (Can act as single 6:1)</li>
+<li><strong>Size</strong>: 2HP (0.4”)</li>
+<li><strong>Function</strong>: Sums up to 3 signals per mix (2 mixes), or 6 into 1 if chained</li>
+<li><strong>Signals</strong>: Audio or CV</li>
+<li><strong>Indicators</strong>: Bi-color LEDs per output show level &amp; polarity</li>
+</ul>
+<hr />
+<h2><strong>Jack Reference</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Jack</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Voltage Range</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IN 1.1–1.3</td>
+<td>Input</td>
+<td>Inputs to Mixer 1 (DC coupled)</td>
+<td>-∞ to +∞ (limited by power rails, typical for Eurorack ~±10V)</td>
+</tr>
+<tr>
+<td>OUT 1</td>
+<td>Output</td>
+<td>Output for Mixer 1 with LED</td>
+<td>Follows summed input</td>
+</tr>
+<tr>
+<td>IN 2.1–2.3</td>
+<td>Input</td>
+<td>Inputs to Mixer 2 (DC coupled)</td>
+<td>-∞ to +∞ (±10V suggested)</td>
+</tr>
+<tr>
+<td>OUT 2</td>
+<td>Output</td>
+<td>Output for Mixer 2 with LED</td>
+<td>Follows summed input</td>
+</tr>
+<tr>
+<td>&gt; <em>Note</em>: To use as 6:1 mixer, patch OUT 1 into an input of mixer 2.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Controls / Indicators</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Control / Indicator</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Function</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OUT 1 LED</td>
+<td>Bi-color LED</td>
+<td>Shows level and polarity for OUT 1 (Green = positive, Red = negative voltage)</td>
+</tr>
+<tr>
+<td>OUT 2 LED</td>
+<td>Bi-color LED</td>
+<td>Shows level and polarity for OUT 2 (Green = positive, Red = negative voltage)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>No knobs, buttons, switches, or sliders.</strong><br />
+All mixing is performed at unity gain (no level controls).</p>
+</blockquote>
+<hr />
+<h2><strong>Installation &amp; Specs</strong></h2>
+<ul>
+<li><strong>Mounting</strong>: 2HP width, M3 x 6mm screws included, aluminum faceplate</li>
+<li><strong>Power</strong>: 10" power cable included  <ul>
+<li>+12V: 15 mA  </li>
+<li>-12V: 15 mA  </li>
+<li>+5V: 0 mA</li>
+</ul>
+</li>
+<li><strong>Input Impedance</strong>: 10 kΩ (DC coupled)</li>
+</ul>
+<hr />
+<h2><strong>Typical Usage</strong></h2>
+<ul>
+<li><strong>Summing audio or CV sources</strong> (e.g. mix 3 VCOs, or sum several LFOs/envelopes into one bus).</li>
+<li><strong>Dual 3-to-1 Mixer:</strong> Use both sections independently.</li>
+<li><strong>Single 6-to-1 Mixer:</strong> Chain OUT 1 to an IN of Mixer 2.</li>
+<li><strong>Polarity/Loudness Indication:</strong> LEDs give instant feedback for troubleshooting or creative applications.</li>
+</ul>
+<hr />
+<h2><strong>Quick Patching Guide</strong></h2>
+<ol>
+<li><strong>Patch up to 3 sources</strong> to each group of inputs (IN 1.1–1.3 or IN 2.1–2.3).</li>
+<li><strong>Take summed output</strong> from OUT 1 or OUT 2.</li>
+<li><strong>Chain modes:</strong> To combine all 6 inputs, patch OUT 1 into any input of mixer 2, take OUT 2 as final sum.</li>
+<li><strong>Watch the LEDs:</strong> Green = positive voltages dominate, Red = negative.</li>
+</ol>
+<hr />
+<p><em>No normalization or advanced controls – simple utility for clean, compact summing with visual feedback.</em></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

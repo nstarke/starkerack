@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ALM_ALM005_-_Dinky&#x27;s_Taiko</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ALM — ALM005 - Dinky's Taiko</h1>
+<ul>
+<li><a href="../../manuals/alm005-manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://busycircuits.com/docs/alm005-manual.pdf">Official ALM-005 ‘Dinky’s Taiko’ Manual PDF</a></p>
+<hr />
+<h1>ALM-005 ‘Dinky’s Taiko’ Cheat Sheet</h1>
+<h2>Overview</h2>
+<ul>
+<li>12-bit digital drum voice module with full voltage control (except EQ).</li>
+<li>Digital noise + wavetable oscillator (24 waveforms) + analog tilt EQ.</li>
+<li>Trigger, Accent, and Choke for expressive play.</li>
+<li>All major parameters (except EQ) are voltage controllable.</li>
+</ul>
+<hr />
+<h2>PANEL REFERENCE</h2>
+<h3>Input Jacks</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trigger</td>
+<td>Main trigger (fires hit)</td>
+<td>~+3V rising edge min</td>
+</tr>
+<tr>
+<td>Acc</td>
+<td>Accent trigger (emphasizes hit)</td>
+<td>Trigger gate</td>
+</tr>
+<tr>
+<td>Choke</td>
+<td>Choke trigger (cuts hit short)</td>
+<td>Trigger gate</td>
+</tr>
+<tr>
+<td>Spectrum CV</td>
+<td>Digital noise spectrum control</td>
+<td>0V to +5V</td>
+</tr>
+<tr>
+<td>Noise Rel CV</td>
+<td>Noise release time</td>
+<td>0V to +5V</td>
+</tr>
+<tr>
+<td>Start Freq CV</td>
+<td>Oscillator start freq</td>
+<td>0V to +5V</td>
+</tr>
+<tr>
+<td>End Freq CV</td>
+<td>Oscillator end freq</td>
+<td>0V to +5V</td>
+</tr>
+<tr>
+<td>Speed CV</td>
+<td>Oscillator slew time</td>
+<td>0V to +5V</td>
+</tr>
+<tr>
+<td>Osc Rel CV</td>
+<td>Oscillator release time</td>
+<td>0V to +5V</td>
+</tr>
+<tr>
+<td>Wave CV</td>
+<td>Oscillator waveform select</td>
+<td>0V to +5V</td>
+</tr>
+<tr>
+<td>Mix CV</td>
+<td>Noise/Osc crossfade</td>
+<td>0V to +5V</td>
+</tr>
+</tbody>
+</table>
+<h3>Output Jack</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Out</td>
+<td>Main audio output</td>
+<td>+/- 10V (can be hot)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>KNOB &amp; CONTROL SUMMARY</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Section</th>
+<th>Function</th>
+<th>CV</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spectrum</td>
+<td>Noise</td>
+<td>Digital noise frequency</td>
+<td>✔</td>
+<td>0-5V</td>
+</tr>
+<tr>
+<td>Noise Release</td>
+<td>Noise</td>
+<td>Release time for noise envelope</td>
+<td>✔</td>
+<td>0-5V</td>
+</tr>
+<tr>
+<td>Start Freq</td>
+<td>Oscillator</td>
+<td>Sets starting frequency of oscillator (not 1V/oct)</td>
+<td>✔</td>
+<td>0-5V</td>
+</tr>
+<tr>
+<td>End Freq</td>
+<td>Oscillator</td>
+<td>Ending frequency before reset</td>
+<td>✔</td>
+<td>0-5V</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Oscillator</td>
+<td>Sweep speed from start to end frequency. Higher = metallic/FM sounds</td>
+<td>✔</td>
+<td>0-5V</td>
+</tr>
+<tr>
+<td>Osc Release</td>
+<td>Oscillator</td>
+<td>Release time for oscillator envelope</td>
+<td>✔</td>
+<td>0-5V</td>
+</tr>
+<tr>
+<td>Wave</td>
+<td>Oscillator</td>
+<td>Selects one of 24 waveforms</td>
+<td>✔</td>
+<td>0-5V</td>
+</tr>
+<tr>
+<td>Mix</td>
+<td>Output</td>
+<td>Crossfade Noise ↔ Oscillator on output</td>
+<td>✔</td>
+<td>0-5V; Osc only ≈ +10V out</td>
+</tr>
+<tr>
+<td>EQ (Tilt)</td>
+<td>Output</td>
+<td>Tilt-style EQ: CCW = high freq emphasis, CW = low freq emphasis</td>
+<td>✗</td>
+<td>Only manual, affects out</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>USAGE TIPS</h2>
+<ul>
+<li><strong>All CV inputs are summed with the corresponding knob position as an offset.</strong></li>
+<li><strong>All parameters (except EQ) are “snapshotted” at the instant the TRIGGER is received.</strong></li>
+<li><strong>Accent and Choke are live while the hit is playing.</strong>  </li>
+<li><strong>Trigger:</strong> +3V (min) rising edge (standard modular trigger) required.  </li>
+<li><strong>Pairs especially well with clock/divider modules for rhythmic triggers and modulation.</strong></li>
+</ul>
+<h3>Voice Structure:</h3>
+<ol>
+<li>Trigger input fires a hit (“drum”).</li>
+<li>Digital noise and wavetable oscillator run through analog tilt EQ and crossfader (Mix).</li>
+<li>All core sound design comes from tuning and/or modulating the Spectrum, Release, Speed, Freq, and Wave controls (with or without modulation).</li>
+<li>All audio is output through a “hot” audio out (LED level indicator provided).</li>
+</ol>
+<hr />
+<h2>QUICK PATCH EXAMPLES</h2>
+<ul>
+<li>
+<p><strong>Basic Hit:</strong><br />
+  Patch clock or sequencer trigger to TRIGGER in. Audio from OUT to mixer.</p>
+</li>
+<li>
+<p><strong>Snare or Perc:</strong><br />
+  Use mostly NOISE, shorter release times, tilt EQ towards high.  </p>
+</li>
+<li>
+<p><strong>Metallic/Funky:</strong><br />
+  Raise Speed and modulate with CV for ring/FMX hits. Try out various waveshapes.</p>
+</li>
+<li>
+<p><strong>Dynamic Patterns:</strong><br />
+  Use divided triggers or shifted clocks for ACCENT and CHOKE to create varied sequences.</p>
+</li>
+</ul>
+<hr />
+<h2>POWER &amp; SIZE</h2>
+<ul>
+<li>Power: +/-12V, ~80mA</li>
+<li>12HP wide, 32mm deep (skiff friendly)</li>
+<li>Reverse polarity protection</li>
+</ul>
+<hr />
+<h3><a href="https://busycircuits.com/docs/alm005-manual.pdf">Official Manual PDF</a></h3>
+<h3><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></h3>
+</body>
+</html>

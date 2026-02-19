@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Turing_Machine</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Turing Machine</h1>
+<ul>
+<li><a href="../../manuals/TM_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://2hp.com/docs/tm_manual.pdf"><strong>TM 2HP Eurorack Module Manual (PDF)</strong></a><br />
+<em>(Use this official link or <a href="https://2hp.com/docs/tm_manual.pdf">here</a> if unsure—the above is a placeholder as there's no link in the image)</em></p>
+<hr />
+<h1><strong>TM 2HP Cheat Sheet</strong></h1>
+<p>TM is a probabilistic random sequence generator for Eurorack inspired by Turing Machine concepts. It is ideal for generative and evolving sequences or controlled random voltage sources.</p>
+<hr />
+<h2><strong>Front Panel Reference</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>#</strong></th>
+<th><strong>Label</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Function</strong></th>
+<th><strong>Voltage Range</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>TRIG LED</td>
+<td>Visual</td>
+<td>Indicates change in sequence</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>TRIG</td>
+<td>Input</td>
+<td>Trigger/gate to advance/shift sequence</td>
+<td>Threshold: 2.5V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PROB CV</td>
+<td>Input</td>
+<td>CV for probability (random/locked)</td>
+<td>0–5V</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PROB</td>
+<td>Knob</td>
+<td>Sets probability of random voltage change per step. Left = always new, Right = locked.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>5</td>
+<td>STEPS CV</td>
+<td>Input</td>
+<td>CV for sequence length</td>
+<td>0–5V</td>
+</tr>
+<tr>
+<td>6</td>
+<td>STEPS</td>
+<td>Knob</td>
+<td>Sets sequence length; Left = 1, Right = 32</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>7</td>
+<td>AMP</td>
+<td>Knob</td>
+<td>Scales output amplitude; Left = 0V, Right = 5V</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>8</td>
+<td>OUT</td>
+<td>Output</td>
+<td>Random stepped voltage</td>
+<td>0–5V</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Quick Operation</strong></h2>
+<ul>
+<li><strong>Power:</strong> 2HP, 47mm depth (Skiff friendly), +12V: 23mA, -12V: 7mA</li>
+<li><strong>Install:</strong> Ensure red stripe = -12V (down in most cases).</li>
+<li><strong>Trigger:</strong> Send trigger/gate ≥2.5V to TRIG; step advances and decides to create new random voltage based on PROB.</li>
+<li><strong>PROB (Probability):</strong></li>
+<li><strong>Left (100%):</strong> Always generate new random voltage per step.</li>
+<li><strong>Right (0%):</strong> Sequence "locks" to current voltages, advances steps without further randomness.</li>
+<li><strong>CV:</strong> Patch in modulation (e.g., LFO, envelope) to vary randomness dynamically.</li>
+<li><strong>STEPS (Sequence Length):</strong></li>
+<li>Sets how many steps before looping (1–32). CV controllable.</li>
+<li><strong>AMP (Amplitude):</strong></li>
+<li>Sets range of output voltage. Full right = up to 5V, full left = 0V.</li>
+<li><strong>OUT:</strong> Output stepped random CV to pitch quantizer, filter cutoff, etc.</li>
+</ul>
+<hr />
+<h2><strong>Patch Tips</strong></h2>
+<ul>
+<li>For evolving melodies, patch OUT to a quantizer then to an oscillator pitch input.</li>
+<li>Use an LFO or random CV into PROB CV for dynamic randomness control.</li>
+<li>Adjust STEPS to taste for short or extended looping patterns.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

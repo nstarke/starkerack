@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bored_Brain_EQx5</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Bored Brain — EQx5</h1>
+<ul>
+<li><a href="../../manuals/EQx5-UserGuide_1.0.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://boredbrainmusic.com/wp-content/uploads/eqx5_UserGuide.pdf">📄 eqx5 Manual PDF</a></p>
+<hr />
+<h1>eqx5 (boredbrain) - Cheat Sheet</h1>
+<h2>Quick Overview</h2>
+<p><strong>eqx5</strong> is a 5-band voltage-controlled equalizer (Eurorack format), providing CV control and manual adjustment over each band and overall output level. Ideal for dynamic spectral shaping, filter sweeps, coloring, and stereo or feedback applications.</p>
+<hr />
+<h2>Controls Reference</h2>
+<h3>Sliders: Frequency Band GAIN (per band: BASS, LOW-MID, MID, HI-MID, TREBLE)</h3>
+<ul>
+<li><strong>Range:</strong> -10 dB to +10 dB (center is flat)</li>
+<li><strong>Function:</strong> Adjusts boost/cut for each band.</li>
+</ul>
+<h3>Sliders: CV Amount (per band: blue slider)</h3>
+<ul>
+<li><strong>Range:</strong> -10 dB to +10 dB control via external CV.</li>
+<li><strong>Function:</strong> Sets sensitivity of CV input.</li>
+<li><strong>Sum:</strong> Manual slider + CV+slider.</li>
+</ul>
+<h3>SLIDER: LEVEL</h3>
+<ul>
+<li><strong>Range:</strong> -∞ (full down/off) to +6 dB (full up)</li>
+<li><strong>Function:</strong> Output volume.</li>
+</ul>
+<hr />
+<h2>Inputs &amp; Outputs</h2>
+<h3>Audio</h3>
+<ul>
+<li><strong>IN L / IN R:</strong>  </li>
+<li><strong>Type:</strong> Mono (left) or Stereo (both)</li>
+<li>
+<p><strong>Impedance:</strong> 100k ohms</p>
+</li>
+<li>
+<p><strong>OUT L / OUT R:</strong>  </p>
+</li>
+<li><strong>Type:</strong> Stereo output  </li>
+<li><strong>Level:</strong> Eurorack standard</li>
+</ul>
+<h3>CV Inputs (per band)</h3>
+<ul>
+<li><strong>CV1 (BASS), CV2 (LOW-MID), CV3 (MID), CV4 (HI-MID), CV5 (TREBLE)</strong></li>
+<li><strong>Voltage Range:</strong> -5V to +5V = -10dB to +10dB boost/cut  </li>
+<li><strong>Recommended Range:</strong> ±5V (higher voltages will be clipped internally)  </li>
+<li><strong>Function:</strong> Modulates band gain, scaled by blue CV slider.</li>
+</ul>
+<hr />
+<h2>Internal Signal Path</h2>
+<ul>
+<li><strong>All bands</strong> are fully parametric and analog, offering up to ±10dB cut/boost.</li>
+<li>
+<p><strong>Bands:</strong>  </p>
+<ol>
+<li><strong>BASS</strong> (75Hz, 1.2 Q)  </li>
+<li><strong>LOW-MID</strong> (350Hz, 1 Q)  </li>
+<li><strong>MID</strong> (1100Hz, 1 Q)  </li>
+<li><strong>HI-MID</strong> (3500Hz, 1 Q)  </li>
+<li><strong>TREBLE</strong> (9000Hz, 1 Q)</li>
+</ol>
+</li>
+<li>
+<p><strong>CV IN</strong> modulates band in addition to the manual slider.</p>
+</li>
+</ul>
+<hr />
+<h2>Usage Basics</h2>
+<ol>
+<li><strong>Patch audio</strong> into IN L (mono) or IN L+R (stereo).</li>
+<li><strong>Adjust each frequency band</strong> using the main sliders.</li>
+<li><strong>Patch modulation (LFOs, Envelopes, etc.)</strong> into any CV IN jack to control boost/cut for that band.</li>
+<li><strong>Set CV amount</strong> with blue CV slider: zero = no CV, up/down matches manual slider scale.</li>
+<li><strong>Set output level</strong> with LEVEL slider.</li>
+<li><strong>Patch OUT L/R</strong> to next module or main output.</li>
+</ol>
+<hr />
+<h2>Voltage Reference Table</h2>
+<table>
+<thead>
+<tr>
+<th>Input/Output</th>
+<th>Range</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IN L / R</td>
+<td>Audio (modular)</td>
+<td>Signal input</td>
+</tr>
+<tr>
+<td>OUT L / R</td>
+<td>Audio (modular)</td>
+<td>Equalized output</td>
+</tr>
+<tr>
+<td>CV1–CV5 (per band)</td>
+<td>-5V to +5V</td>
+<td>Band boost/cut</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Notes</h2>
+<ul>
+<li><strong>No other controls:</strong> This module uses only sliders.</li>
+<li><strong>Stereo/dual mono:</strong> Can use with mono or stereo, or process two mono signals in parallel (no cross-talk).</li>
+<li><strong>CV Summing:</strong> CV is added to manual; use both for maximum effect.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_MultiMod</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — MultiMod</h1>
+<ul>
+<li><a href="../../manuals/multimod-manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#"><strong>MultiMod Manual PDF</strong></a><br />
+<em>PDF link placeholder — please insert the actual link if available</em></p>
+<hr />
+<h1>MultiMod (Make Noise) Cheat Sheet</h1>
+<hr />
+<h2><strong>Overview</strong></h2>
+<ul>
+<li><strong>MultiMod</strong> takes one control signal, copies it to 8 outputs, and processes each with <em>independent</em> phase and speed adjustment.  </li>
+<li>Internal LFO allows usage with nothing patched to input.</li>
+<li>Key concepts: <strong>Spread</strong> and <strong>Phase</strong> provide complex modulation from a single source.</li>
+</ul>
+<hr />
+<h2><strong>Inputs &amp; Outputs Reference</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Signal IN</strong></td>
+<td>Main modulation source. Uses internal LFO if unpatched.</td>
+<td>±10 V DC</td>
+</tr>
+<tr>
+<td><strong>HOLD IN</strong></td>
+<td>Gates to "hold" (freeze) current buffer.</td>
+<td>&gt;2 V (gate)</td>
+</tr>
+<tr>
+<td><strong>Phase CV IN</strong></td>
+<td>CV to automate phase (pot acts as attenuator).</td>
+<td>±10 V (0–5 V = panel range, up to ±10 V extends range)</td>
+</tr>
+<tr>
+<td><strong>Reset IN</strong></td>
+<td>Gate to re-align phase/positions (momentary reset).</td>
+<td>&gt;2 V (gate)</td>
+</tr>
+<tr>
+<td><strong>TEMPO IN</strong></td>
+<td>Clock input; quantizes Time, Phase, Spread &amp; Outputs</td>
+<td>&gt;2 V (gate)</td>
+</tr>
+<tr>
+<td><strong>Spread CV IN</strong></td>
+<td>CV control over spread (with attenuverter).</td>
+<td>±10 V (±5 V = panel range; up to ±10 V extends range)</td>
+</tr>
+<tr>
+<td><strong>Time CV IN</strong></td>
+<td>CV control over time (global speed).</td>
+<td>±10 V (0–5 V = panel, beyond extends range)</td>
+</tr>
+<tr>
+<td><strong>CLK OUT</strong></td>
+<td>Clock output at current rate or division/multiple of external clock.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Channel Outputs 1–8</strong></td>
+<td>8 phase/spread modulated copies of input or internal LFO.</td>
+<td>±10 V (nominal)</td>
+</tr>
+<tr>
+<td><strong>Channel Index OUT</strong></td>
+<td>1–8 V, indicating currently 'highest' channel (useful as CV/gate source).</td>
+<td>1 V = Ch 1 ... 8 V = Ch 8</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Knobs, Buttons, &amp; Controls</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phase Panel Control</strong></td>
+<td>Manual phase offset for channel tap points</td>
+<td>Combo pot with CV</td>
+</tr>
+<tr>
+<td><strong>Spread Panel Control</strong></td>
+<td>Sets spread of playback speeds (x8 to /8 per channel, inversely on each end)</td>
+<td>Center (12:00) = no spread</td>
+</tr>
+<tr>
+<td><strong>Shape Button</strong></td>
+<td>Selects read or LFO shape (Ramp, Saw, Triangle, Sine, Square, Stepped &amp; Smooth Random)</td>
+<td>Color-coded</td>
+</tr>
+<tr>
+<td><strong>Time Panel Control</strong></td>
+<td>Sets global write/read speed or LFO rate</td>
+<td>Combo pot with CV</td>
+</tr>
+<tr>
+<td><strong>Hold Button</strong></td>
+<td>Toggles HOLD function (freezes buffer)</td>
+<td>Latching button</td>
+</tr>
+<tr>
+<td><strong>Reset Button</strong></td>
+<td>Resets all channels to current 'start' position</td>
+<td>Momentary button</td>
+</tr>
+<tr>
+<td><strong>Spread CV Attenuverter</strong></td>
+<td>Adjusts depth/inversion of external Spread CV</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3><strong>Voltage Ranges Summary</strong></h3>
+<ul>
+<li><strong>Input CVs</strong>: Expect full-range support for ±10 V. Panel controls generally map to 0–5 V by default, beyond that increases range up to panel/digital limits.</li>
+<li><strong>Outputs</strong>: All outputs are DC-coupled, ±10 V max per channel.</li>
+</ul>
+<hr />
+<h2><strong>LED Color Reference</strong></h2>
+<p><strong>SHAPE (Shape Button/Window):</strong>
+- Red: Forward Ramp
+- Green: Saw (backward)
+- Blue: Triangle (Ping Pong)
+- Purple: Sine (Ping Pong Wow &amp; Flutter)
+- Pink: Square (Staircase, in LFO mode = Square)
+- Orange: Stepped Random
+- Yellow: Smooth Random ("Ramplets")</p>
+<p><strong>CLOCK (Clock Window):</strong>
+- Red/Orange/Yellow/Green/Purple/Blue: Various speed indicators; quantized divisions/multiples when clocked.</p>
+<p><strong>CHANNELS:</strong>
+- Center Spread: White/Pink/Red/Purple (phase)
+- Spread active: Aqua/Green/Blue/Hot Pink/Yellow (speed: faster/slower/multiplied/divided).</p>
+<hr />
+<h2><strong>Quick Usage</strong></h2>
+<ol>
+<li><strong>Patch a Control Signal or Use Internal LFO</strong>: Leave Signal IN open for internal LFO.</li>
+<li><strong>Shape Selection</strong>: Use Shape button to pick waveform/shape or read path for processed outputs.</li>
+<li><strong>Spread</strong>: Center for uniform speed; clockwise/counter-clockwise spreads channel speeds (extremes go up to x8 or /8, more with high CV).</li>
+<li><strong>Phase</strong>: Adjusts phase offset between channels. Use CV for animation or external control.</li>
+<li><strong>Time</strong>: Sets overall buffer length / LFO speed. Clock with TEMPO IN.</li>
+<li><strong>Reset &amp; Hold</strong>: Use Reset for realignment, Hold to freeze/loop.</li>
+</ol>
+<hr />
+<h2><strong>Patch Ideas</strong></h2>
+<ul>
+<li><strong>"Shift Register"</strong>: Spread @ noon, Phase full CCW, use for oscillator CV distribution w/ increased phase for staggered patterns.</li>
+<li><strong>"Snap Focus"</strong>: Use TEMPO+RESET for periodic re-alignment of outputs.</li>
+<li><strong>"Noise Spectrum"</strong>: Feed noise in, use outputs for colored/multispectrum noise.</li>
+</ul>
+<hr />
+<h2><strong>Additional Resources</strong></h2>
+<ul>
+<li><a href="https://github.com/nstarke/eurorack-processor"><strong>Generated With Eurorack Processor</strong></a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_Maths</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — Maths</h1>
+<ul>
+<li><a href="../../manuals/MATHSmanual2013.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://makenoisemusic.com/content/manuals/MathsManual2013.pdf"><strong>Official Make Noise Maths Manual (PDF)</strong></a></p>
+<hr />
+<h1>Make Noise MATHS Cheat Sheet</h1>
+<p>MATHS is a powerful analog function generator, envelope, LFO, and signal processor for Eurorack modular synthesizers.
+This cheat sheet summarizes its jacks and panel controls for quickly patching and integrating into your rack.</p>
+<hr />
+<h2>Quick Functional Summary</h2>
+<ul>
+<li><strong>CH1 &amp; CH4</strong> = Full-featured Envelope/Function Generators (rise, fall, shape, looping, logic outputs, unity out)</li>
+<li><strong>CH2 &amp; CH3</strong> = Attenuverter/offset channels (create offsets, scale/invert signals)</li>
+<li><strong>SUM Bus</strong> = Summing mixer (add, invert, subtract voltages — also provides an inverted output)</li>
+<li><strong>OR Bus</strong> = "Maximum" CV logic (analog OR)</li>
+<li><strong>Everything is CV-able!</strong></li>
+</ul>
+<hr />
+<h2>Panel Controls &amp; Jacks</h2>
+<h3><strong>CHANNELS 1 &amp; 4: Function Generators</strong></h3>
+<h4><strong>Inputs:</strong></h4>
+<ul>
+<li><strong>Signal Input:</strong> (+/-10V) Direct coupled; processes external CV/audio (lag, ASR, portamento, etc.)</li>
+<li><strong>Trigger Input:</strong> (min +2.5V for Gate HIGH) Triggers an envelope regardless of signal input.</li>
+<li><strong>Rise CV Input:</strong> (Linear, +/-8V) CV over rise time, positive increases, negative decreases.</li>
+<li><strong>Fall CV Input:</strong> (Linear, +/-8V) CV over fall time, positive increases, negative decreases.</li>
+<li><strong>Both CV Input:</strong> (Exponential, +/-8V) CV over entire function time; positive = quicker.</li>
+<li><strong>Cycle Input:</strong> (min +2.5V for HIGH) Gates cycle mode ON/OFF.</li>
+</ul>
+<h4><strong>Outputs:</strong></h4>
+<ul>
+<li><strong>Unity Output:</strong> (0–8V, not affected by attenuverter, always active)</li>
+<li><strong>Variable Output:</strong> (up to +/-10V, affected by attenuverter, normalized to SUM/OR, patched out = removed from bus)</li>
+<li><strong>End of Rise (EOR, Ch1)/End of Cycle (EOC, Ch4):</strong> (0V/10V) Logic pulse at end of rise/fall.</li>
+</ul>
+<h4><strong>Knobs:</strong></h4>
+<ul>
+<li><strong>Rise:</strong> Set rise time (fast ← CCW, slow → CW)</li>
+<li><strong>Fall:</strong> Set fall time (fast ← CCW, slow → CW)</li>
+<li><strong>Vari-Response:</strong> Morphs shape (Log &lt;-- Lin --&gt; Expo)</li>
+<li><strong>Attenuverter:</strong> Sets gain/polarity for Variable Out and bus</li>
+<li><strong>Cycle Button:</strong> Enables/disables self-cycling (LFO mode)</li>
+</ul>
+<h4><strong>LEDs:</strong></h4>
+<ul>
+<li><strong>Cycle LED:</strong> Indicates if cycling/LFO mode is engaged</li>
+<li><strong>EOR/EOC LED:</strong> Shows logic state of EOR/EOC output</li>
+<li><strong>Unity LED:</strong> Indicates positive (green) or negative (red) output on unity jack</li>
+</ul>
+<hr />
+<h3><strong>CHANNELS 2 &amp; 3: Attenuverter and Offset</strong></h3>
+<h4><strong>Inputs:</strong></h4>
+<ul>
+<li><strong>Signal Input:</strong> (+/-10V) Pass in CV or audio; if unplugged, normalled to voltage reference for manual offset.</li>
+</ul>
+<h4><strong>Outputs:</strong></h4>
+<ul>
+<li><strong>Variable Output:</strong> (up to +/-10V for Ch2, +/-5V for Ch3) Affected by attenuverter knob, normalized to SUM/OR buses.</li>
+</ul>
+<h4><strong>Knobs:</strong></h4>
+<ul>
+<li><strong>Attenuverter:</strong> Controls scale and polarity. With nothing plugged to input, controls the level of the output offset.</li>
+</ul>
+<hr />
+<h3><strong>BUS OUTPUTS (Bottom Center of Panel)</strong></h3>
+<ul>
+<li><strong>SUM:</strong> (+/-10V) Adds all variable outputs per knob settings.</li>
+<li><strong>INVERTED SUM:</strong> (+/-10V) SUM Output, inverted.</li>
+<li><strong>OR BUS:</strong> (0–10V) Maximum output of all nonnegative Variable Outputs.</li>
+<li><strong>Variable Outputs 1–4:</strong> Output of each channel. When patched, removes from SUM/OR.</li>
+<li><strong>SUM Bus LEDs:</strong> Green (positive voltages), Red (negative).</li>
+</ul>
+<hr />
+<h2><strong>Reference Table: Inputs, Outputs &amp; Panel Controls</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Type</th>
+<th>Range</th>
+<th>Channel(s)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signal Input</td>
+<td>Input</td>
+<td>+/-10V</td>
+<td>1,2,3,4</td>
+<td>Direct-coupled; DC+Audio</td>
+</tr>
+<tr>
+<td>Trigger Input</td>
+<td>Input</td>
+<td>Gate, +2.5V Thresh</td>
+<td>1,4</td>
+<td>Triggers envelope</td>
+</tr>
+<tr>
+<td>Cycle Input</td>
+<td>Input</td>
+<td>Gate, +2.5V Thresh</td>
+<td>1,4</td>
+<td>Remote cycle ON/OFF</td>
+</tr>
+<tr>
+<td>Rise CV Input</td>
+<td>Input</td>
+<td>+/-8V</td>
+<td>1,4</td>
+<td>Linear; affects rise time</td>
+</tr>
+<tr>
+<td>Fall CV Input</td>
+<td>Input</td>
+<td>+/-8V</td>
+<td>1,4</td>
+<td>Linear; affects fall time</td>
+</tr>
+<tr>
+<td>Both CV Input</td>
+<td>Input</td>
+<td>+/-8V</td>
+<td>1,4</td>
+<td>Exponential; whole function time</td>
+</tr>
+<tr>
+<td>Variable Output</td>
+<td>Output</td>
+<td>+/-10V (Ch1,2,4), +/-5V (Ch3)</td>
+<td>1-4</td>
+<td>Attenuverter controlled, norm’d to SUM/OR</td>
+</tr>
+<tr>
+<td>Unity Output</td>
+<td>Output</td>
+<td>0–8V</td>
+<td>1,4</td>
+<td>Raw channel output, unaffected by attenuverter, always active</td>
+</tr>
+<tr>
+<td>EOR (End-of-Rise)</td>
+<td>Output</td>
+<td>0V/10V</td>
+<td>1</td>
+<td>High when rise ends</td>
+</tr>
+<tr>
+<td>EOC (End-of-Cycle)</td>
+<td>Output</td>
+<td>0V/10V</td>
+<td>4</td>
+<td>High when fall ends</td>
+</tr>
+<tr>
+<td>SUM</td>
+<td>Output</td>
+<td>+/-10V</td>
+<td>ALL</td>
+<td>All variable outputs summed</td>
+</tr>
+<tr>
+<td>INVERTED SUM</td>
+<td>Output</td>
+<td>+/-10V</td>
+<td>ALL</td>
+<td>SUM output inverted</td>
+</tr>
+<tr>
+<td>OR BUS</td>
+<td>Output</td>
+<td>0–10V</td>
+<td>ALL</td>
+<td>Max of all (no negative voltages)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Essential Usage Tips</strong></h2>
+<ul>
+<li>Use <strong>Cycle</strong> for LFO, rhythmic clocks, cycling envelopes.</li>
+<li><strong>Variable Outs</strong>: Patch for custom-scaled/inverted signals. Unpatched routes signal to busses.</li>
+<li><strong>Unity Outs:</strong> For pure, unattenuated channel output; always present.</li>
+<li><strong>EOR/EOC</strong>: For logic, retriggers, rhythmic patching, clock division.</li>
+<li><strong>Rise/Fall CVs:</strong> Patch dynamic modulation for envelopes/LFOs.</li>
+<li><strong>CH2/3:</strong> Use as CV audio attenuverters or as manual voltage sources (offset).</li>
+<li><strong>SUM/INV/OR buses:</strong> Powerful CV mixing/combo tools; experiment!</li>
+</ul>
+<hr />
+<h2><strong>Advanced Use</strong></h2>
+<ul>
+<li><strong>Self-patching:</strong> Use outputs (including Unity, INV, SUM, OR) to modulate MATHS’s own CVs.</li>
+<li><strong>Patch EOR/EOC between Ch1/Ch4 for ping-pong/envelope chaining/complex shapes.</strong></li>
+<li><strong>Feed OR out to destinations needing only positive voltages.</strong></li>
+<li><strong>Voltage control shape (Vari-Response) with CV for dynamic morphing.</strong></li>
+<li><strong>Up to 25-minutes slow or 1kHz fast functions!</strong></li>
+</ul>
+<hr />
+<h2>Links</h2>
+<ul>
+<li><a href="https://makenoisemusic.com/content/manuals/MathsManual2013.pdf"><strong>Official Make Noise Maths Manual (PDF)</strong></a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor"><strong>Generated With Eurorack Processor</strong></a></li>
+</ul>
+<hr />
+</body>
+</html>
