@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Unity</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Unity</h1>
+<ul>
+<li><a href="../../manuals/2hp_Unity.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://2hp.com/wp-content/uploads/2018/12/unity_manual.pdf">2hp Unity Manual (PDF)</a></p>
+<hr />
+<h2>Using the 2hp Unity Mixer to Create Dense, Hyper-Complex Percussion in Eurorack</h2>
+<p>The <strong>2hp Unity</strong> module is not a voice or sound-shaping effect but a highly useful dual unity mixer. In the context of polyrhythmic, complex, and densely rhythmic Eurorack music, the way you sum and combine modulation or rhythmic signals can be the key to unlocking intricate percussion patterns.</p>
+<h3>Key Features for Rhythmic Complexity</h3>
+<ul>
+<li><strong>Six-to-one or Dual Three-to-one Mixing:</strong> Merge up to six signals for dense modulation or grouping signals for processing.</li>
+<li><strong>Averaging/Unity/Split Modes:</strong> Set mixer gain behavior for either audio (to avoid clipping) or CV (for full amplitude modulation).</li>
+<li><strong>Normalling Behavior:</strong> Without a cable in the first output, both mixers sum to the second output, letting you cascade or recombine sources.</li>
+</ul>
+<hr />
+<h2><strong>Techniques for Hyper-Complex Percussion and Rhythms</strong></h2>
+<h3>1. <strong>Merging Multiple Gate/Rhythm Sources</strong></h3>
+<p>Combine up to six rhythm/gate sequences or trigger streams (from sequencers, Euclidean rhythm generators, or clock dividers/multipliers):
+- <strong>Unity Mode:</strong> All gates pass through at full amplitude. Sum irregular patterns for unpredictable bursts and ‘max density’ percussion triggers.
+- <strong>Averaging Mode:</strong> Use to tame overly busy patterns and prevent false triggers from multiple stacked gates.</p>
+<h4><strong>Patch Idea: Polyrhythm Combiner</strong></h4>
+<ul>
+<li>Generate 3–6 polyrhythmic triggers (e.g., from different clock-divided patterns: 3, 5, 7, etc.)</li>
+<li>Combine using Unity mode for maximal output.</li>
+<li>Send to a percussive voice (e.g., drum module, sample player) for machine-gun, nearly stuttered hits, or use as accent triggers.</li>
+</ul>
+<h3>2. <strong>Creating “Composite LFOs” for Percussive Modulation</strong></h3>
+<p>Layer several LFOs, envelopes, or stepped random voltages:
+- Merge multiple LFOs with different rates/phases in Averaging Mode for organic, evolving amplitude/pitch envelopes of percussion voices.
+- Use Split Mode: Top mixer handles control voltages for pitch, while the bottom averages audio FM or amplitude modulation signals for a crunchy, dynamically shifting percussion timbre.</p>
+<h4><strong>Patch Idea: Dynamic Transient Design</strong></h4>
+<ul>
+<li>Patch three envelopes (from different rhythm sources) into Mixer 1.</li>
+<li>Output to the VCA controlling your drum sound for hybrid, ever-mutating transients.</li>
+<li>Use Mixer 2 for modulating pitch decay, timbre, or noise amount.</li>
+</ul>
+<h3>3. <strong>Cascading Mixers for Advanced Variations</strong></h3>
+<p>Take advantage of normalling: If OUT 1 isn’t patched, its sum flows into Mixer 2.
+- Use first set of inputs for ‘base rhythm’, second set to add fills, microtiming, or rare events.
+- Process OUT 2 into clockable logic or burst generators for secondary rhythmic layers.</p>
+<h3>4. <strong>Unpredictable Accent and Fill Generation</strong></h3>
+<p>Summing bursts, shuffled gates, and Euclidean patterns guarantees that every downbeat, offbeat, and microbeat can be addressed, allowing for accent patterns that create machine-like or complex jazzy percussion.</p>
+<hr />
+<h2><strong>Creative Manipulation for Percussive Character</strong></h2>
+<ul>
+<li><strong>Mix Percussive Audio Sources:</strong> Use Averaging Mode to layer snare, clap, and hat samples for conglomerate percussion hits.</li>
+<li><strong>Drive/Distort Downstream:</strong> Because summing voltages increases amplitude, follow Unity with a wavefolder or overdrive for punchy, clipping transients.</li>
+<li><strong>Animate Panning/FX:</strong> Use merged modulation signals from Unity to automate panning, delay effect parameters, or filter sweeps in uniquely timed ways.</li>
+<li><strong>Unique Splits:</strong> Use Split mode to send tight CV control to drums and simultaneous audio mixing to FX, keeping transients sharp and animated.</li>
+</ul>
+<hr />
+<h2><strong>Summary Patch Example</strong></h2>
+<p><strong>Goal:</strong> Create a shuffling, polyrhythmic hi-hat groove.
+- Patch three out-of-phase LFOs (triangle, square, stepped random) into Mixer 1.
+- Mixer 1 OUT to hi-hat module decay/VCAs.
+- Patch three euclidean gates of different steps (e.g., 5, 6, 7) into Mixer 2.
+- Mixer 2 OUT triggers hats.
+- Use Split mode: Top mixer is full-strength CV, bottom is averaged for consistent amplitude.
+- Add light analog distortion downstream.</p>
+<hr />
+<p>Harnessing the <strong>2hp Unity</strong> in this way, you turn a simple mixer into a deep generator of percussive complexity and rhythmic inventiveness!</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

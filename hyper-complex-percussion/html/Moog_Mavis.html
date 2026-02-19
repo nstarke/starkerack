@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Mavis</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Mavis</h1>
+<ul>
+<li><a href="../../manuals/MAVIS_MANUAL_V2_06.27.2022.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.moogmusic.com/sites/default/files/2022-06/Mavis_Manual_1.4_Web.pdf">Moog Mavis User Manual PDF</a></p>
+<hr />
+<h1>Using Moog Mavis for Densely Rhythmic, Complex Percussion in Eurorack</h1>
+<p>The <strong>Moog Mavis</strong> is a powerful analog synth voice and utility module that, when integrated with Eurorack, can deliver unique, punchy, and percussive sounds for hyper-complex rhythmic explorations. Here’s how to unlock its potential for polyrhythmic, polymetric, and rhythmically dense percussion patterns:</p>
+<hr />
+<h2>1. Mavis as a Percussive Voice</h2>
+<h3>a. Short Envelopes for Percussion</h3>
+<ul>
+<li><strong>Patch</strong>: Set the Envelope Generator’s Attack and Release to minimum. Keep the Decay low and Sustain at zero, or low for snappy triggers.</li>
+<li><strong>Use</strong>: Patch external triggers/random gates to the <strong>GATE</strong> input. Every trigger generates a sharp percussive blip—good for short analog kicks, blips, snaps, or hats.</li>
+</ul>
+<h3>b. Self-Oscillating Filter “Ping” Percussion</h3>
+<ul>
+<li><strong>Technique</strong>: Turn the Filter <strong>Resonance</strong> to maximum or near maximum. Patch an envelope or sharp CV pulse into the <strong>CUTOFF</strong> input to "ping" the filter into self-oscillation.</li>
+<li><strong>Result</strong>: Generates analog “conga”, “bongo”, or woodblock style percussion sounds, especially when modulated at audio rate.</li>
+</ul>
+<h3>c. VCO Hard/Soft Edges for Noise</h3>
+<ul>
+<li><strong>Noise Percussion</strong>: Use the pulse or saw waveform and modulate the Pulse Width for more noise-like, metallic percussive attacks.</li>
+<li><strong>Patch</strong>: Route the VCO output through the <strong>Wave Folder</strong> for aggressive, harmonically rich percussion.</li>
+</ul>
+<hr />
+<h2>2. Modulation for Complex Rhythms</h2>
+<h3>a. Sample &amp; Hold: Rhythmic Modulation Source</h3>
+<ul>
+<li>Patch random/stepped CV from the <strong>S+H OUT</strong> to any mod destination (VCO pitch, VCF cutoff, or VCA level).</li>
+<li>Trigger S+H with a non-square clock or irregular gate sequence (from external clock dividers, logic, or sequencers) for <strong>nonlinear, or polyrhythmic patterns</strong>.</li>
+<li>Route S+H output to VCF CUTOFF or VCO PITCH for glitchy, percussive pitch/filter jumps.</li>
+</ul>
+<h3>b. LFO Audio Rate &amp; Cross-Modulation</h3>
+<ul>
+<li>The LFO can run at audio rates (up to 550Hz). For <em>FM drum</em> effects, patch the LFO out to the VCO’s pitch, or the VCF’s cutoff.</li>
+<li>Use the LFO RATE CV input and fire it from erratic clocks, random gates, or complex clock multipliers for unpredictable or polyrhythmic movement.</li>
+</ul>
+<hr />
+<h2>3. External Sequencing and Polyrhythmic Gate Sources</h2>
+<ul>
+<li><strong>GATE input</strong>: Accepts external rhythmic triggers; sequence Mavis from a clock divider, logic module, or a polyrhythmic gate generator.</li>
+<li>Layer patterns by sending multiple independent clocks/gates through a logic module that merges them, then patch to Mavis GATE.</li>
+</ul>
+<hr />
+<h2>4. Layered and Stacked Percussion (Mix &amp; Mult)</h2>
+<ul>
+<li>Use the onboard <strong>Mixer</strong> and <strong>MULT</strong> to:</li>
+<li>Combine Mavis’s output with other voices (or itself via feedback patches).</li>
+<li>Duplicate a random/unusual modulation source (from S+H or LFO) and send to both pitch and filter for “macro” percussion changes.</li>
+<li>Feedback the <strong>Wave Folded</strong> output or filtered output back into the Mixer for drone/percussion hybrids or “FM percussion”.</li>
+</ul>
+<hr />
+<h2>5. Unique FX—Wave Folding and Feedback</h2>
+<ul>
+<li><strong>Wave Folder</strong>: Not usually present in analog monosynths. Patch any percussive signal (from Mavis or external) into <strong>FOLD IN</strong> and modulate the FOLD depth (manually or by CV) for snappy, complex, and harmonically saturated electronic percussion.</li>
+<li>Combine with high resonance, tight envelopes, and modulated pitch for full-spectrum digital-esque percussion.</li>
+</ul>
+<hr />
+<h2>6. Patch Ideas for Advanced Rhythmic Percussion</h2>
+<h3>Polyrhythmic Filter Ping</h3>
+<ul>
+<li>Patch two (or more) clocks/gates (with different divisions/lengths) into logic, sum to GATE IN.</li>
+<li>Modulate filter cutoff by fast S+H or LFO, set resonance high.</li>
+</ul>
+<h3>Pseudo-Granular Percussion</h3>
+<ul>
+<li>Use S+H or LFO, set to irregular triggers, and patch to VCA CV.</li>
+<li>Fire GATE with clock dividers on different timebases (e.g., /5 against /7).</li>
+</ul>
+<h3>Harmonic “Metallic” Percussion</h3>
+<ul>
+<li>Use VCO saw → Wave Folder → VCF high resonance, pinged by envelope.</li>
+<li>LFO and S+H mixed (via Mixer) to modulate both cut and pitch—creates atonal, metallic textures.</li>
+</ul>
+<h3>External CV and Sequencing</h3>
+<ul>
+<li>Use external Eurorack sequencers to send <em>non-standard</em> gate and cv voltage sequences (Euclidean rhythms, probability-based steppers, function generators).</li>
+</ul>
+<hr />
+<h2>General Tips for Punch &amp; Uniqueness</h2>
+<ul>
+<li>Use the <strong>Envelope’s Attack/Decay/Release in the sub-10ms range</strong> for super-punchy enclaves.</li>
+<li>Use the <strong>Attenuator</strong> to shape modulation amounts, making motion more or less extreme.</li>
+<li>Exploit <strong>unusual waveforms (combined saw/pulse, folded, FM)</strong> for nonstandard percussion timbres.</li>
+<li>Sync multiple Mavis with other Eurorack voices or percussion modules for polymetric layers.</li>
+</ul>
+<hr />
+<p><strong><a href="https://www.moogmusic.com/sites/default/files/2022-06/Mavis_Manual_1.4_Web.pdf">Full Moog Mavis User Manual PDF</a></strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

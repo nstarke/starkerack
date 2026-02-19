@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Metropolix</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Metropolix</h1>
+<ul>
+<li><a href="../../manuals/metropolix_manual_v1.4_2022.04.04.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://intellijel.com/downloads/manuals/metropolix/Metropolix-Manual-1.4.0.pdf"><strong>Intellijel Metropolix Manual (PDF)</strong></a></p>
+<hr />
+<h1>Making Dense, Complex Rhythms &amp; Percussion with Metropolix</h1>
+<p>The <strong>Intellijel Metropolix</strong> is not a voice or effect, but a hyper-flexible, hands-on, performance sequencer. While it excels at melodic and harmonic applications, it’s also a secret weapon for <em>dense, hyper-complex percussion sequencing</em> and wild polyrhythms, particularly when pushed beyond "melody sequencing" into the gates, modulation lanes, and probability systems.</p>
+<p>Below are approaches and creative techniques for generating the kinds of percussion complexity you’re after—think ever-twisting hats, polymetric kick/snare arrangements, and grid-melting percussive patterns.</p>
+<hr />
+<h2>Key Metropolix Features for Rhythm Complexity</h2>
+<ul>
+<li><strong>Per-Stage Pulse Count (PULSE COUNT switches):</strong> Set the number of clock pulses each stage persists, per stage. Use odd/even numbers for polyrhythms.</li>
+<li><strong>Per-Stage Gate Type:</strong> Each stage can be a HOLD, MULTIPLE, SINGLE, or REST—customizing the gate pattern drastically on a stage-level.</li>
+<li><strong>Two Note Tracks + 8 MOD Lanes:</strong> Layer multiple polyrhythmic tracks and clock-divided MOD lanes for more complexity.</li>
+<li><strong>Playback Order/Direction (ORDER):</strong> Use Linear, Jump, Odd/Even, Shuffle, Random, Pendulum, Converge, Diverge, and other orders for pattern mutation.</li>
+<li><strong>Ratchets:</strong> Per-stage bursts of gates for fast rolls, digital "fills", broken rhythms.</li>
+<li><strong>Clock Division/Multiplication (DIV):</strong> Per-track clock division for polymetric layering.</li>
+<li><strong>Probability (PROB):</strong> Per-stage chance of gates firing, for evolving/dense or sparse rhythms.</li>
+<li><strong>Skip (SKIP):</strong> "Mute" or "drop out" steps instantly, per stage.</li>
+<li><strong>Manual and Mod Lanes CV sequencing:</strong> Send CVs to percussion module parameters or even trigger sequencing on drum synths.</li>
+<li><strong>Preset Chaining:</strong> Build song-like macro-structures with variations and transitions.</li>
+</ul>
+<hr />
+<h2>Practical Steps &amp; Eurorack Patch Methods</h2>
+<h3>1. <strong>Polyrhythms and Polymetric Sequences</strong></h3>
+<ul>
+<li><strong>Pulse Count per Stage:</strong><br />
+  Assign prime/odd numbers to different stages (e.g. 3, 5, 7, mixed with 2, 4) on Track 1 and Track 2 to immediately create rhythm cycles that drift in/out of phase.</li>
+<li>
+<p><em>Example:</em> Set Track 1 to 5 pulses, Track 2 to 7 pulses. Use each to trigger different voices or percussive elements.</p>
+</li>
+<li>
+<p><strong>Track Clock Division (DIV):</strong><br />
+  Assign different clock divisions to Track 1 and Track 2. E.g. Track 1 = /3, Track 2 = /5.  </p>
+</li>
+<li>Send their gate outputs to percussion voices (kick, snare, hats—that's three rhythmic layers out of sync).</li>
+</ul>
+<h3>2. <strong>Complicated Gate Patterns &amp; Sequence Shapes</strong></h3>
+<ul>
+<li>
+<p><strong>Random, Shuffle, Jump Orders:</strong><br />
+  In the ORDER menu, use "Random" or "Shuffle" for generative (non-repeating, chaotic) patterns, or use other non-linear playback orders to build unpredictability.</p>
+</li>
+<li>
+<p><strong>Skip, Probability, and Ratchets:</strong>  </p>
+</li>
+<li>"Edit+SKIP" to drop out hits for shuffle/funk/dub-type grooves.</li>
+<li>"Edit+PROB" to set chance-per-stage for further rhythmic mutation—setting some triggers to 70%, some to 30%, etc.</li>
+<li>"Edit+RATCH" to add bursts or retrigs (for rolls or glitch-cuts).</li>
+</ul>
+<h3>3. <strong>More Voices: Using MOD Lanes for Percussion</strong></h3>
+<ul>
+<li><strong>MOD Lanes as Multi-Track Trigger Sequencers:</strong><br />
+  Assign MOD Lanes to OUT A/OUT B set to GATE toggle mode (see <code>Assigning a MOD Lane to an OUT Jack</code>). Patch these to trig inputs of additional percussion voices (clap, rim, sample module, synth percs).</li>
+<li>Each MOD Lane can have its own ORDER, LEN, and DIV—polyrhythms galore.</li>
+<li>
+<p>Stagger MOD Lane lengths and divisions for never-repeating / slow-evolving grids.</p>
+</li>
+<li>
+<p><strong>MOD Lanes as CV Modulators:</strong><br />
+  Use lanes to modulate pitch, decay, or timbre parameters of drum modules/digital/hybrid percussion.  </p>
+</li>
+<li><em>Tip:</em> If your drum module is sensitive to CV, use the MOD Lane’s <code>Ramp</code>/<code>Step</code> transitions for continuously morphing percussive timbres.</li>
+</ul>
+<h3>4. <strong>Preset Chaining &amp; One-Shot/Variation Patterns</strong></h3>
+<ul>
+<li><strong>Build Preset Chains</strong> for song sections or dramatic transitions.</li>
+<li>Chaining can be used to alternate between different time signatures, polyrhythmic schemes, or "fill" oriented presets every N cycles.</li>
+</ul>
+<h3>5. <strong>External Manipulation &amp; Self-Modulation</strong></h3>
+<ul>
+<li><strong>AUX Inputs:</strong><br />
+  Feed random/synced/chaotic CVs or gates into the X, Y, Z jacks. Assign them to control Probability, Pulse Count, Play Order, pattern Mutation, or even Reset.</li>
+<li>
+<p>This is killer for live reactivity or external modulation from other sequencers/LFOs.</p>
+</li>
+<li>
+<p><strong>CTRL Knobs:</strong><br />
+  Assign to swing, stages, order, clock division, or probability for macro-level rhythmic morphs in a live or improvised context.</p>
+</li>
+<li>
+<p><strong>Self-Modulation:</strong><br />
+  Assign MOD or AUX to modulate track clock div, swing, or probability, so the grid is forever changing.</p>
+</li>
+</ul>
+<h3>6. <strong>Sequencing Complex Drum Channels</strong></h3>
+<ul>
+<li><strong>Metropolix as Brain for a Drum Rack:</strong><br />
+  Route TRK 1 GATE OUT, TRK 2 GATE OUT, and MOD LANES (set as GATE, sent via OUT A/B) to drum modules, even combining as AND/OR triggers or layering.</li>
+<li><strong>Use probability and ratchets in percussive voices:</strong><br />
+  Percussion voices often benefit from randomization, glitch, and dense trigger bursts.</li>
+</ul>
+<hr />
+<h2>Bonus Tips for Unique, Punchy, Percussive Results</h2>
+<ul>
+<li><strong>Use Swing (per-track):</strong> Crank it for drunken or unquantized grooves.</li>
+<li><strong>Ratcheting (gate stretching ON/OFF):</strong> Create different microtiming feels for every drum sound.</li>
+<li><strong>Stage Offset/LEN Tricks:</strong> For "shifting" polyrhythms.</li>
+<li><strong>Preset Morphing on the Fly:</strong> Use latching/preset loading (with queue or pulse delay) to launch fills and variations live with tight sync.</li>
+</ul>
+<hr />
+<h2>Example Eurorack Percussion Patch Flow</h2>
+<pre><code>TRK 1 GATE OUT -&gt; Kick voice trig
+TRK 2 GATE OUT -&gt; Snare voice trig
+OUT A (MOD Lane 1 GATE) -&gt; Hi-Hat (clock-divided)
+OUT B (MOD Lane 2 CV) -&gt; Mod CV to percussion sample slot or decay
+AUX IN -&gt; Probability, RATCH, or Order (external chaos!)
+</code></pre>
+<hr />
+<h3>References</h3>
+<ul>
+<li><a href="https://intellijel.com/downloads/manuals/metropolix/Metropolix-Manual-1.4.0.pdf">Full Metropolix Manual (PDF)</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+<hr />
+<h4>Want more patches or ideas? Let me know your goals or the rest of your system and I can give patch-specific strategies for your drum modules or external effects.</h4>
+</body>
+</html>

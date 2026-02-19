@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Subharmonicon</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Subharmonicon</h1>
+<ul>
+<li><a href="../../manuals/Subharmonicon_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.moogmusic.com/sites/default/files/2020-05/M2200_Subharmonicon_UM_WEB.pdf">Moog Subharmonicon User Manual PDF</a></p>
+<hr />
+<h2>Using Moog Subharmonicon for Hyper-Complex Percussion &amp; Polyrhythmic Sequences</h2>
+<p>The <strong>Moog Subharmonicon</strong> is an analog polyrhythmic semi-modular synthesizer, exceptionally suited for rhythmic and percussive complexity thanks to its unique sequencer, polyrhythm, and subharmonic oscillator architecture. Let’s break down how you, as a Eurorack user, can harness its power for maximal rhythmic density and percussive punch.</p>
+<hr />
+<h3>Core Features for Rhythmic Complexity</h3>
+<p><strong>1. Four Integer-Based Rhythm Generators</strong><br />
+- Each divides the master clock by an integer (1–16); assignments are highly flexible.<br />
+- Any combination of rhythm generators can trigger either/both sequencers.
+- Mix multiple divisions (e.g., 3, 5, 7, 11, 13) for intricate, non-repeating polyrhythms.</p>
+<p><strong>2. Two 4-Step Sequencers (Per VCO group/voice)</strong><br />
+- Each sequencer independently controls pitch or subharmonic divisor assignments, or both.<br />
+- Steps can be set to micro/macro-tuning ranges–great for pitched percussion!<br />
+- Use with Quantize OFF for microtonal/atonal percussion, or ON for striking melodic clanging rhythms.</p>
+<p><strong>3. Subharmonic Undertone Oscillators</strong><br />
+- Two per VCO: allows each step, via sequencers, to shift both main pitch and subharmonic divisors.<br />
+- This yields metallic, bell-ish, or “prepared percussion” timbres with shifting, stacked undertones.</p>
+<p><strong>4. Full Patchbay Integration</strong><br />
+- 32 patch points: CV/gate sequencers, clock in/out, triggers, EGs, VCO modulation, etc.
+- Patch to and from other Eurorack modules for clock manipulation, external envelope shaping, further modulation, and audio/CV mangling.
+- Patch SEQ 1/2 CLK outputs, or even TRIGGER outputs, for polyrhythmic trigger streams—perfect for drum voices or modulation.</p>
+<hr />
+<h3>Techniques for Dense, Percussive, and Unique Patterns</h3>
+<h4><strong>Polyrhythmic Generative Patching</strong></h4>
+<ul>
+<li>Assign each rhythm generator to different sequencers, and stack multiple rhythm triggers onto one sequencer.</li>
+<li>Use uneven rhythm divisions (e.g., Rhythm 1 = 3, Rhythm 2 = 4, Rhythm 3 = 5, Rhythm 4 = 7) and combine them, then reset the sequence to bring things back into phase.</li>
+<li>Use the RESET and PLAY patch points to externally retrigger or stutter sequences from an external controller for maximal complexity.</li>
+</ul>
+<h4><strong>Percussive Voice Sculpting</strong></h4>
+<ul>
+<li>Use sawtooth wave for snappy, brassy percussion; square with PWM modulated by sub-osc outputs (patchbay) for woody or bell-like clangs.</li>
+<li>Crank mixer levels to hit the Moog filter for added distortion, emphasizing punches and transient bite.</li>
+<li>Use the VCF’s EG amount bi-directionally: apply both positive and negative envelopes for unique attack/decay behavior, or to generate “reverse” percussive sweeps by using negative amounts.</li>
+<li>Patch in external envelopes or function generators (from Maths, Batumi, Zadar, etc.) to VCA/VCF inputs for custom punch/envelope shapes.</li>
+</ul>
+<h4><strong>Pattern Complexity &amp; Microtiming</strong></h4>
+<ul>
+<li>Patch the SEQ 1 CLK out to external modules (e.g. clock dividers or logic) and feed those back in via the Rhythm Generator CV ins for clock-logic feedback and emergent patterns.</li>
+<li>Modulate the Rhythm Generator CV ins with random sources, LFOs, or even another sequencer for constantly shifting, non-repeating drum patterns.</li>
+<li>Clock Subharmonicon from external sources with non-4/4 PPQN divisions for off-grid “broken” time signatures.</li>
+<li>Use the filter’s resonance at self-oscillation, and modulate pitch with sequencers for percussive, tomb-like hits, FM clangs, or accidental glass/bottle sounds.</li>
+</ul>
+<h4><strong>Layering &amp; Polyphony</strong></h4>
+<ul>
+<li>Use both VCO sections and their associated subharmonics to create layered percussion: “kick” from one, “snare” from subharmonics, etc.</li>
+<li>Cross-patch SEQ 1 output to VCO 2 or vice versa for “cross-sequencing”—one sequence modulates pitch/subharmonic assignments of the other.</li>
+<li>Patch VCO outputs or sub outputs as percussive audio-rate modulators into other modules for AM/FM percussion in your larger system.</li>
+</ul>
+<hr />
+<h3>Making It Stand Out in a Mix</h3>
+<ul>
+<li>Use sharp, short EGs and plenty of filter resonance for snap, but play with long attack for “swelling” percussion layers.</li>
+<li>Add external effects via the patchbay (VCAs, distortion, waveshapers).</li>
+<li>Mult the TRIGGER out to fire other percussion modules, layering polyrhythmic patterns for density using a single shared clock.</li>
+</ul>
+<hr />
+<h3>Further Reading</h3>
+<ul>
+<li><a href="https://www.moogmusic.com/sites/default/files/2020-05/M2200_Subharmonicon_UM_WEB.pdf">Moog Subharmonicon User Manual PDF</a></li>
+</ul>
+<hr />
+<h3>Example Patch Concepts</h3>
+<h4><strong>Algorithmic Drum Cluster</strong></h4>
+<ol>
+<li>Patch all RHYTHM outputs in “odd” divisions to SEQ 1 (for kick) and SEQ 2 (for snare/perc), each with different rates.</li>
+<li>Quantize sequences to 8-JI for pure intervals—increase step voltages randomly for microtiming.</li>
+<li>Use patched VCA CV in from an external envelope for snappy transients.</li>
+<li>Use subharmonic oscillators detuned for metallic “stacking.”</li>
+</ol>
+<h4><strong>Dense Trigger Grid</strong></h4>
+<ul>
+<li>Patch SEQ CLK outs to a logic module (AND/OR/XOR) and feed results to TRIGGER ins on percussion voices or envelopes for ultra-dense, non-linear drum landscapes.</li>
+</ul>
+<hr />
+<p>For deeper custom patching, inspect the complete <a href="https://www.moogmusic.com/sites/default/files/2020-05/M2200_Subharmonicon_UM_WEB.pdf">Moog Subharmonicon User Manual PDF</a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

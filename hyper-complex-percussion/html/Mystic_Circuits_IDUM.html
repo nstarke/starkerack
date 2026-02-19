@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mystic_Circuits_IDUM</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mystic Circuits — IDUM</h1>
+<ul>
+<li><a href="../../manuals/IDUM Manual Draft 7.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.mysticcircuits.com/_files/ugd/ec9752_18d9a91bff2b4ed3b200a508d79e933f.pdf">IDUM Official Manual (PDF)</a></p>
+<hr />
+<h2>Using Mystic Circuits IDUM for Hyper-Complex Percussive and Rhythmic Sequences in Eurorack</h2>
+<p>As a Eurorack user aiming for dense, hyper-complex rhythms filled with polyrhythms, odd meters, and intricate patterns, the <strong>Mystic Circuits IDUM</strong> is an exceptional tool. Below is a structured guide to maximize its potential for your creative, percussive ambitions:</p>
+<hr />
+<h3>1. <strong>Module Nature &amp; Workflow</strong></h3>
+<p><strong>IDUM</strong> is an effect/processor for gate and trigger signals, not a voice itself. You patch sequenced triggers or gates into IDUM, which then transforms the rhythm in a playable, performative way. Treat it as a rhythmic effects unit for triggers.</p>
+<hr />
+<h3>2. <strong>Generating Complex, Densely Layered Percussion</strong></h3>
+<h4><strong>A. Patch Fundamentals</strong></h4>
+<ul>
+<li><strong>Start:</strong> Use several channels from a trigger/gate sequencer (especially ones running differing polymeter or polyrhythm lengths/clock divisions).</li>
+<li><strong>Input:</strong> Patch four separate rhythm triggers (they can all be polyrhythmic/polymetric) into IDUM's four trigger inputs.</li>
+<li><strong>Output:</strong> Route the four outputs to four different percussion voices (kick, snare, rim, hi-hat, glitches, or even synth voices treated percussively).</li>
+</ul>
+<h4><strong>B. Embrace IDUM's Modification Modes for Complexity</strong></h4>
+<h5><strong>Key Modes for Complex Percussion:</strong></h5>
+<ol>
+<li><strong>BURST</strong>: Each trigger generates a burst/ratchet (speed is a multiplier/divider of the incoming clock).  </li>
+<li><em>Tip</em>: Modulate the burst speed with CV for morphing complexity.</li>
+<li><strong>MULTIPLY/DIVIDE</strong>: Creates bursts tied to the timing between incoming triggers, allowing for deviations and anti-grid patterns.</li>
+<li><strong>BOUNCING BALL</strong>: Generates accelerating or decelerating bursts, mimicking decaying or ramping rhythms (excellent for glitchy fills and non-linear timing).</li>
+<li><strong>BREAK</strong>: Applies preset breakbeats to incoming triggers, transforming static rhythms into classic or twisted drum &amp; bass patterns—rotate the <code>PARAM</code> knob for 16 wild variations.</li>
+<li><strong>ROTATE</strong>: Reroutes trigger assignments to outputs; use to shuffle drum parts around, introducing unpredictability and counterpoint.</li>
+<li><strong>SKIP</strong>: Alters the clock itself, skipping or ratcheting, pushing attached sequencers into new cycle lengths or generating off-kilter time signatures.</li>
+</ol>
+<h5><strong>Polyrhythm &amp; Polymeter Technique:</strong></h5>
+<ul>
+<li>Combine incoming trigger streams with different step lengths (e.g., 5, 7, 9 steps, interlaced with a 16-step sequence).</li>
+<li>IDUM accentuates complex interactions by ratcheting some triggers, skipping others, and rotating channels unpredictably—this can yield emergent polyrhythmic overlays.</li>
+</ul>
+<hr />
+<h3>3. <strong>Using CV &amp; Performance Controls for Rhythmic Complexity</strong></h3>
+<ul>
+<li><strong>CV Everything:</strong> Patch LFOs, random sources, or other sequencers to IDUM's CV inputs (mode, param, chance, length) to morph between different rhythmic transformations in real time.</li>
+<li><strong>Chance Slider:</strong> Use for stochastic rhythm densities—set the probability for any modification (ratchet, skip, break, etc.) to trigger per beat.</li>
+<li><strong>Length Slider:</strong> Short lengths produce frantic, glitchy patterns; longer lengths bring evolving motifs or extended fills.</li>
+</ul>
+<hr />
+<h3>4. <strong>Live Manipulation &amp; Looping for Structure</strong></h3>
+<ul>
+<li><strong>LOOPER:</strong> Capture the last 8 steps of dense rhythmic interplay and loop it. While active, you can scrub the position, resize the length (from 1 to 8 steps), and even morph loop playback speed—a powerful way to create complex fills, breakdowns, or "live remixes."</li>
+<li><strong>REMOVE MODE:</strong> Drop in or out certain modes on the fly, focusing on bursty chaos for a section, switching to breakbeats for another, etc.</li>
+</ul>
+<hr />
+<h3>5. <strong>Advanced Ideas</strong></h3>
+<ul>
+<li><strong>Self-Patching:</strong> Use one ouput to trigger additional events (e.g., modulate parameters or gates on itself or other modules) for even more intricate interdependencies.</li>
+<li><strong>Pair with Unique Voice Modules:</strong> Since IDUM is agnostic to what your triggers fire, patch its outputs to exotic drum synths, LPGs (low pass gates), glitch modules, or sample players for timbral complexity as well as rhythmic.</li>
+</ul>
+<hr />
+<h3>6. <strong>Example Patch for Maximum Complexity</strong></h3>
+<pre><code class="language-text">TR1 IN: 5-step trigger pattern         → TR1 OUT: Kick Drum
+TR2 IN: 7-step polyrhythm (different clock) → TR2 OUT: Snare
+TR3 IN: Randomized Euclidean rhythm    → TR3 OUT: HiHat (with LPG)
+TR4 IN: Stepped random or bursty clock → TR4 OUT: Metallik Perc/Glitch
+
+- Set Mode to 'Multiply/Divide' or 'Burst.'
+- CV the Mode and Param with a stepped random voltage or LFO.
+- Length at 3-5 for evolving, not-too-short motifs.
+- Flip the Cycle switch: Down for drift (free time), Up for synced sequences.
+- Use Looper for immediate live remixing/fills.
+</code></pre>
+<hr />
+<h3>7. <strong>Make It Punchy, Unique, and Percussive</strong></h3>
+<ul>
+<li>IDUM does not process audio, but by changing timing, density, and stochasticity, your drum voices will groove and stutter in unexpected ways.</li>
+<li><strong>Pairing Tips:</strong></li>
+<li>Patch to VCAs with short envelopes for clicky, punchy hits.</li>
+<li>Use LPGs for percussive plucks.</li>
+<li>Gate different parameters on your drum voices or FX (e.g., pitch, decay) for dynamic timbral complexity.</li>
+<li>Randomize or sequence the CV inputs to morph modes live for shifting feels and time signatures mid-performance.</li>
+</ul>
+<hr />
+<p>By thinking of IDUM as a live rhythmic mutation engine, you can move far beyond boring quantized beats into the wildest territories of IDM, experimental techno, glitch, and far more.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

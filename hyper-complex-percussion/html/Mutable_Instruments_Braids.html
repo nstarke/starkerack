@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Braids</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Braids</h1>
+<ul>
+<li><a href="../../manuals/Manual - Mutable Instruments Braids Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/braids/manual_v18.pdf">Mutable Instruments Braids Manual PDF (v1.8)</a></p>
+<hr />
+<h1>Using Mutable Instruments Braids for Dense, Rhythmic, and Hyper-Complex Percussion</h1>
+<p>Mutable Instruments <strong>Braids</strong> is a versatile digital macro-oscillator for Euroack that excels as a percussive sound source when creatively patched. While not a dedicated drum module, its synthesis models and interface invite deep experimentation with rhythm, texture, and timbre. Below are strategies, patch ideas, and manipulation techniques for using Braids as the foundation of densely layered, complex, and punchy percussive music—including recommendations for fostering unique, hyper-detailed rhythm structures.</p>
+<hr />
+<h2>1. <strong>Braids as a Percussive Source</strong></h2>
+<p>Braids is primarily a <strong>voice</strong>, capable of generating a variety of synth and drum sounds depending on the selected model. Relevant percussive/physical models include:</p>
+<ul>
+<li><strong>PLUK</strong> (Plucked String)</li>
+<li><strong>BOWD</strong> (Bowed String)</li>
+<li><strong>BELL</strong></li>
+<li><strong>DRUM</strong></li>
+<li><strong>KICK</strong></li>
+<li><strong>SNAR</strong></li>
+<li><strong>CYMB</strong></li>
+<li><strong>NOIS</strong> (Filtered Noise)</li>
+<li><strong>TWNQ</strong> (Resonant Bandpass)</li>
+<li><strong>CLOU/PRTC</strong> (Granular/Particle)</li>
+</ul>
+<h3><strong>Rhythmic Density &amp; Complexity</strong></h3>
+<h4>a. <strong>External Triggering &amp; Event Density</strong></h4>
+<ul>
+<li><strong>Patch</strong> tightly clocked or irregular (Euclidean, polyrhythmic) trigger/gate signals to the <strong>TRIG</strong> input. Many of Braids’ percussive models are event-triggered for each new percussive hit.</li>
+<li>Use multiple gate/trigger sources (like clock dividers, logic, burst generators, or random gate sequencers) sending rapidly interleaved and offset pulses.</li>
+</ul>
+<h4>b. <strong>Internal AD Envelope Modulation</strong></h4>
+<ul>
+<li>Activate the internal AD envelope generator via the TRIG input and use the menu options (<strong>|FM, |TIM, |COL, |VCA</strong>) to modulate pitch, timbre, color, and VCA amplitude per hit. Set <strong>|\ATT</strong> and <strong>|\DEC</strong> to very short settings for snappy, punchy articulations, or longer for more evolved hits.</li>
+<li>Use Braids’ menu to route this envelope to different destinations per patch or even modulate multiple destinations simultaneously for evolving percussion with each trigger event.</li>
+</ul>
+<h4>c. <strong>Model Morphing (META Mode)</strong></h4>
+<ul>
+<li>In <strong>META</strong> mode, you can morph through different synthesis models using incoming CV into the <strong>FM</strong> (now model select) input. With a rhythmic stepped, sampled, or sequenced CV, you can switch between drum sounds on a single voice to achieve complex, "meta-kit" style polyrhythms.</li>
+<li>Use envelope followers, stepped random voltage, or precision adders to manipulate this meta-model morphing in time with your sequence.</li>
+</ul>
+<h4>d. <strong>Trigger Source (TSRC) Options</strong></h4>
+<ul>
+<li>Set <strong>TSRC</strong> to <strong>AUTO</strong> to generate triggers from V/OCT jumps, letting you create percussive events using melodic CV/gate sequencing—even from monosequencers which might lack dedicated triggers. This aids in generating percussive events with pitch information interlocked with your melody.</li>
+</ul>
+<hr />
+<h2>2. <strong>Polyrhythms and Irregular Time Signatures</strong></h2>
+<ul>
+<li>Use sequencers, clock dividers/multipliers, or modules like Pam’s New Workout or Euclidean generators to create complex polyrhythmic gate/trigger streams patched to <strong>TRIG</strong>.</li>
+<li>For even higher complexity, combine several rhythmic sources with logic modules (AND/OR/XOR) before they reach Braids' TRIG. Each composite event can trigger entirely new drum sounds when combined with META/model morphing.</li>
+<li>Patch random gates or algorithmic rhythms to the <strong>META/FM</strong> input in META mode to rhythmically “remap” which model is played at each step for heterogenous drum lines.</li>
+</ul>
+<hr />
+<h2>3. <strong>Techniques for Unique, Punchy Percussion</strong></h2>
+<h3><strong>Sound Design Approaches:</strong></h3>
+<ul>
+<li><strong>Modulate</strong> <strong>Timbre</strong> and <strong>Color</strong> with stepped and smooth random voltages for each trigger—sample-and-hold sources work well.</li>
+<li><strong>Attenuvert</strong> the <strong>FM, TIMBRE, and COLOR</strong> mod inputs for precise dynamic control over punch and character of drum hits. Negative and positive modulation opens up subtle or dramatic differences.</li>
+<li><strong>Utilize internal versus external AD envelopes:</strong> Stack both for multi-stage modulation on drum attacks (e.g., external envelope modulates pitch decay, internal modulates harmonic content).</li>
+<li><strong>Run granular and physical drum models (KICK, SNAR, DRUM, CYMB, PRTC, CLOU)</strong> at audio rate or near-audio rate triggering for glitchy, high-speed percussion or near-metallic clusters.</li>
+</ul>
+<h3><strong>Tips for Distinction and Punch:</strong></h3>
+<ul>
+<li><strong>Decrease bit depth (via BITS option)</strong> for lo-fi, punchy, or digital grit.</li>
+<li><strong>Switch RATE to lower settings:</strong> Sometimes, lower DAC refresh rates produce grittier, digital transients.</li>
+<li><strong>Activate FLAT/DRFT/SIGN</strong> for microdetuning, oscillator drift, or purposeful glitch/waveform error for a dirtier, less clinical sound.</li>
+<li><strong>Use the comb filter model (/|/|<em>|</em>|_)</strong> and aggressively modulate the feedback for flams and metallic clustering.</li>
+</ul>
+<hr />
+<h2>4. <strong>Advanced Rhythmic Texture: Layering and Sampling</strong></h2>
+<ul>
+<li><strong>Layer</strong> Braids with additional drum voices, modulating it with cross modulation FM from decay envelopes or from other rhythm-generating modules for percussive overtones or syncopation.</li>
+<li><strong>Resample</strong> "meta-kits" built from rapid model morphing as new drum loops, then chop and re-sequence these in a sampler module for recursive complexity.</li>
+</ul>
+<hr />
+<h2>5. <strong>Calibration and Tuning for Precise Percussion</strong></h2>
+<ul>
+<li>Use <strong>FREE</strong> range for drum work when not sequencing pitch traditionally—this keeps tuning intuitive.</li>
+<li>Use <strong>TDLY</strong> (trigger delay) if complex clocking/sequencer combinations result in timing errors or flams between modules.</li>
+</ul>
+<hr />
+<h2>6. <strong>Patch Example: Polyrhythmic Drum Machine With Braids</strong></h2>
+<pre><code class="language-text">[Pam's New Workout] (output 1, 5-step division, polyrhythm A) --&gt; [Braids TRIG]
+[Pam's New Workout] (output 2, 7-step division, polyrhythm B) --&gt; [Braids FM (in META Mode), via attenuverter]
+[Mutes or Logic]                   --&gt; [Braids TIMBRE and COLOR CV]
+Sequencer OR S&amp;H                   --&gt; [Braids V/OCT (optional)]
+</code></pre>
+<ul>
+<li>Use one clock for regular kicks/snare, a second for hi-hat glitches (e.g., with <strong>CYMB/NOIS</strong> models), and another to rhythmically morph models and parameters.</li>
+<li>Tweak mod attenuation and decay curves per pattern for flexible, evolving, extremely dense drum lines.</li>
+</ul>
+<hr />
+<p>For <strong>maximum punch and distinction</strong>, combine fast external envelopes (VCA after Braids; not just Braids’ own), analog wavefolder/saturators post Braids, or stereo processing with different models per left/right channels (if using two Braids).</p>
+<hr />
+<p><em>Experimentation is key</em>: Use both the percussive models and pitched ones (with heavy pitch+decay modulation) for unique, inharmonic drum timbres. Don't forget that even melodic models become punchy with aggressive envelopes, random triggers, and hard sync.</p>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/braids/manual_v18.pdf">Manual PDF</a><br />
+<a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

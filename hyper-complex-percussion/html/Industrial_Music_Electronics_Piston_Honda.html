@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Industrial_Music_Electronics_Piston_Honda</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Industrial Music Electronics — Piston Honda</h1>
+<ul>
+<li><a href="../../manuals/phmk3manual11.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.industrialmusicelectronics.com/manuals/Piston_Honda_MK3_Manual_Firmware_1_1.pdf"><strong>Download the Industrial Music Electronics Piston Honda Mark III Manual (PDF)</strong></a></p>
+<hr />
+<h1>Using Piston Honda MK3 for Densely Rhythmic &amp; Hyper-Complex Percussion</h1>
+<p>Piston Honda MK3 is primarily a dual wavetable oscillator, but given its extreme flexibility, CV addressability, morphing features, and preset morphing, it can be weaponized for advanced, percussive, rhythmically dense music—especially within Eurorack environments. Below are both <strong>general strategies</strong> and <strong>patching specifics</strong> for achieving polyrhythmic, complex, and punchy percussive voices using this module.</p>
+<hr />
+<h2>Quick Recap: Percussive &amp; Rhythmic Sound Design Features</h2>
+<ul>
+<li><strong>Two digital oscillators</strong> each with 3D morphable wavetables.</li>
+<li>Each oscillator has dedicated CV over frequency, waveform (X/Y/Z), FM, and mode.</li>
+<li>CV-controllable preset morphing and memory for 8 presets, which enables abrupt or smoothly shifted rhythmic changes.</li>
+<li>Nonlinear tone/distortion modes for extra punch or lo-fi grit.</li>
+<li>Audio-rate (thru-zero) FM and dynamic external signal processing.</li>
+<li>Locking and independent control for X/Y/Z morphing.</li>
+<li>MicroSD for custom wavetables—easy integration of percussive transients.</li>
+</ul>
+<hr />
+<h2>Percussion &amp; Rhythm Strategies</h2>
+<h3>1. <strong>Percussive Voice Programming</strong></h3>
+<ul>
+<li><strong>Use One Oscillator Per Drum Voice</strong>: Assign Osc A as your “kick/snare/bass” oscillator, Osc B for “hat/percs/metallics.” This allows layering and splitting via the Mix outs.</li>
+<li><strong>Wavetable Selection &amp; Morphing</strong>: Create custom wavetables emphasizing sharp attacks or percussive transients using <strong>WaveEdit</strong>. Use the X/Y/Z morph for subtle to extreme timbre changes under voltage control.</li>
+<li><strong>Disable Morphing for Glitch/Transient Attacks</strong>: In the OSC MENU, disable morph on selected axes for “glitchy” instantaneous jumps between waveforms—encourages noisy, percussive, and digital transients.</li>
+<li><strong>Preset-scope Morphing for Rhythmic Macro Changes</strong>: Use the <strong>preset manager</strong> as a rhythmic performance tool:</li>
+<li>Sequence the preset CV input with stepped random, clocked, or polyrhythmic sequencers.</li>
+<li>In <strong>Morph Mode,</strong> smoothly interpolate between drum timbres or complete percussion kits with CV.</li>
+</ul>
+<h3>2. <strong>Rhythm, Polyrhythm, and Trigger Interaction</strong></h3>
+<ul>
+<li><strong>CV Sequencing on X/Y/Z and Frequency</strong>: Use multiple gate/trigger sequencers (e.g., Euclidean, probability, clock dividers) to modulate individual axes and frequency inputs.</li>
+<li>E.g., Send a fast clock to X, multiply slower variations on Y and Z for polymetric timbre evolution.</li>
+<li><strong>Audio-rate FM</strong>: Use the second oscillator, or external percussion or click sources, to FM the main oscillator. The normalled FM routing means you can have mutually interacting percussive FM without repatching.</li>
+<li>Short envelopes (transient “plucks”) into FM create percussive “clang” or metallic drum sounds.</li>
+<li><strong>Sync Inputs for Hard-Hitting Attacks</strong>: Use rhythmic triggers into SYNC for hard transient resets—especially effective for snares, rimshots, hats.</li>
+</ul>
+<h3>3. <strong>Complex Modulation &amp; Pattern Generation</strong></h3>
+<ul>
+<li><strong>Preset Trigger as a Polyrhythmic Pattern Fader</strong>:</li>
+<li>In Global Options, set Preset CV to <strong>TRIG + OFFSET</strong>. Clock/trigger inputs then scroll through rhythmic “kits” or drum states. Use offset for accent/variation.</li>
+<li><strong>TRIG RANDOM</strong> mode can scramble percussion on every hit!</li>
+<li><strong>Nonlinear Attenuverter Response</strong>: Fine-tune CV ranges for X/Y/Z to allow just a touch or wide swings with external envelopes, random voltages, Euclidean patterns, or probability-based LFOs.</li>
+<li><strong>Editable Tone (Distortion)</strong>: For unique, punchy hits, engage the “tone” menu’s different nonlinear “vintage”/quantized/distorted curves—especially for snares, hats, and digital rim claps.</li>
+</ul>
+<h3>4. <strong>External Input Abuse</strong></h3>
+<ul>
+<li><strong>Waveshaping External Rhythms</strong>: Route external percussion loops, clicks, or even other drum modules into FM/External In. The wavetable will dynamically reshape those signals, creating glitchy, metallic, or otherworldly percussion textures.</li>
+<li>E.g., Send a noise burst or fast clocked envelope in—modulate what “file” is chosen on Z; create rhythmic “granular percussion kits.”</li>
+<li><strong>Feedback/Unstable Modes</strong>: Set both oscillators to EXT IN but don’t patch an external audio source: the normalled routing will create chaotic, abrasive digital noise bursts—great for occasional “noise hits” in extreme rhythm tracks.</li>
+</ul>
+<h3>5. <strong>Layering and Polyphony</strong></h3>
+<ul>
+<li><strong>Oscillator Link for “Drum Chords”</strong>: Use oscillator Link mode for staggered, slightly detuned percussive stacks (e.g., for clap or snare layering). Modulate fine-tune with CV/gate for pulsewidth-like or acoustic phasing effects.</li>
+</ul>
+<hr />
+<h2><strong>Example Patch Recipes</strong></h2>
+<p><strong>A. “Polyrhythmic Metallic Kit”</strong>
+- Osc A: Custom wavetable designed for clangy, metallic attack (one axis, e.g. X, is a set of metallic partials).
+- Osc B: Different wavetable—short digital clicks/noise.
+- Fast clock on A's X morph, slower divided clock on Y morph, random stepped CV on Z.
+- Envelopes into Osc A/B’s frequency for “hit”/body, FM input for transient snap.
+- Both outputs to a rhythmically gated VCA or directly to mixer.</p>
+<p><strong>B. “Randomized Snare Generator”</strong>
+- Set Preset CV to TRIG RANDOM.
+- Clocked trigger to Preset CV In.
+- Each trigger generates new snare/drum sound.
+- Attenuator determines how “far” presets jump.
+- Use tone menu for crush/bit reduction.
+- Output to fast envelope-VCA for envelope-shaped percussion.</p>
+<hr />
+<h2><strong>Pro Tips for Uniqueness &amp; Punch</strong></h2>
+<ul>
+<li><strong>Extreme Sample-CV</strong>: Use stepped random or complex LFOs into morph axes for intense, rapid mini-percussion changes.</li>
+<li><strong>Envelope Follower</strong> an existing drum sample, use its output to CV X/Y/Z or morph presets for responsive “meta-drumming.”</li>
+<li><strong>Sync Everything</strong>: Send the same trigger/gate to multiple inputs (FM, Sync, preset change), so that every hit is a new sound.</li>
+<li><strong>Mult the module outputs</strong>: Layer the Piston Honda with other drum modules, or use as the source into comb or wavefolder modules for further grit.</li>
+</ul>
+<hr />
+<h2><strong>Summary Table</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Feature</strong></th>
+<th><strong>Percussive/Rhythmic Strategy</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X/Y/Z Morph CV</td>
+<td>Polymetric, random, or step-sequenced wave morphs</td>
+</tr>
+<tr>
+<td>FM/Sync Inputs</td>
+<td>Use for sharp transients &amp; metallic/atonal drum impact</td>
+</tr>
+<tr>
+<td>Preset Manager</td>
+<td>Advance or morph drum sounds per rhythm event</td>
+</tr>
+<tr>
+<td>EXT IN</td>
+<td>Waveshape other drums, clicks, or noise</td>
+</tr>
+<tr>
+<td>Tone Menu</td>
+<td>Add crispness, digital edge, or vintage bite</td>
+</tr>
+<tr>
+<td>Unison/Link</td>
+<td>Layer multiple "hits" or voices</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>For further exploration, see more patch ideas and discussion at the <a href="https://modwiggler.com/forum/viewtopic.php?f=16&amp;t=205585">official thread on ModWiggler</a> and the <a href="https://synthtech.com/waveedit/">WaveEdit community</a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

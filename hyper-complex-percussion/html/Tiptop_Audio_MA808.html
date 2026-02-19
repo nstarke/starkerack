@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_MA808</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — MA808</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_MA808_ns.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://tiptopaudio.com/manuals/MA808-Manual.pdf"><strong>MA808 Manual (PDF)</strong></a></p>
+<hr />
+<h2>Making Densely Rhythmic, Hyper Complex Percussion with the MA808</h2>
+<p>As a Eurorack artist exploring the edge of rhythm, the Tiptop Audio <strong>MA808</strong> is an excellent analog percussion voice—its classic TR-808 Maracas tone can serve as both a textural bed and sharp rhythmic element in modular compositions. Here’s how to exploit it for dense, intricate percussion and polyrhythmic complexity:</p>
+<hr />
+<h3>1. <strong>Triggering with Polyrhythmic Gate Sources</strong></h3>
+<ul>
+<li><strong>Use Multiple Gate Sequencers:</strong> Run polyrhythmic/complex time sequence triggers (e.g., 5 against 7, or 4/4 overlayed with 9/8) into the <strong>GATE IN</strong> and <strong>ACCENT IN</strong>. Pair clock dividers/multipliers or trigger sequencers like the Z8000, Pamela's PRO Workout, or Euclidean-based sequencers for varied rhythmic interplay.</li>
+<li><strong>Layered Patterning:</strong> Combine steady patterns (e.g., 16th notes) with sporadic accents or bursts from a different clocked source for dense, evolving textures.</li>
+<li><strong>Accent Dynamics:</strong> Route a separate, off-grid gate (from a burst generator or random sequencer) into <strong>ACCENT IN</strong> for unpredictable dynamic spikes.</li>
+</ul>
+<hr />
+<h3>2. <strong>Sculpting with </strong><em>Attack</em><strong> for Percussive Variation</strong></h3>
+<ul>
+<li><strong>Automate Attack via CV (with VCA):</strong> Signal path: Use a CV-controlled VCA before the <strong>GATE IN</strong> to modulate gate length or velocity dynamically. This affects how "tight" or "soft" the MA808 responds—short gates = sharp/clicky, long random gates = splashy.</li>
+<li><strong>Manual or Modulated Changes:</strong> Turn the <strong>ATTACK</strong> knob (or use a hand/foot controller for expressive play) to glide between classic 808 Maracas and tighter hi-hat styles <em>during</em> performance. For variety, automate the knob with a parameter mapped to physical control or sequenced LFO/CV using an external VCA to modulate the envelope gate.</li>
+</ul>
+<hr />
+<h3>3. <strong>Unique White Noise Applications</strong></h3>
+<ul>
+<li><strong>W-NOISE Out = Custom Percussion:</strong> Patch <strong>808 W-NOISE OUT</strong> to filter/VCAs for snare, clap, or metallic hits, all triggered by separate, intricate rhythmic events elsewhere in your patch.</li>
+<li><strong>Random Modulation Source:</strong> Use <strong>W-NOISE OUT</strong> to clock random sources (like S&amp;H or random gates), which can feedback to trigger the MA808's accent or modulate its attack/gate, creating evolving, chaotic rhythmic patterns.</li>
+</ul>
+<hr />
+<h3>4. <strong>Dynamic Level and Accent Control</strong></h3>
+<ul>
+<li><strong>Independent Accent Tweaks:</strong> Unlike the original 808, the MA808 features independent <strong>ACCENT</strong> and <em>overall</em> <strong>LEVEL</strong>. <ul>
+<li>For punchy variation, automate the <strong>ACCENT</strong> knob or send it accent triggers that are offset against the main rhythm—e.g., polyrhythmic accent sequences separate from the main gate, emphasizing unexpected notes.</li>
+<li>Use an LFO or stepped random CV (via a VCA’s CV input) to sweep the <strong>LEVEL</strong> or <strong>ACCENT</strong> at audio or sub-audio rates for timbral and volume flux.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>5. <strong>Complex Patch Ideas</strong></h3>
+<ul>
+<li><strong>Microrhythmic Chopping:</strong> Use clock dividers and micro-timed logic (AND, OR, XOR gates) to flip between several rhythmic inputs to the MA808, creating interlocking 32nd, tuplets, or swung grids.</li>
+<li><strong>Shared Noise Clocking:</strong> Split <strong>W-NOISE OUT</strong>, use one path for clocking random triggers (feeding the accent or main gate) while the other path makes a raw percussive layer, both time-linked by the same "chaos".</li>
+<li><strong>Accent = Step-Driven Modulation:</strong> Step-modulate the accent level with a sequencer (sending CV-to-gate conversion), sculpting shifting patterns of loud/soft hits within complex time signatures.</li>
+</ul>
+<hr />
+<h3>6. <strong>Performance Techniques</strong></h3>
+<ul>
+<li><strong>Live Tweak:</strong> Manually sweep <strong>ATTACK</strong> and <strong>ACCENT</strong> to perform fills or transform timbre <em>live</em> across a pattern repetition.</li>
+<li><strong>Stack with Other Drums:</strong> Pair with hi-hat, snare, or other 808/909 or synthesized modules, using the MA808 as the bridge for fast, busy upper percussion.</li>
+<li><strong>Glitch:</strong><ul>
+<li>Rapidly retrigger (audio-rate gates) for granular/noise effects.</li>
+<li>e.g. rhythmic gating the <strong>MA OUT</strong> for pseudo-bitcrushed/fractional sampling flavor.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Example Patch for Hyper Complex Grooves</h2>
+<pre><code>[Trigger Sequencer 1] --------\
+                               &gt; (LOGIC XOR) --- [MA808 GATE IN]
+[Trigger Sequencer 2] --------/
+
+[Euclidean Accent Seq] -----&gt; [MA808 ACCENT IN]
+
+[808 W-NOISE OUT] -------&gt; [VCF -&gt; VCA -&gt; MIX] --- auxiliary percussive or clock source
+
+(LFO or Stepped Random CV) --&gt; [VCA modulating GATE IN or LEVEL]
+</code></pre>
+<hr />
+<p>By combining clock manipulation, clever patching, accent tricks, and the analog noise out, the MA808 can underpin or accent hyper-dense, polyrhythmic percussion beds, from crisp digital jitters to lush, rolling analog chaos.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

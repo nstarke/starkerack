@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erica_Synths_and_Gamechanger_Audio_Plasma_Drive</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erica Synths and Gamechanger Audio — Plasma Drive</h1>
+<ul>
+<li><a href="../../manuals/Plasma_Module_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.ericasynths.lv/media/PLASMA_drive_manual_eng_1.pdf"><strong>Erica Synths Fusion Plasma Drive Manual (PDF)</strong></a></p>
+<hr />
+<h1>Using Erica Synths Fusion Plasma Drive for Dense, Hyper-Complex Percussive Rhythms</h1>
+<p>The Erica Synths Fusion Plasma Drive is primarily an <strong>effect module</strong> that utilizes high-voltage xenon tube discharges to process audio signals in a distinctive, harmonically rich way. It is not a traditional sound source, but with creative patching, it can transform percussion modules or sampled drum loops into utterly unique and gnarly percussive textures—perfect for complex, polyrhythmic, and punchy drum patterns in a Eurorack system.</p>
+<h2>Quick Recap of Panel Controls and Features</h2>
+<ul>
+<li><strong>Distortion/Overdrive (VOLTAGE):</strong> Manual and CV control for intensity of effect.</li>
+<li><strong>Dry/Wet Mix:</strong> Manual and CV control for parallel processing.</li>
+<li><strong>Tracking Oscillators:</strong> Octave up (+1), down (-1), and both for adding harmonics.</li>
+<li><strong>EQ (BASS &amp; TREBLE):</strong> High/low frequency sculpting before and after distortion.</li>
+<li><strong>Octave/Trigger Buttons &amp; Inputs:</strong> Can rhythmically engage harmonics and sub basses via CV/gate/triggers.</li>
+</ul>
+<h2>Strategies for Maximizing Rhythmic Complexity and Percussiveness</h2>
+<h3>1. <strong>Rhythmic Modulation of Distortion with Polyrhythmic CV</strong></h3>
+<ul>
+<li>Use multiple clocked LFOs, random stepped sources (e.g., Turing Machine), or function generators running at different time signatures—such as 3/4, 5/8, etc.</li>
+<li>Patch them into the <strong>VOLTAGE CV</strong> and/or <strong>DRY/WET CV</strong> inputs. This will rhythmically morph the timbre and dry/wet balance, resulting in constantly evolving distortion and texture that syncs with or contrasts against your core drum patterns.</li>
+</ul>
+<h3>2. <strong>Percussive Source Feeding</strong></h3>
+<ul>
+<li>Run individual drum sounds (e.g., kick, snare, hats, metallic noises) from modules like <strong>Basimilus Iteritas Alter</strong>, <strong>Plonk</strong>, or even just noise sources through the <strong>INPUT</strong> of the Plasma Drive.</li>
+<li>Micropatterned or highly syncopated sequences (e.g., using modules like <strong>Euclidean Circles</strong>, <strong>Pamela’s Workout</strong>, or <strong>Temps Utile</strong>) fed through Plasma Drive will be transformed: tight transients become even sharper or more explosive at high distortion, while quiet passages can be “excited” by the harmonics.</li>
+</ul>
+<h3>3. <strong>Triggering Harmonic Oscillators with Complex Triggers</strong></h3>
+<ul>
+<li>Use polymetric trigger streams (e.g., from <strong>Euclidian rhythm generators</strong> or <strong>logical AND/OR/NOT combiners</strong>) to the <strong>OCT TRIG</strong> and <strong>SUB TRIG</strong> inputs.</li>
+<li>You can create precise or wildly off-kilter harmonics, sub-basses, and overtones that switch on/off for only certain drum hits or subdivisions, adding extra “voices” and accent patterns that follow (or syncopate with) your main rhythm.<ul>
+<li>Example: Send a 3-step pulse sequence to OCT TRIG and a 5-step pulse to SUB TRIG — this results in “extra” harmonics interacting polyrhythmically over a bar or phrase.</li>
+</ul>
+</li>
+</ul>
+<h3>4. <strong>Dynamic EQ Sculpting for Punch and Sizzle</strong></h3>
+<ul>
+<li>Patch fast envelopes (possibly triggered by accents/certain drums) to quickly boost the <strong>TREBLE</strong> for transient smacks or BASS for punch only during a snare/kick.</li>
+<li>Manual switching between <strong>EQ ON/OFF</strong> can be part of a live performance, shaping pre/post distortion character for dynamic changes.</li>
+</ul>
+<h3>5. <strong>Cascading or Parallel Processing</strong></h3>
+<ul>
+<li><strong>Parallel:</strong> Split your drum mix—send one clean to the main mixer, another through Plasma Drive, then mix or pan for stereo spread and contrast.</li>
+<li><strong>Series:</strong> Send the Plasma output into another VCA, filter, or wavefolder for even more percussive clarity or “tailing” effects, especially if you want to accentuate decays or add rhythmic “ducker” with external envelopes.</li>
+</ul>
+<h3>6. <strong>Extreme Modulation:</strong></h3>
+<ul>
+<li>Use random voltage sources or stepped sequencers to rapidly change <strong>VOLTS</strong>, <strong>OCTAVE</strong>, and <strong>EQ</strong> between drum strikes (yet another source of micro-variation/polyrhythm).</li>
+<li>Employ complex, clock-divided trigger sequences so the Plasma Drive responds differently every bar—never repeating exactly.</li>
+</ul>
+<hr />
+<h2>Example Patch Setup</h2>
+<pre><code class="language-plaintext">[Master Clock] 
+    |____ (4/4 gates) --&gt; Main Drum Sequencer (Kick/Snare/Hat)
+    |
+    |____&gt; Clock Divider A (5/8) --&gt; LFO A (modulates VOLTAGE CV)
+    |
+    |____&gt; Clock Divider B (7/16) --&gt; Euclidean Circles (modulates OCT TRIG)
+    |
+    |____&gt; Clock Divider C (11/32) --&gt; Envelope (modulates DRY/WET CV or EQ)
+</code></pre>
+<ul>
+<li>Audio from drums -&gt; Plasma Drive INPUT</li>
+<li>Plasma Drive OUTPUT -&gt; Mixer/Effect/Filter</li>
+<li>Use complex/generative trigger/gate patterns to modulate <strong>OCT TRIG/SUB TRIG</strong> for unpredictable, hyper-complex harmonics.</li>
+</ul>
+<hr />
+<h2>Performance Tips</h2>
+<ul>
+<li>Use <strong>mute groups</strong> on triggers to abruptly change harmonic layers mid-pattern.</li>
+<li>Experiment with feedback (mix small amount of Plasma OUTPUT back to INPUT via attenuator for wild punch).</li>
+<li>Animate the <strong>EQ</strong> in time with less-common subdivisions (e.g. modulate only every 13th step) for "ghost accenting."</li>
+<li>Exploit the module’s natural voltage sensitivity—use envelopes with very fast attacks and decays for “percussive” distortion bursts.</li>
+</ul>
+<hr />
+<p>For more reference, see the original manual and experiment with patching ideas:</p>
+<p><a href="https://www.ericasynths.lv/media/PLASMA_drive_manual_eng_1.pdf"><strong>Erica Synths Fusion Plasma Drive Manual (PDF)</strong></a></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

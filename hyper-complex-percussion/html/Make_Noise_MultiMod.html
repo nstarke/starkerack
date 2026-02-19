@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_MultiMod</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — MultiMod</h1>
+<ul>
+<li><a href="../../manuals/multimod-manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://makenoisemusic.com/manuals/multimod-manual.pdf"><strong>MultiMod Manual PDF</strong></a></p>
+<hr />
+<h1>MultiMod for Hyper-Complex Rhythmic Percussion—Eurorack Strategies</h1>
+<h2>Overview</h2>
+<p>The Make Noise MultiMod is a DSP-based mult, not a sound-generating voice or audio effect itself, but a modulation processor. Its power lies in generating multiple, time-modified, and phase-shifted control signals based on a single input (or internal LFO) for simultaneously animating multiple parameters, modules, or voices. The MultiMod is exceptionally well-suited to creating dense, polymetric and polyrhythmic modulation patterns, ideal for intricate percussion sequencing and advanced modular patching.</p>
+<p>Below is a focused guide for using MultiMod in the pursuit of hyper-rhythmic, complex percussive outcomes:</p>
+<hr />
+<h2>Core Techniques</h2>
+<h3>1. Turning Single Clocks into Many Rhythms</h3>
+<ul>
+<li><strong>Patch a master clock or pulse (e.g., from Pamela’s New Workout, Tempi, etc.) into the Signal In.</strong></li>
+<li>Use the <strong>Spread</strong> control to create divisions/multiplications of that clock across outputs.</li>
+<li>At 12:00, all outputs align; turning Spread CW/CCW “bends” channels to faster/slower divisions/multiplications—even into irrational clocking regimes, not just musical integer divisions.</li>
+<li><strong>Result:</strong> Instant polyrhythms or non-standard ratchets to trigger percussion voices, LPGs, or drum modules.</li>
+</ul>
+<h3>2. Generate and Manipulate Multilayer LFOs</h3>
+<ul>
+<li>With nothing patched to Signal In, MultiMod’s internal LFO acts as a polymorphic master modulator. Use <strong>Shape</strong> to select classic or random waves.</li>
+<li>Modulate Time, Spread, and Phase with CV sequencers or random sources to warp those LFO shapes for punches, twists, and morphing modulations.</li>
+<li>Gate the <strong>Hold</strong> input to freeze (“buffer repeat”) phrasing, or reset sync with external triggers for repeatable, glitchy hits.</li>
+</ul>
+<h3>3. Phase-lock Polyrhythms</h3>
+<ul>
+<li>Use <strong>Phase</strong> to shift outputs for complex step-offsets; with percussion, this offsets trigger/gate timing for flam, swing, or stagger effects.</li>
+<li>As Phase is increased from fully CCW to CW, outputs are distributed from identical (in-phase) to fully offset (channels 1 &amp; 8 at 180° out).</li>
+<li>Periodically hit <strong>Reset</strong> (manual or CV/gate) to re-align all channels, making for pulsed grouping, bursts, or cyclical realignment—a key for punchy fills.</li>
+</ul>
+<h3>4. Polyrhythmic Sequencing with TEMPO and Reset</h3>
+<ul>
+<li>Patch an external clock to <strong>TEMPO In</strong> to make all rhythmic relationships grid-locked but allow divisions/multiplications that cross metric boundaries.</li>
+<li>Use <strong>different permutations of Time, Spread, Phase</strong> (with or without CV modulation) for each session or section in your set.</li>
+</ul>
+<h3>5. Hyper-Complex Patterns: Shape Strategies</h3>
+<ul>
+<li>Select non-linear or random shapes in Shape mode (Stepped Random—orange, Smoothed Random—yellow) for stochastic, west-coast-style percussion timing. Each output channel “walks” its own clocked random sequence, great for non-repeating rhythms.</li>
+<li>With <strong>Square (Pink) shape</strong> use MultiMod as a master clock generator. Outputs give multiples/divisions set by Spread, ideal for layers of pulses ticking in and out of phase.</li>
+</ul>
+<hr />
+<h2>Patch Ideas for Densely Rhythmic Percussion</h2>
+<h3>A. Multichannel Trigger Generator</h3>
+<ul>
+<li><strong>SIMPLE:</strong> Patch MultiMod outs to percussive modules’ trigger/strike inputs. Set Spread off-center, Phase to taste, and modulate Time with a slow envelope for tempo automations.</li>
+<li><strong>COMPLEX:</strong> Flick through Shapes during performance to morph the rhythm engine.</li>
+</ul>
+<h3>B. Modulation of Percussive Parameters</h3>
+<ul>
+<li>Take outs to modulate decay, pitch, filter, or wavefold amount on synth voices or drums. Each channel gives you a time-skewed version of the base input or LFO.</li>
+</ul>
+<h3>C. Chain Reaction (Shift Register Patch)</h3>
+<ul>
+<li>Send a modulated CV sequence (melodic or rhythmic) into Signal In. With Spread at noon, increase Phase for staggered outputs; patch outs to drum tunings, LPG amplitudes, or sequencer CV inputs for tightly related “echoes” or call-and-response.</li>
+</ul>
+<h3>D. Burst Fills and Controlled Chaos</h3>
+<ul>
+<li>Patch a regular or irregular burst generator (or a hand-triggered button) to Reset. The MultiMod outputs “snap back” into phase, accenting fills or imposing structure on a swirling cloud of rhythms.</li>
+<li>Engage Hold to freeze and loop a particularly complex rhythmic phrase, unleashing it again at will by releasing Hold.</li>
+</ul>
+<hr />
+<h2>Percussive Effects (Punch, Grit, Uniqueness)</h2>
+<p>Since MultiMod isn’t a voice or audio effect, but a control voltage processor, you enhance percussiveness by:</p>
+<ul>
+<li>Rapidly modulating parameters of your actual drum synths/modules.</li>
+<li>Using random or heavily phase-shifted outputs for “off-the-grid” triggerings.</li>
+<li>For punch: Phase offset outputs to create micro-timing variation, pseudo-flams, handclap clusters, etc.</li>
+<li>For grit: Send noise or audio-rate pulses into Signal In and use shaped, phase/scattered outs to create randomized, glitchy modulation of percussive parameters.</li>
+<li>For uniqueness: Hyper-modulate Spread, Phase, and Shape with external sources (random, sequencers, envelopes) continually through the performance.</li>
+</ul>
+<hr />
+<h2>Power Tips</h2>
+<ul>
+<li><strong>All outputs are attuned to your input signal’s changes at different times; automating or jamming with the input signal leads to cascading pattern development across all outs.</strong></li>
+<li>Use Shape’s random modes with non-LFO input (random gates, envelope followers, etc.) for weighted randomizations of your entire percussion kit.</li>
+<li>Create coupling between percussion “voices” by cross-patching MultiMod outputs to each others’ mod and trig ins.</li>
+</ul>
+<hr />
+<p>For even more inspiration, check the manual’s <a href="https://makenoisemusic.com/manuals/multimod-manual.pdf">Patch Corner</a> and <strong>Appendix: LED Cheat Sheet</strong> for real-time feedback on what your MultiMod outputs are doing.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

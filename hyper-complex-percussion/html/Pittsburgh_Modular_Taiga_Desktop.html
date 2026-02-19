@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Pittsburgh_Modular_Taiga_Desktop</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Pittsburgh Modular — Taiga Desktop</h1>
+<ul>
+<li><a href="../../manuals/Taiga+Desktop+Manual+v2.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://pittsburghmodular.com/content/Taiga-Manual-V2.0.pdf">Taiga Desktop Electronic Musical Instrument Manual V2.0 (PDF)</a></p>
+<hr />
+<h1>Using Pittsburgh Modular Taiga for Dense, Complex, Percussive Sequences</h1>
+<p>As a eurorack musician aiming for hyper-complex, polyrhythmic percussion and innovative punchy sequences, the Pittsburgh Modular <strong>Taiga</strong> offers a wealth of options. Below are creative strategies for turning Taiga into a polyrhythmic, percussive powerhouse, exploiting its internal semi-modular design, rich modulation capabilities, and unique analog voice.</p>
+<hr />
+<h2>1. Rhythmic Clocking, Pattern Generation, and Polyrhythms</h2>
+<h3>Internal/External Clock Flexibility</h3>
+<ul>
+<li><strong>Multi-Clock Sources</strong>: Taiga supports internal tap tempo, MIDI clock, external gate, and even a pseudo-random clock (<a href="https://pittsburghmodular.com/content/Taiga-Manual-V2.0.pdf#page=17">5.8–5.12</a>).  </li>
+<li><strong>Polymeter/Polyrhythm Creation:</strong>  </li>
+<li>Use <strong>external gate or MIDI clock</strong> as an input ([Control Clock In/Out]), and kpatch complex clocks from a sequencer or logic modules for shifting meters.</li>
+<li><strong>Switch clock sources mid-sequence</strong> or use the internal <strong>Random Clock</strong> to purposely disrupt/complexify patterns.</li>
+</ul>
+<h3>Advanced Arpeggiator/Sequencer</h3>
+<ul>
+<li>The built-in <strong>arpeggiator</strong> can sequence up to 32 notes with variable clock division (<a href="https://pittsburghmodular.com/content/Taiga-Manual-V2.0.pdf#page=18">5.13–5.21</a>), including:</li>
+<li><strong>Random playback order</strong> (per-step direction randomness)</li>
+<li><strong>Variable Arp Directions</strong> (up, down, as played, alternating)</li>
+<li><strong>Gate Length variation</strong> per sequence for "ratcheting"/stuttering effects</li>
+<li><strong>Insert rests</strong> and create uneven rhythmic phrases by note-wise step entry</li>
+<li><strong>Hold mode</strong> to sustain/transform patterns into drone loops</li>
+</ul>
+<p><strong>Pro Tip:</strong> Sequence the arpeggiator gate outputs into <strong>external trigger combinators</strong> (AND/OR logic, sequential switches) for even greater complexity.</p>
+<hr />
+<h2>2. Percussive Timbres: Oscillators and Dynamics</h2>
+<h3>Analog Voice Sculpting</h3>
+<ul>
+<li><strong>Oscillators</strong> ([6.1–6.11]):</li>
+<li>Use three independent oscillators, each addressable via independent pitch and FM, assign different clocks or random step outputs to individual oscillators for shifting polyrhythms.</li>
+<li>Oscillator waveforms can be <strong>randomized per clock tick</strong> ([6.7] Clocked Random Waveform), so percussion hits can morph in timbre step-wise; patch CV into [Osc FM/Shape CV Ins] for timbral drift.</li>
+<li>Use <strong>Warps and Wavefolding</strong> ([6.8–6.9]) aggressively—set up CVs to modulate folding depth per hit for edgy, digital-esque attack transients.</li>
+<li><strong>Osc Hard Sync</strong>: Cross-patch [Sine outputs] to [Sync Ins] for metallic, robotic sync pops or clangs.</li>
+</ul>
+<h3>Mixer &amp; Overdrive</h3>
+<ul>
+<li>Use the <strong>preamp</strong> ([7.3]) as a soft-clipping overdrive after aggressive oscillator mixing for <em>industrial</em> or <em>punchy</em> drum sounds.</li>
+<li>Employ the mixer’s <strong>channel isolation</strong> (patching out channels 1+2, mixing 3+4 separately) for hard-panned or CV-isolated percussion layers.</li>
+</ul>
+<h3>Dynamics Section: Advanced Low Pass Gate (LPG)</h3>
+<ul>
+<li><strong>Unique modern LPG</strong> ([11.1–11.8]):</li>
+<li>Switch between <strong>VCA</strong>, <strong>LPG</strong>, and <strong>Pluck</strong> modes—pluck is tailored for percussion, with a percussive envelope and organic decay.</li>
+<li><strong>Pluck Mode</strong>: Shape percussive "chiffs" or pseudo-acoustic plucks. Vary [Dynamics Response], modulating it with an LFO, sequencer, or sample &amp; hold for each drum to have unique transient and decay profiles.</li>
+<li>Patch drum gates/triggers to [Dynamics CV Input] and/or modulate [Response] for ratcheting, "bouncing ball," or decaying delay-style impacts.</li>
+<li>Experiment with <strong>resonance</strong>—smaller incoming signals = more LPG resonance = natural ring.</li>
+</ul>
+<hr />
+<h2>3. Modulation Madness: LFO, Random, Sample &amp; Hold</h2>
+<h3>Multi-Function Modulation Section ([5.25–5.31])</h3>
+<ul>
+<li>Use the <strong>Multi-Function Tool</strong> (assignable to LFO, clocked random voltage, envelope, or quantized CV) as a high-density, versatile modulation master:</li>
+<li>Set random/triangle/saw/square <strong>randomness modes</strong> and use clocked sample/hold to drive bass, snare, or hi-hat pitch or timbre.</li>
+<li>Output random or S/H voltages to oscillator FM, LPG response, filter cutoff, or even delay time for ever-shifting percussive articulation.</li>
+<li>Sync the LFO shape and division to the main clock, but use odd/even clocks/divisors on separate parameters (e.g., pitch vs. shape vs. filter) for polyrhythmic motion.</li>
+</ul>
+<h3>Sample &amp; Hold as Percussive Source ([8.3])</h3>
+<ul>
+<li>Send audio-rate triggers into <strong>Sample &amp; Hold</strong> to generate glitchy, stepped, or "bitcrushed" CV sequences—modulate oscillator pitch or LPG response.</li>
+<li><strong>Normaled noise</strong> as sample source: classic analog synth trick for snares, hats, or shuffled percussion.</li>
+</ul>
+<hr />
+<h2>4. Filter and Echos as Percussive Sculptors</h2>
+<h3>Pittsburgh Filter ([9.1–9.7])</h3>
+<ul>
+<li>Switch filter types rhythmically ([9.3] Clocked Random Filter Response) for sharp, percussive timbre shifts—highpass for hats/claps, lowpass for kicks/toms, notch for woodblock/pings.</li>
+<li>Sequence or modulate [Filter cutoff] and [Resonance] for per-step filter "talking" rhythms (filter FM in via sequencer, random, envelope, or external gates).</li>
+<li>Use <strong>excessive resonance</strong> with a sharp gate for acid, "ping" percussion.</li>
+</ul>
+<h3>Analog Delay: Echos ([12.1–12.6])</h3>
+<ul>
+<li>Modulate delay time ("Karplus-Strong"/drum tuning), regeneration, and mix for glitchy, dubby, or hyper-syncopated reverb tails and delay slaps.</li>
+<li>Use short delay times with high regeneration for metallic, comb-filtered drums; modulate with slow S&amp;H or random for "broken glass" snare effects.</li>
+</ul>
+<hr />
+<h2>5. Additional Tactics for Punch and Complexity</h2>
+<ul>
+<li>Exploit <strong>Paraphonic Modes</strong> ([5.23], [15.1]) by feeding [Velocity Output] to an oscillator's pitch for stacked drum voices, then modulate velocity patterns for unison or 2-voice counterpoint percussion.</li>
+<li>Use the <strong>Mixer/Splitter utility</strong> ([8.4]) to combine multiple mod sources or split a wild modulation to multiple targets for parallel polyrhythmic shifting.</li>
+<li><strong>Live Performance</strong>: Switch [Edit Mode] functions on the fly! Most parameters are addressable via button shortcuts for seamless creatively evolving percussion sequences.</li>
+</ul>
+<hr />
+<p><strong>Final Tips:</strong>
+- Experimentation is key with Taiga. Patch drum voice triggers into unexpected modulation or audio ins—chaos often produces the most compelling percussive textures.
+- Try using the <strong>random clock</strong> for unpredictable fills or stuttering patterns, and random S&amp;H for evolving cymbal ornaments.
+- Don’t be afraid to overdrive, cross-modulate, and self-patch!</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

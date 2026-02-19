@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Data_Bender</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Data Bender</h1>
+<ul>
+<li><a href="../../manuals/QB_Data_Bender.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://cdn.shopify.com/s/files/1/2996/6240/files/Databender-Manual-3.0-web-min.pdf"><strong>Qu-Bit Data Bender Manual PDF</strong></a></p>
+<hr />
+<h1>Using Data Bender For Hyper-Complex, Rhythmic Eurorack Percussion</h1>
+<h2>Module Overview</h2>
+<p>The <strong>Qu-Bit Data Bender</strong> is a circuit-bent digital audio buffer acting as a highly musical, glitchable, and clock-manipulable audio mangler. Data Bender can be used both as a creative effect and as a unique percussive voice source, dependent on patching strategy. Its clock and buffer manipulation, stutter/glitch features, and CV-controllable parameters make it ideal for creating rhythmically dense, polyrhythmic, and hyper-detailed percussion sequences.</p>
+<hr />
+<h2>Strategies for Complex, Rhythmic Percussion</h2>
+<h3>1. <strong>External Clock Sync &amp; Polyrhythmic Clocking</strong></h3>
+<ul>
+<li><strong>Use External Clocks:</strong> Send different clock sources (with polyrhythmic or polymetric relations, e.g. 5/8 against 7/8, or weird division triplets) to the <strong>clock input</strong>. Pair Data Bender with modules like Pamela's New Workout, Tempi, or Zularic Repetitor for experimental timing.<ul>
+<li><strong>Time Knob in External Mode:</strong> Use Time knob to multiply/divide external clock in musically complex ratios (see manual: multiply/divide by 2, 3, 4, 8, etc.).</li>
+<li><strong>Result:</strong> Buffers, repeats, and glitches will "dance" on top of overlapping, cross-rhythmic time bases.</li>
+</ul>
+</li>
+</ul>
+<h3>2. <strong>Manipulate Buffer Subdivisions With CV</strong></h3>
+<ul>
+<li><strong>Repeats Knob + CV:</strong> Dynamically alter how incoming audio is subdivided using complex, synced or random CV. Patch unpredictable stepped &amp; curving CV into the Repeats input to fragment the buffer.<ul>
+<li><strong>Result:</strong> Your percussive loop or hit is diced, stuttered, or atomized at musically shifting rates. Coupled with clock manipulation, this builds complex, unpredictable rhythmic grains.</li>
+</ul>
+</li>
+</ul>
+<h3>3. <strong>Time-Variant Glitching With Corrupt Modes</strong></h3>
+<ul>
+<li><strong>Corrupt Section (Decimate, Dropout, Destroy):</strong><ul>
+<li>Use Dropout for sudden silences, Decimate for bitcrushed "digital percussion," or Destroy for crunchy, striking digital distortion.</li>
+<li>Modulate the Corrupt CV input with fast, stepped random (sample &amp; hold), triggers, gates, or rhythmic LFOs to make corruption burst in time with your clock/rhythms.</li>
+<li><strong>Idea:</strong> Use sequence resets or clock division to regularly "glitch" every nth bar, making fills, breaks, and hyper-detailed rhythmic events.</li>
+</ul>
+</li>
+</ul>
+<h3>4. <strong>Freeze &amp; Unfreeze For Granular Stutters</strong></h3>
+<ul>
+<li>Use the <strong>Freeze button or gate input</strong> to rhythmically capture, stutter, and remix short buffer sections. <ul>
+<li><strong>Trig/gate Freeze with polyrhythmic triggers</strong> to alternate between live input and frozen glitches.</li>
+<li><strong>Manual or sequenced toggling</strong> of Freeze at odd intervals creates loose, off-grid, or microtimed glitch percussion.</li>
+<li><strong>Tip:</strong> In momentary mode, Freeze acts as a dynamic gate for stuttered micro-loops, great for IDM/Breakcore chops.</li>
+</ul>
+</li>
+</ul>
+<h3>5. <strong>Break and Bend For Playhead &amp; Speed Tricks</strong></h3>
+<ul>
+<li>In <strong>Macro Mode:</strong><ul>
+<li><strong>Bend:</strong> Use for playhead reversals and speed changes; modulate for tape-stop stabs or backwards bursts—percussive and weird.</li>
+<li><strong>Break:</strong> Modulates repeats and positions; high settings create random jumps/cuts (CD-skipping or busted tape flutter).</li>
+<li><strong>CV these with per-channel (stereo split) rhythm sources</strong> for intricate, stereo percussive mayhem.</li>
+</ul>
+</li>
+<li>In <strong>Micro Mode:</strong><ul>
+<li><strong>Bend (Speed):</strong> Modulate for rapid tape-like pitch snapping, octave jumps, or reversals at tempo.</li>
+<li><strong>Break (Traverse/Silence):</strong> Create ghost hits, micro-silences, or triplet/tuple breakdowns in a drum loop.</li>
+</ul>
+</li>
+</ul>
+<h3>6. <strong>Stereo Tricks</strong></h3>
+<ul>
+<li><strong>Unique Mode:</strong> Set stereo to unique with Shift+Bend—each L/R channel gets different glitch logic. Send hard-panned percussion (or multi-mic recordings, or L/R split beaters) to Data Bender and let both sides glitch independently for dense, evolving stereo rhythm.</li>
+<li><strong>Shared Mode:</strong> Use for focused, punchy mono percussive patterns.</li>
+</ul>
+<h3>7. <strong>Glitch Windowing For Transient Shaping</strong></h3>
+<ul>
+<li><strong>Shift+Time Controls Glitch Window:</strong> Use less windowing for sharp, clicky glitches that mimic extremely fast percussive transients and artifacts; more windowing for ghostly, swelling textural rhythms.</li>
+</ul>
+<h3>8. <strong>Patch Example</strong></h3>
+<pre><code class="language-patch">CLOCK OUT 1 (Pam’s @5/8) ---&gt; DATA BENDER CLOCK IN
+CLOCK OUT 2 (Pam’s @7/8) ---&gt; FREEZE/ BREAK/ CORRUPT (via logic or S&amp;H)
+SEQUENCED DRUM HITS ---&gt; DATA BENDER IN L/R
+BASS or SYNTH PULSE ---&gt; DATA BENDER IN R (for additional cross-percussion)
+MULTIPLE RANDOM CVs (from Batumi, Sapèl, Marbles) ---&gt; TIME, REPEATS, BREAK, BEND CVs
+DATA BENDER OUT L/R ---&gt; MIXER/FX/RECORDER (with optional sidechain comp)
+</code></pre>
+<ul>
+<li>Try capturing a dry drum groove and mangling it with all parameters sequenced, using odd-length clocks and complex CV to constantly disrupt and reassemble the rhythmic grid.</li>
+</ul>
+<hr />
+<h2>Bonus Tips</h2>
+<ul>
+<li><strong>Buffer Memory:</strong> Since Data Bender keeps a ~1min buffer, long-form manipulation is possible—freeze, stutter, and unfreeze "old", previously played material for especially mind-bending rhythmic recapitulations.</li>
+<li><strong>Punch/Transient Creation:</strong> Use Decimate/Destroy for digital click pops and hard edges—exceptionally effective for modern, punchy percussive sound design.</li>
+<li><strong>CV Randomization:</strong> Use Eurorack random modules (e.g., Marbles, Chance) to keep the patterns fresh and unpredictable.</li>
+</ul>
+<hr />
+<h2>Reference</h2>
+<ul>
+<li><a href="https://cdn.shopify.com/s/files/1/2996/6240/files/Databender-Manual-3.0-web-min.pdf">Qu-Bit Data Bender Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Omnitone_Rosci</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Omnitone — Rosci</h1>
+<ul>
+<li><a href="../../manuals/Rosci-Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://omnitone.ca/manuals/Rosci_Manual_Rev3.pdf">Rosci User Manual PDF</a></p>
+<hr />
+<h1>Making Hyper-Complex Percussion With Rosci (Eurorack)</h1>
+<p>The <strong>Rosci</strong> module, as described in the manual, is a highly flexible digital oscillator designed to excel at customized waveform generation. Its ability to morph between shapes, interpolate, and introduce nonlinearities makes it perfect for <em>unusual, percussive, and detailed rhythmic material</em>, especially when you combine it with external rhythmic modulation sources.</p>
+<p>Below is a detailed strategy for achieving <strong>densely rhythmic, polyrhythmic, and highly complex percussion sequences</strong> using Rosci, along with tips for maximizing its uniqueness and punch.</p>
+<hr />
+<h2>1. Use Rosci As a Percussive Voice</h2>
+<h3><strong>Set Up Rosci as a Drum Voice:</strong></h3>
+<ul>
+<li><strong>Mode</strong>: Keep Rosci in VCO mode for metallic digital drums; flip to LFO mode for slow, generative CV percussive triggers.</li>
+<li><strong>Waveform Complexity</strong>: Use the <em>Generate</em> and <em>Complexity</em> parameters to craft transient-rich, short, inharmonic wave shapes. Try 2-6 points for clicky, snappy percussive attacks; add harmonics for metallic noise.</li>
+<li><strong>Roundness and Formants</strong>: Experiment with these to mimic physical, vocal, or organic drum-like timbres.</li>
+<li><strong>Detune</strong>: Detune for percussive clashing overtones.</li>
+</ul>
+<hr />
+<h2>2. External Rhythmic Control for Polyrhythms</h2>
+<h3><strong>Triggering &amp; Sequencing:</strong></h3>
+<ul>
+<li><strong>Trigger Input</strong>: Patch different trigger/gate streams (e.g., from Euclidean, polyrhythmic, or random step sequencers) into Rosci's trigger input.<ul>
+<li>Each distinct trigger pattern can activate Rosci at off-grid, overlapping rhythms for polyrhythms or odd time signatures.</li>
+</ul>
+</li>
+<li><strong>V/OCT Input as Pattern Parameter</strong>: Sequence Rosci with shared or independent melodic or non-traditional <em>pitch patterns</em> (e.g., microtonal, odd scales) for further rhythmic variation.</li>
+</ul>
+<hr />
+<h2>3. Modulate the Sound for Variation</h2>
+<p>Assuming you have several modulation sources (LFOs, random generators, sequencers):</p>
+<ul>
+<li><strong>CV Inputs</strong>: Patch rhythmic CV sources into Complexity, Harmonics, Formants, and Detune.  <ul>
+<li>E.g., send clock-divided or probability-skipping gates into Harmonics/Complexity for per-step timbral changes that sync or desync with Rosci’s triggers.</li>
+</ul>
+</li>
+<li><strong>Envelope &amp; Random</strong>: Patch fast, percussive envelopes or stepped random voltages (e.g., sample-and-hold based on polyrhythmic triggers) to Roundness or Formants for morphing attacks/sustains.</li>
+<li><strong>Morphing &amp; Interpolation</strong>: Switch interpolation methods mid-sequence for jumps between sharp and smooth transitions—emphasize punchy vs. clicky textures.</li>
+</ul>
+<hr />
+<h2>4. Patch Ideas for Complex Rhythms</h2>
+<ul>
+<li><strong>Multi-Trigger Input</strong>: Combine several gate patterns with a logic module (OR, XOR) to drive Rosci's trigger input for interlaced, complex rhythms.</li>
+<li><strong>FM/AM</strong>: Use an audio-rate VCO or fast envelope to modulate the pitch (V/OCT) input for “FM drum” or clangorous bell sounds, or modulate parameters for constantly changing attacks.</li>
+<li><strong>Manual Play</strong>: Tap out triggers live for fills, then automate them for evolving patterns.</li>
+</ul>
+<hr />
+<h2>5. Unique Percussive Effects</h2>
+<ul>
+<li><strong>CV-Controlled Switching:</strong> Use a sequencer to rhythmically switch/interpolate Rosci's parameters in extreme ways, turning each trigger into a seemingly new drum/click sound.</li>
+<li><strong>Formant Compression:</strong> Set Formants and Harmonics to extremes for "vocal percussion"—Kabuki or robotic-sounding hits.</li>
+<li><strong>Max Detune:</strong> Sweep Detune with random or sneaky slow LFOs to create moving, phasey percussive ripples.</li>
+</ul>
+<hr />
+<h2>6. Combine With Effects</h2>
+<ul>
+<li><strong>Resample</strong>: Route Rosci to a granular or delay module and re-trigger with polyrhythmic gates.</li>
+<li><strong>Ring Mod/Distortion</strong>: Feed output into analog ring modulation or distortion for raw, accentuated texture.</li>
+</ul>
+<hr />
+<h1>Summary Table</h1>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Rhythmic / Percussive Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generate</td>
+<td>Make new per-hit waveforms on triggers</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Morph between attack types</td>
+</tr>
+<tr>
+<td>Roundness</td>
+<td>Control punch/snap versus mellow</td>
+</tr>
+<tr>
+<td>Harmonics</td>
+<td>Shift metallic/woody/raspy content</td>
+</tr>
+<tr>
+<td>Formants</td>
+<td>Vowelly, vocal timpani</td>
+</tr>
+<tr>
+<td>Detune</td>
+<td>Adds movement; detune for metallic clangs</td>
+</tr>
+<tr>
+<td>V/OCT</td>
+<td>Sequence for melodic or FM drum sounds</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Use as audio or trigger for next module</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Tips</strong>:<br />
+- Use different, unsynchronized modulation clocks for each parameter control.
+- Feed Rosci’s output to a VCA controlled by rhythmic envelopes for even more articulation.
+- Resample or layer Rosci with other drum modules for hyper-complex grooves.</p>
+<hr />
+<p><a href="https://omnitone.ca/manuals/Rosci_Manual_Rev3.pdf">Rosci User Manual PDF</a><br />
+<a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

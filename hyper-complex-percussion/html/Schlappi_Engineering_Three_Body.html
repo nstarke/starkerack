@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Schlappi_Engineering_Three_Body</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Schlappi Engineering — Three Body</h1>
+<ul>
+<li><a href="../../manuals/three_body_manual_01302023a.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://schlappiengineering.com/wp-content/uploads/2023/12/schlappi-three-body-manual-2023.pdf">Three Body Manual (Schlappi Engineering, PDF)</a></p>
+<hr />
+<h1>Using Schlappi Three Body for Hyper-Complex Percussion &amp; Rhythmic Music</h1>
+<p>The <strong>Schlappi Engineering Three Body</strong> is exceptionally powerful for driving complex, evolving rhythmic and percussive material, thanks to its trio of deeply-interconnected digital oscillators, flexible normalization, and highly configurable modulation. Here’s how to leverage its architecture in the context of hyper-rhythmic, polyrhythmic, and advanced percussive music.</p>
+<h2>Approaching Percussion with Three Body</h2>
+<h3><strong>Module Roles</strong></h3>
+<ul>
+<li><strong>Voice:</strong> Each of the three oscillators can act as an individual percussion voice—kick, tom, snare, metallic clang, noisy hit, etc.</li>
+<li><strong>Effect</strong>: Use the internal cross modulation to process other voices, creating pseudo-coordinated “sidechain” or unexpected percussive artifacts.</li>
+</ul>
+<hr />
+<h2>Key Techniques for Dense, Complex Rhythm</h2>
+<h3>1. <strong>Polyrhythms &amp; Polymetric Structures</strong></h3>
+<ul>
+<li><strong>Ratio Tracking</strong>: Set oscillators to <strong>RATIO</strong> mode and use integer/non-integer ratios between carriers. Try tracking the inner oscillator (master “clock") with outer oscillators as polyrhythmic “subdividers.” <ul>
+<li><em>Example</em>: Center at “free” (master clocked oscillator), left and right at <strong>ratio</strong> with divisions/multiplies set to 3 and 5 for a 3:5 polyrhythm.</li>
+</ul>
+</li>
+<li><strong>External SYNC</strong>: Patch different rhythmic impulses (clock dividers, triggers, LFOs) into the <strong>SYNC</strong> inputs. Each oscillator can then lock to independent time bases or odd rhythmic clocks, furthering polyrhythmic complexity.</li>
+</ul>
+<h3>2. <strong>Complex Patterns</strong></h3>
+<ul>
+<li><strong>FM/PM Modulation</strong>: Cross-modulate oscillators with audio-rate or sub-audio oscillators, making patterns with spectral/transient complexity that can “mimic” layered percussion ensembles.<ul>
+<li>Patch sine output of one into phase or FM input of another, then tweak the <strong>index</strong> and polarity for pseudo-chaotic percussive bursts and metallic artifacts.</li>
+</ul>
+</li>
+</ul>
+<h3>3. <strong>Time Signature Adventures</strong></h3>
+<ul>
+<li>Use odd or evolving division/multiplication ratios on the outer oscillators for signatures like 5/4, 7/8, 11/16.</li>
+<li>Modulate these with random voltages or sequenced CV sources to automate pattern switching or evolving metric feel.</li>
+</ul>
+<hr />
+<h2>Patch Concepts</h2>
+<h3>&gt; <strong>A: Polyrhythmic Percussion Triplets and Fives</strong></h3>
+<ol>
+<li>Set <strong>Center</strong> osc to <strong>FREE, HIGH</strong> (base frequency = clock/root note).</li>
+<li><strong>Left</strong> osc: RATIO, DIV: 3 (triplets), <strong>MULT</strong> as 1 (standard).</li>
+<li><strong>Right</strong> osc: RATIO, DIV: 5 (quintuplets).</li>
+<li>Take <strong>Sine</strong>, <strong>Triangle</strong> or <strong>Saw</strong> from each out to separate LPGs or VCAs—trigger each with similarly divided external gates or let the phase interaction itself “illusion” hits (especially with envelope followers/comparators after).</li>
+</ol>
+<h3>&gt; <strong>B: Algorithmic "Drum Machine" with Shifting Ratios</strong></h3>
+<ul>
+<li>Use <strong>step sequencer</strong> or <strong>random CV</strong> into V/OCT RATIO on outer oscillators. Modulation can create live-shifting subdivision, blurring the line between precise and chaotic patterns.</li>
+<li>Use modulation attenuators to restrict the CV range so that only certain divisions/multiplies are accessible at a given time—morphing between 1, 2, 3, 5, 7, etc.</li>
+<li>This results in arpeggiating or grid-shifting patterns, like a generative rhythm engine.</li>
+</ul>
+<h3>&gt; <strong>C: Metallic, Punchy Percussion With Phase Modulation</strong></h3>
+<ul>
+<li>Self-patch the left and right oscillator’s sines to each other's <strong>PHASE CV</strong> inputs (<strong>with index attenuators!</strong>).</li>
+<li>Use center oscillator for a deep base, or patch outer oscillator waveforms to LPGs with fast envelopes.</li>
+<li>Turn up <strong>PHASE INDEX</strong> or <strong>FM INDEX</strong> just to the point before noise—this yields complex, biting metallic transients like cymbals, snares, or bells with naturalistic tails.</li>
+<li>For even more character, experiment with the <strong>External Filter</strong> header (16H) for noisier/cleaner modulation.</li>
+</ul>
+<h3>&gt; <strong>D: Trigger-Gated Percussive Bursts</strong></h3>
+<ul>
+<li>Use fast external triggers/gates into SYNC for hard resets.</li>
+<li>Patch audio-rate modulation between FM/Phase inputs for “ring mod” and atonal percussive pops.</li>
+</ul>
+<hr />
+<h2>Manipulations For “Punch” and Uniqueness</h2>
+<ul>
+<li><strong>Use Wavefolding Effects:</strong> Push phase modulation hard for sharp wavefolded attacks that read “percussive.”</li>
+<li><strong>Dynamic Indexing:</strong> CV control over <em>PHASE/FM INDEX</em> allows envelopes per hit for snappy/decaying timbral movement.</li>
+<li><strong>Multilayer With Outputs:</strong> Simultaneously mix SINE, SAW, TRI out for rich transient “impacts” with high-frequency detail.</li>
+<li><strong>Stereo Field:</strong> SINE/COSINE and SAW/COSAW pairs, with strong phase/frequency modulation, create wide, spatially animated percussive events.</li>
+<li><strong>Square Wave Phase Mod:</strong> Use the <strong>square output</strong> with phase mod disengaged (header 14G) for suboctave “thump” or to layer fundamental body beneath noisy or metallic upper harmonics.</li>
+</ul>
+<hr />
+<h2>Additional Tips</h2>
+<ul>
+<li>Use comparators or envelope followers on outputs to convert wild waveforms into new gates/triggers for (meta-)sequencing drums.</li>
+<li>Run outputs through fast VCAs or LPGs to get that “clicky,” punch-in-the-face percussion transient, using envelopes synced to other oscillators’ cycles for layered, interlocking grooves.</li>
+<li>Don’t overlook: cross-pollinate Three Body’s outs as modulation sources elsewhere in your rack for system-wide chaos/groove.</li>
+</ul>
+<hr />
+<h3>Recommended External Utilities</h3>
+<ul>
+<li><strong>Sequencers</strong> (step, random, or burst): Drive V/OCT RATIO for evolving pattern signatures.</li>
+<li><strong>Fast Envelope Generators/LPGs</strong>: For sculpting output into drum-like envelopes.</li>
+<li><strong>Comparators/Logic</strong>: For extracting triggers from complex waveforms.</li>
+</ul>
+<hr />
+<p><strong>For additional ideas and inspiration, see the <a href="https://schlappiengineering.com/wp-content/uploads/2023/12/schlappi-three-body-manual-2023.pdf">Schlappi Three Body Manual PDF</a>.</strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

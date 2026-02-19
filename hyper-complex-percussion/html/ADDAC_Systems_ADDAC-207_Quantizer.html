@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-207_Quantizer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-207 Quantizer</h1>
+<ul>
+<li><a href="../../manuals/ADDAC_207_Quantizer_REV05.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.addacsystem.com/Manuals/ADDAC207-Intuitive-Quantizer-User-Guide.pdf"><strong>ADDAC207 Intuitive Quantizer Manual PDF</strong></a></p>
+<hr />
+<h1>Using the ADDAC207 Intuitive Quantizer for Densely Rhythmic, Hyper-Complex Percussion Sequences</h1>
+<p>As a Eurorack artist, the ADDAC207 is a powerful tool to introduce advanced rhythm, timing, and tonal complexity into your percussion programming. Here’s a focused strategy to use it for hyper-complex, polyrhythmic percussion:</p>
+<hr />
+<h2>1. <strong>Module Overview in Percussion Context</strong></h2>
+<ul>
+<li><strong>Type:</strong> Multi-channel CV quantizer (not a voice or effect, but a pitch/voltage processor—can act as a rhythmic switch/logic utility for percussion).</li>
+<li><strong>Key Features for Rhythm:</strong></li>
+<li>Four independent quantizer channels (Voices), each with its own inputs and GATE output.</li>
+<li>Flexible scale/key selection, user-chosen intervals, microtonal options.</li>
+<li>Per-channel Gate Length control (10ms to 10s+!).</li>
+<li>External Trigger/Gate Inputs for each channel (for sync or retriggering).</li>
+<li>Assignable CV input for menu functions (remote, sequencer, or LFO modulation).</li>
+</ul>
+<hr />
+<h2>2. <strong>Building Polyrhythms &amp; Complex Patterns</strong></h2>
+<h3><strong>A. CV-to-Gate Percussion Triggering</strong></h3>
+<ul>
+<li><strong>Voice Outs → Percussion Modules:</strong><br />
+  Patch the GATE OUT of multiple voices (1–4) to percussion module trigger inputs (kick, snare, hats, etc).</li>
+<li><strong>Multiple Gate Lengths:</strong><br />
+  Assign each output a different gate length for each percussive voice, using the Intuitive Menu (Button 6). This can create “flams,” rolls, ratchets, or ghost notes.</li>
+<li><strong>Asymmetric Triggering:</strong><br />
+  Quantize multiple asynchronous CV sources (different sequencers, random patterns, S&amp;H, or LFOs) into the four voices. With each quantized to a different scale or interval, it forces the triggers (Gate Outs) into unique timing grids.</li>
+<li><strong>Polymeter/Polyrhythm:</strong><br />
+  Route clock-divided signals into each channel’s Gate Input. Voice 1 = /4, Voice 2 = /5, Voice 3 = /7, Voice 4 = /9 divisions—a fast way to create fluid polyrhythmic triggers.</li>
+</ul>
+<h3><strong>B. Quantizer as a Creative Clock Divider/Mangler</strong></h3>
+<ul>
+<li><strong>Trigger Inputs:</strong><br />
+  Send complex, irregular clocks or Euclidean pulses to the Gate In jacks. Each channel quantizes only on incoming gates (gated quantization), generating new rhythms driven by your external logic/gates.</li>
+</ul>
+<h3><strong>C. Complicated Melodic Percussion</strong></h3>
+<ul>
+<li><strong>Assign Intervals:</strong><br />
+  Use interval assignment for Voice 2–4 (chord modes). Set Voices 2–4 to intervals like 7th, 9th, 11th, 13th. Send CV from a trigger sequence to the first voice. Each percussion hit can have multiple, controlled harmonic variations, generating tuned percussion chords or clusters.</li>
+<li><strong>Transpose Inputs:</strong><br />
+  Use the ASSIGN input with an LFO or further random/stepped CV to shift the root or intervals. Modulating this with fast stepped random can cause quantizer pattern “rotation,” instantly creating complex fills, tuplet divisions, and breakbeats.</li>
+</ul>
+<hr />
+<h2>3. <strong>Techniques for Unique, Punchy Percussion</strong></h2>
+<h3><strong>A. Microtonal &amp; Temperament Mode</strong></h3>
+<ul>
+<li><strong>Non-Standard Scales:</strong><br />
+  Set the quantizer to Bohlen-Pierce, Just, or Exotic temperaments (Buttons 5–9 in Tuning Menu). Passing noisy or random CV through these scales, then using gates for triggers, produces unexpected “off-grid” events—great for glitch or experimental percussion.</li>
+</ul>
+<h3><strong>B. Gate Length &amp; Gate-Off Condition</strong></h3>
+<ul>
+<li><strong>Gate Off for Syncopation:</strong><br />
+  Set long gate lengths (&gt;500ms) on one or more voices, use the “Gate Off Condition” (Button 12 in Gate Length Menu) so new triggers only happen when gate is low: this delays and “pushes” notes in time, making the rhythm uneven/complex.</li>
+<li><strong>Fast Chops &amp; Ratchets:</strong><br />
+  Run GATE OUT to a fast analog envelope into percussive VCAs—use shortest gate times for rapid-fire percussion.</li>
+</ul>
+<h3><strong>C. CV Assign for Live / Algorithmic Mutation</strong></h3>
+<ul>
+<li><strong>Automated Pattern Morphing:</strong><br />
+  Use an LFO or random stepped voltage into the ASSIGN CV jack, assign to “Change Preset” (Button 12) or “Quantization Type” (Button 5), so the module’s whole rhythmic/interval logic is switched or morphed mid-sequence.</li>
+</ul>
+<h3><strong>D. Modular "Keyboard Mode" Tricks</strong></h3>
+<ul>
+<li><strong>Monophonic Keyboard as Percussion Selector:</strong><br />
+  Hold Button 1 to enter Keyboard Mode. Use manual button jabs or a voltage-addressed switch to trigger specific rhythm voices, playing percussive melodies or fills live.</li>
+</ul>
+<hr />
+<h2>4. <strong>Patch Example: Dense Polyrhythmic Percussion Grid</strong></h2>
+<ul>
+<li><strong>Sequencer 1 (slow random):</strong> → CV IN 1 (Voice 1): Quantizes to Dorian scale, GATE OUT 1 → Perc Module 1 (Kick)</li>
+<li><strong>Sequencer 2 (faster, odd clock):</strong> → CV IN 2 (Voice 2): Quantizes to Just scale, GATE OUT 2 → Perc Module 2 (Snare)</li>
+<li><strong>LFO (audio rate, bursty):</strong> → CV IN 3 (Voice 3): Bohlen-Pierce scale, GATE OUT 3 → Perc Module 3 (Bongos)</li>
+<li><strong>Stepped Random:</strong> → ASSIGN CV (set to Preset Change &amp; Gate Length): Mutates patterns, fills, breaks.</li>
+<li><strong>All Gate OUTs:</strong> Go to VCAs with short attack—shaping each percussion hit for extra punch.</li>
+</ul>
+<hr />
+<h2>5. <strong>Advanced: ADDAC207 as Meta-Pattern Modulator</strong></h2>
+<ul>
+<li><strong>Preset Switching:</strong><br />
+  Rapid/cv-driven preset switching for sudden metric/time signature changes—makes the grid “breathe” and stumble in intentional ways.</li>
+<li><strong>Negative Octave Offset:</strong><br />
+  Set certain voices to negative octave offset, forcing extremely low-frequency triggers (subsonics) mixed with higher, on-grid triggers.</li>
+</ul>
+<hr />
+<h2>6. <strong>Summary Table: Unique Rhythmic Approaches</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Use Case for Percussion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate In</td>
+<td>Sync with other complex trigger sources &amp; clocks</td>
+</tr>
+<tr>
+<td>Gate Out</td>
+<td>Directly pings drum modules/VCAs for percussive structure</td>
+</tr>
+<tr>
+<td>Multiple Voices</td>
+<td>Each quantized differently → multi-instrument polyrhythms</td>
+</tr>
+<tr>
+<td>Interval Assign</td>
+<td>Chorded/rippled triggers for complex accents</td>
+</tr>
+<tr>
+<td>CV Assign</td>
+<td>Remote mutation of quantizer logic (for fills/chaos/variation)</td>
+</tr>
+<tr>
+<td>Gate Length</td>
+<td>"Ratchet," roll, or extend percussion articulation</td>
+</tr>
+<tr>
+<td>Nonstandard Scales</td>
+<td>Glitchy, off-grid, experimental hits</td>
+</tr>
+<tr>
+<td>Keyboard Mode</td>
+<td>Live-reassign any drum voice by hand or with voltage switching</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>7. <strong>Keep It Unique, Punchy, and Percussive</strong></h2>
+<ul>
+<li>Use fast, short gates for tight transients.</li>
+<li>Leverage microtonality/temperaments to make “gridless” snare fills or rimshots.</li>
+<li>Harness polyrhythm via asynchronous triggers into each channel.</li>
+<li>Automate menu changes with the Assign input for evolving, “alive” drum programming.</li>
+</ul>
+<hr />
+<blockquote>
+<p>If you want more ideas or patch recipes, <a href="https://www.addacsystem.com/Manuals/ADDAC207-Intuitive-Quantizer-User-Guide.pdf">grab the manual here (PDF)</a>.</p>
+</blockquote>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

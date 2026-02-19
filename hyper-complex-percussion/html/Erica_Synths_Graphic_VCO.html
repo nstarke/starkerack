@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erica_Synths_Graphic_VCO</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erica Synths — Graphic VCO</h1>
+<ul>
+<li><a href="../../manuals/graphic_vco_manual_web.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.ericasynths.lv/media/Graphic_VCO_manual_2020.pdf"><strong>→ Erica Synths Graphic VCO Manual PDF</strong></a></p>
+<hr />
+<h1>Using Erica Synths Graphic VCO for Hyper-Complex Percussive Rhythms</h1>
+<p>The Erica Synths <strong>Graphic VCO</strong> is a digital oscillator with advanced wavetable, morphing, and effects capabilities. It is fundamentally a voice module, capable of producing a wide variety of unique and punchy sounds—especially effective for crafting percussive and rhythmically dense sequences in Eurorack modular setups.</p>
+<p>Below are strategies, patch tips, and creative ideas for using the Graphic VCO to create densely rhythmic, polyrhythmic, and hyper-complex percussion:</p>
+<hr />
+<h2>1. <strong>Waveform Creation for Percussion</strong></h2>
+<ul>
+<li><strong>Draw Custom Percussive Waves:</strong><br />
+  Use the wave drawing/editing features (p. 8–11) to sculpt sharp, transient-heavy waveforms reminiscent of envelopes or drum clicks. Sine-based with steep rises and falls, or squares with very short cycle spikes, can be extremely impactful.</li>
+<li><strong>Harmonics for Snap:</strong><br />
+  Directly manipulate harmonics to emphasize high-frequency content, adding snap or click to your percussive voices.</li>
+<li><strong>One-Cycle Drums:</strong><br />
+  Create single-cycle drum ‘hits’ and store them in wavetables, then use rapid retriggering and CV scanning for rolls/fills.</li>
+</ul>
+<hr />
+<h2>2. <strong>Wavetable and Morphing for Rhythmic Variation</strong></h2>
+<ul>
+<li><strong>Rhythmic Wavetable Scanning:</strong><br />
+  Use external CV sources (step sequencers, trigger sequencers, polyrhythmic clocks, random voltages) to rapidly scan or step through custom wavetables of percussive waveforms.  </li>
+<li>For complex rhythms, use polyrhythmic (odd division) clocks to modulate the <strong>Morph CV</strong> and/or <strong>Wavetable Matrix X/Y</strong> position.</li>
+<li><strong>Morphing ‘Gestures’:</strong><br />
+  Manually morph between two selected percussive waves or automate movement with CV for evolving drum timbres—perfect for rhythmic fills or varied phrasing.</li>
+</ul>
+<hr />
+<h2>3. <strong>FM, Phase Distortion, and FX for Percussive Character</strong></h2>
+<ul>
+<li><strong>FM Percussion:</strong><br />
+  The built-in FM can generate clangorous, metallic, or bell-like hits when modulated with audiorate oscillators. For polyrhythmic clangs, clock or sequence the FM AMOUNT and FM carrier ratio via external CV.</li>
+<li><strong>Ring Modulation/Phase Distortion:</strong><br />
+  Use internal or external modulation at polyrhythmic rates for shifting overtones—useful for digital-sounding snares, hi-hats, or “broken glass” percussion.</li>
+<li><strong>Wavefold/Wavewrap/Bitcrush:</strong><br />
+  These FX are especially effective for glitch percussion. Modulate their intensity and character at rhythmic or irregular intervals (using gate sequences, random modulation, or Euclidean generators).</li>
+<li><strong>Apply to Main Voice:</strong><br />
+  FX are placed before main output (not the suboscillator out), so consider parallel processing for added complexity (e.g., dry/wet blending).</li>
+</ul>
+<hr />
+<h2>4. <strong>Suboscillator for Layered Beats</strong></h2>
+<ul>
+<li><strong>Pitch Offsets/Detuning:</strong><br />
+  Use the suboscillator for ‘body’ or ‘thump’ beneath clicky main percussive textures. Detune or pitch-offset by non-octave/semitone intervals for off-grid/complex feeling rhythms.</li>
+<li><strong>Layering:</strong><br />
+  Mix main and subosc outputs for stacked percussive voices (e.g., click + woof), with blend set via MIX% parameter.</li>
+</ul>
+<hr />
+<h2>5. <strong>External Rhythmic Control</strong></h2>
+<ul>
+<li><strong>Bipolar/Unipolar CVs &amp; Matrix Navigation:</strong><br />
+  Patch multiple clock divisions/multiplications, Euclidean rhythm clocks, or stepped random voltages into Morph, FX Parameter, FX Amount, or Matrix X/Y CVs to introduce rhythmic complexity.  </li>
+<li><strong>-10V...+10V Bipolar CV acceptance</strong> offers flexible mapping of rhythmic voltage patterns.</li>
+<li><strong>Use as a Digital Drum Voice:</strong><br />
+  Patch triggers into your envelope/decay generators, then to the VCA for typical drum voice architecture—but use the Graphic VCO for the oscillator (for digital, metallic, or noisy timbres).</li>
+<li><strong>Snapshot Recall:</strong><br />
+  Save complex setups as snapshots and recall on the fly for live changes to rhythm profiles or sound banks.</li>
+</ul>
+<hr />
+<h2>6. <strong>Live Performance and Modulation</strong></h2>
+<ul>
+<li><strong>Manual Tweaking:</strong><br />
+  All parameters can be turned, moved, or scanned live for glitchy, stuttered, or IDM drum effects.</li>
+<li><strong>Oscilloscope Feedback:</strong><br />
+  Use built-in visual feedback to fine-tune shapes for maximum “punch” and “snap”.</li>
+</ul>
+<hr />
+<h2>7. <strong>Advanced Tips for Unique Rhythms</strong></h2>
+<ul>
+<li><strong>Microtiming Tricks:</strong><br />
+  Modulate Morph or FX CVs with unconventional LFOs (sample &amp; hold, skewed sines, etc) and reset at non-grid intervals.</li>
+<li><strong>Pseudo-Granular:</strong><br />
+  By rapidly changing wavetables in response to rhythmic CV, you can approximate digital granular effects for tight, evolving hat and snare textures.</li>
+<li><strong>Custom Wavetable Banks:</strong><br />
+  With the Wavetable Matrix, create banks with patterns of ‘hits’ and ‘spaces’ to sequence percussive bursts via CV-stepping in multiple directions (matrix navigation via different clocks).</li>
+</ul>
+<hr />
+<h2>8. <strong>Patch Example</strong></h2>
+<p><strong>Complex Percussion Machine:</strong>
+1. <strong>Draw</strong>: Multiple short, ‘click’ and ‘clap’ waveforms, plus a few noisy digital ones, and save them as a wavetable.
+2. <strong>Patch</strong>: 
+   - Master clock → Tempi/Ornament+Crime/Euclidean sequencer.
+   - Different clock divisions/multiplications to Morph CV, Matrix CV (X/Y), FX Param CV, and trigger drum envelopes.
+3. <strong>Sequence</strong>: At least one slow moving and one fast moving CV through Matrix axes for nested polyrhythms.
+4. <strong>FX</strong>: Animate FM ratio or amount with a skewed or randomized clock for IDM “glitch” edges.
+5. <strong>Layer</strong>: Mix suboscillator out for an underlying bass transient, use main out for sharp attack.</p>
+<hr />
+<h2>9. <strong>Patch Starters</strong></h2>
+<ul>
+<li><strong>Euclidean Kicks &amp; Snares:</strong><br />
+  Use Euclidean trigger sequencer to vary Morph CV: blend between kick-tuned waveform and snare-tuned waveform inside one bank.</li>
+<li><strong>Time-Shifting Snares:</strong><br />
+  Modulate FX parameters with off-beat LFOs to make the snare timbre evolve at a different rate than the main clock.</li>
+<li><strong>Hats &amp; Clicks</strong>:<br />
+  Load very short, sharp waveforms; crush/bitcrush further with rhythmic triggers on FX Amount CV.</li>
+</ul>
+<hr />
+<p><strong><a href="https://www.ericasynths.lv/media/Graphic_VCO_manual_2020.pdf">Full Manual PDF for More Details</a></strong></p>
+<hr />
+<blockquote>
+<p><strong>Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></strong></p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>IO_Labs_Flux_Sequencer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>IO Labs — Flux Sequencer</h1>
+<ul>
+<li><a href="../../manuals/IO Labs - Flux Sequencer - 107 User Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://iolabs.co.uk/downloads/FLUX_OPEN_BETA_USER_MANUAL.pdf"><strong>IOLabs FLUX Open Beta V1.07 User Manual (PDF)</strong></a></p>
+<hr />
+<h1>Using IOLabs FLUX for Hyper-Complex, Densely Rhythmic Percussion in Eurorack</h1>
+<p>FLUX is one of the most advanced Eurorack rhythm sequencers available. Its Temporal Modulation Synthesis® (TMS) engine allows you to break away from conventional grid-based sequencers, creating dense, intricate, and organic percussion patterns. Here’s how you can exploit its features as a modular artist seeking the edge of rhythmic experimentation:</p>
+<h2>1. <strong>Temporal Modulation Synthesis®: Foundation for Polyrhythm and Complexity</strong></h2>
+<ul>
+<li>
+<p><strong>Curvature Control (<code>CURV</code>, <code>VAL</code>):</strong> Manipulate the distribution of triggers within a step to create exponential (VAL &gt; 0), linear (VAL = 0), or logarithmic (VAL &lt; 0) placements. Combine with high density (<code>DENS</code>) settings to push into millisecond territories for glitchy micro-structure or fluid, rushing drum clusters.</p>
+<ul>
+<li><em>Tip:</em> Negative <code>VAL</code> for log-compressed bursts, positive for stretched, crackling cascades.</li>
+</ul>
+</li>
+<li>
+<p><strong>Freeform Step Lengths and Densities:</strong> Each channel and step may have its own <code>LENG</code> (length) and <code>DENS</code> (density). Assign odd values (e.g., 7, 11, 13) on different channels—layering 5 against 7, or 13 against 8, unlocks cross-rhythms and polyrhythms not possible on standard grids.</p>
+<ul>
+<li><em>Example:</em> Ch1: 11 steps, Ch2: 7 steps, Ch3: 16 steps, Ch4: 13 steps.</li>
+</ul>
+</li>
+<li>
+<p><strong>Phase (<code>PHAS</code>) and Compression (<code>COMP</code>):</strong> Phase-shift events within steps for offset grooves. Use compression/expansion to bunch or space triggers unpredictably for evolving, dynamic patterns.</p>
+</li>
+</ul>
+<h2>2. <strong>Masking, Modulation, and Algorithmic Variation</strong></h2>
+<ul>
+<li><strong>Mute Masks (<code>MASK</code>, <code>MSK&gt;</code>):</strong> Step-level logical masks (e.g., “1in2”, “2in3”) can stochastically/algorithmically drop or shift triggers, lending organic unpredictability reminiscent of human improvisation.</li>
+<li><strong>Auxiliary Outputs (<code>AUX1</code>, <code>AUX2</code>):</strong> Deploy logic-based outputs (Boolean AND/OR/XOR etc) to generate related rhythmic lines, complex clock divs, or sidechain triggers for punchy ducking FX.<ul>
+<li>AGGRESSIVE HYPER EDIT: Use Boolean logic to create irregular, interlocking secondary percussion from main tracks.</li>
+</ul>
+</li>
+</ul>
+<h2>3. <strong>Deep Modulation</strong></h2>
+<ul>
+<li><strong>Macro Pots &amp; CV Inputs:</strong> Assign Macro Pots or external CV to virtually any parameter. Use attenuverters in the modulation matrix for extreme, dynamic modulation of density, curve, or mask parameters—twist, automate, or voltage-control your way into evolving, restless patterns.</li>
+<li><strong>Evolve LFO System:</strong> Up to 85 recallable LFOs per preset modulate any step/parameter. Use them to morph density, mask, probability, compression, etc., creating polyrhythmic evolving landscapes and generative structures.</li>
+<li><strong>Multi-Bus System:</strong> Assign up to three independent modulation buses per step for selective modulation—enables step-by-step algorithmic or performative variation; switch which mod sources are active at each position.</li>
+</ul>
+<h2>4. <strong>CV Outputs as Percussion Modulation</strong></h2>
+<ul>
+<li><strong>Step-based CV Envelopes, LFOs, Randoms:</strong> CV outputs can fire envelopes or voltages per step/trigger for unique dynamics—patch to VCA, filter, or modulation inputs on your voices for timbral or amplitude modulation that “breathes” with the groove.</li>
+<li><strong>Quantization Per Step:</strong> Quantize CV to scales, and even mask specific scale degrees per step for evolving pitch/sequenced percussion tone changes.</li>
+<li><strong>Random per Trigger (RANDT):</strong> Assign new random voltage on every trigger for wild micro-modulation of percussion synth voices.</li>
+</ul>
+<h2>5. <strong>Hyper Dense/Groove Tricks</strong></h2>
+<ul>
+<li>
+<p><strong>Extreme Densities (<code>DENS</code> &gt; 32):</strong> Go beyond drum machine possibilities. Experiment with how your percussion sound source responds to bursts at audio rates—filtered noise, analog drum modules, or even effect inputs can create 'crunchy grain' sounds.</p>
+<ul>
+<li><em>Caution:</em> Watch for "dropped triggers" if connected voices can’t keep up. Use density and compression to tune for taste.</li>
+</ul>
+</li>
+<li>
+<p><strong>Humanize (<code>HUMA</code>):</strong> Range 1–127 for subtle to wild microtiming randomization—perfect for shifting between cybernetic precision and swinging, "drunk" rhythms.</p>
+</li>
+<li>
+<p><strong>Probability (<code>PROB</code>):</strong> Set per step or per trigger for controlled chaos.</p>
+</li>
+</ul>
+<h2>6. <strong>Presets, Scenes, and Morphing</strong></h2>
+<ul>
+<li><strong>Rapid Preset Load/Save:</strong> Use µSD presets to swap between entire song structures, dense to sparse, glitch to groove. </li>
+<li><strong>Performance Use:</strong> Assign parameters to Macro Pots and morph them live, or sequence via external CV.</li>
+</ul>
+<h2>7. <strong>Integrative/Sync Capabilities</strong></h2>
+<ul>
+<li><strong>Polyrhythmic MIDI + Modular:</strong> Send MIDI for digital drums or DAW sync, while CV/gates pulse analog gear.</li>
+<li><strong>Burst Mode:</strong> For drum fills, ratchets, triggered outbursts, or generative staccato “clouds” of events.</li>
+</ul>
+<h2>8. <strong>Voice/Effector Manipulation (If FLUX is Part of Voice Chain)</strong></h2>
+<p>While FLUX is a sequencer, these tricks apply:
+- Use output CV to modulate morph parameters on wavetable, FM, or physical modeling modules—extract pseudo-musical patterns from pure rhythm.
+- Gate density to trigger 'freeze'/'granule' functions in effects, or hard/soft clip modules for extra punch.</p>
+<hr />
+<h3><strong>Practical Example Patches</strong></h3>
+<ol>
+<li><strong>Triplet Against 5/4 Bass Drum Polyrhythm:</strong></li>
+<li>CH1 (Kick): LENG = 5, DENS = 5, CURV = -0.8, PHAS = 0%</li>
+<li>CH2 (Snare): LENG = 3, DENS = 3, CURV = 0.5, COMP = 20%</li>
+<li>CH3 (HiHat): LENG = 8, DENS = 7, MASK = 2in3</li>
+<li>
+<p>CH4 (Perc): LENG = 13, DENS = 11, CURV = 0.2, Macro Pot mod on DENS</p>
+</li>
+<li>
+<p><strong>Evolving Percussion Cloud:</strong></p>
+</li>
+<li>All channels: LENG = 16</li>
+<li>DENS modulated by Evolve LFOs (different freq/waveform, out of phase)</li>
+<li>CURV, VAL, and MASK modulated by separate Macro Pots</li>
+<li>
+<p>CV OUT: ENV mode to modulate VCA input on percussive voices for living amplitude movement</p>
+</li>
+<li>
+<p><strong>Boolean Logic Groove-Echos:</strong></p>
+</li>
+<li>AUX1: DEL3 (delayed trigger)</li>
+<li>AUX2: &amp; (AND, triggers only if both main outs of CH1+CH3 active)</li>
+<li>Use as side-trigger for FX or accent channel</li>
+</ol>
+<hr />
+<h1>Resources</h1>
+<ul>
+<li><a href="https://iolabs.co.uk/downloads/FLUX_OPEN_BETA_USER_MANUAL.pdf"><strong>Official Flux Manual PDF</strong></a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+</body>
+</html>

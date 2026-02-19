@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Arp</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Arp</h1>
+<ul>
+<li><a href="../../manuals/2hp_Arp_Manual_2023.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://2hp.com/wp-content/uploads/2020/05/2hp_ARP_manual.pdf">Download the 2hp Arp Manual PDF</a></p>
+<hr />
+<h1>Using 2hp Arp for Hyper-Complex, Densely Rhythmic Percussive Sequences</h1>
+<p>The 2hp Arp is a gate-driven arpeggiator, not a direct percussive voice or effect, but a CV/gate sequencer specialized in chord-based melodic or pitch information. However, in a creative eurorack environment, especially with percussion modules that can be triggered by pitched CV/gates, the 2hp Arp can be the brain of hyper-complex rhythms and polyrhythms. Here’s how you can leverage the Arp for densely rhythmic, punchy, and unique percussion patterns:</p>
+<hr />
+<h2>1. Turn Melodies into Percussion: Pitch-to-Trigger/Drum Synthesis</h2>
+<ul>
+<li><strong>Pitch Sequence to Percussive Module:</strong> Patch the <em>Output</em> of the 2hp Arp to a drum module that accepts 1V/Oct CV (e.g., Plonk, Basimilus Iteritas Alter, Erica Synths Pico Drum, etc.)</li>
+<li><strong>Result:</strong> Each step in the arpeggio sequence hits a different pitch/timbre on your percussive module. Use a <em>random</em> or <em>pendulum</em> mode to create evolving, dense rhythmic hits.</li>
+</ul>
+<hr />
+<h2>2. Gate/Trig Polyrhythms</h2>
+<ul>
+<li><strong>Trig Input as Rhythmic Driver:</strong> Feed the Arp’s <em>Trig Input</em> with irregular, fast, or polyrhythmic gate/trigger streams (from a clock divider, trigger sequencer, or burst generator). </li>
+<li><strong>Further Complication:</strong> Use different clock divisions or clock sources (e.g., 5 against 4, 7 against 3) to feed the Trig Input, creating inherent polyrhythms in the arpeggio’s playback.</li>
+<li><strong>Arp as Percussive CV Source:</strong> Route its V/Oct output to a quantizer locked to drum-friendly intervals, or directly drive a percussive voice with highly resonant filters, LPGs, or tuned noise for kick/snare/perc hits.</li>
+</ul>
+<hr />
+<h2>3. Chord Complexity as Percussion Source</h2>
+<ul>
+<li><strong>Dense Chord Patterns:</strong> Use more complex chords (especially diminished/augmented and 7ths) for jittery, unstable arpeggios—the rapid succession of intervals maps to wild percussive variation.</li>
+<li><strong>Live Performance:</strong> Twist the <em>Chord</em> and <em>Root</em> knobs—or sequence them via CV—for continuously morphing, non-repeating percussive lines.</li>
+</ul>
+<hr />
+<h2>4. Playlist of Arpeggio Modes for Structure</h2>
+<ul>
+<li><strong>Mode Knob/Mode CV:</strong> Voltage-control the <em>Mode</em> for dynamic switching between ascending/descending/random/pendulum motion, disrupting standard grid repetition.</li>
+<li><strong>Combine one/two octave modes</strong> to shift the "span" of percussive notes—fast, randomized octave jumps create highly syncopated feel.</li>
+</ul>
+<hr />
+<h2>5. Sync &amp; Reset for Pattern Complexity</h2>
+<ul>
+<li><strong>Reset Input for Odd &amp; Asymmetric Loops:</strong> Use reset signals at unusual intervals (non-multiples of your primary clock—prime numbers for example). This constantly restarts the arpeggio at non-obvious rhythmic points—excellent for non-linear rhythms.</li>
+</ul>
+<hr />
+<h2>6. Patching Inspiration for Unique, Punchy Sound</h2>
+<ul>
+<li><strong>Wavefolder/Fuzz/Distortion:</strong> Run VCA-controlled percussive modules through aggressive effects, synced to the arpeggiator output, for glitchy, punchy, industrial drum sounds.</li>
+<li><strong>Amplitude/Filter Modulation:</strong> Use envelope followers, LPGs, or additional VCAs to "sculpt" the percussive hits coming from this melodic stream.</li>
+<li><strong>Layer Multiple Voices:</strong> Use multiples or buffered mults to split the Arp’s V/Oct out, controlling different percussive voices for instant multi-drum percussion from one pattern.</li>
+</ul>
+<hr />
+<h2>Example Patch for Hyper Complex Percussion</h2>
+<ol>
+<li>Clock divider #1 (÷5) and #2 (÷7) send triggers to a logic module (XOR or OR), which then triggers the <em>Trig Input.</em></li>
+<li>Arp's <em>Output</em> goes to two voice modules—one pitch-to-drum, one tuned digital metallic voice (like BIA).</li>
+<li><em>Chord CV</em> input receives a random or LFO signal, slowly morphing the chord over time.</li>
+<li>Use Pendulum/Random two octave mode for wide variation.</li>
+<li><em>Reset Input</em> receives a trigger every 13 steps (prime number).</li>
+<li>All drum voices routed to a shared distortion/wavefolder.</li>
+</ol>
+<hr />
+<p>By creatively patching the 2hp Arp, you are freed from traditional step sequences, triggering ultra-dense, polyrhythmic, non-repeating, and percussively chaotic patterns.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

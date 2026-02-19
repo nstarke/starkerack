@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Behringer_173</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Behringer — 173</h1>
+<ul>
+<li><a href="../../manuals/QSG_BE_0720-AAL_173 QUAD GATE-MULTIPLES_WW.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mediadl.musictribe.com/media/PLM/data/docs/P0DHV/173%20QUAD%20GATE_MULTIPLES_QSG_WW.pdf">Behringer 173 Quad Gate/Multiples Manual PDF (Quick Start Guide)</a></p>
+<hr />
+<h2>Using the Behringer 173 Quad Gate/Multiples for Hyper-Complex Percussion in Eurorack</h2>
+<h3>Module Overview</h3>
+<p>The Behringer 173 Quad Gate/Multiples is not a sound-producing voice or effect in itself. Instead, it provides:</p>
+<ul>
+<li><strong>4 Gate circuits</strong> (each with Gate In, Gate Out, Gate CV in)</li>
+<li><strong>6 sets of 4-way passive multiples</strong> for distributing signals.</li>
+</ul>
+<p><strong>Roles In Rhythm Generation:</strong>
+- <strong>Gate processing</strong>: Control the presence or shape of rhythm signals.
+- <strong>Multiples</strong>: Distribute clocks, triggers, or CV/gates to multiple modules for tight, intricate synchronization.</p>
+<p>This makes it a <strong>utility module</strong> ideal for routing, shaping, and complexifying trigger/gate signals—crucial for hyper-rhythmic and polyrhythmic patches.</p>
+<hr />
+<h3><strong>Strategies for Hyper-Complex Percussion Patching</strong></h3>
+<h4>1. <strong>Gate Shaping for Polyrhythms</strong></h4>
+<ul>
+<li><strong>Multiple Gate Inputs</strong>: Take several rhythmic triggers (from sequencers, clock dividers, Euclidean rhythm generators, etc.) and process them through the 173’s GATE sections.</li>
+<li><strong>Gate CV Input</strong>: Patch another independent rhythm or random gate to the CV in—using active high (non-inverting) or active low (inverting). This allows one rhythm to modulate the output from another, effectively <em>multiplying</em> or <em>masking</em> polyrhythms, as one gate will only pass when the CV is high.</li>
+</ul>
+<h5>Example:</h5>
+<ul>
+<li><strong>Trigger 1</strong>: 5/8 rhythm pulse to GATE IN 1.</li>
+<li><strong>Trigger 2</strong>: 4/4 clock, but running at 2x speed, to GATE CV 1.</li>
+<li><strong>Result</strong>: You get a complex, composite rhythm at GATE OUT 1, combining both patterns with unusual overlaps.</li>
+</ul>
+<h4>2. <strong>Using Multiples for Complex Timing</strong></h4>
+<ul>
+<li><strong>Flow Routing</strong>: Use the multiples to split a master clock or trigger into several destinations.</li>
+<li><strong>Pattern Interleaving</strong>: Stack several sources (e.g., clock divisions/multiplications) via multiples, then route these to various GATE INs and CVs. Each gate path can selectively shape when and how often a trigger passes, letting you layer odd and even time signatures together.</li>
+</ul>
+<h4>3. <strong>Percussive Variability via Gate Length Manipulation</strong></h4>
+<ul>
+<li>Feed envelopes or variable-length triggers into GATE IN/CV, letting sustain/decay on the input affect how long the percussive voice is open.</li>
+<li>Use the inverting and non-inverting CV inputs to alternate between <em>open</em> and <em>muted</em> percussive “hits” depending on your signal polarity.</li>
+</ul>
+<h4>4. <strong>Mute/Slice/Cut Triggers On The Fly</strong></h4>
+<ul>
+<li>Use manual or pattern-based gates to quickly silence or reactivate voice channels.</li>
+<li>Feed a hand-controlled or performance-based gate into CV—this allows you to bring layers in and out for dynamic live rhythms.</li>
+</ul>
+<h4>5. <strong>Unique Routing Exploits</strong></h4>
+<ul>
+<li><strong>Stacking Gates</strong>: Patch several rhythmically related gates together in a multiple, then use them to modulate different CV ins on the 173 gates.</li>
+<li><strong>Triggered Muting</strong>: Create improvised breaks or fills by gating your main voices with a complex CV rhythm (from something like a Turing Machine, random looped sequence, etc.).</li>
+</ul>
+<hr />
+<h3><strong>Example Patch for Hypercomplex Percussion</strong></h3>
+<ol>
+<li><strong>Sequencer A</strong> (polyrhythmic odd time) → GATE IN 1</li>
+<li><strong>Sequencer B</strong> (straight 4/4, faster clock) → GATE CV 1 (non-inverting)</li>
+<li><strong>GATE OUT 1 → Kick Drum Module</strong></li>
+<li><strong>Euclidean Rhythm Generator (3 against 8)</strong> → GATE IN 2</li>
+<li><strong>Random Trigger Output (with swung rhythm)</strong> → GATE CV 2 (inverting)</li>
+<li><strong>GATE OUT 2 → Snare/Clap Module</strong></li>
+<li>Use multiples to fan out main/fill/break rhythms to additional percussion voices (hi-hats, glitch percussion, etc.), modulating their “mutes” or “accents” by further complex gate patching.</li>
+</ol>
+<hr />
+<h3><strong>Tips for Density and Punch</strong></h3>
+<ul>
+<li>Chain the 173’s gates for sequential rhythmic gating—output of one gate into the next’s gate or CV input for chained logical rhythmic logic.</li>
+<li>Use sharp digital or analog envelopes to accentuate percussive attack, then gate those signals with the 173 for extra control.</li>
+<li>Experiment with cross-patching—gate A controls the length or presence of gate B, etc.</li>
+<li>Use the inverting CV option to subtract or “cut” holes in regular patterns, making for irregular and unpredictable grooves.</li>
+</ul>
+<hr />
+<blockquote>
+<p>For more creative patching tools, browse <a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a>  </p>
+</blockquote>
+</body>
+</html>

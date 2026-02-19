@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Klavis_Grainity_VCF</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Klavis — Grainity VCF</h1>
+<ul>
+<li><a href="../../manuals/Klavis_-_Grainity_User_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.klavis.com/all-products/grainity/grainity_user_manual_revA.pdf"><strong>Klavis Grainity User Manual (PDF)</strong></a></p>
+<hr />
+<h1>Techniques for Hyper Complex, Densely Rhythmic Percussion with Klavis Grainity</h1>
+<p>The <strong>Klavis Grainity</strong> excels not only as a character-driven filter or effect, but as a tool for wild, complex rhythmic synthesis, especially when paired with Eurorack modulators, sequencers, and unconventional signal paths. Here's how you can exploit its architecture for polyrhythmic, percussive, and intricate patterns:</p>
+<h2>1. <strong>Exploit the Granular VCF Cycling with External Triggers</strong></h2>
+<ul>
+<li><strong>Percussive Input + External Triggers</strong>: Route drum sounds, glitch samples, or noisy sources to Grainity's main input. Take clock, trigger, or gate patterns (from logic modules, sequencers, or polyrhythmic sources) into the <strong>Detect</strong> input. This decouples the rhythmic filter cycling from the audio input.</li>
+<li><strong>Recipes:</strong><ul>
+<li>Use complex polyrhythmic gate streams (e.g., Euclidean, rotating clocks, or prime divisions) into Detect for variety.</li>
+<li>Map two or more sequencers at different lengths (say, 5 and 7 steps) to produce interlocking rhythmic filter cycles.</li>
+</ul>
+</li>
+<li><strong>Unique Effect</strong>: Instead of regular cycling, Grainity advances filter structure steps every time the trigger/clock hits—great for granular stutter and unpredictable accenting.</li>
+</ul>
+<h2>2. <strong>Layer Rhythms with the Division Parameter</strong></h2>
+<ul>
+<li>The <strong>Div</strong> setting on the granular side multiplies the length of each step, making the filter "hang" on a structure stage for 2, 3, 4, up to 128 cycles.</li>
+<li><strong>Modulate Div</strong> with CV (again possibly from a stepped random, or a different modulator running in an odd-length loop) to vary subdivision lengths, breeding more complexity.</li>
+<li>Division CV tied to a stepped LFO or pattern sequencer further scrambles and syncopates the rhythm.</li>
+</ul>
+<h2>3. <strong>Create Polyrhythm Through Chained Detect Inputs</strong></h2>
+<ul>
+<li>Send one rhythmically complex voice (e.g., a bursty gate) to Detect and a totally unrelated percussive stream/audio to Main Input. The two will overlay, generating unique rhythmic filter gates and timbral "pulses."</li>
+<li>Intermodulation emerges especially if the two rhythms aren't simply related—excellent for off-grid, shifting patterns.</li>
+</ul>
+<h2>4. <strong>Structure and Randomness for Pattern Mutation</strong></h2>
+<ul>
+<li><strong>Structure Selector</strong>: Using longer or odd-number length filter structures (3, 5, 7, 8-steps, especially from the Structure table), you introduce subharmonics, flips, and accent positions that don’t fit standard 4/4 grids. Each structure's step is essentially a "rhythmic accent" point.</li>
+<li><strong>Random Structures</strong>: At the end of the list (shown with 'rX'), select algorithmically random step orders, making the rhythmically filtered output less predictable but musically complex.</li>
+</ul>
+<h2>5. <strong>Phasing, Flanging, and "Percussive Movement" with Phase/Track</strong></h2>
+<ul>
+<li>CV modulation of the Φ/Frq (Phase/Frequency) parameter (by a slow or stepped random generator) turns static patterns into morphing, flanging, and phasing rhythms.</li>
+<li>Use the <strong>Track</strong> mode to quantize filter cycling to musical intervals, creating layers of rhythmic ratios over your audio.</li>
+<li>For unison effects that vary with each hit/cycle, use phase-shift CV with irregular LFOs—great for chorus/flanger-enhanced percussion, injecting life and swing.</li>
+</ul>
+<h2>6. <strong>Self-Oscillation for Filter-Voiced Percussion</strong></h2>
+<ul>
+<li>On extreme resonance (self-oscillation), Grainity’s multimode and granular VCFs can act as tuned drum voices. Use V/Oct or FM with fast pitch envelopes or stepped CV for percussive, Zaps, or "pinged filter" sounds—with the granular section repeatedly cycling the core at strange rates.</li>
+</ul>
+<h2>7. <strong>Mixing and Polarity Inversion for Texture and Impact</strong></h2>
+<ul>
+<li><strong>Mix</strong> output balances between the clean MultiMode filter and the wilder Granular filter. Automate via Mix CV: Realtime fade between two flavors of the same percussion or flip phase for punch-enhancing "thwacks" at pattern accents.</li>
+<li>Invert polarity (long press Type/inv button) to introduce phase cancellation tricks—sometimes creating sharp, cut-up staccato effects.</li>
+</ul>
+<h2>8. <strong>Patch Ideas</strong></h2>
+<h3>A: <strong>Polyrhythmic Percussion Bus</strong></h3>
+<ul>
+<li>Drums or noise burst—&gt; Main In  </li>
+<li>Two the clock/gate sources of prime length—&gt; Mix (with one going to Detect)  </li>
+<li>Sequencer with polyrhythmic length—&gt; Structure CV  </li>
+<li>Stepped random or LFO—&gt; Div CV  </li>
+<li>Outputs: Take G.VCF and/or Mix to FX or direct to speakers.</li>
+</ul>
+<h3>B: <strong>Granular Filter Sequencer</strong></h3>
+<ul>
+<li>Feed complex percussion loop to Main In.  </li>
+<li>Route a probabilistic trigger/gate pattern (from a burst generator or skipping clock divider) into Detect.  </li>
+<li>Manually or CV-sequence Structure for unpredictable filter patterns.  </li>
+<li>Modulate Phase/Frq and resonance for extra motion.</li>
+</ul>
+<hr />
+<p><strong>For more creative patching and inspiration, refer to the full <a href="https://www.klavis.com/all-products/grainity/grainity_user_manual_revA.pdf">Klavis Grainity User Manual PDF</a>.</strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Chord</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Chord</h1>
+<ul>
+<li><a href="../../manuals/QB_Chord.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.qubitelectronix.com/chord-v2-manual.pdf">Qu-Bit Chord v2 Manual PDF</a></p>
+<hr />
+<h1>Using Qu-Bit Chord v2 For Hyper-Complex Percussive and Rhythmic Patching</h1>
+<p>The Qu-Bit Chord v2 is primarily a polyphonic oscillator/voice module designed for rich harmonic textures, but with creative patching, you can absolutely harness it for dense, punchy, and rhythmically complex percussion and polyrhythmic material.</p>
+<p>Below are many strategies and patching tips for getting dense, rhythmic, polyrhythmic, and hyper-complex patterns out of Chord v2 in a Eurorack percussion context.</p>
+<h2>1. <strong>Percussive Sound Design on Chord v2</strong></h2>
+<ul>
+<li><strong>Envelope Control:</strong> Route fast attack/decay envelopes to both the VCA(s) and FM inputs. Percussive hits require snappy envelopes for amplitude and timbral movement. Use external VCAs after each individual voice out (Root, Third, Fifth, Seventh) and modulate with rhythmically complex, possibly polyrhythmic, envelopes.</li>
+<li><strong>Waveform Selection:</strong> Many internal banks include sharp/edgy digital waveforms (<code>Distorted</code>, <code>Video Game</code>, <code>FM</code>). These are ideal for synthetic drums and percussion.</li>
+<li><strong>User Wavetables:</strong> Load percussive or non-harmonic waveforms into user banks for even more “drum-like” strike tones. (See manual: User Wavetable Creation; use e.g. <a href="https://waveeditonline.com/">WaveEdit</a>).</li>
+<li><strong>Linear FM:</strong> Use audio-rate FM from other oscillators for extremely metallic, clangorous, bell-like or noisy percussion hits.</li>
+</ul>
+<h2>2. <strong>Polyrhythms &amp; Patterns</strong></h2>
+<ul>
+<li><strong>Independence of Voices:</strong></li>
+<li><strong>Free Poly Mode:</strong> Each oscillator has independent pitch control via separate CV ins (Root: V/Oct, Third: Fine, Fifth: Voicing, Seventh: Quality). Patch polyrhythmic gates/triggers and pitches to each independently. This lets you create four-part rhythmically independent sequences for layered or contrasting rhythms—a classic polyrhythm trick.</li>
+<li><strong>Unison Poly Mode:</strong> All four voices tune together but receive gate/pitch from separate CVs. This is great for creating "stacks" of related percussion hits, e.g., four voice drum machine.</li>
+<li><strong>Mix Output for “Drum Kit”:</strong> Each individual output (Root, Third, Fifth, Seventh) can be used for a different drum voice, or you can mix them for dense composite percussive hits.</li>
+<li><strong>Utilizing Chord Inversions and Voicings for Variation:</strong> Scan through chord types, voicings, and qualities <em>per step</em> in your rhythmic sequence to generate ever-shifting, non-repetitive drum timbres. Percussion sounds are deeply affected by microtonal and intervallic shifts.</li>
+<li><strong>CV Control for Parameter Morphing:</strong> Send polyrhythmic LFOs, random, or complex sequenced modulation into Chord v2’s waveform, quality, voicing, and mode controls to move through very different percussion “instruments” or timbral textures mid-pattern.</li>
+</ul>
+<h2>3. <strong>Rhythmic Complexity, Time Signatures, and Polymeters</strong></h2>
+<ul>
+<li><strong>External Gate/Rhythm Sequencing:</strong> Use polyrhythmic trigger sources like Euclidean sequencers, clock dividers, or probability-based triggers to control VCAs (for amplitude envelopes) or the chord’s CV ins.</li>
+<li><strong>Automating Bank or Waveform Changes:</strong> Modulate the <code>bank</code> and <code>wave</code> parameters per rhythm step for dramatically changing timbre—a techique rarely used in drum synthesis but with huge payoffs for unpredictable, complex “drumline” flavors.</li>
+<li><strong>Chopping Chord Mix:</strong> Gate or chop the summed mix output with ultra-fast envelopes or rhythmic VCAs controlled by polyrhythmic clocks/gates.</li>
+<li><strong>Layering with External FX:</strong> Route one or more outs to external distortion/wavefolders for added punch, or into resonators/filters that are VCA-controlled by other polyrhythmic gates.</li>
+</ul>
+<h2>4. <strong>Non-Standard Chord Types = Non-Standard Percussion</strong></h2>
+<ul>
+<li><strong>Custom User Chords:</strong> Program non-harmonic or microtonal intervals in the user chord slots via SD card (e.g., clusters, semitones fractions) for unpredictable, metallic, or bell-like hits. Percussion often works best with non-musical intervals!</li>
+<li><strong>Spread and Big Spread Voicings:</strong> Use the “Spread” and “Big Spread Energy” voicing indexes for wide, non-overtone sets—ideal for digital “conga” or synthetic hand drum sounds.</li>
+</ul>
+<h2>5. <strong>Advanced Techniques</strong></h2>
+<ul>
+<li><strong>LFO Mode as Four-Phase Rhythm Generator:</strong> Enable LFO_Mode in config.txt. Chord v2 becomes four related LFOs—use them to clock other percussion modules or modulate timbral parameters in polyrhythmic ways.</li>
+<li><strong>Velocity/Accent:</strong> Use the amplitude of your triggers/envelopes to modulate the FM depth, quality, or waveform CV, giving you velocity-sensitive drum hits.</li>
+<li><strong>Glitch &amp; Stutter:</strong> Program rapid chord/voicing/waveform transitions (manual, sequencer, or random stepped CV) for “stuttery” glitch percussion.</li>
+</ul>
+<hr />
+<h2><strong>Example Patch: Hyperactive Polyrhythmic Drum Machine</strong></h2>
+<p><strong>Modules Needed:</strong><br />
+– Chord v2<br />
+– 4 Envelope Generators<br />
+– Polyrhythmic Gate/Trigger sequencer (Pamela’s New Workout, Intellijel Steppy, etc.)<br />
+– 4 VCAs<br />
+– Mixer</p>
+<p><strong>Setup:</strong>
+1. Set Chord v2 to Free Poly Mode. Patch separate sequenced pitch and gate/envelope sources to each Root, Third, Fifth, Seventh input/VCA pair. Use very fast attack/decay settings.
+2. Use a Euclidean, polyrhythm, or clock divider/multiplier to trigger each drum “part” at different rates/time signatures.
+3. Modulate waveform, voicing, and quality with additional sequencers/LFOs for constantly shifting timbre.
+4. Mix outs to a single bus for composite “hypercomplex” percussive output, or pan individual outs for a spatial drum ensemble.</p>
+<hr />
+<h2><strong>Reference</strong></h2>
+<ul>
+<li><a href="https://manuals.qubitelectronix.com/chord-v2-manual.pdf">Qu-Bit Chord v2 Manual PDF</a></li>
+<li><a href="https://waveeditonline.com/">WaveEdit</a> for custom wavetables</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

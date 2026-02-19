@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Wenzellabs_NSA_Selector</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Wenzellabs — NSA Selector</h1>
+<ul>
+<li><a href="../../manuals/wenzellabs_the_NSA_selector_ the NSA selector eurorack module.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/wenzellabs/the_NSA_selector/raw/main/README.md">NSA Selector Manual (PDF)</a><br />
+<em>If the above link doesn't work, <a href="https://github.com/wenzellabs/the_NSA_selector">view the Github page here</a></em></p>
+<hr />
+<h1>Using the NSA Selector for Hyper-Complex, Densely Rhythmic Percussion in Eurorack</h1>
+<p>The <strong>NSA Selector</strong> is not a traditional voice, oscillator, or standard effects module. Instead, it is a network-to-audio converter that taps raw Ethernet traffic, translates network data (at the physical, not protocol level) into a 4-bit, 25MS/s audio stream, and spits it out as audio. This opens up a <strong>new world</strong> of using <em>network activity</em> as a source of wild, unpredictable, or programmable rhythmic complexity.</p>
+<h2>What The NSA Selector Is</h2>
+<ul>
+<li><strong>Not an audio interface</strong>: It doesn’t play back audio files (no MP3, WAV, etc. playback).</li>
+<li><strong>Network stream to audio</strong>: Any data packet on the network can form the audio stream—ideal for taking advantage of the <em>density and complexity</em> of network traffic as a random or controlled audio/percussive source.</li>
+<li><strong>Eurorack format, 4HP</strong>, audio output, dual Ethernet in/out.</li>
+</ul>
+<h2>Generating Dense, Complex Percussion with the NSA Selector</h2>
+<h3>1. <strong>Harness Network Activity for Percussion</strong></h3>
+<ul>
+<li>Patch the audio output of the NSA Selector directly to a VCA, filter, or distortion.</li>
+<li>Run actual <strong>network traffic</strong>, triggers, or patterns using tools/scripts on your computer, and use these <em>as a percussive "sequencer"</em>.</li>
+<li><strong>Methods:</strong><ul>
+<li>Use the <em>sequencer shell script</em> (provided in the repo) to send ping bursts at complex, programmable intervals; network packet sizes/spacing will directly shape the rhythm.</li>
+<li>Transfer large, uncompressed images (<em>.bmp</em>) or other files for continuous bursts of network noise — the file size, structure, and transmission method will shape the rhythmic activity!</li>
+<li>Run or write custom scripts to output traffic in arbitrary, algorithmic, generative, or polyrhythmic pulse streams.</li>
+<li>Trigger multiple devices on the network to talk at polyrhythmic or odd-time intervals (especially with multiple scripts running at odd timer divisors).</li>
+</ul>
+</li>
+</ul>
+<h3>2. <strong>Embrace Polyrhythms &amp; Complex Timings</strong></h3>
+<ul>
+<li><strong>Desynchronize</strong> multiple traffic sources (for example, multiple computers, VMs, or scripts) running at cycles that relate by complex ratios (e.g., 7/8 vs 9/8 vs 13/8): the composite traffic will organically create dense, interlocking polyrhythms.</li>
+<li>Change packet size, intervals, source/destination pairs; these all skew the resulting rhythm, producing off-kilter grooves.</li>
+<li>Use tools like <code>ping</code>, <code>netcat</code>, or custom UDP/TCP spamming scripts with variable timings to "play" the network as your percussion generator.</li>
+</ul>
+<h3>3. <strong>Enhance &amp; Sculpt Percussive Complexity in the Modular System</strong></h3>
+<ul>
+<li><strong>Processing:</strong> Patch NSA Selector’s output through:<ul>
+<li><strong>Envelopes/VCA:</strong> Use an envelope follower to extract rising/falling dynamics out of the noise for punchy, squelchy percussive accents.</li>
+<li><strong>Filters:</strong> Sculpt the noise to sweep or emphasize certain frequency bands that correspond to desired percussive elements.</li>
+<li><strong>Distortion/Wavefolder:</strong> Crunch the network noise for extra punch and sizzle.</li>
+<li><strong>VCAs/Gates:</strong> Use sidechained gates to chop up the noise or isolate traffic bursts as discrete drum hits.</li>
+</ul>
+</li>
+<li>Use as an <strong>audio-rate modulator</strong> to introduce digital "texture" into otherwise-acoustic percussion sources—try ring modulation or AM with more traditional drum voices for glitchy, NSA-infused percussion.</li>
+</ul>
+<h3>4. <strong>Unique &amp; Punchy Voice Design Tips</strong></h3>
+<ul>
+<li><strong>Layering:</strong> Mix NSA Selector with other percussive sources—use as a transient, a noise burst, or add texture/ambience.</li>
+<li><strong>Feedback:</strong> Route the output into a delay or effect, then back into your network setup (by broadcasting the audio back as traffic for recursive, evolving rhythms).</li>
+<li><strong>MIDI/Software Sync:</strong> Develop a custom script to send network "hits" from a MIDI sequencer, channeling your DAW or controller’s polyrhythmic chops directly into the NSA Selector.</li>
+</ul>
+<h3>5. <strong>Random/Chaotic Percussion Approach</strong></h3>
+<ul>
+<li>Plug the module onto a network used by other people/devices for unpredictable, stochastic percussion sourced from <em>real-world</em> events.</li>
+<li>Map the density of traffic to filter cutoff, envelope, or other CV-able parameters, for <em>network-to-control-voltage</em> mapped complexity.</li>
+</ul>
+<hr />
+<h2><strong>Recommended Patch Example</strong></h2>
+<pre><code>NSA Selector Audio Out
+  → Mult
+  → VCA #1         → Channel 1 Mixer (main percussion)   → Output
+  → Bandpass Filter → VCA #2 (Env Follower’d)            → Fuzz → Mixer (snare/grit layer) → Output
+  → Envelope Follower (from original out) → CV for VCA/Gate/Envelope Retrigger
+
+NSA Selector Audio Out
+  → Sequencer Input (sample-and-hold or logic) for generating random triggers
+</code></pre>
+<hr />
+<blockquote>
+<p><strong>Explore deeply: “Be creative!”</strong><br />
+The manual stresses experimentation: This module is meant for unique, one-of-a-kind rhythmic and percussive effects that break the grid. The intersection between networking and Eurorack is the sound of techno-anarchy!</p>
+</blockquote>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">GitHub: Generated With Eurorack Processor</a></p>
+</body>
+</html>

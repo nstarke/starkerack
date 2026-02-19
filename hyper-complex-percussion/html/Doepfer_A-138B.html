@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-138B</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-138B</h1>
+<ul>
+<li><a href="../../manuals/A138_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.doepfer.de/a100man/A138_Manual.pdf">Doepfer A-138 Mixer Manual (PDF)</a></p>
+<hr />
+<h2>Using the Doepfer A-138 Mixer for Dense, Hyper-Complex Percussion in Eurorack</h2>
+<p>The Doepfer A-138 is <strong>not a voice or effects module</strong>; it is a <strong>utility module</strong>, namely a four-channel mixer. However, utility modules are essential tools for sophisticated rhythmic music—especially when chasing densely layered, intricate, or polyrhythmic percussion. Below are creative ways to exploit this module in your pursuit of wildly complex drum and percussion architectures.</p>
+<h3>1. Creative CV Mixing for Rhythmic Complexity</h3>
+<h4>Use: <strong>A-138a (Linear response)</strong></h4>
+<ul>
+<li><strong>Mix multiple rhythmic CV sources</strong> (e.g., LFOs, gate/trigger sequencers, random sequencers) before routing to drum voices or modulation destinations.</li>
+<li>Example: Combine two varied and phase-shifted clock/gate signals to create polymetric trigger patterns. A slow LFO + a fast burst generator, for instance, will produce evolving, irregular triggers.</li>
+<li><strong>Result</strong>: Percussion hits trigger in unique, shifting time relationships, yielding instant polyrhythm.</li>
+</ul>
+<h4>Advanced:</h4>
+<ul>
+<li><strong>CV mixing with manual control</strong>—Use the attenuators (input level controls) to “fade in” polymetric influences in real time, creating performances where the density and rhythm evolve dynamically.</li>
+</ul>
+<hr />
+<h3>2. Parallel Drum Voice Processing</h3>
+<h4>Use: <strong>A-138b (Logarithmic, for audio)</strong></h4>
+<ul>
+<li><strong>Layer drum/percussion voices</strong>: Send different drum modules or percussive EOs through each channel. Mix them to taste at the A-138’s output.</li>
+<li><strong>Manipulate punch and presence</strong>: The output attenuator allows shaping final output gain, especially useful if sending out to effects or external mixers.</li>
+<li>Trick: If your voices share a common accent CV, use the A-138 to add/subtract CV from each channel, so layering a sharp accent onto one and a subtle offset onto another—ideal for punchy, complex grooves.</li>
+</ul>
+<hr />
+<h3>3. CV and Audio Feedback Tricks</h3>
+<ul>
+<li><strong>Self-patching</strong>: Mult a drum or percussion audio out, route to a channel of the A-138, then feed the mixer output <em>back</em> into a voice’s CV input or LPG. Attenuators let you sculpt the feedback amount for glitchy, self-evolving rhythms.</li>
+<li>With a multed clock signal, use A-138 to combine it with triggers, accents, or random gates—creating truly unpredictable percussive patterns.</li>
+</ul>
+<hr />
+<h3>4. Audio/CV Crossfading and Morphing</h3>
+<ul>
+<li>Morph between entirely different rhythmic layers or drum voices by assigning them to different channels and sweeping levels by hand (or via external CV’d VCAs pre-mixer).</li>
+<li>By slightly detuning/swinging clocks that trigger voices mixed on the A-138, outputting the sum will produce shifting phase relationships—a recipe for polyrhythmic mayhem.</li>
+</ul>
+<hr />
+<h3>5. Offset Function (For unique timbres)</h3>
+<ul>
+<li>If using a module built <strong>mid-2004 or later</strong>: The offset jumper for input 1 lets you add fixed positive or negative DC voltage when input is unplugged—a quick hack for adding “bias” to a CV stream, or generating percussive modulation when mixing DC offsets with LFOs/triggers.</li>
+</ul>
+<hr />
+<h4>More tips for “Punch” and Uniqueness:</h4>
+<ul>
+<li><strong>Post-mixer processing</strong>: Send the summed output into distortion, wavefolders, or resonant filters for extra bite.</li>
+<li><strong>Dynamic Leveling</strong>: Use performance real-time knob tweaks on individual inputs to accentuate syncopation or ghost notes.</li>
+<li><strong>Overdrive</strong>: Take advantage of the mixer’s headroom (or lack thereof) for saturating drum mixes before effects.</li>
+</ul>
+<hr />
+<p><strong>Summary Table</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Patch Type</th>
+<th style="text-align: center;">Mixer Version</th>
+<th style="text-align: left;">Typical Sources</th>
+<th style="text-align: left;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">CV Polyrhythm</td>
+<td style="text-align: center;">A-138a</td>
+<td style="text-align: left;">LFOs, Triggers, Sequencer Gates</td>
+<td style="text-align: left;">Evolving, complex triggers/accent patterns</td>
+</tr>
+<tr>
+<td style="text-align: center;">Layered Percussion</td>
+<td style="text-align: center;">A-138b</td>
+<td style="text-align: left;">Drum voice outs</td>
+<td style="text-align: left;">Fused/custom percussive textures</td>
+</tr>
+<tr>
+<td style="text-align: center;">Feedback Glitch</td>
+<td style="text-align: center;">Either</td>
+<td style="text-align: left;">Audio/CV, feedback loops</td>
+<td style="text-align: left;">Glitchy, generative patterns</td>
+</tr>
+<tr>
+<td style="text-align: center;">Offset/Bias</td>
+<td style="text-align: center;">A-138a (with jumper mod)</td>
+<td style="text-align: left;">DC offset + rhythmic CV</td>
+<td style="text-align: left;">Non-standard CV modulation patterns</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>Patching Example for Polyrhythm:</h4>
+<pre><code>[LFO1] -----&gt; [In 1]  
+[Clock/Trigger A] -----&gt; [In 2]  
+[Random Gates] -----&gt; [In 3]  
+[Nothing (use jumper for Offset)] -----&gt; [In 4]  
+[A-138 Output] -----&gt; [Percussion Envelope In]  
+</code></pre>
+<p>Sweep input levels to morph between rhythms, accent patterns, and unpredictably phase-shifted grooves.</p>
+<hr />
+<p><strong>Pro Tip</strong>: Utility modules like A-138 are powerful when used creatively. In highly rhythmic, complex setups, the difference between “routine” and “next level” is often how fluently you can sculpt, layer, and interact with both audio and modulation signals—especially in real time!</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-130-1</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-130-1</h1>
+<ul>
+<li><a href="../../manuals/A1301_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100man/A130_131_man.pdf">Doepfer A-130 / A-131 VCA Manual PDF</a></p>
+<hr />
+<h1>Using the Doepfer A-130 / A-131 VCA for Hyper-Complex, Rhythmic Percussion in Eurorack</h1>
+<p>The A-130 (Linear) and A-131 (Exponential) VCAs aren't voices by themselves—they are <em>modulators</em> of amplitude—making them vital for creating dynamic, punchy, and unique percussive patterns, especially within dense, polyrhythmic, and intricate rhythmic environments.</p>
+<p>Below, I’ll detail how to exploit the creative potential of these VCAs for generating advanced rhythmic/percussive textures.</p>
+<hr />
+<h2>Quick Recap of Key Features Relevant to Percussion</h2>
+<ul>
+<li><strong>Voltage Controlled Amplification:</strong> Shape the level of any audio source via incoming CV.</li>
+<li><strong>Audio Inputs</strong>: Two, each with an attenuator.</li>
+<li><strong>CV Inputs:</strong> Two, can be combined for complex modulation.</li>
+<li><strong>Linear (A-130) vs Exponential (A-131):</strong> Linear VCA is best for CV &amp; clean percussive control; Exponential VCA is more musical for audio and snappy, nonlinear dynamics.</li>
+</ul>
+<hr />
+<h2>1. Rhythmically Chopping and Gating Audio</h2>
+<p><strong>Setup:</strong>
+- Route your percussion sample(s), synthesizer drums, or any audio source into the VCA’s input(s).
+- Use rhythmic CVs (e.g., triggers, gates, envelopes) at the CV input to "chop" the sound.</p>
+<p><strong>Technique:</strong>
+- Use independent trigger/gate patterns for each VCA (multiple modules encouraged).
+- Try polyrhythmic CV sources (e.g. 3-step vs 4-step patterns, odd time LFOs, clock dividers/multipliers) to rhythmically gate and pulse your sound non-uniformly.
+- Directly patch gate sequences from polyrhythmic gate sequencers, clock dividers, Euclidean rhythm generators, or step sequencers as the CV to create dense, offset percussive articulation.</p>
+<hr />
+<h2>2. Complex Amplitude Modulation (AM) for Uncommon Textures</h2>
+<p><strong>Setup:</strong>
+- Audio source → VCA in.
+- Use a mixture of <strong>audio-rate</strong> and <strong>sub-audio modulation</strong> at the CV input.</p>
+<p><strong>Technique:</strong>
+- Use multiple, out-of-sync LFOs, burst generators, or envelopes to modulate CV inputs.
+- For ultimate chaos, mult CV sequences with different swing/divisions into an attenuator mixer, then into the VCA CV—in effect, creating amplitude "side-chain" with conflicting grooves for advanced percussion dynamics.
+- Multilayer percussive voices into group VCAs to duck or emphasize clusters unpredictably.</p>
+<hr />
+<h2>3. Unique Percussive Timbres with Stacked/Layered Inputs</h2>
+<p><strong>Setup:</strong>
+- Two different percussive or noise sources into both audio inputs, with their attenuators set to desired blend.</p>
+<p><strong>Technique:</strong>
+- Rapidly sequence the <em>blend</em> by routing CV into the two input attenuators (use voltage-controlled attenuators outside the A-130).
+- Use different rhythmic amplitude or envelope shapes on each source—e.g., one has sharp attack/decay, another has long decay modulated by a different clock.</p>
+<hr />
+<h2>4. CV Layering for Polyrhythmic Punch</h2>
+<p><strong>Setup:</strong>
+- Two separate CVs (e.g., 5/8 and 7/8 patterns, or different LFO speeds/envelopes) into both CV ins.</p>
+<p><strong>Technique:</strong>
+- Adjust the CV attenuators on the module to blend/scale each rhythmic modulation: one CV controls overall groove, the other adds complexity and irregularity.
+- Slam the gain control for punchy "always-on" signals, or keep it low for pure modulation.</p>
+<hr />
+<h2>5. Accents and Ghost Notes</h2>
+<p><strong>Setup:</strong>
+- Use accent triggers or logic outputs as additional CV sources.
+- Modulate the gain or CV attenuators with envelopes responding to “accent” gates.</p>
+<p><strong>Technique:</strong>
+- Dial in "ghost notes" by making the accented triggers open the VCA slightly at lower voltage, letting through faint percussive hits.
+- Use slew on accent CVs for swung, rushed pulses.</p>
+<hr />
+<h2>6. Multistage VCA Chains (Cascaded Amplitude Modulation)</h2>
+<p><strong>Setup:</strong>
+- Chain two VCAs: first for pulse gating, second for accent/amplitude.
+- Send in two different rhythmic patterns or polyrhythmic cues to the two VCAs.</p>
+<p><strong>Technique:</strong>
+- Noise or oscillator hit → VCA 1 (pulse) → VCA 2 (accent level) → Output.
+- This allows intricate articulation—punchy main hits plus layered ghost/ghosted notes from overlapping envelopes, subdividers, or manually played triggers.</p>
+<hr />
+<h2>7. Advanced: Live Patch Manipulation</h2>
+<ul>
+<li>Dynamically repatch or switch rhythmic CV sources on the fly.</li>
+<li>Use voltage-controllable switches or matrix mixers (e.g. A-138m) to alternate which LFOs/sequences hit which VCAs in real time.</li>
+</ul>
+<hr />
+<h2>Useful Tips for "Hyper Complex" Patterns</h2>
+<ul>
+<li><strong>CV Cross-Modulation:</strong> Feed an LFO, clock divider, or sequence to one CV in, but modulate THAT source’s rate/depth with yet another rhythm.</li>
+<li><strong>External Logic:</strong> XOR, AND, OR gates before CV input to combine multiple polyrhythms (e.g. one accent pattern <em>only triggers when</em> two patterns align).</li>
+<li><strong>Feedback:</strong> Take the VCA’s output to modulate something else (e.g., oscillator timbre, envelope speed, filter) for interactive rhythmic feedback.</li>
+</ul>
+<hr />
+<h2>Other Sound Design Tweaks</h2>
+<ul>
+<li>For punchiness, use short, snappy envelopes (like those from Maths or Function) at the CV in.</li>
+<li>Use exponential VCA for more dramatic dynamic range—great for making percussion stand out.</li>
+<li>For truly weird percussion, AM or ring-modulate noise or unconventional sources, gated polyrhythmically.</li>
+<li>Distort the VCA’s output for even more aggressive percussion.</li>
+</ul>
+<hr />
+<h3>Reference Links</h3>
+<ul>
+<li><a href="https://doepfer.de/a100man/A130_131_man.pdf">Doepfer A-130 / A-131 VCA Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

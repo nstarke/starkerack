@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_Maths</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — Maths</h1>
+<ul>
+<li><a href="../../manuals/MATHSmanual2013.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://makenoisemusic.com/content/manuals/Maths2020Manual.pdf">Make Noise Maths Manual PDF</a></p>
+<hr />
+<h1>Using Make Noise Maths for Densely Rhythmic, Hyper-Complex Percussion</h1>
+<p>The <strong>Make Noise Maths</strong> module, while not a sound source per se, is a flexible function generator, envelope, logic, LFO, CV processor, and clock/trigger manipulator ideal for generating intricate rhythmic patterns and evolving percussive complexity in a eurorack system. Below are strategies and patch ideas for using Maths to craft polyrhythms, strange time signatures, complex clock divisions, and unique percussive manipulations.</p>
+<hr />
+<h2>1. <strong>Mathematics as a Rhythmic Brain: Clocks, Dividers &amp; Gate Manipulation</strong></h2>
+<h3><strong>A. Polyrhythmic Clocking with EOR/EOC</strong></h3>
+<ul>
+<li>Use Maths’ <strong>Channel 1 and 4</strong> in cycling mode, straight or modulated, as clocks with different cycle lengths/times.<ul>
+<li>EOR (End of Rise) and EOC (End of Cycle) outputs give gate/pulse signals at function phase boundaries.</li>
+</ul>
+</li>
+<li>Set Channel 1 for a 5-step pattern, Channel 4 for a 7-step pattern (for instance) by adjusting Rise/Fall and using external modulation.<ul>
+<li>Patch both EOR/EOC outs to trigger drum modules or envelopes for polyrhythms.</li>
+</ul>
+</li>
+</ul>
+<h3><strong>B. Generating Odd Time Signatures</strong></h3>
+<ul>
+<li>Use <em>Trigger Input</em> to sync Channel 1 or 4 to a master clock, but set Rise or Fall to an “unnatural” division.<ul>
+<li>The slopes act as clock dividers; e.g., a long Rise ignores several repeated triggers, only passing every 3rd/4th/5th.</li>
+</ul>
+</li>
+<li>Chain EOR/EOC and Trigger/Cycle inputs for cross-patterned triggers. <ul>
+<li>Example: EOR from Channel 1 triggers Channel 4, EOC from Channel 4 back to Channel 1.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>2. <strong>Evolving Rhythmic Complexity through Self-Modulation &amp; Feedback</strong></h2>
+<h3><strong>A. Feedback for Irregular/LFO-Driven Patterns</strong></h3>
+<ul>
+<li>Take a Variable Output and patch it to the Rise/Fall/Both CV input of the same or another channel.<ul>
+<li>Attenuverter controls turn simple LFOs into bouncing, mutating rhythmic CVs.</li>
+</ul>
+</li>
+<li>Mult complex outputs into clock dividers, logic modules, or further Maths channels for procedural rhythms.</li>
+</ul>
+<h3><strong>B. Logic &amp; Comparator Processing</strong></h3>
+<ul>
+<li>Use the <strong>OR output</strong> to combine multiple triggers/gates, generating composite clocks for off-beat/irregular hits.</li>
+<li>Patch a steady pulse and a Variable Output (ramped slope) into separate channels, take the OR output as a trigger “mask” or gate-extractor with rhythmic swing or gate delay.</li>
+</ul>
+<hr />
+<h2>3. <strong>Maths as a Percussive Modulation Source</strong></h2>
+<p>While Maths doesn't directly output audio, it processes control voltages:
+- <strong>Envelope Follower/Transient Generator:</strong> Patch percussion audio into a channel's Signal Input, use EOR/EOC or the Variable Output as rhythmic triggers for other voices, compression, or synced CV.
+- <strong>Voltage-Controlled Pulse Delays</strong> allow “flam” or ratcheted percussive effects—use EOR outputs with varied Rise/Fall for swung/offset hits.
+- <strong>Bouncing Ball</strong> and trilling patches (from the manual) create irregular, dynamic envelope shapes; use for unique hats, rimshots, or FM timbre tweaks on percussion voices.</p>
+<hr />
+<h2>4. <strong>Voice &amp; Effect Manipulation for Percussive, Punchy Results</strong></h2>
+<p>If you use Maths to control VCFs, VCAs, or even as an audio-rate oscillator:</p>
+<ul>
+<li><strong>Ping Maths at Audio Rate:</strong> Patch a fast LFO (cycling channel as audio osc) through a low pass gate or filter for metallic, pseudo-physical drum sounds.</li>
+<li><strong>Complex Envelope Percussion:</strong> Use both Channel 1/4 for layered attack/decay; combine envelopes in the SUM/OR bus for one-shot punchy transients or compound percussion (stacked drums).</li>
+<li><strong>Voltage Mirror/Pseudo-VCA Patches:</strong> Achieve hard, clipped modulation—great for unusual transient snap or accent envelopes.</li>
+</ul>
+<hr />
+<h2>5. <strong>Patch Examples from the Manual Adapted for Rhythmic Complexity</strong></h2>
+<ul>
+<li><strong>Clock/Divider Patch</strong>: Send master clock to Channel 1 Trigger. Use Rise parameter to set division, EOR out triggers percussive voices on divided clock.</li>
+<li><strong>Flam/Offset Beats</strong>: Use Pulse Delay (EOR out with varied Rise/Fall) to introduce microtiming between sequential drum triggers.</li>
+<li><strong>281 Mode</strong>: Interlocking cyclic channels create overlapping and displaced rhythmic contours—each can modulate a different drum sound or effect.</li>
+<li><strong>Chaotic LFOs</strong>: Create morphing patterns by feedback patching Variable Outputs into Rise/Fall/Both of other channels.</li>
+</ul>
+<hr />
+<h2>6. <strong>General Tips</strong></h2>
+<ul>
+<li><strong>Modulate everything</strong>: Use slow, cycling envelopes on Rise/Fall of fast triggers for controlled drift and non-repetitive rhythms.</li>
+<li><strong>Explore SUM/OR</strong>: Blend triggers/gates/offsets for evolving, dynamic rhythmic sources and CV for percussion modulation (decay, pitch, filter).</li>
+<li><strong>Latch and Reset</strong>: Use BOTH input as a reset/gate width for further temporal manipulation.</li>
+</ul>
+<hr />
+<h2>7. <strong>Inspirational Patch Starters</strong></h2>
+<ul>
+<li>Use <em>EOR</em> to clock a sequencer, <em>EOC</em> to clock off-beat percussion.</li>
+<li>Patch envelope or LFO from Maths to VCA controlling drum body, another to VCA controlling “noise” or “FM ring”.</li>
+<li>Use the <em>OR bus</em> as a pulse generator modulating a sample’s start point or a drum synth’s pitch parameter.</li>
+</ul>
+<hr />
+<p>For more detailed reference, you can find all official patch ideas and detailed operation:</p>
+<p><a href="https://makenoisemusic.com/content/manuals/Maths2020Manual.pdf">Make Noise Maths Manual (PDF)</a></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

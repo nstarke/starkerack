@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Branches</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Branches</h1>
+<ul>
+<li><a href="../../manuals/branches_quickstart.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/branches/manual.pdf">Branches Manual PDF</a></p>
+<hr />
+<h2>Using Mutable Instruments Branches for Complex Percussion and Polyrhythms in Eurorack</h2>
+<p>The <strong>Mutable Instruments Branches</strong> is a dual Bernoulli gate—basically a probabilistic trigger router. It's not a voice or an effect, but a gate/trigger utility that introduces randomness or switching logic into rhythmic signal flows. This makes it an incredibly powerful tool for creating dynamic, densely-layered, and ever-evolving percussion or rhythmic sequences, perfect for polyrhythms, odd time signatures, and generative patterns.</p>
+<p>Here’s how you can leverage Branches in the quest for <strong>hyper-complex rhythmic results</strong>:</p>
+<hr />
+<h3>1. <strong>Generating Polyrhythms with Branches</strong></h3>
+<h4><strong>Application:</strong></h4>
+<ul>
+<li><strong>Feed two different rhythmic triggers</strong> (for instance, from a clock divider and a sequencer) into the two INs of Branches (or just one IN, letting the internal normalized routing do the rest).</li>
+<li><strong>Use the Probability knob or CV input</strong> to alter how incoming triggers are routed — one output could go on to fire a kick, the other a snare, for example.</li>
+<li>By <strong>modulating probability with an LFO or stepped random voltage</strong>, you can dynamically change the polyrhythmic structure over time.</li>
+</ul>
+<h4><strong>Result:</strong></h4>
+<ul>
+<li>As triggers are probabilistically switched or split, you achieve unexpected but musical re-distribution of events, ideal for layering contrasting time signatures and evolving rhythmic interplay between percussion elements.</li>
+</ul>
+<hr />
+<h3>2. <strong>Complex Time Signatures &amp; Algorithmic Patterns</strong></h3>
+<h4><strong>Application:</strong></h4>
+<ul>
+<li><strong>Feed a simple clock or trigger train</strong> (say, 16th notes).</li>
+<li>Use <strong>toggle mode</strong>: Now, Branches doesn’t just route the trigger at random, but can “flip-flop” between outputs based on probability. This can create complex, semi-algorithmic pulses and pseudo-random pattern lengths.</li>
+<li>Sequence the <strong>Probability knob via CV</strong> from a sequencer or a stepped random source to change patterning on a per-step basis, injecting controlled chaos into time signatures.</li>
+</ul>
+<h4><strong>Result:</strong></h4>
+<ul>
+<li>Shifting between semi-deterministic and random pathing results in phasing, unexpected accents, or shifting downbeats—core ingredients for dense, jazzy, or IDM-like percussion.</li>
+</ul>
+<hr />
+<h3>3. <strong>Hyper-Complex Percussion Patterns</strong></h3>
+<h4><strong>Application:</strong></h4>
+<ul>
+<li><strong>Daisy-chain both sections:</strong> Connect OUT A of section 1 to IN of section 2 for nested coin-flips, creating cascading branching structures akin to probability trees.</li>
+<li><strong>Route each output to different percussion modules</strong> or samplers (e.g., OUT A to a hi-hat, OUT B to a rimshot, and so on).</li>
+<li><strong>Use Latch mode:</strong> A hit will keep an output high (+5V) until the next trigger swaps to the other output. This can be used to gate a complex percussion voice, holding it open for irregular durations—excellent for glitchy or stuttering fills.</li>
+</ul>
+<h4><strong>Result:</strong></h4>
+<ul>
+<li>This introduces both micro-variation (which drum hits when) and macro-structure (which voices may temporarily dominate the pattern), maximizing rhythmic interest.</li>
+</ul>
+<hr />
+<h3>4. <strong>Creative Modulation/Extensions</strong></h3>
+<ul>
+<li><strong>Mult the output(s) of Branches</strong> into effects, envelopes, or other modulators that shape percussion timbre (filter cutoff, wavefolder CV, etc.) for per-hit variance.</li>
+<li><strong>Patch Branches at the end of a clock division chain:</strong> Use it to redirect triggers from heavily divided clocks to accent or “ghost” percussive elements, or to generate fills that aren’t on a fixed schedule.</li>
+</ul>
+<hr />
+<h3><strong>Patch Inspiration Example</strong></h3>
+<pre><code class="language-markdown">- Clock/funky sequencer → Branches IN 1
+- Probability CV → Stepped random voltage or a slow LFO
+- OUT A → Trigger input of main hi-hat
+- OUT B → Trigger input of woodblock
+- Branches IN 2 left unpatched (uses internal normalization)
+- Use Toggle and Latch modes to evolve the pattern over time
+- Mix OUTs through a VCA/waveshaper for extra randomness in texture
+</code></pre>
+<hr />
+<h4><strong>TIP:</strong></h4>
+<p>Pairing Branches with a voltage-addressed switch or sequential switch can further route its probabilistic triggers to <em>even more</em> voices, breaking out of “just two-way” patterning!</p>
+<hr />
+<p>For full details and patch examples:<br />
+<a href="https://mutable-instruments.net/modules/branches/manual.pdf">Branches Manual PDF</a></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

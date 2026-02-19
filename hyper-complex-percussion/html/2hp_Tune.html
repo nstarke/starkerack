@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Tune</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Tune</h1>
+<ul>
+<li><a href="../../manuals/Tune_Manual_2023.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://twohp.com/manuals/tune_manual.pdf">2hp Tune Manual (PDF)</a></p>
+<hr />
+<h2>Using the 2hp Tune for Densely Rhythmic, Hyper-Complex Percussion Sequences</h2>
+<p><strong>2hp Tune</strong> is a voltage quantizer—it does not generate sound itself but precisely shapes voltages coming from sequencers, LFOs, random sources, or any modulation into musically constrained melodic values based on selected scales. Here’s how you can leverage it for intricate, polyrhythmic, percussive eurorack patches:</p>
+<hr />
+<h3>Techniques for Percussive &amp; Complex Patterns</h3>
+<h4>1. <strong>Quantize Modulations for Percussive Voices</strong></h4>
+<ul>
+<li>Use <strong>complex CV sources</strong> (such as random stepped voltages, Turing Machine, Euclidean sequencers, or rhythmic LFOs clocked at different rates) as <strong>inputs</strong> to the 2hp Tune’s <code>Input</code>.</li>
+<li>The quantized <strong>output</strong> can be sent to the pitch CV input of a percussive voice (e.g., synth voice, percussion module, or self-oscillating filter).</li>
+<li>By quantizing trigger- or clock-driven CVs, you generate <strong>pitched rhythmic pulses, tuned noise, or metallic percussion</strong> that follow exotic time relationships.</li>
+</ul>
+<h4>2. <strong>Bias Knob/Control Voltage Tricks</strong></h4>
+<ul>
+<li>Modulate the <strong>Bias knob</strong> or use its CV input with another rhythmic source—for example, a clock-divider, logic gate, or manually trigger-by-hand—so the availability of pitches within the chosen scale is <strong>rhythmically “scanned.”</strong></li>
+<li>With CV control, you can dynamically morph drum pitches or accents in <strong>polyrhythmic layers</strong> without changing the core rhythm.</li>
+</ul>
+<h4>3. <strong>Microtonal Percussive Melodies</strong></h4>
+<ul>
+<li>Set the <strong>Scale</strong> to Octatonic, Whole Tone, or Diminished for “offgrid” melodic quantization. Feed in a fast clocked CV, like a burst generator or clock-multiplied LFO, for <strong>unusual stepped patterns</strong> that can be routed to percussion oscillators or even noise-based voices.</li>
+<li>Using complex clock divisors/multipliers on different CV sources patched to input and bias yields constantly evolving, overlapping patterns.</li>
+</ul>
+<h4>4. <strong>Create Drum Voices Out of Pitch</strong></h4>
+<ul>
+<li>Send the quantized output to both the <strong>V/Oct input</strong> of a short-decay envelope-controlled sine/triangle oscillator and the <strong>decay length</strong> of that envelope.</li>
+<li>By quantizing rapidly, each new note triggers a new percussion “hit” that’s in tune, creating <strong>rhythmic tuned percussion with unpredictable (poly)rhythms</strong>.</li>
+</ul>
+<h4>5. <strong>Trigger Manipulation</strong></h4>
+<ul>
+<li>Use the output of Tune as a source for switched routing or sample selection (e.g., with sequential switch modules or drum sample players).</li>
+<li>Different scales correspond to different sample triggers or effect parameters—each scale change or quantized output represents a <strong>trigger in a polyrhythmically evolving grid</strong>.</li>
+</ul>
+<h4>6. <strong>Scale Modulation for Polyharmony</strong></h4>
+<ul>
+<li>Patch modulation into the scale select (accomplished by manual or sequential trigger if you have hands-on time) to shift between different scale layouts for the same input CV.</li>
+<li>Rapidly cycling or switching between scales on rhythmic boundaries creates “metric modulation” for percussion—accents and hits shift in both pitch and tonality.</li>
+</ul>
+<hr />
+<h3>Patch Example</h3>
+<ol>
+<li><strong>Rhythm Source #1</strong>: Stepped random voltage from a noise module clocked by a 5/4 Euclidean rhythm.</li>
+<li><strong>Rhythm Source #2</strong>: LFO synced to a different division (e.g., 7 triggers per 3 measures).</li>
+<li><strong>Patch</strong>: <ul>
+<li>Stepped random to Tune’s <code>Input</code></li>
+<li>LFO to Tune’s <code>Bias CV Input</code></li>
+<li>Set scale to Diminished or Whole Tone</li>
+<li>Output quantized CV to the 1V/Oct of a percussion oscillator (e.g., drum synth)</li>
+<li>Gate/trigger output from the same rhythm sources triggers drum envelopes.</li>
+</ul>
+</li>
+<li><strong>Result</strong>: Drum voice shifts pitch, harmonics, or resonance in sync with overlapping, irregular polyrhythms.</li>
+</ol>
+<hr />
+<h3>Making it Unique, Punchy, Percussive</h3>
+<ul>
+<li><strong>Fast Modulation</strong>: The Tune tracks up to 5V input-range, so velocity or accent sources can further “animate” triggers or envelopes with quantized output.</li>
+<li><strong>Non-standard Scales</strong>: Use Octatonic or Egyptian Minor for exotic percussion flavors—tuned but unusual intervals.</li>
+<li><strong>Stacking</strong>: Use several Tune modules, or mult output to numerous voices for complex polyrhythmic interlocking melodies.</li>
+<li><strong>Feedback Patching</strong>: Try routing drum envelope outputs into the <code>Bias CV input</code> for “self-modulating” percussion grooves.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

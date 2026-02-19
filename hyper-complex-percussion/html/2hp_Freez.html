@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Freez</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Freez</h1>
+<ul>
+<li><a href="../../manuals/Freez_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.2hp.com/manuals/freez.pdf">Freez Manual PDF</a></p>
+<hr />
+<h2>Using Freez for Densely Rhythmic, Hyper-Complex Percussion in Eurorack</h2>
+<p>The <strong>Freez</strong> module is a voltage-controlled locked looper, not a sound source/voice, but an <strong>audio processor/effect</strong>. Its core abilities—freezing, looping, and manipulating incoming audio buffers—make it a creative powerhouse for complex percussion, especially when combined with other rhythmic generators. Here’s how to harness its power for dense, punchy, and uniquely percussive sequences, including complex time signatures and polyrhythms:</p>
+<hr />
+<h3>1. <strong>Getting Percussive Input</strong></h3>
+<ul>
+<li><strong>Feed it with Percussion:</strong> Send drum hits, complex loops, short percussive bursts, or glitch sources into Freez's <strong>IN</strong>.</li>
+<li><strong>Try Multiple Hits:</strong> Sequence diverse percussion patterns, including non-standard (non-4/4) sequences or polyrhythms from other modules or drum machines.</li>
+</ul>
+<hr />
+<h3>2. <strong>Locking, Chopping, and Mangling</strong></h3>
+<ul>
+<li><strong>Use</strong> <strong><em>momentary or latching</em></strong> <strong>mode</strong> via the <strong>MODE TOGGLE</strong> for different rhythmic interactions:</li>
+<li><strong>Momentary Mode:</strong> The buffer “freezes” <em>only</em> as long as the button/trig is held high; ideal for tight rhythmic chopping.</li>
+<li>
+<p><strong>Latching Mode:</strong> Press or trig to lock/unlock the buffer in sync with complex rhythmic events (e.g., accent pulses in a polymeter).</p>
+</li>
+<li>
+<p><strong>Patch gate/trig sources</strong> (from polyrhythmic sequencers, clock dividers, or logic patterns) to the <strong>TRIG</strong> input for rhythmically controlled buffer captures, <em>perfect for locking audio on odd divisions or syncopations</em>.</p>
+</li>
+</ul>
+<hr />
+<h3>3. <strong>CV Rhythmic Variations</strong></h3>
+<ul>
+<li><strong>Send polyrhythmic CV</strong> and <strong>trigger/gate sequences</strong> to the <strong>SIZE</strong> and <strong>S. RATE CV INPUTS</strong></li>
+<li><strong>SIZE CV:</strong> Modulate buffer length with evolving LFOs, sequencers, or random gates for dynamic, unpredictable loops.<ul>
+<li>Patch a sequential switch, step sequencer, or odd/even divider to create shifting lengths following your intended polyrhythm.</li>
+</ul>
+</li>
+<li><strong>S. RATE CV:</strong> Use rhythmic CV to introduce bitcrushing, aliasing, or time-domain warping tied to your clock or accent signals, <em>adding crisp “grain” and transient punch</em>.<ul>
+<li>Try sending tightly quantized or bursty random CV to sync with complex drum patterns.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>4. <strong>Percussive Texture Generation</strong></h3>
+<ul>
+<li><strong>Beat Repeat:</strong> Rapidly retrigger the TRIG input in microtimed “fills” or tuplets; with short buffer and low sample rate, you get synthy, glichy retriggers that are very distinct in a drum mix.</li>
+<li><strong>Granular &amp; Glitch:</strong> Modulate the buffer size or sample rate at audio rates (via fast LFOs or random gates) for digital spikes, artifact accentuation, and unique glitch-percussion layers.</li>
+<li><strong>Extreme Modulation:</strong> Use envelope generators or stepped random sources clocked in irrational time divisions to modulate SIZE and S. RATE for complex “not-quite-repeat” textural percussions perfect for breakbeats, IDM, or mathy rhythms.</li>
+</ul>
+<hr />
+<h3>5. <strong>Making the Output Punchy and Unique</strong></h3>
+<ul>
+<li><strong>Short Buffers:</strong> Tune buffer to “microsecond” range for instant, one-shot blips and digital clicks, creating synthetic hi-hats or claps when sampling percussive input.</li>
+<li><strong>Bit-Crushed Compression:</strong> Push sample rate low to decimate transients, leaning into circuit-bent, hard-edged digital percussion.</li>
+<li><strong>Dynamic Layers:</strong> Chain multiple Freez “captures” alongside dry percussion for polyrhythmic, syncopated percussion textures layering unaffected and looped elements.</li>
+</ul>
+<hr />
+<h3>6. <strong>Integration in Complex Patterns</strong></h3>
+<ul>
+<li><strong>Trigger Logic:</strong> Use AND/OR/XOR logic gates to combine triggers of different clocks (3, 5, 7, etc. divisions) for true polyrhythms—control Freez freezing events with these.</li>
+<li><strong>Pattern Shifting:</strong> Use rotating clock dividers or shift registers to create non-repeating freeze/unfreeze patterns for intricate groove changes.</li>
+</ul>
+<hr />
+<h3>Example Patch Ideas</h3>
+<pre><code class="language-plaintext">[TRIG IN] &lt;--- Gate pattern from clock-divider running at (3/4 of master clock)
+[SIZE CV IN] &lt;--- Patterned random stepped CV clocked at (7/16 master clock)
+[S. RATE CV IN] &lt;--- Envelope/Accent CV from each bar, or another LFO at a different prime rate
+[IN] &lt;--- Hi-hat, snare, or FM drum hit sequence
+[OUT] ---&gt; Mixer for punchy, bitcrushed, polymetric percussion layer
+</code></pre>
+<hr />
+<p><strong>Tips for Uniqueness:</strong><br />
+- Modulate every parameter with <em>unsynced</em> clocks—or clocks related by non-integer ratios—for brain-melting, non-repeating shifts.
+- Use very short freeze times and abruptly modulate sample rate for grainy, modern digital percussion.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

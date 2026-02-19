@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_Mimeophon</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — Mimeophon</h1>
+<ul>
+<li><a href="../../manuals/mimeophon-manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://makenoisemusic.com/content/manuals/soundhack_Mimeophon_Manual.pdf">Download the Soundhack Mimeophon Manual PDF</a></p>
+<hr />
+<h2>Using a Make Noise Soundhack Mimeophon for Dense, Hyper-Complex Percussion &amp; Polyrhythms</h2>
+<p>The <strong>Mimeophon</strong> is a stereo, multi-zone color audio repeater and can function as both an effect and, in certain settings, as a percussive voice (Karplus-Strong/physical modeling). Here’s how you can push it into <em>hyper-complex</em> rhythmic territory for advanced Eurorack percussion and sequence processing:</p>
+<hr />
+<h3>1. <strong>Exploit the Tempo Sync, Rate, and Zone Controls</strong></h3>
+<h4><strong>External Clocking and Polyrhythms</strong></h4>
+<ul>
+<li><strong>Feed several rhythmic sources</strong> (polyrhythmic clocks, different divisions/multiples) into the TEMPO input.</li>
+<li>Use <strong>different sequences or modulation sources</strong> to change Zone and Rate—each Zone is a radically different “buffer size” (delay time), from microseconds (flange/Karplus) to 40+ seconds (long loops).</li>
+<li>By switching Zones (with sequencers, random sources, or step CV), your repeats can instantly jump to new time grids <em>without Doppler or pitch artifacts</em>. This is great for sudden complex pattern changes.</li>
+<li><strong>Manipulate the Rate knob after clocking</strong>: Slewless jumps between divisions/multipliers of the incoming clock—use this for sudden polyrhythms within a single pattern!</li>
+</ul>
+<h4><strong>Patch Idea - Polyrhythm Machine</strong></h4>
+<ul>
+<li>Sequence the Zone input with stepped random or other sequencer signals <em>unsynced</em> to your main clock.</li>
+<li>Use the Rate CV in conjunction with separate division clocks to achieve complex interlocking.</li>
+<li>For every clock tick or bar line, force a Zone or Rate change. This "re-maps" the time base for the repeats—perfect for breakbeats, glitches, or evolving groove.</li>
+</ul>
+<hr />
+<h3>2. <strong>Use Skew, Halo, and Ping Pong for Spatial &amp; Temporal Complexity</strong></h3>
+<h4><strong>SKEW</strong></h4>
+<ul>
+<li>The SKEW function lets Left and Right repeats run at different Rates. Patch an LFO or divide/multiply clocks (<em>one for Rate, another for SKEW control</em>).</li>
+<li>Engage Ping Pong or Swap for alternating/phase-shifted patterns in stereo: "echoes" or percussive hits shift and bounce across the stereo field in a non-repetitive way.</li>
+<li>With HOLD engaged, change SKEW for evolving gating and “hocketing” effects.</li>
+</ul>
+<h4><strong>HALO</strong></h4>
+<ul>
+<li>For dense, spatialized percussion: set HALO near max for a stereo “smear” or diffusion. Combine with high Repeats for a metallic/plate-reverb dreamscape effect—great as a percussive bed or layer.</li>
+</ul>
+<hr />
+<h3>3. <strong>Mimeophon as a Percussive Voice (Karplus-Strong/Physical Modeling)</strong></h3>
+<h4><strong>Zone 0 &amp; Karplus Mode</strong></h4>
+<ul>
+<li>Patch a short noise burst or impulse (e.g., from Make Noise MATHS or a trigger to noise generator) to the input.</li>
+<li>Set Zone to 0 and Rate high (full CW); adjust Repeats for “pluck decay.”</li>
+<li>MicroRate becomes 1V/Oct—sequence with pitch CV for percussive pitched hits, almost like a quick acid bass drum or tuned percussion.</li>
+<li><em>Flip</em> the buffer for unusual metallic or shifted harmonics.</li>
+</ul>
+<h4><strong>Patch: “Karplus Drum Kit”</strong></h4>
+<ul>
+<li>Rapidly change Zone or Rate alongside triggering audio bursts, turning every percussion step into a <em>different sound engine instance</em> (snare, bongo, kick, etc.).</li>
+<li>Modulate Color and Halo for each “hit” for ever-changing texture.</li>
+</ul>
+<hr />
+<h3>4. <strong>Advanced Tricks for Rhythmic Density</strong></h3>
+<h4><strong>Zone Jumps for Micro-Macro Patterning</strong></h4>
+<ul>
+<li>Use a fast pulse on the Zone input (sequenced) to alternate between micro (Zone 0) and macro (Zone 6/7) repeat sizes, creating both glitch stabs and giant “room” echoes cascading within the same phrase.</li>
+</ul>
+<h4><strong>Feedback/Repeats Macrocontrol</strong></h4>
+<ul>
+<li>Automate the Repeats via CV to punch holes or add rolls in the echo. For every hit, you can set Repeats briefly to max for ratchets/rolls, then drop back for staccato fills.</li>
+</ul>
+<h4><strong>Flip for Off-Grid/Reverse Hits</strong></h4>
+<ul>
+<li>Gate the FLIP input in odd patterns—suddenly reverses the loop buffer. Use at audio rate for digital distortion textures or at percussive rates for off-grid, glitchy reversals.</li>
+</ul>
+<h4><strong>RATE Output as a Pattern Source</strong></h4>
+<ul>
+<li>Use RATE OUT as a clock divider/multiplier for other sequencers/drum voices. Skew, Zone, or Rate adjustments on the Mimeophon will now propagate pattern changes to the rest of your drum voices—automatic evolving patterns.</li>
+</ul>
+<hr />
+<h3>5. <strong>Color, Halo, and Input Gain Modulation for Punch</strong></h3>
+<ul>
+<li><strong>Color:</strong> Use as a dynamic per-hit EQ/distortion. Random modulation here adds variability and punch.</li>
+<li><strong>Halo/Repeats:</strong> Vary in time, not just set-and-forget! Try patterning both for fills, ghost notes, swells.</li>
+<li><strong>Input Gain:</strong> Set hotter for overdrive/crunch, or attenuate for pristine ‘ghost’ repeats in the background.</li>
+</ul>
+<hr />
+<h3>Example Modular Patch Structure</h3>
+<pre><code class="language-diff">Kick Drum (Trigger) ─&gt; Noise Burst ─&gt; Mimeophon IN L
+MATHS Envelope ─&gt; MicroRate (tonality/pitch sweep)
+Random CV/Sequencer ─&gt; Zone, Rate, Repeats CV
+Stepped Clock Divider A ─&gt; TEMPO
+Main Clock ─&gt; Skew (for stereo pulses)
+Mimeophon OUT L/R ─&gt; Mixer/Stereo Bus
+Rate OUT ─&gt; Envelope Trigger for another drum voice
+</code></pre>
+<hr />
+<h3>Summary Table - Perceptual Effects by Parameter</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Use for Polyrhythms/Complexity</th>
+<th style="text-align: left;">Use for Percussive Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Zone</td>
+<td style="text-align: left;">Macro time changes, polyrhythm jumps</td>
+<td style="text-align: left;">Micro time for attack, loop for tails</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rate</td>
+<td style="text-align: left;">Immediate time division/mult, manual groove changes</td>
+<td style="text-align: left;">Fast for punchy, slow for dub/echo</td>
+</tr>
+<tr>
+<td style="text-align: left;">Skew</td>
+<td style="text-align: left;">Stereo polyrhythms, ping-pong, complex grid overlays</td>
+<td style="text-align: left;">Tight or wide image, phase tricks</td>
+</tr>
+<tr>
+<td style="text-align: left;">Halo</td>
+<td style="text-align: left;">Smear, glue, pseudo-reverb for layering</td>
+<td style="text-align: left;">Zero for sharp/repetitive hits</td>
+</tr>
+<tr>
+<td style="text-align: left;">Color</td>
+<td style="text-align: left;">Modulate for timbral counterpoint, dense freq interplay</td>
+<td style="text-align: left;">Set for attack/decay shaping, dirt</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flip</td>
+<td style="text-align: left;">Time-reversal, glitch, pattern morph</td>
+<td style="text-align: left;">Sharp metallic, reverse hits</td>
+</tr>
+<tr>
+<td style="text-align: left;">Repeats</td>
+<td style="text-align: left;">Fills, ratchets, cycle pattern complexity</td>
+<td style="text-align: left;">Low for dry/punch, high for roooooooll</td>
+</tr>
+<tr>
+<td style="text-align: left;">Input Gain</td>
+<td style="text-align: left;">Clip for digital grit, attenuate for only backghosts</td>
+<td style="text-align: left;">Boost for hit, cut for room</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Manual Link</h3>
+<p><a href="https://makenoisemusic.com/content/manuals/soundhack_Mimeophon_Manual.pdf">Soundhack Mimeophon Manual PDF</a></p>
+<hr />
+<p>Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></p>
+</body>
+</html>

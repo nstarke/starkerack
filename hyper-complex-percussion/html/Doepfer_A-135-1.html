@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-135-1</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-135-1</h1>
+<ul>
+<li><a href="../../manuals/A135_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100man/A135_anl.pdf">Doepfer A-135 VC-Mixer Manual (PDF)</a></p>
+<hr />
+<h2>Using the Doepfer A-135 VC-Mixer for Dense &amp; Complex Percussion</h2>
+<p>As a eurorack artist aiming for hyper-complex, polymetric percussion, the <strong>A-135 VC-Mixer</strong> isn't just a utility—it's a dynamic performance and sequencing tool. Here’s how you can harness this voltage-controlled mixer for rhythmic intensity:</p>
+<hr />
+<h3>Core Features to Exploit</h3>
+<ul>
+<li><strong>Four Independent, Linear VCAs</strong>: Each input is independently mixed with CV-controllable volume.</li>
+<li><strong>CV Control for Each Channel</strong>: The CV inputs (with their attenuators) let you rhythmically gate/morph each sound using external trigger, LFO, envelope, or sequence sources.</li>
+<li><strong>Manual Gain Offset</strong>: Push channels into constant "open" or use as a bias for bipolar CVs (great for morphing or creating asymmetrical patterns).</li>
+</ul>
+<hr />
+<h3>Percussive Applications &amp; Unique Techniques</h3>
+<h4>1. <strong>Dynamic Voice Summing for Polyrhythms</strong></h4>
+<ul>
+<li><strong>Patch</strong> 4 separate percussion voices (TR-808/909 modules, synthesized percs, sample players, or even heavily filtered noise/oscillators) into the 4 audio inputs.</li>
+<li>Use a complex trigger or gate sequencer (e.g., Mutable Instruments Grids with Euclidean patterns, or Pamela’s New Workout) to send gates/LFOs/envelopes to the CV inputs of each channel.<ul>
+<li><strong>Example</strong>: Channel 1 = regular 4/4 kick, Channel 2 = 5-step hat pattern, Channel 3 = 7-step snare hits, Channel 4 = 11-step FM clang.</li>
+</ul>
+</li>
+<li><strong>Result</strong>: The overall output is a blend of polyrhythms, constantly morphing as your CV sources interact.</li>
+</ul>
+<h4>2. <strong>Rhythmically Gating Audio Sources</strong></h4>
+<ul>
+<li><strong>Send audio-rate triggers or audio snippets</strong> to the audio ins and gate them with fast envelopes.<ul>
+<li>Use short, snappy envelopes (from an A-140, Maths, or Falistri) triggered by advanced sequencer logic (e.g., OR/AND/XOR clocks, or even probability triggers).</li>
+</ul>
+</li>
+<li>Use LFOs or random CVs (A-118, A-148) to toggle or pulse the channels, dynamically muting/unmuting rhythmic fragments and textures for generative results.</li>
+</ul>
+<h4>3. <strong>Morphing, Randomized, or "Animated" Drum Patterns</strong></h4>
+<ul>
+<li>Patch CVs from sequencers with clock divisions/multiplications, random gates, or irregular LFOs.</li>
+<li>Randomly modulate the Gain controls to let quiet percussion "peek" through—this is great for <strong>ghost notes</strong> or <em>micro-dynamics</em>.</li>
+<li>Run a morph CV (A-144 Morph Controller, Planar, or joystick module) into all four channels—crossfade complex percussive parts for live morphs.</li>
+</ul>
+<h4>4. <strong>Percussive "Ring-Mod" Style FX</strong></h4>
+<ul>
+<li>Feed an audio-rate percussion signal (e.g., a hi-hat or metallic sound) into the CV input of a channel, with another drum sound at the audio input.</li>
+<li>You’ll get wild, AM/ringmod-like percussion that’s highly dynamic and gritty—perfect for punchy, off-kilter drums.</li>
+</ul>
+<h4>5. <strong>MIDI-CV and Cross-Platform Complexity</strong></h4>
+<ul>
+<li>Use MIDI-to-CV modules to send algorithmic, polyrhythmic MIDI controller data into CV ins.<ul>
+<li>Example: Mod Wheel controls snare level, Pitch Bend morphs between channels, velocity accentuates hats—all clocked from DAW or an external sequencer.</li>
+</ul>
+</li>
+</ul>
+<h4>6. <strong>Patch Example for Extreme Complexity</strong></h4>
+<pre><code class="language-plaintext">[Kick Module] ----&gt; Audio In 1
+                        /      \
+[Trigger Sequencer A]-- CV In 1 (Euclidean 4/4)
+[FM Snare] ---------&gt; Audio In 2
+                        /      \
+[Trigger Seq B] ----- CV In 2 (7/8 pattern, irregular gates)
+[Sample Player] ----&gt; Audio In 3
+                        /      \
+[Random S&amp;H] ------- CV In 3 (for digital artifacts)
+[Filtered Noise] ---&gt; Audio In 4
+                        /      \
+[LFO+Envelope] ------ CV In 4 (morphs at odd divisions)
+&gt; To FX and Master Out!
+</code></pre>
+<hr />
+<h3>Tips for Punch, Uniqueness, and Percussive Impact</h3>
+<ul>
+<li><strong>Use Short, Snappy CVs</strong>: Decay envelopes, tight triggers, and steep random gates create sharp, percussive transients.</li>
+<li><strong>Exploit Gain Offsets for Ghosts</strong>: Subtle boost lets quieter hits through, perfect for groove nuances.</li>
+<li><strong>CV Over Audio for FM</strong>: For truly broken/glitchy sounds, route audio signals as CVs, not just control voltages.</li>
+<li><strong>Cascade More VCAs!</strong>: Chain another quad VCA for multi-stage Gating/AM, driving even wilder textures.</li>
+<li><strong>Feedback Loops</strong>: Mix VC-Mixer out back into a percussive modulator for recursive complexity.</li>
+</ul>
+<hr />
+<h3>More Possibilities</h3>
+<ul>
+<li><strong>Morph Percussion with A-144 or Planar</strong><ul>
+<li>Achieve single-knob crossfading and quirky rhythm morphs across four voices.</li>
+</ul>
+</li>
+<li><strong>Automate via DAW/External MIDI</strong><ul>
+<li>Deep integration for generative, superhuman-precision percussion automation.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+</body>
+</html>

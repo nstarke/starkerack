@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Vermona_Melodicer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Vermona — Melodicer</h1>
+<ul>
+<li><a href="../../manuals/melodicer manual en 1.1 web.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.vermona.com/fileadmin/manuals/MeloDICER_UserGuide_EN.pdf">Download the VERMONA meloDICER User Manual (PDF)</a></p>
+<hr />
+<h1>Using meloDICER for Dense, Hyper-Complex Percussion and Rhythmic Patterns</h1>
+<p>The <strong>VERMONA meloDICER</strong> is a stochastic sequencer, capable of generating patterns that range from minimal randomness to full chaos. While it is designed primarily for melodic sequencing, its feature set can absolutely be pushed into the territory of highly intricate, layered, and evolving percussion sequences — including polyrhythms and odd meters.</p>
+<p>Below I detail techniques and strategies, based on the manual, for utilizing meloDICER as a <em>rhythmic brain</em> in a percussion-focused Eurorack setup.</p>
+<hr />
+<h2>1. <strong>Strategic Use of the Rhythm Section</strong></h2>
+<h3><strong>Main Controls: NOTE VALUE, VARIATION, LEGATO, REST</strong></h3>
+<ul>
+<li><strong>NOTE VALUE:</strong> Sets the base note subdivision. Use 1/8, 1/16, or even 1/32 for rapid-fire rhythms.</li>
+<li><strong>VARIATION:</strong> Turn this up to introduce <em>random additional subdivisions</em>, leading to complex, unpredictable syncopation.</li>
+<li><strong>LEGATO:</strong> If you want some hits to be "tied" together for double/triple hits (like flams or rolls), increase LEGATO. For classic drum trigger behavior, keep it low.</li>
+<li><strong>REST:</strong> Crank this up to sporadically remove steps, introducing holes and breath to ultra-dense rhythms.</li>
+</ul>
+<h3><strong>Access More Subdivisions:</strong></h3>
+<p>By default, triplets and 1/32 notes in VARIATION are off.<br />
+<strong>To enable them:</strong>
+1. Enter EDIT mode (<code>E</code> button).
+2. Select parameters 6 and 7.
+3. Activate triplets and/or 1/32 as desired.
+Now VARIATION can randomly access these, opening the door to tuplets and more polymetric rhythms.</p>
+<hr />
+<h2>2. <strong>Polyrhythms and Odd Meters</strong></h2>
+<h3><strong>Pattern Length Manipulation for Odd Time Sigs and Polyrhythms</strong></h3>
+<ul>
+<li><strong>Set pattern length:</strong> Hold <code>4</code> or <code>6</code> (first/last step) and use the encoder to select arbitrary boundaries.<ul>
+<li>Example: Set pattern length to 5 or 7 or 11 1/16 notes, creating cycles that don’t fit standard 4/4.</li>
+</ul>
+</li>
+<li>
+<p><strong>Move the range:</strong> Hold both <code>4</code> and <code>6</code>, turn encoder to offset start point for phase-shifted loops (Steve Reich style).</p>
+</li>
+<li>
+<p><strong>Combine with external clocks:</strong> Use irregular external clocks (e.g., 5/8 or 7/8 pulse patterns) into CLK IN to push the meloDICER into non-4/4 domains.</p>
+</li>
+</ul>
+<hr />
+<h2>3. <strong>External Clocking and DAW Sync</strong></h2>
+<ul>
+<li>Use external, non-4/4 clock sources to make meloDICER sequence on top of polymetric, polyrhythmic, or complex time signature backbones.<ul>
+<li>Example: Run a Euclidean or Turing Machine-based trigger sequencer into CLK IN for “irrational” pulse grids.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>4. <strong>Dense Percussion: Utilizing CV and GATE Outputs</strong></h2>
+<ul>
+<li><strong>GATE OUT</strong>: Drives percussive envelopes, VCAs, or directly triggers drum modules.</li>
+<li><strong>1V/OCT OUT</strong>: Route to percussion modules with pitch input to create “melodic” perc or to modulate pitch/folder/timbre for punchiness.</li>
+</ul>
+<h4><strong>Innovative Voice Routing Ideas:</strong></h4>
+<ul>
+<li>Use fast pattern lengths (3, 5, or 7 steps) with active VARIATION and REST to generate stuttering breakcore-style hi-hats or snares.</li>
+<li>Send 1V/OCT to a percussive synth’s pitch (e.g., BIA, Plonk) for zappy, FM-drum-style lines with evolving pitch for each trigger.</li>
+</ul>
+<hr />
+<h2>5. <strong>Sculpting Variability: Dice vs. Realtime Mode</strong></h2>
+<ul>
+<li><strong>Dice mode:</strong> Press DICE to lock in generated patterns for tight loops. </li>
+<li><strong>Realtime mode:</strong> Hold DICE (LED off) for always-evolving generative sequences—good for unpredictable fill/drum solo variation.</li>
+<li><strong>Rhythm &amp; Melody independence:</strong> Lock one section to a loop (e.g., dense rhythm grid) while leaving the other in free-random mode.</li>
+</ul>
+<hr />
+<h2>6. <strong>CV IN for Algorithmic Modulation</strong></h2>
+<ul>
+<li>Assign LFO, S&amp;H, or other modulation sources to meloDICER’s CV INs to morph NOTE VALUE, VARIATION, LEGATO, and REST in real time.</li>
+<li>Patch sequencer or envelope to CV IN2 for CV-controlled rhythmic modulation: e.g., more REST in some bars, more VARIATION in others.</li>
+</ul>
+<hr />
+<h2>7. <strong>Advanced Drum Techniques</strong></h2>
+<ul>
+<li><strong>Gated MUTE and Pattern Restart:</strong> Use GATE IN 2 for rhythmic drop-outs, kill-switch fills, or instant reset-to-start variations.</li>
+<li><strong>LOCK mode:</strong> Prepare new patterns scaled to intensity or groove, then punch them in at the drop for live “scene” changes.</li>
+</ul>
+<hr />
+<h2>8. <strong>Quantizer/Alternative Modes</strong></h2>
+<ul>
+<li><strong>Seq + Gate mode:</strong> Use an external drum sequencer to clock meloDICER’s melody (which you send to percussion modules for tuned percussion).</li>
+<li><strong>Quantizer 1/2:</strong> Quantize CV from another random or pattern source for “in-scale” pitch percussion or glitchy pitch routings.</li>
+</ul>
+<hr />
+<h2>9. <strong>Saving/Recalling Insanity</strong></h2>
+<ul>
+<li>Save your best chaotic/rhythmic patterns and reload for live sets.</li>
+<li>Patterns include random seeds, so you can recall <em>precise</em> rhythms that sound algorithmically wild.</li>
+</ul>
+<hr />
+<h3><strong>Summary Table: meloDICER for Advanced Rhythms</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Application for Percussion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triplet/1/32 Variation</td>
+<td>Polyrhythms &amp; odd subdivisions</td>
+</tr>
+<tr>
+<td>Pattern length/offset</td>
+<td>Odd meters, phase cycles</td>
+</tr>
+<tr>
+<td>External clock (odd pulses)</td>
+<td>Polymeter, generative irregularity</td>
+</tr>
+<tr>
+<td>REST/LEGATO randomization</td>
+<td>Sporadic drop-outs, rolls, burst effects</td>
+</tr>
+<tr>
+<td>CV IN modulation</td>
+<td>Dynamic intensity, "humanize" machine beats</td>
+</tr>
+<tr>
+<td>Locked vs. free random modes</td>
+<td>Repeat fills vs. evolving chaos</td>
+</tr>
+<tr>
+<td>Pattern save/recall</td>
+<td>Live performance transitions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Example Patch (Eurorack Context)</h2>
+<ol>
+<li><strong>GATE OUT</strong> ➔ Envelope Generator ➔ VCA ➔ Noise or Drum Voice</li>
+<li><strong>1V/OCT OUT</strong> ➔ Drum module with pitch/frequency control for ghost notes/tuned perc</li>
+<li><strong>External Clock IN</strong>: Use Euclidean sequencer with 5/8 or 7/8 rhythm for polyrhythms</li>
+<li><strong>Pattern Length</strong>: Set to 11 steps for evolving patterns</li>
+<li><strong>CV IN 2</strong>: Envelope or LFO for morphing VARIATION and REST on the fly</li>
+</ol>
+<hr />
+<h2>Resources</h2>
+<ul>
+<li><a href="https://www.vermona.com/fileadmin/manuals/MeloDICER_UserGuide_EN.pdf">Download the VERMONA meloDICER User Manual (PDF)</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+</body>
+</html>

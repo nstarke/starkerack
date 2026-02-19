@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Centreville_PlusMix</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Centreville — PlusMix</h1>
+<ul>
+<li><a href="../../manuals/PlusMix _ centrevillage.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://centrevillage.net/products/PlusMix.html">Download PlusMix Manual PDF</a></p>
+<hr />
+<h1>Creative Rhythmic Uses for PlusMix Utility Mixer Switch in Eurorack Percussion Patching</h1>
+<p>The <strong>PlusMix</strong> is a gate-controlled unity mixer, ideal for high-precision CV or audio mixing, and can be dynamically controlled via gates and polarity switches. Its architecture gives you powerful tools for sculpting percussive, polyrhythmic, or complex modular rhythmic music.</p>
+<h2>Key Features Relevant to Rhythmic Complexity</h2>
+<ul>
+<li>3 audio/CV inputs (<strong>PLS1, PLS2, BASE</strong>), 1 mix output (<strong>MIX</strong>).</li>
+<li>2 gate inputs (<strong>SW1, SW2</strong>) and 2 gate-polarity switches (<strong>SW1PL, SW2PL</strong>).</li>
+<li><strong>PLS1</strong> and <strong>PLS2</strong> inputs are selectively mixed, per gate and polarity status.</li>
+<li><strong>BASE</strong> always mixes through.</li>
+<li>Can be used as manual switch or gate-automated for rhythmically dynamic processes.</li>
+<li>DC Coupled — suitable for both audio and CV.</li>
+</ul>
+<hr />
+<h2>Techniques for Complex Rhythmic and Percussive Music</h2>
+<h3>1. <strong>Dynamic Patterned CV Mixing for Polyrhythms</strong></h3>
+<p>Route multiple sequencer CVs (possibly from polyrhythmic sources, e.g., a 7-step and 5-step sequence) into <strong>PLS1</strong> and <strong>PLS2</strong>. Use gate/trigger patterns from your rhythm/clock modules (e.g., Euclidean sequencers, clock div/mults, logic processors) patched to <strong>SW1</strong> and <strong>SW2</strong>.<br />
+<strong>Result</strong>: Only at specific beat coincidences do one or both patterns merge to the output. Complex, evolving melodics or modulation.</p>
+<p><strong>Example Patch:</strong>
+- <strong>PLS1:</strong> 5-step modulation CV, clock-divided.
+- <strong>PLS2:</strong> 7-step modulation CV.
+- <strong>SW1:</strong> Main clock triggers.
+- <strong>SW2:</strong> Swung/divided clock or logic OR from other percussive triggers.</p>
+<p>This propagates polyrhythms to any CV destination (oscillator pitch for tuned percussion, filter cutoff, etc.).</p>
+<hr />
+<h3>2. <strong>Percussive Audio Layer Gating</strong></h3>
+<p>Feed <strong>PLS1/2</strong> with audio-rate percussive sources (e.g., different digital noise bursts, metallic FM hits). Gates to <strong>SW1/SW2</strong> select which layer is present, with polarity switches (SW1PL/SW2PL) providing instant inversion/mute.</p>
+<p><strong>Result</strong>: Rapid, switchable layering of drum hits, claps, glitches—unique composite percussion sounds that change at intricate rhythmic intervals.</p>
+<hr />
+<h3>3. <strong>Probabilistic/Conditional Percussion Hits</strong></h3>
+<p>Insert a logic or probability gate module before <strong>SW1/SW2</strong>. Now, percussion layers or modulation get mixed in only on rare, non-regular triggers, producing unpredictable fills and accents.</p>
+<p><strong>Example</strong>:<br />
+- <strong>Probability gate</strong> on <strong>SW2</strong>.<br />
+- Odd step triggers on <strong>SW1</strong>.
+- Two contrasting percussion voices, switched as dictated by the gates.</p>
+<hr />
+<h3>4. <strong>Morphing Manual Switch for Live Performance</strong></h3>
+<p>Use when unpatched (SW1 &amp; SW2 normals engage), and flip polarity switches for instant, punch-in/out percussion changes; perfect for rimshot/hat/snare switching on stage.</p>
+<hr />
+<h3>5. <strong>Precision Pitch CV Remixer for Drum Melodies</strong></h3>
+<p>Because PlusMix is high-precision, send pitch CVs to PLS1/PLS2/BASE and merge them rhythmically to oscillators tuned for percussive synth drums. This creates drumlines with evolving, rhythmically changing tunings—think Aphex Twin/IDM drum edits.</p>
+<hr />
+<h3>6. <strong>Nested Syncopation with Clock-Linked Gates</strong></h3>
+<p>Feed in pulse trains from different clock-divisions (e.g., 3/16, 7/16, 13/16) to SW1/SW2, with percussion CV/audio routed accordingly. Utilize the gate polarity switches to invert or phase-offset layers, exploiting the normalization to create cross-rhythm accents as the clocks "breathe" together.</p>
+<hr />
+<h2>Tips to Maximize Punch &amp; Uniqueness</h2>
+<ul>
+<li>Mix envelopes or accent CVs that open VCAs downstream, creating dynamic, talking percussion.</li>
+<li>Switch between different effects sends (distortion, delay, bitcrush) under gate control.</li>
+<li>Use BASE for the main pulse and gate-mix in noisy or metallic layers for "ghost" hits.</li>
+<li>Chain several PlusMix modules for even more combinatorial rhythmic complexity.</li>
+</ul>
+<hr />
+<p><strong><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></strong></p>
+</body>
+</html>

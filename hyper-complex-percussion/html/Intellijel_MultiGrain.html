@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_MultiGrain</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — MultiGrain</h1>
+<ul>
+<li><a href="../../manuals/multigrain_manual_v1.2_2025.09.02.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://intellijel.com/downloads/manuals/Multigrain_Manual_v1.2.pdf">Download the Intellijel Multigrain v1.2 Manual (PDF)</a></p>
+<hr />
+<h1>Using Intellijel Multigrain for Dense, Hyper-Complex Percussive Rhythms</h1>
+<p>As a eurorack musician, <strong>Intellijel Multigrain</strong> is an extremely deep tool for granular sampling, morphing, and rhythmic exploration. To generate densely rhythmic, hyper-complex percussion with polyrhythms, odd time signatures, and intricate patterns, follow these strategies derived from the manual and your creative goals:</p>
+<hr />
+<h2>1. <strong>Granular Percussion Voice: Sample Preparation</strong></h2>
+<ul>
+<li><strong>Load a bank of short, percussive samples</strong> (one-shots, drum hits, clacks, found sounds) across all 8 Sound slots. Use one channel (L or R) for dry drums and the other for treated hits to enable stereo complexity (p.55).</li>
+<li><strong>Make multisample files</strong>: Load one file with rapid-fire percussion slices, then use granular Start/Wrap/Scan controls to jump between them.</li>
+<li>Normalize your samples to keep attack transients punchy and consistent (p.55).</li>
+</ul>
+<hr />
+<h2>2. <strong>Complex Rhythm Generation: Triggers, Modulation &amp; CV</strong></h2>
+<h4><strong>A. Clocking &amp; Triggering</strong></h4>
+<ul>
+<li>
+<p><strong>Patch independent rhythmic triggers into GATE/NEXT/SELECT/SYNC</strong> for each Sound to generate polyrhythmic grain streams (pp.11, 18). For example:</p>
+<ul>
+<li><strong>GATE</strong>: Fires grains within active Sound based on panel settings.</li>
+<li><strong>NEXT</strong>: Step through the sample bank sequentially with every external trigger.</li>
+<li><strong>SELECT</strong>: Directly voltages address which Sound slot is being accessed. Use with stepped CV or random voltages for unpredictable sequences.</li>
+</ul>
+</li>
+<li>
+<p><strong>SYNC input</strong>: Use external clocks with odd divisions or non-standard rhythms. RATE knob becomes a clock multiplier/divider, allowing you to align or offset grains—even with polymetric clock sources (pp.18–19).</p>
+</li>
+</ul>
+<h4><strong>B. Modulation: X, Y, Z Inputs and Internal Random</strong></h4>
+<ul>
+<li>
+<p><strong>Assign CV modulation to granular parameters</strong>: Send clocked CV to SIZE, RATE, WRAP, SCAN, PITCH, and BLUR for time-varying results.</p>
+<ul>
+<li>Modulating <strong>RATE</strong> and <strong>SIZE</strong> at fast, independent rates (e.g., with LFOs or sequencers at different tempos) instantly produces polyrhythmic grain bursts.</li>
+</ul>
+</li>
+<li>
+<p><strong>Apply internal random (RAND) to parameters</strong>: Use neg/pos amounts to introduce probabilistic envelope, position, or direction tweaks per grain (p.25).</p>
+</li>
+</ul>
+<h4><strong>C. Per-Step Modulation (Live Complexity)</strong></h4>
+<ul>
+<li>
+<p><strong>Trigger grains via external triggers</strong> for “manual” micro-programming (e.g., running GATE from a fast/clock-divided rhythm generator), or use CV-controllable grain generation by modulating RATE (p.18).</p>
+</li>
+<li>
+<p><strong>Assign modulation to REVERSE</strong> for reversal “hits” mapped to a rhythmic pattern or random toggling (p.24–26).</p>
+</li>
+</ul>
+<hr />
+<h2>3. <strong>Morphing &amp; Scenes: Instant Timbre/Pattern Changes</strong></h2>
+<ul>
+<li>Create Scenes (A/B) with <strong>wildly different grain shapes, lengths, pitch, or density</strong> for the same percussion sample (pp.13–14).</li>
+<li><strong>Automate the Morph fader</strong> with CV to interpolate between settings in sync with a rhythmic LFO, knob, or even incoming performance gestures.</li>
+<li><strong>Discrete parameters (SHAPE, REVERSE)</strong> can be morphed probabilistically, so you can set up probability-based rhythmic variations as you crossfade between Scenes (p.14).</li>
+</ul>
+<hr />
+<h2>4. <strong>Unique Percussive Voice Processing Techniques</strong></h2>
+<h4><strong>A. Superimposed Polyphony</strong></h4>
+<ul>
+<li><strong>Latch multiple Sounds</strong> (use LATCH; p.9, 53) to let grains from several sample slots overlap. Employ per-Sound modulation for polymetric granulation layers.</li>
+</ul>
+<h4><strong>B. Ping-Pong SCAN and Reversal</strong></h4>
+<ul>
+<li><strong>Enable Ping-Pong (long press REVERSE; p.20)</strong>—instead of wrapping, your grains bounce back and forth within the sample memory, yielding mesmerizing, irregular rhythmic motion.</li>
+<li>Combine this with clever START/WRAP/SCAN settings to “cycle” through various parts of a drum loop at variable speeds.</li>
+</ul>
+<h4><strong>C. Envelope Randomization for Groove and Stutter</strong></h4>
+<ul>
+<li>Assign <strong>RAND to LEVEL and TONE</strong>, with negative amounts for automatic panned randomization—makes each hit jump L/R in the stereo field and change its EQ (p.25).</li>
+</ul>
+<h4><strong>D. Pitch Quantizer + Modulation</strong></h4>
+<ul>
+<li>Use the <strong>Quantizer</strong> to force granular pitch shifts to scale degrees, but modulate it with X/Y/Z at audio rates for melodic percussion (pp.32–33).</li>
+<li>Assign quantized PITCH to CV for melodic-rhythmic patterns.</li>
+</ul>
+<h4><strong>E. Blurring/Reverb for Density</strong></h4>
+<ul>
+<li>Add per-grain reverb via BLUR; modulate per-grain for “clouds” of percussive clutter that ebb and flow with rhythm (p.21).</li>
+</ul>
+<h4><strong>F. Live/Looping Recorder Tricks</strong></h4>
+<ul>
+<li>Use the <strong>Looping Recorder</strong> (v1.2) to record rhythmic material live. Freeze/unfreeze the buffer on the fly (by button or modulation) to “lock in” spontaneous loops mid-performance (pp.39–41).</li>
+<li>Use threshold-based auto-freeze for sample-accurate rhythmic looping.</li>
+</ul>
+<hr />
+<h2>5. <strong>Algorithmic/Generative Control for Evolving Patterns</strong></h2>
+<ul>
+<li>Modulate multiple parameters simultaneously for self-evolving complexity.</li>
+<li>Assign random (RAND) to alternative grains for pseudo-generative sequences (p.25–26).</li>
+<li>Use complex sources (logic, euclidean sequencers, bursts, etc) patched to GATE, NEXT, or CV for non-repeating hyper-complex rhythmic streams.</li>
+</ul>
+<hr />
+<h2>6. <strong>Unique FX Processing</strong></h2>
+<ul>
+<li>Use Multigrain as an <strong>effect</strong>: Patch in drums or complex rhythmic audio to inputs, set a Sound to “Live” mode (p.10), and granulate/morph wild output streams.</li>
+<li>Combine <strong>thru/blur bypass</strong> and CV-morphing to switch between dry, reverb-drenched, and glitched-out percussive FX.</li>
+</ul>
+<hr />
+<h2>7. <strong>Performance Shortcuts &amp; Workflow</strong></h2>
+<ul>
+<li>Use quick button combos (p.52–54) to randomize, copy, and morph Sounds and Scenes in realtime—injects controlled chaos and new grooves on demand.</li>
+</ul>
+<hr />
+<h3><strong>Pro Tip: Layer Multigrain with Dedicated Triggers and Accent Modulation</strong></h3>
+<p>Multigrain’s design lets you “address” separate layers in parallel, creating intricate polyrhythmic structures. Use external sequencers, trigger matrices, or generative CV for advanced control.</p>
+<hr />
+<p>Explore, experiment, and let Multigrain’s granular engine warp your rhythmic ideas into intricate soundscapes!</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>
