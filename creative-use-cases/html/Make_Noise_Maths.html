@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_Maths</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — Maths</h1>
+<ul>
+<li><a href="../../manuals/MATHSmanual2013.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://makenoisemusic.com/manuals/Maths2013Manual.pdf">Make Noise Maths Manual PDF</a></p>
+<hr />
+<h1>Creative Use of Make Noise Maths in Your Eurorack System</h1>
+<p>The Make Noise Maths module is an ultra-flexible analog function generator, function processor, and signal mod utility. Below are advanced and creative ideas for how to patch Maths in combination with other popular and general Eurorack modules. These techniques make use of the functionality outlined in the manual above and suggest some musical or sound-design directions you might pursue.</p>
+<hr />
+<h2>1. Rhythmic Skipping, Randomization &amp; Probabilistic Pulses</h2>
+<p><strong>Interesting With:</strong> Mutable Instruments Branches (gate randomizer), Wogglebug (random voltage source), or any clock divider/multiplier</p>
+<ul>
+<li><strong>Patch:</strong> Use the EOR/EOC (End of Rise/Cycle) to gate a randomizing module (e.g. clock input of Branches or Wogglebug).</li>
+<li><strong>Why:</strong> You’ll generate probabilistic rhythm triggers in sync (or out of sync) with your core Maths cycles, enabling generative drum or percussion lines.</li>
+<li><strong>Bonus:</strong> CV-in the Rise/Fall times with a slow LFO or random voltage for evolving rhythms.</li>
+</ul>
+<hr />
+<h2>2. Slewed Envelope Following &amp; Spectral Animation</h2>
+<p><strong>Interesting With:</strong> Mutable Instruments Rings, MI Elements, or any filter/LPG (LxD, Optomix, etc.)</p>
+<ul>
+<li><strong>Patch:</strong> Process external audio (from a tape loop, guitar, or mic input) through Maths as an envelope follower (manual p.23).</li>
+<li><strong>Then:</strong> Use Maths’ OR out as an envelope to modulate the cutoff of a filter or LPG (e.g., DPLPG, LxD, Optomix), or control timbre on Rings’ structure/brightness.</li>
+<li><strong>Why:</strong> This lets you dynamically sculpt tonal color or resonance based on real audio amplitude – great for live performance.</li>
+</ul>
+<hr />
+<h2>3. West Coast Complex Oscillator "Serge" Style Waveshaping</h2>
+<p><strong>Interesting With:</strong> Make Noise DPO, Verbos Complex Oscillator, Instruo Cs-L, The Harvestman/Industrial Music Electronics oscillators</p>
+<ul>
+<li><strong>Patch:</strong> Use Maths as both a CV processor and audio-rate function generator:<ul>
+<li>Send audio-rate modulation from Maths’ cycling channels into a complex osc’s FM input.</li>
+<li>OR, process an external oscillator through Maths’ input for non-linear slew limiting, resulting in "wavefoldy" shapes.</li>
+</ul>
+</li>
+<li><strong>Why:</strong> Maths' shaping and curvature control provides unique, animated timbral variation.</li>
+</ul>
+<hr />
+<h2>4. Trigger Sequencer/Clock Manipulator</h2>
+<p><strong>Interesting With:</strong> Pamela’s New Workout (clock module), Make Noise Tempi, Intellijel Steppy, or ANY simple step sequencer</p>
+<ul>
+<li><strong>Patch:</strong> Take clock pulses or step triggers into Maths channels. Patch EOR/EOC to sequencer reset/input/step inputs.</li>
+<li><strong>Why:</strong> You can skew/shift steps, trigger logic, or create complex polyrhythms easily by varying the Rise/Fall and cycle time. Maths can also manually delay or divide clocks.</li>
+</ul>
+<hr />
+<h2>5. Evolving LFOs and Dual-Mixed Modulation</h2>
+<p><strong>Interesting With:</strong> Mutable Instruments Tides, Intellijel Quadrax, ALM Pamela’s New Workout, or any other modulation sources</p>
+<ul>
+<li><strong>Patch:</strong> <ul>
+<li>Self-patch EOR/EOC from Maths to cycle inputs for bouncing-ball, phase-shifted LFOs (manual p.21-22, 23).</li>
+<li>Mix Maths' outputs with other LFO shapes in a CV mixer (e.g., Intellijel Triatt, Happy Nerding 3xMIA).</li>
+</ul>
+</li>
+<li><strong>Why:</strong> Great for evolving drones/cinematic modulation, or to create shifting CVs that subtly morph other parameters over time.</li>
+</ul>
+<hr />
+<h2>6. Audio Mangling &amp; Pseudo-VCA</h2>
+<p><strong>Interesting With:</strong> Mutable Instruments Clouds/Beads (granular), resonant filters, ring modulators</p>
+<ul>
+<li><strong>Patch:</strong> Model the "pseudo-VCA" technique (manual p.24): run an audio signal through a Maths channel, and use offsets from Ch2/3 to push the level toward clipping or silence. Envelope-control the amplitude and clipping point.</li>
+<li><strong>Why:</strong> Achieve highly driven, dynamically changing fuzz/distortion, waveshaping, or gating effects—especially striking when automated via Maths' own cycling or an external envelope.</li>
+</ul>
+<hr />
+<h2>7. Oscillator Sync and Complex Trigger Chaining</h2>
+<p><strong>Interesting With:</strong> Any VCO (Dixie II+, DPO, STO), percussion synths, drum modules</p>
+<ul>
+<li><strong>Patch:</strong> Use Maths’ EOR/EOC outputs as sync or trigger inputs for other oscillators, percussion voices, or envelope modules.</li>
+<li><strong>Why:</strong> This enables creative chained envelopes, start/stop triggers, stepped modulation, or complex "gate choreography" beyond conventional sequencer capabilities.</li>
+</ul>
+<hr />
+<h2>8. Advanced Logic Functions—CV Level &amp; Polarity Game</h2>
+<p><strong>Interesting With:</strong> Any step sequencer, comparative logic module (Doepfer A-166, Livestock Electronics Maze)</p>
+<ul>
+<li><strong>Patch:</strong> Use the SUM/OR and INV outputs for voltage thresholding, maximum/minimum voltage derivation, and sum/difference CV mixing.</li>
+<li><strong>Why:</strong> Great for key-transposable sequences, dynamic CV mixing, or complex "CV math" in generative or evolving patches.</li>
+</ul>
+<hr />
+<h2>9. Generative &amp; Self-Patching Ecosystem</h2>
+<p><strong>Interesting With:</strong> Mutable Instruments Marbles (random), Make Noise René (touch controller sequencer), feedback loops</p>
+<ul>
+<li><strong>Patch:</strong> Use Maths’ outputs to modulate its own cycle/gate/trigger inputs, possibly via feedback from processed audio or other modules. Combine with random sources or stepped voltages for unpredictable emergent patterns.</li>
+<li><strong>Why:</strong> Maths makes an excellent CV "brain" for generative modular music, constantly creating new signals in unpredictable ways—especially when chained via logic with sequencers, random, or probability sources.</li>
+</ul>
+<hr />
+<h2>10. Crossfading and Log/Exp "Animation"</h2>
+<p><strong>Interesting With:</strong> ANY VCA/Mixer (e.g., Intellijel Quad VCA, Mutable Veils), Make Noise Morphagene</p>
+<ul>
+<li><strong>Patch:</strong> Use Maths channels as voltage-controllable crossfaders between LFOs, envelopes, audio, or modulate the curvature (log/lin/exp) via CV for time-evolving modulation depth.</li>
+<li><strong>Why:</strong> Animate not just shape and timing, but also the character AND depth of every modulation in your system for extra vibrancy.</li>
+</ul>
+<hr />
+<p>Experiment with patching Maths' functions in both audio and CV domains—sometimes it sounds great to just clock, modulate, and process everything through its highly-flexible architecture. The more you self-patch and chain it with modulation or utility modules, the more complex and musical your results will become.</p>
+<hr />
+<p><strong>Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></strong></p>
+</body>
+</html>

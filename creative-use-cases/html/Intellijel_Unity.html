@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Unity</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Unity</h1>
+<ul>
+<li><a href="../../manuals/unity-mixer_manual_2020.04.15.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://intellijel.com/downloads/manuals/unity-mixer-manual-2020.04.15.pdf">Unity Mixer Manual PDF</a></p>
+<hr />
+<h1>Creative Uses for the Intellijel Unity Mixer</h1>
+<p>The Intellijel Unity Mixer is a compact, dual 3:1 or single 6:1 unity-gain mixer for both CV and audio signals. While simple at first glance, its true power emerges in creative patching contexts. Below are several imaginative ways to put the Unity Mixer to work, drawing on key features outlined in the manual.</p>
+<hr />
+<h2>1. Mixing Multiple LFOs for Complex Modulation</h2>
+<p><strong>Combine several LFO outputs</strong> (from modules like the <a href="https://mutable-instruments.net/modules/">Mutable Instruments Tides</a> or <a href="https://doepfer.de/a145.htm">Doepfer A-145</a>) into a single, composite modulation signal. This allows you to generate intricate, evolving CV for modulating parameters like filter cutoff, oscillator pitch, or wavefold depth.</p>
+<ul>
+<li><strong>Patch:</strong> LFO A → In 1, LFO B → In 2, LFO C → In 3, Output → Filter cutoff.</li>
+<li><strong>Tip:</strong> Use different LFO rates and waveforms for unexpected results.</li>
+</ul>
+<hr />
+<h2>2. Summing Triggers or Gates</h2>
+<p>Need to create complex rhythm patterns from several trigger/gate sources? <strong>Combine triggers from multiple sequencers</strong> (e.g., <a href="https://busycircuits.com/alm017/">ALM Pamela’s New Workout</a> or <a href="https://www.makenoisemusic.com/modules/tempi">Make Noise Tempi</a>) to build polyrhythmic gate streams for percussion, envelope firing, or logic gating.</p>
+<ul>
+<li><strong>Patch:</strong> Three sequencer gates → Inputs 1, 2, 3. Output → Drum module gate input.</li>
+<li><strong>Result:</strong> Drums play on any active gate; can also combine with simple diode logic for advanced patterns.</li>
+</ul>
+<hr />
+<h2>3. Summing Pitch CV: Performance Transposition</h2>
+<p>With accurate unity gain, the Unity Mixer lets you create <strong>transpose buses</strong> for pitch CV. For example:</p>
+<ul>
+<li><strong>Patch:</strong> Sequencer pitch CV → In 1, Keyboard CV (manual pitch bend or transpose) → In 2, Offset voltage (from e.g., <a href="https://intellijel.com/shop/eurorack/quadratt-1u/">Intellijel Quadratt</a>) → In 3, Output → Oscillator 1V/oct.</li>
+<li><strong>Result:</strong> Live transpositions and octave switching; perfect for performative play.</li>
+</ul>
+<hr />
+<h2>4. Unified Mixer for Audio Layering</h2>
+<p><strong>Group up to six audio sources</strong> (e.g., VCOs with different waveforms) to a single mixer for thick, layered basses or pads.</p>
+<ul>
+<li><strong>Tip:</strong> Use the rear -6dB jumper when mixing raw VCO outputs to prevent clipping and produce a cleaner sound.</li>
+</ul>
+<hr />
+<h2>5. Control Voltage Blending for Morphing Envelopes</h2>
+<p>Mix outputs of multiple envelope generators (e.g., <a href="https://intellijel.com/shop/eurorack/dual-adsr/">Intellijel Dual ADSR</a>, or <a href="https://www.makenoisemusic.com/modules/maths">Make Noise Maths</a>) to sculpt a more complex composite envelope.</p>
+<ul>
+<li><strong>Example Patch:</strong> MATHS Ch. 1 → In 1, Dual ADSR A → In 2, Another EG → In 3, Output → VCA or filter.</li>
+<li><strong>Use:</strong> Morph smoothly between sources for evolving drums, pads, or textures.</li>
+</ul>
+<hr />
+<h2>6. Feedback Mixing for Karplus-Strong Synthesis</h2>
+<p>Build a simple <strong>Karplus-Strong voice</strong> by routing the output of a short digital delay (e.g., <a href="https://doepfer.de/a188.htm">Doepfer A-188 series</a> or <a href="https://mutable-instruments.net/modules/beads/">Mutable Instruments Beads</a>) and the original pluck trigger through the Unity Mixer and back into the delay's input. </p>
+<ul>
+<li><strong>Patch:</strong> Delay output → In 1, Trigger pulse → In 2. Output → Delay input (via attenuation as needed).</li>
+<li><strong>Result:</strong> "String" feedback, easily controlled/mixed.</li>
+</ul>
+<hr />
+<h2>7. Manual CV Summing for Live Tweaks</h2>
+<p>Use with hand-controlled offset/attenuators (like <a href="https://intellijel.com/shop/eurorack/quadratt-1u/">Intellijel Quadratt</a> or <a href="https://doepfer.de/a138n.htm">Doepfer A-138n</a>) to build a manual mixer for voltage control. Adjust up to three sources on the fly, sum, and send to any modulation destination.</p>
+<hr />
+<h2>8. Gate and CV Bus Creation for Polyphony</h2>
+<p>With polyphonic modules (<a href="https://mutable-instruments.net/modules/plaits/">Mutable Instruments Plaits</a> in poly mode, or <a href="https://polyend.com/eurorack/poly/">Polyend Poly</a>), build a bus host for distributing summed gate or modulation signals to multiple voices, either for layer blending or unified velocity/gate control.</p>
+<hr />
+<h2>9. Multing and Routing: Serial/Parallel Processing</h2>
+<p>Patch outputs from one set of sources into the top mixer, outputs from another set into the bottom, and send the summed outputs to separate effects or VCAs for easy A/B blending or serial effects routing (e.g., one sum to reverb, the other to delay).</p>
+<hr />
+<h2>Notable Module Pairings</h2>
+<ul>
+<li><strong>Intellijel Quadratt/Triatt:</strong> For pre-attenuation and voltage generation.</li>
+<li><strong>Intellijel Dual ADSR / Maths:</strong> For envelope and shape summing.</li>
+<li><strong>ALM Pamela’s New Workout, Tempi:</strong> For creative clock/trigger summing.</li>
+<li><strong>Filter modules (e.g., Intellijel Polaris):</strong> For summed LFO modulation or audio layering.</li>
+<li><strong>Function Generators (e.g., Malekko ADLFO):</strong> For generative CV blends.</li>
+</ul>
+<hr />
+<h2>Pro Tip</h2>
+<p>Use ModularGrid to visualize your setups and prevent accidental overloading of your case's power supply.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

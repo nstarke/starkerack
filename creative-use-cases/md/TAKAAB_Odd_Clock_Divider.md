@@ -1,0 +1,125 @@
+# TAKAAB — Odd Clock Divider
+
+- [Manual PDF](../../manuals/TAKAAB OCD - Odd Clock Divider – Siam Modular.pdf)
+
+---
+
+[TAKAAB OCD - Odd Clock Divider – Siam Modular Manual PDF](https://siammodular.com/products/takaab-ocd-odd-clock-divider?srsltid=AfmBOopTsJBGyNaC6WtMfJJU3EFzdu1WvzDldMz3y6eA2c-lwQCE1iKj)
+
+---
+
+# Creative Applications for the TAKAAB OCD Odd Clock Divider
+
+The TAKAAB OCD is a 2HP Eurorack clock divider focusing on *odd* and less common rhythmic divisions (1/3, 1/5, 1/7, 1/9 or optionally 1/6, 1/10). This unique approach opens the door to highly creative clocking, rhythmic, and generative possibilities in a modular synth environment.
+
+Below are several creative uses for the OCD module, along with suggestions for modules you can pair it with:
+
+---
+
+## 1. Polyrhythmic Sequencing
+
+**How:**  
+Divide a master clock into non-standard ratios (e.g., 1/3, 1/5, 1/7…) and use each output to advance different sequencers, drum modules, or envelope generators.
+
+**Module Pairings:**
+- **Sequencers:** (e.g., Make Noise Rene, Intellijel Metropolis, or any analog step sequencer)
+- **Triggerable Drums:** (e.g., Mutable Instruments Peaks, Tiptop Audio ONE, or Erica Synths Drum Series modules)
+- **Envelope Generators:** (e.g., Maths, Intellijel Quadra)
+
+**Result:**  
+You’ll achieve polyrhythmic patterns, constantly shifting relationships between parts, and evolving generative melodies or beats.
+
+---
+
+## 2. Rhythmic Modulation
+
+**How:**  
+Send various odd-division clocks into modulation destinations for asynchronous rhythmic movement—like modulating a filter cutoff, LFO reset, or sample-and-hold.
+
+**Module Pairings:**
+- **VCF/VCA modules:** Modulate or open a VCA only every 5th or 7th clock pulse.
+- **S&H or Slew Generators:** Trigger a S&H (like Mutable Kinks, Doepfer A-148) with 1/7 for unpredictable but repeating modulation steps.
+
+**Result:**  
+Create organic, evolving modulation where movement never quite repeats in sync.
+
+---
+
+## 3. Clocked Logic and Boolean Rhythms
+
+**How:**  
+Combine the odd-divided outputs using logic modules for unexpected rhythmic interplay.
+
+**Module Pairings:**
+- **Logic Modules:** (e.g., Takaab 2XOR, Mutable Instruments Kinks, Intellijel Plog)
+- **Other Clock Dividers/Multipliers:** Cascade even/odd dividers for dense rhythmic textures.
+
+**Result:**  
+Use AND, OR, XOR, etc., between divisions (e.g., 1/3 *and* 1/5) to produce even more complex and less predictable rhythmic triggers.
+
+---
+
+## 4. Self-Resetting Clock Chaos
+
+**How:**  
+Patch an OCD divided output (e.g., 1/5) back into the OCD’s RESET input or into another OCD/ECD’s reset, for cyclical yet phase-shifting rhythm resets.
+
+**Module Pairings:**
+- **Chained Dividers:** Use the header connections or patch cable for OCD/ERC daisy-chaining (jumpers/cables included).
+- **Logic for Resequencing:** Logic modules can consolidate/reset multiple rhythmic divisions simultaneously.
+
+**Result:**  
+Shifting, non-traditional loop lengths and evolving cycles—perfect for generative, non-repetitive music.
+
+---
+
+## 5. Asynchronous Drum and Percussion Patterns
+
+**How:**  
+Trigger drum voices with the odd division outputs (1/3, 1/5, etc.) independently from "on-the-grid" main drums.
+
+**Module Pairings:**
+- **Modular Drum Modules:** Tiptop Audio (BD808, SD808, etc.), Noise Engineering Basimilus Iteritas, ALM Akemie's Taiko.
+- **Sample Players:** Trigger sample start with an odd division for shifting “offbeat” fills.
+
+**Result:**  
+Unconventional drum fills, evolving breaks, or percussion patterns that feel “alive” due to their refusal to lock to 4/4 time.
+
+---
+
+## 6. Generative Melodic Sequencing
+
+**How:**  
+Step a quantizer or precision adder (e.g., Doepfer A-156, Intellijel Scales) with an odd divider, while other sequencers run at standard or different divisions.
+
+**Result:**  
+Melodies that interact with other parts in semi-random but ultimately predictable long cycles, creating generative melody/chord relationships.
+
+---
+
+## 7. Clock-Based Probability and Randomization
+
+**How:**  
+Trigger random modules (e.g., Mutable Marbles, Wogglebug) at odd divisions for irregular bursts of randomness.
+
+**Result:**  
+Shifting, off-grid random gates or CVs for unpredictable but automatically cycling patterns.
+
+---
+
+### Bonus: Integrator with the Takaab ECD
+
+**How:**  
+Pair the OCD with the Takaab ECD (Even Clock Divider) using the daisy-chain headers and reset/cascade features. Mix both even and odd divisions for comprehensive rhythm generation.
+
+---
+
+## Additional Tips
+
+- The jumper to swap 1/9 for 1/6 is powerful for shifting patterns; consider bringing this function to your panel with the Takaab UXS.
+- The outputs are 6V with a 50% duty cycle, so they work well with any typical Eurorack module expecting standard triggers/gates.
+- Use in combination with clock delay or clock-multiplier modules for further rhythmic possibilities.
+
+---
+
+For more clock and logic patch ideas, visit the [Generated With Eurorack Processor](https://github.com/nstarke/eurorack-processor) repository.

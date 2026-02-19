@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-121</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-121</h1>
+<ul>
+<li><a href="../../manuals/A121_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100man/a121_man.pdf">Doepfer A-121 Multimode VCF Manual (PDF)</a></p>
+<h1>Creative Patch Ideas with the Doepfer A-121 VCF 2</h1>
+<p>The <strong>Doepfer A-121 VCF 2</strong> is a flexible 12dB/oct (2-pole) multimode filter with simultaneous low-pass, band-pass, high-pass, and notch outputs, voltage controllable cutoff and resonance, and self-oscillation capability. Leveraging its features with other modules opens many sound-shaping horizons. Here are some creative ways to integrate it into your Eurorack setup, from classic synth patches to advanced modular processing.</p>
+<hr />
+<h2>1. Quadraphonic Spectral Spatialization</h2>
+<p><strong>Idea:</strong> Send each filter output (LP/BP/HP/Notch) to a different speaker or channel for immersive sound design.</p>
+<ul>
+<li><strong>Modules needed:</strong> 4x VCAs (e.g., Doepfer A-130), Mixer (e.g., A-138), Quad panning module, 4-channel output or surround sound setup.</li>
+<li><strong>How:</strong> Connect each A-121 output to a VCA, then route to separate speakers. Use modulation sources (e.g., quad LFO) to automate spatial movement or fade between outputs. Great for installations and experimental music.</li>
+</ul>
+<hr />
+<h2>2. Animated Filtering for Complex Timbres</h2>
+<p><strong>Idea:</strong> Patch both FCV (cutoff) and QCV (resonance) inputs to separate modulation sources for evolving, organic sounds.</p>
+<ul>
+<li><strong>Modules needed:</strong> Multiple LFOs (e.g., A-145), Envelope Generators (e.g., A-140), Sample &amp; Hold, Sequencer for stepped CV (e.g., A-155).</li>
+<li><strong>How:</strong> Assign one slow LFO to FCV 2 with its attenuator, and a different LFO or random voltage to QCV 2. The independent voltage control over resonance and cutoff enables morphing filter character that works especially well on drones or pads.</li>
+</ul>
+<hr />
+<h2>3. Self-Oscillating Sine Oscillator</h2>
+<p><strong>Idea:</strong> Use the A-121 as a sine-wave VCO at high resonance.</p>
+<ul>
+<li><strong>Modules needed:</strong> 1V/oct pitch CV source (MIDI-to-CV, sequencer, keyboard).</li>
+<li><strong>How:</strong> Set resonance to self-oscillate; patch pitch CV into FCV 1 (1V/oct input). Now the filter tracks pitch and becomes a sine oscillator, which you can further shape or FM with additional CV.</li>
+</ul>
+<hr />
+<h2>4. Parallel Filtering for Formant/Vocal Effects</h2>
+<p><strong>Idea:</strong> Use two A-121s in parallel with different cutoff and resonance for vowel-like or talking synth sounds.</p>
+<ul>
+<li><strong>Modules needed:</strong> 2x A-121, Mixer, Lag/Slew Limiter (e.g., A-170), VCO (with sawtooth output).</li>
+<li><strong>How:</strong> Send a single VCO to both filters' inputs. Detune their cutoffs to formant intervals (like 500Hz &amp; 1500Hz), mix the band outputs, and modulate cutoff with slow envelopes or LFOs, possibly with one modulated via an inverter for opposite movement. This excels at vocal synth patches.</li>
+</ul>
+<hr />
+<h2>5. Pseudo-Stereo Effects (Width from Mono Sources)</h2>
+<p><strong>Idea:</strong> Take LP and HP outputs from the same input and pan left/right for stereo "width" tricks.</p>
+<ul>
+<li><strong>Modules needed:</strong> Stereo mixer/panner, VCA for modulating panning.</li>
+<li><strong>How:</strong> Process the same sound through the filter, LP out to left, HP or Notch out to right. Small, opposing modulation to both cutoffs via slow LFOs increase the sense of movement and space.</li>
+</ul>
+<hr />
+<h2>6. Feedback Patching &amp; Distortion</h2>
+<p><strong>Idea:</strong> Create aggressive textures by feeding one or more filter outputs back into the audio input (through a VCA for control).</p>
+<ul>
+<li><strong>Modules needed:</strong> VCA or attenuator, Mixer optional.</li>
+<li><strong>How:</strong> Patch the Notch (or other) output through a VCA into the Audio In. Adjust VCA level to taste. For more control, modulate feedback amount with an envelope or LFO. This produces howling, ringing, or distorted effects and can be rhythmically controlled via modulation.</li>
+</ul>
+<hr />
+<h2>7. Modulation and Cross-Modulation with Other VCAs/EGs</h2>
+<p><strong>Idea:</strong> Use A-121's outputs to modulate other parameters elsewhere in the system.</p>
+<ul>
+<li><strong>Modules needed:</strong> VCAs, EGs, Rings Modulator.</li>
+<li><strong>How:</strong> For example, use the bandpass out to amplitude-modulate another voice, or feed filter outputs into a ring modulator for metallic, clangorous sounds.</li>
+</ul>
+<hr />
+<h2>8. Audio-Rate Filter FM</h2>
+<p><strong>Idea:</strong> Use another VCO to modulate the filter cutoff at audio rates for clangorous or metallic tones.</p>
+<ul>
+<li><strong>Modules needed:</strong> VCO (e.g., A-110), Envelope, Attenuator.</li>
+<li><strong>How:</strong> Patch rapid VCO output to FCV 2 and fine-tune the modulation depth with the attenuator. This creates complex, audio-rate FM effects—a technique popular in west coast synthesis.</li>
+</ul>
+<hr />
+<h2>Bonus Recommendations</h2>
+<ul>
+<li><strong>Waveshapers/folders before the filter</strong> (e.g., A-137): Increase harmonic content for richer filtering.</li>
+<li><strong>Noise sources</strong> into the filter: Classic for percussion (bandpass for snare, highpass for hats, lowpass for kicks).</li>
+<li><strong>Envelope followers</strong> to dynamically modulate filter parameters based on input level.</li>
+</ul>
+<hr />
+<p><em>Manual Reference for Deeper Study</em>: <a href="https://doepfer.de/a100man/a121_man.pdf">Doepfer A-121 Multimode VCF Manual (PDF)</a></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

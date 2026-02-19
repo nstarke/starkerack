@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Wenzellabs_NSA_Selector</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Wenzellabs — NSA Selector</h1>
+<ul>
+<li><a href="../../manuals/wenzellabs_the_NSA_selector_ the NSA selector eurorack module.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/wenzellabs/the_NSA_selector">NSA Selector Manual (PDF format, screenshots)</a></p>
+<hr />
+<h1>Creative Ways to Use the NSA Selector Eurorack Module</h1>
+<h2>Overview</h2>
+<p>The NSA Selector is a highly unusual Eurorack module that bridges Ethernet network traffic and modular synthesis. Featuring two Ethernet jacks (acting as a switch/tap) and one audio output, it converts raw network bitstreams into audio, letting you listen to digital traffic in your patch.</p>
+<p>Below are some creative strategies to integrate the NSA Selector into your Eurorack system, both musically and technically.</p>
+<hr />
+<h2>1. <strong>Network-Driven Percussion &amp; Rhythms</strong></h2>
+<p><strong>How:</strong><br />
+Use network pings or controlled bursts of traffic (like scripted ICMP pings, http requests, or file transfers) to create percussive, glitchy signals. The randomness or repetition in network activity translates to rhythmic/noise-based pulses.</p>
+<p><strong>Combinations:</strong>
+- <strong>Percussion Modules:</strong> Patch NSA Selector's audio output into a simple VCA, then into a LPG (e.g., Make Noise LxD, Mutable Instruments Ripples in VCA mode) to shape and isolate transients.
+- <strong>Envelope Follower:</strong> Use an envelope follower (e.g., Mutable Instruments Ears or Doepfer A-119) to extract CV from the network audio, which can trigger envelopes, drums, or modulate parameters.
+- <strong>Random Sources:</strong> External network randomness, processed with a slew limiter (e.g., Make Noise Function) to generate smooth random CV.</p>
+<hr />
+<h2>2. <strong>Digital Data as Raw Oscillator Source</strong></h2>
+<p><strong>How:</strong><br />
+With its 4-bit, 25MS/s output, the NSA Selector acts as a wild, unpredictable oscillator/digital noise source.</p>
+<p><strong>Combinations:</strong>
+- <strong>Ring Modulator:</strong> Process its signal with a ring mod (e.g., Doepfer A-114) and another oscillator for metallic, abrasive tones.
+- <strong>Waveshapers/Distortion:</strong> Feed into wavefolders or distortion modules (e.g., WMD Geiger Counter, Intellijel µFold) for aggressive textural sounds.
+- <strong>Spectral Processors:</strong> Add spectral shapers like the Mutable Instruments Warps for CV-controlled blending with traditional oscillators.</p>
+<hr />
+<h2>3. <strong>Audio Visualization of Network Events</strong></h2>
+<p><strong>How:</strong><br />
+Render network activity as audible events; for example, send files (especially big images in .bmp format) over your local network and "play" these as sound.</p>
+<p><strong>Combinations:</strong>
+- <strong>CV &amp; Lights:</strong> Connect to a CV-to-light interface (e.g., Visible Signals Video Mult or LED modules) to visually monitor correlation between data transfer and lighting modulation.
+- <strong>Recording/Granular Playback:</strong> Sample the output with a looper (e.g., 4ms Dual Looping Delay, Mutable Instruments Clouds) to chop, freeze, and sequence "data-shaped" textures.</p>
+<hr />
+<h2>4. <strong>Sequencer and Live Network Performance</strong></h2>
+<p><strong>How:</strong><br />
+Coordinate scripted ping/flood traffic as a sequencer, using scripts to control the rhythm and density of network activity.<br />
+With the included "sequencer" Bash script, you can generate timed patterns resembling sequence steps.</p>
+<p><strong>Combinations:</strong>
+- <strong>Sequencer Sync:</strong> Use a trigger-to-MIDI interface to sync DAW sequencer patterns with network-triggered audio (e.g., Expert Sleepers ES-8 or MIDI-to-CV modules).
+- <strong>Random/Pattern Generators:</strong> Combine with modules like Make Noise Maths or Mutable Instruments Marbles to cross-modulate or "scramble" the NSA Selector's output, influencing network activity and music in both directions.</p>
+<hr />
+<h2>5. <strong>Controlled Chaos and Glitch Art</strong></h2>
+<p><strong>How:</strong><br />
+Over-saturate the network, generate packet loss, or stream plaintext payload for modulated static and noise, leveraging delays and echo-like effects using <code>tcpdump</code> and similar commands as detailed in the manual.</p>
+<p><strong>Combinations:</strong>
+- <strong>FX Modules:</strong> Send the output through granular processors (Qu-Bit Nebulae, Mutable Instruments Clouds), delays (Chronoblob 2), or stutter/repeater FX (Befaco Rampage) for glitch-art sonic sculptures.
+- <strong>VCAs or Switches:</strong> Use it as a modulator/audio-rate CV for dynamic amplitude modulation of other inputs.</p>
+<hr />
+<h2>6. <strong>Unconventional MIDI-Controllable Network Traffic</strong></h2>
+<p><strong>How:</strong><br />
+Develop scripts to control netcat, socat, nmap, or similar tools via software-registered MIDI clients, using external sequencing or generative environments (Max/MSP, Pure Data) to send MIDI notes that trigger network events.</p>
+<p><strong>Combinations:</strong>
+- <strong>MIDI-to-CV Interface:</strong> Interface your computer to your rack via a MIDI module (Arturia BeatStep Pro, Doepfer A-190-4). Use MIDI notes to modulate/sequence NSA Selector-driven sound.
+- <strong>Logic &amp; Gate Utilities:</strong> Process extracted rhythms using logic modules (Intellijel Plog) for flipping/combining network-derived triggers.</p>
+<hr />
+<h2>7. <strong>Live Coding and Network Improv</strong></h2>
+<p><strong>How:</strong><br />
+Perform live using networked devices—have collaborators send packets/files/streams from their laptops or phones, influencing your Eurorack system in real time.<br />
+Electrons, data, music: all fluid and hackable!</p>
+<p><strong>Combinations:</strong>
+- <strong>Audio Mixer:</strong> Patch NSA Selector in with drum machines, synth voices, or mics for spontaneous hybrid jams.
+- <strong>Sampler/Looper:</strong> Use modules like the 1010music Bitbox or Bastl Microgranny for capturing and playing back "data beats."</p>
+<hr />
+<h2>General Module Recommendations</h2>
+<ul>
+<li>Envelope follower/preamp (e.g., Mutable Ears, Doepfer A-119)</li>
+<li>VCA, LPG or Gate with modulation input</li>
+<li>Sampler/granular processor (e.g., MI Clouds, Qu-Bit Nebulae)</li>
+<li>Spectral/Waveshaper modules (e.g., Warps, WMD Geiger Counter)</li>
+<li>Logic and clock utility modules</li>
+<li>Sequencers compatible with external clock/reset</li>
+</ul>
+<hr />
+<h3>More Inspiration</h3>
+<p>This module's uniqueness comes from its cross-disciplinary fusion of network technology and modular synthesis. Think of it as a "data microphone" for your local network—your challenge is to sculpt its wild output into something musical (or simply appreciate its conceptual weirdness).</p>
+<hr />
+<p>For full details/actions/scripts, the original <strong><a href="https://github.com/wenzellabs/the_NSA_selector">NSA Selector Manual</a></strong> is a must-read.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>
