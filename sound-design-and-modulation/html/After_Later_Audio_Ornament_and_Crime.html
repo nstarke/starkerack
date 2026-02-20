@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>After_Later_Audio_Ornament_and_Crime</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>After Later Audio — Ornament and Crime</h1>
+<ul>
+<li><a href="../../manuals/ornament and crime.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://ornament-and-cri.me/user-manual-v1_3/">Ornament &amp; Crime v1.3 User Manual (PDF)</a></p>
+<hr />
+<h1>Eurorack Sound Design with Ornament &amp; Crime (o_C)</h1>
+<p>Ornament &amp; Crime is a highly polymorphic Eurorack module with a diverse array of apps. Let's dive into creative modulation strategies for designing:</p>
+<ul>
+<li>Distorted percussion  </li>
+<li>Crazy basslines (dubstep, DnB)  </li>
+<li>Haunting atmospheric pads  </li>
+</ul>
+<p>Each suggestion leverages specific apps and CV modulation mappings described in the manual:</p>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<h3>Use: <strong>Piqued</strong> (Quad Envelope Generator)</h3>
+<ul>
+<li><strong>Envelope type:</strong> Choose looping AD, ADR, or ADL2 types for sharp percussive shapes.</li>
+<li><strong>Segment shapes:</strong> Use Ledge, Cliff, and the various "Dipper" and "Wiggle" shapes for non-standard transients.</li>
+<li><strong>Envelope Duration Modulation:</strong> Assign CV inputs to decay, sustain, or ADR duration to make envelope times ever-changing, resulting in evolving percussive impacts.</li>
+<li><strong>Euclidean Trigger Filters:</strong> Set up polyrhythmic, glitchy patterns via the Eucl. Length and Fill parameters. Modulate Fill and Rotation with CV for morphing rhythm structures.</li>
+</ul>
+<h3>Use: <strong>Viznutcracker, Sweet!</strong> (Bytebeat Generator)</h3>
+<ul>
+<li><strong>Run Bytebeat equations at audio rate</strong> (Speed = 255).  </li>
+<li>Stepped, digital waveforms combine bits and clicks for industrial snares/claps.</li>
+<li><strong>Modulate Parameters:</strong> Map CV or knob to Pitch, Parameters 0/1/2, or equation selection for morphing digital percussion timbres.</li>
+<li><strong>Step mode:</strong> Clock it externally and use its output as raw percussive bursts, then heavily low-pass filter downstream.</li>
+</ul>
+<h3>Tips</h3>
+<ul>
+<li><strong>Cross-patch</strong>: Envelope (from Piqued) out controls VCA amplitude for bytebeat audio.</li>
+<li><strong>Extreme Settings:</strong> Use random envelope shapes and euclidean trigger randomness for unpredictable glitch percussion.</li>
+</ul>
+<hr />
+<h2>2. Crazy Dubstep/Drum &amp; Bass Basslines</h2>
+<h3>Use: <strong>Sequins</strong> (Step Sequencer with CV Modulation)</h3>
+<ul>
+<li><strong>Write a sequence</strong> of semitones to define a solid "wobble" bassline, typical of dubstep.</li>
+<li><strong>Chain sequences:</strong> Use multiple patterns for longer riffs; combine forward, pendulum, and Brownian/random directions.</li>
+<li><strong>Aux Output:</strong> Instead of just gates, select envelope (ADSR, ADR) for "ducking" FX.</li>
+<li><strong>Assign CV inputs</strong> to "mult/div" for variable rhythmic sync, or to "direction"/"scale mask" for lexical morphing.</li>
+</ul>
+<h3>Use: <strong>Meta-Q / Quantermain</strong> (Quantizer with Internal Turing, Bytebeat, Integer Sequences)</h3>
+<ul>
+<li><strong>Set source to internal ByteB/IntSeq/LFSR</strong>  </li>
+<li>Assign a Turing Machine or integer sequence as the CV source for semi-random "talking" basslines.</li>
+<li><strong>Turing Machine Probability CV:</strong> Modulate with LFO or audio rate signals for controlled chaos.</li>
+<li>Apply non-octave scales (Carlos alpha/beta/gamma, Bohlen-Pierce) for "alien" tonality.</li>
+</ul>
+<h3>Use: <strong>CopierMaschine</strong> with Modulated Buffer/Index</h3>
+<ul>
+<li>Feed in wild LFOs or sample from Bytebeats.</li>
+<li><strong>Modulate buffer index</strong> (delay) with CV or envelope.</li>
+<li>Freeze buffer on beats—turns sampled basslines into stuttering glitches.</li>
+</ul>
+<h3>Use: <strong>Quadraturia</strong> (LFO)</h3>
+<ul>
+<li>Audio-rate LFOs as FM for VCOs—modulate the frequency and shape of the LFO for evolving, bitcrushed modulation on your bass OSC.</li>
+</ul>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<h3>Use: <strong>Low-rents</strong> (Lorenz &amp; Rössler Attractor Generator)</h3>
+<ul>
+<li>Slow, self-modulating, quasi-random waveforms for evolving pads.</li>
+<li>Map x/y/z outputs to multiple voices/VCF cutoffs.</li>
+<li>Modulate "rho"/"c" parameters or LFreq via external slow LFOs.</li>
+</ul>
+<h3>Use: <strong>Quadraturia</strong> (Quadrature LFO)</h3>
+<ul>
+<li>Set very slow frequency range ("cosmological"/"geol.").</li>
+<li>CV-control shape spread, phase, and coupling for huge, drifting movement between layers.</li>
+<li>Use outputs to modulate parallel VCAs or VCFs for wide stereo fields.</li>
+</ul>
+<h3>Use: <strong>Piqued</strong> with Long, Looping Envelopes</h3>
+<ul>
+<li>ADR, ADSR with massive segment lengths (multipliers up to 8192!).</li>
+<li>Use Sine or Quartic shapes for slow swells and fades.</li>
+<li>External CV control over durations/levels for pads that "breathe" and never repeat exactly.</li>
+</ul>
+<h3>Use: <strong>Viznutcracker, Sweet!</strong> at Slow Step Rates</h3>
+<ul>
+<li>Enable Loop Mode and reduce Speed for slow-changing, stepped CV.  </li>
+<li>Patch to modulate effects (reverb mix, delay time) or filter cutoff for unpredictable ambiance.</li>
+</ul>
+<hr />
+<h2>General Tricks</h2>
+<ul>
+<li><strong>Extreme Randomization:</strong> Modulate everything—masks, root, buffer index, pattern offsets—to push o_C into unpredictable territory.</li>
+<li><strong>External Feedback:</strong> Send o_C outputs through distortion, wavefolders, or even back into its own CV inputs.</li>
+<li><strong>Non-octave Tunings:</strong> Explore alternate tunings for unfamiliar textures, especially with random melodic/sequence sources.</li>
+</ul>
+<hr />
+<h4>For deeper reference, consult the full manual:</h4>
+<p><a href="https://ornament-and-cri.me/user-manual-v1_3/">Ornament &amp; Crime v1.3 User Manual</a></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

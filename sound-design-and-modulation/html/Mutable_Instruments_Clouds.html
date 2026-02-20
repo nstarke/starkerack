@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Clouds</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Clouds</h1>
+<ul>
+<li><a href="../../manuals/Mutable Instruments - Clouds.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/clouds/manual.pdf"><strong>Mutable Instruments Clouds Manual (PDF)</strong></a></p>
+<hr />
+<h1>Creative Modulation Techniques for Mutable Instruments Clouds</h1>
+<p>As a Eurorack musician, Mutable Instruments Clouds offers a powerful palette for real-time granular processing. Here’s how to push it to its extremes for <strong>distorted percussion</strong>, <strong>wild basslines</strong> (think dubstep/DnB), and <strong>haunting atmospheric pads</strong>, focusing on modulation and patching strategies:</p>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<p><strong>Modulation Tips:</strong></p>
+<ul>
+<li><strong>Audio Input Drive</strong>: Crank the INPUT GAIN (<strong>G</strong>) above unity (+0dB) for soft-clipping, distortion, and “crushed” artifacts—especially at lower-quality settings (8-bit µ-law / 16kHz).</li>
+<li><strong>Freeze Manipulation</strong>: Use short, precise triggers (via CV or pressing the button) to “chop” drum hits or transients. Modulate the FREEZE GATE (<strong>1</strong>) input with a clock, gate pattern, or sequencer for broken, retriggered, or glitched percussion grains.</li>
+<li><strong>Grain Density as Envelope</strong>: Modulate <strong>DENSITY (H &amp; CV 9)</strong> with envelopes or fast LFOs: Fast, random grains yield scattershot, metallic, or noise bursts; slower, synced grains can reinforce percussive hits.</li>
+<li><strong>Random Positioning</strong>: Mult a noise source (or recycle an output) into <strong>POSITION CV (3)</strong> for unpredictable fragmentation/scrambling of percussive input.</li>
+<li><strong>TEXTURE to Diffuser</strong>: Turning TEXTURE (I) past ~2 o’clock adds a transient-smudging allpass network—morphing hard-hits into reverberant, “ghosted” echoes.</li>
+</ul>
+<h3>Example Patch</h3>
+<ul>
+<li>Kick/snare sample into audio input.</li>
+<li>Stepped random or noise to <strong>GRAIN SIZE</strong> and <strong>PITCH CV</strong>.</li>
+<li>Fast envelope/LFO to <strong>DENSITY</strong>.</li>
+<li>Set BLEND to max <strong>Feedback</strong> for overdriven, ringing decay.</li>
+</ul>
+<hr />
+<h2>2. Dubstep/Drum &amp; Bass Basslines</h2>
+<p><strong>Modulation Tips:</strong></p>
+<ul>
+<li><strong>Audio Input</strong>: Feed in raw, harmonically rich bass (saw, FM, detuned sub). Try resampling your own resampled basses!</li>
+<li><strong>V/Oct Tracking</strong>: Sequence the <strong>PITCH CV (5)</strong> input with your pitch CV for tightly tuned re-pitched grains. Use variable or stepped modulation for glitched “wobble” pitches.</li>
+<li><strong>Random Wobble</strong>: Modulate <strong>POSITION (3)</strong> and <strong>SIZE (4)</strong> with random CV, a slow LFO, or a sample &amp; hold. This adds grain “movement”—the core of dubstep growl.</li>
+<li><strong>Stereo Spread</strong>: Assign BLEND to <strong>Spread</strong>, then modulate it with an LFO. This “throws” grains around the stereo field for wide, jarring bass texture.</li>
+<li><strong>Feedback/Reverb Abuse</strong>: Blast <strong>Feedback</strong> or <strong>Reverb</strong> with BLEND—especially with FREEZE enabled—for monstrous, smeared, or re-circulating tails.</li>
+</ul>
+<h3>Example Patch</h3>
+<ul>
+<li>LFO to <strong>Blend (Spread)</strong>, stepped random to <strong>Blend (Feedback)</strong>.</li>
+<li>Slow sample &amp; hold to <strong>POSITION</strong>, synced to your bassline rhythm.</li>
+<li>Sequencer triggers the <strong>GRAIN TRIGGER (2)</strong> for sliced, rhythmic grunts.</li>
+</ul>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<p><strong>Modulation Tips:</strong></p>
+<ul>
+<li><strong>Source Material</strong>: Input a slow-moving pad or stacked chords—Clouds excels at turning boring chords into ever-shifting beds.</li>
+<li><strong>Freeze Textures</strong>: Momentarily FREEZE a lush, performance-sampled chord/progression; modulate <strong>POSITION</strong> with a slow random LFO to evoke evolution and fade.</li>
+<li><strong>Long Grains</strong>: Increase <strong>GRAIN SIZE</strong> for smooth, swelling pads—modulate <strong>SIZE</strong> with a triangle LFO for undulating “breaths.”</li>
+<li><strong>Dense/Random Grains</strong>: Turn up <strong>DENSITY</strong> (clockwise for random, counter for steady) for shimmer or cloud-like effect.</li>
+<li><strong>Envelope Morph</strong>: Sweep <strong>TEXTURE</strong> from square to Hann for envelope morphing; past 2 o’clock for “smearing”—haunted, blurry trails.</li>
+<li><strong>Reverb &amp; Feedback</strong>: Use BLEND to apply maximum <strong>Reverb</strong>. Conversely, modulate <strong>Feedback</strong> for evolving, almost infinite-layer pads.</li>
+</ul>
+<h3>Example Patch</h3>
+<ul>
+<li>Sustained chord to input, FREEZE engaged after capturing.</li>
+<li>Slow S&amp;H or LFO to <strong>POSITION</strong>, subtle LFO to <strong>SIZE</strong>.</li>
+<li>Modulate BLEND between <strong>Reverb</strong> and <strong>Spread</strong>.</li>
+<li>Blend in external reverb for cavernous soundscapes, or push input gain for a rougher tape feel.</li>
+</ul>
+<hr />
+<p><strong>Key Modulation Methods</strong></p>
+<table>
+<thead>
+<tr>
+<th>Destination</th>
+<th>Ideal Source(s)</th>
+<th>Sound Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POSITION CV (3)</td>
+<td>S&amp;H, slow LFO, audio-rate chaos</td>
+<td>Movement through frozen buffer</td>
+</tr>
+<tr>
+<td>SIZE CV (4)</td>
+<td>Envelope, random CV, LFO</td>
+<td>Grain length stutter, texture</td>
+</tr>
+<tr>
+<td>PITCH CV (5)</td>
+<td>Sequencer, V/OCT, audio-rate mod, random</td>
+<td>Chopped, pitched, aliasing grains</td>
+</tr>
+<tr>
+<td>TEXTURE CV (10)</td>
+<td>Envelope, random</td>
+<td>Envelope morph, transient blur</td>
+</tr>
+<tr>
+<td>BLEND CV (6)</td>
+<td>LFO, random, sequencer, envelope</td>
+<td>Morph between key FX parameters</td>
+</tr>
+<tr>
+<td>DENSITY CV (9)</td>
+<td>Envelope, patterned gates, clocked LFO</td>
+<td>Burst, scattering, or smooth fog</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Quick Tricks</h2>
+<ul>
+<li><strong>Noise as Mod Source:</strong> Clouds' internal audio outputs can be routed back as unpredictable CV to mod PARAMS.</li>
+<li><strong>Micro Sample Player:</strong> DENSITY at noon; drive GRAIN TRIGGER with sequencer/clock.</li>
+<li><strong>Saving Scenes:</strong> Use buffer save/load for fast recall of wild sound design snapshots.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

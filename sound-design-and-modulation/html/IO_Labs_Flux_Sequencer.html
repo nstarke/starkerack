@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>IO_Labs_Flux_Sequencer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>IO Labs — Flux Sequencer</h1>
+<ul>
+<li><a href="../../manuals/IO Labs - Flux Sequencer - 107 User Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://iolabs.co.uk/flux/downloads/FLUX_USER_MANUAL_OPEN_BETA_V1.07.pdf"><strong>Download the FLUX Manual PDF</strong></a></p>
+<hr />
+<h1>Using FLUX to Create Distorted Percussive Sounds, Crazy Basslines, and Haunting Pads</h1>
+<p>The FLUX module by IOLabs is an exceptionally deep and flexible sequencer/modulation source for Eurorack, based on Temporal Modulation Synthesis® and packed with advanced modulation, logic, and CV/gate possibilities. Here's how you can exploit its architecture for the type of sounds you want:</p>
+<hr />
+<h2>General Modulation Approaches in FLUX</h2>
+<p>FLUX offers three primary modulation sources:
+- <strong>Macro Pots (Manual Potentiometers)</strong>
+- <strong>CV Inputs (Four Assignable Jacks)</strong>
+- <strong>Evolve LFOs (85 Internal Per-Parameter LFOs, Savable Per-Preset)</strong></p>
+<p>You can mix and match these sources using the <strong>modulation matrix</strong> and three color-coded <strong>mod buses</strong> (Yellow, Grey, Purple), assignable <strong>per-step</strong>!</p>
+<h3>Setting up Modulation</h3>
+<ul>
+<li><strong>Quick Setup:</strong> In the Main UI, select a parameter, then hit the <code>MOD</code> button to jump directly to its modulation nodes (Evolve, Macro, CV in sequence).</li>
+<li>You can modulate virtually any parameter per step and per channel: density, curve, value, phase, gate, humanize, mask, CV min/max, envelope, LFO params, quantization, etc.</li>
+<li>The Evolve LFO engine offers multiple waveforms—including various random, square, and triangle types, as well as bipolar (invertible) shapes for more expressive changes, plus a VCA-style dry/wet per LFO to control depth or automation.</li>
+<li>Macro Pot mapping and CV input mapping are via attenuverters for positive or negative modulation of each parameter.</li>
+</ul>
+<hr />
+<h2>Distorted Percussive Sounds</h2>
+<h3>Parameter Tricks</h3>
+<ul>
+<li><strong>Density (<code>DENS</code>) &amp; Compression (<code>COMP</code>):</strong> Push trigger density high and use negative compression/expansion to cause rapid fire/flammed triggers—increase distortion or overdrive in following drum modules.</li>
+<li><strong>Humanize (<code>HUMA</code>), Mask, Phase (<code>PHAS</code>):</strong> Add randomness for organic "broken" distortion.</li>
+<li><strong>Gate Lengths (<code>GATE</code>):</strong> Short/long gate times create clicky versus smeared/overdriven pulses.</li>
+<li><strong>CV Outputs:</strong> Modulate VCA envelopes controlling drum VCAs, introduce random or envelope-controlled transients.</li>
+<li><strong>Auxiliary Outputs in Boolean Modes:</strong> Use AND, OR, XOR logic to interleave or alternate triggers unpredictably.</li>
+<li><strong>Random LFO on Accent/CV Out:</strong> Assign a random or triangle LFO to trigger amplitude tweaks, pitch modulation, or even FM input on external voices for noisy, gnarly percussion.</li>
+</ul>
+<h4>Patch ideas:</h4>
+<ul>
+<li>Use a single-step pattern with high density (<code>DENS &gt; 32</code>), long length (<code>LENG &gt; 8</code>), then automate <code>VAL</code> with an LFO for moving between clustered and spread hits.</li>
+<li>Layer two percussion voices (e.g., kick/snare) and use different masks and phase offsets; modulate which AUX output is performing logic like AND/OR for trigger interplay.</li>
+<li>Send envelope CV out to a wavefolder or distortion module gated by a random or square LFO pattern for crushed, broken percussive textures.</li>
+</ul>
+<hr />
+<h2>Crazy Basslines (Dubstep, DnB, Neuro)</h2>
+<h3>Parameter Tricks</h3>
+<ul>
+<li><strong>TM Curve (<code>CURV</code>) and Value (<code>VAL</code>):</strong> Skew bass notes or rhythmic triggers unpredictably for that chopped/jerky feel—modulate with triangle or sample-hold LFOs.</li>
+<li><strong>CV Modulaton:</strong> Assign LFO, AR-envelope, or even random S+H voltages to filter cutoff or oscillator pitch of your bass voice. Use frequency-synced LFO modulation for classic dubstep LFO-wobble.</li>
+<li><strong>Quantization (QUAN):</strong> For more chaotic basses, reduce quantization steps or leave only a few nodes active per octave for "broken" scales.</li>
+<li><strong>Macro Pots:</strong> Use a macro to sweep filter cutoff, FM depth, or wavefold amount in real-time over evolving step sequences, then automate macro depth to create performance macros.</li>
+<li><strong>Burst Mode:</strong> Use Burst mode with triggers controlled externally—they allow you to retrigger steps/basses for re-syncs or fills typical in DnB.</li>
+</ul>
+<h4>Patch ideas:</h4>
+<ul>
+<li>Automate step CV out mode to <code>LFO</code>, sync it to step/trig, and send to a resonant LPF or VCF on your bass synth. Assign Evolve LFO (triangle or random) to <code>MAXV</code> and <code>MINV</code> for fluctuating LFO depth, mimicking modern growl bass modulations.</li>
+<li>Use step-specific quantization and mask with macro/CV assignment to "mute" or "ghost" notes, yielding syncopated, chopped grooves.</li>
+<li>Utilize auxiliary outputs set to chained logic modes to generate stuttery gate patterns for gating distortion or bitcrush on your bass voice.</li>
+</ul>
+<hr />
+<h2>Haunting Atmospheric Pads</h2>
+<h3>Parameter Tricks</h3>
+<ul>
+<li><strong>Long Envelope Mode (<code>ENV+</code>/<code>ENV-</code> on CV Out):</strong> Program step CV outs as long AR envelopes modulated by Evolve LFOs with slow triangle/sine shapes for evolving textures.</li>
+<li><strong>CV Output Range (<code>MINV</code>, <code>MAXV</code>):</strong> Automate the voltage range per step to create shifting timbres—perfect for morphing pads.</li>
+<li><strong>Phasing, Compression (<code>COMP</code>):</strong> Use subtle negative compression and phase modulation to produce drifting, ambiguous attacks for each trigger—think smearing granular textures.</li>
+<li><strong>Humanize/Mask:</strong> Add low-level humanize and complex mask steps for unpredictable ambience.</li>
+<li><strong>Quantization Nodes:</strong> Turn on only certain intervals per step for modal, non-Western, or ambiguous harmonies.</li>
+<li><strong>LFO’s VCA Dry/Wet:</strong> Fade in/out modulation depth per LFO over time with the per-parameter VCA control, creating swelling/ebbing textural movement.</li>
+</ul>
+<h4>Patch ideas:</h4>
+<ul>
+<li>On a dedicated channel, sequence long 8+ step patterns with low density and widely spaced triggers. Set CV Out to AR envelope, modulate release/attack times with Evolve LFOs, and use the pad's CV to modulate reverb/delay on your effects to simulate distant, breathing atmospheres.</li>
+<li>Randomize quantization nodes and automate CV range per step so each new chord or drone step is harmonically ambiguous and morphing.</li>
+<li>Stack multiple CV outs routed to different oscillators’ timbral controls, each with different LFO/ENVELOPE settings, for evolving polyphonic pads.</li>
+</ul>
+<hr />
+<h3>Advanced Tactics</h3>
+<ul>
+<li><strong>Boolean Logic for Surprises:</strong> Use AUX logic modes (&amp;, ||, x||, etc.) for pseudo-generative triggers—ideal for both glitchy percussion and unpredictable pad textures.</li>
+<li><strong>Step-by-Step Wild Variation:</strong> Use ALL mode to initialize patterns, then go off ALL and hand-edit irregularities—good for "almost repetitive" sequences that trick the ear.</li>
+<li><strong>Macro + Mod Matrix Automation:</strong> Assign multiple parameters to a single Macro or CV input for one-knob (or envelope) deep transformations across the entire patch.</li>
+</ul>
+<hr />
+<h3>Additional Resources</h3>
+<ul>
+<li><a href="https://iolabs.co.uk/flux/downloads/FLUX_USER_MANUAL_OPEN_BETA_V1.07.pdf">Full FLUX Manual PDF (Official)</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

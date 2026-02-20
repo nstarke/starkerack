@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>worng_Electronics_Vertex</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>worng Electronics — Vertex</h1>
+<ul>
+<li><a href="../../manuals/Vertex manual v1.00.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment:WORNG_Electronics_Vertex_manual.pdf">Download the WORNG Electronics Vertex Manual (PDF)</a>  </p>
+<hr />
+<h1>Using the WORNG Electronics Vertex to Build Full-Length Eurorack Songs</h1>
+<p>The WORNG Electronics Vertex is a unique stereo VCA module that provides deep control over the dynamics and spatial characteristics of your signals. While VCAs are often thought of as utilities for amplitude modulation, Vertex’s ability to alter envelope shapes, enable dynamic panning, and control stereo image opens up creative solutions to a classic modular challenge: turning interesting loops and riffs into structured, evolving full-length songs.</p>
+<p>Below, I’ll analyze how you can use the Vertex—in combination with other Eurorack modules—to help your patches evolve and build a sense of “song” structure.</p>
+<hr />
+<h2>Key Features Recap</h2>
+<ul>
+<li><strong>Stereo linear and exponential VCAs</strong></li>
+<li><strong>Voltage-controlled gain and skew (balance/pan)</strong></li>
+<li><strong>CV normalization for mono-to-stereo conversion</strong></li>
+<li><strong>CV over pan/balance and envelope shaping</strong></li>
+<li><strong>All-analog, DC-coupled paths for both audio and CV routing</strong></li>
+</ul>
+<hr />
+<h2>Song-Building Strategies with Vertex</h2>
+<h3>1. <strong>Dynamic Song Section Transitions (Intro → Verse → Chorus, etc.)</strong></h3>
+<ul>
+<li><strong>VCAs as Dynamic Song Mixers:</strong> Use Vertex as the last stage for several voices (bass, leads, pads) each routed through separate Vertex modules or sections. With envelope followers, function generators, or automation sources sequencing the gain and pan/skew CVs, you can fade voices in and out, simulate mutes, or bring new parts to the front spatially, much as a DAW automation lane would.</li>
+<li><strong>CV Macros for “Scenes”:</strong> Mult or sequence scenes of CV into the Gain and Skew inputs to recall different “sections” of your song by dramatically changing which parts are playing and where they sit in the stereo field.</li>
+</ul>
+<h3>2. <strong>Automated Stereo Movement for Evolution</strong></h3>
+<ul>
+<li><strong>Stereo LFOs/Envelopes:</strong> Automate movement by using an LFO (or random) to the Skew CV, gently swirling pads or leads in the stereo field during chorus or breakdown sections, then snap to center for focused breakdowns.</li>
+<li><strong>Envelope Shaping for Variation:</strong> Send envelopes with varying lengths or shapes to the Gain CV input per part, and use Skew to exaggerate or tame different sides. With clever envelope sequencing, you can “reshape” parts for different song sections, e.g. wide/long pads in verse, punchy/centered in chorus.</li>
+</ul>
+<h3>3. <strong>Mono-to-Stereo Fill Creation</strong></h3>
+<ul>
+<li><strong>Mono Signal Injection:</strong> Use the Vertex’s L-to-R normalization to turn a mono voice into a temporary stereo one during fills/breaks, by automating Skew and Gain. Imagine a mono lead that, during a fill, suddenly widens and pans dynamically, creating an ear-catching moment without adding extra gear.</li>
+</ul>
+<h3>4. <strong>Automating Dropouts and Drops</strong></h3>
+<ul>
+<li><strong>CV-Controlled Mutes and Swells:</strong> Use stepped/random CVs into Gain for sudden mutes, drops, or ramps. For example, an envelope or gate at the transition to a drop mutes all parts by pulling Gain low, then opens up for a full-impact return.</li>
+<li><strong>Pan “Throws”:</strong> Temporarily automate Skew to hard-left or hard-right, mirroring the “throw” effect in classic studio/DAW mixes for transitions or dramatic breakdowns.</li>
+</ul>
+<h3>5. <strong>Long-Term Evolution With Slow Modulation</strong></h3>
+<ul>
+<li><strong>Slow Macro LFOs:</strong> Assign a super-slow LFO to the Skew or Gain CV, evolving the stereo spread and dynamics over minutes, not measures. This makes looping patterns feel alive and less repetitive during long song builds.</li>
+<li><strong>Complex CV Paths:</strong> Use sequencers like the Make Noise Tempi/Rene, vector LFOs (like Batumi or Zadar), or step sequencing modules to send different, section-specific modulation to Vertex’s Skew/Gain.</li>
+</ul>
+<h3>6. <strong>Processing and Layering External Signals</strong></h3>
+<ul>
+<li><strong>Send DAW/Field Recordings/Ambient Pads:</strong> Use Vertex to bring in and animate external stereo signals in relation to your modular material, crossfading or panning them in and out at key song moments.</li>
+<li><strong>Live PA/Performance Utility:</strong> Use manual control plus footswitch or expression pedal sources on Skew/Gain CVs for hands-on, performative dynamics in a set—fading, panning, muting, or highlighting as you perform.</li>
+</ul>
+<hr />
+<h2>Example “Song” Structure Patch Flow Using Vertex</h2>
+<pre><code class="language-mermaid">flowchart TD
+    A[Sequencer/Drum Machine]
+    B[Melodic Voice(s)]
+    C[Bass Voice]
+    D[Pad/Texture Voice]
+    E[Vertex L/R Inputs (Mono/Stereo)]
+    F[CV Macro Source(s): LFO, Envelope, Sequencer]
+    G[Final Stereo Out/FX]
+
+    A --[Drums Mono-&gt;L in Vertex 1]--&gt; E
+    B --[Lead Mono-&gt;L in Vertex 2]--&gt; E
+    C --[Bass Mono-&gt;L in Vertex 3]--&gt; E
+    D --[Pad Stereo-&gt;L/R in Vertex 4]--&gt; E
+
+    F --[Gain/Skew CVs by Section or LFO]--&gt; E
+    E --[Dynamic, spatial mix of all voices]--&gt; G
+</code></pre>
+<p>With this flow, you’d use a combination of sequencer, envelope, and LFO sources to automate how each voice enters, exits, and moves in the stereo field across sections.</p>
+<hr />
+<h2>Hands-On Tips</h2>
+<ul>
+<li><strong>Scenes with Switches/Sequential Addresses</strong>: Patch different “scene” CVs from a sequential switch to Vertex’s Gain/Skew for verse/chorus/bridge arrangements.</li>
+<li><strong>Envelope Randomizers</strong>: Use random/trig LFO envelopes to introduce unpredictable panning or level changes, giving a sense of improvisation or “human touch.”</li>
+<li><strong>Preset Recall</strong>: Advanced setups can use preset or program change modules (e.g., Disting EX, ES-8 with computer control) to modulate Vertex’s CVs for live or studio recall.</li>
+</ul>
+<hr />
+<h2>Conclusion</h2>
+<p>The Vertex isn’t just a “utility” VCA—it’s a powerful performance mixing, enveloping, and panning tool for stereo modular setups. With creative CV automation and thoughtful voice routing, you can transform repeating loops into living, breathing full-length songs, packed with dynamic, evolving structure.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

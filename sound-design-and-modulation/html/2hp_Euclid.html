@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Euclid</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Euclid</h1>
+<ul>
+<li><a href="../../manuals/2hp_Euclid.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://2hp.com/docs/euclid.pdf">Euclid 2hp Module Manual PDF</a></p>
+<hr />
+<h1>Creative Modulation Techniques with the 2hp Euclid Module</h1>
+<p>The <strong>2hp Euclid</strong> is a compact Eurorack rhythmic pattern generator based on the Euclidean algorithm. With CV control over pattern length, steps, and offset, it can generate everything from regular pulses to complex, irregular rhythms for any genre. Below are several ways to exploit its features for <strong>distorted percussion</strong>, <strong>aggressive basslines</strong>, and <strong>haunting pads</strong>.</p>
+<h2>Key Modulation Destinations</h2>
+<ul>
+<li><strong>Length</strong>: Number of steps in the polyrhythm (1–16)</li>
+<li><strong>Steps</strong>: Active pulses per pattern (1—Length)</li>
+<li><strong>Offset</strong>: Phase/starting point of pattern (0—Length-1)</li>
+<li>All above can be modulated via CV (0–5V for Length and Steps)</li>
+</ul>
+<hr />
+<h2>Techniques by Sound Type</h2>
+<h3>1. Distorted Percussive Sounds</h3>
+<p><strong>Patch Idea:</strong> Use randomized or chaotic modulation to get glitchy, broken rhythms, great for industrial or distorted percussion.</p>
+<ul>
+<li><strong>Clock</strong> the Trig Input with a fast or swung clock for interesting rhythms.</li>
+<li>Use a <strong>sample &amp; hold</strong>, <strong>random voltage</strong>, or <strong>LFO</strong> to modulate the <strong>Steps</strong> and/or <strong>Length</strong> CV. This will cause beats to “fracture” and shift constantly.</li>
+<li>Modulate <strong>Offset</strong> with a slow, slewed random voltage so the pulse placement changes every bar or so, disorienting the groove over time.</li>
+<li>Send the <strong>Trigger Output</strong> into a drum module, noise source, or even a <strong>wavefolder/distortion</strong> to exaggerate the clipped, hard-edged effect.</li>
+<li><strong>Extra:</strong> Mult the out trigger and use it to flip a VCA opening for processed audio or as a clock for a bitcrusher module to stutter/distort other voices.</li>
+</ul>
+<h3>2. Crazy Dubstep/Drum &amp; Bass Basslines</h3>
+<p><strong>Patch Idea:</strong> Use evolving and rhythmically complex gates to trigger envelope generators or sync bass synths for signature “wonky” basslines.</p>
+<ul>
+<li>Use <strong>Euclid Trigger Out</strong> to fire an <strong>envelope</strong> controlling a VCA or filter cutoff on a bass voice, making the bass hit only at Euclid's pattern pulses.</li>
+<li>Patch a fast, cycling <strong>LFO</strong> or envelope to <strong>Steps CV</strong>, so the bass rhythm shifts with each bar, creating unexpected syncopation as in DnB or dubstep.</li>
+<li>Assign a slow triangle or complex wave <strong>LFO</strong> to <strong>Length CV</strong>, modulating how long the sequence is for “gated” or “rolling” effects.</li>
+<li><strong>Offset CV</strong> can be modulated with stepped random or S&amp;H for “shuffle” and swing-like effects. Try this at audio rates for nasty, “buzzing” rhythms synced to the step sequence.</li>
+<li>Run the trigger through a slew or gate delay for ratcheted effects. Feed this into hard <strong>wave distortion</strong> or <strong>FM</strong> the bass oscillator for extra aggression.</li>
+</ul>
+<h3>3. Haunting Atmospheric Pads</h3>
+<p><strong>Patch Idea:</strong> Use Euclid for subtle, evolving gating of shimmer or drone layers.</p>
+<ul>
+<li>Use slow clock divisions on <strong>Trig Input</strong> so outputs are spaced out.</li>
+<li>Modulate <strong>Steps CV</strong> gently with cyclic LFOs for pulses that “breathe”, perfect for pads.</li>
+<li>Use <strong>Offset Knob</strong> to slowly cycle which steps are active, making the pad seem to “wander” in space.</li>
+<li>Mult the <strong>Trigger Out</strong> to both VCA/VCF openings and reverb/delay feedback CV ins for evolving spatial depth.</li>
+<li>Use a <strong>noise/random output</strong> patched to <strong>Length</strong> for unpredictable pad “flickers”, or to make evolving, ghostly rhythmic textures.</li>
+<li>Try self-patching: send Euclid Output to modulate its own Offset (through an attenuator/VCA) for self-generating pattern evolution.</li>
+<li>For lushness, sequence reverb send/return or stereo field with multed Euclid outputs.</li>
+</ul>
+<hr />
+<h3>Additional Tips</h3>
+<ul>
+<li>Exploit the incredibly fast or slow clocking possibilities for granular or ambient glitches.</li>
+<li>For maximum chaos, try modulating all three CVs with unsynchronized, irregular LFOs or random sources.</li>
+<li>Combining Euclid with logic modules (AND, OR, XOR) and comparators can create generative or morphing rhythmic structures.</li>
+<li>Stack the Euclid output with triggers/gates from other sequencers for polymetric, cross-rhythmic effects.</li>
+</ul>
+<hr />
+<p><strong>Further Reading:</strong>
+- <a href="https://2hp.com/docs/euclid.pdf">Official PDF Manual</a></p>
+<p><strong>Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></strong></p>
+</body>
+</html>

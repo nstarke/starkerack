@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Tune</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Tune</h1>
+<ul>
+<li><a href="../../manuals/Tune_Manual_2023.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://twohp.com/modules/tune">2hp Tune Manual (PDF)</a></p>
+<hr />
+<h1>Creative Modulation of 2hp Tune for Unique Eurorack Sounds</h1>
+<p>The <strong>2hp Tune</strong> is a compact and versatile voltage quantizer that turns any CV input into a scale-locked, clean pitch output—perfect for generating musically interesting lines and melodies. But with creative patching and modulation, it can also be teased into generating extreme, percussive, and textural sounds suitable for distorted percussion, crazy basslines, and haunting pads.</p>
+<p>Below are example modulation strategies for each of those categories, leveraging the Tune module’s features:</p>
+<hr />
+<h2>Distorted Percussive Sounds</h2>
+<h3>Key Patch Points:</h3>
+<ul>
+<li><strong>Input (CV Signal)</strong></li>
+<li><strong>Bias CV Input</strong></li>
+<li><strong>Scale Knob &amp; Scale LEDs</strong></li>
+</ul>
+<h3>Techniques:</h3>
+<ol>
+<li>
+<p><strong>Clip &amp; Smash</strong>:<br />
+   Feed snappy, fast, envelope-generator CVs or triggers (with variable amplitude) into the <strong>Input</strong>. Use heavily-overdriven AD envelopes or complex random LFOs. The Tune will force these wild signals onto scale notes, creating “chopped” melodic rhythms.</p>
+</li>
+<li>
+<p><strong>Scale Modulation for Unpredictability</strong>:<br />
+   Use an LFO or stepped random source into the <strong>Bias CV Input</strong>. As the Bias shifts, it re-maps which notes the quantizer outputs—the output will “glitch” from note to note, especially if the bias CV is rapidly modulated.</p>
+</li>
+<li>
+<p><strong>Scale Selection for Flavors</strong>:<br />
+   Twist the <strong>Scale Knob</strong> or voltage-control it with a sequential switch for quick jumps between pentatonic, diminished, and chromatic scales. Chromatic will sound almost like a bit-crusher, while diminished/octatonic will get you angular, metallic percussive pings.</p>
+</li>
+<li>
+<p><strong>Add Distortion:</strong><br />
+   Send the quantized voltage into a simple analog VCO, then process through your favorite wavefolder or distortion module to get harsh kicks, snares, and metallic hits.  </p>
+</li>
+<li><strong>Tip</strong>: Use the percussive envelope to open a VCA or LPG after the VCO.</li>
+</ol>
+<hr />
+<h2>Crazy Basslines (Dubstep/Drum &amp; Bass)</h2>
+<h3>Key Patch Points:</h3>
+<ul>
+<li><strong>Input (Sequencer, Random CV, Envelope)</strong></li>
+<li><strong>Bias CV Input</strong></li>
+<li><strong>Scale Selection (Minor, Harmonic Minor, Diminished for dissonance)</strong></li>
+</ul>
+<h3>Techniques:</h3>
+<ol>
+<li>
+<p><strong>Wild Sequencing</strong>:<br />
+   Use a sequencer or stepped random generator for the <strong>Input</strong>. Set the scale to Minor or Diminished for darker, more aggressive lines. Turn up Bias and CV-modulate it to transpose basslines rhythmically or cause them to “jump” with accents.</p>
+</li>
+<li>
+<p><strong>Glitchy Slides and Staircases</strong>:<br />
+   Mult a shape LFO (like a complex Saw/LFO combo) to both the Input and the Bias CV Input; detune their rates for "staircase" basslines, or feed a synced sample-and-hold for broken, unpredictable note stepping.</p>
+</li>
+<li>
+<p><strong>Dual Layering</strong>:<br />
+   Patch <strong>Output</strong> to two VCOs—one clean, one distorted or FM’ed for higher harmonics. Apply envelope following or additional LFOs to VCO FM depth to intensify the “wobble” or grit.</p>
+</li>
+<li>
+<p><strong>Sync with Drum Gates</strong>:<br />
+   Sync the CV input with your main rhythm gate generator so that the quantizer spits out new pitches on every drum hit, aligning bass stabs to your beat grid.</p>
+</li>
+</ol>
+<hr />
+<h2>Haunting Atmospheric Pads</h2>
+<h3>Key Patch Points:</h3>
+<ul>
+<li><strong>Input (Slow LFOs, Slow Random CV Generators)</strong></li>
+<li><strong>Bias CV Input (Modulated by aftertouch, joystick, or more LFOs)</strong></li>
+<li><strong>Scales: Major Pentatonic, Egyptian Minor, Whole Tone for mysterious moods</strong></li>
+</ul>
+<h3>Techniques:</h3>
+<ol>
+<li>
+<p><strong>Undulating Motions:</strong><br />
+   Feed a slow sine or triangle LFO into the <strong>Input</strong> for drifting arpeggio-like motion. Use a S&amp;H random CV, smoothed slightly, for “wandering” melodies.</p>
+</li>
+<li>
+<p><strong>Expressive Shifts</strong>:<br />
+   Route aftertouch, ribbon controller, or pedals to the <strong>Bias CV Input</strong>. Performers can then shift the base note of the quantized scale for expressive modal changes.</p>
+</li>
+<li>
+<p><strong>Atmospheric Voicing:</strong><br />
+   Output to a polyphonic VCO or a resonator module; layering multiple delayed/layered VCOs quantized by Tune creates complex, evolving pads.</p>
+</li>
+<li>
+<p><strong>Magical Scale Choice:</strong><br />
+   Switch between scales (Whole Tone, Egyptian Minor, Octatonic) for instantly unfamiliar, cinematic clusters. Automate (with switches or CV) the <strong>Scale Knob</strong> for shifting moods.</p>
+</li>
+<li>
+<p><strong>Slow, Textural Modulation:</strong><br />
+   Add stereo spread and reverb after your VCO. Send Bias CV extremely slowly with random modulations for ghostly, evolving tonalities.</p>
+</li>
+</ol>
+<hr />
+<p><strong>General Tips:</strong></p>
+<ul>
+<li>Remember: all modulation of Input and Bias should be unipolar (0V to +5V).</li>
+<li>The interplay of Input and Bias determines not only pitch, but "which" notes within the scale are available at any given time. This makes fast tampering with Bias especially fruitful for chaos.</li>
+<li>Using fast modulation sources or noisy voltages going through a fast-changing Bias generates glitchy, digital-sounding arpeggiations which can be harnessed for both percussion and fast melodic lines.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

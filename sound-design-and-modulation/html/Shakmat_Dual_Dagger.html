@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Shakmat_Dual_Dagger</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Shakmat — Dual Dagger</h1>
+<ul>
+<li><a href="../../manuals/DD-User_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.shakmat.com/assets/dualdagger_manual.pdf"><strong>Shakmat Dual Dagger Manual PDF</strong></a></p>
+<hr />
+<h1>Creative Modulation Techniques for Shakmat Dual Dagger</h1>
+<p><em>Focusing on Distorted Percussion, Aggressive Basslines, and Haunting Pads</em></p>
+<p>The <strong>Shakmat Dual Dagger</strong> is a compact, highly flexible stereo filter with independent 24dB/oct low-pass and high-pass sections per channel, assignable resonance, stereo "panning" of cutoff frequencies, and a unique Link mode that creates a bandpass filter with independent bandwidth control. Here’s how to exploit its architecture for advanced sound design in eurorack.</p>
+<hr />
+<h2>1. <strong>Distorted Percussive Sounds</strong></h2>
+<p><strong>Key Techniques:</strong>
+- Self-oscillation (use high resonance "Hi" jumper)
+- Overdriving inputs
+- Modulating cutoff with fast envelopes/LFOs
+- Parallel stereo processing and summed output</p>
+<h3><strong>Patch Ideas:</strong></h3>
+<ul>
+<li><strong>Kick Drums &amp; Percussive Hits:</strong><ul>
+<li>Feed a short, sharp envelope or a VCO sine into <code>IN1</code> and/or <code>IN2</code>.</li>
+<li>Set resonance (“Hi” jumper) to near or at self-oscillation—engage resonance on just LPF or both HPF+LPF for character.</li>
+<li>Modulate either (or both) the LPF or HPF cutoff with a fast envelope for transient shaping (<code>LPF</code> / <code>HPF</code> CV in).</li>
+<li>Use <code>PANLP</code> and/or <code>PANHP</code> CV with an offset LFO or a manually controlled CV to quickly split the stereo image, detuning the percussive hits for a doubled impact.</li>
+<li>Try mixing <code>OUT1</code> and <code>OUT2</code> for a dual-peaked, almost comb-filtered sound—especially punchy with HPF and LPF both engaged.</li>
+</ul>
+</li>
+<li><strong>Distorted Percussion / Aggressive Claps:</strong><ul>
+<li>Send noise into both channels, set HPF to taste, LPF higher for a trashy top end.</li>
+<li>Ping the resonance with a short envelope on the <code>RES</code> CV input—this can cause brief, acidic ringing.</li>
+<li>Overdrive the input (feeding hot signals) to get analog clipping.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>2. <strong>Dubstep/Drum &amp; Bass Basslines</strong></h2>
+<p><strong>Key Techniques:</strong>
+- Extreme resonance and filter modulation (for classic “wobble”/growl)
+- Exploit Link mode for bandpass filtering and shifting bandwidth
+- Use PAN to offset/counter-modulate stereo sides for fat, wide bass</p>
+<h3><strong>Patch Ideas:</strong></h3>
+<ul>
+<li><strong>Wobble Bass:</strong><ul>
+<li>Feed a saw/square (sub) VCO into both inputs (monosummed or stereo).</li>
+<li>Activate <code>Link</code>, now the HPF control sets the base frequency (bass “root”), and LPF sets bandwidth (“wobble”).</li>
+<li>Modulate the HPF cutoff and/or bandwidth with a clock-synced LFO or stepped random source—this nails the classic “dubstep wobble.”</li>
+<li>Push resonance just to the edge of self-oscillation for gnarly peak emphasis; modulate with envelope-following sidechain to duck/boost on the kick.</li>
+<li>Use <code>PANLP</code> and/or <code>PANHP</code> CVs to move the left and right sides in opposite directions for extra width and movement.</li>
+</ul>
+</li>
+<li><strong>Distorted/Reese Bass:</strong><ul>
+<li>Use two detuned oscillators (one to IN1, one to IN2), and modulate one side’s PAN input (“detune” between filters).</li>
+<li>Hit the filter stages with hot input signals and sweep resonance (even mid-performance!) for screaming, formant-like tones.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>3. <strong>Haunting Atmospheric Pads</strong></h2>
+<p><strong>Key Techniques:</strong>
+- Slow-moving modulation of both cutoff and resonance
+- Washy stereo movement using independent panning
+- Subtle bandpass width shifting</p>
+<h3><strong>Patch Ideas:</strong></h3>
+<ul>
+<li><strong>Stereo Pad “Shimmers”:</strong><ul>
+<li>Feed a wide, harmonically rich pad or texture into both channels.</li>
+<li>Set moderate resonance on LPF only for a glassy, ethereal emphasis.</li>
+<li>Use very slow, slightly offset LFOs on <code>LPF</code> and <code>HPF</code> cutoff CVs for evolving movement.</li>
+<li>Modulate <code>PANLP</code> and <code>PANHP</code> with sine/triangle LFOs at very slow rates, creating stereo drifting timbral shifts.</li>
+<li>Toggle Link mode on/off for textural transitions between lowpass/wideband and bandpass/filtered effects.</li>
+</ul>
+</li>
+<li><strong>Spooky/Evolving Tones:</strong><ul>
+<li>Engage both resonance switches, use “Lo” jumper for subtle peaks.</li>
+<li>Patch ambient samples/granular clouds into IN1/IN2, let slow envelopes and random mod sources drive all available CV ins.</li>
+<li>Consider using external modules (like Shakmat SumDif) to further process mid/side or create spatial trickery with the filter's stereo outputs.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2><strong>General Tips:</strong></h2>
+<ul>
+<li><strong>CV Routing:</strong> Take advantage of the multiple CV inputs for each filter/resonance/pan section. Even subtle modulation can make static sounds lively.</li>
+<li><strong>Link Mode:</strong> Use bandpass filtering for focused frequency bands, especially when combining with modulation for “moving formant” effects.</li>
+<li><strong>Resonance:</strong> Be mindful—high resonance (Hi jumper) will self-oscillate, great for FX but watch out for wild amplitude swings, especially on percussive patches.</li>
+</ul>
+<hr />
+<p>For more, see the <a href="https://www.shakmat.com/assets/dualdagger_manual.pdf"><strong>Official Shakmat Dual Dagger Manual PDF</strong></a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

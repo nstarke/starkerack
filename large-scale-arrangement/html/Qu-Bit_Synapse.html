@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Synapse</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Synapse</h1>
+<ul>
+<li><a href="../../manuals/Synapse.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://static1.squarespace.com/static/565d1328e4b077b4e56206b6/t/65a6b3bd7b8982215c8bb12e/1705418174528/Synapse+Manual.pdf">Qu-Bit Synapse Manual PDF</a></p>
+<hr />
+<h2>How to Use Qu-Bit Synapse for Eurorack Song Arrangement</h2>
+<p>Eurorack systems excel at creating captivating loops and textures, but arranging these into full-length, evolving songs often requires creative mixing, switching, memory, and modulation. The <strong>Qu-Bit Synapse</strong> provides a powerful solution, acting as a morphing crossfader, morphable router, preset manager, and modulation hub. Below are strategies for integrating Synapse into your workflow to achieve song-length arrangements.</p>
+<hr />
+<h2>Key Synapse Features for Arrangement</h2>
+<ul>
+<li><strong>4-Channel Crossfade Matrix</strong> with morphable routing and recallable states.</li>
+<li><strong>Stored Memory Locations</strong>: Instant recall of 8 different crossfade/routing setups.</li>
+<li><strong>Advance, Scatter, and Click-less Switching</strong>: Seamlessly shift between states or shuffle patches.</li>
+<li><strong>Internal LFO Modulation</strong>: Animate crossfades or switch routings.</li>
+<li><strong>DC Offset/Sequencer</strong>: Four-step voltage source or preset manager.</li>
+<li><strong>Summing Outputs</strong>: Mix channels for parallel or serial effects chains.</li>
+<li><strong>Recall on Power-up</strong>: Retains states for live shows.</li>
+</ul>
+<hr />
+<h2>Song Construction Techniques with Synapse</h2>
+<h3>1. Verse/Chorus/Bridge Automations</h3>
+<ul>
+<li><strong>Preset Scenes:</strong> Create 8 “scenes” with distinct blends, routings, or FX paths using Synapse’s Memory function (sections of your song: intro, verse, chorus, bridge, breakdown, etc.).</li>
+<li><strong>Recall Instantly:</strong> Use the Memory knob to jump to sections live, or modulate with CV/sequencer for automated arrangement changes.</li>
+<li><strong>Advance by Clock:</strong> Patch a gate or trigger sequencer into Advance to step through scenes in time with your sequence—ideal for clock-synced arrangement.</li>
+</ul>
+<h3>2. Thematic Variations &amp; Transitions</h3>
+<ul>
+<li><strong>Randomize with Scatter:</strong> Instantly jumble your routing (e.g., for breakdowns, fills, generative sections) with a button press, via the Scatter input, or from gates/triggers.</li>
+<li><strong>Click-less Switching:</strong> Enable for smooth transitions between sections, especially when routing audio.</li>
+</ul>
+<h3>3. Generative and Evolving Patches</h3>
+<ul>
+<li><strong>Internal LFOs:</strong> Animate crossfades for evolving timbre or effects chains. Set LFOs to drift through the crossfade positions over seconds or minutes, morphing the patch organically.</li>
+<li><strong>Slew (Inertia):</strong> Add fade time between section changes for smooth transitions.</li>
+<li><strong>Automatic FX Sends:</strong> Use Sum outputs to blend wet/dry signals across different effect paths—great for organic, evolving mixes.</li>
+</ul>
+<h3>4. Stored "Solos" and Dropouts</h3>
+<ul>
+<li><strong>Memory Mute/Solo States:</strong> Store memory locations where only bass, melody, drums, or effects are prominent, then jump to them during a performance—basically “preset mutes.”</li>
+<li><strong>Bass/Melody Dropouts:</strong> Sequence memory locations where a track is faded out entirely, then recall for breakdowns or drops.</li>
+</ul>
+<h3>5. Multi-Voice &amp; Layer Management</h3>
+<ul>
+<li><strong>Spatial Routing:</strong> Dynamically send voices (e.g., drums, bass, chords, melody) to different effect chains, filters, or sub-mixers using Synapse’s routing matrix.</li>
+<li><strong>Sum Outputs:</strong> Use to combine, layer, or parallel-compress elements for richer textures.</li>
+</ul>
+<h3>6. Automated Sequencing and State Morphing</h3>
+<ul>
+<li><strong>External CV Control:</strong> Sequence memory locations, crossfade, or routing via LFOs, CV sequencers, or random voltage sources for non-linear structure and generative pieces.</li>
+<li><strong>Rhythmic Swapping:</strong> Using gate sequencers to advance or scatter outputs in perfect sync with your patterns for fills, switch-ups, or abrupt transitions.</li>
+</ul>
+<h3>7. Live Performance &amp; Set Recall</h3>
+<ul>
+<li><strong>Patchless Scene Changes:</strong> Build multiple “songs” (or sections) into Synapse’s memory, then recall at will for live or studio use.</li>
+<li><strong>State Recall:</strong> Power-cycle recall enables prepping sets in advance.</li>
+</ul>
+<hr />
+<h2>Example Eurorack Configurations</h2>
+<h3>Song Structure Example</h3>
+<ul>
+<li><strong>Drum Groove → Verse:</strong> Subtle crossfade increases reverb on drums, reduces melody line.</li>
+<li><strong>Verse → Chorus:</strong> Select Memory 2, where melody and drum A/B inputs flip, and effects routing becomes more prominent.</li>
+<li><strong>Chorus → Breakdown:</strong> Send a trigger to Scatter for generative fill.</li>
+<li><strong>Breakdown → Verse:</strong> Use Inertia for a slow “fade up” into next section.</li>
+</ul>
+<h3>Example Patch</h3>
+<table>
+<thead>
+<tr>
+<th>Synapse Channel</th>
+<th>A Input</th>
+<th>B Input</th>
+<th>Crossfade (CV or Knob)</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Dry Melody</td>
+<td>FX Melody</td>
+<td>LFO or CV fade</td>
+<td>Evolving timbre/effects</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bass Channel</td>
+<td>Empty/+5V DC</td>
+<td>Crossfade manually</td>
+<td>Bass mute/dropout memory</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kick</td>
+<td>Kick+Distortion</td>
+<td>Random/advanced memory</td>
+<td>FX or emphasis sections</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Perc+FX</td>
+<td>Reverse Perc</td>
+<td>Triggered transitions</td>
+<td>Fills, switch-ups</td>
+</tr>
+</tbody>
+</table>
+<p>Advance/Memory knob: Sequenced for verse/chorus/bridge</p>
+<p>Sum out: To main mixer/recording chain</p>
+<hr />
+<h2>General Songwriting Approach</h2>
+<ol>
+<li><strong>Patch your voices/instruments into the Synapse matrix.</strong></li>
+<li><strong>Define 3–8 key “song sections”</strong> using crossfade positions and routing; store as Memory locations.</li>
+<li><strong>Use gates/triggers/external sequencer or the Memory knob</strong> to move between sections in time, automating structure.</li>
+<li><strong>Employ Scatter/Advance for fills and randomization</strong>.</li>
+<li><strong>Animate with LFO/Internal modulation</strong> for evolving material.</li>
+<li><strong>Recall and tweak on the fly</strong>—all without repatching.</li>
+</ol>
+<hr />
+<p>The Synapse transforms static modular jams into song-format performances, enabling real-time structure, dynamic mixes, and deep modulation—all essential for turning modular ideas into full-length recorded works or captivating live sets.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

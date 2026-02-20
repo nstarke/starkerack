@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Schlappi_Engineering_Three_Body</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Schlappi Engineering — Three Body</h1>
+<ul>
+<li><a href="../../manuals/three_body_manual_01302023a.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://schlappiengineering.com/manuals/ThreeBodyManual.pdf">Download the Three Body Manual PDF (Schlappi Engineering)</a></p>
+<hr />
+<h1>Three Body Module: Creative Modulation Tips</h1>
+<p>As a fellow Eurorack musician, let's dive into how to wield the <strong>Schlappi Engineering Three Body</strong> for wild sound design—ranging from <em>wrecked percussion</em> to <em>dubstep/drum and bass basslines</em> to <em>eerie atmospheric pads</em>. Here are focused patch ideas and modulation strategies leveraging the module's unique features like through-zero FM/PM, phase relationships, and ratio tracking.</p>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<h3>Principles</h3>
+<ul>
+<li><strong>Deep linear FM</strong> and <strong>phase cross-modulation</strong> can create rich, noisy transient-laden tones.</li>
+<li>Using SYNC and RATIO modes enables metallic and evolving percussive qualities.</li>
+<li>Leverage the overdriven index/phase/fm VCAs, especially at audio rates.</li>
+</ul>
+<h3>Patching Tips</h3>
+<p><strong>A. Snappy Metallic Hits</strong>
+- Put the <strong>center oscillator</strong> in FREE, HIGH mode (<em>acts as voice</em>).
+- <strong>Left and right oscillators</strong> in RATIO mode, both track center, with div/mult settings to place them at non-integer ratios (e.g., 7:3 for clangorous partials).
+- Feed a short envelope into FM INDEX or PHASE INDEX on the center oscillator.
+- Try sending envelopes or triggers to outer oscillators' FM or PHASE inputs.
+- Cross-modulate (patch left phase out to right phase in and vice versa) and push PHASE CV up just to the edge of noise.
+- Use the outer oscillators’ sine/triangle outputs for additional ringy percussion layers.</p>
+<p><strong>B. Fuzzy Toms or Kicks</strong>
+- Center in FREE, LOW for LFO or low-audio range.
+- Short decay envelope into FM (lin) or PHASE to get warbly, laser-like decays.
+- Increase linear FM index for "wub" or "boom" artifacts.
+- Feed a noise burst or fast LFO into SYNC for pseudo-acoustic scrapes.</p>
+<hr />
+<h2>2. Crazy Basslines (Dubstep/Drum &amp; Bass)</h2>
+<h3>Principles</h3>
+<ul>
+<li>Exploit <strong>through-zero linear FM for wild harmonic sweep</strong>, <strong>phase modulation for timbral animation</strong>, and harsh ratio-locking for "tearing" sounds.</li>
+<li>Modulate the RATIO controls with sequenced CVs for stepwise or gliding pitch.</li>
+</ul>
+<h3>Patching Tips</h3>
+<p><strong>A. Ripping Dubstep Basses</strong>
+- Center oscillator as modulator (FREE, HIGH), left or right as carrier (RATIO, HIGH/MULT).
+- Use a clock or gate from a sequencer into SYNC to hard-sync the carrier for sharp, digital edges.
+- LFO or envelope into FM INDEX or PHASE INDEX for movement—try modulating the modulation index itself with an envelope for evolving grit.
+- Turn FM index up high—it will phase-reverse and melt the carrier into unpredictable digital chaos (classic "FM mayhem").
+- Patch CV into VOCT/RATIO input on the carrier, use a random sequencer or stepped voltage to create octave jumps and "neuro" scale leaps.
+- Try cross modulation between the outer oscillators for thick growl; back off if it gets too noisy.</p>
+<p><strong>B. Reese Bass / Jungle Neuro Swerves</strong>
+- Set both outer oscillators in RATIO mode, center as modulator (FM or PHASE).
+- Stereo patch: Take both outer sine (or triangle) outs for instant wide, moving sound.
+- Use slow LFO on FM INDEX or PHASE to sweep harmonic content.
+- For additional stereo movement, use the center cosine and sine outs panned hard left/right.</p>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<h3>Principles</h3>
+<ul>
+<li>Gentle <strong>audio-rate phase modulation</strong> and using the stereo outputs (center sine/cosine or saw/cosaw) yield lush, moving textures.</li>
+<li>Modulate ratios with slow LFOs or random stepped voltages for nonrepeating, evolving harmonics.</li>
+</ul>
+<h3>Patching Tips</h3>
+<p><strong>A. Floating Pads with Shifting Harmonics</strong>
+- Center oscillator: FREE, LOW/HIGH depending on desired register.
+- Outer oscillators: RATIO modes, set ratios to non-integer or overtone intervals (e.g., 5:3, 8:5).
+- Modulate PHASE INDEX on the center with slow LFOs, envelopes, or aftertouch (if using a controller).
+- Use both the sine and cosine outs from center oscillator; pan them for a natural stereo shimmer.
+- Bring up some PHASE cross-modulation between outer oscillators for “swirling mist” effects.
+- Feed slow random or LFOs to the outer oscillators’ VOCT/RATIO inputs for scale drift.
+- If you want less harmonic richness, reduce FM/PHASE indexes and rely more on subtle ratio modulations.</p>
+<p><strong>B. Binaural/Motion Effects</strong>
+- Exploit the <em>phase direction</em> header for true quadrature relationships and wide stereo.
+- Use two LFOs with different frequencies modulating left and right phase indexes, while listening to center saw/cosaw outs.</p>
+<hr />
+<h2>General Modulation Notes</h2>
+<ul>
+<li><strong>Linear FM (lin):</strong> Go deep for intense metallic and digital sounds, but rebounds into noisy regions quickly.</li>
+<li><strong>Phase modulation:</strong> More harmonically “stable” than exponential FM—good for thick distortion or wavefold-like timbres.</li>
+<li><strong>Index modulation:</strong> Automate the amount of modulation with external envelopes, for morphing, accent, or decay.</li>
+<li><strong>SYNC input in RATIO mode:</strong> Hard sync for “brassy” resets; patch in external clocks, triggers, or even audio for quasi-ringmod and sample/hold effects.</li>
+</ul>
+<hr />
+<h2>Bonus Tweaks</h2>
+<ul>
+<li>
+<p>Adjust <strong>rear headers</strong> (external filter, phase direction, square phase modulation) for advanced behaviors—e.g., thick sub fundamentals via unmodulated square, or true stereo phase operation.</p>
+</li>
+<li>
+<p>Experiment with self-patching: use outs from one oscillator to modulate itself via FM or PHASE, using VCAs/external attenuation for feedback control.</p>
+</li>
+</ul>
+<hr />
+<h3>Further Exploration</h3>
+<p>For more advanced signal processing or integrating Three Body in digital/hybrid workflows, check out <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor on Github</a>.</p>
+<hr />
+<p><strong>Generated With Eurorack Processor</strong></p>
+</body>
+</html>

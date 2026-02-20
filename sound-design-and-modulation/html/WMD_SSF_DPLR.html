@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>WMD_SSF_DPLR</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>WMD SSF — DPLR</h1>
+<ul>
+<li><a href="../../manuals/DPLRmanual1.3.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://wmdevices.com/products/wmd-ssf-dplr">WMD/SSF DPLR Official Manual (PDF)</a></p>
+<hr />
+<h2>Eurorack Sound Design with the WMD/SSF DPLR Dual Delay</h2>
+<p>The <strong>WMD/SSF DPLR</strong> is a rich stereo/dual delay module with several modulation points, unique XTALK (crosstalk) modes, and analog-style filtering. Here’s how you can use it to craft unique, hard-hitting, and atmospheric synth sounds.</p>
+<hr />
+<h3>General Modulation Points</h3>
+<ul>
+<li><strong>DELAY AMOUNT CV</strong> (<code>DLY CV</code>): Modulate delay time for pitch-shifting, tape-wobble, and glitch effects.</li>
+<li><strong>SPREAD CV</strong> (<code>SPRD CV</code>): Modulate to create stereo movement or ping-pong delay effects.</li>
+<li><strong>REGEN CV</strong> (<code>RGN CV</code>): Modulate feedback for recursive, evolving, or self-oscillating textures.</li>
+<li><strong>Manual Controls</strong>: All main controls are also voltage-controllable and performable for real-time tweaks.</li>
+</ul>
+<hr />
+<h3>1. Distorted Percussive Sounds</h3>
+<p><strong>Goal:</strong> Glitchy, crunchy, or broken delay tails suited for techno, IDM, or experimental percussion.</p>
+<h4>Tips:</h4>
+<p>-:
+- <strong>Crank the REGEN:</strong> Turn up feedback for intense repeats; automate with a stepped or envelope CV for build-ups or bursts.
+- <strong>Delay Amount:</strong> Modulate rapidly with an envelope triggered by your drum hit (cv from envelope follower or gate to envelope into <code>DLY CV</code>). This produces broken pitch jumps and unique decays.
+- <strong>Heavy Filtering:</strong> Hold <code>MODE SELECT</code> to toggle to the strongest filter slopes—this reduces delay brightness, emphasizing thump and crackle.
+- <strong>XTALK Modes:</strong> Step through cross talk (crosstalk; RED-RED for classic dual delay, BLUE for most chaotic bleed between channels). The higher the XTALK, the noisier and more affected each tap is by the other.
+- <strong>SPREAD Jumps:</strong> Punch Spread/B at specific intervals (even with a random voltage or S&amp;H LFO) for polyrhythmic, offset delay taps.</p>
+<p><strong>Patch Example:</strong></p>
+<pre><code class="language-plaintext">Drum Module --&gt; DPLR IN
+Envelope Follower from Drum --&gt; DLY CV in
+Short Envelope or Stepped S&amp;H --&gt; RGN CV in
+Modulated LFO or S&amp;H --&gt; SPRD CV in
+OUT A / OUT B --&gt; Mixer/VCAs
+</code></pre>
+<hr />
+<h3>2. Crazy Dubstep/Drum &amp; Bass Basslines</h3>
+<p><strong>Goal:</strong> Growling, resonant, or moving basslines with stereo interest and heavy feedback artifacts.</p>
+<h4>Tips:</h4>
+<ul>
+<li><strong>Feed Bass into Delay:</strong> Route a saturated bassline through DPLR; use OUT A/B for stereo width.</li>
+<li><strong>REGEN for Roar:</strong> Push REGEN CV high for runaway feedback bursts—sync this via MIDI clock or LFO for predictable destruction.</li>
+<li><strong>Delay Time Modulation:</strong> Fast, sharp LFO shapes or sequencer gates into <code>DLY CV</code> produce FM-style, robotic glitches or formant-like "vocal" movement. Try quantized S&amp;H for stepped madness.</li>
+<li><strong>Use SPREAD:</strong> Add panning motion or create offbeat echoes with modulating SPREAD. An envelope or fast, bipolar LFO works best.</li>
+<li><strong>XTALK for Unpredictability:</strong> Use crosstalk modes above minimum for stereo chaos—great for building tension.</li>
+<li><strong>Filter Settings:</strong> Dial in less filtering for more grit, or max filtering for dark, focused bass.</li>
+</ul>
+<p><strong>Patch Example:</strong></p>
+<pre><code class="language-plaintext">VCO/Distorted Bass Synth --&gt; DPLR IN
+Fast LFO/Random CV --&gt; DLY CV in
+Clocked LFO --&gt; SPRD CV in
+Envelope/LFO --&gt; RGN CV in
+Try OUT B for the grittier, more modulated signal
+</code></pre>
+<hr />
+<h3>3. Haunting Atmospheric Pads</h3>
+<p><strong>Goal:</strong> Evolving, lush backgrounds with ghostly delay trails, perfect for ambient, cinematic, or horror genres.</p>
+<h4>Tips:</h4>
+<ul>
+<li><strong>Long Delay Times:</strong> Set DELAY AMOUNT high (towards 700ms). Modulate gently for subtle pitch/texture wobble.</li>
+<li><strong>Gentle Feedback:</strong> Keep some REGEN for long, evolving repeats—but automate with a slow LFO to swell the feedback over time.</li>
+<li><strong>XTALK for Texture:</strong> Moderate XTALK adds movement and spectral interest without muddying the pad.</li>
+<li><strong>Heavy Filtering:</strong> Max filter for dark, ghostly echoes; lighter filter for shimmering, noisy repeats.</li>
+<li><strong>SPREAD Automation:</strong> Slowly modulate SPREAD to move echoes across the stereo field, enhancing immersion.</li>
+<li><strong>Amount Control:</strong> Mix dry and wet with modulation for movement within the pad soundscape.</li>
+</ul>
+<p><strong>Patch Example:</strong></p>
+<pre><code class="language-plaintext">Pad/Waveshape VCO/Granular Source --&gt; DPLR IN
+Slow LFO/S&amp;H --&gt; DLY CV in
+Long, slow LFO --&gt; RGN CV in
+Random LFO --&gt; SPRD CV in
+Cyclic pressing of MODE/XTALK for live transitions
+OUT A and B --&gt; Stereo output
+</code></pre>
+<hr />
+<h3>Pro Patch Tricks</h3>
+<ul>
+<li><strong>Self-Oscillate:</strong> Maximize feedback (REGEN) and use a short impulse to "tune" the DPLR as a bizarre kick or snare drum sound source.</li>
+<li><strong>Stereo Cross Patch:</strong> Use OUT A + OUT B for dual parallel processing—route one to reverb, one through additional effects for maximal texture.</li>
+<li><strong>Live Knob Twiddling:</strong> Combine CV modulation with live tweaks for maximum chaos and performance feel.</li>
+</ul>
+<hr />
+<h4><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></h4>
+</body>
+</html>

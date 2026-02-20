@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Chord</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Chord</h1>
+<ul>
+<li><a href="../../manuals/QB_Chord.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.qubitelectronix.com/chord/Chord_v2_Manual_v2.01.pdf">Chord v2 Manual (PDF)</a></p>
+<hr />
+<h1>Using the Qu-Bit Chord v2 for Full-Length Eurorack Songs</h1>
+<p>The <strong>Qu-Bit Chord v2</strong> module is not just a polyphonic oscillator, but a transformative tool for arrangement, harmonic development, and live performance in Eurorack modular systems. Below, I’ll outline strategies, patch ideas, and workflow enhancements to help you progress from interesting sketches to full-length modular tracks using the Chord v2 as a centerpiece.</p>
+<hr />
+<h2>Overview – Why Chord v2 is Special</h2>
+<p>Most Eurorack modules focus on monophonic lines or simple layering. Chord v2, however, provides:</p>
+<ul>
+<li><strong>Polyphony:</strong> Four voices, fully independent or harmonized.</li>
+<li><strong>Chord/Voicing/Quality Modes:</strong> Enabling dynamic harmonic shifts (maj, min, 7th, etc.).</li>
+<li><strong>Waveform Diversity:</strong> Analog, FM, organ, chiptune, or even user-loaded wavetables.</li>
+<li><strong>Sequencing &amp; Modulation:</strong> Each voice can be externally sequenced or collectively modulated.</li>
+<li><strong>Custom Chords/Wavetables:</strong> Highly customizable with SD card support.</li>
+</ul>
+<hr />
+<h2>Strategies for Songwriting &amp; Arrangement</h2>
+<h3>1. <strong>Dynamic Harmonic Progression</strong></h3>
+<ul>
+<li><strong>Technique:</strong> Automate or sequence the <strong>Quality</strong> and <strong>Voicing</strong> CV inputs.<ul>
+<li><strong>Result:</strong> Song sections can shift from major, minor, sus, diminished, to extended or custom harmonies.</li>
+<li><strong>Pro Tip:</strong> Use a voltage sequencer (e.g., Make Noise Pressure Points, Intellijel Metropolis) or step LFO to modulate chord type in real time for verse/chorus contrast.</li>
+</ul>
+</li>
+<li><strong>Performance:</strong> Manually switch presets or activate custom chords stored on the SD card for live jams.</li>
+</ul>
+<h3>2. <strong>Voice Independence for Song Structure</strong></h3>
+<ul>
+<li><strong>Free Poly Mode:</strong> All four voices can be sequenced independently.<ul>
+<li><strong>Use Case:</strong> <ul>
+<li>Voice 1 → Bass (Root Output)</li>
+<li>Voice 2 → Lead or pad (Third Output)</li>
+<li>Voice 3 → Countermelody (Fifth Output)</li>
+<li>Voice 4 → Accent/melody or rhythm (Seventh Output)</li>
+</ul>
+</li>
+<li><strong>Tip:</strong> Use separate sequencers or channels of MIDI-to-CV. You can mute/unmute voices over time for breakdowns/builds.</li>
+</ul>
+</li>
+<li><strong>Melody Mode:</strong> Sequence a melody over a steady chord bed, using the Lead input to drive the seventh output.</li>
+</ul>
+<h3>3. <strong>Textural and Timbral Variation</strong></h3>
+<ul>
+<li><strong>Automation:</strong> <ul>
+<li>CV the <strong>Waveform</strong> and <strong>Bank</strong> parameters for movement between pure/warm/digital/lo-fi sounds. </li>
+<li>This allows you to define different song sections by timbral change alone.</li>
+</ul>
+</li>
+<li><strong>SD Card Custom Wavetables:</strong> Load unique wavetables for different “tracks” or song palettes.</li>
+<li><strong>CV Control with LFOs/Random:</strong> Modulate waveform/bank with slow LFOs for evolving ambient tracks.</li>
+</ul>
+<h3>4. <strong>Mix Automation and Section Transitions</strong></h3>
+<ul>
+<li><strong>Triad Feature:</strong> Toggle to remove the seventh from the mix output for cleaner, more focused sections (e.g., verses), then add it back for chorus density.</li>
+<li><strong>Manual Mutes:</strong> Run the various outputs to a quad VCA or manual muting module (e.g., Befaco Muxlicer). Fade or mute individual voices for arranging peaks, drops, and transitions.</li>
+</ul>
+<h3>5. <strong>Multi-Part Song Construction</strong></h3>
+<ul>
+<li><strong>Sample &amp; Hold or Sequential Switches:</strong><ul>
+<li>Use a S&amp;H or gate sequencer to shift quantized root notes, chord types, or voicings as “scene” changes.</li>
+<li>This can automate verse-chorus-bridge movement when synced to your master clock.</li>
+</ul>
+</li>
+<li><strong>Scene Memory via Custom Chords:</strong> Store unique chord forms on the SD card for instant recall.</li>
+</ul>
+<h3>6. <strong>Integration with Drums, Percussion, &amp; FX</strong></h3>
+<ul>
+<li><strong>Rhythmic Modulation:</strong> Use envelope followers or triggers from percussion modules to modulate Chord v2 parameters (FM, Quality, etc.), tying harmony to rhythm.</li>
+<li><strong>FX Chains:</strong> Send Chord v2 outputs through different effects chains (delay/reverb for pads, distortion for leads, phaser on melodies), and use VCAs to bring effects in and out per section.</li>
+</ul>
+<h3>7. <strong>Using LFO Mode for Modulator Tracks</strong></h3>
+<ul>
+<li>Enable <strong>LFO_MODE</strong> via config.txt to turn outputs into synchronized or harmonically related LFOs.</li>
+<li>Modulate filter cutoffs, delay times, or other parameters elsewhere in your rack to achieve complex, evolving arrangements tied to the harmonic base.</li>
+</ul>
+<hr />
+<h2>Example Patch Workflows</h2>
+<h3>Live Ambient Song (Evolving Harmonic Drone)</h3>
+<ol>
+<li>Set Harm to Major or Minor, automate Quality for chord progression.</li>
+<li>CV-modulate waveform/bank with slow, out-of-sync LFOs.</li>
+<li>Use all four outputs routed to a quad reverb or panning VCAs for spatial movement.</li>
+<li>Manually switch to user chords or banks for “movement” between verses and chorus.</li>
+</ol>
+<h3>Beat-driven Track with Song Structure</h3>
+<ol>
+<li>Root output → Bass voice, Fifth → Lead synth, Third and Seventh → pad/texture voices.</li>
+<li>Drum triggers sent to sequential switches to change quality/voicing per 16 bars.</li>
+<li>Use Triad toggle and VCA mutes for breakdowns/drops.</li>
+<li>Sequence Lead output independently for melody sections using external sequencer.</li>
+</ol>
+<hr />
+<h2>Final Advice</h2>
+<ul>
+<li><strong>Pre-plan song “scenes” (verse, chorus, bridge) using custom chords or user wavetables.</strong></li>
+<li><strong>Use CV-mapping to tie harmonic change to other musical events (gates, triggers, or modulation).</strong></li>
+<li><strong>Leverage modularity: let the Chord v2 handle harmonic and timbral evolution, freeing up other voices for rhythm, bass, or melodic improvisation.</strong></li>
+<li><strong>Record multi-track and arrange in a DAW, or automate modular performance tools for live arrangement.</strong></li>
+</ul>
+<hr />
+<h3><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></h3>
+</body>
+</html>

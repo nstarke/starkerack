@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_Mimeophon</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — Mimeophon</h1>
+<ul>
+<li><a href="../../manuals/mimeophon-manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://makenoisemusic.com/manuals/mimeophon-manual.pdf">Make Noise Mimeophon Manual (PDF)</a></p>
+<hr />
+<h1>Creative Modulation Strategies for the Make Noise Mimeophon</h1>
+<p><strong>Focus:</strong> Distorted Percussion, Basslines, and Haunting Pads</p>
+<p>The Make Noise Mimeophon is more than a conventional delay or echo; it excels as a voltage-controllable sound mangler thanks to its unique approach to time, color, and spatialization. Here’s how you can harness its modulation points and architecture to craft distinctive percussive, bass, and atmospheric sounds for Eurorack.</p>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<h3><strong>Zone 0/1 &amp; Flip for Percussive Distortion</strong></h3>
+<ul>
+<li><strong>Patch a short burst/noise/gate or plucky envelope to the Left input.</strong></li>
+<li>Set <strong>Zone</strong> to 0 or 1. These zones are optimized for microsound, Karplus-Strong, flanging, and distortion effects.</li>
+<li><strong>Set Repeats high</strong> (2-3 o’clock or more) for resonant, metallic ringing.</li>
+<li>Modulate the <strong>μRate</strong> input with another envelope or stepped random voltage for metallic pitch sweeps (Zone 0 is 1V/oct!).</li>
+<li><strong>Engage Flip</strong> (either manually or via clocked triggers): in Zone 0/1, Flip causes "total protonic reversal," i.e., brutal buffer flipping and distortion. For extra madness, modulate Flip with an audio-rate signal or a fast LFO.</li>
+<li><strong>Modulate Color and Halo</strong> with an LFO or stepped random for additional spectral movement and “broken” timbres.</li>
+</ul>
+<p><strong>Patch Example:</strong></p>
+<pre><code>Kick trigger → Maths Envelope → Mimeophon Left In
+Kick pitch CV → Mimeophon μRate
+Fast LFO → Flip
+Wogglebug quick random → Color CV
+Output: Super-crushed, metallic, distorting transients
+</code></pre>
+<hr />
+<h2>2. Dubstep/Drum &amp; Bass Basslines</h2>
+<h3><strong>Resonant, Movement-Filled Bass</strong></h3>
+<ul>
+<li><strong>Zone 0 (Karplus), 1, or 2:</strong> These are best for fast, pitch-controllable bass.</li>
+<li><strong>Patch a snappy envelope or oscillator “pluck” into Mimeophon input.</strong></li>
+<li>Use a <strong>sequencer CV to μRate</strong> for “wub” and pitch tracking (in Zone 0 μRate is 1V/oct).</li>
+<li><strong>Crank Repeats (Noon or higher)</strong> for growling resonance; modulating Repeats introduces squelch and decay movement.</li>
+<li><strong>Color:</strong> Route a synced LFO or envelope to Color CV for classic formant and filter sweeps (try ramp LFO synced to your bass riff).</li>
+<li><strong>Halo:</strong> Adds stereo movement—tie it to a slow sine LFO for stereo bass widening.</li>
+<li><strong>Skew + Flip:</strong> Engaging Skew (and Ping Pong) pans bass motion; modulating Flip with rhythmic gates gives unpredictable syncopation.</li>
+</ul>
+<p><strong>Patch Example:</strong></p>
+<pre><code>Sequencer CV → Mult → Oscillator 1V/oct, Mimeophon μRate
+Pluck Envelope → Mimeophon Left In
+Steep Envelope → Color CV Input
+Slow LFO → Halo CV
+Gate/Clock → Flip
+Run output through distortion or filter for even more filth.
+</code></pre>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<h3><strong>Smearing, Evolving Space</strong></h3>
+<ul>
+<li><strong>Input a harmonically rich pad or drone to Left (or both) inputs.</strong></li>
+<li><strong>Zone 5-7:</strong> Use the longest zones for maximum temporal smear and spaciousness (41 seconds in Zone 7!).</li>
+<li><strong>Repeats near max</strong>: Enter self-oscillation territory, creating long, decaying clouds.</li>
+<li><strong>Modulate Rate and Zone</strong> slowly with LFOs or random voltages (attenuate for subtler movement). This sweeps pad textures through different time scales.</li>
+<li><strong>Color &amp; Halo:</strong> Slow LFOs (triangle or sine) to both CVs create constantly morphing spectral/detail shifts. Halo at high settings for maximum “smear” and stereo diffusion.</li>
+<li><strong>Flip ON:</strong> Pads played into Zone 4–7 will reverse, creating ghostly, inverted textures.</li>
+<li><strong>Hold:</strong> Use the Hold feature to “freeze” evolving textures, modulate color/halo/rate for frozen, but ever-mutating clouds.</li>
+</ul>
+<p><strong>Patch Example:</strong></p>
+<pre><code>Pad/droning oscillator/polyphonic mix → Mimeophon Left In
+Slow LFO/random -&gt; Zone CV
+Different slow LFOs -&gt; Color, Halo CV
+Gate button or clocked CV -&gt; Hold (activates freeze for textural morphs)
+Manual or LFO -&gt; Flip
+Stereo out → Reverb for even more atmosphere
+</code></pre>
+<hr />
+<h2>Advanced Tips from the Manual</h2>
+<ul>
+<li>Modulate <strong>Zone</strong> with a sequencer clocked to your rhythm for rhythmic “windowing” of percussive or melodic patterns. When Repeats is up, shorter Zones will imprint percussive transients onto larger echo buffers.</li>
+<li>Skewed Rate plus modulation of <strong>μRate</strong> = wild stereo chorus/flange.</li>
+<li>For <strong>drum &amp; bass-style bass</strong>, use <strong>Zone 0/1 with Flip</strong>; modulate μRate for signature “growl,” and crank Repeats for feedback.</li>
+<li>Input gain can be boosted or cut (hold FLIP+HOLD) for drive/saturation, but beware input clipping.</li>
+<li>Use <strong>Ping Pong</strong> (hold Skew) for rhythmic panning and stereo motion in atmospheric material or tails of percussion.</li>
+</ul>
+<hr />
+<p>For the full manual with examples and diagrams, <a href="https://makenoisemusic.com/manuals/mimeophon-manual.pdf">click here (PDF)</a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

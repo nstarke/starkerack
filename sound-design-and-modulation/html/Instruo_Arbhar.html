@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Instruo_Arbhar</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Instruo — Arbhar</h1>
+<ul>
+<li><a href="../../manuals/Arbhar-Manual-Firmware-2.0-A5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.instruomodular.com/wp-content/uploads/arbhar_manual_firmware2.pdf">Download the Instruō arbhar v2 User Manual PDF</a></p>
+<hr />
+<h1>Instruō arbhar v2 — Modulation Strategies for Unique Sounds</h1>
+<p>The Instruō <strong>arbhar</strong> is a deep, versatile granular audio processor for Eurorack. By exploiting its modulation options, you can create an incredible range of sounds including gritty percussion, wild dubstep/DnB basslines, and spooky pads. Below is a practical, performance-oriented guide based on your goals and the information in the manual.</p>
+<hr />
+<h2>1. <strong>Distorted Percussive Sounds</strong></h2>
+<p><strong>Goal:</strong> Chopped/rhythmic, noisy, and dynamically morphing hits.</p>
+<h3>Key Parameters to Modulate</h3>
+<ul>
+<li><strong>Strike Input:</strong> Use fast triggers/gates for rapid grain generation/accents.</li>
+<li><strong>Grain Window:</strong> Square or sawtooth shapes make sharp, clicky grains.</li>
+<li><strong>Intensity:</strong> Modulate intensity to rapidly gate between dense and sparse (percussive burst effects).</li>
+<li><strong>Spray:</strong> Increase for micro-looper FX; decreasing tightens up transients.</li>
+<li><strong>Dub Knob:</strong> Fully CCW for destructive, noisy overdubs.</li>
+<li><strong>Pitch &amp; Deviation:</strong> Sweep or randomize for metallic, digital artifacts.</li>
+</ul>
+<h3>Patch Ideas</h3>
+<ul>
+<li><strong>Rhythmic Distortion:</strong> </li>
+<li>Patch sequencer triggers to the Strike Input.</li>
+<li>Set <strong>Grain Window</strong> to saw or square.</li>
+<li>Modulate <strong>Length</strong> quickly (short grains = sharp, long grains = smeared).</li>
+<li>Send envelopes/LFOs to <strong>Spray</strong> or <strong>Grain Direction</strong> CV for scanning through recorded material at each hit.</li>
+<li><strong>Destructive Overdub:</strong> </li>
+<li>
+<h2>While looping percussion, set <strong>Dub Knob</strong> fully CCW and overdub new material—old audio gets harshly cut or glitched.</h2>
+</li>
+</ul>
+<h2>2. <strong>Crazy Basslines (Dubstep/Drum &amp; Bass)</strong></h2>
+<p><strong>Goal:</strong> Growling, re-pitched, moving bass with unpredictable movement.</p>
+<h3>Key Parameters to Modulate</h3>
+<ul>
+<li><strong>Pitch, Pitch Deviation (CV):</strong> Use sequencer or random stepped CV.</li>
+<li><strong>Intensity:</strong> Density of overlapping grains—modulating for acid-style movement.</li>
+<li><strong>Scan:</strong> Use LFOs/audio-rate signals for position-scanning within a bass sample.</li>
+<li><strong>Spray:</strong> High values = granular jitter/glitch.</li>
+<li><strong>Dub/Layer Cycling:</strong> Rapid overdubbing or switching layers yields evolving timbres.</li>
+<li><strong>Mod CV - Feedback/Delay:</strong> Twisted resonant echoes/Karplus-Strong effects with high negative voltage, for metallic bass “wobble”.</li>
+</ul>
+<h3>Patch Ideas</h3>
+<ul>
+<li><strong>Moving Wub Bass:</strong></li>
+<li>Record or load a simple bass note/oscillator hit.</li>
+<li>Set <strong>Pitch</strong> to track 1V/Oct; modulate <strong>Pitch Deviation</strong> with a stepped random or sequencer for extra “talk” modulation.</li>
+<li>Send LFO or envelope to <strong>Spray</strong> or <strong>Scan</strong> CV for movement.</li>
+<li>Set <strong>Mod CV</strong> in feedback/delay mode (per preset file) and sweep negative voltages for Karplus-Strong–like effects.</li>
+<li><strong>Layer Switching Growl:</strong></li>
+<li>Automate <strong>Layer CV</strong> with a stepped random or gate sequence, switching between different bass samples in rhythmic patterns.</li>
+</ul>
+<hr />
+<h2>3. <strong>Haunting Atmospheric Pads</strong></h2>
+<p><strong>Goal:</strong> Ethereal, evolving, wide, and subtly moving textures.</p>
+<h3>Key Parameters to Modulate</h3>
+<ul>
+<li><strong>Scan:</strong> Slow LFOs to move through capture/sample.</li>
+<li><strong>Spray:</strong> Moderate to high for motion without losing smoothness.</li>
+<li><strong>Grain Window:</strong> Centered for Gaussian envelope (smooth drones).</li>
+<li><strong>Length:</strong> Long grains for smeared ambience.</li>
+<li><strong>Grain Direction:</strong> Modulate for reversed/swirling effects.</li>
+<li><strong>Reverb (Mod CV):</strong> Fade up for infinite, ghostly tails.</li>
+<li><strong>Layer Blending:</strong> Use omega mode to scan all layers at once.</li>
+<li><strong>Pitch Deviation:</strong> Gentle, random modulation for detuned/unsettled pad sounds.</li>
+</ul>
+<h3>Patch Ideas</h3>
+<ul>
+<li><strong>Frozen Ghost Pad:</strong></li>
+<li>Record a sustained sound (voice, instrument, chord).</li>
+<li>Set grains long, <strong>Intensity</strong> at center for a thick chorus.</li>
+<li>Slow LFO on <strong>Scan</strong> for evolving movement.</li>
+<li>Use <strong>Spray</strong> for random micro-movements.</li>
+<li>Patch Mod CV to <strong>Reverb</strong> (preset.txt set to Reverb) and automate with slow envelopes or manual sweeps for swelling tails.</li>
+<li><strong>Polyphonic Texture:</strong></li>
+<li>Use <strong>Omega Layer</strong> (all layers mode), automate <strong>Scan</strong> and <strong>Layer CV</strong> together for dense, layered pads.</li>
+</ul>
+<hr />
+<h2><strong>Further Tips</strong></h2>
+<ul>
+<li>For more modulation destinations, use the CV Expansion module—nearly every major control (Scan, Spray, Layer, Grain Direction, etc) can be voltage-controlled.</li>
+<li>Use the <strong>preset.txt</strong> file to:<ul>
+<li>Set different operating modes (Mono/Stereo, feedback model, panning, etc)</li>
+<li>Assign <strong>Mod CV</strong> to your preferred effect</li>
+<li>Tailor randomization/quantization behaviors for even more chaos or stability where desired.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Quick Reference to Useful Pages</h2>
+<ul>
+<li><strong>Granular Engine Modulation:</strong> p.18–23</li>
+<li><strong>Pitch/Pitch Deviation:</strong> p.24–25</li>
+<li><strong>Mod CV assignments:</strong> p.43–46</li>
+<li><strong>Layer/Scan tricks:</strong> p.16–17, 39–41</li>
+<li><strong>Preset system (advanced customisation):</strong> p.56–68</li>
+</ul>
+<hr />
+<h2><strong>Links</strong></h2>
+<ul>
+<li><a href="https://www.instruomodular.com/wp-content/uploads/arbhar_manual_firmware2.pdf">Download the Instruō arbhar v2 User Manual PDF</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+<hr />
+<p>Happy patching—arbhar is extremely deep, so experimenting with live modulation and parameter combos will unlock continuously fresh new sounds!</p>
+</body>
+</html>

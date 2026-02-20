@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Mavis</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Mavis</h1>
+<ul>
+<li><a href="../../manuals/MAVIS_MANUAL_V2_06.27.2022.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.moogmusic.com/sites/default/files/2023-05/Mavis%20User%20Manual%20WEB_0.pdf">Moog Mavis User Manual (PDF)</a></p>
+<hr />
+<h1>Using the Moog Mavis in Composing Full-Length Eurorack Songs</h1>
+<p>As a modular musician, you’ll quickly find that while the <a href="https://www.moogmusic.com/products/mavis">Moog Mavis</a> is a powerful, self-contained analog voice, unlocking its true creative potential for full-length tracks means leveraging its flexibility as a patchable, semi-modular system within a larger eurorack environment. Below, I’ll discuss both the strengths and the limitations of the Mavis as a song-building tool, followed by <strong>strategies and patch ideas</strong> for integrating it into larger modular arrangements to produce evolving, structure-rich songs.</p>
+<hr />
+<h2>1. What Is Mavis Good At?</h2>
+<p><strong>Core strengths:</strong>
+- Classic analog monophonic voice (oscillator, ladder filter, envelope, VCA)
+- Powerful patchbay for external CV/audio integration
+- Unique features like wavefolding, built-in utility mixer, sample &amp; hold (S+H), and attenuator</p>
+<p><strong>Limitations</strong> (to keep in mind for song construction):
+- Single oscillator &amp; single envelope generator
+- No built-in sequencer, clock, or complex modulation sources
+- No internal multi-channel mixing, effects, or sophistication for polyphony/complex layering</p>
+<p>Thus, <strong>Mavis alone is a great building block for individual voices and sounds</strong>. To build <em>songs</em>, you’ll want to integrate it with:
+- Sequencers
+- Modulation sources/LFOs
+- Clocks &amp; dividers/multipliers
+- Utilities (VCAs, mixers, switches)
+- Effects modules (delay, reverb, distortion, etc.)
+- Additional voices/instruments
+- Performance controls (touch, MIDI–CV, etc.)</p>
+<hr />
+<h2>2. Strategies for Building Full Songs with Mavis</h2>
+<h3>A. Song Structure via Modulation &amp; Control</h3>
+<p><strong>Problem:</strong> Patches can be static; musical “moments” rather than songs.</p>
+<p><strong>Solution:</strong> Use <strong>external CV modulation and sequencers</strong> to achieve <em>macro</em> song structure, not just “looping” patterns.</p>
+<h4><strong>Ideas:</strong></h4>
+<ul>
+<li><strong>Multiple Sequencers:</strong> Use one sequencer for basic Mavis melodies/basslines and another for controlling filter cutoff or envelope shape to create verses, choruses, bridges, builds, etc.</li>
+<li><strong>Utilities:</strong> Use voltage-controlled switches, sequenced muting, or sequential switches to activate/deactivate patches or modulation sources in a songlike arrangement.</li>
+<li><strong>Key Changes:</strong> Use precision adders/quantizers to transpose the Mavis sequence in and out of key centers for different song sections.</li>
+</ul>
+<h3>B. Layering/Voice Doubling</h3>
+<ul>
+<li>Use Mavis as a bassline when layered with a second oscillator voice (another synth or sample) for leads or chords.</li>
+<li>Sequence different sections: e.g., have Mavis play intro and then “move” its sequence to another voice for development, or vice versa.</li>
+</ul>
+<h3>C. Live Performance &amp; Macro Controls</h3>
+<ul>
+<li>Map all-important “macro” changes—filter sweeps, envelope settings, wavefolder amount, etc.—to external CV and perform or automate them.</li>
+<li>Use external clock dividers and mults to change rhythm/tempo between song sections.</li>
+</ul>
+<h3>D. Dynamic Timbre and Texture</h3>
+<ul>
+<li>Use Mavis’s <strong>wavefolder and filter</strong> as an effects processor on other voices (via patchbay).</li>
+<li>Insert S+H or LFO modulation for more generative, evolving patches (e.g. for song bridges or breakdowns).</li>
+</ul>
+<h3>E. Thematic Variation and Transitions</h3>
+<ul>
+<li>Patch S+H or random sources to create subtle variations (melody, timbre) in each song repetition/section.</li>
+<li>Automate switching between modulation sources (LFO, EG) via CV, so each section sounds distinct.</li>
+</ul>
+<hr />
+<h2>3. Example Patch Concepts for Full-Song Composition</h2>
+<h3><strong>A. Bassline to Lead Switch</strong></h3>
+<ul>
+<li><strong>Intro/Verse:</strong> Use Mavis as a bass voice via sequencer 1.</li>
+<li><strong>Chorus:</strong> Via voltage-controlled switch, send sequencer 2 (with higher notes) to Mavis for lead duty, while another voice takes over bass.</li>
+<li><strong>Use sample &amp; hold</strong> or random modulation for breakdowns/transitional sections.</li>
+</ul>
+<h3><strong>B. Filter/EQ and Macro Transitions</strong></h3>
+<ul>
+<li>Patch the filter cutoff to be modulated by an external envelope/fader/automation for sweeps in/out of new sections.</li>
+<li>Use the attenuator to control the amount of external LFO/EG influence over long periods (slow builds).</li>
+</ul>
+<h3><strong>C. Texture, FX, and Post-Processing</strong></h3>
+<ul>
+<li>Send non-Mavis voices through the Mavis’s filter or wavefolder for creative breakdowns (e.g. use FOLD IN input to process drums with dramatic filter sweeps).</li>
+</ul>
+<h3><strong>D. Randomization and Variation</strong></h3>
+<ul>
+<li>Patch S+H output to VCO pitch or filter cutoff for subtle generative “fills” or breakdowns.</li>
+<li>Route random or stepped CV to attenuator for controlled signal “evolutions” during the track.</li>
+</ul>
+<hr />
+<h2>4. Sample Patch Integration (with Other Modules)</h2>
+<pre><code class="language-markdown">[Sequencer] --1V/OCT--&gt; [Mavis VCO]
+               |              |
+            [Clock]----&gt; [Other Voice: Drums/Lead/FX]
+                              |
+         [Function Generator/ADSR] --CV--&gt; [Mavis Filter/Envelope]
+                              |
+        [Sample &amp; Hold] --------------&gt; [Mavis PWM, cutoff, or VCA CV]
+                              |
+         [FX Send/Return] &lt;-------------&gt; [Mavis Wavefolder/VCF as processor]
+</code></pre>
+<hr />
+<h2>5. Songwriting Mindset Tips</h2>
+<ul>
+<li><strong>Perform patch changes, parameter sweeps, and voice switching live</strong> to create sections distinct in both sound and rhythm.</li>
+<li><strong>Automate or script sequence changes, keys, and modulations</strong>—use matrix switches, preset managers, or scenes if available.</li>
+<li><strong>Embrace utility/logic modules</strong>—they can trigger, gate, mute, or morph between patterns and textures for "song mode."</li>
+<li>Remember: <em>Compositional structure comes from change and contrast!</em> Use Mavis as an expressive <em>element</em> in a broader performance system.</li>
+</ul>
+<hr />
+<p>For more patching ideas and technical details, see the <a href="https://www.moogmusic.com/sites/default/files/2023-05/Mavis%20User%20Manual%20WEB_0.pdf">Mavis Manual PDF</a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

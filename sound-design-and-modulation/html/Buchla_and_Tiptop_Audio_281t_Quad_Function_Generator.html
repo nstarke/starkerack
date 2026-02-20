@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Buchla_and_Tiptop_Audio_281t_Quad_Function_Generator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Buchla and Tiptop Audio — 281t Quad Function Generator</h1>
+<ul>
+<li><a href="../../manuals/Buchla_&amp;_Tiptop_Audio_281t.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://tiptopaudio.com/manuals/281t.pdf"><strong>Quad Function Generator - Model 281t Manual PDF</strong></a></p>
+<hr />
+<h1>Creative Patching with the 281t Quad Function Generator</h1>
+<p>The Buchla/Tiptop Audio 281t is an extremely flexible envelope and function generator for Eurorack that can be used in classic and experimental ways. Below are some techniques and ideas for modulating the module to produce <strong>distorted perc</strong> sounds, <strong>aggressive basslines</strong> (a la dubstep/drum &amp; bass), and <strong>haunted pads</strong>.</p>
+<hr />
+<h2>1. <strong>Distorted Percussive Sounds</strong></h2>
+<p><strong>Key principles:</strong><br />
+- Ultra-fast attack/decay times for “snappy” envelopes<br />
+- Self-cycling for repeating hits<br />
+- Feedback, FM, and wavefolding for distortion</p>
+<h3>Example Patches</h3>
+<ul>
+<li><strong>Drum Synth:</strong></li>
+<li>Set a channel to <strong>Cyclic</strong> mode with the attack/decay times set to very fast (~0.001-0.1s).</li>
+<li>Patch output to a VCA or as an envelope for a drum voice.  </li>
+<li>Use the transient pulse output as a trigger for other modules (e.g. noise burst, filter ping).</li>
+<li>
+<p>Self-patch the pulse output to its own trigger input for feedback-driven clicking/glitchy hits.</p>
+</li>
+<li>
+<p><strong>Distortion via Feedback:</strong></p>
+</li>
+<li>
+<p>Patch the channel’s output to a distortion or wavefolder module, or even back into its own CV input for self-modulating, unstable envelopes.</p>
+</li>
+<li>
+<p><strong>Layered Perc:</strong></p>
+</li>
+<li>Use two generators in quadrature to trigger two different drum sounds slightly out of phase for a “flam” effect.</li>
+</ul>
+<hr />
+<h2>2. <strong>Crazy Basslines (Dubstep, DnB)</strong></h2>
+<p><strong>Key principles:</strong><br />
+- Exponential envelope shapes for filter sweeps<br />
+- Complex envelope chaining and cross-modulation<br />
+- Rhythmically synced cycling</p>
+<h3>Example Patches</h3>
+<ul>
+<li><strong>Woozy Bass “Wobble”:</strong></li>
+<li>Use one function generator in <strong>Cyclic</strong> mode with a mid-to-slow decay (~0.2-1s).</li>
+<li>Use the envelope output to modulate a VCF cutoff (or a wavefolder’s index for even more grit).</li>
+<li>
+<p>Use the <strong>Attack/Decay CV inputs</strong> for envelope-shape modulation, feeding them step sequencer or LFO CV for evolving rhythmic movement.</p>
+</li>
+<li>
+<p><strong>Envelope Self-Sync:</strong></p>
+</li>
+<li>Use the <strong>Cycle jack</strong> to rhythmically sync the envelope cycling to your clock, creating gated, stepped wobble patterns.</li>
+<li>
+<p>Patch “quadrature” mode for stereo, phase-shifted filter modulations.</p>
+</li>
+<li>
+<p><strong>Aggressive FM Basses:</strong></p>
+</li>
+<li>Use two envelopes in quadrature to modulate both pitch and filter cutoff of a bass oscillator separately, or cross-modulate one envelope with the output of another.</li>
+</ul>
+<hr />
+<h2>3. <strong>Haunting Atmospheres and Pads</strong></h2>
+<p><strong>Key principles:</strong><br />
+- Long, evolving envelopes<br />
+- Chain/cascade multiple channels for multi-stage shapes<br />
+- Subtle cross-modulation for complexity</p>
+<h3>Example Patches</h3>
+<ul>
+<li><strong>Layered CV Pads:</strong></li>
+<li>Set all four channels to <strong>Sustained</strong> mode, with long attack/decay times (~2-10s).</li>
+<li>Sum two or more envelope outputs to control VCA amplitude for a slowly undulating pad.</li>
+<li>
+<p>Use another channel to modulate filter resonance or a reverb send for ethereal drifting.</p>
+</li>
+<li>
+<p><strong>Ghostly Cross-Modulation:</strong></p>
+</li>
+<li>Patch A’s output to B’s attack CV, and B’s output to A’s decay CV for undulating, unpredictable envelope shapes.</li>
+<li>
+<p>Use an LFO or slow sequence to “ride” the cycle time or decay, evolving the atmosphere.</p>
+</li>
+<li>
+<p><strong>Quadrature Texture:</strong></p>
+</li>
+<li>With generators A &amp; B (and/or C &amp; D) in quadrature, pan their outputs left/right for stereo, phase-shifted evolving drones.</li>
+</ul>
+<hr />
+<h2><strong>General Tips</strong></h2>
+<ul>
+<li>
+<p><strong>Pulse Output for Sequencing:</strong><br />
+  Use the pulse output at the end of the decay stage to trigger new events or envelope stages for complex, self-generating patches.</p>
+</li>
+<li>
+<p><strong>CV in for Unusual Envelopes:</strong><br />
+  Inject noise, slow LFOs, or even audio-rate signals into the CV inputs for glitchy, stepped, or audio-reactive modulation curves.</p>
+</li>
+<li>
+<p><strong>Extreme Settings:</strong><br />
+  Use the full range of the .001s–10s attack/decay to morph between microclicks and slow surges.</p>
+</li>
+</ul>
+<hr />
+<h2><strong>Patch Example: Distorted Perc Hit Generator</strong></h2>
+<pre><code>281t Ch1 OUT → Wavefolder IN
+Wavefolder OUT → VCA → Mixer
+281t Ch1 PULSE OUT → 281t Ch1 TRIG IN (self-cycling feedback)
+281t Ch1 DECAY CV IN ← Random CV
+Decay knob: 9 o’clock, Attack: minimum
+Cycle mode: ON
+</code></pre>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor"><strong>Generated With Eurorack Processor</strong></a></p>
+</body>
+</html>

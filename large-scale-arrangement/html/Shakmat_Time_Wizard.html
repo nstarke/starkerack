@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Shakmat_Time_Wizard</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Shakmat — Time Wizard</h1>
+<ul>
+<li><a href="../../manuals/TW-User_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://shakmat.com/manuals/Shakmat_Time_Wizard_Manual.pdf"><strong>Shakmat Time Wizard Manual PDF</strong></a></p>
+<hr />
+<h2>Using the Shakmat Time Wizard to Structure Full Length Songs in Eurorack</h2>
+<p>The Shakmat Time Wizard is far more than just a clock divider—it’s a powerful “song structure” tool for your eurorack system. When working in modular, building song-like progression and structure can be difficult due to the typical lack of “arranger” tools. The Time Wizard helps break free from repetitive loops by giving you complex, controllable timing and clocking possibilities.</p>
+<p>Below, I’ll outline how you can use the Time Wizard—especially when combined with sequencers, switch modules, and modulation sources—to create tracks with true narrative and evolution.</p>
+<hr />
+<h3>Key Features Useful for Song Structure</h3>
+<ol>
+<li><strong>Multiple Dividers:</strong> 6 independent clock dividers, each with a selectable division factor.</li>
+<li><strong>Multiple Routing Variations:</strong> 4 switches provide 81 routing/logic variations.</li>
+<li><strong>Clock/Reset Input Flexibility:</strong> Can reset all dividers or act as a second clock for complex polyrhythms.</li>
+<li><strong>Logic Functions:</strong> Basic logic operations between clocks for layered triggers.</li>
+<li><strong>Trigger/Gate Mode:</strong> Jumpers for gates or triggers on outputs 5 &amp; 6.</li>
+</ol>
+<hr />
+<h2>Approaches to Song Structure</h2>
+<h3>A. <strong>Section Switching (Verse/Chorus/Breaks) with Advanced Clocking</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Use divided/multiplied clock outputs to drive different sequencers, generating different song sections.</li>
+<li><strong>Method:</strong>  </li>
+<li>Patch main clock to Time Wizard’s CLK IN.</li>
+<li>Set A1 to a fast division (e.g., 4) for verse.  </li>
+<li>Set B3 to a slower one (e.g., 16) for chorus.</li>
+<li>Use a sequencer for each section, clocked by A1 &amp; B3 respectively.</li>
+<li>Route outputs to a switch module (e.g., Doepfer A-150) to choose which section is active.</li>
+<li>Manually flip the switch or automate it via a voltage from a modulation source (envelope/LFO).</li>
+</ul>
+<h3>B. <strong>Song Length &amp; Section Transitions with Gated Events</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Use B6 divider’s reset or logic output to trigger transitions.</li>
+<li><strong>Method:</strong>  </li>
+<li>Set B6 to a division that matches your desired full-length phrase (e.g., 64 for 16-bar pattern).</li>
+<li>Use the RESET B6 switch to automatically reset sequencers, start new melodies or patterns, or trigger global events (like scene changes).</li>
+<li>Send B6 gate/trigger to a quantizer or sequential switch that advances song sections.</li>
+</ul>
+<h3>C. <strong>Subtle Progressions with Polyrhythms &amp; Clock Multiplication</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Employ the Multiply A and Clock B switches to phase patterns against each other, creating evolving textures and groove changes.</li>
+<li><strong>Method:</strong>  </li>
+<li>Use Multiply A to generate triplets or other non-standard divisions.</li>
+<li>Assign one divider to a drum sequencer and another to a melodic sequencer.</li>
+<li>Over minutes, these clocks will “drift” relative to one another, naturally evolving the pattern and keeping the listener engaged.</li>
+</ul>
+<h3>D. <strong>Automated Fills and Breaks</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Use gate outputs (especially with the half-period gate jumper) to trigger extra sounds or modulation changes on phrase boundaries.</li>
+<li><strong>Method:</strong>  </li>
+<li>Set up a drum module to play a fill every time divider B5 or B6 outputs a trigger/gate (e.g., every 8 or 16 bars).</li>
+<li>Use these gates to open up effects sends (reverb/delay modules), or crossfade in additional layers or timbral changes.</li>
+</ul>
+<h3>E. <strong>Dynamic Resetting and Chain-Sequencing</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Use the module's robust reset capabilities to synchronize disparate modules or forcibly reshuffle running sequences, breaking cycling patterns and generating progression.</li>
+<li><strong>Method:</strong>  </li>
+<li>Use the RESET/IN B input as a manual or automated reset point for multiple sequencers or clock-modulated parameters.</li>
+<li>Chaining Time Wizard with other dividers (or something like Pamela’s New Workout) builds more complex but controlled probability-based evolutions.</li>
+</ul>
+<hr />
+<h2>Practical Patch Example</h2>
+<ol>
+<li><strong>Main Clock Source:</strong> Pamela’s New Workout or simple clock (e.g., 120 BPM)</li>
+<li><strong>Time Wizard:</strong><ul>
+<li>Feed clock to <code>CLK IN</code>.</li>
+<li>Configure dividers:  <ul>
+<li>A1 = 4 (trigger step sequencer for verse)  </li>
+<li>A2 = 8 (for melody pattern)  </li>
+<li>B3 = 16 (trigger chorus section or drum fill)</li>
+</ul>
+</li>
+<li>Use A2 or B3 to reset or phase-shift a melodic sequencer for evolving melodies.</li>
+<li>Send B6 out to a sequential switch for smooth song section progression.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>Creative Combinations</h2>
+<ul>
+<li><strong>Logic &amp; Probability:</strong> Patch logic-enabled outputs to trigger randomizers, quantizers, or switches for generative passages.</li>
+<li><strong>Preset Save/Recall:</strong> Combine with modules able to recall patterns (e.g., Mutable Instruments Marbles or Expert Sleepers Disting) for easy song re-composition.</li>
+<li><strong>Hands-On Performance:</strong> Manually switch routing with the Time Wizard’s switches while performing, re-routing clocks mid-song for dynamic changes.</li>
+</ul>
+<hr />
+<h3>Why the Time Wizard Excels at Song Creation</h3>
+<ul>
+<li><strong>Break the Loop Cycle:</strong> Make each pass through the pattern unique with resets, multiplications, and manual intervention.</li>
+<li><strong>Automate Structure:</strong> Use divider logic and outputs to automate when phrases, fills, or changes occur.</li>
+<li><strong>Embrace Polyrhythm:</strong> Weird/complex ratios help music breathe and avoid “machine gun” repetition.</li>
+<li><strong>Flexible Integration:</strong> Pairs with any clocked sequencer, switch, or logic module.</li>
+</ul>
+<hr />
+<p><strong>For the full feature list, routing diagrams, and technical details, consult the original <a href="https://shakmat.com/manuals/Shakmat_Time_Wizard_Manual.pdf">Shakmat Time Wizard Manual (PDF)</a>.</strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

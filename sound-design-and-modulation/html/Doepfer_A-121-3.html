@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-121-3</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-121-3</h1>
+<ul>
+<li><a href="../../manuals/A-121-3 12dB Multimode Filter (slim version).pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a1213.htm">Doepfer A-121-3 12dB Multimode Filter Manual</a></p>
+<hr />
+<h2>Creative Modulation Techniques with the A-121-3 Multimode Filter</h2>
+<p>The <strong>Doepfer A-121-3 Slim Line 12dB Multimode Filter</strong> is a versatile, compact module ideal for tight Eurorack setups. With simultaneous outputs for low-pass, high-pass, band-pass, and notch filtering, plus extensive modulation capabilities, you can sculpt a wide variety of sounds—from raw percussive hits to throbbing basslines or lush pads.</p>
+<p>Below are modulation strategies tailored for three sonic goals: <strong>distorted percussion</strong>, <strong>aggressive basslines</strong>, and <strong>atmospheric pads</strong>.</p>
+<hr />
+<h3>1. Distorted Percussive Sounds</h3>
+<p><strong>Key Techniques:</strong>
+- <strong>Input Overdrive:</strong><br />
+  Turn the <code>Level</code> attenuator beyond position 5 to drive the input into distortion. Send short, snappy envelopes (via an ADSR or Function Generator) to the audio input—try processed noise, sampled drum hits, or metallic clicks as sources.
+- <strong>Dynamic Filtering:</strong><br />
+  Patch a fast envelope to the <code>CV1</code> input (1V/oct with no attenuator). This rapidly sweeps the cutoff with each percussion trigger, emphasizing the attack.
+- <strong>Resonance Modulation:</strong><br />
+  Patch a separate envelope or a random stepped voltage (like from a Sample &amp; Hold) to the <code>CQ</code> input to dynamically change resonance per hit. Extreme resonance can make sharp, 'ping'-like percussive sounds or even turn the filter into a self-oscillating, sine-like tone generator.
+- <strong>Filter Output Varieties:</strong><br />
+  Experiment with using HP, BP, or Notch outputs instead of the standard LP for metallic or hollowed drum timbres.</p>
+<p><strong>Patch Example:</strong></p>
+<pre><code>Envelope Out —&gt; CV1
+Different Envelope or S&amp;H —&gt; CQ
+Percussive Sound (Drum/Noise) —&gt; In
+Filter Out (BP/N/HP/LP) —&gt; Mixer/VCA
+Level Attenuator —&gt; &gt;5 for drive/distortion
+</code></pre>
+<hr />
+<h3>2. Aggressive Basslines (Dubstep, Drum and Bass)</h3>
+<p><strong>Key Techniques:</strong>
+- <strong>Envelope and LFO Interplay:</strong><br />
+  Use an envelope on <code>CV1</code> to create snappy filter plucks, while a slow or medium LFO on <code>CV2</code> (with <code>FCV2</code> attenuator) adds wobble or movement.
+- <strong>Using Self-Oscillation:</strong><br />
+  Push resonance (<code>Q</code>) to maximum for self-oscillation, transforming the filter into a sine wave oscillator when there's no input—useful as a sub-oscillator layer.
+- <strong>FM &amp; Distortion:</strong><br />
+  Send an audio-rate oscillator to <code>CV1</code> or <code>CV2</code> to frequency-modulate the filter cutoff for ring-mod or vocal-like tones; overdrive the input (<code>Level</code> high) for snarling or tearing bass.
+- <strong>Output Blending:</strong><br />
+  Use LP for classic bass, BP for punch, or blend together with a mixer for complex waveforms.</p>
+<p><strong>Patch Example:</strong></p>
+<pre><code>Bass Oscillator —&gt; In
+Envelope —&gt; CV1 (pluck the cutoff per note)
+LFO —&gt; CV2 (wobble modulation, adjust FCV2 for depth)
+CV or Envelope —&gt; CQ (modulate resonance for growl)
+Level Attenuator —&gt; near/above 5 for saturation/distortion
+Filter Out (LP/BP/combination) —&gt; VCA —&gt; Output
+</code></pre>
+<hr />
+<h3>3. Haunting, Atmospheric Pad Sounds</h3>
+<p><strong>Key Techniques:</strong>
+- <strong>Slow Modulation:</strong><br />
+  Use extremely slow LFOs or S&amp;H for subtle, shifting filter cutoff movement (patch to <code>CV2</code>, dial in depth with <code>FCV2</code>).
+- <strong>Resonance Animation:</strong><br />
+  Modulate <code>CQ</code> input with a random or cyclic slow LFO to create spectral movement in the resonance peaks for a ghostly, animated pad.
+- <strong>Multimode Layering:</strong><br />
+  Simultaneously route LP and HP outputs to separate mixers/channels. Blend for bandpass/notch-like textures or stereo effects.
+- <strong>Underdriven Input:</strong><br />
+  Keep the input <code>Level</code> below 5 for clean, dreamy tones or push it just over for a bit of organic warmth.</p>
+<p><strong>Patch Example:</strong></p>
+<pre><code>Swirling Pad Source —&gt; In
+Slow LFO —&gt; CV2 (filter sweeps, adjust FCV2 for subtlety)
+Different LFO/S&amp;H —&gt; CQ (animated resonance peaks)
+Mono or Poly Source —&gt; In
+LP + HP/Notch Outs —&gt; Stereo Mixer/VCA
+Level Attenuator —&gt; below 5 for smoothness, above for mild dirt
+</code></pre>
+<hr />
+<h3>Tips &amp; Tricks</h3>
+<ul>
+<li><strong>Use All Outputs:</strong><br />
+  Simultaneously process LP, HP, BP, and Notch in parallel for complex textures or pseudo-stereo.</li>
+<li><strong>Resonance as Oscillator:</strong><br />
+  With no input and Q at max, the filter self-oscillates—track it via 1V/oct on CV1 to use as a melodic sine source or to "ping" for percussive tones.</li>
+<li><strong>Feedback Loops:</strong><br />
+  Patch one of the filter outs back into the input (possibly attenuated or through another effect) for screaming resonance or unstable chaos.</li>
+</ul>
+<hr />
+<p>For deeper details, visit the full <a href="https://doepfer.de/a1213.htm">Doepfer A-121-3 manual</a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

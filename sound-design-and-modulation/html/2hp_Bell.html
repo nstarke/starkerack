@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Bell</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Bell</h1>
+<ul>
+<li><a href="../../manuals/2hp_Bell.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://2hp.com/docs/bell.pdf"><strong>2hp Bell Manual PDF</strong></a></p>
+<hr />
+<h1>Creative Modulation Techniques for 2hp Bell</h1>
+<p>The <strong>2hp Bell</strong> is a polyphonic melodic percussion generator, making it a flexible voice for a wide range of sounds beyond traditional bell tones. Based on modal synthesis, Bell is capable of everything from clean tuned percussion to gnarly, distorted chaos and lush, otherworldly textures—when modulated creatively in a Eurorack system.</p>
+<p>Below are strategies for using external modulation and creative patching to achieve three specific sonic goals: <strong>distorted percussive sounds, intense basslines, and atmospheric pads</strong>.</p>
+<hr />
+<h2>1. Distorted Percussive Sounds (Industrial, Glitch, Experimental)</h2>
+<p>To move Bell into aggressive, distorted territory:
+- <strong>Model Selection</strong>: Use the <em>Hard Marimba</em>, <em>Wine Glass</em>, <em>Redwood Plate</em>, or <em>Tibetan Bowl</em> models for less traditional, more tonally complex starting points.
+- <strong>Damp Control</strong>: Modulate the <em>DAMP</em> CV with a fast random or stepped voltage source (e.g., Sample &amp; Hold or fast LFO). Extreme values create snappy, clipped decays and metallic resonance.
+- <strong>Pitch Modulation</strong>: Mult a fast envelope, sequencer, or synced LFO into the <em>PITCH</em> input while a note is ringing—this exploits the “live pitch control” for the most recent trigger, adding pitch bends, rolls, or vibrato every hit.
+- <strong>Trigger Madness</strong>: Use probabilistic, shuffled, or logic-combined trigger sources to create bursts, rolls, or ratcheting effects into the <em>TRIG</em> input.
+- <strong>Audio Rate Modulation</strong>: Run a loud, fast audio oscillator (square/saw) into the <em>MODEL</em> or <em>DAMP</em> CVs for brutal, unpredictable timbre distortion.
+- <strong>External Distortion/Folding</strong>: Run the output of Bell into a wavefolder, saturator, or in-feedback with ring mod/fuzz to emphasize nonlinearity and aggressiveness.</p>
+<h3>Example Patch</h3>
+<ul>
+<li><em>MODEL</em> knob at 3-4 (Wine Glass or Redwood Plate)</li>
+<li>Random stepped CV into <em>DAMP</em> (-5V to 5V)</li>
+<li>Envelope to <em>PITCH</em> (modulate decay for pitch sweep)</li>
+<li>Trigger rolls (clock divider/multiplier)</li>
+<li>Post Bell: wavefolder + distortion</li>
+</ul>
+<hr />
+<h2>2. Crazy Basslines (Dubstep, Drum &amp; Bass, Neuro)</h2>
+<p>You can use Bell for bass by exploiting:
+- <strong>V/Oct Tracking</strong>: Sequence notes via the <em>1V/OCT</em> input, using a pitch CV/gate sequencer or pattern generator. Stay low (below C3).
+- <strong>Pitch Voltage</strong>: Add an LFO, function generator, or envelope to <em>PITCH</em> for wobbles, slides, and growls—try slow triangle/sine for “dubstep wub” style.
+- <strong>Model Mutation</strong>: Sweep <em>MODEL</em> with a CV LFO for moving harmonic content—use bipolar modulation for full model spread.
+- <strong>Damping for Impact</strong>: Use the <em>DAMP</em> control in conjunction with triggers/gates to adjust note length dynamically (short for plucky, long for sustained growl).
+- <strong>Resonator Feedback</strong>: Feed Bell’s output into a bandpass/lowpass filter and resonance circuit, then mult that signal back into Bell's <em>MODEL</em> or <em>DAMP</em> (if you're using a mixer/attenuator for safety)—for physical modeling "feedback squelch."
+- <strong>Layering</strong>: Layer Bell with a sub-oscillator below, to reinforce sub-bass presence.</p>
+<h3>Example Patch</h3>
+<ul>
+<li>Bassline sequencer to <em>V/OCT</em> and <em>TRIG</em></li>
+<li>Sine LFO (~0.5-2Hz) to <em>PITCH</em> (<em>intense</em> for full FM wobble)</li>
+<li>Mild random/slow LFO to <em>MODEL</em> (adds timbral variation per note)</li>
+<li>DAMP modulated for snappy or drawn-out plucks</li>
+<li>Output to saturation/drive, then aggressive filter (VCA envelope after filter)</li>
+</ul>
+<hr />
+<h2>3. Haunting Pads &amp; Atmospheric Sounds</h2>
+<p>For lush, eerie, or evolving soundscapes:
+- <strong>Polyphonic Texture</strong>: Use multiple <em>TRIGs</em> in relatively quick succession to layer voices (Bell can do 6-voice polyphony). Use random, Euclidean, or manually-timed triggers.
+- <strong>Slow Damping</strong>: Set <em>DAMP</em> high, or modulate slowly with an LFO/envelope for evolving reverb-like decays.
+- <strong>MODEL Scanning</strong>: Use a slow, bipolar LFO, or a pressure/joystick controller to sweep through different <em>MODEL</em> positions for changing harmonic profiles.
+- <strong>Pitch Glides/Vibrato</strong>: Route a slow, gentle LFO or random smooth voltage to <em>PITCH</em> for chorus-like drift or whale-song undulation.
+- <strong>Harmonic Layering</strong>: Mult Bell output through different reverb, shimmer, or granular effects and blend; stereoize with subtle detune on <em>PITCH</em> live fiddling.
+- <strong>Atmospheric Effects</strong>: Patch drone triggers at regular, slow intervals, and use a looping envelope for ongoing mild pitch modulation.</p>
+<h3>Example Patch</h3>
+<ul>
+<li>MODEL: Slow LFO modulation (full sweep, ~1 cycle/30 sec)</li>
+<li>TRIG: Multi-gated/randomized for overlapping polyphony</li>
+<li>DAMP: Set high, modulate with slow LFO for motion</li>
+<li>PITCH: Small vibrato (sine LFO), or sample &amp; hold for subtle pitch clouds</li>
+<li>Output: Long reverb, stereo widener, shimmer</li>
+</ul>
+<hr />
+<h2>General CV/Modulation Tips</h2>
+<ul>
+<li>All modulation inputs (<em>MODEL</em> and <em>DAMP</em>) accept -5V to +5V: scale your sources for full-range movement.</li>
+<li><em>1V/OCT</em> accepts -1V to +6V: you can create subharmonic and very high-pitched effects by pushing CVs outside standard keyboard/pitch input ranges.</li>
+<li>Live wiggle <em>PITCH</em> after triggering for on-the-fly vibrato, bends, or crazy macro gestures (use attenuators for smoother action).</li>
+<li>Combining traditional melodic sequences with frequent parameter modulation can yield sounds unachievable with acoustic bell-like sources.</li>
+</ul>
+<hr />
+<p>Have fun ringing Bell far beyond its classical roots!</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

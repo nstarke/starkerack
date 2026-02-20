@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-207_Quantizer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-207 Quantizer</h1>
+<ul>
+<li><a href="../../manuals/ADDAC_207_Quantizer_REV05.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.addacsystem.com/Manuals/ADDAC207_MANUAL.pdf">ADDAC207 INTUITIVE QUANTIZER User's Guide (PDF)</a></p>
+<hr />
+<h1>ADDAC207 Intuitive Quantizer – Creative Modulation Tips</h1>
+<p>The ADDAC207 Intuitive Quantizer is a highly flexible quad quantizer with user-definable scales, microtonal options, assignable CV functions, independent voice fine-tuning, chord generation, scale transposition, and more. Understanding its functions opens a great deal of sonic territory for modular musicians wanting to create <strong>distorted percussion</strong>, <strong>crazy dubstep/drum'n'bass basses</strong>, and <strong>haunting atmospheric pads</strong>. Below are patching and modulation ideas targeted at these sound design goals.</p>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<p><strong>Strategy:</strong> Use sharp, fast random or rhythmic voltage bursts to rapidly jump between quantized notes/scales with tight gate lengths and unusual scales/intervals.</p>
+<h3>Patch Tips &amp; Techniques</h3>
+<ul>
+<li><strong>Short Gate Modulation:</strong><br />
+  Set very short gate lengths in the GATE L. menu (Button 6 → Button 1–3: 10–40ms) for punchy, clicky outputs.</li>
+<li><strong>Rhythmic/Random Triggers:</strong><br />
+  Patch clock dividers, random gates, or burst generators into the GATE IN jacks for on-the-fly rhythmic quantization changes.</li>
+<li><strong>Microtonal Scales:</strong><br />
+  Enter the FINE TUNE menu (Button 10 → Buttons 11/12 to alter 1v/oct response) and reduce it to get 24 or even 48 notes per octave—making alien, metallic percussion.</li>
+<li><strong>Scale/Note Mutation:</strong><br />
+  Permanently modulate scale selection on the fly by using the CV ASSIGN input to change presets, scale transpose (Button 12, 11), or quantization type (Button 5).<br />
+  Try stepping through scales every trigger to create machine-gun style melodic drum patterns.</li>
+<li><strong>Chord Percussion:</strong><br />
+  Set output intervals in NOTE 2, 3, 4 menus for stacks of intervals. Use these with a fast envelope or VCA for dissonant, metallic percussion stabs.</li>
+</ul>
+<p><strong>Example Chain:</strong></p>
+<pre><code>Clock/Random Gate Out → 207 GATE IN  
+Random/CV Burst → 207 CV IN  
+207 OUT → VCO pitch  
+207 GATE OUT → VCA envelope  
+Modulate Assign with LFO/S&amp;H → change preset/scale/chord intervals on the fly
+</code></pre>
+<hr />
+<h2>2. Crazy Dubstep/Drum &amp; Bass Basslines</h2>
+<p><strong>Strategy:</strong> Use rapidly shifting quantizer intervals, scale transpositions, and extreme glide for unpredictable, modulating bass riffs.</p>
+<h3>Patch Tips &amp; Techniques</h3>
+<ul>
+<li><strong>Note/Interval Modulation:</strong><br />
+  Assign CV to NOTE 2-4 or SCALE TRANSPOSE. Sequence or randomize which notes/offests are active for each trigger. This makes FM/AM-like pitch jumps and "wobbles."</li>
+<li><strong>Glitchy Quantization Modes:</strong><br />
+  Change Quantizer Type (Above/Below/Ignore) dynamically via Assign CV (Button 5 assignment). This creates note stutters and sharp pitch artifacts as the quantizer input swings around.</li>
+<li><strong>Dirty Chords:</strong><br />
+  Use chords with non-diatonic intervals (e.g., up 1, 3, 7 or microtonal steps) and modulate these intervals while clocking the quantizer fast for cascading, digital-sounding basses.</li>
+<li><strong>Extreme Octave Offsets:</strong><br />
+  Patch LFOs/noise to the Assign CV input, mapped to Octave Offset (Button 9), causing bass notes to jump several octaves within a scale/arpeggio.</li>
+<li><strong>Scale Transpose Basslines:</strong><br />
+  Use another sequencer or envelope to modulate the Scale Transpose input (Button 11), moving your whole bassline to different "keys" with every phrase for broken, gliding riffs.</li>
+</ul>
+<p><strong>Example Chain:</strong></p>
+<pre><code>Step Sequencer → 207 CV IN  
+Envelope/LFO → Assign 1V/Oct In (scale transpose)  
+Noise/Random CV → Assign (Quantizer Type or Octave Offset)  
+207 OUT → VCO (preferably with some wavefolding/distortion)  
+207 GATE OUT → Snap Envelope for VCA
+</code></pre>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<p><strong>Strategy:</strong> Use the quantizer for drifting, generative melodies within haunting scales, microtonal textures, and subtle chord shifts.</p>
+<h3>Patch Tips &amp; Techniques</h3>
+<ul>
+<li><strong>Just/Bohlen-Pierce Temperament:</strong><br />
+  Enter the TUNING menu (Button 10) and select nonstandard scale temperament (Buttons 5–9, especially 7 or 8) for scales with unfamiliar interval relationships.</li>
+<li><strong>Slow, Random Modulation:</strong><br />
+  Feed slow, smooth random voltages (e.g., Wogglebug, S&amp;H + Lag, or generative fluctuation sources) to the CV INs and Assign CV for drifting pad movement.</li>
+<li><strong>Real-Time Scale Change:</strong><br />
+  Use Assign to alternate between major/minor or even modulate between user-defined scales by changing presets live (Button 12 assignment).</li>
+<li><strong>Large Chord Voicings:</strong><br />
+  Use Voices 2–4 set at distant intervals (e.g., 5th, 9th, 11th), all set to long Attack/Release envelopes.<br />
+  Quantize multiple slow LFOs for multiple melodic pad layers.</li>
+<li><strong>Microtonal Washes:</strong><br />
+  Fine-tune 1v/oct ratios for "out-of-tune" cluster chords: select extreme FINE TUNE values for each output, then slowly sweep inputs for amorphous, evolving atmospheres.</li>
+</ul>
+<p><strong>Example Chain:</strong></p>
+<pre><code>Slow/Smoothed Random CV → 207 INs 1–4  
+Slow LFO/Random → Assign (scale transpose, preset change, etc.)  
+Set Tuning = Just or Bohlen-Pierce  
+207 OUTs → VCOs → Reverb/Delay feedback chain  
+207 GATE OUTs → Slow envelope/VCA
+</code></pre>
+<hr />
+<h2>Bonus Modulation Ideas</h2>
+<ul>
+<li><strong>CV-Controlled Assign Routing:</strong><br />
+  The Assign function allows for mapping an incoming CV to multiple parameters at once: chord intervals, quantization mode, gate length, octave offset, etc.<br />
+  Experiment with multed LFOs, envelopes, or chaotic sources sent to Assign to create unpredictable, "living" modulation.</li>
+<li><strong>Gate Out Length for Texture:</strong><br />
+  Use varying GATE L. settings on different voices for overlapping textures or staggered percussive pulses.</li>
+<li><strong>Nonvolatile Presets for Live Play:</strong><br />
+  Quickly swap between user presets containing wildly different scales/intervals to morph moods/scenes.</li>
+</ul>
+<hr />
+<p>For complete reference and more details, check the full <a href="https://www.addacsystem.com/Manuals/ADDAC207_MANUAL.pdf">ADDAC207 Intuitive Quantizer User's Guide (PDF)</a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

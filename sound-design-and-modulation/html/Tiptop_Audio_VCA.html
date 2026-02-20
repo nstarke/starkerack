@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_VCA</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — VCA</h1>
+<ul>
+<li><a href="../../manuals/Tiptop Audio VCA user manual_6.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://tiptopaudio.com/manuals/tiptopaudiovca.pdf">PDF Link: Tiptop Audio VCA Manual</a></p>
+<hr />
+<h1>Creative VCA Modulation Techniques for Eurorack Sound Design</h1>
+<p>The Tiptop Audio VCA's variable-slope design allows for extremely flexible modulation and distortion possibilities. Below, I'll break down patches and creative uses specifically for:</p>
+<ul>
+<li><strong>Distorted Percussive Sounds</strong></li>
+<li><strong>Aggressive/Crazy Dubstep &amp; Drum and Bass Basslines</strong></li>
+<li><strong>Haunting Atmospheric Pads</strong></li>
+</ul>
+<p>Each technique leverages the VCA's unique features: <em>continuously variable response curve (log/lin/exp)</em>, <em>offset and CV attenuation</em>, and the <em>ability to clip both audio and control voltage inputs</em>.</p>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<p><strong>Objective:</strong> Make punchy, saturated, and dynamic drum or percussion sounds.</p>
+<h3>Patch Ingredients</h3>
+<ul>
+<li>Percussive sound source (VCO, drum module, or resonating noise)</li>
+<li>Envelope (short, punchy, fast attack/decay)</li>
+<li>CV signal (envelope)</li>
+<li>VCA audio input (signal to distort)</li>
+<li>Audio out to overdrive/distortion or direct to mixer</li>
+</ul>
+<h3>Patch Steps</h3>
+<ol>
+<li><strong>Signal Routing</strong>:</li>
+<li>Patch drum VCO (e.g., sine for kick, noise for snare) to VCA audio IN.</li>
+<li>
+<p>Patch a fast envelope (ADSR or simple Decay envelope) to VCA CV IN.</p>
+</li>
+<li>
+<p><strong>Aggressive Settings</strong>:</p>
+</li>
+<li>Set <strong>LEVEL</strong> to max.</li>
+<li>Set <strong>SHAPE</strong> to full <em>exponential</em> (fully right). This will make the response ultra-snappy and “punchy”.</li>
+<li>
+<p>Push the <strong>CV IN</strong> attenuator up until you see the <strong>CV clip LED flash</strong>. Back off just until it stops flashing.<br />
+<em>Optional: deliberately push into clipping for edgy, digital-style distortion.</em></p>
+</li>
+<li>
+<p><strong>Audio Clipping Distortion</strong>:</p>
+</li>
+<li>Crank the audio input level (from your external VCO) so the red <strong>audio clip LED</strong> flashes on peaks. This creates brutal distortion character.</li>
+<li>
+<p>Subtly move SHAPE towards <em>log</em> or <em>linear</em> for different attack slope flavors. Exponential is often the hardest-hitting.</p>
+</li>
+<li>
+<p><strong>Offset</strong>:</p>
+</li>
+<li>
+<p>Slightly raise the OFFSET until signal starts to pass, helping accentuate the attack tail or sustain.</p>
+</li>
+<li>
+<p><strong>Experiment</strong>:</p>
+</li>
+<li>Try modulating the SHAPE parameter itself (with slow LFO) for morphing percussive character.</li>
+<li>Layer two VCAs in series: one for distortion (input clipping), one for clean amplitude shaping.</li>
+</ol>
+<blockquote>
+<p><strong>Tip:</strong> The unique LOG curve is great for “ticky” percussion and can add unconventional timbral spikes.</p>
+</blockquote>
+<hr />
+<h2>2. Aggressive Dubstep/Drum &amp; Bass Basslines</h2>
+<p><strong>Objective:</strong> Dubstep “talking” and DnB reese basses often rely on sharp amplitude modulation, saturation, and dynamically changing response shapes.</p>
+<h3>Patch Ingredients</h3>
+<ul>
+<li>Two VCOs: one for carrier (e.g., saw/square) and one for modulation (sine/triangle for FM or AM)</li>
+<li>Envelope or LFO (for amplitude or index modulation)</li>
+<li>Fast/complex LFO or envelope for VCA CV</li>
+<li>Optional: filter pre/post VCA for further shaping</li>
+</ul>
+<h3>Patch Steps</h3>
+<ol>
+<li><strong>Audio Path</strong>:</li>
+<li>Mix saw and square from primary VCO for rich harmonic content.</li>
+<li>
+<p>(Optional) Patch secondary VCO to FM or AM input on main VCO, or directly to VCA CV input for ringmod/AM.</p>
+</li>
+<li>
+<p><strong>VCA Configuration</strong>:</p>
+</li>
+<li>Feed the main VCO output (the bass) into AUDIO IN.</li>
+<li>For "growl" and movement, patch a complex LFO or step-sequencer CV into VCA CV IN.</li>
+<li>Set <strong>SHAPE</strong> center (LIN) initially, then sweep towards exp/log for timbral change during sequence.</li>
+<li>
+<p>Push <strong>LEVEL</strong> high, <strong>CV IN</strong> moderately high, optionally into the <strong>CV clipping</strong> region for extra bite.</p>
+</li>
+<li>
+<p><strong>Amplitude Modulation</strong>:</p>
+</li>
+<li>
+<p>Patch a second VCO (audio-rate sine/triangle) into CV IN for <strong>ringmod</strong> or <strong>audio-rate amplitude modulation</strong>. This creates metallic, robot-like timbres characteristic to aggressive bass genres.</p>
+</li>
+<li>
+<p><strong>Envelope Control for Riffs</strong>:</p>
+</li>
+<li>
+<p>Use a rhythmic envelope or step-sequenced gate to modulate the VCA, chopping the bass into pulse or groove patterns.</p>
+</li>
+<li>
+<p><strong>Drive and Distort</strong>:</p>
+</li>
+<li>
+<p>Push the audio or CV into clipping as desired. The VCA will saturate the signal, especially if you boost at source or set the SHAPE to exponential.</p>
+</li>
+<li>
+<p><strong>Modulate SHAPE Live</strong>:</p>
+</li>
+<li>Manually sweep, or patch a slow LFO to the SHAPE control for evolving, talking-bass-style textures.</li>
+</ol>
+<blockquote>
+<p><strong>Pro Tip:</strong> Sequence the SHAPE knob alongside filter/oscillator parameters for dramatically evolving basslines.</p>
+</blockquote>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<p><strong>Objective:</strong> Pads are all about smooth, evolving, and sometimes ghostly textures. The VCA’s variable slope lets you fade these in/out with custom curve shapes for organic results.</p>
+<h3>Patch Ingredients</h3>
+<ul>
+<li>Multiple VCOs or wavetable oscillators for lush pad source.</li>
+<li>Slow, multi-stage envelope or looping function generator for amplitude modulation.</li>
+<li>Gentle LFO for slow shape morphs.</li>
+</ul>
+<h3>Patch Steps</h3>
+<ol>
+<li><strong>Mellow Settings</strong>:</li>
+<li>Patch drones, chords, or complex waves to VCA AUDIO IN.</li>
+<li>
+<p>Patch a slow, looping envelope or LFO to VCA CV IN.</p>
+</li>
+<li>
+<p><strong>Curve Magic</strong>:</p>
+</li>
+<li>
+<p>Set <strong>SHAPE</strong> to linear for most natural fade-ins/outs; sweep gently toward log for ultra-smooth slow attacks, or to exp for slightly sharper entries/decays.</p>
+</li>
+<li>
+<p><strong>Offset Trick</strong>:</p>
+</li>
+<li>
+<p>Use OFFSET to prevent the VCA from ever closing all the way – this creates ghostly, always-present pads, especially when sustained over reverb.</p>
+</li>
+<li>
+<p><strong>Amplitude Animation</strong>:</p>
+</li>
+<li>
+<p>Modulate the SHAPE knob with a super-slow LFO for pads that gently morph their fade characteristics—this gives pads motion without obvious “filter sweeps.”</p>
+</li>
+<li>
+<p><strong>Ethereal Washes with Clipping</strong>:</p>
+</li>
+<li>
+<p>Experiment with modulating CV IN so that the envelope occasionally clips for a gritty pad tail or “crackling,” especially if reverb is post-VCA.</p>
+</li>
+<li>
+<p><strong>Stack and Layer</strong>:</p>
+</li>
+<li>For ultra-rich atmospheres, patch several VCAs in parallel, each with slightly different response curves, envelopes, and offsets.</li>
+</ol>
+<hr />
+<h2>Bonus: General Tips</h2>
+<ul>
+<li><strong>Audio vs. CV Clipping:</strong> Both can produce unique timbres—audio clipping = signal distortion, CV clipping = dynamic "stuttering" or hard-gated effects.</li>
+<li><strong>Manual SHAPE riding:</strong> For live performance, slow manual sweeps of SHAPE provide evolving dynamics in your sound.</li>
+<li><strong>AM Synthesis:</strong> Use audio-rate signals in the CV IN for ringmod or tremolo, especially with log/exp shaping for complex modulation spectra.</li>
+</ul>
+<hr />
+<p>Explore more advanced routings with various combinations of modulation sources, filters, and other VCAs for even richer results!</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

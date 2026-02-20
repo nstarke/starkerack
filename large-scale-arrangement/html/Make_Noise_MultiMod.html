@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_MultiMod</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — MultiMod</h1>
+<ul>
+<li><a href="../../manuals/multimod-manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://makenoisemusic.com/manuals/MakeNoise_MultiMod_Manual.pdf"><strong>Download the Make Noise MultiMod Manual (PDF)</strong></a></p>
+<hr />
+<h1>Using the Make Noise MultiMod to Create Full-Length Eurorack Songs</h1>
+<h2>Overview</h2>
+<p>The Make Noise MultiMod is a breakthrough modulation processor that can transform a single control signal into multiple, independently phase-, speed-, and shape-varied versions. This offers powerful possibilities for orchestrating evolving, non-repetitive, and dynamic song structures in a eurorack modular system. Consider it a modulation brain: it lets you send out variations on a single idea to many destinations, synchronizing or unsynchronizing elements across your entire patch.</p>
+<p>In this guide, we’ll explore how to use MultiMod to <strong>move beyond loops</strong> and <strong>build full-length, evolving songs</strong> by leveraging its unique capabilities. We’ll include patch ideas and integration tips for crafting intros, builds, breakdowns, drops, and outros—all with hands-on, organic variation.</p>
+<hr />
+<h2>Song Structure in Eurorack: The Challenge</h2>
+<ul>
+<li>It’s easy to make a repeating loop (beat, melody, bassline) in eurorack.</li>
+<li>The challenge is creating variation, progression, and "song-ness": <strong>sections</strong>, <strong>evolving energy</strong>, <strong>drama</strong>, and <strong>resolution</strong>.</li>
+</ul>
+<p><strong>MultiMod</strong> excels at orchestrating multi-part, evolving variation from a single modulation or clock source.</p>
+<hr />
+<h2>Concepts for Full-Length Songs with MultiMod</h2>
+<h3>1. <strong>Macro Modulation: Global Section Changes</strong></h3>
+<h4><strong>Technique: Scene Switching with Hold, Time, and Shape</strong></h4>
+<ul>
+<li>Use the <strong>Hold</strong> function to lock the current modulated states, then re-engage to unleash a new modulation pass, essentially acting as a "scene switch" or "drop."</li>
+<li>Automate or manually morph the <strong>Time</strong> and <strong>Shape</strong> parameters at specific song moments to globally alter the modulation curves feeding your patch.<ul>
+<li>Example: Short <strong>Time</strong> values = tight, fast sections. Wind it longer for breakdowns or intros.</li>
+</ul>
+</li>
+<li><strong>Shape</strong> can morph output modulation from snappy to smooth or random, causing major section changes.</li>
+</ul>
+<h4><strong>Patch Example</strong></h4>
+<ul>
+<li>MultiMod OUTs → CV inputs of attenuators controlling filter cutoff, VCA, oscillator shape, effect sends.</li>
+<li>Use an external gate or performance button to engage <strong>Hold</strong>—this "freezes" a section.</li>
+<li>Between sections, hit <strong>Reset</strong> to realign everything on a musical boundary.</li>
+</ul>
+<h3>2. <strong>Layered Groove and Melodic Expansion</strong></h3>
+<h4><strong>Technique: Phase and Spread for Polyrhythms &amp; Counterpoint</strong></h4>
+<ul>
+<li><strong>Spread</strong> introduces increasing/decreasing speed deviations per channel—spread your groove.<ul>
+<li>Channel 1 drums (straight), channels 3/5 percussion (offset/accelerated for fills).</li>
+<li>Channel 8 sends to melodic modulation source (phase-shifted arpeggio, etc.).</li>
+</ul>
+</li>
+<li><strong>Phase</strong> offers micro-movement—a handful of melodic or rhythmic lines with intentional drift, returning to sync at Resets.</li>
+</ul>
+<h4><strong>Patch Example</strong></h4>
+<ul>
+<li>MultiMod OUTs → Several EGs or VCO pitch CVs, each creating overlapping, polyrhythmic parts.</li>
+<li>Adjust <strong>Spread</strong> for fills/accents to gradually arise apart from the main loop.</li>
+<li>Periodically reset phase for structural endpoints (end of section, drop, etc.).</li>
+</ul>
+<h3>3. <strong>Generative Automation: Slow Macro-Evolution</strong></h3>
+<h4><strong>Technique: Self-Generating Textures &amp; Section Splits</strong></h4>
+<ul>
+<li>With the internal LFO, Shape, Phase, and Spread, MultiMod can output slowly shifting CVs for drone, pad, or evolving melodic content.</li>
+<li>Change Shape mid-song for a dramatic "movement" (e.g., ramp to random shape—orderly to chaos).</li>
+<li>Use <strong>Time</strong> for very slow modulations across several minutes (intros, breakdowns, outros).</li>
+</ul>
+<h4><strong>Patch Example</strong></h4>
+<ul>
+<li>MultiMod OUTs all multed to multiple VCF or VCO modules with slightly different offset/attenuation.</li>
+<li>Morph through <strong>Shape</strong> options to transition between song atmospheres.</li>
+</ul>
+<h3>4. <strong>Cueing and Arrangement with External Sequencers or Performers</strong></h3>
+<ul>
+<li>Use a master clock to both <strong>Tempo In</strong> and synchronize sequencers/drum machines.</li>
+<li>Use <strong>Channel Index Out</strong> as a "section detector" to trigger events/scene changes elsewhere in your patch (great for transitioning energy, cueing FX or arrangement changes).</li>
+</ul>
+<hr />
+<h2>Putting It All Together: Performance &amp; Arrangement Tips</h2>
+<ul>
+<li><strong>Automate MultiMod Controls:</strong> Use CV sources (sequencer lanes, random, joystick, pedal) to morph <strong>Time, Phase, Spread, Shape</strong> across a performance, building and releasing tension.</li>
+<li><strong>Synced Section Transitions:</strong> Patch clock/gate streams to <strong>Hold</strong> and <strong>Reset</strong> for quantized scene changes.</li>
+<li><strong>Feed MultiMod with Dynamic CV:</strong> Any manual modulation (fader, pressure, touch) into MultiMod gets "broadcast" as 8 related but non-identical gestures, yielding energetic, never-exactly-repeating phrases.</li>
+<li><strong>Patch Diversity:</strong> Send different MultiMod OUTs to melodic, rhythmic, and textural destinations—one signal controls all, but each part shifts in its own way.</li>
+<li><strong>Variation Through Limitation:</strong> By feeding one source into MultiMod, the unity makes the output feel like a cohesive "song" rather than disparate random events.</li>
+</ul>
+<hr />
+<h2>Example Song Progression</h2>
+<ol>
+<li><strong>Intro:</strong> Slow Time, minimal Spread, smooth Shape. Patch LFO mode to ambient parts.</li>
+<li><strong>Verse:</strong> Advance Time and Spread, start introducing rhythmic/tonal modulation, maybe step Shape.</li>
+<li><strong>Chorus/Drop:</strong> Open Spread wide, faster Time, dramatic Shape (square/pingpong/random). Engage Hold, Reset on downbeat for big impact.</li>
+<li><strong>Breakdown:</strong> Reduce Spread back, revert Shape to Sine, extremely slow Time for soundscape.</li>
+<li><strong>Outro:</strong> Fade Time to zero, Shape to random, let sounds drift to silence, then hit Hold.</li>
+</ol>
+<hr />
+<h2>MultiMod Integrations: Useful Companion Modules</h2>
+<ul>
+<li><strong>Sequential Switches:</strong> For repatching MultiMod OUTs to different downstream modules per section.</li>
+<li><strong>Voltage Controlled Switches:</strong> Use Channel Index to automate routing.</li>
+<li><strong>Attenuverter/Mixer Banks:</strong> To sum and carefully adjust MultiMod outs for melodic modulation.</li>
+<li><strong>CV Recorders/Loopers:</strong> To capture and recall MultiMod performances across song parts.</li>
+<li><strong>Clock Dividers/Multipliers/Logic:</strong> For even more complex timing sections when using external clocks.</li>
+</ul>
+<hr />
+<h2>Conclusion</h2>
+<p>The <strong>Make Noise MultiMod</strong> unlocks song-length, multi-section modular performances by:
+- Turning any modulation into eight ever-evolving streams
+- Giving you phase, speed, and shape control over entire arrangements
+- Allowing hands-on and automated movement through song sections</p>
+<p>It’s not just a utility—it's a powerful engine for macro-level musical storytelling in your eurorack system.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor"><strong>Generated With Eurorack Processor</strong></a></p>
+</body>
+</html>

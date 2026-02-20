@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_MultiGrain</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — MultiGrain</h1>
+<ul>
+<li><a href="../../manuals/multigrain_manual_v1.2_2025.09.02.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment-from-user">Download the Intellijel Multigrain Manual (PDF)</a></p>
+<hr />
+<h1>Creative Modulation with Intellijel Multigrain v1.2</h1>
+<blockquote>
+<p><strong>Goal:</strong> Design patch ideas and modulation workflows with Intellijel Multigrain to create…
+- Distorted Percussive Sounds
+- Wild, Modulated Basslines (Dubstep/Neuro/Drum&amp;Bass)
+- Haunting Atmospheric Pads</p>
+</blockquote>
+<p>This analysis pulls directly from the features and functions mapped in the manual—and exploits Multigrain’s unique real-time granular modulation, CV assignment, morphing, and the new Live Sound/Looping Recorder!</p>
+<hr />
+<h2>1. General Modulation Framework</h2>
+<p><strong>Assignable CV inputs:</strong><br />
+- X, Y, Z (±10V) — can modulate ANY knob parameter, or REVERSE toggle.<br />
+- Dedicated:<br />
+   - GATE = trigger grains
+   - NEXT = step through sounds (or SCAN reset, see below)
+   - SELECT = Sound select via CV
+   - MORPH CV (±10V, with attenuverter)
+   - SYNC = External clock/quants</p>
+<p><strong>Morphing:</strong><br />
+Each Sound has two Scenes (A/B). You can morph the grain engine’s parameters between ANY two states, by fader or CV:<br />
+- Create drastic contrasts between A &amp; B, and sweep or automate between them for wild timbral movement.
+- Modulation assignments can also be morphed (different attenuverter values per scene!).</p>
+<p><strong>Random Modulation:</strong><br />
+- Internally generated, assignable to ANY parameter.
+- Unipolar/bipolar modes selectable.
+- Use negative random on LEVEL/TONE for L/R panning craziness.
+- RATE randomization introduces stochastic/percussive patterns.</p>
+<p><strong>Key CV/Modulation Shortcuts:</strong>
+- Assign CV live: Hold X/Y/Z/RAND, turn parameter to set amount/polarity.
+- Control all sounds/scenes: Hold LATCH and/or SCENE.
+- Quick randomization: Hold RAND + any button.
+- Modulate Freeze on Looper: Assign CV/RAND to ◎SAMPLE in mod page.</p>
+<hr />
+<h2>2. Patch Design Recipes</h2>
+<h3>a) <strong>Distorted Percussive Sounds</strong></h3>
+<p><strong>Sample:</strong>
+- Use one-shots, dense transient-rich samples, or drums with abrupt attacks.
+- Make sure to trim/start at transient (use advanced sampling page as needed).</p>
+<p><strong>Parameter &amp; Modulation Suggestions:</strong>
+- <strong>SIZE:</strong> Set very short (30–100ms). Randomize SIZE for variable hits (assign RAND, ~30–50%).
+- <strong>RATE:</strong> Set 0Hz to 20Hz. Try enabling RATE–SIZE link for more glitch artifacts.
+- <strong>SHAPE:</strong> Use DECAY, SQUARE, TRI or very sharp window shapes.
+- <strong>LEVEL:</strong> Modulate with short, negative/positive envelopes or LFOs for amplitude stuttering.
+- <strong>PITCH:</strong> Randomize for tonal irregularity. For metallic percussion, use PITCH + Quantizer to force chromatic percussive notes.
+- <strong>REVERSE:</strong> Assign X/Y/Z as triggers, or modulate via RAND for unpredictable reversing.
+- <strong>THRU + BLUR:</strong> Disable BLUR send for dry, snappy output. Enable when you want ghostly tails.</p>
+<p><strong>Further tips:</strong>
+- Modulate <strong>SCAN</strong> or <strong>START</strong> at audio rate or with envelopes—this "scrubs" the sample for weird, choppy effects (think distorted glitch hats or FM percussion!).
+- Use external envelopes or step sequencer CV to <strong>LEVEL</strong> and <strong>PITCH</strong> for synthetic kicks/snares.
+- Overlap many grains (high RATE, smaller SIZE) for "buzz" and smearing distortion.</p>
+<p><strong>Experimental:</strong><br />
+Use Live Sound mode, freeze the Looper, modulate Freeze with an envelope—this gives quasi-granular gating on live input.</p>
+<hr />
+<h3>b) <strong>Crazy Basslines (Dubstep/Neuro/Drum&amp;Bass Styles)</strong></h3>
+<p><strong>Sample:</strong>
+- Use resampled synth patches, single bass notes, or dirty reece/wub samples.
+- Mono or stereo—stereo files enable more stereo modulation tricks!</p>
+<p><strong>Parameter &amp; Modulation Suggestions:</strong>
+- <strong>PITCH:</strong> Assign a sequencer or Voltage source (1V/Oct possible with 100% mod assign). Combine with unquantized or scale-locked Quantizer mode for scales/riffs.
+- <strong>SIZE-PITCH LINK:</strong> Enable to stretch/squeeze grains in sync with pitch moves—classic neuro/dubstep "time warping".
+- <strong>TONE:</strong> Assign a strong LFO or envelope (or RAND in negative amount!) for moving filters; this mimics animated DnB/filter sweeps.
+- <strong>MORPH:</strong> Make Scene A clean and B brutal with crushed/warped parameters, staggering reverb sends, or even max-level SIZE/WRAP.
+- <strong>SCAN/WRAP/START:</strong> Modulate with stepped/random CV/LFO, especially when using rich samples—this alters which fragment of the sample each grain comes from (stuttery or constantly evolving texture).
+- <strong>BLUR:</strong> Add subtle tails for width, or crank to max with Scene Morphing for "exploding" grains at phrase ends.
+- <strong>REVERSE:</strong> Randomize sparsely for sudden, dizzying bass "sputter" glitches.
+- <strong>RATE:</strong> Try mid-high for overlapping grain buzz. Use random mod (RAND– or RAND+) for breakbeat/rhythmic shuffle artifacts.</p>
+<p><strong>Experimental:</strong><br />
+- <em>"Scatter Basses"</em>: High RATE, small SIZE, aggressive modulation of PITCH and START synchronized to drum triggers.
+- <em>"Wub Animation"</em>: Morph between clean and wobble scenes with the fader or sequencer CV to MORPH input.
+- <em>Random Pan</em>: Assign negative RAND to LEVEL/TONE for psychoacoustic stereo spread.</p>
+<hr />
+<h3>c) <strong>Atmospheric Pads and Haunting Textures</strong></h3>
+<p><strong>Sample:</strong>
+- Use evolving drones, field recordings, extended instrument notes (cello, flute, guitar harmonics), vocal washes, or full ambient loops.</p>
+<p><strong>Parameter &amp; Modulation Suggestions:</strong>
+- <strong>SIZE:</strong> Slow, 500ms–3sec grains. Scene A (long, soft), Scene B (short, sharp, for morphing tension/relaxation).
+- <strong>RATE:</strong> Low values (&lt;2Hz) for sparse pointillism, or higher for dense, smudgy clouds.
+- <strong>SHAPE:</strong> BELL, TUKEY, SINE for soft fade-ins/outs.
+- <strong>START/SCAN/WRAP:</strong> Apply S&amp;H (sample/hold) or smooth LFO CV for gently shifting position through the soundscape.
+- <strong>RAND Modulation:</strong> Dust all parameters with 10–30% RAND for organic, evolving movement.
+- <strong>BLUR:</strong> Use heavy blur (reverb send) for endless tails.
+- <strong>REVERSE:</strong> Sparingly assign to mod/X/Y/Z for ghostly reversed fog.
+- <strong>TONE:</strong> Lowpass for dark, HP or modulated for ethereal "whisps".
+- <strong>Live Sound Mode:</strong> Use looping recorder to grain-up incoming synth drones, freeze/unfreeze with footswitch or random triggers for everchanging pads.</p>
+<p><strong>Experimental:</strong><br />
+- Morph between two contrasting pad textures (e.g., bright violin and low cello sample, or urban field recording and pure synth pad).<br />
+- Modulate BLUR send in sync with scene morph to swell into deep reverbs on certain transitions.
+- Quantize PITCH and assign light random to only blend specific notes—mysterious, semi-tonal pads.</p>
+<hr />
+<h2>3. Advanced Play &amp; Tips</h2>
+<ul>
+<li><strong>Assign Modulation Smartly:</strong> Layer slow LFOs, step-random sequences, and rapid envelopes to different parameters for multidimensional evolution.</li>
+<li><strong>Morph Dynamic Movement:</strong> Don’t forget that MOD attenuation per Scene is also morphable—use this for "animated" modulation depth transitions.</li>
+<li><strong>Grain Engine as FX with Live Sound:</strong> Use Live Sound as a real-time FX processor; send percussion, synth, or voice through it, modulate everything for glitching, granulating madness.</li>
+<li><strong>SYNC Input:</strong> For clocked effects, drive RATE (and Scan/Wrap on Looper) from drum machine or sequencer clock.</li>
+<li><strong>Mod Output as Feedback Loop:</strong> Use A/B mod outputs to drive further modulation—e.g., envelope out to mod PITCH of another sound source in your rack.</li>
+</ul>
+<hr />
+<p><strong>For more patching ideas:</strong>
+- Skim the "Shortcuts and Combos" in the manual (page 53+).
+- Use the RAND button for rapid, happy accidents!</p>
+<hr />
+<p><strong>Manual Link:</strong><br />
+<a href="attachment-from-user">Attachment from user (PDF)</a></p>
+<p><strong>Generated With <a href="https://github.com/nstarke/eurorack-processor">Eurorack Processor</a></strong></p>
+<hr />
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_MISO</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — MISO</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_miso.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://tiptopaudio.com/manuals/MISOManual.pdf"><strong>Tiptop Audio MISO Manual (PDF)</strong></a></p>
+<hr />
+<h1>Creative Modulation With Tiptop Audio MISO</h1>
+<p><em>A Guide for Experimental Eurorack Sound Design</em></p>
+<p>The Tiptop Audio <strong>MISO</strong> module is a Swiss army knife for control voltage (CV) and audio signal processing. Because it allows you to <strong>Mix, Invert, Scale, Offset</strong> (hence, MISO) and crossfade signals, it’s perfectly suited for pushing the boundaries of modular synthesis—especially in the domain of <strong>distorted percussive sounds, aggressive basslines, and atmospheric pads</strong>.</p>
+<h2>Core Functions Recap</h2>
+<ul>
+<li><strong>Scale/Invert:</strong> Control gain and invert signals for phase/flavor changes.</li>
+<li><strong>Offset:</strong> Add/subtract DC voltage for moving signals into the right range or to generate modulation manually.</li>
+<li><strong>Mix:</strong> Merge multiple CVs or audios for layered, complex modulations.</li>
+<li><strong>Crossfade:</strong> CV-controllable morphing between two mixes (top and bottom sections).</li>
+</ul>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<p><strong>Strategy:</strong> Use MISO to combine &amp; distort envelopes, gates, and audio sources, making "clipped" or highly animated shapes.</p>
+<p><strong>Patch Examples:</strong>
+- <strong>Voltage Folding Drum Edge:</strong><br />
+  1. Patch two envelopes or an envelope + gate (e.g., two channels from a Maths, or two function generators) to IN 1 and IN 2 of the top MISO.
+  2. Crank the Scale/Invert knobs so signals are mixed at high gain or inverted for aggressive transients.
+  3. Add positive or negative Offset to ensure signals are always above or below zero—this creates asymmetric "clicks" or crisp edges.
+  4. <strong>Mix</strong> out (1+2) to a VCA or send it directly to a drum voice’s CV input.
+- <strong>Saturated Noise Snare:</strong><br />
+  1. Send white noise to channel A, envelope to channel B.
+  2. Use Scale/Invert on A for harshness; offset B for snappy decay.
+  3. Output A+B mix to a distortion or wavefolder for extra grit.</p>
+<p><strong>Pro Tip:</strong> Maxing the Scale and using offset to clip the summed voltage can result in “hard” percussive artifacts, especially when mixed with audio.</p>
+<hr />
+<h2>2. Crazy Basslines: Dubstep/Drum and Bass</h2>
+<p><strong>Strategy:</strong> Layer and cross-modulate LFOs, envelopes, and audio to shape wild, evolving bass CV or audio signals.</p>
+<p><strong>Patch Examples:</strong>
+- <strong>Dual LFO Shaping:</strong><br />
+  1. Patch a slow LFO to IN 1, audio-rate LFO to IN 2.
+  2. Scale both to taste, and invert one of them for phase cancellation/folding.
+  3. Mix OUT (1+2) to a filter cutoff or oscillator FM input of your bass voice.
+- <strong>Bass Growl Crossfade (Wub-Wub):</strong><br />
+  1. Use top MISO (1+2) for LFO/envelope shaping, bottom (A+B) for pitch/rhythm CVs.
+  2. Patch crossfade CV input with a sharp envelope or sequencer.
+  3. Dial the crossfader knob or modulate for animated, morphing filter sweeps or “talking bass” effects.</p>
+<p><strong>Pro Tip:</strong> Cranking Scale while adding an inverted Offset introduces classic dubstep “honk” and DnB “wobble” by flipping LFO shapes on the fly.</p>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<p><strong>Strategy:</strong> Blend multiple slow-moving modulation sources, gentle offsets, and subtle inversion to create drifting, eerie textures.</p>
+<p><strong>Patch Examples:</strong>
+- <strong>Complex LFO Sum for Pad Sweep:</strong><br />
+  1. Connect two “out of phase” LFOs to IN 1 and IN 2.
+  2. Fine-tune Scale/Invert for slow evolving movement.
+  3. Add slight Offset for a wandering center.
+  4. Output to multiple destinations (filter, VCA, reverb dry/wet).
+- <strong>Crossfade Quad Movement:</strong><br />
+  1. Fill all four inputs (IN 1, IN 2, A IN, B IN) with different slow LFOs or envelope followers.
+  2. Use the crossfader, manually or with a random CV source, to interpolate between complex modulations.
+  3. Route to pad filters, VCA amplitude, or even effects sends for mesmerizing pad morphs.</p>
+<p><strong>Pro Tip:</strong> The mix and crossfade outputs are perfect for feeding into reverbs or delays, baking in spectral or dynamic movement.</p>
+<hr />
+<h2>Advanced Tips</h2>
+<ul>
+<li>Chain the MISO outputs back into its own inputs (feedback) for nonlinear, chaotic control voltage patterns—great for glitch percussion.</li>
+<li>Use the Offset knobs with no input to generate pure DC—combine with external random or stepped CV for more unpredictable modulation.</li>
+<li>Modulate the <strong>crossfader input</strong> with audio-rate signals for ringmod-like AM effects or crazy filter sweeps.</li>
+</ul>
+<hr />
+<h2>Resources</h2>
+<ul>
+<li><a href="http://tiptopaudio.com/manuals/MISOManual.pdf"><strong>Tiptop Audio MISO Manual (PDF)</strong></a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+<p>Feel free to ask for specific patch diagrams or further ideas!</p>
+</body>
+</html>

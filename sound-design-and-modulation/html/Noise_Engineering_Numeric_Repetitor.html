@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Numeric_Repetitor</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Numeric Repetitor</h1>
+<ul>
+<li><a href="../../manuals/NR_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.noiseengineering.us/NR/NoiseEngineering-Manual-NumericRepetitor.pdf"><strong>Noise Engineering Numeric Repetitor Manual (PDF)</strong></a></p>
+<hr />
+<h1>Creative Modulation with the Numeric Repetitor: Distorted Percussion, Dubstep Bass, and Haunting Pads</h1>
+<p>The <strong>Noise Engineering Numeric Repetitor</strong> is a powerful rhythmic gate generator based on prime rhythm patterns and binary multiplication. The real magic in the module comes from modulating CV inputs (PRIME and FACTORS) and clever patching. Let's dive into some advanced modulation strategies tailored to create:</p>
+<ul>
+<li>Distorted rhythmic percussion</li>
+<li>Complex, evolving basslines (dubstep/DNB)</li>
+<li>Haunting, atmospheric pads</li>
+</ul>
+<hr />
+<h2>Key Modulation Inputs</h2>
+<ul>
+<li><strong>PRIME (knob &amp; CV):</strong> Selects base rhythm pattern</li>
+<li><strong>FACTOR 1-3 (knob, CV):</strong> Modifies the product/variation of the main rhythm (multiplicative, offset, and bit-masked variations)</li>
+<li><strong>BEAT input:</strong> Clock source (dictates pattern rate)</li>
+<li><strong>MEASURE input:</strong> Resets pattern to start (can use for rhythmic resets/glitch effects)</li>
+</ul>
+<hr />
+<h2>Techniques &amp; Patch Ideas</h2>
+<h3>1. Distorted Percussive Rhythms</h3>
+<p><strong>Goal:</strong> Glitchy, evolving, or even aggressive rhythms for metallic hats, broken claps, or industrial drums</p>
+<p><strong>Patching &amp; Modulation Tips:</strong></p>
+<ul>
+<li><strong>CLOCK:</strong> Patch an audio-rate clock (very fast LFO or even audio oscillator) for hyper-fast triggering or clock it at normal rates for groove. Drive the BEAT input hard for ratcheting or machine-gun rolls.</li>
+<li><strong>GATES ➔ Distortion/Eurorack Effects:</strong> Route Numeric Repetitor outputs (PRIME/PRODUCTS) to drum envelopes/VCA combos controlling analog drum modules, or straight into audio-rate distortions (bitcrushers, wavefolders, etc.) for harsh artifacts.</li>
+<li><strong>CV MODULATION:</strong> Assign random voltages, slow LFOs, or a stepped CV sequencer (like from Turing Machine/Random Source) to one or more FACTOR CVs. Extreme, sudden changes can create unpredictable gating patterns—useful for glitch or IDM percussion.</li>
+<li><strong>RESET/TRIG HACK:</strong> Use the MEASURE input with random, audio-rate, or odd-patterned gate sources (like a burst generator or random divider). This can add stun-gun resets and pattern choking.</li>
+</ul>
+<hr />
+<h3>2. Complex, Evolving Basslines (Dubstep/DNB Style)</h3>
+<p><strong>Goal:</strong> Syncopated, off-beat, or morphing bass patterns, kill-switch wobbles, and binary gate sequencing</p>
+<p><strong>Patching &amp; Modulation Tips:</strong></p>
+<ul>
+<li><strong>BASS OSC GATING:</strong> Gate bass oscillator VCAs or filter cutoff with PRODUCT outs. You get tight, snapped-on bass notes—especially powerful through a saturated lowpass.</li>
+<li><strong>MULTI-PRODUCT:</strong> Mix multiple PRODUCT outputs through a logic OR or analog mixer, and send the merged signal to the bass module to create hybrid gate curves.</li>
+<li><strong>PRIME PATTERN CV:</strong> Modulate the PRIME input with a synced sequencer, envelope, or randomly-stepped CV to jump through pattern banks as the bass phrase unfolds. Example: a slow LFO upwards sweep gives rising rhythmic complexity.</li>
+<li><strong>FACTOR MOD &amp; GLIDE:</strong> Use CV glide sources or S&amp;H with slew (think "wobble" control) into a FACTOR input to change the feel and movement of the underlying rhythm.</li>
+<li><strong>BASS AUDIO MOD:</strong> Ring modulate your bass waveform with a fast squarewave that matches the rhythm of a Numeric Repetitor PRODUCT output for digital choppiness.</li>
+</ul>
+<hr />
+<h3>3. Haunting Atmospheric Pads</h3>
+<p><strong>Goal:</strong> Ethereal, shifting textures and gating patterns to modulate pads, granular clouds, or harmonic drones</p>
+<p><strong>Patching &amp; Modulation Tips:</strong></p>
+<ul>
+<li><strong>PAD GATING:</strong> Patch Numeric Repetitor CHANNEL outputs to open/close the VCA or LPG on a long-attack/release pad voice; try PRODUCT 2/3 for less regular, more "living" patterns.</li>
+<li><strong>HARMONY LAYERING:</strong> Send PRODUCT gates to trigger different envelopes or VCAs on several voices (sine, triangle, granular) for dispersed and polyrhythmic pad events.</li>
+<li><strong>SLOW MODULATION:</strong> Modulate FACTOR and PRIME with very slow LFOs or envelope followers from another voice in the patch—field recordings, voice samples, or environmental sounds (through an envelope follower) work well.</li>
+<li><strong>BANK SWITCH:</strong> Use the SET switch live or via manual intervention at key moments for immediate, dramatic shifts in rhythm texture.</li>
+<li><strong>REVERB/DELAY POST:</strong> After gating, send audio through big reverbs, shimmer delays, or spectral processors for a truly haunted, evolving soundscape.</li>
+</ul>
+<hr />
+<h2>Combining Approaches</h2>
+<ul>
+<li><strong>Hybrid Madness:</strong> Use MULTs to send the same clock to NR and other modulators (envelopes, sequencers) for intricate cross-rhythms.</li>
+<li><strong>CV Recipes:</strong> Try a CV mixer to blend multiple LFOs/steps for PRIME or FACTOR modulation—this yields incredibly morphing rhythms.</li>
+<li><strong>Feedback:</strong> Route one PRODUCT gate to a trigger sequencer that, in turn, modulates the NR's own FACTOR input—a self-influencing pattern!</li>
+</ul>
+<hr />
+<h2>General Tips</h2>
+<ul>
+<li>Experiment with <strong>audio-rate CV modulation</strong> for digital chaos (especially on FACTOR CVs) for completely new textures.</li>
+<li>Use slow random walks or quantized S&amp;H to keep patterns organic but non-repeating.</li>
+<li>The <strong>MEASURE</strong> input is powerful for re-timing and adding live “pattern cut” effects—don't overlook it!</li>
+</ul>
+<hr />
+<p><strong><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></strong></p>
+</body>
+</html>

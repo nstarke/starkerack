@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_Maths</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — Maths</h1>
+<ul>
+<li><a href="../../manuals/MATHSmanual2013.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://makenoisemusic.com/content/manuals/MathsManual2020.pdf">Download the Make Noise MATHS Manual (PDF)</a></p>
+<hr />
+<h1>Using Make Noise MATHS To Build Full Length Eurorack Songs</h1>
+<p>Many modular musicians face the challenge of moving beyond killer loops and short textures to develop evolving, structured, full-length tracks. The Make Noise MATHS, thanks to its flexibility as an analog function generator and control voltage (CV) processor, can serve as a central device in overcoming this challenge by creating modulation, events, clocking structures, and dynamic variations across your system. Here’s an in-depth look at how you can leverage MATHS—alongside other modules—to achieve song-length evolution and structure in your Eurorack compositions.</p>
+<hr />
+<h2>Key Eurorack Songwriting Strategies Using MATHS</h2>
+<h3>1. <strong>Create Dynamic Song Structure with Self-Patching and Clocking</strong></h3>
+<p>Using MATHS’ cycling functions, you can generate slow LFOs or stepped envelopes lasting anywhere from a second to over 25 minutes. These slow modulations can control filters, sequencer stages, or effects, producing the macro-evolution typically needed for verse, bridge, and breakdown transitions.</p>
+<p><strong>Technique Example:</strong><br />
+- Set Channel 1 or 4 to self-cycle at a very slow rate (for example, a 3–5 minute period).
+- Use the Unity or Variable Out to modulate the cutoff of a filter used on your main melodic or pad voice, creating evolving timbre shifts across the duration of the song.
+- Alternatively, patch a slow cycling envelope to voltage control the sequence length or step address input on a sequencer, shifting the sequence or pattern over time without hard cuts.</p>
+<h3>2. <strong>Automatic Drops, Builds, and Transitions with End-of-Rise/Cycle Logic</strong></h3>
+<p>MATHS provides End-of-Rise (EOR) and End-of-Cycle (EOC) gate outputs, which make it possible to generate triggers at precise, programmable moments. Chain these to events like drum fills, variation triggers, or clock-divided breakdowns.</p>
+<p><strong>Technique Example:</strong>
+- Use EOC from a long envelope as a reset for a pattern sequencer or clock divider, causing fills or changes at regular musical intervals.
+- EOR can trigger effects or transitions, such as opening a VCA for a riser sound or launching a new scene of modulation.</p>
+<h3>3. <strong>Scene Changes and Macro-CV Control</strong></h3>
+<p>Patch complex modulation mixtures using MATHS’ sum/invert/offset features. By changing offset voltages, attenuverters, or mod sources, you can create 'scenes' where many parameters subtly shift together, imitating traditional song sections.</p>
+<p><strong>Technique Example:</strong>
+- Use a Channel 2 or 3 offset to simultaneously move multiple parameters (e.g., filter cutoff, oscillator wave shape, reverb amount) by sending the summed output to several destinations using stackables or a multiple.
+- Combine with voltage-controlled switches (e.g., Doepfer A-150, WMD SSM) to move to new routing topologies at specific moments.</p>
+<h3>4. <strong>Gate Extraction, Envelope Following, and Sidechain Triggers</strong></h3>
+<p>MATHS can act as a gate extractor or envelope follower by patching audio or CV into a channel and taking EOR/EOC outputs. This enables dynamic interaction between different song elements—e.g., ducking, gating, or triggering new voices based on existing material.</p>
+<p><strong>Technique Example:</strong>
+- Extract a gate from a drum track to generate synchronized modulations or sidechain ducking effects elsewhere.
+- Use envelope following to make ambient pads swell in response to percussion intensity, creating organic, song-length interactions.</p>
+<h3>5. <strong>Advanced Clocking, Division, and Polyrhythms</strong></h3>
+<p>By programming Rise/Fall times sharp and triggering channels with clocks, MATHS can divide, delay, or multiply clock signals. This enables pattern changes, fills, swing, and evolving rhythm, essential for full song development.</p>
+<p><strong>Technique Example:</strong>
+- Use MATHS as a programmable clock divider to generate varying rhythmic subdivisions over the course of a track.
+- Cross-patch EOR/EOC outputs between two channels for evolving polyrhythms and unpredictable minimal techno-inspired grooves.</p>
+<hr />
+<h2>Practical Example: Structuring a Song with MATHS and Friends</h2>
+<h3><strong>Goal:</strong></h3>
+<p>Develop an evolving Eurorack track where song sections gradually emerge, drums drop in and out, melodic elements drift in timbre and sequence, and energy grows and releases—without touching the system mid-recording.</p>
+<h3><strong>Suggested Module Pairings:</strong></h3>
+<ul>
+<li><strong>Sequencer</strong>: (e.g., Make Noise Rene, Intellijel Metropolix, or simple gate sequencers)</li>
+<li><strong>VCAs/VCF</strong>: For dynamic amplitude/tone shaping</li>
+<li><strong>Random/Noise Source</strong>: (e.g., Wogglebug, Turing Machine)</li>
+<li><strong>Drum Voices</strong>: (e.g., Tiptop 808/909 modules, Mutable Instruments Peaks)</li>
+<li><strong>Effect Modules</strong>: (e.g., reverb, delay, distortion)</li>
+</ul>
+<h3><strong>Patch Overview:</strong></h3>
+<ol>
+<li>
+<p><strong>Master Song LFO:</strong>  </p>
+<ul>
+<li>CH1 set to slow cycle (e.g., Rise and Fall full CW).</li>
+<li>Unity Out to modulate filter cutoff on pads/bass for slow, evolving movement.</li>
+<li>Variable Out also sent to a VC switch or sequential switch to periodically swap audio routings or send gates to drum voice modules for mutes/unmutes or fills.</li>
+</ul>
+</li>
+<li>
+<p><strong>Section Transition Trigger:</strong>  </p>
+<ul>
+<li>CH4 set as an even slower envelope (6-8 minutes Rise+Fall, Linear).</li>
+<li>EOC used to trigger a dramatic scene change—reset sequencer, activate fill pattern, or flip a switch to new voices.</li>
+</ul>
+</li>
+<li>
+<p><strong>Complex Rhythm Shifts:</strong></p>
+<ul>
+<li>Route your master clock to CH1 Trigger input.</li>
+<li>Adjust Rise/Fall for desired division—take EOR as a downbeat accent or fill trig every X bars.</li>
+</ul>
+</li>
+<li>
+<p><strong>Accent or Fill Generator:</strong>  </p>
+<ul>
+<li>Program a fast cycling envelope on CH2, attenuate and sum with CH3 offset, patch to VCA controlling percussion or melody to introduce rhythmic variation within sections.</li>
+</ul>
+</li>
+<li>
+<p><strong>Performing Macro Modulation:</strong></p>
+<ul>
+<li>As the initial slow modulation reaches a peak, perform manual adjustments to attenuverters, switching scene offsets, or bring in additional MATHS modulation via Unity Out.</li>
+<li>Alternatively, feed in a burst of random CV to modulate MATHS Rise/Fall using another module for surprise/performance "automation".</li>
+</ul>
+</li>
+<li>
+<p><strong>Envelope Follower Dynamics:</strong></p>
+<ul>
+<li>Patch audio from a main drum track into CH1, set Rise short and Fall slightly longer—use output to gate a sidechained VCA, ducking pads during kick, or to trigger effects like reverbs at hits/transitions.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>Additional Tips</h2>
+<ul>
+<li>Self-patch MATHS for complex shapes—feedback Variable Out to Rise or Fall, or cross-modulate channels for evolving contours.</li>
+<li>Use unused channels for offsets or intentional muting in SUM/OR bus to keep the patch environment clean and manageable.</li>
+<li>Record and overdub modulation through a performance, using attenuverter knobs as live performance controls for macro-changes (e.g., moving between verse, chorus, breakdown).</li>
+</ul>
+<hr />
+<h2>Conclusion</h2>
+<p>By leveraging the utility, modulation, and temporal control that MATHS offers, along with thoughtful clocking, section/event automation, and creative patching, you can move from great four-bar loops to living, breathing, fully structured compositions. Make MATHS your songbrain, and let other modules be the voice, rhythm, and character!</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

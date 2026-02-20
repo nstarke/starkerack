@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>4ms_Rotating_Clock_Divider</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>4ms — Rotating Clock Divider</h1>
+<ul>
+<li><a href="../../manuals/RCD-manual-1.2.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://4mscompany.com/p.php?p=RCD">Rotating Clock Divider Manual PDF</a></p>
+<hr />
+<h1>Using the 4ms Rotating Clock Divider (RCD) to Create Full Length Eurorack Songs</h1>
+<p>One of the most challenging aspects of performing or composing in Eurorack is moving beyond loops—transforming great grooves into engaging, evolving full-length tracks. The 4ms RCD isn’t just a utility for making clock-divided rhythms; it’s a powerhouse for song structure, transitions, and arrangement when creatively combined with other modules. Here’s how you can leverage its features to build dynamic, composed modular pieces.</p>
+<hr />
+<h2>1. <strong>Structuring Song Sections with Clock Division and Rotation</strong></h2>
+<h3><strong>A. Song Parts as Division States</strong></h3>
+<ul>
+<li>Patch multiple voices (kick, snare, hats, bass, melody gates, sequencer clocks) to different RCD outputs, each set to a musically relevant divide.</li>
+<li>Use CV Rotate (from an LFO, envelope, footswitch, or sequencer) to shift the pattern across outputs. Each rotation can correspond to a new song section (verse, chorus, bridge).</li>
+<li>Plan your divisions so that each rotation triggers a distinctly different set of events, instantly "morphing" your groove.</li>
+</ul>
+<h3><strong>B. Song Progression with Reset</strong></h3>
+<ul>
+<li>Use CV Reset as a song section reset/transition (triggered by a manual gate, footswitch, sequencer, or end-of-pattern pulse from another module).</li>
+<li>Resetting returns the RCD to a known clock state, perfect for synchronizing fills, drops, or transitions between sections.</li>
+</ul>
+<hr />
+<h2>2. <strong>Macro Arrangements and Pseudo-Automation</strong></h2>
+<h3><strong>A. Scene-Based Changes</strong></h3>
+<ul>
+<li>Use sequential switches or voltage addressers (Doepfer A-151, WMD Sequential Switch, or similar) to send different CV to Rotate and Reset at certain bar-length intervals, creating verse/chorus/bridge structures.</li>
+<li>CV addressing can also switch Spread/Max Divide or Counting Direction between sections, drastically changing the rhythmic character and giving a sense of musical progression.</li>
+</ul>
+<h3><strong>B. Clock Speed Automation</strong></h3>
+<ul>
+<li>Change the master clock rate (from your main clock module) for tempo shifts, breakdowns, or uptempo drops. The RCD will maintain division relationships, and timing variations become compositional elements.</li>
+<li>Use Spread On/Off to alternate between “groove” and “machine” sections, e.g., straightforward 4/4 versus offbeat polyrhythms.</li>
+</ul>
+<hr />
+<h2>3. <strong>Evolving Percussion, Melodies, and Song Movement</strong></h2>
+<h3><strong>A. Polyrhythm and Variation Generation</strong></h3>
+<ul>
+<li>Chain RCD outputs to percussion, random sources, or quantizers to create polyrhythmic patterns, fills, and evolving textures.</li>
+<li>Rotate or Spread CVs can be sequenced or modulated, evolving the drum groove, melody, or bass part over time—no need for hands-on tweaking.</li>
+</ul>
+<h3><strong>B. Conditional/Alternate Triggering</strong></h3>
+<ul>
+<li>Use odd-numbered divides or high division values for occasional triggers (fills, resets, FX, scene swaps).</li>
+<li>Spread mode outputs classical “musical” divisions: make entire track sections switch to triplets or odd meters for breakdowns or bridges.</li>
+</ul>
+<hr />
+<h2>4. <strong>Synchronizing Multiple Voices and Generating Song Endings</strong></h2>
+<h3><strong>A. Master Reset for Song Endings</strong></h3>
+<ul>
+<li>At the end of the song, send a pulse to Reset. All outputs return to phase 1, which can be used to synchronize a dramatic finish (e.g., all sequences hit the “start” at once).</li>
+</ul>
+<h3><strong>B. Self-Patching for Advanced Structures</strong></h3>
+<ul>
+<li>Use an RCD output patched to its own Reset, or cross-patch between multiple RCDs (or RCD + QCD), to generate evolving song structures that never exactly repeat—think generative arrangements or “macro-loops” of many bars.</li>
+</ul>
+<hr />
+<h2>5. <strong>Practical Patch Examples:</strong></h2>
+<h3><strong>A. Manual Section Changes</strong></h3>
+<ul>
+<li><strong>Patch</strong>: Manual gate or foot-pedal to the CV Rotate or Reset input.</li>
+<li><strong>Use</strong>: Tap to flip between verse and chorus variants live.</li>
+</ul>
+<h3><strong>B. Evolving Complexity</strong></h3>
+<ul>
+<li><strong>Patch</strong>: Slow LFO or stepped random to CV Rotate, quantized to RCD thresholds.</li>
+<li><strong>Use</strong>: Groove gets busier or simpler automatically through a track; perfect for hands-free live jams.</li>
+</ul>
+<h3><strong>C. Build/Release Dynamics</strong></h3>
+<ul>
+<li><strong>Patch</strong>: Sequence high divisions (e.g. /32 or /64) to momentarily fire big impacts, FX, or fill triggers. Lower as you move into breakdowns, raise for drops.</li>
+</ul>
+<h3><strong>D. Synchronized Song End</strong></h3>
+<ul>
+<li><strong>Patch</strong>: When external master clock stops, send end pulse to Reset. All clocks start from beginning, “ending” all phrases together—great for a live set finisher.</li>
+</ul>
+<hr />
+<h2>6. <strong>Essential Module Pairings for Composed Songs</strong></h2>
+<ul>
+<li><strong>Switches/Matrix/Sequential Addressers:</strong> To “program” song structure by controlling CV Rotate/Reset or clock sources.</li>
+<li><strong>Varigate, Malekko Voltage Block, etc.:</strong> Pattern voltage output keeps arrangements in sync.</li>
+<li><strong>Quantizers and Random Sources:</strong> To program melodic/rhythmic variation with clocked pseudo-randomness.</li>
+<li><strong>Logic modules:</strong> AND/OR gates mute/unmute voices or trigger song events using RCD outputs.</li>
+</ul>
+<hr />
+<h2>7. <strong>Summary Table</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Modules Needed</th>
+<th>RCD Feature Used</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Section/Scene Change</td>
+<td>Manual gate, switch</td>
+<td>CV Rotate/Reset</td>
+<td>Jump between different patterns instantly</td>
+</tr>
+<tr>
+<td>Macro-variation</td>
+<td>Sequencer/LFO/random</td>
+<td>Rotate/Spread</td>
+<td>Evolve groove / automate song sections</td>
+</tr>
+<tr>
+<td>Fills &amp; FX triggers</td>
+<td>Clocked random/logic</td>
+<td>High divides/Spread</td>
+<td>Fire fills and effects at musical intervals</td>
+</tr>
+<tr>
+<td>Song ending/reset</td>
+<td>Master clock/logic</td>
+<td>Reset</td>
+<td>Synchronized endings or breaks</td>
+</tr>
+<tr>
+<td>Generative structures</td>
+<td>RCD self-patch, logic</td>
+<td>Reset/Rotate, Up/Down</td>
+<td>Create long evolving patterns, never precisely repeating</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>8. <strong>Creative “Songwriting” with RCD</strong></h2>
+<p>The RCD’s ability to rotate, spread, reset, and divide—with hands-on or CV control—lets you plan and trigger song sections, automate evolution, and build up macro-level arrangements all inside the patch. With a little preparation and practice, you can turn “forever” grooves into tracks that feel arranged, performed, and alive.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+<hr />
+</body>
+</html>

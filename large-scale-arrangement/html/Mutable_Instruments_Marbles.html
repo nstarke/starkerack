@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Marbles</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Marbles</h1>
+<ul>
+<li><a href="../../manuals/Mutable Instruments - Marbles.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/marbles/manual.pdf"><strong>Marbles Manual PDF</strong></a></p>
+<hr />
+<h1>Using Mutable Instruments Marbles for Full-Song Creation in Eurorack</h1>
+<p>Mutable Instruments Marbles is far more than a random generator—it's a performative sequencer and idea machine for modular musicians looking to realize <strong>full-length, evolving songs</strong>. Let’s analyze its capabilities and outline song-creation strategies in modular synthesis, addressing the challenge of progressing beyond a simple groove or loop.</p>
+<hr />
+<h2>Key Marbles Songwriting Features</h2>
+<ul>
+<li><strong>Random Gate &amp; Voltage Generation</strong>: Multiple clocked rhythm and melody channels.</li>
+<li><strong>Master Clock/Tempo Source</strong>: Internal or external, with tempo-following.</li>
+<li><strong>Quantization and Smoothing of CV</strong>: From random notes to repeatable scales/melodies, or even smooth, drifting modulations.</li>
+<li><strong>Looping &amp; Shuffling (DEJA VU)</strong>: Probabilistic repeats and novel variations for “parts” or sections.</li>
+<li><strong>Scale Programming</strong>: Tailor musical scales by teaching Marbles your preferred notes.</li>
+<li><strong>External CV Remixing</strong>: Transform existing sequences into new material on the fly.</li>
+</ul>
+<hr />
+<h2>Song Structure Strategies with Marbles</h2>
+<h3>1. <strong>Section Creation with Deja Vu</strong></h3>
+<ul>
+<li>Use <strong>DEJA VU</strong> to set a high probability of looping (e.g., 95%) on both X (melodies) and t (gates/rhythm). <ul>
+<li>This captures a “section” of material (e.g., 8 steps) for verses/choruses.</li>
+<li>Assign looped random CV to a melodic voice; tie gates to percussion.</li>
+</ul>
+</li>
+<li>Fade DEJA VU to reintroduce randomness—this makes a great “B section,” fill, or break.</li>
+</ul>
+<h3>2. <strong>Automatic Song ‘Scenes’</strong></h3>
+<ul>
+<li>Sequence or manually change Marbles’ settings for:<ul>
+<li><strong>Scale (quantizer)</strong></li>
+<li><strong>SPREAD &amp; BIAS</strong></li>
+<li><strong>Gate Duration</strong></li>
+<li><strong>Steppiness/Slew</strong></li>
+</ul>
+</li>
+<li>Use CV control for these paramaters (from sequencers, LFOs, or manual voltage) to morph textures and density, automating “scene” changes: intro, verse, chorus, bridge, outro.</li>
+</ul>
+<h3>3. <strong>Multi-Channel Song Layers</strong></h3>
+<ul>
+<li><strong>X Section (Random Voltages):</strong><ul>
+<li>X1: Melodic Line (quantized), sent to a voice or oscillator.</li>
+<li>X2: Bassline (different range or quantization/scale).</li>
+<li>X3: Wiggling modulator, sent to filter, effects, etc.</li>
+</ul>
+</li>
+<li><strong>t Section (Random Gates):</strong><ul>
+<li>t1: Kick patterns.</li>
+<li>t2: Snare/hats, comping, or FX triggers.</li>
+<li>t3: Modulation triggers (scene change cues).</li>
+</ul>
+</li>
+<li>This division helps build songs with fully-interlocked rhythm, bass, melody, and modulation.</li>
+</ul>
+<h3>4. <strong>External CV Processing (Remix Existing Patterns)</strong></h3>
+<ul>
+<li>Send CV from a step sequencer (e.g., a traditional bassline or melody) through Marbles’ external CV input.</li>
+<li>Use Deja Vu, quantization, spreading, and shuffling to “recompose” your sequence for alternate song sections, fills, transitions, or breakdowns—without programming new patterns.</li>
+<li>Route Marbles’ output to several voices for complex interchanges and variations.</li>
+</ul>
+<h3>5. <strong>Transitional/Bridge Sections</strong></h3>
+<ul>
+<li>Randomize clock division or multiply rate for instant tempo and pattern change (stutter, slow down, speed up, double time).</li>
+<li>Morph from quantized melodies to smoothed/lagged curves for ambient, textural bridges or fades.</li>
+</ul>
+<h3>6. <strong>Global Structure via Presets/CV</strong></h3>
+<ul>
+<li>Use external sequencers or preset storage modules (or MIDI-to-CV from a DAW) to automate changes in Marbles’ settings in time with your song’s structure.</li>
+<li>Example: Voltage-address Marbles’ BIAS or DEJA VU with scenes timed to a grid, for hands-off song structure.</li>
+</ul>
+<hr />
+<h2>Combining Marbles with Other Modules</h2>
+<ul>
+<li><strong>Voices/Oscillators</strong>: FM, analog, wavetable, etc., for melody/bass.</li>
+<li><strong>Drum Modules</strong>: Patch Marbles gates to kick, snare, hats, and percussion.</li>
+<li><strong>Filters/Effects</strong>: Use Marbles’ CV for vivid, evolving FX.</li>
+<li><strong>Mixers/Crossfaders</strong>: Blend “A” and “B” sections, or create DJ-like transitions.</li>
+<li><strong>Sequencers/Controllers</strong>: Use Marbles for remixing, not for basic patterns, or cross-sequence with external step sequencers.</li>
+<li><strong>VCAs/Envelopes</strong>: Animate voice levels, effects, or CV destinations.</li>
+</ul>
+<hr />
+<h2>Example Song Structure Patch</h2>
+<ol>
+<li><strong>Intro:</strong> Random rhythm and melody, high SPREAD, no loop, BIAS toward high notes.</li>
+<li><strong>Verse:</strong> DEJA VU loop, programmed scale, tight quantization (“step”).</li>
+<li><strong>Fill:</strong> Less loop, add jitter, slow clock division, more smoothing.</li>
+<li><strong>Chorus:</strong> New loop, higher density (BIAS), greater melodic range or faster gates.</li>
+<li><strong>Bridge:</strong> External sequence remixed, filter sweep modulated by X3.</li>
+<li><strong>Outro:</strong> Return to random, fade out with steppy to smooth sweep.</li>
+</ol>
+<hr />
+<h2>Critical Tips</h2>
+<ul>
+<li><strong>Record Everything:</strong> Marbles excels at happy accidents that won’t reoccur.</li>
+<li><strong>Use CV Automation:</strong> Automate changes to parameters with LFOs, scenes, or knobs.</li>
+<li><strong>Sample Sections:</strong> Loop and rearrange sections externally if needed.</li>
+</ul>
+<hr />
+<p>By leveraging Marbles’ <strong>random looping, scale quantization, section mutation, and external CV remixing</strong>, it becomes the core of a generative, narrative, and full-length modular song workflow.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

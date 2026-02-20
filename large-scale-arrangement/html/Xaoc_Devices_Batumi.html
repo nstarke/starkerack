@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Xaoc_Devices_Batumi</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Xaoc Devices — Batumi</h1>
+<ul>
+<li><a href="../../manuals/xaoc_batumi2_poti2_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://xaocdevices.com/manuals/xaoc_batumi_ii_manual.pdf"><strong>Xaoc Devices Batumi II &amp; Poti II Operator's Manual (PDF)</strong></a></p>
+<hr />
+<h1>Using Batumi II &amp; Poti II to Create Full Length Songs in Eurorack</h1>
+<p>As a modular synth musician, one of the most common creative hurdles is turning a solid loop—drum groove, bassline, melody—into a <strong>composition that evolves over time</strong>. The Xaoc Devices <strong>Batumi II</strong> quadruple LFO (and the optional Poti II expander) is designed to be more than just a “modulation source.” Its synchronization, phase manipulation, multiple outputs, assignable waveforms, and individual channel CV control make it a <strong>powerful song-structuring instrument</strong>. Below, I'll present concrete techniques and patching ideas to help you use Batumi II to turn creative fragments into <strong>full length, dynamic tracks</strong>.</p>
+<hr />
+<h2>1. <strong>Master Modulation Clock and Transitions</strong></h2>
+<p><strong>Batumi II</strong> can function as the "brain" of your patch, keeping various musical elements in sync or subtly shifting them to create evolving arrangements.</p>
+<h3>Song Structure Macro-Modulation</h3>
+<ul>
+<li><strong>Free/Phase/Divide/Mult Modes:</strong> Set Batumi II to divide or multiply, then use its channels to distribute time-related CV to:<ul>
+<li><strong>VCA/LPGs</strong> for fades, mutes, or evolving timbres.</li>
+<li><strong>Filter cutoff</strong> for gradual timbral shifts between sections.</li>
+<li><strong>Sequencer reset or direction</strong> (reset/sequencer stepping): Reset the start point of melodic/rhythmic phrases at big transitions.</li>
+</ul>
+</li>
+<li><strong>Master Clocking:</strong> In <em>mult</em> mode, one channel can advance a sequencer at standard tempo (e.g., 1/16th notes), another can send a signal every 32 steps to introduce fills, break sections, or transitions.</li>
+<li><strong>Global Transitions:</strong> Use the <strong>reset/sync inputs</strong> on Batumi II to re-align all LFOs with a clock, trigger abrupt changes, or real-time "DJ-style" drops and returns.</li>
+</ul>
+<h3>Morphing States (Dynamic Arrangement)</h3>
+<ul>
+<li>Send Batumi II's <strong>random or phase-shifted waves</strong> to:<ul>
+<li><strong>Waveshaper or distortion CV</strong> for phrases that rise in intensity over multiple bars.</li>
+<li><strong>Reverb or delay wet/dry CV</strong>, fading FX in/out over time.</li>
+<li><strong>End-of-cycle gates</strong> (from other slew or logic modules) to automate scene changes every few minutes.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>2. <strong>Polyrhythms and Evolving Rhythmic Structures</strong></h2>
+<p>One of the most powerful song-building techniques in modular is <strong>polyrhythm and phase manipulation</strong>.</p>
+<ul>
+<li><strong>Divide/Multiply Modes:</strong> Have Batumi II produce different subdivisions/multiplications from a master clock:<ul>
+<li>Channel A: 1x (main rhythm)</li>
+<li>Channel B: /3 (triplets or 3-bar pattern)</li>
+<li>Channel C: /5 (odd meter or cross-rhythm)</li>
+<li>Channel D: x4 (fast fills or ratchets)</li>
+</ul>
+</li>
+<li>Use these outputs to trigger drum voices, envelope resets, or rhythmically mute/unmute voices for song sections that <em>push and pull</em> against each other, creating <strong>textural variety over time</strong>.</li>
+</ul>
+<h3>Evolving Drum Patterns</h3>
+<ul>
+<li><em>Phase mode</em>: Use the phase offset per channel to subtly rotate rhythmic elements (e.g., analog-triggered percussion) across the stereo field or as rhythm "shifting" fills.</li>
+<li><em>Reset inputs</em>: Re-synchronize polyrhythmic elements at key song moments for impactful transitions.</li>
+</ul>
+<hr />
+<h2>3. <strong>Long-Form Timbral/Tonal Automation</strong></h2>
+<p>Batumi II's <strong>slow rates (as slow as 0.00001 Hz!)</strong> allow you to automate macro-level musical changes over several minutes, not just seconds.</p>
+<ul>
+<li><strong>Voices/OSC parameter drift</strong>: Slowly modulate oscillator waveshape, FM amount, or pitch for evolving melodies or pads that never repeat exactly.</li>
+<li><strong>Tonal Evolution</strong>: Morph filter resonance/cutoff, wavetable position (if using digital oscillators), or crossfader positions between sound sources for cinematic builds.</li>
+<li><strong>Random Waveform Output</strong>: Use Batumi’s sample &amp; hold or smooth random outputs to automate parameters literally for <em>hours</em> without obvious looping—great for ambient or generative pieces.</li>
+</ul>
+<hr />
+<h2>4. <strong>Individual Song Sections Control with Poti II</strong></h2>
+<p>The <strong>Poti II expander</strong> adds <strong>per-channel CV attenuation, waveform selection, and shape modulation</strong>. This makes scene-based song structure easy:</p>
+<ul>
+<li><strong>Store different attenuation and wave settings per channel</strong> as “states” for verse/chorus/bridge sections.<ul>
+<li>E.g., Verse: Channel B is slow triangle modulating filter. Chorus: Channel B switches to random stepped, modulating distortion or offering rhythmic variation.</li>
+</ul>
+</li>
+<li><strong>CV Inputs for Shape</strong>: Switch waveform shapes for each section, or have external envelopes/sequencers control which shape is heard, changing modulation flavor as the song progresses.</li>
+<li><strong>External Automation</strong>: Use a sequencer or MIDI-to-CV module to automate Batumi’s mode/wave settings and Poti’s attenuators for recallable "scenes".</li>
+</ul>
+<hr />
+<h2>5. <strong>Self-Generating/Generative Arrangements</strong></h2>
+<p>Combine <strong>Batumi II</strong>'s outputs with <strong>sequencers</strong>, <strong>quantizers</strong>, <strong>S&amp;H circuits</strong>, <strong>switches</strong>:
+- Use phase offset LFOs to clock <em>several</em> sequencers at different (yet musically-related) rates.
+- Use <strong>rectified outputs</strong> as evolving gates for random drum fills, melodic retriggers, or effect sends/returns.
+- CV control of waveform shape (with Poti II + Batumi II) slowly transforms modulation type—simple triangle growing more complex, morphing the flavor of your sequence over the length of the piece without manual intervention.</p>
+<hr />
+<h2>6. <strong>Patching Examples</strong></h2>
+<ul>
+<li><strong>Building Blocks:</strong><ul>
+<li>Ch. A (Batumi, sine, slow): Modulate master lowpass filter for global tone sweeps.</li>
+<li>Ch. B (Batumi, step random, medium): CV into VCA for tremolo on melody.</li>
+<li>Ch. C (Batumi, downward saw, divided): Clocking random S&amp;H for evolving hats or percussion.</li>
+<li>Ch. D (Batumi, rectangle, multiplied): Triggers for snare rolls or fill generator module.</li>
+</ul>
+</li>
+<li><strong>Using Reset Inputs:</strong><ul>
+<li>Patch a performance controller or footswitch (or DAW clock) to reset all Batumi channels at “drop” points for coordinated scene changes in your arrangement.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>7. <strong>Expert Moves</strong></h2>
+<ul>
+<li><strong>Audio-Rate "Utility" Oscillators</strong>: Batumi has V/Oct tracking and audio-rate range—use as <em>FM operator</em>, audio-rate modulator, or even a sub-oscillator. Automate which channel is audio-rate during different song sections!</li>
+<li><strong>Interactive Live Performance:</strong> Change Batumi’s mode mid-set (free → phase → divide → mult) to introduce dramatic changes in how all downstream modulations function.</li>
+</ul>
+<hr />
+<h2>8. <strong>Tips for Integrating with Other Modules</strong></h2>
+<ul>
+<li><strong>Sequencers (ALM Pamela’s Pro Workout, Intellijel Metropolix, etc.):</strong> Sync Batumi’s resets to sequencer start/stop for bar-accurate modulation.</li>
+<li><strong>Logic/Random (Mutable Marbles, Doepfer A-160-2):</strong> Combine Batumi gates and LFOs with logic to drive pseudo-random but bounded musical events.</li>
+<li><strong>Switches or Sequential Addressing (Doepfer A-151, Mutable Branches):</strong> Have Batumi outputs crossfade or switch modulations between multiple destinations—a powerful tool for live arrangements.</li>
+</ul>
+<hr />
+<h2>Conclusion</h2>
+<p><strong>Batumi II</strong> (with <strong>Poti II</strong>) is an extraordinarily <strong>powerful macro- and micro-arrangement tool</strong>. By leveraging its multi-channel, syncable, phase-shifting LFO design, you can not only modulate simple parameters but construct full musical narratives—introducing true <em>song structure</em> and <em>evolution</em> to your modular performances.</p>
+<hr />
+<h4><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></h4>
+</body>
+</html>

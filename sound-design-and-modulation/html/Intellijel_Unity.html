@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Unity</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Unity</h1>
+<ul>
+<li><a href="../../manuals/unity-mixer_manual_2020.04.15.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://intellijel.com/downloads/manuals/unity-mixer_manual_2020.04.15.pdf"><strong>Unity Mixer Manual (PDF)</strong></a></p>
+<hr />
+<h1>Creative Sound Design with the Intellijel Unity Mixer</h1>
+<p>As a Eurorack modular synthesist, the Intellijel Unity Mixer is a powerful yet straightforward tool that can inspire creative sound design—especially when building distorted percussive sounds, aggressive basslines, or lush atmospheric pads. Below is an analysis focused on modulation and patching techniques that exploit the module's unique features.</p>
+<hr />
+<h2><strong>Distorted Percussive Sounds</strong></h2>
+<h3><strong>1. Voltage Clipping &amp; Signal Overload</strong></h3>
+<ul>
+<li>The Unity Mixer sums incoming voltages up to a max of <strong>10.5V</strong>. Exceed this, and the output <strong>clips</strong>, resulting in a crunchy, distorted signal—perfect for punchy, distorted percussion.</li>
+<li><strong>Patching Tip:</strong>  </li>
+<li>Mix multiple envelopes, drum triggers, or audio signals with high amplitudes into a single mixer section.</li>
+<li>Deliberately stack high-velocity or unattenuated envelope outputs from modules like Maths or Quadra.</li>
+<li>Optional: Set both jumper(s) to unity gain (no attenuation), ensuring any signal over 10.5V gets hard-clipped.</li>
+</ul>
+<h3><strong>2. Layering Percussive Elements</strong></h3>
+<ul>
+<li>Patch several percussion sound sources (kick, snare, hats) into each mixer input.</li>
+<li>The summed output can act as a ‘parallel bus’ for further processing (into distortion, a wavefolder, or a compressor for extreme punch).</li>
+<li>For clean/dirty blends, use one side at -6dB and the other at unity, sending the same sources (split) and mix later with a crossfader/VCA.</li>
+</ul>
+<hr />
+<h2><strong>Crazy Basslines (Dubstep/Drum &amp; Bass)</strong></h2>
+<h3><strong>1. Complex CV Mixing</strong></h3>
+<ul>
+<li>Take LFOs, envelopes, sequencer CVs, random voltages, and mix into the filter cutoff or oscillator FM input.</li>
+<li>With no individual level controls, combine extreme modulation depths for wild, constantly-shifting bass modulation.</li>
+</ul>
+<h3><strong>2. Audio-Rate FM Madness</strong></h3>
+<ul>
+<li>Sum several audio-rate signals (e.g., multiple VCO waveforms) to the FM input of a filter or oscillator, using Unity Mixer for clean, phase-correct summing.</li>
+<li>Pushing FM sum above 10.5V for “dirty” digital clipping artifacts—think metallic, spiky sounds often heard in neurofunk and modern bass music.</li>
+</ul>
+<h3><strong>3. Sub + Harmonics</strong></h3>
+<ul>
+<li>Mix clean sub (sine), with saw, pulse, or other harmonics (possibly after distortion or wavefolding) for massive, complex basses.</li>
+<li>Use -6dB jumper if your sources are hot, keeping the sound tight without clipping—OR run hot for intentional overdrive.</li>
+</ul>
+<hr />
+<h2><strong>Haunting Atmospheric Pads</strong></h2>
+<h3><strong>1. Layer Modulation Sources</strong></h3>
+<ul>
+<li>Merge multiple slow LFOs, random voltages, and envelopes to modulate filter cutoff, VCA, or effects parameters.</li>
+<li>This creates rich, evolving textures as subtle movement or chaos is continually blended.</li>
+</ul>
+<h3><strong>2. Stereo Pathways (with Two Mixers)</strong></h3>
+<ul>
+<li>Use each of the two Unity Mixer sections for left and right modulation paths.</li>
+<li>Feed slightly different modulation sources or levels to each, for organic stereo spread and motion.</li>
+</ul>
+<h3><strong>3. Dynamic CV Crossfading</strong></h3>
+<ul>
+<li>Patch several attenuated envelopes from modules like Quadratt or Triatt into the mixer, sum to a filter's FM input.</li>
+<li>Use as a “macro modulation” bus: global filter sweeps with many CVs, perfect for pads.</li>
+</ul>
+<hr />
+<h2><strong>Bonus: Experimental Signal Pathways</strong></h2>
+<h3><strong>1. 6:1 Mixer Mode for Layering</strong></h3>
+<ul>
+<li>Use the bottom output as a 6:1 mixer: stack six different sources.</li>
+<li>Layer six waveforms, drums, or modulations for extreme complexity.</li>
+<li>Patch “nothing” into output [4], sending it all to output [8].</li>
+</ul>
+<h3><strong>2. Chained Attenuation for Sculpted Peaks</strong></h3>
+<ul>
+<li>Enable -6dB attenuation for one or both mixers (per jumper) to tame surges</li>
+<li>OR deliberately double-attenuate then boost the output with a VCA, for different saturation characteristics.</li>
+</ul>
+<hr />
+<h2><strong>Patching Examples</strong></h2>
+<p><strong>A. Distorted Percussion Bus</strong></p>
+<pre><code>Kick (high volume) --&gt; In 1
+Snare (moderate)   --&gt; In 2
+Clap (high)        --&gt; In 3
+Sum out (4): If &gt;10.5V, will clip/distort for crunchy bus to compressor or reverb.
+</code></pre>
+<p><strong>B. Dubstep Bass Modulator</strong></p>
+<pre><code>LFO (audio rate)     --&gt; In 1
+Envelope (fast decay)--&gt; In 2
+Random voltage       --&gt; In 3
+Mix outs to VCO FM or filter for classic “wobble + chaos” basslines.
+Boost levels past 10.5V if you want digital clipping razz!
+</code></pre>
+<p><strong>C. Haunting Pad Motions</strong></p>
+<pre><code>Very slow LFO          --&gt; In 5
+Slewed random (Woggle) --&gt; In 6
+Envelope (slow attack) --&gt; In 7
+Out (8) patches to filter cutoff, VCA, OR effects wet/dry for immersive pad morphing.
+</code></pre>
+<hr />
+<h2><strong>Extra Utility Tips</strong></h2>
+<ul>
+<li>Since it’s DC-coupled, the Unity Mixer works with both audio and CV (unlike some mixers).</li>
+<li>No phase inversion means summed modulations remain “musically correct.”</li>
+<li>Experiment with using attenuators BEFORE the mixer for finely-tuned blends.</li>
+</ul>
+<hr />
+<p><a href="https://intellijel.com/downloads/manuals/unity-mixer_manual_2020.04.15.pdf"><strong>Unity Mixer Manual PDF</strong></a></p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

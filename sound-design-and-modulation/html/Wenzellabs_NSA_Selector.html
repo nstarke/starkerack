@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Wenzellabs_NSA_Selector</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Wenzellabs — NSA Selector</h1>
+<ul>
+<li><a href="../../manuals/wenzellabs_the_NSA_selector_ the NSA selector eurorack module.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/wenzellabs/the_NSA_selector/blob/main/README.md">NSA Selector Eurorack Module Manual (PDF)</a></p>
+<hr />
+<h1>Modulation Techniques for the NSA Selector Eurorack Module</h1>
+<p>The <strong>NSA Selector</strong> is one of the most unconventional Eurorack modules available, acting as a hardware network packet sniffer that converts raw Fast Ethernet network traffic data into audio signals. By patching it into your modular system, you can literally "listen to the internet" and use this strange data stream as a sound source. Here’s how you can harness the NSA Selector for unique sonic exploration, particularly for <strong>distorted percussion, aggressive basslines, and haunting pads</strong>.</p>
+<hr />
+<h2>Key Features Relevant for Sound Design</h2>
+<ul>
+<li><strong>Ethernet to Audio</strong>: Directly outputs network bitstreams as audio via a 4-bit R2R DAC and low-pass-filtered output.</li>
+<li><strong>Network Activity as Modulation Source</strong>: Acts as a translator of network events (pings, browsing, image transfers) into audible signals.</li>
+<li><strong>Extremely High Sample Rate</strong>: Native 4-bit audio at 25MS/s (MegaSamples per second!).</li>
+</ul>
+<hr />
+<h2>Techniques for Unique Modulation and Sound Design</h2>
+<h3>1. <strong>Distorted Percussive Sounds</strong></h3>
+<ul>
+<li>
+<p><strong>Method</strong>: Use the module’s network-triggered transients.</p>
+<ul>
+<li>Generate percussive events by pinging devices on your LAN at various packet sizes and rates. The included <code>sequencer/</code> shell script can automate this.</li>
+<li>Percussive sounds can be shaped by creating regular or irregular packet bursts, translating to sharp clicks, pops, and noise hits at the audio output.</li>
+</ul>
+</li>
+<li>
+<p><strong>Distortion</strong>:</p>
+<ul>
+<li>Route the NSA Selector output into a wavefolder, bitcrusher, or analog distortion module after the initial conversion. The dense, noisy bitstream is perfect for hard digital distortion.</li>
+<li>Adjust your network's traffic volume to control the “density” and intensity of the percussive artifacts.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>2. <strong>Dubstep/Drum &amp; Bass Basslines</strong></h3>
+<ul>
+<li>
+<p><strong>Method</strong>: Modulate network activity with rhythmic patterns corresponding to desired bass rhythms.</p>
+<ul>
+<li>Use the upconverter utility to encode a 16-bit/48kHz WAV file (your own synthesized bass waveform, for example) into the module’s native 4-bit/25MHz format. Send this data over your network via the included fileserver scripts and listen out of the module.</li>
+<li>Manipulate image or data transfer rates to “wobble” the output: Changing packet size or frequency in time with your drum patterns can impart stepped, stuttered, or vibrato-like movement.</li>
+</ul>
+</li>
+<li>
+<p><strong>Bass Enhancement</strong>:</p>
+<ul>
+<li>Filter the output with a strong low-pass filter (VCF) to emphasize sub-frequencies and eliminate harsh top-end.</li>
+<li>Process with envelope followers or dynamic modulation to make the digital artifacts respond organically to your patch's amplitude or CV, introducing movement typical of electronic bass genres.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>3. <strong>Haunting Atmospheric Pads</strong></h3>
+<ul>
+<li>
+<p><strong>Method</strong>: Stream large, uncompressed images or slow, steady, predictable data streams to generate consistent yet modulated noise beds.</p>
+<ul>
+<li>The module responds in detail to raw .BMP or similar uncompressed image transfers via the network, producing evolving, swirling digital textures.</li>
+<li>Stack multiple image transfers or overlapping slow network activities for a layered drone.</li>
+</ul>
+</li>
+<li>
+<p><strong>Atmosphere Processing</strong>:</p>
+<ul>
+<li>Patch the output through granular, reverb, or spectral processors to smear and stretch the digital noise into haunting pads.</li>
+<li>Use slow-moving voltage-controlled amplifiers or panners to animate the sound spatially in your mix.</li>
+<li>Experiment with disabling network encryption to let more nuanced “payload” evolve; with encryption off, more of the actual data can be made audible, adding texture.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Advanced Tips</h2>
+<ul>
+<li><strong>Analog Feedback</strong>: Route the module’s output back into your LAN’s audio input (with careful level management) to create network-driven audio feedback loops—watch for wild, self-oscillating digital chaos!</li>
+<li><strong>Live Modulation</strong>: Hook up MIDI-CV converters to software controlling your network streams. This allows sequencer/CV or even manual controller manipulation over what data (and thus what sound) is sent.</li>
+</ul>
+<hr />
+<h2>Example Signal Flow</h2>
+<pre><code>[Network Source: pings, file transfer, sequencer script]
+         ↓
+[NSA Selector] 
+         ↓
+[VCF/Distortion/Wavefolder/Granular/Reverb]
+         ↓
+[Mixer/Effects]
+         ↓
+[Speakers]
+</code></pre>
+<hr />
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://github.com/wenzellabs/the_NSA_selector">NSA Selector Github repo (Manual and converters/tools)</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+<hr />
+<p><strong>Go wild—there’s nothing else quite like it in the rack. With the NSA Selector, your music can literally be powered by the pulse of the net!</strong></p>
+</body>
+</html>

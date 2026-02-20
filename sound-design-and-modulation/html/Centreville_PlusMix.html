@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Centreville_PlusMix</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Centreville — PlusMix</h1>
+<ul>
+<li><a href="../../manuals/PlusMix _ centrevillage.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://centrevillage.net/products/PlusMix.html">PlusMix Manual (PDF)</a></p>
+<hr />
+<h1>Creative Modulation Ideas for PlusMix</h1>
+<p><em>(centrevillage PlusMix – Unity Mixer with Gate Controlled Switch)</em></p>
+<p>The <strong>PlusMix</strong> is a utility module that goes beyond standard mixing—its gate-controlled inputs and polarity switches allow for expressive dynamic modulation of your CV and audio paths. Below are creative ways to exploit these features to produce <strong>distorted percussive sounds</strong>, <strong>complex dubstep/drum &amp; bass basslines</strong>, and <strong>haunting pads</strong>.</p>
+<hr />
+<h2>Module Recap</h2>
+<ul>
+<li><strong>Inputs:</strong>  </li>
+<li><code>PLS1</code>, <code>PLS2</code>, <code>BASE</code> (audio or CV)</li>
+<li><strong>Outputs:</strong>  </li>
+<li><code>MIX</code></li>
+<li><strong>Gate Inputs:</strong>  </li>
+<li><code>SW1</code>, <code>SW2</code></li>
+<li><strong>Gate Polarity Switches:</strong>  </li>
+<li><code>SW1PL</code>, <code>SW2PL</code></li>
+<li><strong>Mix Logic:</strong>  </li>
+<li><code>BASE</code> is always mixed.</li>
+<li><code>PLS1</code>/<code>PLS2</code> are mixed when their gate input + polarity status match ("H" + High or "L" + Low).</li>
+</ul>
+<hr />
+<h2><strong>1. Distorted Percussive Sounds</strong></h2>
+<p><strong>Goal:</strong> Use dynamic switching and fast gates to “punch in” signals and create rhythmic, choppy, or burst-driven percussive textures.<br />
+<strong>Approach:</strong><br />
+- <strong>Patch a noise source</strong> or a short audio burst to <code>BASE</code> (always present).
+- <strong>Patch a high-gain drum oscillator</strong> or complex waveform to <code>PLS1</code> and/or <code>PLS2</code>.
+- Use a fast envelope (e.g., AD or AHR) or trigger sequencer to gate <code>SW1</code> and/or <code>SW2</code>.
+- Set <code>SW1PL</code> and/or <code>SW2PL</code> to "H" for normal gate behavior (active on high), or "L" for inverted for more off-beat, glitchy gating.
+- <strong>Result:</strong><br />
+  - Incoming drums or bursts are sharply mixed in for the length of the gates, producing clicks/cuts/rhythmic percussive hits layered atop your noise.
+  - Add distortion (from another module) post-mix for extra saturation.</p>
+<p><strong>Variation:</strong><br />
+Randomize gate lengths with a random gate/trigger generator for unpredictable percussion.</p>
+<hr />
+<h2><strong>2. Dubstep / DnB Bassline Madness</strong></h2>
+<p><strong>Goal:</strong> Complex, switchable, morphing bass textures with sharp, modulated movement.<br />
+<strong>Approach:</strong><br />
+- <strong>Route two different bass synth voices</strong> (e.g., filtered saw from one oscillator, FM bass from another) to <code>PLS1</code> and <code>PLS2</code>.
+- <strong>Patch a steady sub oscillator</strong> to <code>BASE</code>.
+- Use rhythmic or LFO-modulated gates (sync’d to your beat) into <code>SW1</code> and <code>SW2</code> to chop/flick between your morphing voices.
+- <strong>Manually flip</strong> <code>SW1PL</code> or automate with a clock divider that provides high/low gate changes for extra syncopation or swing.
+- Use complex LFOs or random stepped voltages to modulate gates for always-evolving bassline timbres.</p>
+<p><strong>Advanced:</strong>
+- Insert audio-rate gates (from a noisy oscillator or burst generator) for glitchy, digital-grit effects.
+- Run the output through a wavefolder or saturation module for extra edge.</p>
+<hr />
+<h2><strong>3. Haunting Atmospheric Pads</strong></h2>
+<p><strong>Goal:</strong> Slowly evolving, dark, layered textures using slow gating and polarity inversion for subtle, spectral blends.<br />
+<strong>Approach:</strong><br />
+- <strong>Send evolving drones or harmonically rich wavetable oscillators</strong> to <code>PLS1</code> and <code>PLS2</code>.
+- A steady pad base (filtered noise, choir sample, sine) to <code>BASE</code>.
+- <strong>Slow LFOs</strong> (sine, triangle) or shift registers sequence gentle, long gates to <code>SW1</code> and <code>SW2</code>.
+- Use <code>SW1PL</code> and <code>SW2PL</code> as manual “mix-in” switches for live performance blending.
+- Try cross-fading LFO shapes (sometimes manually, sometimes routed from external modulation—e.g., a joystick or envelope follower).
+- <strong>Result:</strong><br />
+  - Layers move in/out with smooth or ghostly abruptness. Inverted polarity means sometimes the pad will “hollow out” as other layers come in, creating cavernous, spectral spaces.
+- Can be used on control voltages (CV) for pitch or filter modulation for moving harmonic “clouds.”</p>
+<hr />
+<h2><strong>Additional Tips</strong></h2>
+<ul>
+<li><strong>Precision mixing</strong> means you can patch pitch CV through for creative multi-sequenced lines, switching between separate arpeggiators or sequencer patterns on the fly.</li>
+<li>The gate-normalization (SW1 to 5V, SW2 to SW1) means even with nothing patched, you have manual control—useful in live improvisation.</li>
+</ul>
+<hr />
+<p><strong>For more module ideas, code, and tools:</strong><br />
+<a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

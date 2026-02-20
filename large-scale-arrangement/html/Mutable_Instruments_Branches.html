@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Branches</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Branches</h1>
+<ul>
+<li><a href="../../manuals/branches_quickstart.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/branches/manual/branches_manual.pdf">Branches Manual PDF</a></p>
+<hr />
+<h2>Using Mutable Instruments Branches for Eurorack Song Form &amp; Structure</h2>
+<p>Mutable Instruments Branches is a <strong>dual Bernoulli gate</strong> module, meaning it’s a utility for probabilistic routing of gates/triggers—essentially a coin-toss controlled switch that can add variety and movement to your modular patches. This might seem “subtle,” but in modular music, controlled randomness and switch logic are crucial for transforming loops and short phrases into dynamic song structures.</p>
+<p>Below are strategies, patch ideas, and techniques for using Branches to help turn great loops or sketches into full-length pieces.</p>
+<hr />
+<h3>1. <strong>Song Section Transitions (A/B Structure)</strong></h3>
+<p>Use Branches to probabilistically or deterministically switch between different voices, subsequences, drum patterns, or effect chains. Feed your master clock or trigger into IN, choose two destinations (say, two different drum patterns, or two melodic/sequencer rows), and use the <strong>probability knob/CV input</strong> to control how often a section happens. Modulate the probability with an LFO, envelope, or slow CV manual movement to fade between sections over time.</p>
+<h4>Example Patch:</h4>
+<ul>
+<li>Clock source triggers Branches IN1.</li>
+<li>OUT A → Drums Pattern 1, OUT B → Drums Pattern 2.</li>
+<li>Probability CV from a sequencer or manually via knob through the song.</li>
+</ul>
+<p>This creates evolving, algorithmic song sections, like verse/chorus/verse.</p>
+<hr />
+<h3>2. <strong>Generative Builds &amp; Drops</strong></h3>
+<p>Take advantage of toggle and latch modes:
+- <strong>Latch mode:</strong> Once a section appears, it persists (“holds”) until the other output gets activated. You can use this for dramatic builds or drops—e.g., send all triggers (hi-hats, ride, percussion layers) to OUT A and then after some time, all to OUT B for a sudden change such as a breakdown or drop. Control this with slow modulation, manual button holds, or an external sequence.
+- <strong>Toggle mode:</strong> Causes triggers to alternate their routing with each input. Use this to slowly evolve patterns—odd/even measures, alternating fills, or morphing sequences.</p>
+<hr />
+<h3>3. <strong>Fill, Variation, and Humanization</strong></h3>
+<p>Insert Branches between a rhythm generator (like a clock divider or trigger sequencer) and a percussion module. Tune the probability so some hits are “skipped” occasionally, making patterns less robotic, introducing surprises, and creating variation and “fills” during performance.</p>
+<h4>Example Patch:</h4>
+<ul>
+<li>Every 8th step, send a clock pulse to Branches, OUT A to your snare, OUT B to a rim or ghost hit.</li>
+<li>Modulate probability over time for evolving fills.</li>
+</ul>
+<hr />
+<h3>4. <strong>Melody Line Variation</strong></h3>
+<p>Feed a quantized random source or two sequencers into both outputs. Use Branches to switch which note sequence is active with each trigger. The probability control can fade between lead lines or motifs, enabling automatic or hands-on A/B theme development.</p>
+<hr />
+<h3>5. <strong>Song Automation and Macro Moves</strong></h3>
+<p>Patch a slow LFO, envelope, “macro controller,” or random CV into the probability CV input. Over several minutes, this shape will subtly—then dramatically—change the probabilities, automating song sections or evolving patterns in a musical, non-repetitive way.</p>
+<hr />
+<h3>6. <strong>Dynamic Effects Routing</strong></h3>
+<p>Send gate/trigger events to Branches, then route OUT A/B to effect sends, different reverb/delay tails, or modulation sources. Randomly or cyclically, this can mutate the feel of instruments and create fresh textures over a song.</p>
+<hr />
+<h3>7. <strong>Performance Control</strong></h3>
+<ul>
+<li><em>Manual switches</em>: Tap the switch on Branches for “live” intervention, enabling toggle or latch modes for sudden changes—drop in new layers, mute parts, or cue up breakdowns.</li>
+<li><em>Memory</em>: Toggle/latch states are remembered, ensuring reproducible yet flexible performance setups.</li>
+</ul>
+<hr />
+<h2>Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Patch Suggestion</th>
+<th>Song Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Section Transitions</td>
+<td>Gates to two rhythmic voices or sequencers</td>
+<td>Verse/Chorus Switch</td>
+</tr>
+<tr>
+<td>Fills/Variation</td>
+<td>Random skipping/humanizing percussion</td>
+<td>Fills &amp; Evolution</td>
+</tr>
+<tr>
+<td>Melodic Mutation</td>
+<td>Switch between two quantized melodies</td>
+<td>Theme/Motif Variation</td>
+</tr>
+<tr>
+<td>Macro Moves</td>
+<td>Modulate probability CV with LFO/envelope over song</td>
+<td>Dynamic Evolution</td>
+</tr>
+<tr>
+<td>Effects Morphing</td>
+<td>Random/directed FX routing</td>
+<td>Texture Variation</td>
+</tr>
+<tr>
+<td>Live Performance</td>
+<td>Manual/latch for big drops or buildups</td>
+<td>Instant Control</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>General Tips</h3>
+<ul>
+<li>Combine Branches with clock dividers, step sequencers, random voltage generators, and logic modules for the richest results.</li>
+<li>Use the outputs to control not just audio, but also modulation and events (e.g., opening/closing VCAs, switching effect sends).</li>
+<li>Remember: Subtlety pays off—small, probabilistic routing changes can drastically increase the “song-like” feel of your patch!</li>
+</ul>
+<hr />
+<p>For the full manual, see <a href="https://mutable-instruments.net/modules/branches/manual/branches_manual.pdf">Branches Manual PDF</a></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

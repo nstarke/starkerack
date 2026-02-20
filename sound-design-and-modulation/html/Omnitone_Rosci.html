@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Omnitone_Rosci</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Omnitone — Rosci</h1>
+<ul>
+<li><a href="../../manuals/Rosci-Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment://Rosci_User_Manual.pdf"><strong>Download the Rosci User Manual (PDF)</strong></a></p>
+<hr />
+<h1>Creative Modulation Ideas for Rosci (Eurorack)</h1>
+<p>Drawing from the Rosci Rev 3 manual, here are focused techniques and modulation patch ideas for three styles: distorted percussive hits, aggressive basslines, and haunting pads.</p>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<p><strong>Key Parameters:</strong><br />
+- <strong>Complexity</strong>: Number of points in waveform<br />
+- <strong>Roundness</strong>: Interpolation shaping<br />
+- <strong>Harmonics</strong>: Adds upper partials<br />
+- <strong>Formants</strong>: Compresses waveform for "vowel" sounds<br />
+- <strong>Detune</strong>: Tuning spread (up to a fifth)  </p>
+<p><strong>Techniques:</strong></p>
+<ul>
+<li><strong>Envelope Percussive CV</strong>: Patch a fast-decay envelope (from a function generator or EG) into the Harmonics or Complexity CV. This will create sharp, changing timbres on the attack, producing punchy and unpredictable percussive transients.<ul>
+<li>Example: Output of Maths/ADSR to Harmonics CV Input.</li>
+</ul>
+</li>
+<li><strong>Noise-Based Modulation</strong>: Send a clocked sample &amp; hold or noise source to Complexity or Roundness inputs. Abrupt voltage changes will glitch the waveform shape for digital "crunch."</li>
+<li><strong>Detuned Thwack</strong>: Automate the Detune CV with a snappy envelope or even a random stepped CV, spreading pitch for aggressive, attack-heavy distortion.</li>
+<li><strong>Overvoltage Saturation</strong>: Exceed ±10V briefly (with carefully attenuated CV or boosted signals) for parameter saturation/distortion, as the Rosci will saturate beyond range for further sonic roughness.</li>
+</ul>
+<hr />
+<h2>2. Crazy Dubstep/Drum &amp; Bass Basslines</h2>
+<p><strong>Key Parameters:</strong><br />
+- <strong>Complexity &amp; Harmonics</strong> modulated by LFO, envelopes, or sequenced CV<br />
+- <strong>Formants</strong> for vowel or "talking" bass movements<br />
+- <strong>Detune</strong> for thick, growling sounds  </p>
+<p><strong>Techniques:</strong></p>
+<ul>
+<li><strong>Rhythmic LFOs</strong>: Patch synced LFOs (or synced random generators) into Formants and Harmonics to sweep through "vowel" territory. This is key for "talking bass" effects.<ul>
+<li>Pro tip: Use multiple LFOs at different rates simultaneously patched into various parameters (knobs + CV are summed).</li>
+</ul>
+</li>
+<li><strong>V/Oct Bassline Sequencing</strong>: Use a quantized sequencer (or pitch CV from a DAW/keyboard) into the V/Oct input for pitch riffs. Layer with fast envelopes modulating Complexity/Harmonics for movement.</li>
+<li><strong>FM/AM tricks</strong>: Patch the output of one VCO or modulation oscillator into the Harmonics or Complexity CV—try audio-rate FM for harsh, metallic basses.</li>
+<li><strong>Extreme Detune</strong>: CV the Detune with a slow triangle LFO to swing between fundamental and perfect fifth, creating unstable, massive bass.</li>
+<li><strong>Hard Sync Percussion</strong>: Gate the Generate function (if possible via trigger input)—each note or step can re-trigger/re-randomize the wave shape for "reset" artifacts.</li>
+</ul>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<p><strong>Key Parameters:</strong><br />
+- <strong>Complexity</strong> (low to medium for organic tones)<br />
+- <strong>Roundness</strong> (smooth curves for evolving waveforms)<br />
+- <strong>Formants</strong> (modulated for shifting spectral focus)<br />
+- <strong>Detune</strong> (slight movement for chorusing)  </p>
+<p><strong>Techniques:</strong></p>
+<ul>
+<li><strong>LFO Swarm</strong>: Patch multiple ultra-slow LFOs (sub-1Hz to ~0.1Hz) into Complexity, Roundness, and Formants. This will slowly morph the waveform over time, resulting in eerie, living textures.<ul>
+<li>Use external offset/attenuators to keep modulation in musical range.</li>
+</ul>
+</li>
+<li><strong>Gentle Detune</strong>: Use slow random or triangle LFOs (or hand-played CV) to modulate Detune lightly for drifting polysynth vibes.</li>
+<li><strong>Envelope Morphing</strong>: Use looping envelopes with long attack/decay controlling Roundness and Formants for evolving pads.</li>
+<li><strong>Multimode Output</strong>: Mult the output and process one copy through reverb (for pad body) and another through FX/distortion (for ghostly tails).</li>
+</ul>
+<hr />
+<h2>Additional Rosci Tips</h2>
+<ul>
+<li><strong>Parameter CV Summing</strong>: Remember, the module sums knob and CV input—fine-tune static settings with knobs, then add movement with CV.</li>
+<li><strong>Tuning Stability</strong>: Tuning is accurate to ±3 cents over the 0–10V V/Oct range; you can confidently sequence at precise pitches for basslines and pads.</li>
+</ul>
+<hr />
+<blockquote>
+<p>Download the original manual for reference:
+<a href="attachment://Rosci_User_Manual.pdf"><strong>Rosci User Manual (PDF)</strong></a></p>
+</blockquote>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

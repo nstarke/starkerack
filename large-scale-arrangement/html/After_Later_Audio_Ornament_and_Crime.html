@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>After_Later_Audio_Ornament_and_Crime</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>After Later Audio — Ornament and Crime</h1>
+<ul>
+<li><a href="../../manuals/ornament and crime.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://ornament-and-cri.me/user-manual-v1_3/">Ornament &amp; Crime v1.3 Firmware User Manual (PDF)</a></p>
+<hr />
+<h1>How to Use the Ornament &amp; Crime to Build Full-Length Eurorack Songs</h1>
+<p>Ornament &amp; Crime (“o_C”) is not just a clever quantizer or utility—it’s a deep, polymorphic toolkit that can drive structure, variation, and musical storytelling in a Eurorack system. Below, you’ll find practical strategies to go beyond catchy loops and into song-form, using o_C as the backbone or heart of your modular compositions.</p>
+<hr />
+<h2>Core Concepts for Song Construction</h2>
+<h3>1. <strong>Scenes, Sections, and Recallable States</strong></h3>
+<ul>
+<li><strong>Presets/State Save</strong>: The o_C can save the state of all its apps and channels. Use this as an instant “scene change”—moving from verse-like states to chorus-like states with a long press of the encoder, recalling saved setups.</li>
+<li><strong>Manual or CV Scene Control</strong>: Assign a CV (from another module like a sequencer, manual controller, or Planar/Vector joystick) to modulate parameters or even switch apps/states to jump between parts—e.g., swapping from melody lines to quantized harmonies or changing clock divisions.</li>
+</ul>
+<h3>2. <strong>Self-Generating and Evolving Structures</strong></h3>
+<ul>
+<li><strong>Internal Sources</strong>: Use o_C’s internal bytebeat, Turing Machine, logistics, or integer sequence generators as non-repeating, evolving sources for melody/bass/rhythm, avoiding static repetition.</li>
+<li><strong>CV Assignment</strong>: Modulate sequence length, active note mask, clock division, or quantizer root in real time, either manually or with slow modulation, to introduce gradual change and “movement” across sections.</li>
+</ul>
+<h3>3. <strong>Euclidean and Polymetric Rhythms (Piqued, Harrington 1200, Sequins, Acid Curds)</strong></h3>
+<ul>
+<li>Harness Euclidean rhythm generation or sequence cycling to create rhythmic sections/variations: </li>
+<li><strong>Intro:</strong> Sparse rhythms, longer Euclidean cycles.</li>
+<li><strong>Verse:</strong> Denser fills.</li>
+<li><strong>Chorus:</strong> Polyrhythms (Euclidean masks + fast clocks).</li>
+<li>Use envelope segments as rhythmic CV sources elsewhere—self-patching or routing to VCA/VCF, or triggering/clocking external envelopes.</li>
+</ul>
+<h3>4. <strong>Chord Progression &amp; Harmonic Movement</strong></h3>
+<ul>
+<li><strong>Harrington 1200 &amp; Acid Curds:</strong> Control chords, inversions, and progressions; automate these with manually advanced triggers, clock dividers, or CV assigned to progression or mode.<ul>
+<li>Example: One progression for “verse,” another for “chorus,” cycling through or gating between them.</li>
+</ul>
+</li>
+<li>Output root/chord CVs to voice multiple oscillators/VCOs for rich harmonies, or trigger chord changes via external gate sources (gestural performance, sequencer gates, or MIDI-to-CV modules).</li>
+</ul>
+<h3>5. <strong>Melodic Structures and Melodic Variation (Sequins, Quantermain, Meta-Q)</strong></h3>
+<ul>
+<li>Use <strong>Sequins</strong> for up to 64-step melodies or bass lines, chaining them for A/B/C sections.<ul>
+<li>Assign CV to step, length, mask, clock rate—controlled by other sequencers/LFOs/programmed modulation sources to vary melody over time.</li>
+</ul>
+</li>
+<li>Employ <strong>Meta-Q / Quantermain</strong> to continuously or step-wise quantize incoming voltages, shifting scales, roots, masking notes for modal change, or variation, again assignable to external CV or LFOs for progression and development.</li>
+</ul>
+<h3>6. <strong>Automation of System Parameters</strong></h3>
+<ul>
+<li>Self-patch outputs: Use o_C’s own modulation or logic outputs (from say, Piqued envelopes or random sources) to control or modulate its own settings or those of other modules (via CV attenuators or logic).</li>
+<li>External modulation: Route LFOs, random, or stepped CV into o_C’s assignable parameters for emergent, non-repetitive structure (slow LFOs for subtle change; fast CV for ratchets, abrupt scene changes).</li>
+</ul>
+<hr />
+<h2>Concrete Song-Building Techniques</h2>
+<h3><strong>A. Multichannel Song Parts from a Single o_C</strong></h3>
+<ol>
+<li><strong>Drums/Percussion:</strong>  </li>
+<li>Use Piqued for Euclidean trigger envelopes—patch out to EG/VCA for percussion sources or send gates to external drum modules.</li>
+<li><strong>Bass Line:</strong>  </li>
+<li>Use Sequins as a 16+ step bass CV sequencer, or Quantermain to quantize random CV to a stable bass line.</li>
+<li><strong>Lead &amp; Harmony:</strong>  </li>
+<li>Harrington 1200 for chords, Quantermain for melody. Both can share the same clock, or intentionally de-sync for more complex phrasing.</li>
+<li><strong>Automated Transitions:</strong>  </li>
+<li>Assign CV from a macro controller, manual switch, envelope, or slow LFO to swap chord progressions, sequence chains, or root notes.</li>
+<li>Use the CV-to-slot system in Meta-Q or Sequins to “flip” between different sequences or masks.</li>
+</ol>
+<h3><strong>B. Sectional Song Development</strong></h3>
+<ul>
+<li><strong>Verse:</strong>  </li>
+<li>Activate slot 1 in Sequins with a basic scale and rhythm; play a specific chord progression on Acid Curds; simplified rhythm on Piqued.</li>
+<li><strong>Chorus:</strong>  </li>
+<li>Switch to slot 2 in Sequins, use a different pattern; swap Acid Curds progression; open up Piqued’s rhythm or introduce ratchets.</li>
+<li><strong>Bridge:</strong>  </li>
+<li>Use randomized or Turing-sourced quantization, add logic/chaos modulations to pitch or rhythm, etc.</li>
+</ul>
+<h3><strong>C. Live Performance &amp; Improvisation</strong></h3>
+<ul>
+<li>Leverage state save/recall to prepare song sections in advance.</li>
+<li>Use external manual controllers (Pressure Points, Planar) to live-modulate o_C parameters.</li>
+<li>Modulate into and out of chaos—LFO sweeps, ramp-up LFSR “random” sources, and gradually restrict scale masks back to consonance for dynamic tension/release.</li>
+</ul>
+<hr />
+<h2>Example Patch for a Full-Song Structure</h2>
+<p><strong>Setup:</strong>
+- Channel A: Drums (Piqued envelopes trigger VCAs/drum modules)
+- Channel B: Bassline (Sequins, quantized &amp; stepped)
+- Channel C: Chord CV (Acid Curds or Harrington 1200 feeding three VCOs for chords)
+- Channel D: Lead (Quantermain, quantizing modulated LFO for evolving melody)</p>
+<p><strong>To Create Sections:</strong>
+- Use external switch/macro controller to change:
+    - Sequins sequence slot (bass)
+    - Chord progression slot (chords)
+    - Quantizer root/note mask (lead)
+    - Piqued Euclidean fill/length (rhythm density)
+- Fade sections by using attenuverters/VCA on CV controlling o_C parameters, for discrete or slow morphing transitions.</p>
+<hr />
+<h2>Supporting Tips</h2>
+<ol>
+<li><strong>Self-Referencing &amp; Cross-Modulation:</strong> Patch o_C’s outputs as CV sources for its own parameters (recursive structure).</li>
+<li><strong>Automation via Other Modules:</strong> Integrate with external sequencers, voltage memories, or complex random sources for higher structure (8-step switch, WMD Performance Mixer for macro control, etc.).</li>
+<li><strong>Manual Performance:</strong> Prepare scene changes, and play transitions live by holding, releasing, or switching encoder/parameters at moments of highest drama.</li>
+</ol>
+<hr />
+<p>By combining these techniques, the Ornament &amp; Crime can act as a central “brains” for not only starting strong musical ideas, but evolving them to become cohesive, full-length songs—automatically, performatively, or in hybrid style.</p>
+<hr />
+<p><a href="https://ornament-and-cri.me/user-manual-v1_3/">Manual PDF - Ornament &amp; Crime v1.3</a><br />
+<a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Arp</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Arp</h1>
+<ul>
+<li><a href="../../manuals/2hp_Arp_Manual_2023.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://2hp.com/wp-content/uploads/2022/02/Arp_Manual.pdf">2hp Arp Manual (PDF)</a></p>
+<hr />
+<h1>Using the 2hp Arp for Full-Length Eurorack Songs</h1>
+<p><strong>The 2hp Arp</strong> is a compact, gate-driven arpeggiator that unlocks complex melodic possibilities within a minimal HP footprint. It generates musically useful arpeggios based on user-selected chords, playback mode, and root note, and it can be advanced or reset via external triggers. While arpeggiators are often used as “set and forget” modules for quick melodic interest, the 2hp Arp’s flexibility can make it a vital tool for songcraft and live performance, especially when composed within the broader eurorack ecosystem.</p>
+<p>Below, I’ll break down strategies for turning this module into a centerpiece for <em>full-length songs</em>, offering composition techniques, patching ideas, and integrations with other modules.</p>
+<hr />
+<h2>1. <strong>Scene and Section Transitions</strong></h2>
+<h3><strong>Arp Mode and Chord Automation</strong></h3>
+<p>Most songs comprise multiple sections (verse, chorus, bridge, etc.). With the 2hp Arp:
+- <strong>Automate the Chord &amp; Mode</strong> using CV from a sequencer or automation source (e.g., Pam’s New Workout, Voltage Block, or Ornament &amp; Crime).
+- <strong>Set up scene changes</strong> by altering Arp modes (ascending, descending, pendulum, random) between sections for contrast.
+- <strong>Fade or switch chords</strong> for new moods and harmonies—possible even with basic CV automation.</p>
+<h4><strong>Patch Example:</strong></h4>
+<ul>
+<li><em>Sequencer 1</em> sends triggers/gates to the <em>Trig Input</em> to advance the arpeggio in time with your song.</li>
+<li><em>Sequencer 2</em> (or LFO/Envelope) modulates the <em>Chord CV Input</em> to select different chords at key song moments.</li>
+<li>Use a clock divider/multiplier (e.g. 4MS Rotating Clock Divider) to change Arp timing for transitions and fills.</li>
+</ul>
+<hr />
+<h2>2. <strong>Dynamic Melodic Content</strong></h2>
+<h3><strong>Programmatic Variation</strong></h3>
+<ul>
+<li>Use the <em>Mode</em> input (CV or manual) to switch between predictable (ascending/descending) and more improvisational (random/pendulum) modes.</li>
+<li>Introduce <em>Root CV</em> automation for key changes or melodic “jumps”—transposing the entire arpeggio by musical intervals for choruses or breakdowns.</li>
+</ul>
+<h4><strong>Patch Example:</strong></h4>
+<ul>
+<li>Route an LFO to gradually sweep the <em>Root Knob</em> CV during a breakdown, giving a sense of modulation without much manual intervention.</li>
+<li>Use manual switches or performance controllers (e.g. FSR, ADDAC Manual Gates, Intellijel Tetrapad) to “play” chords and arpeggio modes live.</li>
+</ul>
+<hr />
+<h2>3. <strong>Rhythm and Arrangement</strong></h2>
+<h3><strong>Gate-Driven Choreography</strong></h3>
+<ul>
+<li>The module advances with <em>external gate/trig signals</em>—use opportunity for “rhythmic gating” where different sections of your song fire more complex or sparser arpeggio patterns.</li>
+<li>Use clocked logic modules (e.g., Mutable Instruments Branches, Doepfer A-150 series) to generate varied gating rhythms for arpeggio advancement and resetting.</li>
+</ul>
+<h4><strong>Patch Example:</strong></h4>
+<ul>
+<li>During a verse, fire regular 16th-note triggers to <em>Trig</em> for steady arps.</li>
+<li>In a chorus, combine clock and gate signals to create syncopated, lively arpeggiator movement.</li>
+<li>Tie <em>Reset Input</em> to the downbeat or a fill to ensure the arpeggio re-aligns to your song’s rhythmic cycle.</li>
+</ul>
+<hr />
+<h2>4. <strong>Modular Song Dynamics: Layering and Substitution</strong></h2>
+<h3><strong>Integrated Song Structures</strong></h3>
+<ul>
+<li>Pair 2hp Arp with quantizers, sample &amp; holds, and sequential switches for generative parts that can be muted, swapped, or transitioned for longer songs.</li>
+<li>Route its V/Oct output to different sound sources on various song sections (e.g., bass voice in verse, lead in chorus) using switches.</li>
+</ul>
+<h4><strong>Patch Example:</strong></h4>
+<ul>
+<li>Use a sequential switch (e.g. Doepfer A-151) to send Arp’s V/Oct output to different oscillators or synthesizer voices, creating timbral change across song sections.</li>
+<li>Layer the arpeggiated melody on top of a static pad or chord progression for harmonic richness.</li>
+</ul>
+<hr />
+<h2>5. <strong>Performance and Live Song Progression</strong></h2>
+<ul>
+<li>Use manual controls live for on-the-fly chord and mode changes.</li>
+<li>Exploit the <em>output’s 0V-5V range</em> to interface cleanly with most 1V/oct synth voices.</li>
+<li>Use the module’s compact size as a “performance lead” center without sacrificing precious rack space.</li>
+</ul>
+<hr />
+<h2>6. <strong>Additional Songcraft Tools to Pair</strong></h2>
+<ul>
+<li><strong>Sequencers (e.g., Metropolis, Eloquencer):</strong> Control trigger inputs, chord/mode CV.</li>
+<li><strong>Logic/Random Modules:</strong> Vary trigger sources for non-repetitive arps.</li>
+<li><strong>Quantizer (e.g., Tiptop Quantizer):</strong> Add more scales/modes for melodic variation.</li>
+<li><strong>Switches/Matrix Mixers:</strong> Route melodies to different voices for evolving arrangements.</li>
+<li><strong>Effects (Delays, Reverbs, Phasers):</strong> Expand arpeggio parts for breakdowns or ambient sections.</li>
+</ul>
+<hr />
+<p><strong>Workflow Example:</strong></p>
+<ol>
+<li><strong>Intro:</strong> Sparse triggers, slow clock to Arp, random mode for ambient shimmer.</li>
+<li><strong>Verse:</strong> Up the gate rate, use ascending arp, major chord, automate root CV for melodic progression.</li>
+<li><strong>Chorus:</strong> Fast, pendulum or 2-octave mode; chord and root CV inputs sequenced for a lift in energy.</li>
+<li><strong>Bridge:</strong> Reset input fires at specific measures to bring the arp back "home," adding a sense of return.</li>
+<li><strong>Outro:</strong> Diminish gate activity, slow automation, return to random/blinking chord for a dissolve.</li>
+</ol>
+<hr />
+<h3><strong>Conclusion</strong></h3>
+<p>The 2hp Arp, when integrated with appropriate Eurorack companions, becomes more than a background tool—it enables structured melodies, harmonic progression, live improvisation, and dynamic arrangements. By sequencing its chords, roots, and modes, and creatively advancing or resetting its arpeggio, you can build evolving pieces that avoid the pitfalls of static modular jams. Treat it as another instrument in your ensemble, capable of both lead and supportive roles throughout your song.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

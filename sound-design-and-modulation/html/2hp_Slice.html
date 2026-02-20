@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Slice</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Slice</h1>
+<ul>
+<li><a href="../../manuals/2hp_Slice.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.twohp.com/_files/ugd/2dae2a_d9bdc3a9d03d425f8141a639154a12ca.pdf">2hp Slice Manual (PDF)</a></p>
+<hr />
+<h1>2hp Slice: Advanced Modulation &amp; Sound Design Tips</h1>
+<h2>Module Overview</h2>
+<p>The <strong>2hp Slice</strong> is a powerful beat repeat/glitch engine for Eurorack that is clock-driven, with flexible beat size, triplet toggles, and hands-on or CV activation. The key to unlocking unique sonic results is creative modulation and patching.</p>
+<p>Below, I’ll break down methods for generating the specific types of sounds you mentioned:</p>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<p><strong>Technique:</strong><br />
+- <strong>Input:</strong> Route drum hits, sharp noise, or synthesized percussion into the Audio Input.
+- <strong>Size Modulation:</strong> Patch a high-speed, jagged LFO or stepped random voltage (e.g. from a sample &amp; hold like a Turing Machine or 2hp Rnd) into the <strong>Size CV Input</strong>. Abruptly changing the repeat size during playback can create stuttered, warped effects that verge on distortion.
+- <strong>Triplet Toggle:</strong> Toggle this up to inject triplet divisions for more complex, off-grid burst patterns.
+- <strong>Gate Triggering:</strong> Use a fast, irregular gate pattern to the <strong>Trig Gate Input</strong> (for example: from a clock divider/multiplier or probability gate module). Changing the <strong>gate mode</strong> (latching vs. momentary) with the Trig button at boot offers different activation “feel” for your glitches.
+- <strong>External Processing:</strong> After the Slice, send audio through a wavefolder, distortion, or aggressive VCA to further mangle the repeated sound.</p>
+<p><strong>Patch Example:</strong><br />
+- Drum out → Slice Audio In<br />
+- Turing Machine Random CV → Size CV In<br />
+- Clock Divider Out → Trig Gate In<br />
+- Enable triplets<br />
+- Slice Out → VCA/Distortion → Mixer</p>
+<hr />
+<h2>2. Crazy Basslines (Dubstep/Drum &amp; Bass Style)</h2>
+<p><strong>Technique:</strong><br />
+- <strong>Input:</strong> Use a synth voice or dedicated bass oscillator with sharp attack modulation for your primary bassline, routed to Audio Input.
+- <strong>Clock Rate:</strong> Modulate <strong>Clock Input</strong> with variable speed clocks for groove-swings, half-time/double-time rolls.
+- <strong>Size Knob &amp; CV:</strong> Manually tweak or automate via slow/random LFO or envelope follower, synced to your main groove, into <strong>Size CV</strong>—this will gate the “window” of the repeat and create those chopped, pitch-jumpy effects.
+- <strong>Trig/Gate Input:</strong> Sequence activation in spots where you want “fills”, rhythmic breaks, or drop buildups.
+- <strong>Triplet Toggle:</strong> Add or remove for rhythm complexity, but in dnb/dubstep, rapid 1/32 and 1/64 repeats are very effective for the “machine gun bass” feel.
+- <strong>Post-Slice FX:</strong> Try running the output into a filter with heavy modulation and/or saturation to accentuate aggressive timbre changes.</p>
+<p><strong>Patch Example:</strong><br />
+- Synth Bass Out → Slice Audio In<br />
+- Euclidean Rhythm Generator → Clock In<br />
+- S&amp;H or Wogglebug → Size CV In<br />
+- Stepped Gate Seq → Trig Gate In</p>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<p><strong>Technique:</strong><br />
+- <strong>Input:</strong> Long, evolving samples, slow pads, or granulated textures into Audio In.
+- <strong>Size Modulation:</strong> Subtle slow LFOs (e.g. sine, triangle at &lt;1Hz) or smooth random (wobbly) CVs into Size CV—changing repeat length gently to “smear” the pad sound and introduce a shifting, fractured haze.
+- <strong>Triplet Toggle:</strong> Down (removed) for straight feel, up (included) for unstable, stuttering ghostliness.
+- <strong>Manual Trig:</strong> Use the Trig button yourself at moments to freeze and repeat textures, or sequence it for timed “pad swells”.
+- <strong>External CV:</strong> Modulate the input signal’s filter cutoff or waveshaper in sync with the repeat for evolving overtones.
+- <strong>Reverb:</strong> Add heavy reverb/delay after Slice output to heighten the ethereal effect.</p>
+<p><strong>Patch Example:</strong><br />
+- Complex Pad/Field Recording → Slice Audio In<br />
+- Slow LFO → Size CV In<br />
+- Manual or slow gate → Trig Gate In<br />
+- Slice Out → Lush Reverb  </p>
+<hr />
+<h2>Experimental Tips</h2>
+<ul>
+<li><strong>Buffer “Freeze” Exploitation:</strong> Use latching mode for drone textures—trigger repeat and let it ride for static, looping fragments.</li>
+<li><strong>Clock at Audio Rate:</strong> Input a VCO as Clock to produce digital audio-rate repeats—yields bit-crushed, granular textures.</li>
+<li><strong>CV Pairings:</strong> Use the 2hp Play, Rnd, or Loop for further sample processing, as suggested in the manual; mult LFOs/random to both size (Slice) and pitch (Play).</li>
+</ul>
+<hr />
+<h2>Key Creative Patch Points</h2>
+<ul>
+<li><strong>Size CV Input</strong> is your main modulation lane: fast changes = glitchy, slow = evolving/refracted.</li>
+<li><strong>Clock Input</strong> lets you sync or destabilize groove: try odd rhythms, clock swings.</li>
+<li><strong>Manual vs. Sequenced Activation:</strong> Use both for maximum organic variation.</li>
+<li><strong>Triplet Toggle:</strong> Rhythmic “flavor” overlay—experiment liberally!</li>
+</ul>
+<hr />
+<p><strong>For more ideas and patch inspiration:</strong><br />
+<a href="https://www.twohp.com/_files/ugd/2dae2a_d9bdc3a9d03d425f8141a639154a12ca.pdf">Full 2hp Slice Manual (PDF)</a><br />
+<a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

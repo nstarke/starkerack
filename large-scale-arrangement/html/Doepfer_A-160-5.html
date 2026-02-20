@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-160-5</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-160-5</h1>
+<ul>
+<li><a href="../../manuals/A-160-5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a1605/a1605_man.pdf"><strong>A-160-5 Manual (PDF)</strong></a><br />
+<em>(Original source: <a href="https://doepfer.de/a1605.htm">Doepfer A-160-5 Product Page</a>)</em></p>
+<hr />
+<h1>Using the Doepfer A-160-5 Voltage Controlled Clock Multiplier for Full-Length Songs in Eurorack</h1>
+<p>The <strong>Doepfer A-160-5 Voltage Controlled Clock Multiplier / Ratcheting Controller</strong> is an extremely powerful utility for developing musically evolving structures. While simple beats, basslines, or melodic riffs are easy to create in modular, stretching these into full-length, dynamic tracks is a classic challenge.</p>
+<h2>Key Features Useful for Full-Length Song Creation</h2>
+<ul>
+<li><strong>Voltage Controlled Clock Multiplication:</strong> Multiplies an incoming clock signal by a variable, CV-controllable factor.</li>
+<li><strong>Ratchet Sequences:</strong> Can generate multiple triggers per sequencer step, key for Tangerine Dream–style ratcheting.</li>
+<li><strong>Manual &amp; CV Control:</strong> Dynamic changes possible via automation or hands-on live tweaking.</li>
+<li><strong>Multiple Modes:</strong> Integer, power-of-two, and mixed multiplication for rhythmic variety.</li>
+<li><strong>Visual Feedback:</strong> LEDs to indicate multiplication factor and clock activity.</li>
+</ul>
+<hr />
+<h2>Strategies for Building Full-Length Songs</h2>
+<p>Below are specific approaches using the A-160-5 to move from basic patterns to engaging, evolving pieces.</p>
+<h3>1. <strong>Dynamic Section Changes with Clock Multiplication</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Use the A-160-5 to multiply your main sequencer clock at different points in a composition, shifting between slow, sparse patterns and fast, dense activity.</li>
+<li><strong>Implementation:</strong> <ul>
+<li>Route your master clock or sequencer clock to the A-160-5 Clock In.</li>
+<li>Use a CV source (e.g. a sequencer row, LFO, or envelope) to automate the multiplication factor over the course of the song.</li>
+<li>Multiply by 1x for verses, then increase (e.g. 2x, 3x, 4x) for choruses or break sections for energy lifts.</li>
+<li>CV control can make these shifts automatic and precise.</li>
+</ul>
+</li>
+</ul>
+<h3>2. <strong>Ratcheting for Song Development</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Add ratcheting (repeat triggers within a sequencer step) to certain sections for fills, build-ups, or ending energy.</li>
+<li><strong>Implementation:</strong><ul>
+<li>Patch one row of a sequencer (A-155 in manual example) into the A-160-5’s CV In, letting you set ratchet density per step.</li>
+<li>Use hands-on knob movement or another automation source, such as a voltage sequence specifically written for mid-song ratchets.</li>
+<li>For build-ups, gradually increase ratchet amount over 8-16 bars.</li>
+<li>For dynamic breakdowns, decrease or remove ratcheting in quieter sections.</li>
+</ul>
+</li>
+</ul>
+<h3>3. <strong>Generative/Algorithmic Song Structures</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Use slow LFOs or random voltages to modulate the clock multiplication factor over several minutes, providing long-form evolution beyond manual programming.</li>
+<li><strong>Implementation:</strong><ul>
+<li>Modulate A-160-5 CV In with a S&amp;H or Turing Machine for pseudo-random rhythm variance.</li>
+<li>Assign an LFO with a cycle time of 1-2 minutes to sweep the multiplication from 1x to 8x, creating gradual tempo/rhythm transitions.</li>
+<li>Pair with quantized melody generators so rhythm and pitch evolve together.</li>
+</ul>
+</li>
+</ul>
+<h3>4. <strong>Layered Rhythms and Polyrythms</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Split the master clock and create multiple rhythm layers at different speeds using several A-160-5 (or combining with dividers/multipliers).</li>
+<li><strong>Implementation:</strong><ul>
+<li>Send master clock to parallel A-160-5s with different CV or manual settings for each.</li>
+<li>Route their outputs to trigger percussion, melodic gates, or modulation resets at polyrhythmic intervals.</li>
+<li>Switch, fade, or cross-modulate these layers over time to create new song sections.</li>
+</ul>
+</li>
+</ul>
+<h3>5. <strong>Song Macros &amp; Scene Morphing</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Use performance controllers (e.g. Pressure Points, Planar, MIDI-to-CV controller) to change the A-160-5’s multiplication in real-time, acting as “scene” or “fill” triggers.</li>
+<li><strong>Implementation:</strong><ul>
+<li>Manual momentary increase of ratcheting for fills or drop transitions.</li>
+<li>Save preset voltages that correspond to different multiplication setups (via preset voltage modules, MIDI converters, or precision adders).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Suggested Module Combinations</h2>
+<ul>
+<li><strong>Sequencers:</strong> Doepfer A-155, Make Noise René, Intellijel Metropolis, etc.</li>
+<li><strong>CV Sources:</strong> LFOs, random modules (Wogglebug, Turing Machine), sequencer CV rows</li>
+<li><strong>Drum/Envelope Modules:</strong> Multiple drum voices, ADSRs or envelope followers to be triggered by ratcheted/gated outputs.</li>
+<li><strong>Performance Interfaces:</strong> Pressure Points, Planar, MIDI-to-CV modules</li>
+</ul>
+<hr />
+<h2>Patch Example for Song Structure</h2>
+<pre><code>[Master Clock]───►[A-160-5 CLOCK IN]
+              │
+              └───►[Other clock dividers/multipliers for parallel rhythms]
+[A-155 ROW CV]────►[A-160-5 CV IN]
+[A-160-5 CLOCK OUT]────►[Percussion triggers]
+([LFO]/[Random])───►[A-160-5 CV IN] (optional, for generative changes)
+</code></pre>
+<p>Automate the CV input source to switch multiplication factors, directly resulting in new song sections, fills, and evolving patterns—moving you from patterns to fully-formed compositions.</p>
+<hr />
+<p><strong>Unlock the potential of your rhythms: with careful control of the A-160-5’s multiplication factor via sequencer, LFO, or performance controls, your modular system evolves from a groove box to a compositional tool capable of full-length, lively tracks.</strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

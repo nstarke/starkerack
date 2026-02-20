@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-402_Heuristic_Rhythm_Generator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-402 Heuristic Rhythm Generator</h1>
+<ul>
+<li><a href="../../manuals/ADDAC402_UsersGuide_A_0_web_6500.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://media.addacsystem.com/ADDAC402_USERS_GUIDE.pdf">ADDAC402 4-Voice Heuristic Rhythm Generator Manual PDF</a></p>
+<hr />
+<h2>Using the ADDAC402 to Create Full-Length Eurorack Songs</h2>
+<h3>Introduction</h3>
+<p>The <a href="http://addacsystem.com/">ADDAC402 4-Voice Heuristic Rhythm Generator</a> is an exceptionally flexible rhythm and trigger/gate source for Eurorack systems. Its core strength is in generating complex, evolving, and varied rhythmic patterns across four independent channels, using multiple algorithms (“heuristics”). While it easily creates intriguing beats, the real power comes from using its features—along with other modules—to move beyond loops and make dynamic, full-length compositions.</p>
+<p>Below, you'll find strategies and patch ideas pairing the ADDAC402 with typical Eurorack modules to break out of the “4-bar loop” rut and structure actual songs.</p>
+<hr />
+<h2>Strategies for Song Arrangement with the ADDAC402</h2>
+<h3>1. <strong>Preset Morphing and Scene Changes</strong></h3>
+<ul>
+<li><strong>How:</strong> The ADDAC402 allows up to 16 presets per some modes (Euclidean, Gate Seq). Changing presets can instantly reconfigure the rhythm for all four voices.</li>
+<li><strong>Arrangement Use:</strong> Treat presets like "scenes" or "sections" of a song (intro, verse, chorus, bridge).</li>
+<li><strong>Patch Idea:</strong> Trigger preset changes via CV/gates coming from another sequencer, manual button presses, or a preset CV "manager" module (e.g., macro controllers, Ornaments &amp; Crime, etc.).</li>
+</ul>
+<h3>2. <strong>Algorithm Mode-Switching for Variety</strong></h3>
+<ul>
+<li><strong>How:</strong> The ADDAC402 has 7 modes (Euclidean, Gate Seq, Game of Life, Golomb, Probabilistic, Footwork, Pong), each with unique logic.</li>
+<li><strong>Arrangement Use:</strong> Switch between modes mid-performance to warp the rhythmic character across sections, for breakdowns or dramatic shifts.</li>
+<li><strong>Patch Idea:</strong> Sequence the mode-select CV input (with, say, a sequential switch or voltage block) or switch it manually at section changes.</li>
+</ul>
+<h3>3. <strong>Dynamic Parameter Modulation</strong></h3>
+<ul>
+<li><strong>How:</strong> All four voices have independent CV inputs for key parameters (“Fills”, occasionally “Steps”).</li>
+<li><strong>Arrangement Use:</strong> Animate patterns over time via LFOs, envelopes, random voltage (Wogglebug, Marbles, etc.), or automation from DAW hybridizer modules like Expert Sleepers ES-8/9.</li>
+<li><strong>Patch Idea:</strong> Fade in increasingly complex patterns for a build-up by modulating Fills/Steps with slow envelopes.</li>
+</ul>
+<h3>4. <strong>Inverted Gate Outputs for Polyrhythms &amp; Call-and-Response</strong></h3>
+<ul>
+<li><strong>How:</strong> Each output has an inverted version—triggers/gates when the main output is off.</li>
+<li><strong>Arrangement Use:</strong> Use these for call/response effects, ghost notes, accenting alternate events, or to fill in gaps during breakdowns.</li>
+<li><strong>Patch Idea:</strong> Patch inverted outputs to percussion, bass triggers, or effect switching for evolving interplay.</li>
+</ul>
+<h3>5. <strong>CV-Controlled Skipping &amp; Rotation (“Skip” Buttons) For Variations</strong></h3>
+<ul>
+<li><strong>How:</strong> Skip steps or rotate patterns via manual buttons, but also by assigning these to the Swing/Assign CV input.</li>
+<li><strong>Arrangement Use:</strong> Sporadically rotate patterns or skip beats to introduce variation, fills, or breakdowns.</li>
+<li><strong>Patch Idea:</strong> Use an LFO or sequencer row to automate pattern rotation or “skip” for glitchy fills or drop-outs.</li>
+</ul>
+<h3>6. <strong>Leveraging Probabilistic, Game of Life, Footwork &amp; Pong Modes</strong></h3>
+<ul>
+<li><strong>How:</strong> These modes generate unpredictability. In probabilistic and GOL modes, outcomes can be random or generative.</li>
+<li><strong>Arrangement Use:</strong> Drop into these modes for breakdowns, transitions, or mid-song evolution (“live remix” moments).</li>
+<li><strong>Patch Idea:</strong> Switch to Game of Life and trigger a new state at transition points for spontaneous rhythm changes.</li>
+</ul>
+<h3>7. <strong>Swing/Assign Knob as a Macro Controller</strong></h3>
+<ul>
+<li><strong>How:</strong> The assignable Swing/Assign knob can control swing, or be reassigned to gate/trig, skip, reset, or even MIDI velocity (with expander).</li>
+<li><strong>Arrangement Use:</strong> Perform macro gestures—adding swing, muting channels, triggering resets (for drops), or shifting pattern lengths (for fills).</li>
+<li><strong>Patch Idea:</strong> Performative use in live jams—twist to swing on/off, or cue resets/skips in certain song sections.</li>
+</ul>
+<hr />
+<h2>How to Integrate With Other Modules for Full Compositions</h2>
+<h3><strong>A. Melodic Sequencers and Quantizers</strong></h3>
+<ul>
+<li>Route ADDAC402 gate/trig outputs into melodic sequencers as clocks or resets for changing up melodies with the rhythm pattern.</li>
+<li>Use triggers to advance chord sequencers (e.g., Intellijel Metropolis, Stillson Hammer, O_C).</li>
+</ul>
+<h3><strong>B. Switches, Matrix Mixers, or Sequential Addressers</strong></h3>
+<ul>
+<li>Use switch modules (Doepfer A-150, 4ms Rotating Clock Divider, etc.) to re-route rhythm outputs to different voices/effects during the track.</li>
+</ul>
+<h3><strong>C. Logic and Randomization Modules</strong></h3>
+<ul>
+<li>Patch multiple ADDAC402 outs to logic modules (Intellijel Plog, Mutable Kinks, etc.) to create composite patterns, fills, or conditional events.</li>
+<li>Use sample-and-hold or random modules to modulate ADDAC402 parameters dynamically.</li>
+</ul>
+<h3><strong>D. Performance Controllers</strong></h3>
+<ul>
+<li>Integrate with hands-on controller modules or MIDI-to-CV for real-time punches, mutes, or changes (Make Noise Pressure Points, Intellijel Tetrapad).</li>
+</ul>
+<h3><strong>E. Scene Automation with Hybrid DAW</strong></h3>
+<ul>
+<li>Use MIDI Bridge mode (with expander) or clock/reset inputs to sync ADDAC402 pattern changes to a DAW or external sequencer, automating song sections.</li>
+</ul>
+<h3><strong>F. Combined with Effects and VCAs</strong></h3>
+<ul>
+<li>Route gates to open/close VCAs or activate effects chains (delays, distortion, reverb) on certain hits or song sections.</li>
+</ul>
+<hr />
+<h2>Example Patch Recipe for Full Song</h2>
+<ol>
+<li><strong>Basic Beat</strong>: Start in Euclidean mode with simple fills.</li>
+<li><strong>Verse Variation</strong>: Use preset recall or rotate patterns forward on each 8 bars for evolving rhythms.</li>
+<li><strong>Build-Up</strong>: Increase 'Fills' parameter with slow CV, gradually thickening the rhythm.</li>
+<li><strong>Chorus</strong>: Change to Gate Sequencer mode, recall a denser preset, open additional channels.</li>
+<li><strong>Bridge/Breakdown</strong>: Switch to Game of Life or Probabilistic mode for controlled chaos.</li>
+<li><strong>Finale</strong>: Assign Swing/Assign knob to reset, and manually trigger resets for energetic “drops.”</li>
+<li><strong>Extras</strong>: Use inverted outputs to add ghost percussion throughout the song.</li>
+</ol>
+<hr />
+<h2>Conclusion</h2>
+<p>The ADDAC402’s combination of preset management, algorithm variety, assignable macro control, generative modes, and extensive CV/gate connectivity makes it a powerful "song brain" for modular music. Leverage its features in combination, pair with other sequencing/melodic/logic modules, and use manual and automated control of parameters to ensure your modular pieces move dynamically from section to section—keeping listeners engaged from start to finish!</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

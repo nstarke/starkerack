@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_Maths</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — Maths</h1>
+<ul>
+<li><a href="../../manuals/MATHSmanual2013.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://makenoisemusic.com/content/manuals/maths_manual2013.pdf"><strong>Download Original Make Noise Maths Manual (PDF)</strong></a></p>
+<hr />
+<h1>Modulating the Make Noise Maths for Wild &amp; Unique Sounds</h1>
+<p>The Make Noise Maths is a formidable Eurorack module for sculpting CV, envelopes, LFOs, and more. Here's how you can modulate it to generate distorted percussion, gnarly basslines, and atmospheric pads, inspired by genres like dubstep, DnB, and experimental soundscapes.</p>
+<h2>1. DISTORTED PERCUSSIVE SOUNDS</h2>
+<h3><strong>Concepts &amp; Strategies</strong></h3>
+<ul>
+<li>Use Maths as a complex function generator for non-traditional envelopes.</li>
+<li>Take advantage of the variable response (logarithmic → linear → exponential) for punchy or snappy shapes.</li>
+<li>Self-patch for chaos &amp; asymmetry.</li>
+<li>Overdrive via summing with large offsets for harsh, clipped envelopes.</li>
+</ul>
+<h3><strong>Patch Ideas</strong></h3>
+<h4><strong>a. Kick Drum with Distortion</strong></h4>
+<ol>
+<li><strong>CH 1 or 4 = Envelope Generator</strong>  </li>
+<li>Set Rise = short (counterclockwise for instant attack).  </li>
+<li>Set Fall = short or moderate for a snappy decay.</li>
+<li><strong>Response</strong>: Start in exponential for punch; tweak for more unusual tails.</li>
+<li><strong>Distortion/Overdrive</strong>:  </li>
+<li>Set CH 2 and/or CH 3 to high positive offset.</li>
+<li>Patch SUM out as the envelope shape.  </li>
+<li>The over-volted offset will clip downstream VCAs or even the audio path for distortion.</li>
+<li><strong>Feedback</strong>: Patch INV SUM back into Rise/Fall CV for further shaping or chaos.</li>
+<li><strong>Envelope to VCA</strong>: Patch Signal OUT to open a VCA for your kick drum oscillator.</li>
+</ol>
+<h4><strong>b. Metallic Percussion</strong></h4>
+<ul>
+<li>Engage CYCLE on CH 1 or 4 for audio-rate oscillation.</li>
+<li>Use EOR/EOC outputs to clock or trigger other envelopes or kick modulations.</li>
+<li>Mix envelopes using SUM or OR outputs for complex, sharp transients with interesting overtones.</li>
+</ul>
+<h2>2. DUBSTEP/DRUM&amp;BASS BASSLINES</h2>
+<h3><strong>Concepts &amp; Strategies</strong></h3>
+<ul>
+<li>Maths can be a mod source for crazy wobbles or even act as an audio oscillator at fast cycle settings.</li>
+<li>Use variable response for evolving filter or amplitude movements.</li>
+<li>Use envelope self-modulation and cross-patching for variable movement.</li>
+<li>Create step, glide, or ‘robotic’ movement using BOTH CV input and offset channels.</li>
+</ul>
+<h3><strong>Patch Ideas</strong></h3>
+<h4><strong>a. Wobble LFO</strong></h4>
+<ol>
+<li><strong>CH 1 = LFO</strong>:</li>
+<li>Engage Cycle, set Rise/Fall for desired rate.</li>
+<li>Use exponential for sharp LFO, log for slow ramping.</li>
+<li><strong>Voltage-Controlled Speed</strong>:</li>
+<li>Patch an attenuated audio signal (from CH 2/3 or elsewhere) into BOTH CV for rate modulation (FM).</li>
+<li>Slow manual sweeps, or high frequency for FM “growl.”</li>
+<li><strong>Output</strong>:</li>
+<li>Send Unity OUT or Variable OUT to VCF cutoff or oscillator FM for classic wubs or vocalic formants.</li>
+<li>Self-modulation: Patch EOR/EOC OUT to trigger further envelopes or cycle inputs for rhythmic accents.</li>
+</ol>
+<h4><strong>b. Bass Envelope Distortion</strong></h4>
+<ul>
+<li>Patch envelope (from CH 1/4) into VCA, controlling an audio-rate oscillator.</li>
+<li>Use OR/SUM output for aggressive shapes.</li>
+<li>Add CH 2 offset for high amplitude/overdrive.</li>
+<li>Invert envelope at INV SUM for reverse movement.</li>
+</ul>
+<h4><strong>c. Cross-Mod Wobbles</strong></h4>
+<ul>
+<li>Use CH 1 and CH 4 as dueling cycling envelopes.</li>
+<li>Patch EOC from CH 4 into CH 1 Trigger; EOR from CH 1 into CH 4 Cycle input.</li>
+<li>Attenuvert the outputs and mix; send results to filter/oscillator for wobble sequences with ever-changing rhythms.</li>
+</ul>
+<h2>3. HAUNTING ATMOSPHERIC PAD SOUNDS</h2>
+<h3><strong>Concepts &amp; Strategies</strong></h3>
+<ul>
+<li>Take advantage of super-slow cycles (25min!) for drifting modulations.</li>
+<li>Use intertwined envelopes/LFOs for subtle, organic pad movement.</li>
+<li>Employ LOG/EXPO responses for non-linear, living morphs.</li>
+</ul>
+<h3><strong>Patch Ideas</strong></h3>
+<h4><strong>a. Generative Slow Modulation</strong></h4>
+<ol>
+<li>Set CH 1 and CH 4 to Cycle.</li>
+<li>Set Rise and Fall to near max; response near log for extra slow, organic change.</li>
+<li>Mix outputs (SUM or OR) to modulate a VCF, wavetable position, or oscillator FM index for cloudy, evolving timbres.</li>
+</ol>
+<h4><strong>b. Chaotic Morphing Pads</strong></h4>
+<ul>
+<li>Use the “Arcade Trill” or “Chaotic Trill” patches (manual pg. 21).</li>
+<li>Cross-modulate with incoming audio-level or offset voltages for unpredictable drifting.</li>
+<li>Modulate BOTH CV (exponential global speed) with a fluctuating, irregular source (field recording, noise).</li>
+</ul>
+<h4><strong>c. Layered Modulation</strong></h4>
+<ul>
+<li>Use CH 2 and CH 3 for freely offset control voltages (slow LFO/rising/falling with no input creates ramps).</li>
+<li>Sum with primary envelopes for broader, multi-dimensional moves in filter, VCA, or FX.</li>
+</ul>
+<hr />
+<h3><strong>PRO TIPS FOR MODULATION MAYHEM</strong></h3>
+<ul>
+<li>Use <strong>Variable Outputs</strong> and the <strong>Attenuverter</strong> controls to invert/attenuate CV sent to destinations.</li>
+<li>Patch <strong>EOR/EOC</strong> outputs to trigger envelopes or clocks in rhythmically interlinked patterns.</li>
+<li>For extreme percussive chaos, feed inverter outputs (INV SUM OUT) back into the module's CV inputs.</li>
+<li>Use <strong>OR OUT</strong> to get rectified (positive-only) signals for CV-ing modules that dislike negative voltages.</li>
+<li>Always experiment with external audio-rate CV sources into BOTH input for crazy FM and distortion tricks.</li>
+</ul>
+<hr />
+<blockquote>
+<p>For all patch diagrams, advanced modulation techniques, and official info, download the full <a href="https://makenoisemusic.com/content/manuals/maths_manual2013.pdf">Make Noise Maths Manual (PDF)</a>.</p>
+</blockquote>
+<p><br></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>IO_Labs_Flux_Sequencer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>IO Labs — Flux Sequencer</h1>
+<ul>
+<li><a href="../../manuals/IO Labs - Flux Sequencer - 107 User Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://iolabs.co.uk/downloads/Flux_Open_Beta_User_Manual_V1.07.pdf">Flux Open Beta V1.07 User Manual PDF</a></p>
+<hr />
+<h1>Using Flux to Create Full-Length Songs in Eurorack Setups</h1>
+<p>Flux is an advanced rhythm and modulation sequencer designed to transcend the limitations of traditional step-grids by using <strong>Temporal Modulation Synthesis®</strong>. Its deep feature set makes it an ideal module not just for beat-making, but for structuring and performing entire songs within a Eurorack environment. Below, I’ll break down strategies for using Flux—alone and with other modules—to create compositions that evolve over several minutes, embracing structure, development, and dynamic changes.</p>
+<hr />
+<h2>1. Arrange with Per-Step, Per-Channel Variation</h2>
+<p><strong>How:</strong><br />
+Flux allows nearly every rhythm and CV parameter to be set per-step and per-channel (4 channels, 16 steps each). This means every step can have unique trigger density, gate length, curve, CV envelope, mask, mod bus, and more.</p>
+<p><strong>Use for Song Creation:</strong><br />
+- <strong>Sectional Arrangement:</strong><br />
+  - Dedicate groups of steps to different song sections (e.g., steps 1-8 = intro/groove, 9-12 = breakdown, 13-16 = build/drop).
+  - Use the <code>LOOP</code> parameter to tightly loop sections during performance, then progress to the next by changing the loop points or using modulation.
+- <strong>Parameter Morphing for Variety:</strong><br />
+  - Gradually modulate trigger density or CV values over several steps (or with LFOs, see below) to create crescendo, breakdowns, or evolving sequences. Changing parameters per step lets you script these transitions.</p>
+<h2>2. Advanced Modulation for Macro-Level Changes</h2>
+<p><strong>How:</strong><br />
+Flux features three modulation sources:
+- <strong>Macro Potentiometers</strong> (manual)
+- <strong>Dedicated CV Inputs</strong>
+- <strong>85 Internal Evolve LFOs</strong>, saveable per preset</p>
+<p><strong>Use for Song Creation:</strong><br />
+- <strong>Structural Evolution:</strong><br />
+  - Assign a Macro Pot (or CV input from external sequencers/envelopes) to global parameters like BPM, density, or shuffle for manual “scene” changes.
+  - Use slow, long-period internal LFOs (Evolve) to modulate parameters over several minutes—think of one Evolve LFO per channel as a “track macro” driving the song’s shape.
+- <strong>Automation via External Modules:</strong><br />
+  - Patch envelopes or sequences from other modules into Flux CV inputs and assign them to parameters like COMP (compression/expansion of rhythm), LENG (step length), or CURV (curve of TM synthesis) to trigger song sections or changes in response to external events.
+- <strong>Multiple Modulation Buses:</strong><br />
+  - Use different mod buses (Yellow, Grey, Purple) to activate certain modulation routings only in specific steps/sections. This lets you “cue” evolutions or breakdowns easily.</p>
+<h2>3. Preset Morphing and Live Section Switching</h2>
+<p><strong>How:</strong><br />
+- Flux supports fast preset loading from microSD, with the ability to sync preset changes to 16th-note grid boundaries.
+- As of V1.07, you can autoload the last loaded/saved preset at boot, and create several 'defaults' for quick access.</p>
+<p><strong>Use for Song Creation:</strong><br />
+- <strong>Pattern Chaining:</strong><br />
+  - Save “verse,” “chorus,” “fill,” “breakdown” patterns as separate presets. Load them in rhythmically perfect sync while performing.
+- <strong>Live Remixing:</strong><br />
+  - Overwrite and reload active presets to constantly morph the sequence while keeping the groove.</p>
+<h2>4. Complex Rhythmic Variations, Fill-Ins, &amp; Transitions</h2>
+<p><strong>How:</strong><br />
+- Advanced rhythm shaping via mask, humanize (HUMA), phase shift (PHAS), probability (PROB), and AUX logic outputs.</p>
+<p><strong>Use for Song Creation:</strong><br />
+- <strong>Fills/Breaks:</strong><br />
+  - Program certain steps with extreme values (i.e., high density, maximal humanization, special mask patterns) to serve as “fills” or transitions.
+  - Trigger mask changes, phase offsets, or probability drops via macro or CV to inject spontaneity.
+- <strong>Logic-Gated Transitions:</strong><br />
+  - Use AUX outputs in boolean logic mode to gate external modules or effects, e.g., muting bass on the chorus, triggering FX sends, or launching alternate melodic sequences.</p>
+<h2>5. Integrated Melodic &amp; Harmonic Progression</h2>
+<p><strong>How:</strong><br />
+- Each channel has a per-step CV output, with quantization and selectable voltage range.
+- CVs can deliver envelopes, LFOs, random values, or static voltages.</p>
+<p><strong>Use for Song Creation:</strong><br />
+- <strong>Melodic Sequencing:</strong><br />
+  - Sequence basslines, melodies, or modulation signals, quantized to scales or free-ranged, with per-step voltage changes.
+- <strong>Chord Progressions:</strong><br />
+  - Assign channels to different voices (e.g., bass, pad, pluck, etc.). Use stepwise or modulated CV changes to create chord movement across song sections.</p>
+<h2>6. Syncing with External Clock and MIDI</h2>
+<p><strong>How:</strong><br />
+- Flux supports MIDI in/out/clock, and advanced external clocking (EXT/EXTS), including DAW tight sync and trigger-based burst mode.</p>
+<p><strong>Use for Song Creation:</strong><br />
+- <strong>DAW Integration:</strong><br />
+  - Drive your whole rack from a DAW for precise arrangement and multitrack recording.
+- <strong>Responsive Song Form:</strong><br />
+  - Use triggers or MIDI notes from external sources to switch song sections, trigger bursts, or cue events in real time.</p>
+<h2>7. Song Progression Example Workflow</h2>
+<ol>
+<li><strong>Establish your main groove (steps 1-8, Channel 1 &amp; 2 for drums and bass).</strong></li>
+<li><strong>Copy to later steps, vary density, CV, and shuffle for a bridge or drop.</strong></li>
+<li><strong>Set up a Macro Pot to control overall groove density or swing.</strong></li>
+<li><strong>Use Evolve LFOs on CV outputs to fade in melodic elements over time.</strong></li>
+<li><strong>Assign different MOD buses to steps in the breakdown to turn modulation on/off at key moments.</strong></li>
+<li><strong>Save sections as presets and use LOAD SYNC to jump between them in performance.</strong></li>
+<li><strong>Use AUX logic outs to send clock, mutes, or trigger other sequencers/switches for transitions.</strong></li>
+</ol>
+<hr />
+<h2>Integrating with Other Eurorack Modules</h2>
+<ul>
+<li><strong>Drum modules:</strong> Patch Flux rhythm outs to trigger inputs. Use humanize/mask/prob/chance for groove.</li>
+<li><strong>Synth voices:</strong> Feed CV outs as pitch, envelope, or modulation signals for bass/melody/pad evolution.</li>
+<li><strong>Effect modules:</strong> Use AUX logic outputs to trigger delays, reverbs, or switch matrixes for drops/fills.</li>
+<li><strong>External sequencers/modules:</strong> Sync, modulate, or reset them with Flux outputs or use their CV to drive Flux parameter changes.</li>
+<li><strong>Samplers/Loopers:</strong> Use Flux’s per-step rhythmic or CV data to evolve sampled textures or cue clips.</li>
+</ul>
+<hr />
+<p>By planning out sections, automating transitions, and taking advantage of Flux’s deep per-step customization, you can move beyond “looping patterns” to programmed, live-playable song structure—just like a DAW but in full modular form.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

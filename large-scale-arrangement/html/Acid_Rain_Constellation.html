@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Acid_Rain_Constellation</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Acid Rain — Constellation</h1>
+<ul>
+<li><a href="../../manuals/Constellation_Manual_Firmware_1.1_4.7.2025.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="sandbox:/mnt/data/Constellation_Firmware_V1.1.pdf">Constellation Firmware V1.1 Manual (PDF)</a></p>
+<hr />
+<h1>Using Acid Rain Constellation to Create Full-Length Eurorack Songs</h1>
+<h2>Context</h2>
+<p>One common challenge for eurorack modular musicians is turning a cool groove, beat, or riff into a full-length performance or song with structure, movement, and "story." The Acid Rain Constellation, covered in the attached manual, is a powerful rhythm and pattern generator that excels at this task.</p>
+<p>Below is an analysis focused on songwriting and arrangement with the Constellation, including patching suggestions and integration tips for working with other modules to take your modular jams into structured compositions.</p>
+<hr />
+<h2>Key Features that Enable Song Structure</h2>
+<h3>1. <strong>Pattern Morphing and Complexity</strong></h3>
+<p>Constellation gives you 8 channels, each with 8 independent patterns, and the ability to combine these patterns with logical operations (AND/OR/XOR), ratchets, bursts, chance/probability, Euclidean distribution, rotation, per-pattern and per-channel clocks, and more. </p>
+<p><strong>Songwriting Use:</strong>
+- <strong>Variety Over Time:</strong> Program several variations of rhythms, fills, and sparse/dense sections per channel.
+- <strong>Dynamic Shifts:</strong> Use bursts/ratchets/probability to fade between busy and minimal sections.</p>
+<h3>2. <strong>Bank and Slot Management (Scenes/Song Sections)</strong></h3>
+<p>You can save up to 20 slots per bank, and 999 banks. Each slot stores the entire state of patterns, including mute states, clock divisions, etc.</p>
+<p><strong>Songwriting Use:</strong>
+- <strong>Sections as Presets:</strong> Treat each save slot as a verse, chorus, drop, breakdown, fill, or transition, and sequence through them either live or via CV control.
+- <strong>Manual or Automatable Changes:</strong> Use the “Live Mode” to jump between these “sections” on the fly or use CV to automate progression (see #4).</p>
+<h3>3. <strong>Mute and Live Mode for Variation</strong></h3>
+<p>Both channels and individual patterns can be muted or unmuted instantly, momentarily, or permanently via the mute and live modes.</p>
+<p><strong>Songwriting Use:</strong>
+- <strong>Adding/Dropping Layers:</strong> Mute/unmute drums, fills, or other elements to create interest, introduce breakdowns, or build-ups.
+- <strong>Performance Gestures:</strong> Use momentary muting for fills, or toggle full mutes for dramatic transitions.</p>
+<h3>4. <strong>CV Modulation and Slot Switching</strong></h3>
+<p>Assign CV inputs to control pattern parameters, mutes, or even to load entire save slots. CV can come from slow LFOs, sequencers, random sources, or manual controllers.</p>
+<p><strong>Songwriting Use:</strong>
+- <strong>Automated Scene Progression:</strong> Use a sequencer or stepped voltage source (e.g., Malekko Voltage Block, Varigate) to switch Constellation patterns/slots in time with your arrangement.
+- <strong>Expressive Variation:</strong> Use LFOs or envelopes to modulate chance, burst, ratchet, or mute for evolving rhythms.</p>
+<h3>5. <strong>Sync and Reset Control</strong></h3>
+<p>Constellation can be tightly clocked and reset to the rest of your system, ensuring all rhythmical changes and new scenes start in time.</p>
+<p><strong>Songwriting Use:</strong>
+- <strong>Perfectly-Timed Transitions:</strong> Ensure that resets and pattern/slot changes always land on the downbeat.
+- <strong>Tight Integration:</strong> Sync to or drive external sequencers, drum modules, or MIDI interfaces.</p>
+<hr />
+<h2>Patching and Arrangement Tips</h2>
+<p><strong>1. Song Sections:</strong><br />
+- Design multiple rhythm/scene variations (slots) for different parts (intro, verse, chorus, etc.).
+- Map a controller (e.g., Fader bank, Planar, Pressure Points) or sequencer to select slots—build your song’s journey.</p>
+<p><strong>2. Evolving Patterns:</strong><br />
+- Assign LFOs or stepped random generators (e.g., Wogglebug) to modulate probability, rotation, burst, or ratchet for slow evolution in place.
+- Fade between busier and sparser versions of a groove using pattern mutes, probability, or logic changes.</p>
+<p><strong>3. Accent and Dynamics:</strong><br />
+- Use different logic types (AND/OR/XOR) to generate fills and accentuations by combining patterns, especially for key moments like drop-ins or turnarounds.
+- Trigger “fill” patterns via manual mute, CV, or probability for occasional variation.</p>
+<p><strong>4. Automated Mutes and Fills:</strong><br />
+- Use gates or triggers from clocks, envelopes, or sequencers to mute/unmute (via CV, assigned to mute parameter) for transitions, breakdowns, and "one-off" fills.</p>
+<p><strong>5. Structural Automation:</strong><br />
+- Use a basic step-sequencer (e.g., Doepfer A-155, Varigate, Marbles) to send CV/gate signals to Constellation’s "Load" input, controlling when new sections or variations load.</p>
+<p><strong>6. Clock Manipulation:</strong><br />
+- Change divisions/multiplications per channel to shift time signatures or create polyrhythms for breakdowns or bridges.
+- Modulate clock swing for “groove” transitions (usable for breakdowns or more "live" feel moments).</p>
+<p><strong>7. Collaboration with Other Modules:</strong><br />
+- Use Constellation’s outputs to trigger drum modules, envelopes, sample players (e.g., Erica Sample Drum, Tiptop One), or even melodic sequencers that respond to triggers.
+- Use its main clock/reset outputs to keep all sequencers/drum machines in sync—making it the rhythmic “brain.”
+- Process outputs through logic, switches, or gate mixers for further complexity.</p>
+<hr />
+<h2>Example Song Structure Workflow</h2>
+<ol>
+<li><strong>Preparation:</strong>  </li>
+<li>Program Slot 1 with a basic groove (intro).</li>
+<li>Program Slot 2 for a full groove (verse).</li>
+<li>Slot 3 adds fills or denser patterns (chorus).</li>
+<li>Slot 4 is a breakdown (minimal patterns, higher probability/mutation).</li>
+<li>Slot 5 is a build-up (slowly increasing density or ratchets).</li>
+<li>Slot 6 is the drop (everything in, max density).</li>
+<li><strong>Arrangement:</strong>  </li>
+<li>Sequence slot changes using MIDI-to-CV interface, manual slot loads in Live Mode, or a step sequencer.</li>
+<li>Use CV/LFOs for parameter morphing within sections.</li>
+<li>Use mutes for subtle performance tweaks or live improvisation.</li>
+</ol>
+<hr />
+<h2>In Summary</h2>
+<p>The Acid Rain Constellation is ideal for modular musicians seeking to create not just loops, but entire structured performances with dynamic changes, automation, recallable scenes, and deep integration with other eurorack modules. By leveraging its pattern storage, slot-based workflow, powerful CV assignability, and scene/song section concepts, it becomes the heart of a modular “performance brain” capable of complex, evolving full-length songs.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

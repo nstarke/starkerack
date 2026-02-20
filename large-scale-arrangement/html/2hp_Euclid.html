@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Euclid</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Euclid</h1>
+<ul>
+<li><a href="../../manuals/2hp_Euclid.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://2hp.com/wp-content/uploads/2hp-euclid-manual.pdf">2hp Euclid Manual PDF (official site)</a></p>
+<hr />
+<h1>Using the 2hp Euclid To Structure Full Length Eurorack Songs</h1>
+<p>The 2hp Euclid is a compact but versatile Euclidean rhythm generator for Eurorack modular systems, ideal for injecting evolving, musically-interesting rhythmic patterns into your patches. While it excels at creating immediate grooves, its real power—especially for full-length song structure—is in how you can use its features and CV inputs to create rhythmic variation, structure, and dynamic progression over time.</p>
+<p>Below, I describe strategies for leveraging the Euclid module in the context of full-track composition, including how to interact with other modules to achieve song-length variety and development.</p>
+<hr />
+<h2>Euclid Module Key Features Highlighted for Song Creation</h2>
+<ul>
+<li><strong>Generates Euclidean rhythms (up to 16 steps, variable density)</strong></li>
+<li><strong>CV control over Steps and Length</strong></li>
+<li><strong>Offset control for phase shifting</strong></li>
+<li><strong>Reset and Trigger inputs for syncing</strong></li>
+<li><strong>6ms gate outputs for triggering other modules</strong></li>
+</ul>
+<hr />
+<h2>Strategies to Build Full Tracks with Euclid</h2>
+<h3>1. <strong>Automate Rhythmic Variation Over Time</strong></h3>
+<ul>
+<li><strong>Use CV to Morph Patterns:</strong><br />
+  Sequence the <strong>Length</strong> and <strong>Steps</strong> parameters with slow LFOs, step sequencers (like a Doepfer A-155, or even a MIDI-to-CV interface running an automation track in your DAW), or programmable function generators (e.g. Make Noise Maths, Intellijel Quadrax).<ul>
+<li><strong>Example:</strong>  </li>
+<li>16-step rhythms for the chorus, 8 in the verse.</li>
+<li>Steps rising/falling to build or release energy.</li>
+</ul>
+</li>
+<li><strong>CV-sequence the Offset:</strong><br />
+  Shift the phase of your rhythm to subtly or abruptly alter groove placement across sections of your song.<ul>
+<li>Good for creating fills or song transitions.</li>
+</ul>
+</li>
+</ul>
+<h3>2. <strong>Macro Song Structure via Manual or Automated Control</strong></h3>
+<ul>
+<li><strong>Reset Input:</strong><br />
+  Use a master clock divider (e.g. 4ms QCD, Pamela’s Pro Workout) to reset the Euclid pattern at section boundaries (verse, chorus, breakdowns) to synchronize changes across your whole rack.</li>
+<li><strong>Length or Steps Jumps:</strong><br />
+  Use a CV switch/sequential switch (e.g. Doepfer A-151) to switch between pre-programmed rhythm patterns at key moments in your track.</li>
+</ul>
+<h3>3. <strong>Layer and Modulate Multiple Euclidean Patterns</strong></h3>
+<ul>
+<li><strong>Polyrhythm/Polymeter:</strong><br />
+  Run several rhythm modules, or multiple uses of the Euclid, each with different length/step settings, triggering different percussive voices (kick, snare, hats, synth stabs, etc.).  </li>
+<li><strong>Inter-module Cross-Influence:</strong><br />
+  Use Euclid’s trigger output to clock S&amp;H, sequential switches, sequential analog switches (for chord progressions, basslines, or FX changes) in sync with rhythm variations.</li>
+</ul>
+<h3>4. <strong>Fill Creation and Breakdowns</strong></h3>
+<ul>
+<li><strong>Modulate Steps/Length for Fills:</strong><br />
+  Use CV or manual control to create quick fills—suddenly lowering the number of steps or steps at the end of a section.</li>
+<li><strong>Mute/Unmute with Switches or VCAs:</strong><br />
+  Route Euclid’s output through a VCA or switch, muting the rhythm during breakdowns, or using gates/envelopes (triggered by song-structure logic modules such as Mutable Instruments Marbles, Erica Pico SEQ, or external MIDI).</li>
+</ul>
+<h3>5. <strong>Drive Non-Drum Sounds for Evolving Texture</strong></h3>
+<ul>
+<li><strong>Modulate Non-Percussive Elements:</strong><br />
+  Send Euclid triggers to envelope generators controlling filter cutoff, wavefolder amount, or delay send levels for evolving pads, drones, or effect sounds.</li>
+<li><strong>Melodic Triggers:</strong><br />
+  Use as a step input for pitch sequencers, advanced quantizers, or switch-based melodic routing, creating rhythmically complex melodic patterns.</li>
+</ul>
+<hr />
+<h2>Practical Example Patch: Full Song Arrangement</h2>
+<pre><code class="language-text">Clock source (Pamela's Pro Workout) → Euclid Trigger In
+Pamela's pattern divider → Euclid Reset In (trigger at measure start/chorus change)
+Pamela's CV out (random/automation) → Euclid Length CV In
+Pamela's CV out (different lane) → Euclid Steps CV In
+
+Euclid Out →
+    1. Percussion voice (snare, hat, or rim - e.g. Mutable Peaks in drum mode)
+    2. Envelope generator for synth stabs (trigger VCA or effect send)
+    3. Clock input for sequential switch (changing basslines or FX)
+
+Patch VCA for rhythmic mute/fade for breakdowns, outro, or song sections.
+</code></pre>
+<hr />
+<h2>Additional Techniques for Song-Length Structure</h2>
+<ul>
+<li><strong>Record and Loop changes with CV recorders (e.g. WMD S.S.R., ALM Pamela’s Workout looped automation)</strong></li>
+<li><strong>Mute/unmute or swap between multiple Euclid setups with switches or logic modules</strong></li>
+<li><strong>Combine with MIDI-CV for DAW-synced macro control of patterns and transitions</strong>  </li>
+<li><strong>Use Euclid triggers to set scene changes, sample triggers, or send cues to visual/lighting systems for live performance</strong></li>
+</ul>
+<hr />
+<p><strong>The key to full-length song form with Euclid is leveraging CV, reset, and inter-module communications to automate rhythmic change, create variety, and sequence transitions at multiple levels—from pattern detail to entire track sections.</strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

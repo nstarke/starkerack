@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Turing_Machine</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Turing Machine</h1>
+<ul>
+<li><a href="../../manuals/TM_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://cdn2.shopify.com/s/files/1/1526/0915/files/2hp_TM_Manual.pdf">2hp TM Manual PDF</a></p>
+<hr />
+<h1>How to Use the 2hp TM for Full-Length Song Creation in a Eurorack System</h1>
+<p>The 2hp TM module is an extremely flexible probabilistic random sequence generator, inspired by the concept of the Turing machine. Its role is to provide evolving or locked random voltages, ideal for generative and variation-based sequences. However, building <em>full songs</em> in modular environments requires planning for progression, movement, and variation—not just great patterns in a loop.</p>
+<p>Below are detailed strategies on using the TM with other modules to move beyond loops, building engaging full-length tracks.</p>
+<hr />
+<h2>1. Evolving Melodic and Harmonic Content</h2>
+<p><strong>TM as Melodic Source:</strong><br />
+- <strong>Quantizer:</strong> Patch TM’s OUT to a quantizer to ensure output voltages create melodic lines in a desired scale. Use PROB to lock/unlock parts of the melody, letting themes evolve or repeat.
+- <strong>Song Structure:</strong> As your track develops, automate PROB via CV (using sequencers or LFOS/envelopes) so some sections introduce more randomness (“verse-style”), and in others, the melody becomes repetitive (“chorus-style” or motif).</p>
+<p><strong>Harmonic Movement:</strong><br />
+- Use several TM modules, or a sample &amp; hold fed by TM OUT, to drive harmonies, chord roots, or even drum pitch/sample selection.</p>
+<hr />
+<h2>2. Creating Verses, Choruses, and Bridges</h2>
+<h3><strong>Scene Changes via Probability or Steps</strong></h3>
+<ul>
+<li><strong>Mutate/Revert:</strong> Assign scenes (song sections) by having clocked signals shift PROB or STEPS, e.g. verse (random/prob high, long sequence), chorus (locked/prob low, shorter motif), bridge (medium-high randomness and step length).</li>
+<li>Use sequential switches or sequential function generators to automate these transitions over time.</li>
+</ul>
+<h3><strong>Automated Song Structure</strong></h3>
+<ul>
+<li><strong>Macro Sequencers:</strong> Use an external sequencer to send distinct CVs to TM’s PROB and STEPS. At different points in your composition, force the TM to:<ul>
+<li>Generate new material (high randomness, longer sequences)</li>
+<li>Lock to a repeating phrase (zero randomness)</li>
+<li>Change the sequence length to tighten or stretch thematic content</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>3. Dynamic Variation for Bass, Drums, and FX</h2>
+<h3><strong>Basslines</strong></h3>
+<ul>
+<li>Clock TM at a lower division to provide slowly evolving randomized bass movement, or lock PROB for repetitive riffs.</li>
+<li>Use amplitude control (AMP) to sculpt levels, or send OUT to a VCA for dynamic energy shifts per section.</li>
+</ul>
+<h3><strong>Drums/FX</strong></h3>
+<ul>
+<li>Use TM’s random voltages to trigger drum fills, switch drum kits, or modulate effect parameters, ramping up intensity for builds or breakdowns.</li>
+</ul>
+<hr />
+<h2>4. Controlling Movement and Build-Ups</h2>
+<h3><strong>Morphing and Transitions</strong></h3>
+<ul>
+<li>Modulate TM’s PROB and AMP with LFOs, envelopes, or sequenced controls during breakdowns and drops, causing melodies or textures to destabilize, then “reset” at the drop by locking probability.</li>
+</ul>
+<h3><strong>Automated Evolution</strong></h3>
+<ul>
+<li>Use external logic, sequential switches, or control modules to systematically adjust TM parameters song-wide (e.g., every 16 bars change PROB, AMP, or STEPS).</li>
+</ul>
+<hr />
+<h2>5. Patching Examples</h2>
+<h3><strong>Basic Melodic Evolution</strong></h3>
+<pre><code>TM OUT → Quantizer → VCO 1V/Oct
+TM TRIG → Clock Divider
+Quantizer OUT → VCA → MIXER
+- CV modulate PROB with a slow LFO for organic movement.
+</code></pre>
+<h3><strong>Scene-Based Song Structure</strong></h3>
+<pre><code>TM PROB CV ← Macro Sequencer Scene 1: high (random), Scene 2: low (repeat theme), Scene 3: medium (variation)
+TM STEPS CV ← Macro Sequencer to shift sequence length to match song sections
+</code></pre>
+<h3><strong>FX Automation</strong></h3>
+<pre><code>TM OUT → FX Module Wet/Dry CV
+- In chorus, AMP is raised so effects open up, dropping in verse to tighten sound.
+</code></pre>
+<hr />
+<h2>6. Tips for Full Songwriting Approaches</h2>
+<ul>
+<li><strong>Combine TM with preset-sequencing modules</strong> (like the Mutable Instruments Frames, or Sequential Switches) for “section recall.”</li>
+<li><strong>Use TM as a drummer or fill generator</strong> by modulating percussive voices, arpeggiators, or ratcheting modules.</li>
+<li><strong>Layer several TM instances</strong> for ensemble-like generative textures that can be faded/solo’d in your mix for arrangement control.</li>
+</ul>
+<hr />
+<p>By blending probability, step length, and amplitude modulation—especially when CV-controlled from other modules or sequencers—you can animate the TM to create living arrangements suitable for full-length modular compositions.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

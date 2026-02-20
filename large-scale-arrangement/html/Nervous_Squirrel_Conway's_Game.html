@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Nervous_Squirrel_Conway&#x27;s_Game</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Nervous Squirrel — Conway's Game</h1>
+<ul>
+<li><a href="../../manuals/Nervous Squirrel - Conway's Game.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment://Conways_Game.pdf"><strong>Conway's Game Manual PDF</strong></a></p>
+<hr />
+<h1>Eurorack Song Creation Strategies With Conway's Game (Nervous Squirrel)</h1>
+<p>Conway's Game is a highly original pattern generator and MIDI-to-trigger utility, utilizing the mathematics of Conway’s Game of Life. Here’s how you can leverage this tool for creating <strong>full-length songs</strong>—not just loops!—using the module in combination with others in your system.</p>
+<h2>How Conway’s Game of Life Module Works, In Brief</h2>
+<ul>
+<li><strong>Pattern Generator:</strong> Generates 8x8 grids of living/dead cells on an LED array, influenced by the Game of Life rules.</li>
+<li><strong>Trigger Matrix:</strong> Each of the 64 outputs corresponds to a cell, firing triggers or gates based on the simulation.</li>
+<li><strong>MIDI Mode:</strong> Incoming MIDI notes (C2–E7) directly set output triggers, mapping music into modular voltage.</li>
+<li><strong>Clock Control:</strong> Runs off internal 10 Hz clock or any external gate/LFO/audio signal for tempo.</li>
+<li><strong>Reset, Mode, and Trigger/Gate switches:</strong> For resetting patterns, switching between GoL and MIDI, and output type.</li>
+</ul>
+<hr />
+<h2>Creating Song Structure: Patch Recipes &amp; Workflow Strategies</h2>
+<h3>1. <strong>Pattern Evolution as Arrangement</strong></h3>
+<p><strong>What to do:</strong><br />
+Let the GoL simulation continuously evolve, generating new trigger/gate patterns as your “sequencer.”<br />
+<strong>How to advance sections:</strong><br />
+- Use the <strong>RESET</strong> input/trigger to clear out and initialize new patterns—each reset can act as a song section change (verse, chorus, bridge).
+- Or, let the GoL pattern run until it naturally reaches a stable state or loop, and reset automatically (as module supports).</p>
+<p><strong>Patch example:</strong><br />
+- Use the RESET from a footswitch, another sequencer, or a clock divider to force a “section change” at key moments in your song.</p>
+<h3>2. <strong>Controlling Drums &amp; Percussion With Life Patterns</strong></h3>
+<ul>
+<li>Assign specific rows (or columns, or clusters) of outputs to drum voices.  </li>
+<li>E.g. Row 1 = Kick, Row 2 = Snare, Row 3 = Hi-Hat, etc.</li>
+<li><strong>Result:</strong> Patterns morph and evolve—beats constantly change, then stabilize.</li>
+</ul>
+<p><strong>For Song Development:</strong><br />
+- Use the TRIG/GATE setting so that drums sound different as cells go on/off.
+- Combine this with manual or automated resets to provide breakdowns, fills, or drops.</p>
+<h3>3. <strong>Melodic and Bass Triggering</strong></h3>
+<ul>
+<li>Patch triggers from the GoL grid to quantizers, then to oscillators or pitch CV inputs.</li>
+<li>Use several outputs together with logic (AND/OR) modules or sequential switches to steer “melody” voices for different sections.</li>
+<li>The MIDI mode can map keys or MIDI sequences directly to the output grid, perfect for “scored” variations for specific song parts.</li>
+</ul>
+<h3>4. <strong>Song Section Cycling and Randomization</strong></h3>
+<ul>
+<li>Use the <strong>CLOCK IN</strong> to radically vary how quickly patterns change:  </li>
+<li>Slow clock = long, evolving sections (ambient, generative music).  </li>
+<li>Fast clock = glitchy, busy textures.</li>
+<li>Modulate the clock rate via LFO, envelope, or random source to create dynamic buildups, transitions, or drops.</li>
+<li>Combine slow pattern sections with abrupt RESETs or clock bursts to transform your song energy.</li>
+</ul>
+<h3>5. <strong>Routing for Song Complexity</strong></h3>
+<ul>
+<li>Combine outputs via logic modules to create even more intricate song structures (e.g., only fire a certain voice if two specific cells are alive at the same time).</li>
+<li>Use matrix mixers to vary how much each GoL output influences other module parameters, letting you "fade" between song sections or instrument groups.</li>
+</ul>
+<h3>6. <strong>Automation and Morphing</strong></h3>
+<ul>
+<li>Automate RESETs and mode switches with sequencers or gate automation (e.g., at the end of every 8-bar cycle, force a new GoL pattern, or switch to MIDI mode for a bridge).</li>
+</ul>
+<h3>7. <strong>Triggering FX and Modulation</strong></h3>
+<ul>
+<li>Use GoL outputs to trigger sample-and-hold, envelope generators, or effect sends—different sections can introduce new textures or modulation behaviors.</li>
+</ul>
+<hr />
+<h2>Practical Workflow Example</h2>
+<ol>
+<li><strong>Intro:</strong> Start with a sparse initial pattern (manually initialize or use MIDI).</li>
+<li><strong>Main Section:</strong> Let GoL run, evolving triggers for drums and synth lines.</li>
+<li><strong>Buildup:</strong> Increase clock speed or introduce new voices/FX via GoL outputs.</li>
+<li><strong>Drop:</strong> Hit RESET at a key moment; let new, dense pattern take over.</li>
+<li><strong>Breakdown:</strong> Switch to MIDI mode for a hand-played or sequenced phrase.</li>
+<li><strong>Outro:</strong> Let GoL fade out naturally as cells die.</li>
+</ol>
+<hr />
+<h2>Songflow Tips</h2>
+<ul>
+<li><strong>Scene Management:</strong> Use a switch or analog matrix to reroute outputs for each “scene” or song part.</li>
+<li><strong>Section Memory:</strong> Record CV or audio outputs as stems, then sequence in your DAW or live with a looper for full tracks.</li>
+<li><strong>External Sync:</strong> Sync GoL’s clock input to your main sequencer or DAW clock so transitions happen in time with your whole setup.</li>
+</ul>
+<hr />
+<h2>Additional Inspiration</h2>
+<ul>
+<li><strong>Multimodal Morphing:</strong> Crossfade between GoL and MIDI modes during a song for dramatic composition changes.</li>
+<li><strong>Controlled Randomness:</strong> Use GoL as an inspiration generator; resample stable patterns as regular “choruses” and evolving states as “verses” or “fills.”</li>
+</ul>
+<hr />
+<blockquote>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-402_Heuristic_Rhythm_Generator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-402 Heuristic Rhythm Generator</h1>
+<ul>
+<li><a href="../../manuals/ADDAC402_UsersGuide_A_0_web_6500.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://addacsystem.com/sites/default/files/files/ADDAC402%20User%20Guide%20Revision.01.pdf"><strong>ADDAC402 Heuristic Rhythm Generator Manual (PDF)</strong></a></p>
+<hr />
+<h1>Creative Modulation Techniques: ADDAC402 Heuristic Rhythm Generator</h1>
+<p>The ADDAC402 is a four-voice, algorithmic rhythm generator with extensive CV and manual control, designed for experimentation. Below are creative strategies—directly referencing the module’s features and controls—to sculpt unique, highly-modulated sounds in your Eurorack system: from distorted percussive textures, monstrous bass, to cinematic, eerie pads.</p>
+<hr />
+<h2>1. Overview of Modulation Sources</h2>
+<p><strong>CV Inputs (per channel):</strong><br />
+- Fills (Parameter B) CV input<br />
+- Swing/Assign CV input (global, configurable to other parameters)</p>
+<p><strong>Manual Controls:</strong><br />
+- Knobs (Parameters A/B), with CV override/attenuation<br />
+- Gate/Trigger switches<br />
+- Skip/Reset push buttons</p>
+<p><strong>Assignable Control:</strong><br />
+- The Swing/Assign knob and CV input can be assigned to Preset changes, Steps, Gate/Trigger state, Skip, Reset, etc. Multiple simultaneous assignments are possible.</p>
+<hr />
+<h2>2. Patching for Distorted Percussive Sounds</h2>
+<h3><strong>A. Rhythmic Structure Creation</strong></h3>
+<ul>
+<li>Use <strong>Euclidean Mode</strong> or <strong>Game of Life</strong> mode for non-repetitive, algorithmic patterns—activate complex rhythms that go far beyond traditional step-sequencing.</li>
+<li>Modulate <strong>Fills (CV input)</strong> dynamically with an LFO or envelope for morphing between dense and sparse hits.</li>
+</ul>
+<h3><strong>B. Creating Distortion &amp; Crunch</strong></h3>
+<ol>
+<li>
+<p><strong>Patch A Channel’s Gate Output → Drum Module or VCA</strong><br />
+   (with fast decay envelope)</p>
+</li>
+<li>
+<p><strong>Use Skip or Reset (via CV or manual mashing) to glitch up the rhythm.</strong></p>
+</li>
+<li>
+<p><strong>Mult The Pattern To Distortion/Audio FX Module:</strong><br />
+   Patch the main or inverted Gate Output to an audio-rate effect strip (distortion, wavefolder, bit crusher). With short gates or triggers, you'll get aggressive transients.  </p>
+</li>
+<li>
+<p><strong>Modulate Swing/Assign with Audio-Rate CV:</strong><br />
+   Assign the Swing/Assign CV to Steps, Skips, or Reset, then patch in a fast LFO or audio-rate oscillator—this injects pseudo-random clocking for digital distortion/artifacting in the rhythm.</p>
+</li>
+<li>
+<p><strong>Invert Outputs = Double Triggers:</strong><br />
+   Send both Gate and Inverted Gate to separate FX chains (overdrive, reverb, ring mod). Their offset will create rapid-fire, jittery percussion.</p>
+</li>
+</ol>
+<hr />
+<h2>3. Synth Bassline Madness (Dubstep/Drum &amp; Bass Inspired)</h2>
+<h3><strong>A. Sequenced Sub-Bass Triggers</strong></h3>
+<ul>
+<li>Use the <strong>Footwork Mode</strong> for unpredictable, glitchy patterns. Set STEPS controls for strong “wub” hit placement.</li>
+<li>Patch a Gate Output to a VCA controlling a bass oscillator (through a lowpass or wavetable module for maximum bass character).</li>
+<li>Modulate <strong>Steps CV (via Assign) with an envelope follower</strong> for evolving, syncopated bass phrasing.</li>
+</ul>
+<h3><strong>B. Syncopated "Talking Bass"</strong></h3>
+<ul>
+<li>Assign the <strong>Swing/Assign CV to Skip channel(s)</strong>.</li>
+<li>Feed a sequencer output or random stepped voltage into Swing/Assign—causes patterns to "skip"/rotate rhythmically, driving formant filter/LPG for “growl” effects.</li>
+<li>Mult channel outputs to trigger different sub-patches (FM, pitch-shifted inputs into a distortion pedal, etc.).</li>
+</ul>
+<h3><strong>C. Dubstep Snares &amp; Bass Glitch</strong></h3>
+<ul>
+<li>Use <strong>Probabilistic Mode</strong>: Modulate Probability (Fills) with a slow random LFO.  </li>
+<li>Patch Gate/Trigger outputs into drum and synth voices. Unpredictable hits = complex, stuttering bass and snare rolls.</li>
+</ul>
+<hr />
+<h2>4. Haunting Atmospheres/Pad Textures</h2>
+<h3><strong>A. Algorithmic Ambient Gates</strong></h3>
+<ul>
+<li>Use <strong>Golomb Rulers</strong>/Game of Life modes for irregular, non-cyclic triggering—perfect for dreamlike pads.</li>
+<li>Patch Gate outputs to slow-attack, slow-decay VCA/envelope paths to create long, overlapping gates into reverb/delay.</li>
+</ul>
+<h3><strong>B. Dynamic Pattern Morphing</strong></h3>
+<ul>
+<li>Assign Swing/Assign to control multiple parameters (e.g., Steps, Skips, Resets), then use a sample &amp; hold, S&amp;H, or drone LFO for organic pattern changes.</li>
+<li>External CV controlling pattern length and Fills = evolving rhythm for drones/pads.</li>
+</ul>
+<h3><strong>C. Multichannel Modulation</strong></h3>
+<ul>
+<li>Use the U-shaped layout to design polyrhythmic patterns on all four channels.  </li>
+<li>Distribute gates to modulate different oscillator/pitch paths through lush FX chains (cloud reverb, resonator, etc.).</li>
+</ul>
+<hr />
+<h2>5. Advanced Modulation Tips</h2>
+<ul>
+<li><strong>Preset Morphing:</strong> Assign Swing/Assign to Presets and scrub through patterns with random CV or manually. Pads and basses will drift in unexpected ways.</li>
+<li><strong>Clock Shifting:</strong> Modulate the clock input with variable sources or clock division/multiplication for off-grid, warped time signatures.</li>
+<li><strong>Interactive Performance:</strong> Manual button presses—especially Skip/Reset—bring trance-inducing rhythmic shifts during live jams.</li>
+</ul>
+<hr />
+<h2>6. Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Logical Function</th>
+<th>Modulation Source</th>
+<th>Patch/Assign Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fills/Pattern Density</td>
+<td>CV Input (per channel)</td>
+<td>LFO, envelope, random voltage</td>
+</tr>
+<tr>
+<td>Steps/Pattern Length</td>
+<td>Assign+CV</td>
+<td>Slow LFO, keyboard CV</td>
+</tr>
+<tr>
+<td>Gate/Trigger Skip/Reset</td>
+<td>Assign+CV, Button</td>
+<td>Audio-rate oscillator, manual press</td>
+</tr>
+<tr>
+<td>Swing</td>
+<td>Assignable knob+CV</td>
+<td>Humanize rhythms, triplet shuffle</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>7. External FX &amp; Audio Processing</h2>
+<p>Remember: The ADDAC402 output is gates/triggers, so to create <strong>audio signals</strong> you must drive oscillators, drum modules, VCAs, and process those sounds with filters, waveshapers, distortion, and FX modules. Layering fast gates, modulated patterns, and applying external distortion/reverb is essential for dirty percussion and atmospheric soundscapes.</p>
+<hr />
+<p><em>For experimentation, consult the: <a href="http://addacsystem.com/sites/default/files/files/ADDAC402%20User%20Guide%20Revision.01.pdf">ADDAC402 User Guide (PDF)</a></em></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

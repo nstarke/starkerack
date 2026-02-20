@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-506_SignalFlow</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-506 SignalFlow</h1>
+<ul>
+<li><a href="../../manuals/ADDAC506_SignalFlow.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://addacsystem.com/sites/default/files/files/ADDAC506_manual_0.pdf">ADDAC506 VC Stochastic Function Generator &amp; Expansion Manual (PDF)</a></p>
+<hr />
+<h1>Using the ADDAC506 VC Stochastic Function Generator to Create Full-Length Songs in Eurorack</h1>
+<h2>Overview</h2>
+<p>The <a href="https://addacsystem.com/en/products/modules/complex-random/ADDAC506">ADDAC506 VC Stochastic Function Generator</a> is an advanced envelope generator with stochastic/random timing, voltage controllable per-stage parameters, curve shaping, and highly flexible logic outputs. Its design is ideal for bringing generative, evolving, and compositionally-rich behavior to modular setups—key for moving beyond static sequences to dynamic, full-length arrangements.</p>
+<p>Below are several approaches to using the ADDAC506 in a typical Eurorack environment to help you bridge the gap between great short patterns and fully fleshed-out tracks.</p>
+<hr />
+<h2>Key Features for Song Structure</h2>
+<ul>
+<li><strong>Four Independent Envelopes</strong>: Can act as modulation sources, function generators, or pseudo-sequencers.</li>
+<li><strong>Stochastic RISE/FALL Times</strong>: Each stage (rise/fall) can randomize its duration within a defined range, making sequences less repetitive over time.</li>
+<li><strong>CV Control of All Stages</strong>: Modulate every parameter with external LFOs, sequencers, or automation, enabling macro changes for different song sections.</li>
+<li><strong>Lock Control</strong>: Lock the settings of some channels while changing others, enabling section-based modulation or transitions.</li>
+<li><strong>Gate/Trigger and EOR/EOF Outputs</strong>: Perfect for triggering events, modulating rhythms, or clocking sequencers in a generative way.</li>
+<li><strong>Mix and Sum Outputs</strong>: Use average or sum of envelopes for macro-modulation across your patch.</li>
+</ul>
+<hr />
+<h2>Song Structure Techniques</h2>
+<h3>1. Macro Arrangement with Envelopes</h3>
+<ul>
+<li><strong>Verse/Chorus/Bridge Transitions</strong>: Assign each channel to modulate a key parameter (filter cutoff, reverb mix, groove intensity, VCA amplitude, etc.) per section of your song. Use the lock function to keep settings stable during one part, unlock and re-randomize or morph them for the next.</li>
+<li><strong>Stochastic Variation</strong>: The randomization features can subtly or dramatically alter your patterns on each retrigger, ensuring each section feels "composed" but evolving.</li>
+</ul>
+<h3>2. Dynamic Pattern Generation</h3>
+<ul>
+<li><strong>Stochastic Clocking</strong>: Patch EOR/EOF outputs to clock sequencers, rhythm generators, or sample players. This creates unpredictable yet musical timing—ideal for breakdowns, drops, and build-ups.</li>
+<li><strong>Looping vs. One-Shot</strong>: Use one envelope in one-shot mode to orchestrate an “event” or fill, with others looping for ongoing modulation. Change modes per section to distinguish between verses and choruses.</li>
+</ul>
+<h3>3. Automated Transitions</h3>
+<ul>
+<li><strong>Randomized Transitions</strong>: Use the expansion’s random triggers to force new rise/fall times mid-cycle, resulting in “scene changes.”</li>
+<li><strong>CV-Controlled Macro Changes</strong>: Sequence the min/max CVs from another module (a sequencer, voltage memory, or even keyboard) to script big changes at measure or part boundaries.</li>
+</ul>
+<h3>4. Texture and Structure</h3>
+<ul>
+<li><strong>Layered Modulation</strong>: Use envelope sums and averages to control reverb size, delay times, or effects sends—create swelling or receding soundscapes to mark intros, outros, or climaxes.</li>
+<li><strong>Envelope-Gating</strong>: Use GATE OUTs for sidechaining other envelopes or triggering additional voices/effects only at specific moments, resulting in tightly-structured arrangements.</li>
+</ul>
+<h3>5. Continuous, Generative Development</h3>
+<ul>
+<li><strong>Evolving Melodies/Beats</strong>: Send random/stochastic CV from the expansion outputs to pitch quantizers or switch addresses, auto-generating non-repetitive but related melodies/rhythms over time.</li>
+<li><strong>Controllable Randomness</strong>: Use the lock/unlock and external CV features to dial in or freeze desirable states—capture happy accidents for musical consistency as needed.</li>
+</ul>
+<hr />
+<h2>Example Patch Ideas</h2>
+<ol>
+<li><strong>Section Morphing</strong></li>
+<li>ENV 1 modulates VCF cutoff (chorus brightness)</li>
+<li>ENV 2 modulates FX send (verse dry, chorus wet)</li>
+<li>ENV 3's EOR clocks a melody sequencer (melody only in chorus)</li>
+<li>
+<p>ENV 4 opens up a noise crash (triggered on fill)</p>
+</li>
+<li>
+<p><strong>Beat/Fill Automation</strong></p>
+</li>
+<li>Normally looping ENV triggers drum pattern</li>
+<li>
+<p>At each transition, a random trigger retriggers RISE/FALL times, making every fill unique</p>
+</li>
+<li>
+<p><strong>Generative Structure</strong></p>
+</li>
+<li>Send ENV sum out to modulate main VCA to fade the song in/out automatically</li>
+<li>Use average mix to slowly change the tonality (e.g., modulate chord quantizer root)</li>
+</ol>
+<hr />
+<h2>Best Practices for Song Creation</h2>
+<ul>
+<li><strong>Combine Stochastic and Deterministic</strong>: Use randomness for variation, but use lock/one-shot modes or external CV for structure.</li>
+<li><strong>Automate/Sequence Module Controls</strong>: Use sequencers/voltage memories to control envelope min/max times and amplitudes to create distinct song sections.</li>
+<li><strong>Record and Edit</strong>: Capture long generative performances, then edit sections for arrangement.</li>
+</ul>
+<hr />
+<p><strong>Pro Tip:</strong> Pair the ADDAC506 with clock dividers, sequential switches, and quantizers for highly musical generative arrangements that can still be steered live or via automation.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

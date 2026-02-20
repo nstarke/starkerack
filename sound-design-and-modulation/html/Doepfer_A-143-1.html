@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-143-1</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-143-1</h1>
+<ul>
+<li><a href="../../manuals/A1431_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.doepfer.de/a100man/A143_1_man.pdf">Doepfer A-143-1 Quad AD/LFO Manual PDF</a></p>
+<hr />
+<h1>Creative Sound Design with the Doepfer A-143-1 Quad AD/LFO</h1>
+<p>The Doepfer A-143-1 Quad AD / LFO is a flexible envelope/LFO module offering four identical channels, each with unique modulation capabilities. Below, I'll break down several ways to exploit this module for <strong>distorted percussion</strong>, <strong>aggressive basslines</strong>, and <strong>haunting pads</strong>, building on its quirks and deep control structure.</p>
+<hr />
+<h2>Overview: What Makes the A-143-1 Unique?</h2>
+<ul>
+<li><strong>Four identical channels:</strong> Independently usable or chainable for complex envelopes/LFOs.</li>
+<li><strong>AD or LFO mode per channel:</strong> Each channel can operate as either a one-shot envelope (AD) or a free-running LFO.</li>
+<li><strong>Attack &amp; Decay time control:</strong> Separate for each channel; both act as 'rate' controls in LFO mode.</li>
+<li><strong>Polarity mix section:</strong> Add or subtract each envelope/LFO with variable level/polarity to a sum output (“Mix Out”).</li>
+<li><strong>Comparator &amp; EOA outputs:</strong> Use for self-patching, retriggering, or triggering other modules.</li>
+<li><strong>Threshold control:</strong> Per-channel threshold for comparator output—useful for chained envelopes, logic, self-patching tricks.</li>
+</ul>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<p><strong>Goal:</strong> Generate sharp, aggressive, sometimes clipped or “snappy” envelopes for drum synths, VCA amplitude modulation, or as audio sources.</p>
+<h3>Techniques</h3>
+<ul>
+<li><strong>Self-Patching for Overlapping Envelopes:</strong></li>
+<li>Run multiple channels as chained AD envelopes (AD mode, no external triggers to chain).</li>
+<li>Adjust threshold and decay for staggered firings, then mix with <strong>polarizers</strong> set to opposite polarities (some negative).</li>
+<li>
+<p>Patch the <strong>Mix Out</strong> to a VCA or filter cutoff for 'competing' enveloping; the mix will sometimes invert, producing sudden jumps/cancellations, mimicking clipping.</p>
+</li>
+<li>
+<p><strong>Cross-Modulation:</strong></p>
+</li>
+<li>Patch the <strong>Envelope Out</strong> of one channel into the <strong>Attack or Decay CV</strong> (using other CV processors/attenuverters as needed) of another, then send that to amplitude.</li>
+<li>
+<p>Drum synths: Patch the <strong>fastest decay envelope</strong> to a filter or the attack to an FM input for 'crack' or distorted transients.</p>
+</li>
+<li>
+<p><strong>Use as Audio-rate LFOs:</strong></p>
+</li>
+<li>Set decay and attack to minimum values and use <strong>LFO mode</strong>—these can get into audio range.</li>
+<li>
+<p>The exponential slopes and mixing with negative polarities via <strong>Mix Out</strong> can create complex, spiky (almost waveshaper-like) sound sources, especially when processed through a distortion or wavefolder.</p>
+</li>
+<li>
+<p><strong>Trigger Retriggering:</strong></p>
+</li>
+<li>Exploit unique retriggering: If you externally trigger or chain outputs, a new trigger received during decay will switch to attack. This creates 'glitch' or retriggered percussive shapes.</li>
+</ul>
+<hr />
+<h2>2. Dubstep/Drum &amp; Bass Crazy Basslines</h2>
+<p><strong>Goal:</strong> Dynamic, movement-heavy, syncopated modulation of VCO pitch, filter cutoff, or wavetable position for growly, throbbing, or “talking” basslines.</p>
+<h3>Techniques</h3>
+<ul>
+<li><strong>Complex LFO Cycling (Wobble):</strong></li>
+<li>Daisy chain all four channels (LFO mode, triggers unpatched).</li>
+<li>Set wildly different attack/decay parameters per channel; polarize the mix for asymmetrical LFO curves.</li>
+<li>Send <strong>Mix Out</strong> to VCF or VCA for 'wobble' that morphs over time, not just a single repeated shape.</li>
+<li>
+<p>Modulate <strong>thresholds</strong> dynamically (with external CV via VCA/attenuator if possible), changing when each segment triggers for polyrhythmic or stuttered movement.</p>
+</li>
+<li>
+<p><strong>Envelope Chopping:</strong></p>
+</li>
+<li>Patch one channel in <strong>AD mode</strong>, externally trigger with funky drum machine or clock divider, send to <strong>VCO pitch</strong> or <strong>FM input</strong> of filter.</li>
+<li>
+<p>Mix in another channel running as <strong>audio-rate LFO</strong> in opposite polarity for extra grit.</p>
+</li>
+<li>
+<p><strong>Self-Modulation Feedback:</strong></p>
+</li>
+<li>Use <strong>EOA outputs</strong> to trigger other channels for stuttered, ratcheting effects.</li>
+<li>Patch comparator or envelope outs into the attack/decay CV of another channel for evolving, hyperactive modulation.</li>
+</ul>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<p><strong>Goal:</strong> Slowly evolving, blended envelopes/LFOs for subtle, organic motion in pads or sustained effects.</p>
+<h3>Techniques</h3>
+<ul>
+<li><strong>Layered LFO Envelopes:</strong></li>
+<li>All channels in <strong>LFO mode</strong> with long attack/decay, chain as poly-envelope for cyclical, non-repeating 'shapes.'</li>
+<li>
+<p>Set polarizers to create gentle push/pull phasing; send <strong>Mix Out</strong> to VCA, VCF CV, wavetable position, reverb decay, or delay modulation.</p>
+</li>
+<li>
+<p><strong>Comparator-Gated Modulation:</strong></p>
+</li>
+<li>Use <strong>comparator outputs</strong> to gate subtle changes: E.g., use Cp Out to trigger sample &amp; hold, or as logic input to switch modulation destinations.</li>
+<li>
+<p>Sends shivering pulses of modulation only on envelope falls, making pads with occasional ‘ghostly’ flutters.</p>
+</li>
+<li>
+<p><strong>Multi-Stage Blending:</strong></p>
+</li>
+<li>Manually or with external CV, sweep <strong>thresholds</strong> while LFO shapes run—this changes which segments get passed/mixed at any time, warping the evolving pad subtly.</li>
+</ul>
+<hr />
+<h2>Pro Sound Design Tips</h2>
+<ul>
+<li><strong>Combine with Distortion:</strong> Outputting mixed envelopes (especially when cross-phased) creates sharp voltages at envelope transitions, ideal for overdriving wavefolders, VCAs, or distortion FX for new textures.</li>
+<li><strong>Patch EOA/Cp outputs to Sequential Switch/logic:</strong> Sequence which channels are active or which stages fire next for semi-generative movement.</li>
+<li><strong>Audio-Rate 'Waveshaper' Trick:</strong> With all channels in fastest LFO mode and cross-polarized, the Mix Out can produce spiky, atypical audio-rate signals for use as unconventional oscillators or mixing into another oscillator.</li>
+</ul>
+<hr />
+<p>Explore further details and patch ideas in the <a href="https://www.doepfer.de/a100man/A143_1_man.pdf">full Doepfer A-143-1 Manual (PDF)</a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

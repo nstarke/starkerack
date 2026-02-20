@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_HATS808</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — HATS808</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_HATS808_ns.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://tiptopaudio.com/manuals/HATS808_manual.pdf">HATS808 Manual PDF</a></p>
+<hr />
+<h1>Using the Tiptop Audio HATS808 to Create Full Length Songs in Eurorack</h1>
+<p>The Tiptop Audio HATS808, as described in the <a href="https://tiptopaudio.com/manuals/HATS808_manual.pdf">manual</a>, is a faithful analog clone of the TR-808 hi-hat section with several creative enhancements for modular users. While most modular enthusiasts can quickly patch up an exciting beat, evolving that beat into a structured, full-length track is more challenging. The following analysis provides strategies to leverage the HATS808—and its unique features—in conjunction with other modules to compose dynamic, long-form electronic music.</p>
+<hr />
+<h2>Key HATS808 Features for Song Creation</h2>
+<ul>
+<li><strong>Independent Accent and Level Controls</strong>: Allows for nuanced dynamic control, essential for arrangement and movement.</li>
+<li><strong>Choke Function</strong>: Adds interactivity and organic variation between open and closed hi-hat patterns.</li>
+<li><strong>Voltage-Controlled Resonance (Q) &amp; VC-Q Input</strong>: Enables hands-off, evolving textures and timbral changes.</li>
+<li><strong>Enhanced Gain Stages</strong>: Facilitates drive/distortion for energetic breaks or transitions.</li>
+<li><strong>Bandpass Output</strong>: Offers a raw source for further processing—ideal for creative layering or custom percussion.</li>
+</ul>
+<hr />
+<h2>Techniques for Song Structure &amp; Progression</h2>
+<p>Below are patching and performance ideas, organized around typical song sections and transitions:</p>
+<h3>1. <strong>Introduction/Breakdown</strong></h3>
+<ul>
+<li><strong>Sparse Patterns</strong>: Mute or reduce hi-hat triggers. Use low accent and level for a subtle, percussive texture.</li>
+<li><strong>Filtered Texture</strong>: Patch the Bandpass OUT to a VCA controlled by a slow LFO or envelope for swelling hi-hat "wash" effects.</li>
+<li><strong>VC-Q Automation</strong>: Modulate Q (via sequencer or envelope) for tonal sweeps, evolving the high-frequency content over time.</li>
+</ul>
+<h3>2. <strong>Building Energy (Verse/Pre-Chorus)</strong></h3>
+<ul>
+<li><strong>Accent Sequencing</strong>: Use a trigger sequencer (e.g., Euclidean circuits or random gates) to selectively accent certain hi-hat hits, creating syncopated, dynamic lines.</li>
+<li><strong>Choke Transitions</strong>: Exploit the choke circuit to tighten up the groove, especially when switching from open to more closed hi-hat patterns.</li>
+<li><strong>Resonance Animation</strong>: Slowly increase the Q via manual control or sequencer CV to introduce metallic overtones, signaling a build in energy.</li>
+</ul>
+<h3>3. <strong>Chorus/Drop – Maximizing Impact</strong></h3>
+<ul>
+<li><strong>Hot Gain Settings</strong>: Push both Level and Accent to max for aggressive, cutting hats in the mix.</li>
+<li><strong>Layered Processing</strong>: Split the output—send main OH OUT to the mix and Bandpass OUT to parallel FX (phaser, distortion, etc.) for a multi-layered hi-hat stack.</li>
+<li><strong>Complex Modulation</strong>: Patch a random or envelope-driven CV to VC-Q, creating "alive" hi-hats that change character every bar or phrase.</li>
+</ul>
+<h3>4. <strong>Breakdown/Bridge</strong></h3>
+<ul>
+<li><strong>Automated Silence</strong>: Use a sequential switch or clock divider to rhythmically mute the HATS808, or modulate a VCA for manual stutter or gating effects.</li>
+<li><strong>Slow Choke Decay</strong>: Disable the choke for long, washed-out open hats, or enable and experiment with envelope times for syncopated gating.</li>
+</ul>
+<h3>5. <strong>Outro</strong></h3>
+<ul>
+<li><strong>Decaying Brightness</strong>: Gradually lower LEVEL and ACCENT, while automating a decrease in Q—softening the hats into the background.</li>
+<li><strong>Creative FX</strong>: Process the Bandpass OUT with heavy reverb or delay for trailing, ghostly textures.</li>
+</ul>
+<hr />
+<h2>Making Parts Evolve: Song Form Tactics</h2>
+<ul>
+<li><strong>Scene Progression</strong>: Use sequencers or manual switches to introduce new hat patterns for verse, chorus, and fills.</li>
+<li><strong>Dynamic Accents</strong>: Change the accent pattern to differentiate sections—e.g., keep accents on every offbeat in the verse, then on every 4th in the chorus.</li>
+<li><strong>Manual Performance</strong>: Use the front panel controls—LEVEL, ACCENT, Q—to "play" dynamics and timbre live, making the arrangement feel performed, not static.</li>
+</ul>
+<h3>Example Patch: Evolving Hi-Hats Through a Song</h3>
+<pre><code>Kick &amp; Bass
+|
+|---&gt; Drum Sequencer --&gt; HATS808 OH &amp; CH Triggers
+|       |                |     |
+|       |                |     +---&gt; Accent (trigger sequencer or hand-played for manual dynamics)
+|       |                |
+|       |                +---&gt; OH OUT (main hats to mixer)
+|       |
+|---&gt; Bandpass OUT --&gt; VCA --&gt; FX Chain (modulated by an LFO for swelling transitions or breakdown FX)
+|
+VC-Q IN &lt;-- Envelope or sequencer CV for evolving resonance
+</code></pre>
+<h4><strong>Song Progression Suggestions</strong></h4>
+<ul>
+<li><strong>Intro:</strong> Minimal triggers, low accent/level, some Bandpass FX for atmosphere.</li>
+<li><strong>Verse:</strong> Steady hat pattern, light accent modulation, Q slowly rising.</li>
+<li><strong>Chorus:</strong> Increased accent, higher level, aggressive Q, Bandpass OUT layered and prominent.</li>
+<li><strong>Bridge:</strong> Alternate hats pattern, creative choke use, dramatic Bandpass FX (reverb/delay throws).</li>
+<li><strong>Outro:</strong> Gradually reduce LEVEL/Q, filter-drenched Bandpass tail.</li>
+</ul>
+<hr />
+<h2>Additional Module Combos</h2>
+<ul>
+<li><strong>Sequential Switch/Matrix Mixer:</strong> For switching between hat patterns or processing paths mid-song.</li>
+<li><strong>Complex Envelope Generators:</strong> To modulate VC-Q or Level for evolving, expressive performances.</li>
+<li><strong>Probability/Gate Skippers:</strong> Inject musical variation into patterns for more organic grooves.</li>
+<li><strong>Random/Noise CV Sources:</strong> For subtle, continuous movement in resonance/tone.</li>
+</ul>
+<h3>Pro Tip</h3>
+<p>Combine the HATS808 with clock dividers/multipliers to create polyrhythms or breakbeat fills, reintroducing the main groove with sudden accent/Q increases for impact.</p>
+<hr />
+<p>By treating the HATS808 not just as a static drum voice but as a dynamic, CV-modulated instrument, you unlock the ability to shape and evolve your rhythm section—taking a simple hi-hat pattern to a full, expressive song structure. Use manual tweaks, sequenced CV, and modulation sources to automate changes that replicate the arrangement techniques familiar from DAWs but with the organic, tactile feel that only modular can provide.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

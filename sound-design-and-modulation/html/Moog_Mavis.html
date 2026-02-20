@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Mavis</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Mavis</h1>
+<ul>
+<li><a href="../../manuals/MAVIS_MANUAL_V2_06.27.2022.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.moogmusic.com/sites/default/files/Mavis_Users_Manual_v2_0.pdf"><strong>Moog Mavis User Manual (PDF)</strong></a></p>
+<hr />
+<h1>Eurorack Sound Design with Moog Mavis: Modulation Strategies</h1>
+<p>As a fellow Eurorack modular synthesizer musician, exploring the Moog Mavis as a sound generator in your rack offers rich sonic territory—especially for aggressive percussive hits, basslines reminiscent of dubstep/DnB, and eerie pads. Here’s how to patch and modulate Mavis to wring the most unique and interesting tones out of it, focusing on <em>distortion</em>, <em>motion</em>, and <em>texture</em>.</p>
+<hr />
+<h2>1. <strong>Distorted Percussive Sounds</strong></h2>
+<h3><strong>Key Techniques on the Mavis</strong></h3>
+<ul>
+<li><strong>Wave Folding:</strong> That built-in wavefolder is rare for Moog gear! For hard-edged, biting transients and “crushed” percussive sounds, patch your oscillator directly into the wavefolder (<code>VCO OUT → FOLD IN</code>). Turn the <strong>FOLD</strong> knob full right for maximum distortion and harmonics.</li>
+<li><strong>Envelope Modulation:</strong> Use the snappy envelope—set <strong>Attack</strong> and <strong>Release</strong> low and moderate <strong>Decay</strong> &amp; <strong>Sustain</strong> to taste, triggering with Mavis’ own button keyboard or external sequencer/trigger.</li>
+<li><strong>Filter Drive/Resonance:</strong> Set the <strong>Cutoff</strong> high and use <strong>Resonance</strong> at or near self-oscillation. Try running self-oscillation for “kick” transients.</li>
+<li><strong>LFO as Percussive ‘Strike’:</strong> Use the LFO in square mode at high rates to make extra clicks or as an envelope retrigger source.</li>
+<li><strong>External Audio:</strong> With the wavefolder, you can patch in external drum sources, crush them, or layer with internal sounds.</li>
+</ul>
+<h4><strong>Sample Percussive Patch</strong></h4>
+<pre><code class="language-text">VCO OUT → FOLD IN
+FOLD OUT (post-wavefolder) is internal to the filter/VCA—adjust FOLD knob
+ENV: Attack ~0, Decay ~100-300ms, Sustain ~0, Release ~0
+Filter: Cutoff up, Res high OR full (for “pinged” kicks/snares)
+ENV → Filter Cutoff Mod (VCF MOD MIX to EG, VCF MOD AMT positive)
+Optional: S+H out to Pitch or Filter for glitchy, ‘circuit bent’ hits
+Patch GATE IN for tempo-synced percussion, EG OUT to modulate other modules
+</code></pre>
+<hr />
+<h2>2. <strong>Crazy Dubstep/Drum &amp; Bass Basslines</strong></h2>
+<h3><strong>Key Techniques on the Mavis</strong></h3>
+<ul>
+<li><strong>LFO as Audio-Rate Modulator:</strong> Use Mavis’ LFO at max frequency (audio range, up to ~550 Hz) for deep FM/AM effects and wobble. Patch <strong>LFO OUT</strong> to <strong>PWM</strong> or <strong>1V/Oct</strong> for dirty bass movement.</li>
+<li><strong>VCO Wave and PWM:</strong> Use the <strong>VCO WAVE</strong> knob to blend saw and pulse for richer, nastier harmonics. Modulate <strong>PW</strong> or <strong>PWM AMT</strong> with LFO/EG for movement.</li>
+<li><strong>Sample &amp; Hold Modulation:</strong> Use the S+H to inject random or stepped modulations into filter cutoff or pitch (classic for “robotic”/glitchy bass).</li>
+<li><strong>Oscillator Mixing ("Two Oscillators" Trick):</strong> Patch <strong>LFO OUT</strong> (audio rate) into <strong>ONE (-5)</strong> of the mixer and VCO OUT into <strong>TWO</strong>, take <strong>ONE+TWO OUT</strong> as your sound source—FM and sum for richer bass.</li>
+<li><strong>Extreme Filtering:</strong> High resonance, cutoff modulation with fast or negative EG for squelches and vocal bass.</li>
+</ul>
+<h4><strong>Patch Example: “Talking”/Modulated Bass</strong></h4>
+<pre><code class="language-text">Set LFO to max (audio rate), Square or blended with Triangle.
+LFO OUT → PWM IN (Pulse Width Modulation Input)
+Set VCO WAVE between Saw and Pulse, modulate PWM AMT for gnarly timbres.
+ENV: Short attack, medium decay, low sustain, medium release for pluck or growl.
+VCF: Lowish cutoff, high resonance; modulate CUTOFF with LFO and/or EG.
+VCF MOD MIX set to blend LFO &amp; EG (find rhythmic sweet spots)
+ONE+TWO MIXER: Mix LFO OUT (audio rate) and VCO OUT, then route to FOLD IN
+Try S+H OUT to VCO 1V/Oct for pseudo-random ‘wub-wub’ pitch jumps
+Glide ON for legato slide/portamento effects
+</code></pre>
+<hr />
+<h2>3. <strong>Haunting Atmospheric Pads/Textures</strong></h2>
+<h3><strong>Key Techniques on the Mavis</strong></h3>
+<ul>
+<li><strong>Slower, Moving Modulation:</strong> LFO rate low, modulate VCO wave blend, pulse width, or filter cutoff gently to add subtle evolution.</li>
+<li><strong>Layered/Stereo Paths:</strong> Use the mixer to blend two sources (e.g., Saw and Folded Saw, or VCO and audio-rate LFO); pan externally for wide pads.</li>
+<li><strong>Wavefolder for Shimmer:</strong> Use FOLD for shimmering/snarling overtones, just barely applied for shimmer versus full-on distortion.</li>
+<li><strong>Self-Oscillating Filter:</strong> Use high resonance, filter in self-osc mode, play filter with Envelope (VCF MOD MIX set to EG).</li>
+<li><strong>Drone Mode:</strong> Use the <strong>VCA MODE</strong> switch ON for constant output (drone), modulate VOLUME, Cutoff, and Fold with slow LFO or S+H.</li>
+<li><strong>External CV Control:</strong> Patch external slow mod sources or sequencers to filter cutoff, wavefolder, or VCA for motion.</li>
+</ul>
+<h4><strong>Patch Example: Evolving Pad/Drone</strong></h4>
+<pre><code class="language-text">VCO: Set WAVE to desired timbre (CW for Pulse, CCW for Saw, or blend).
+FOLD IN: Patch VCO OUT to FOLD IN, only slightly engage Fold for richness.
+Filter: High resonance just before self-osc; mad Cutoff modulation.
+LFO: Sweep Rate low; OUT to CUTOFF for drifting filter.
+ENV: Long attack, long release, high sustain (pad). EG → CUTOFF or VCA CV
+Mixer: Try mixing VCO and LFO (slower rate) for evolving undertones.
+VCA MODE: ON for held/ambient drones.
+Try S+H OUT to modulate CUTOFF for unpredictable, haunted movement.
+Patch MULT outputs to send modulations to VCA and filter simultaneously.
+</code></pre>
+<hr />
+<h2><strong>Some Patch Combo/Experiment Tips</strong></h2>
+<ul>
+<li><strong>Chain Modulation:</strong> Use MULT for splitting S+H or LFO to several destinations (cutoff, PWM, VCA CV, etc).</li>
+<li><strong>Attenuate/Scale Modulation:</strong> Use the internal ATTENUATOR to scale aggressive modulations for subtle/organic effects.</li>
+<li><strong>External Interaction:</strong> Interface with other Euro modules! Use audio-rate CV mod on Fold, Freq, or Filter, or layer sounds with multiple Mavis modules.</li>
+</ul>
+<hr />
+<h2><strong>Resources</strong></h2>
+<ul>
+<li><a href="https://www.moogmusic.com/sites/default/files/Mavis_Users_Manual_v2_0.pdf">Moog Mavis User Manual PDF</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+<hr />
+<p>Feel free to ask for more patch ideas or module pairing tips!</p>
+</body>
+</html>

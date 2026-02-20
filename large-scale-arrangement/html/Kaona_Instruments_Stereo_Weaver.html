@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kaona_Instruments_Stereo_Weaver</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Kaona Instruments — Stereo Weaver</h1>
+<ul>
+<li><a href="../../manuals/stereoweaver.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.kaona.fr/wp-content/uploads/2024/02/kaona-stereoweaver-manual-en-v1.pdf">Download the Stereoweaver Manual (PDF)</a></p>
+<hr />
+<h1>Using Stereoweaver to Create Full-Length Songs in Eurorack</h1>
+<p>Stereoweaver is a highly creative mono-to-stereo spatial FX module for Eurorack whose unique spatial processing capabilities can transform static or simple patch ideas into dynamic, evolving pieces ideal for full-length tracks. Below, I analyze how to leverage Stereoweaver to overcome common obstacles in evolving modular stereo content, and outline practical patching strategies for song structuring in the modular context.</p>
+<hr />
+<h2>Key Strengths of Stereoweaver</h2>
+<ul>
+<li><strong>Dynamic Stereo Imaging:</strong> Beyond widening, Stereoweaver introduces movement, micro-delays, phase shifts, and depth.</li>
+<li><strong>CV Controllability:</strong> Every main parameter (Depth, Phase, Motion, Haas, Width) can be animated via CV, crucial for continual change.</li>
+<li><strong>Psychoacoustic Prowess:</strong> Employs the Haas effect and phase modulation for organic stereo evolution.</li>
+<li><strong>Musical Movement:</strong> The Motion control, including a Leslie rotary sim, brings rhythmic modulation to the stereo field.</li>
+</ul>
+<hr />
+<h2>Turning Patches Into Songs: Concrete Approaches</h2>
+<h3>1. Evolving a Static Loop</h3>
+<h4>Without Stereoweaver</h4>
+<p>A repeating melody/beat becomes fatiguing and static.</p>
+<h4>With Stereoweaver</h4>
+<ul>
+<li><strong>Automate Depth, Motion, and Width via LFOs or Envelopes:</strong> Fade in more pronounced stereo width and phase animation for choruses, drop them back for verses.</li>
+<li><strong>Manual Performance:</strong> Perform live modulations on the panel to improvise song structure.</li>
+</ul>
+<p><strong><em>Patch Example:</em></strong>  </p>
+<pre><code>Melody/Bass/Drums (Mono Out) → Stereoweaver IN  
+Stereoweaver L/R Outs → Mixer → Effects/Output
+LFO1 (slow, synced to bars) → Stereoweaver Width CV
+Envelope (from sequencer at section changes) → Depth CV
+Ramp LFO → Phase CV (builds tension over time)
+</code></pre>
+<h3>2. Creating Sections (Verse/Chorus/Bridge)</h3>
+<ul>
+<li><strong>Sectional Contrast:</strong> Use Stereoweaver to make clear “sections” by drastically altering stereo scene at section boundaries.<ul>
+<li>Verse = Narrow width, subtle motion</li>
+<li>Chorus = Wide, animated, Haas engaged, more pronounced depth</li>
+<li>Bridge = Extreme phase movement or fast rotary effect</li>
+</ul>
+</li>
+<li><strong>Scene Transitions via CV:</strong> Connect output from a performance sequencer or a manual controller to change Stereoweaver parameters per section.</li>
+</ul>
+<p><strong><em>Patch Example:</em></strong><br />
+Use preset voltages/attenuators or a Voltage Block (Malekko), or even simple sequential switches to send different CVs to Stereoweaver per song section.</p>
+<h3>3. Filling Out The Arrangement</h3>
+<ul>
+<li><strong>Bring In/Out Elements:</strong> Automated Width can subtly “unmask” new voices or effects when a section changes by shrinking or swelling the image.</li>
+<li><strong>Cumulative Build:</strong> Start with mono/center-focused sound, use progressive increase in Depth and Motion to "open" the song spatially.</li>
+</ul>
+<h3>4. Organic Movement Over Time</h3>
+<ul>
+<li><strong>Random/LFO CV:</strong> Use Turing Machine/Marbles/other random CV sources to modulate Width/Phase/Motion at slow rates, ensuring that even one-bar loops evolve and feel alive.</li>
+<li><strong>Performance Controls:</strong> Use big macro knobs or controllers (Intellijel Tetrapad, Faderbank) to sweep Stereoweaver parameters while playing.</li>
+</ul>
+<h3>5. Send Effects / Parallel Processing</h3>
+<ul>
+<li><strong>Aux Send:</strong> Place Stereoweaver on an FX send to “stereoize” dry mono elements (like percussion hits or voice snippets) only at chosen song moments (e.g., breakdown or outro).</li>
+<li><strong>Switchable Placement:</strong> Use a sequential switch (Doepfer A-151 or similar) to route different sources through Stereoweaver in different song sections.</li>
+</ul>
+<h3>6. Rhythmic or Thematic Emphasis</h3>
+<ul>
+<li><strong>Sync Motion to Master Clock:</strong> Use Clocked LFOs to lock Motion animation to beats or bars, making the stereo effect a coherent structural element.</li>
+<li><strong>Accentuate Drops or Climax:</strong> Rapidly modulate Haas or Phase for a “slapback” or spatial swirl at key song moments.</li>
+</ul>
+<hr />
+<h2>Sample Song Structure with Stereoweaver</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Stereoweaver Settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intro</td>
+<td>Narrow width, low Depth, static Motion (centered, focused presence)</td>
+</tr>
+<tr>
+<td>Verse</td>
+<td>Modest width, Phase modulated slowly, Haas slight, Motion slow</td>
+</tr>
+<tr>
+<td>Chorus</td>
+<td>Wide, max Depth, Motion set to rotary, Haas up, pronounced changes</td>
+</tr>
+<tr>
+<td>Bridge</td>
+<td>Phase sweeps, chaotic Mode, Width automates back to mono</td>
+</tr>
+<tr>
+<td>Outro</td>
+<td>Gradual "collapsing" of stereo image: Width and Left/Right fades</td>
+</tr>
+</tbody>
+</table>
+<p>By mapping section cues to CV automation (manual, scenes, or sequenced), Stereoweaver helps a patch tell a full story—moving beyond loops, creating dramatic transitions, and making repeated materials feel ever-changing.</p>
+<hr />
+<h2>Integrating with Other Modules</h2>
+<ul>
+<li><strong>Sequencers:</strong> Use CV output from performance sequencers to modulate Stereoweaver per song part.</li>
+<li><strong>LFO/Function Generators:</strong> Animate parameters for subtle or dramatic effect across your track's timeline.</li>
+<li><strong>Switches/Muters:</strong> Change processing routing; bring Stereoweaver in/out for dramatic effect.</li>
+<li><strong>Effects Chain:</strong> Use Stereoweaver before reverb/delay to create vast, shifting clouds; use after distortion for 3D grit.</li>
+</ul>
+<hr />
+<p><strong>Remember:</strong><br />
+Song progression in modular is about contrast and movement. Stereoweaver is ideal for shaping <strong>spatial contrast</strong> over time, making the difference between "patch" and "track".</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

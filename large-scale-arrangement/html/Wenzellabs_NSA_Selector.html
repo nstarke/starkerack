@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Wenzellabs_NSA_Selector</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Wenzellabs — NSA Selector</h1>
+<ul>
+<li><a href="../../manuals/wenzellabs_the_NSA_selector_ the NSA selector eurorack module.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/wenzellabs/the_NSA_selector/blob/main/README.md">NSA Selector Eurorack Module Manual (PDF)</a></p>
+<hr />
+<h1>Using the NSA Selector to Structure Full-Length Eurorack Songs</h1>
+<p>As a eurorack modular musician, it’s easy to get stuck in the loop zone—great beats or textures, but no real movement or "song" development. The <a href="https://github.com/wenzellabs/the_NSA_selector">NSA Selector module</a> is different: it’s a network-to-audio module that converts raw Ethernet traffic ("any bit on the network will be sent to the audio output") into audio signals, introducing a whole new way to bring variety, structure, and unpredictability to your music.</p>
+<p>Below, I'll break down creative strategies for using the NSA Selector as a core "arrangement instrument" in a modular setup, helping you move beyond loops and into full-length song territory.</p>
+<hr />
+<h2>How the NSA Selector Works (Recap)</h2>
+<ul>
+<li><strong>Two Ethernet jacks, one audio output</strong></li>
+<li>Network packet bits are literally "audified" to the output</li>
+<li>Not a standard audio interface or network protocol player—just raw bit-to-audio tapping</li>
+<li>4 bit, 25MS/s native format from the PHY MAC MII interface; "network noise" becomes audio</li>
+<li>Add computer-generated or real network traffic to shape the sounds</li>
+</ul>
+<hr />
+<h2>Strategies for Full-Length Song Creation</h2>
+<h3>1. <strong>Section Changes via Network Traffic Modulation</strong></h3>
+<p><strong>How:</strong>
+- Use your computer, Raspberry Pi, or another network-capable device to send different types of traffic patterns at different times—like bursts, lulls, pings, file transfers, image transfers, or deliberate "quiet" periods.
+- Automate these traffic types using scripts, or MIDI-controllable software (integrate with ping scripts, netcat, socat, etc).
+- Use the NSA Selector's audio output as a key source for percussion, noise beds, or glitchy leads that change character over time based on the incoming network patterns.</p>
+<p><strong>Song Structure Use:</strong>
+- Verses: Lightweight ping traffic for sparse noise, low rhythm
+- Chorus: Dump a bitmap image for intense, noisy bursts
+- Bridge: Network quiet or only small packets for minimal sections
+- Drop: Flood with HTTP or FTP or gaming traffic for maximum chaos</p>
+<hr />
+<h3>2. <strong>Automated Evolutions With Scripts</strong></h3>
+<p><strong>How:</strong>
+- The included <strong>sequencer/</strong> shell scripts can "play" sequenced network patterns, e.g., network ping bursts of various sizes.
+- Combine with external sequencers that trigger scripts via MIDI-over-USB or network.
+- Build up sections that increase or decrease in complexity by controlling the density, duration, and periodicity of network traffic.</p>
+<p><strong>Song Structure Use:</strong>
+- Intro: Low-density, simple traffic evolving into more complex patterns
+- Buildup: Gradually automate scripts to ramp up the network "sequencer"
+- Drop: All scripts firing, high-traffic bursts
+- Breakdowns: Back down to minimal scripts, single bursts</p>
+<hr />
+<h3>3. <strong>Layered Sampling and Resampling</strong></h3>
+<p><strong>How:</strong>
+- Record the NSA Selector’s output during various network traffic states.
+- Resample or layer these as loops in a sampler module (e.g., Morphagene, Bitbox, Nebulae).
+- Use previously recorded "network jams" as evolving backgrounds, contrasts, or transitions throughout your structure.</p>
+<p><strong>Song Structure Use:</strong>
+- Use sampled network audio for intro/outro beds, transitions between song sections, or to create evolving motif elements that reappear across the song ("theme and variation").</p>
+<hr />
+<h3>4. <strong>Glitchy Breaks, Fills, and FX</strong></h3>
+<p><strong>How:</strong>
+- Use external manipulation (like running tcpdump, flooding traffic, or dropping network interfaces) as a live performance technique to introduce breakdowns, rhythm changes, or sudden noise cuts.
+- Automate this with CV-controlled network switches or relays for precise song timing.</p>
+<p><strong>Song Structure Use:</strong>
+- Dramatic drops or fills
+- Glitch transitions (sudden silence or cacophony, steering the energy flow)
+- FX overdubs or one-off noises that mark section changes (like new verse/chorus/break)</p>
+<hr />
+<h3>5. <strong>Interactive or Generative Song Structures</strong></h3>
+<p><strong>How:</strong>
+- Set up automated or interactive network processes: e.g., control network devices via MIDI, touch interface, or generative code (Max/MSP, Pure Data, Tidalcycles, Supercollider, etc).
+- Song evolves based on real-time or "randomized" network interactions.</p>
+<p><strong>Song Structure Use:</strong>
+- Self-generating textures that evolve across a full piece
+- Use physical network device actions (plug/unplug, Wi-Fi device activity) mapped to key structural moments</p>
+<hr />
+<h3>6. <strong>Sync and Layer With Traditional Eurorack Modules</strong></h3>
+<p><strong>How:</strong>
+- Layer the NSA Selector output with analog drums, bass, and synths: route its audio through VCAs, filters, effects, and envelopes to keep it musical and dynamic.
+- Use envelope followers or comparators to extract triggers or gates from its noisy output, clocking sequencers or modulating other voices for cross-networked modulation over your groove.
+- Gate effects, VCAs, or sample switches ("song parts") by voltage derived from the Selector’s output—using the noise bursts to flip sections, mutes, or effects.</p>
+<hr />
+<h2>Example Patch for Full Song Structure</h2>
+<pre><code>[Network Source(s)] 
+     |
+     v
+[NST Selector Module] --[VCA]--&gt; [Filter/FX] --&gt; [Mixer/Output]
+     |                                ^
+     |                                |
+[Envelope Follower/Comparator] -------|
+     |
+[Clock/Gate Out] --------&gt; [Sequencer/Drum Machine/FX Trigger]
+</code></pre>
+<ul>
+<li>Pre-program or improvise network scripts for evolving layers over song sections</li>
+<li>Use envelope follower to trigger new drum/bass synth patterns or effects</li>
+<li>Change network traffic types for unique "chorus," "verse," or "bridge" textures</li>
+</ul>
+<hr />
+<h2>Tips for Creating Complete Songs</h2>
+<ul>
+<li><strong>Plan your network arrangements</strong> like any musical score—time your traffic patterns for distinct sections.</li>
+<li><strong>Blend with traditional voices:</strong> NSA Selector shines as a textural/arrangement layer; use it to break loops and introduce surprise and movement.</li>
+<li><strong>Automate, sample, and resample</strong> for further flexibility—network sounds can become motifs!</li>
+<li><strong>Use live performance of network changes</strong> (muting ports, traffic bursts) for expressive control over your song’s structure.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>
