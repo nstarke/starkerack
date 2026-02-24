@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Hexinverter_Orbitals</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Hexinverter — Orbitals</h1>
+<ul>
+<li><a href="../../manuals/hexinverter-orbitals.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://hexinverter.net/wp-content/uploads/2020/06/Orbitals-User-Manual-v1.04.pdf">Hexinverter Orbitals User Manual PDF (v1.04)</a></p>
+<hr />
+<h1>HEXINVERTER ORBITALS CHEAT SHEET</h1>
+<p><strong>42HP Dual Bipolar Voltage Controlled Step Sequencer</strong></p>
+<h2>Quick Start</h2>
+<ul>
+<li><strong>Power requirements:</strong> +90mA, -20mA @ 12V (Do not adjust jumpers when powered!)</li>
+<li><strong>Modes:</strong> Two independent 8 step sequencers or a single 16 step sequencer.</li>
+<li><strong>CV Output Modes:</strong></li>
+<li>Bipolar: <code>-2.5V to +2.5V</code> (5V jumper), <code>-5V to +5V</code> (10V jumper)</li>
+<li>Unipolar: <code>0V to +5V</code> (5V jumper), <code>0V to +10V</code> (10V jumper)</li>
+<li><strong>Clock:</strong> Internal (adjustable up to ~100Hz) or external (1V logic level, up to 1kHz)</li>
+<li><strong>Build note:</strong> Very shallow/skiff friendly; ideal for performance setups.</li>
+</ul>
+<hr />
+<h2>Front Panel Controls &amp; Jacks</h2>
+<h3>Top Panel: Sequencer Rows (A/B)</h3>
+<ul>
+<li><strong>RATE Knob (A &amp; B):</strong> Adjusts internal clock speed for each sequencer.</li>
+<li><strong>CV Knobs (per step):</strong> Adjusts output voltage for each step.</li>
+<li><strong>GATE Switches + LEDs (per step):</strong> Toggles gate ON/OFF for each step &amp; shows active step.</li>
+<li><strong>RUN Switch (A &amp; B):</strong> Turns sequencer ON/OFF and activates gate output.</li>
+</ul>
+<h3>Right Side Outputs</h3>
+<ul>
+<li><strong>CV OUT (A &amp; B):</strong> Control voltage for sequences. (Voltage ranges as above.)</li>
+<li><strong>GATE OUT (A &amp; B):</strong> Gate output for each sequence step (max 10V).</li>
+<li><strong>CLK OUT (A &amp; B):</strong> Outputs internal clock (0–5V) for use elsewhere.</li>
+</ul>
+<h3>Lower Panel: System/Modulation</h3>
+<ul>
+<li><strong>GATE Knob (A &amp; B):</strong> Adjust duration of step gates (short/long, ties possible if set long).</li>
+<li><strong>LENGTH Knob (A &amp; B):</strong> Sequence length (Sets length 1–8 for A &amp; B; if A &gt; 8: module enters 16-step mode).</li>
+<li><strong>MODE Knob (A &amp; B):</strong> Step modes:<ol>
+<li>FW (Forward)</li>
+<li>REV (Reverse)</li>
+<li>PND (Pendulum)</li>
+<li>RND (Random)</li>
+<li>CV (Unclocked voltage addressed)</li>
+<li>CLK (Clocked voltage addressed)</li>
+</ol>
+</li>
+<li><strong>RUN Input:</strong> Active high logic input (&gt;1V). Enables sequencer.</li>
+<li><strong>CLK IN:</strong> External clock input (1V logic threshold; up to ~1kHz).</li>
+<li><strong>RST/CV IN:</strong> Used for:<ul>
+<li>Regular modes: Logic HIGH resets to step 0.</li>
+<li>CV/CLK modes: 0–5V selects which step is active.</li>
+</ul>
+</li>
+<li><strong>REVERSE Input:</strong> Logic HIGH forces sequencer to run backwards.</li>
+<li><strong>RESET Button:</strong> Resets both sequencers for sync.</li>
+<li><strong>TRANS A Input:</strong> Adds external CV (e.g. keyboard) to Sequencer A for transposing sequences.</li>
+<li><strong>SLAVE B&gt;A Switch:</strong> Syncs B’s transport to A.</li>
+<li><strong>BIPOLAR Switch:</strong> Toggles bipolar/unipolar voltage output.</li>
+</ul>
+<hr />
+<h2>Inputs/Outputs Reference Table</h2>
+<table>
+<thead>
+<tr>
+<th>Jack Name</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CV OUT (A/B)</td>
+<td>Sequencer control voltage output</td>
+<td>-2.5V to +2.5V / -5V to +5V (bipolar); 0–5V / 0–10V (unipolar, jumper selectable)</td>
+</tr>
+<tr>
+<td>GATE OUT (A/B)</td>
+<td>Sequencer gate output</td>
+<td>0V (off), up to 10V (on, jumper selectable)</td>
+</tr>
+<tr>
+<td>CLK OUT</td>
+<td>Internal clock output</td>
+<td>0–5V</td>
+</tr>
+<tr>
+<td>CLK IN</td>
+<td>External clock input</td>
+<td>1V logic (HIGH = &gt;1V), up to 1kHz</td>
+</tr>
+<tr>
+<td>RUN IN</td>
+<td>Sequencer ON/OFF (active high logic)</td>
+<td>&gt;1V = ON</td>
+</tr>
+<tr>
+<td>RST/CV IN</td>
+<td>Reset (logic &gt;1V) or Step Select (0–5V)</td>
+<td>Reset: &gt;1V, CV: 0–5V</td>
+</tr>
+<tr>
+<td>REVERSE IN</td>
+<td>Run backwards (active high logic)</td>
+<td>&gt;1V = Reverse</td>
+</tr>
+<tr>
+<td>TRANS A IN</td>
+<td>Add CV to Sequencer A output (transpose)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Voltage-Selectable Jumpers</h2>
+<p><em>Set jumpers on the back to select CV/Gate output range:</em></p>
+<table>
+<thead>
+<tr>
+<th>Bipolar?</th>
+<th>5V Jumper</th>
+<th>10V Jumper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On</td>
+<td>-2.5 to +2.5V</td>
+<td>-5 to +5V</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>0 to +5V</td>
+<td>0 to +10V</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NEVER adjust jumpers with module powered!</strong></p>
+<hr />
+<h2>Operating Tips</h2>
+<ul>
+<li><strong>Sequence Length:</strong> Set A’s LENGTH &gt;8 to enter 16-step mode (A + B combined).</li>
+<li><strong>Voltage Modes (MODE knob):</strong></li>
+<li>In CV/CLK modes, supply 0–5V at RST/CV IN to select active step directly.</li>
+<li>In other modes, RST/CV IN acts as a reset input.</li>
+<li><strong>Syncing Sequencers:</strong> Use SLAVE B&gt;A switch to synchronize B with A (e.g. for 16-step mode or complex patterns).</li>
+<li><strong>Transposing Patterns:</strong> Use TRANS A for real-time keyboard-driven transpositions.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

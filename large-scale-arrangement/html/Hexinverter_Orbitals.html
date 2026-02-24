@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Hexinverter_Orbitals</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Hexinverter — Orbitals</h1>
+<ul>
+<li><a href="../../manuals/hexinverter-orbitals.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://hexinverter.net/public/assets/documentation/orbitals/Orbitals_User_Manual_v104.pdf">Download the Orbitals User Manual PDF</a></p>
+<hr />
+<h1>Creating Full Length Songs With the Hexinverter Orbitals Step Sequencer</h1>
+<p>The Orbitals is a feature-rich dual (or single 16-step) voltage-controlled step sequencer for Eurorack, capable of providing the evolving structure required for full-length compositions. Moving from simple loops to "songs" requires strategies to introduce variation, progression, and dynamic changes over time.</p>
+<p>Below are detailed techniques, patch ideas, and workflow suggestions combining Orbitals with other modules to build extended, evolving tracks.</p>
+<hr />
+<h2>1. <strong>Song Structure Through Sequence Length and Modes</strong></h2>
+<p><strong>Orbitals Key Features:</strong><br />
+- Dual 8-step or single 16-step operation<br />
+- Individual sequence lengths per side<br />
+- Multiple step modes: forward, reverse, pendulum, random, CV, and clocked CV<br />
+- Manual or CV-addressed step selection<br />
+- Transpose CV input</p>
+<p><strong>Song Application:</strong><br />
+- <strong>Verse/Chorus Alternation:</strong> Use the dual sequencer mode (2x8) for A/B song sections. Each sequencer can control a different synth voice, or you can switch between them for melodic vs. bass/lead duties.
+- <strong>Progressive Variation:</strong> Modulate the LENGTH knob with stepped or random voltages (from a sample &amp; hold or another sequencer) to shift between patterns of different lengths over time.
+- <strong>Mode Modulation:</strong> CV-control the MODE knob (via external switches, sequential switch, or manual tweaks) to transition from straightforward to random or pendulum patterns—perfect for breakdowns, fills, or transitions.</p>
+<hr />
+<h2>2. <strong>Performance and Live Song Morphing</strong></h2>
+<ul>
+<li><strong>RUN Inputs and Reset:</strong> Use external gate/logic modules, footswitches, or a MIDI-to-CV interface to start/stop sequences or reset for synchronized drops and section changes.</li>
+<li><strong>Manual Performance:</strong> The RUN, MODE, or LENGTH controls can be tweaked in real-time during a set, letting you reconfigure the sequence’s behavior for dynamic song sections.</li>
+</ul>
+<hr />
+<h2>3. <strong>Inter-Module Integration for Arrangement Control</strong></h2>
+<ul>
+<li><strong>Slave B&gt;A and External Clocks:</strong>  </li>
+<li>Sync Orbitals with external or master clocks (Pam’s New Workout, MIDI clock, etc.) to ensure your arrangement follows song tempo.</li>
+<li>
+<p>Enable SLAVE B&gt;A for tight alignment between melodic and rhythmic elements.</p>
+</li>
+<li>
+<p><strong>Sequence Transposition:</strong>  </p>
+</li>
+<li>Plug a keyboard or sequencer into TRANSPOSE A to change the musical key live—great for choruses, bridges, or modulations.</li>
+</ul>
+<hr />
+<h2>4. <strong>Evolving Textures and Long-Form Development</strong></h2>
+<ul>
+<li><strong>Utilize Bipolar Output:</strong>  </li>
+<li>Bipolar CV (centered around 0V) lets you scan back and forth across filter frequencies, pan, crossfade between effects, or smoothly animate parameters that benefit from negative-to-positive voltage swings.</li>
+<li><strong>Voltage Controlled Step Addressing:</strong>  </li>
+<li>Use an LFO, random source, or complex modulator patched into the RST/CV input in CV or CLK mode. This enables the sequencer to "jump" around steps, introducing generative phrasing and long-evolving patterns perfect for ambient, IDM, or experimental tracks.</li>
+</ul>
+<hr />
+<h2>5. <strong>Melodic, Bass &amp; Rhythmic Layering</strong></h2>
+<ul>
+<li><strong>Polyrhythms with Independent Clocks:</strong>  </li>
+<li>
+<p>Drive each sequencer with different clock sources, clock dividers, or clock manipulators to layer asynchronous grooves. This can create unpredictable but musical variations throughout a track.</p>
+</li>
+<li>
+<p><strong>Multiple Voices:</strong>  </p>
+</li>
+<li>Use sequencing A for melody and B for bass, or route A to oscillator pitch and B to filter cutoff, effect send, or other modulation destinations for evolving timbres and complexity.</li>
+</ul>
+<hr />
+<h2>6. <strong>Automation and Song Progression</strong></h2>
+<ul>
+<li><strong>External Modulation:</strong>  </li>
+<li>
+<p>Modulate the RATE, GATE, MODE, or LENGTH using CV from automation lanes (via CV recorders), other sequencers, or random/chaotic sources to create macro changes, such as slower rates in breakdowns, increased gate length for drone sections, or switching to random/ping-pong mode for fills and bridges.</p>
+</li>
+<li>
+<p><strong>Preset Changes and “Scenes”:</strong>  </p>
+</li>
+<li>Use a sequential switch (e.g., Doepfer A-151, WMD Sequential Switch Matrix) to change which stages or outputs from Orbitals go to which sound destinations, simulating “song scenes” or traditional verse/chorus/bridge structures.</li>
+</ul>
+<hr />
+<h2>7. <strong>Patch Example: Performance Song Structure</strong></h2>
+<p><strong>Modules Used:</strong><br />
+- Orbitals Step Sequencer<br />
+- MIDI-CV interface (for keyboard transpose and/or clock)<br />
+- Logic module (for sequencing RUN/RESET or clock divisions)<br />
+- Two Synth Voices (e.g., VCO, filter, envelope, VCA)<br />
+- Mixer &amp; FX</p>
+<p><strong>Patch Flow:</strong><br />
+1. Sequencer A to voice 1 (melody), Sequencer B to voice 2 (bass line).
+2. External clock drives both sequencers, with a clock divider/comparator switching B between RUN/STOP to alternate verse/chorus.
+3. Use a keyboard to transpose melody (plugged into TRANS A).
+4. Send LFO or random CV to MODE/LENGTH inputs for scene changes.
+5. Patch GATE outputs to trigger rhythmic elements or lip-sync drums for variation.
+6. Use an external switch or CV mixer to change which output (A/B) hits your main effects for live breakdowns or transitions.</p>
+<hr />
+<h2>8. <strong>Additional Tips</strong></h2>
+<ul>
+<li><strong>Manually or with CV, change GATE length for expressive phrasing.</strong></li>
+<li><strong>Combine with trigger/gate sequencers for drums, or use Orbitals’ random/pendulum modes for fill creation.</strong></li>
+<li><strong>Automate RESETs at key points for synced drops or transitions.</strong></li>
+</ul>
+<hr />
+<p>By carefully patching, combining features, and integrating Orbitals with other Eurorack utilities and voice modules, you can move far beyond simple loops into true song structure—building evolving, expressive, and dynamic full-length tracks within your modular synthesizer.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

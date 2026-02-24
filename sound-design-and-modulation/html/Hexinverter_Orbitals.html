@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Hexinverter_Orbitals</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Hexinverter — Orbitals</h1>
+<ul>
+<li><a href="../../manuals/hexinverter-orbitals.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://hexinverter.net/wp-content/uploads/2016/08/Orbitals-UserManual-v104.pdf">Orbitals Dual Bipolar Voltage Controlled Step Sequencer – Manual (PDF)</a></p>
+<hr />
+<h1>Creative Patch Tips for the Hexinverter Orbitals Step Sequencer</h1>
+<p>The Hexinverter Orbitals module is an exceptionally deep step sequencer for eurorack with a range of flexible features: dual 8-step/16-step operational modes, bipolar output, voltage-addressed steps, per-channel length/mode/gate control, and extensive CV/gate routing.</p>
+<p>Below, I’ll guide you through patch ideas and modulation concepts to create <strong>distorted percussive sounds</strong>, <strong>crazy basslines</strong> (à la dubstep/DnB), and <strong>haunting atmospheric pads</strong>.</p>
+<hr />
+<h2>Essentials: Orbitals Modulation Features</h2>
+<p><strong>Modulate Orbitals Using:</strong>
+- Step CV and gate sequencing (of course).
+- Bipolar output switching for sharper/stronger modulations.
+- Voltage-controlled step addressing for non-linear, evolving patterns.
+- Transpose input for real-time or sequence-driven shifting.
+- Per-channel mode switching (random, pendulum, CV, etc.).
+- Clock rate modulation, both externally and internally.
+- CV and gate outputs to trigger or modulate external sources (VCO, LPG, VCF, etc.).</p>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<h3><em>Patch Strategy:</em></h3>
+<ul>
+<li>Use one sequencer row (A or B) as a <strong>trigger/gate source</strong> for drum modules or noise/VCAs.</li>
+<li>Patch CV outs into heavily overdriven VCA/VCF or a waveshaper/distortion module.</li>
+</ul>
+<h4><strong>Modulation Techniques:</strong></h4>
+<ul>
+<li><strong>Pendulum or Random Mode (MODE knob):</strong> For unpredictable, glitchy rhythms.</li>
+<li><strong>Gate Length (GATE knob):</strong> Turn up for longer, overlapping pulses—send to a distortion module (wavefolder, bitcrusher, etc.).</li>
+<li><strong>Bipolar Output:</strong> Flip BIPOLAR on and set output to ±5V for aggressive modulation of distortion drive, filter cutoff, etc.</li>
+<li><strong>Voltage Address Step Mode (CV/CLK modes via MODE + RST/CV in):</strong> Run a noisy/random LFO into RST/CV; this scrambles step position, creating varied triggers and unevenly spaced events.</li>
+</ul>
+<h4><strong>Example Patch:</strong></h4>
+<ol>
+<li>CV OUT → filter cutoff or VCA CV input (post-distortion).</li>
+<li>GATE OUT → drum module/EG, or trigger noise burst through a VCA.</li>
+<li>Add a random or stepped LFO to RST/CV in <strong>(CV or CLK mode)</strong> for evolving, broken percussive loops.</li>
+</ol>
+<hr />
+<h2>2. Crazy Dubstep / Drum &amp; Bass Basslines</h2>
+<h3><em>Patch Strategy:</em></h3>
+<ul>
+<li>Sequence VCO/VCF pitch, wavetable selection, or complex waveshaping.</li>
+<li>Use the Transpose input or external CV for bassline interval jumps/riffs.</li>
+</ul>
+<h4><strong>Modulation Techniques:</strong></h4>
+<ul>
+<li><strong>16-Step Mode:</strong> Use both rows as one for longer, evolving phrases.</li>
+<li><strong>Transpose Input:</strong> Plug keyboard for pitch bends/glides; or use a sequenced CV for pitch jumps typical in DnB/dubstep.</li>
+<li><strong>Reverse Input + Random Mode:</strong> Send gates to the REVERSE input, switching up bassline playback direction for stutter/glitch effects.</li>
+<li><strong>Bipolar switch with ±10V (jumper):</strong> Get extra pitch range and drive harder VCO FM inputs.</li>
+<li><strong>Step Gating:</strong> Use switches to mute/enable steps and create syncopation.</li>
+<li><strong>Length knob:</strong> Unusual loop lengths (e.g., 5 steps) create polyrhythmic movement.</li>
+</ul>
+<h4><strong>Example Patch:</strong></h4>
+<ol>
+<li>CV OUT → VCO 1V/OCT (set to deep sine/saw).</li>
+<li>GATE OUT → sample &amp; hold, or sync envelope for filter cutoff “notches.”</li>
+<li>TRANSPOSE IN → arpeggiator or modulation, for wild interval jumps.</li>
+<li>RST/CV IN (CV/CLK mode) → LFO or S&amp;H for pitch-scrambling lines.</li>
+<li>Experiment with <strong>clock rate modulation</strong> (patch an LFO into clock input).</li>
+</ol>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<h3><em>Patch Strategy:</em></h3>
+<ul>
+<li>Use slow rates (RATE knob) for gradual, textural changes.</li>
+<li>Sequence filter cutoffs, FX mix levels, or wavetable positions for evolving sound.</li>
+<li>Double up sequencers for parallel modulation paths (e.g., one for VCF, one for FX/CV).</li>
+</ul>
+<h4><strong>Modulation Techniques:</strong></h4>
+<ul>
+<li><strong>Random or Pendulum Mode:</strong> Adds subtle, organic non-repetition.</li>
+<li><strong>Bipolar Mode on ±2.5V output:</strong> Perfect for gentle LFO-like modulation.</li>
+<li><strong>Gate shaping:</strong> Long gate times for droning vactrol/VCAs.</li>
+<li><strong>CLK OUT:</strong> Use to sync slow LFOs/clock dividers for layered atmosphere.</li>
+<li><strong>Voltage-addressed mode:</strong> Use a wandering S&amp;H or slow random CV to “morph” through scenic step values.</li>
+</ul>
+<h4><strong>Example Patch:</strong></h4>
+<ol>
+<li>CV OUT to VCF cutoff, reverb mix level, or wavetable morph input.</li>
+<li>GATE OUT to control an LFO reset or trigger slow EGs.</li>
+<li>Run step modes in <strong>random/pendulum</strong> and set rate to very slow values.</li>
+<li>Summing Orbitals’ CV out with another LFO via a mixer for added modulation complexity.</li>
+</ol>
+<hr />
+<h2><strong>Key Bonus Tips</strong></h2>
+<ul>
+<li>Experiment with OUTPUT LEVEL jumpers (<strong>±2.5V, ±5V, 0–5V, 0–10V</strong>) to match/trick your downstream modules! More voltage = wilder modulation.</li>
+<li>Patch external modules (chaos modules, random clocks, audio rate LFOs) to RST/CV and clock inputs for totally bespoke rhythms and motion.</li>
+<li>The SLAVE B&gt;A switch is your secret to instantly layered, evolving 16-step mod sequences—try pairing stepper rhythms or blended gate patterns.</li>
+</ul>
+<hr />
+<p>For visuals and more context, always consult the <a href="https://hexinverter.net/wp-content/uploads/2016/08/Orbitals-UserManual-v104.pdf">Orbitals PDF Manual</a>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

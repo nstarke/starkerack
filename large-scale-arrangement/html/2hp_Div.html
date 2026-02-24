@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Div</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Div</h1>
+<ul>
+<li><a href="../../manuals/Div_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://2hp.com/docs/div_manual.pdf">2hp Div Manual (PDF)</a></p>
+<hr />
+<h1>Creating Full-Length Songs with 2hp Div in Eurorack</h1>
+<p>One of the biggest hurdles in modular synthesis is transforming captivating modular jams into structured, evolving full-length songs. The <strong>2hp Div</strong> is a compact but powerful clock divider/multiplier that, when combined with other modules, is ideal not only for complex rhythms but also for bringing compositional structure and variation to your patches.</p>
+<h2>What 2hp Div Does (Key Capabilities)</h2>
+<ul>
+<li>Two independent clock division/multiplication channels (per channel: divide or multiply by 1, 2, 3, 4, 5, 6, 7, 8, or 16).</li>
+<li>CV control over clock rate allows for external modulation/sequencing of divisions/multiplications.</li>
+<li>Allows you to extract or generate multiple rhythmic layers from a single clock for different parts of your patch.</li>
+</ul>
+<hr />
+<h2>Strategies to Structure a Full Song</h2>
+<h3>1. <strong>Multi-Part Song Sections with Clock Manipulation</strong></h3>
+<p>Use Div to create different rhythmic clocks that you can switch or morph between over time to simulate "arrangements" or "sections" in a song.
+- <strong>Patch Example:</strong><br />
+  - Master clock → Div IN.<br />
+  - OUT 1 (e.g. divided by 4) → Trigger drums.<br />
+  - OUT 2 (e.g. multiplied by 3) → Trigger envelope for arpeggios or melodic sequencer.
+- <strong>How to Transition:</strong><br />
+  - Modulate RATE knob or send CV from a sequencer or voltage recorder (like Befaco VC ADSR, Voltage Block, or Planar Joystick) to smoothly morph between divisions/multiplications over the course of the track.<br />
+  - Use precision adders or sequenced voltage sources to automate when Div switches clock divisions (e.g., more open "chorus," tighter "verse," breakdowns at /16 or *16).</p>
+<h3>2. <strong>Polyrhythms and Evolving Grooves</strong></h3>
+<p>Polyrhythmic shifting is a classic trick to create tension and release, move into breakdowns, or make pattern changes.
+- <strong>Patch Example:</strong><br />
+  - OUT 1 provides a straight clock for hi-hats or percussion.<br />
+  - OUT 2 set to an odd division (e.g., /5, /7 or <em>3) clocks another percussion voice or a sequencer, creating evolving rhythmic interplay that can change under voltage control.
+- </em><em>Automation:</em>*<br />
+  - Send stepped or smooth CV to RATE CV to automate these polyrhythmic progressions, aligning with song structure cues.</p>
+<h3>3. <strong>Controlling Song Progression with Logic or Switching</strong></h3>
+<p>Use Div outputs together with logic modules and sequencers to gate different voices or events at specific times.
+- <strong>Patch Example:</strong><br />
+  - OUT 1 and OUT 2 feed different sequential switches, logic gates (AND/OR/XOR), or clock randomizers.
+  - Select which voices are enabled/triggered in sections ("verse" vs "chorus") by routing those gates to VCAs, muting, or clocking envelope/trigger sequencers.</p>
+<h3>4. <strong>Dynamic Fill Sections and Transitions</strong></h3>
+<p>Automate sudden tempo shifts or clock muting for fills, breakdowns, or build-ups.
+- <strong>Patch Example:</strong><br />
+  - Use a trigger, manual gate, or sequencer to send sudden CV jumps to the RATE CV, quickly shifting OUT 1 or 2 for tempo-doubling, triplets, or massive slowdowns.
+  - Perfect for automated drum fills or re-triggering melodic patterns for dramatic effect.</p>
+<h3>5. <strong>Phrase Sequencing &amp; Macrostructure</strong></h3>
+<p>If you have a phrase sequencer or voltage memory/recorder (like Ornament &amp; Crime, 1010 Toolbox, or similar):
+- Sequence phrases or song sections with stored voltages that recall different Div clock settings for various channels, syncing all sections to a master timebase.
+- Use with samplers or melodic parts for classic "song" structure (intro, verse, chorus, bridge, outro).</p>
+<hr />
+<h2>Typical Companion Modules for Song Structuring</h2>
+<ul>
+<li><strong>Sequencers:</strong> Malekko Voltage Block, Make Noise Rene, Tiptop Z8000, or Erica Black Sequencer.</li>
+<li><strong>Switches/Logic:</strong> Doepfer A-151, WMD Sequential Switch, 4ms Rotating Clock Divider, Intellijel Plog.</li>
+<li><strong>Envelope Generators:</strong> Intellijel Quadrax, Maths.</li>
+<li><strong>Random/Chaos Generators:</strong> Mutable Marbles, Wogglebug.</li>
+<li><strong>Utilities:</strong> Precision Adder, Attenuators, Sample &amp; Hold.</li>
+<li><strong>Performance Controllers:</strong> Pressure Points, Planar 2, or CV recorders.</li>
+</ul>
+<hr />
+<h2>Sample Patch Workflow for a Song</h2>
+<ol>
+<li><strong>MASTER CLOCK</strong> into <strong>Div IN</strong>.</li>
+<li><strong>OUT 1</strong> divided by 4 (kicks, start of track), <strong>OUT 2</strong> divided by 7 (snares, hats—polyrhythm).</li>
+<li>A <strong>sequencer</strong> or <strong>CV storage module</strong> modulates <strong>RATE 1/2 CV</strong> over time to change rhythm/composition.</li>
+<li>Use <strong>logic modules</strong> to gate when each rhythmic clock controls other modules—so only certain patterns/voices are playing at certain times.</li>
+<li>Use a <strong>sequential switch</strong> to switch between different Div outputs, providing instant "scene/cue" style changes.</li>
+<li>For breakdowns/drops, automate Div to go to extreme divisions/multiplications or stop (for silence or effects).</li>
+</ol>
+<hr />
+<p>By thinking of rhythmic clock sources as "sections" and automating division, multiplication, and routing, the <strong>2hp Div</strong> becomes a central tool in providing the macrostructure and movement needed to turn modular jams into full, evolving tracks.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>
