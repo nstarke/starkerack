@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kaona_Instruments_Skippy</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Kaona Instruments — Skippy</h1>
+<ul>
+<li><a href="../../manuals/Skippy_2-2_ENG.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.kaona.fr/download/Skippy_Manual_ENG.pdf">Skippy Sequencer Manual PDF</a></p>
+<hr />
+<h1>Turning Patterns Into Songs with the Kaona Skippy Eurorack Sequencer</h1>
+<p>As a fellow eurorack modular musician, you know composing groovy patterns is often straightforward, but structuring them into a full song—with intros, builds, breakdowns, and evolving sections—can be tricky. The Kaona Skippy sequencer, with its four independent (yet synchronized) polyrhythmic tracks and unique algorithmic functions, is tailor-made for taking your patch from 8-bar loops to dynamic compositions.</p>
+<p>Below, you'll find tools, patch ideas, and workflow strategies for using Skippy with other modules to build full-length eurorack songs.</p>
+<hr />
+<h2>Key Skippy Features for Song Arrangement</h2>
+<ul>
+<li><strong>4 Independent Tracks:</strong> Sequence kick, snare, hat, bass, or melodic elements separately, each with their own division/length.</li>
+<li><strong>Multiple Algorithms:</strong> Matrix, non-matrix, Euclidean, polyrhythmic, tiles, logistic—each track can be "driven" differently.</li>
+<li><strong>Per-Track Start/End:</strong> Each part can loop differently, giving asymmetrical and evolving patterns.</li>
+<li><strong>Probability &amp; Chaos:</strong> Intensity and density for less repetitive, more organic phrases.</li>
+<li><strong>Mute (Pause) Capability:</strong> Instantly drop or bring back elements for breakdowns or transitions.</li>
+<li><strong>External Clocking &amp; Sync:</strong> Skippy follows, divides, or multiplies external clocks, as well as responds to reset signals—essential for syncing to master clocks, DAWs, or other performance tools.</li>
+<li><strong>Pattern Memory:</strong> Save and recall up to 65 different sequence states during performance.</li>
+<li><strong>Real-Time Control:</strong> Change functions, divisions, length, rotation, and direction live.</li>
+</ul>
+<hr />
+<h2>Strategies for Song Arrangement With Skippy</h2>
+<h3>1. <strong>Pattern Banks &amp; Scene Memory</strong></h3>
+<p><strong>Idea:</strong> Think of each Save slot as a "scene" in your song: intro, verse, breakdown, build, drop, outro, etc.</p>
+<ul>
+<li><strong>Work Ahead:</strong> Program several distinct combinations (kick+snare, then add hi-hat, then bring in bass, maybe drop out snare, change length, etc.), and SAVE each state.</li>
+<li><strong>During Performance:</strong> Use LOAD function with the encoder for scene changes—instant, reliable structure changes.</li>
+</ul>
+<p><strong>Tip:</strong> Use Skippy's PAUSE function to mute tracks between scenes for transitions or breakdowns.</p>
+<hr />
+<h3>2. <strong>Live Muting &amp; Evolution</strong></h3>
+<p>Skippy's per-track PAUSE (mute) and WAY (direction/ping-pong/pause) functions let you "play the mix" live:</p>
+<ul>
+<li><strong>Builds:</strong> Start minimal (mute bass &amp; snare). Unmute one at a time for dramatic lifts.</li>
+<li><strong>Breakdowns:</strong> Use PAUSE on key tracks for a sparse breakdown, then bring everything back suddenly.</li>
+<li><strong>Evolving Phrases:</strong> Change STEP count, swap algorithms (e.g., from Tiles to Euclid), or rotate sequences (SPIN) mid-song for progression.</li>
+</ul>
+<hr />
+<h3>3. <strong>Polyrhythmic Evolution</strong></h3>
+<p>Use independent track lengths and algorithms (POLYR, GAUSS, EUCLID) for slow phase-shifts and tension builds.</p>
+<ul>
+<li><strong>Asymmetrical Step Counts:</strong> Let each track rotate at a different cycle length; slow-motion evolution ensures the loop never quite repeats.</li>
+<li><strong>Live Step Count Changes:</strong> Nudge STEP, BEGIN, or END mid-performance to add excitement or signify changing song sections.</li>
+</ul>
+<hr />
+<h3>4. <strong>Algorithmic Texture Building</strong></h3>
+<p>Switching between algorithms in real-time (Tiles→Euclid→Polyr) introduces dramatic rhythmic changes.</p>
+<ul>
+<li><strong>Euclidian for Grooves:</strong> Use for hats, snares, or melodic triggers—adjust fill density for varied intensity.</li>
+<li><strong>Tiles for Gated/Striped Patterns:</strong> Use for rolling percussive lines or fill sequences.</li>
+<li><strong>Gauss/Chaos for Flowing Time:</strong> Organic, less mechanical step patterns suit ambient or improvised sections.</li>
+</ul>
+<p><strong>Tip:</strong> Use Skippy’s random PROBA and CHAOS functions for fills, ghost notes, or to break from rigid mechanical grooves.</p>
+<hr />
+<h3>5. <strong>Integration With Other Eurorack Modules</strong></h3>
+<ul>
+<li><strong>External Resets &amp; Syncs:</strong> Use Skippy's CLK IN (clock/reset mode) with a performance master clock (Pamela's NEW Workout, Temps Utile, or a DAW sync track) for tight, song-synced arrangement.</li>
+<li><strong>CV/Gate Merging:</strong> Use buffered mults, sequential switches, or logic modules to further process Skippy triggers—route them to drums, envelopes, or sequenced switches to build arrangement logic/variations.</li>
+<li><strong>Modulation Crosspatching:</strong> Employ Skippy's gates to trigger changes elsewhere in your system—filter sweeps, VCA openings, sample players, or FX send levels, all timed to your song structure.</li>
+</ul>
+<hr />
+<h3>6. <strong>Performance Automation</strong></h3>
+<ul>
+<li><strong>Use the Encoder Live:</strong> Change direction (WAY), swing, or BPM on the fly for energetic jams.</li>
+<li><strong>Recall Scenes for Arrangement:</strong> Jump between saved states with the encoder (or planned clock/reset syncs).</li>
+<li><strong>MIDI Integration:</strong> Skippy syncs flawlessly with a MIDI-to-clock module when you want Ableton/DAW arrangement, yet its internal logic keeps things musically interesting even standalone.</li>
+</ul>
+<hr />
+<h2>Example Song Structure Patch</h2>
+<ol>
+<li><strong>Track 1 (Red): Kick</strong> – Minimal, slowly increases in density via PROBA, switches to longer STEP on the second scene.</li>
+<li><strong>Track 2 (Yellow): Snare</strong> – Acts as A/B structure marker, begins muted, brought in for "verse."</li>
+<li><strong>Track 3 (Green): Percussion/Hi-Hat</strong> – Uses EUCLID, fills increase via PROBA or GAUSS mid-song.</li>
+<li>
+<p><strong>Track 4 (Blue): Bass sequencer trigger</strong> – Switched from polyrhythmic to Tiles, for a classic breakdown-&gt;drop moment.</p>
+</li>
+<li>
+<p><strong>First Scene:</strong> Save minimal pattern (just kicks/hats, bass muted).</p>
+</li>
+<li><strong>Second Scene:</strong> Snare joins, hat switches to busier algorithm.</li>
+<li><strong>Breakdown:</strong> Only hats/bass, kick/snare muted. Swing and PROBA dialed up for complexity.</li>
+<li><strong>Drop:</strong> All unmuted, STEP and GAUSS on percussion for wildness.</li>
+<li><strong>Final Scene:</strong> Slowly mute elements, switch back to minimal patterns.</li>
+</ol>
+<hr />
+<p>With preparation, creative use of Skippy’s per-track mute, direction, length, algorithm, and scene recall, <strong>you can perform dynamic, ever-evolving full-length songs</strong> from a single Skippy and complementary eurorack modules.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

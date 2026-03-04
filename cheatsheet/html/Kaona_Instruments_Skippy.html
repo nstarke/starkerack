@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kaona_Instruments_Skippy</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Kaona Instruments — Skippy</h1>
+<ul>
+<li><a href="../../manuals/Skippy_2-2_ENG.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.kaona.fr/download/skippy_user_manual_EN.pdf">Download the Skippy Manual PDF</a></p>
+<hr />
+<h1>Kaona Skippy Eurorack Module Cheat Sheet</h1>
+<p><strong>Module Overview:</strong><br />
+Kaona Skippy is a 4-track polyrhythmic sequencer offering both matrix (step-based) and non-matrix (time-based) sequencing. Each track is independent and poly-temporal, allowing creative rhythms and algorithmic step generation.</p>
+<hr />
+<h2>Interface Reference</h2>
+<p><strong>Front Panel Elements:</strong>
+- <strong>4 Color Buttons:</strong><br />
+  - Red (Track 1)
+  - Yellow (Track 2)
+  - Green (Track 3)
+  - Blue (Track 4)<br />
+  Used for selecting tracks for editing.</p>
+<ul>
+<li><strong>Central Encoder Knob:</strong></li>
+<li>Rotate: Navigate/select parameter</li>
+<li>Press: Select/function entry/exit</li>
+<li>Long Press: Enter/exit System menu</li>
+<li>Double Click: (in RESET mode) Sync/unsync all tracks</li>
+<li>
+<p><strong>Screen:</strong> Shows selected function and track activity.</p>
+</li>
+<li>
+<p><strong>LED Circles:</strong> Show rhythmic activity for each track, color coded.</p>
+</li>
+</ul>
+<hr />
+<h2>Inputs &amp; Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Details / Voltage Ranges</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CV OUT 1–4</td>
+<td>Sequencer Gates</td>
+<td>5V gates, match track color. Duration set by <strong>GATES</strong></td>
+</tr>
+<tr>
+<td>CV CLOCK IN</td>
+<td>Clock/Reset input</td>
+<td>Gate/Trig, min. 3V for RESET. Supports matrix/poly clocks.</td>
+</tr>
+<tr>
+<td>CV CLOCK OUT</td>
+<td>Internal clock out</td>
+<td>5V logic, clock/tempo depending on CLK settings.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Input Function Modes</h3>
+<ul>
+<li><strong>RESET:</strong> All sequences reset to step 0 on input pulse.</li>
+<li><strong>POLY:</strong> Follows average external clock, preserves non-metric timing.</li>
+<li><strong>MATRIX:</strong> Strictly follows external steps (can follow swung/irregular clocks).</li>
+</ul>
+<hr />
+<h2>Main Functions &amp; Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description/How-To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BPM</strong></td>
+<td>Tempo (10–600 BPM); EXT shown if externally clocked</td>
+</tr>
+<tr>
+<td><strong>STEPS</strong></td>
+<td>Steps per rotation (1–64); some modes auto-set steps</td>
+</tr>
+<tr>
+<td><strong>BEGIN/END</strong></td>
+<td>Set arc for pattern; not 0-based; direction-sensitive</td>
+</tr>
+<tr>
+<td><strong>GATES</strong></td>
+<td>Gate duration; longer gates overlap at high speeds</td>
+</tr>
+<tr>
+<td><strong>PROBA</strong></td>
+<td>Probability to skip enabled step (0–100%)</td>
+</tr>
+<tr>
+<td><strong>CHAOS</strong></td>
+<td>Randomize step timings; disables for strict algorithms</td>
+</tr>
+<tr>
+<td><strong>WAY</strong></td>
+<td>Set direction: &lt;, &gt;, &lt;&gt;, pause (-). Pause = time stop</td>
+</tr>
+<tr>
+<td><strong>SWING</strong></td>
+<td>Shuffle alternate steps; not in all algorithms</td>
+</tr>
+<tr>
+<td><strong>GAUSS</strong></td>
+<td>Logarithmic step distribution; sign sets curve focus</td>
+</tr>
+<tr>
+<td><strong>EUCLID</strong></td>
+<td>Bjorklund Euclidean gates; x/y pattern (#/total steps)</td>
+</tr>
+<tr>
+<td><strong>TILES</strong></td>
+<td>Matrix: repeat x on/x off; can break at cycle repeat</td>
+</tr>
+<tr>
+<td><strong>POLYR</strong></td>
+<td>Alternating tempos (e.g., 4/3); auto-calculates steps</td>
+</tr>
+<tr>
+<td><strong>JAZZY</strong></td>
+<td>32-step matrix with pre-defined funk/jazz patterns</td>
+</tr>
+<tr>
+<td><strong>SPIN</strong></td>
+<td>Rotate left/right for matrix/Euclidean functions</td>
+</tr>
+<tr>
+<td><strong>PAUSE</strong></td>
+<td>Mute any track (blinks); no param editing while muted</td>
+</tr>
+<tr>
+<td><strong>RESET</strong></td>
+<td>Return all heads to 0; double tap = “sync”</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>System Functions (Long-Press Encoder)</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SAVE</strong></td>
+<td>Store 0–64 presets to SD card. Overwrites slot.</td>
+</tr>
+<tr>
+<td><strong>LOAD</strong></td>
+<td>Recall preset 0–64 from SD card</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>Initialize fresh state (clear settings)</td>
+</tr>
+<tr>
+<td><strong>CLK IN</strong></td>
+<td>Set clock/reset input mode (see above)</td>
+</tr>
+<tr>
+<td><strong>CLK</strong></td>
+<td>Clock multiply/divide (poly only, not matrix)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>LED / Button Behavior</h2>
+<ul>
+<li><strong>Button lit:</strong> Track selected for edit.</li>
+<li><strong>Button blinking:</strong> Track muted via PAUSE.</li>
+<li><strong>Screen color:</strong> White = normal/selectable, Violet = parameter editing for selected tracks.</li>
+</ul>
+<hr />
+<h2>Voltage Reference</h2>
+<ul>
+<li><strong>Gate outputs (CV OUT 1–4):</strong> 0V (off) / 5V (on)</li>
+<li><strong>Clock input:</strong> 3V minimum trigger/gate</li>
+<li><strong>Clock output:</strong> 5V logic</li>
+</ul>
+<hr />
+<h2>Quick Usage Tips</h2>
+<ul>
+<li>Select track(s) with color buttons for group/individual editing.</li>
+<li>Use encoder to select and change function/parameter.</li>
+<li>Long-press encoder for save/load/system settings.</li>
+<li>RESET and double-tap for instant recall/re-alignment of all tracks.</li>
+<li>For experimenting, try immobilizing a track with WAY set to "-" (pause).</li>
+</ul>
+<hr />
+<h2>Technical</h2>
+<ul>
+<li><strong>Width:</strong> 10HP</li>
+<li><strong>Depth:</strong> 32mm</li>
+<li><strong>Power:</strong> +5V at 200mA (no current draw on ±12V)</li>
+<li><strong>SD card:</strong> Internal, for presets only.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>
