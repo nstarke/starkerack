@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Cute_Lab_Mom_Jeans</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Cute Lab — Mom Jeans</h1>
+<ul>
+<li><a href="../../manuals/mom-jeans-manual-rev1-1.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="sandbox:/mnt/data/Mom_Jeans_Manual_Rev1.1.pdf">Mom Jeans Manual PDF</a></p>
+<hr />
+<h1>Using Mom Jeans for Densely Rhythmic &amp; Hyper-Complex Percussion in Eurorack</h1>
+<p>The <strong>Mom Jeans</strong> module by CuteLab is uniquely qualified for creating percussive, polymetric, and complex rhythmic material thanks to its <strong>pulsar synthesis engine</strong> and <strong>granular/grain-width</strong> controls. It’s not just a new oscillator—it's a digital percussion and rhythm generation powerhouse. Here’s how to maximize it for advanced rhythmic and polyrhythmic sequences.</p>
+<h2>1. <strong>Exploit the Density Parameter for Percussive Transients</strong></h2>
+<ul>
+<li>
+<p><strong>Density</strong> (Knob &amp; CV, #3/#4):<br />
+  Highly percussive, clicky, and stuttering effects can be achieved by setting density to extreme values. Try modulating density at audio or CV rates for rapid-fire transient creation—a key technique for glitchy or “granular drum” sounds.</p>
+</li>
+<li>
+<p><strong>Patch Idea</strong>: Use a trigger sequencer or stepped random CV to the <strong>Density input</strong>. Each change can shift the “grain width,” creating new transient shapes and giving every attack a unique percussive character.</p>
+</li>
+</ul>
+<h2>2. <strong>Modulate Cadence and Torque for Rhythmic Complexity</strong></h2>
+<ul>
+<li>
+<p><strong>Cadence</strong> (Knob &amp; CV, #6/#11):<br />
+  Cadence is the internal modulation LFO’s rate. Use CV to clock it in and out of sync with your master tempo for polyrhythms and shifting accents.</p>
+</li>
+<li>
+<p><strong>Torque</strong> (Knob &amp; CV, #7/#12):<br />
+  This controls the amplitude of grain-width modulation (think: internal PWM depth). Wild swings in torque can push grains to overlap or vanish, creating silence, bursts, and complex pulses.</p>
+</li>
+<li>
+<p><strong>Polyrhythmic Patch</strong>:<br />
+  Use rhythmic CV or stepped voltage sequences into <strong>Cadence</strong> and/or <strong>Torque</strong>. Try sending different clocks or Euclidean triggers for evolving patterns.</p>
+</li>
+</ul>
+<h2>3. <strong>Engage Coupling &amp; Quantization for Time Division Magic</strong></h2>
+<ul>
+<li>
+<p><strong>Coupling</strong> (Toggle #8):<br />
+  When active, cadence is locked to integer multiples/divisions of the oscillator frequency. This keeps rhythmic modulation “in time” with the voice pitch—great for cyclical patterns tied to tempo or note value, including odd divisions for polyrhythms.</p>
+</li>
+<li>
+<p><strong>Quantization</strong> (Toggle #9):<br />
+  Makes cadence discrete, so modulations occur as rhythmic “steps.” This is exceptional for stepping through complex patterns:</p>
+<ul>
+<li>Cycle through rhythmic “ratchets” (2, 3, 5, 7, etc.) by automating Cadence with quantization ON for rapid time signature flips.</li>
+</ul>
+</li>
+<li>
+<p><strong>Patch Concept</strong>:<br />
+  Turn on <strong>Coupling and Quantization</strong>, then sweep the <strong>Cadence</strong> knob or modulate by stepped CV (sequencer or random). This creates sharply-defined, mathematically “tight” rhythmic patterns—ideal for algorithmic percussion or IDM grooves.</p>
+</li>
+</ul>
+<h2>4. <strong>Leverage the Pulsar Output for Bright, Detailed Transients</strong></h2>
+<ul>
+<li>
+<p><strong>Pulsar Output</strong> (#19):<br />
+  This output delivers the rich, harmonically complex result of all your modulation—send it to gate a VCA with an external envelope or mult into filters/further processors for evolving percussive textures.</p>
+</li>
+<li>
+<p><strong>Layering</strong>:<br />
+  Mult the <strong>square output</strong> (#18) into a drum module’s trigger input and the <strong>pulsar out</strong> into a VCA for gritty or “dirty” accents that reinforce your percussive voices.</p>
+</li>
+</ul>
+<h2>5. <strong>Complex Timing with Sync Input</strong></h2>
+<ul>
+<li>Sync Input (#17):<br />
+  Use gates, triggers, or audio-rate clocks to forcibly reset the pulsar engine. Try clocking it with non-4/4 clocks (triplets, 5s, 7s), for instant polymetric mayhem.</li>
+</ul>
+<h2>6. <strong>Experimental Tips</strong></h2>
+<ul>
+<li>
+<p><strong>Self-Patching</strong>:<br />
+  Patch processed audio from the Pulsar output back into any CV input (Density, Shape, Cadence) for unpredictable, feedback-driven rhythmic complexity.</p>
+</li>
+<li>
+<p><strong>External Sequencer Control</strong>:<br />
+  Sequence pitch, density, cadence, and torque simultaneously to “play” the Mom Jeans like a percussionist, treating each step of a sequence as a new “drum hit” with variable timbre and rhythm.</p>
+</li>
+<li>
+<p><strong>External Modulation</strong>:<br />
+  Use random, Lorenz attractor, or Turing Machine outputs to any combination of modulation ins for long-evolving, pseudo-random percussion.</p>
+</li>
+</ul>
+<hr />
+<h2><strong>Polyrhythmic Patch Example</strong></h2>
+<ol>
+<li>Patch a stepped random or clock divider into <strong>Cadence CV</strong>.</li>
+<li>Modulate <strong>Density</strong> with another clocked CV; set Density midway for both grain and gap emphasis.</li>
+<li>Enable <strong>Coupling</strong> for rhythmic lock or disable for unpredictable timing.</li>
+<li>Snap <strong>Quantization</strong> ON for hard-edged, stepped metric modulation.</li>
+<li>Mult <strong>Pulsar Out</strong> and <strong>Square Out</strong> to various percussion VCAs or samplers.</li>
+</ol>
+<p>Result: <strong>Evolving, clock-synced, polymetric digital percussion with chaotic and algorithmic subdivisions.</strong></p>
+<hr />
+<p>For further patch ideas, consult the examples in the manual’s last pages!</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

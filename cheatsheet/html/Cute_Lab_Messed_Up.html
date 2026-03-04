@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Cute_Lab_Messed_Up</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Cute Lab — Messed Up</h1>
+<ul>
+<li><a href="../../manuals/messed-up-manual-rev2.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p>Certainly! Here is a concise cheat sheet for the <strong>CuteLab Messed Up: Metrically Modulating Clock Generator</strong> eurorack module, based on the manual you provided.</p>
+<hr />
+<h3><a href="Upload-the-manual-to-a-public-link/if-available.pdf">Messed Up User Manual PDF</a></h3>
+<hr />
+<h2>Messed Up Cheat Sheet</h2>
+<h3>🏷️ <strong>Quick Overview</strong></h3>
+<ul>
+<li><strong>Type:</strong> Modulating Clock Generator</li>
+<li><strong>Use:</strong> Generates flexible clock/divide rhythms and stretchable tempos for advanced metric modulation, polyrhythms, and synced clocking.  </li>
+<li><strong>Clocks:</strong> Internal or external.</li>
+<li><strong>Unique:</strong> Truncation and modulation for complex rhythmic changes.</li>
+</ul>
+<hr />
+<h2>⚡ <strong>Inputs, Outputs, Controls: Quick Reference</strong></h2>
+<h3>Inputs (CV, Gate, or Clock Jacks)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Jack/Input Name</th>
+<th>Function</th>
+<th>Range/Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td><strong>Clock In</strong></td>
+<td>External clock input</td>
+<td>Standard 0-5V or higher for modular clocks</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>Modulate In</strong></td>
+<td>Trigger input for metric modulation</td>
+<td>Rising edge triggers modulation</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>Beat CV In</strong></td>
+<td>CV to beat value</td>
+<td>±5V typical (manual unspecified)</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>Divide CV In</strong></td>
+<td>CV to divide value</td>
+<td>±5V typical; attenuvertable (see control 12)</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>Truncate CV In</strong></td>
+<td>CV to truncation</td>
+<td>±5V typical</td>
+</tr>
+</tbody>
+</table>
+<h3>Outputs (Gate/Clock Out)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Jack/Output Name</th>
+<th>Function / Voltage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>21</td>
+<td><strong>Beat Out</strong></td>
+<td>Gate out (0-5V)</td>
+<td>Fires for each beat</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>Divide Out</strong></td>
+<td>Gate out (0-5V)</td>
+<td>Fires for divided beats</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>Truncate Out</strong></td>
+<td>Gate out (0-5V)</td>
+<td>Fires with truncation</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>Downbeat Out</strong></td>
+<td>Gate out (0-5V)</td>
+<td>Fires for 1st beat of each measure</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>EoM Out</strong></td>
+<td>Gate out (0-5V)</td>
+<td>End of Modulation trigger</td>
+</tr>
+</tbody>
+</table>
+<h3>Knobs, Encoders, and Button Controls</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Tap Tempo Button</strong></td>
+<td>Sets/holds tempo, shows BPM, clock start/stop</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Divide Encoder</strong></td>
+<td>Adjust divide value (int or CV), push: latch</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Beat Encoder</strong></td>
+<td>Adjust beat value (int or CV), push: latch</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Modulate Button</strong></td>
+<td>Triggers modulation, queues modulation</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Truncate Knob</strong></td>
+<td>Sets truncation position</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Divide CV Attenuverter</strong></td>
+<td>Scales/inverts divide CV in</td>
+</tr>
+</tbody>
+</table>
+<h3>Toggles &amp; Indicators</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Toggle/Switch/LED</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td><strong>Free Mod. Toggle</strong></td>
+<td>Free/latched modulation to measure</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Round Trip Mod. Toggle</strong></td>
+<td>Enable/disable round trip modulation</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Divide Latch LED</strong></td>
+<td>Red: divides changes latched</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Beat Latch LED</strong></td>
+<td>Red: beat changes latched</td>
+</tr>
+</tbody>
+</table>
+<h3>Display</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Display Component</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>7-Segment Display</td>
+<td>Shows tempo, settings, or config menu value</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🎚️ <strong>Features &amp; Workflow</strong></h2>
+<h3>Basic Patch &amp; Use</h3>
+<ul>
+<li><strong>Simple clock</strong>: Clock In → Beat Out, Drive sequencers/drums.</li>
+<li><strong>Set tempo</strong>: Tap clock button or hold and use encoders.</li>
+<li><strong>Change signature:</strong> Set "Beat" and "Divide" for custom meters/ratios.</li>
+<li><strong>Modulation:</strong> Press Modulate button, or external trigger, to "stretch" tempo into a new ratio.</li>
+<li><strong>Round Trip:</strong> Toggle up for A→B→A switching.</li>
+<li><strong>Free:</strong> Toggle modulation to next measure or immediate (beat aligned).</li>
+<li><strong>Truncate:</strong> Add rhythmic variation using truncate knob or CV.</li>
+<li><strong>Latch:</strong> Encoders can queue changes to the next downbeat.</li>
+</ul>
+<h3>Voltage Ranges</h3>
+<ul>
+<li><strong>All Logic/Gate outs:</strong> 0V (low), 5V (high) typical.</li>
+<li><strong>CV Inputs:</strong> ±5V (noted, use external attenuators if needed).</li>
+<li><strong>External Clock:</strong> Accepts typical modular gates/clocks 0-5V up.</li>
+</ul>
+<h3>Configuration Menu (Hold Divide encoder to enter)</h3>
+<ul>
+<li><strong>Input Clock Divider:</strong> Adjust input clock scaling 1:1–1:9</li>
+<li><strong>Clock Stop:</strong> Module stops if no external clock.</li>
+<li><strong>Beat/Divide Output Multiplier:</strong> Send more clock pulses (1, 2, 4, or 8 PPN)</li>
+<li><strong>Duty Cycle Mode:</strong> 50% or short pulse (10ms)</li>
+<li><strong>Beat Input Reset:</strong> Use Beat CV jack as reset instead of CV</li>
+<li><strong>Modulation Style:</strong> After mod, outputs can sync, stay, or flip roles.</li>
+</ul>
+<h3>Presets</h3>
+<ul>
+<li>Save/recall all current settings (tempo, beat, divide, options) to one of 9 presets.</li>
+<li>(Hold Beat encoder to enter preset mode.)</li>
+</ul>
+<h3>Firmware</h3>
+<ul>
+<li>Update via USB mini on back PCB. See <a href="https://github.com/nstarke/eurorack-processor">CuteLab Github</a> for files/instructions.</li>
+</ul>
+<hr />
+<h2>🎶 <strong>Concepts/Best Practices</strong></h2>
+<ul>
+<li><strong>Metric Modulation:</strong> Use different beat/divide values then modulate, changing the rhythmic grid.</li>
+<li><strong>Truncation:</strong> Great for syncopation or subtle groove changes.</li>
+<li><strong>Latch:</strong> Smooth live performance changes by quantizing to the measure.</li>
+<li><strong>Sync Outputs:</strong> Use Downbeat or EoM out to sync other modules to modulation or measure start.</li>
+</ul>
+<hr />
+<h2>💾 <strong>References</strong></h2>
+<ul>
+<li><a href="Upload-the-manual-to-a-public-link/if-available.pdf">Manual PDF (add your link here!)</a></li>
+<li><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></li>
+</ul>
+<hr />
+<p><strong>Tip:</strong> Experiment with unusual Beat/Divide values, modulate and use truncation for polyrhythms that are tight but breathe!</p>
+<p>If you have questions about a specific use case, just ask!</p>
+</body>
+</html>

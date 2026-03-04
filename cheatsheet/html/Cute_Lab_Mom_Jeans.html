@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Cute_Lab_Mom_Jeans</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Cute Lab — Mom Jeans</h1>
+<ul>
+<li><a href="../../manuals/mom-jeans-manual-rev1-1.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="sandbox:/mnt/data/MomJeans_Manual_Rev_1.1.pdf"><strong>Mom Jeans User Manual PDF</strong></a></p>
+<hr />
+<h1>Mom Jeans (CuteLab) Eurorack Module Cheat Sheet</h1>
+<p>Pulsar synthesis VCO with unique density and grain-width modulation for advanced digital timbres.</p>
+<hr />
+<h2><strong>Panel Controls &amp; Reference</strong></h2>
+<h3><strong>Knobs</strong></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Name</th>
+<th>Function</th>
+<th>CV Input (Jacks)</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Pitch</td>
+<td>Sets base oscillator frequency</td>
+<td>V/Oct (#14)</td>
+<td>1V/oct standard, accepts ±V (typically -5V/+5V)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Density</td>
+<td>Adjusts pulsaret grain width (main timbre control)</td>
+<td>Density CV (#4)</td>
+<td>±5V (typical CV range)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Cadence</td>
+<td>Rate of internal density modulation</td>
+<td>Cadence CV (#11)</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Torque</td>
+<td>Mod amount from internal modulator</td>
+<td>Torque CV (#12)</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Shape</td>
+<td>Pulsaret waveform selection (sinc→triangle→rectangle→saw variants)</td>
+<td>Shape CV (#13)</td>
+<td>±5V</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>Buttons &amp; Toggles</strong></h3>
+<ul>
+<li><strong>2: Range button</strong> – Switches Pitch range:  <ul>
+<li>Normal: 220Hz–880Hz  </li>
+<li>Extended (LED lit): 27.5Hz–3520Hz</li>
+</ul>
+</li>
+<li><strong>8: Coupling toggle</strong> – Quantizes internal mod rate (Cadence) to frequency ratios.</li>
+<li><strong>9: Quantization toggle</strong> – Quantizes Cadence to stepped values related to pitch.</li>
+</ul>
+<h3><strong>Jacks</strong></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Type</th>
+<th>Name</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>CV In</td>
+<td>Density</td>
+<td>Modulates grain width</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>11</td>
+<td>CV In</td>
+<td>Cadence</td>
+<td>Modulates modulation rate</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>12</td>
+<td>CV In</td>
+<td>Torque</td>
+<td>Modulates modulation amplitude</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>13</td>
+<td>CV In</td>
+<td>Shape</td>
+<td>Modulates the current waveform</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>14</td>
+<td>CV In</td>
+<td>V/Oct</td>
+<td>Exponential pitch control (1V/oct)</td>
+<td>−/+V, 1V/octetave</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Audio In</td>
+<td>Linear FM</td>
+<td>Linear FM input (symmetric Hz mod)</td>
+<td>±5V/line level</td>
+</tr>
+<tr>
+<td>16</td>
+<td>CV In</td>
+<td>FM Index</td>
+<td>Attenuverts Linear FM amplitude</td>
+<td>±5V</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Audio In</td>
+<td>Sync</td>
+<td>Hard syncs oscillator phase/rate</td>
+<td>0–5V (typical gate/square)</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Audio Out</td>
+<td>Square</td>
+<td>Classic square wave (bypasses Shape param)</td>
+<td>±5V (audio)</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Audio Out</td>
+<td>Pulsar</td>
+<td>Main output, full pulsar synthesis tone</td>
+<td>±5V (audio)</td>
+</tr>
+</tbody>
+</table>
+<p><em>#5 is a Cadence rate indicator LED.</em></p>
+<hr />
+<h2><strong>Signal Flow &amp; Core Functions</strong></h2>
+<ul>
+<li><strong>Pitch:</strong> Set and control via knob, range button, and V/Oct CV for musical tracking.</li>
+<li><strong>Density:</strong> Morphs between classic subharmonic and noise textures by stretching/overlapping grains; main sound-shaping parameter.</li>
+<li><strong>Cadence (rate):</strong> Speed of the cyclic modulation of density (vibrato or audio-rate), CV controlled.</li>
+<li><strong>Torque (depth):</strong> Depth/amount of cyclic density modulation, CV controlled.</li>
+<li><strong>Shape:</strong> Smoothly crossfades through seven waveforms per grain, from soft to bright.</li>
+<li><strong>Coupling/Quantization toggles:</strong> Force tight/stepped relations between modulation rates and pitch for more musical/organ-like timbres.</li>
+</ul>
+<hr />
+<h2><strong>Key Usage Tips</strong></h2>
+<ul>
+<li><strong>Blend Square and Pulsar outputs</strong> for rich bass or hybrid tones.</li>
+<li><strong>Extreme Density:</strong> Far min and max produce noisy/rhythmic or digital textures.</li>
+<li><strong>Coupling/Quant ON:</strong> Maintains consistent pitch and creates stepped, "organ"-like transitions between timbres.</li>
+<li><strong>Standard VCO use:</strong> Use only Pitch, V/Oct, Linear FM, Sync, and Square Out.</li>
+<li><strong>Pulsar synthesis:</strong> Use Density, Cadence, Torque, and Shape controls—modulate them for evolving digital sounds.</li>
+</ul>
+<hr />
+<h2><strong>Manual Patch Inspirations</strong></h2>
+<ul>
+<li><strong>Super PWM:</strong> Classic but richer pulse mod—from square and density mod.</li>
+<li><strong>Pocket Monsters:</strong> Wild digital screeches—modulate pitch/cadence.</li>
+<li><strong>Ghost Vibes:</strong> Fine/fleeting granular shimmer—fast, gentle density mod.</li>
+<li><strong>Spelunker:</strong> 8-bit, chirpy digital—low pitch + max density mod + saw/stepped shape.</li>
+<li><strong>Simple Sinc:</strong> Smooth, sine-like—low shape, varied density for gentle harmonics.</li>
+<li><strong>Captain Crunch:</strong> Bright, bell-like—pair audio-rate density mod with coupling.</li>
+</ul>
+<hr />
+<p><strong>Power:</strong> 10-pin ribbon (2x5), +12V: ~80mA; -12V: ~2mA</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Cute_Lab_Messed_Up</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Cute Lab — Messed Up</h1>
+<ul>
+<li><a href="../../manuals/messed-up-manual-rev2.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="sandbox:/mnt/data/MessedUp_Manual_Rev2.pdf"><strong>Download the MessedUp Manual PDF</strong></a></p>
+<hr />
+<h1>Creative Modulation Techniques for Messed Up (CuteLab)</h1>
+<p>The <strong>Messed Up</strong> module is a metrically modulating clock generator designed for adventurous polyrhythms and tempo morphing. It can radically transform the rhythmic landscape in your modular system, introducing layers of syncopation, metric modulation, and cross-rhythm—making it a powerhouse for experimental sound design.</p>
+<p>Below are tailored modulation strategies to fit three different musical use-cases: <strong>distorted percussion, wonky basslines, and haunting pads</strong>.</p>
+<hr />
+<h2>1. Distorted Percussive Sounds</h2>
+<p><strong>Goal:</strong> Pulse- and glitch-based grooves, polymetric rhythms, and aggressive stuttering.</p>
+<h4>Patch Suggestions:</h4>
+<ul>
+<li><strong>Truncate Output to Percussion Modules:</strong></li>
+<li>Set <code>divide</code> and <code>beat</code> to <strong>prime number ratios</strong> (e.g., 5 &amp; 4 or 7 &amp; 3).</li>
+<li>Increase the <strong>Truncate</strong> knob/CV to less than 100%—this creates stuttered, not-quite-even divisions.</li>
+<li>
+<p>Route <code>truncate</code> out (Jack 19) to trigger a drum or noise source. This will slice off beats in irregular places, chopping audio in unexpected ways.</p>
+</li>
+<li>
+<p><strong>Metric Modulation "Triplet Flip":</strong></p>
+</li>
+<li>Patch a regular clock to the module.</li>
+<li>Use <code>beat=4</code>, <code>divide=3</code>, latch the modulations to downbeats.</li>
+<li>Press the <strong>Modulate</strong> button or send a trigger to its input while a phrase is playing.</li>
+<li>
+<p>On modulation, everything re-times: 1/4 notes become "quarter-note triplets." This is sonically jarring if the percussive sounds are sustained and distorted.</p>
+</li>
+<li>
+<p><strong>CV-Controlled Drunken Divides:</strong></p>
+</li>
+<li>Patch a slow, random LFO or stepped CV to the <code>divide CV input</code> (Jack 16). Use the <code>divide attenuverter</code> (Knob 12) to taste.</li>
+<li>Each bar, division amount swerves, causing percussion loops to lose/gain triggers, becoming unpredictable and crunchy.</li>
+</ul>
+<hr />
+<h2>2. Crazy Dubstep/Drum &amp; Bass Basslines</h2>
+<p><strong>Goal:</strong> Automated wobbles, syncopated switchups, intricate sub sync.</p>
+<h4>Patch Suggestions:</h4>
+<ul>
+<li><strong>Bass Envelope Clocking:</strong></li>
+<li>Use <code>beat out</code> (Jack 21) or <code>divide out</code> (Jack 20) to clock bass envelope generators or modulation oscillators.</li>
+<li>Regularly <code>modulate</code> between (for example) <code>beat=3</code>, <code>divide=8</code> and vice versa. Use latching so that changes line up with measures.</li>
+<li>
+<p>This creates polymetric LFO wobbles that suddenly shift phase or speed, classic for neuro/dubstep leads.</p>
+</li>
+<li>
+<p><strong>Truncation For "Bass Gatling":</strong></p>
+</li>
+<li>Patch the <code>truncate</code> output to a VCA controlling a bassline oscillator.</li>
+<li>Modulate the Truncate amount with a fast envelope or random CV; the "gate" for the bassline gets clipped and shifted within every measure.</li>
+<li>
+<p>Add audio-rate modulation to the Truncate CV for intense digital distortion artifacts—robotic, shredded bass pulses.</p>
+</li>
+<li>
+<p><strong>Divide Ratios as Bass Step Selectors:</strong></p>
+</li>
+<li>Use a sequencer that advances on clock.</li>
+<li>Modulate between 5:4, 7:3, 3:4, and other ratios mid-riff for machine-gun-style sudden sequence length changes.</li>
+<li>The <strong>Round Trip</strong> modulation mode lets you "snap back" to the original groove for drop-to-drop contrast.</li>
+</ul>
+<hr />
+<h2>3. Haunting Atmospheric Pads</h2>
+<p><strong>Goal:</strong> Long-evolving, unpredictable, and phasing textures.</p>
+<h4>Patch Suggestions:</h4>
+<ul>
+<li><strong>Slow Metric Drift:</strong></li>
+<li>Use internal clock, set a slow tempo (e.g., 40-80 BPM).</li>
+<li>Output <code>beat</code> and <code>divide</code> to different envelopes or VCAs controlling ambient tone generators.</li>
+<li>Slowly modulate between ratios like 9:8, 7:6 for subtle rhythmic drift.</li>
+<li>
+<p>Engage <strong>latch</strong> for both beat and divide to ensure transitions are gentle and line up, for that “falling apart in slow motion” pad feel.</p>
+</li>
+<li>
+<p><strong>Clocking Modulation Index/FX:</strong></p>
+</li>
+<li>Use <code>EoM</code> (End of Modulation pulse, Jack 18) to trigger random shifts in a reverb, sample-and-hold, or granular effect.</li>
+<li>
+<p>Every time the metric mod occurs, the atmosphere "morphs," adding organic complexity.</p>
+</li>
+<li>
+<p><strong>Asynchronous Layering:</strong></p>
+</li>
+<li>Patch <code>downbeat</code>, <code>divide</code>, and <code>beat</code> to three different mod destinations on a big reverb pad (filter cutoff, shimmer mixer, vactrol slew time).</li>
+<li>Use distinctly different <code>beat/divide</code> values for a multi-layer phase effect that never repeats exactly, gently pulling apart and tightening pad harmony.</li>
+</ul>
+<hr />
+<h3><strong>Power User Tips</strong></h3>
+<ul>
+<li><strong>Modulation Style (<code>StyL</code>):</strong> Experiment with <code>FLIP</code> mode for totally swapping beat/divide—ideal for creating sudden metric inversions.</li>
+<li><strong>Duty Cycle Short Pulses:</strong> For percussive or choppy effects, set duty cycle mode to 0.01 for 10ms pulses. This makes the clocks act like rapid triggers rather than “on” gates—great for clicks or instant bass “zaps”.</li>
+<li><strong>Chain CVs:</strong> Modulate the <code>modulation trigger input</code> and <code>beat/divide</code> CVs simultaneously for even more complex metric automation.</li>
+</ul>
+<hr />
+<h2>In Summary</h2>
+<p>The Messed Up module is a deep tool for clock bending: with its polyrhythm stretching, truncate gating, and moment-to-moment modulation, it is uniquely placed for sound-designers hungry for new rhythmic terrains—perfect for distorted beats, neurotic basses, and heavenly pads.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

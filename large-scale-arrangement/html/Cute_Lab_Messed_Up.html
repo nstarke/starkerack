@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Cute_Lab_Messed_Up</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Cute Lab — Messed Up</h1>
+<ul>
+<li><a href="../../manuals/messed-up-manual-rev2.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="sandbox:/mnt/data/MessedUp_Manual_Rev2.0.pdf"><strong>Download the Messed Up Manual (PDF)</strong></a></p>
+<hr />
+<h1>Turning Patterns into Full-Length Songs with Messed Up</h1>
+<p>The Messed Up module from CuteLab (Rev 2.0) goes far beyond being just another clock divider or trigger generator. It is a <strong>metrically modulating clock generator</strong>, capable of metric modulation, polyrhythms, and advanced clock stretching — all of which are powerful tools for moving beyond short, repetitive loops and into the realm of structured, evolving, full-length songs.</p>
+<p>Below, I’ll break down strategies and patch ideas for using Messed Up as the foundation for a <em>performative, song-like patch</em> in your Eurorack system.</p>
+<hr />
+<h2>1. Modular Song Structures: The Role of Metric Modulation</h2>
+<p><strong>Common Problem:</strong><br />
+Many racks build great 8- or 16-step patterns, but everything stays locked to a single groove or time division. The song doesn’t <em>develop</em>.</p>
+<p><strong>Messed Up Solution:</strong><br />
+With Messed Up, you can <em>change</em> the tempo and pulse subdivisions on the fly, in mathematically precise ways that stay musically meaningful (e.g., triplet feels, modulating into 5s, returning to the original grid, etc.). This lets you:</p>
+<ul>
+<li>Move between different <strong>sections</strong> (A/B/Chorus/Bridge/etc.) by modulating the clock basis for your whole rig or for certain voices.</li>
+<li>Create polyrhythmic breakdowns, build tension, or seamlessly switch up groove densities.</li>
+</ul>
+<h2>2. Patch Ideas for Full-Length Song Development</h2>
+<h3><strong>A. Evolving Rhythmic Grids</strong></h3>
+<ul>
+<li><strong>Start simple:</strong> Patch a master clock (internal or external) into Messed Up. Output the <em>beat</em> or <em>divide</em> clocks to sequencers, drum modules, and modulation sources.</li>
+<li><strong>Section changes:</strong> At song transition points, use the <em>modulate</em> button (or automate via trigger/CV) to warp into a new beat/divide ratio.<br />
+<em>Example: Move from straight 4/4 into 3/4 (waltz), 5/8, or a triplet feel.</em></li>
+<li><strong>Return:</strong> With Round Trip mode, you can always modulate BACK to the original tempo — an essential feature for “verse, chorus, bridge, verse” song forms.</li>
+</ul>
+<h3><strong>B. Polyrhythm &amp; Syncopation for Builds and Breakdowns</strong></h3>
+<ul>
+<li><strong>Truncate output:</strong> Use the <em>truncate</em> output to create syncopated or chopped patterns — this is great for fills and breakdowns. Modulate the truncation amount with an LFO, envelope, or manually via its CV input for dynamic density changes.</li>
+<li><strong>Divide/Beat Latch:</strong> By enabling latch on beat or divide, you can ‘schedule’ clock/grid changes in sync with your phrasing, making the changes tight and performable.</li>
+</ul>
+<h3><strong>C. Advanced Preset Control and Performance Recall</strong></h3>
+<ul>
+<li><strong>Hold the beat encoder</strong> to access <strong>presets</strong>. Store states for different song sections — including all clock settings, divisions, latching, and modulation style.</li>
+<li><strong>Live performance:</strong> Recall these instantly for tight transitions, or step through them in sequence for through-composed pieces.</li>
+</ul>
+<h3><strong>D. Clock Resets and External Sync</strong></h3>
+<ul>
+<li>Use <em>beat input reset</em> to "hard sync" to another sequencer. This allows for precise “start points” when jumping between song sections or even verse/chorus on a looper or sampler.</li>
+<li><em>Input Clock Divider</em> lets you process fast master clocks into musically relevant divisions per section.</li>
+</ul>
+<h3><strong>E. Modulation as a Compositional Tool</strong></h3>
+<ul>
+<li>Use CV or triggers to modulate beat/divide values, and therefore the "feel" of your composition, from sequencers or performance controllers (e.g., Pressure Points, Tetrapad, or MIDI–CV devices).</li>
+<li>Automate or randomize metric modulations for generative arrangements.</li>
+</ul>
+<hr />
+<h2>3. Example Song Structure Patch</h2>
+<ul>
+<li><strong>Intro:</strong> Simple 4/4 groove, steady clock from Messed Up’s internal clock.</li>
+<li><strong>Build:</strong> Use truncate output for percussive variation; gradually turn up truncate pot or send CV.</li>
+<li><strong>Chorus:</strong> Modulate into 3:4 triplets, triggering dense hi-hat clusters or a melodic ostinato using the new divide clock.</li>
+<li><strong>Bridge:</strong> Recall a preset for a polyrhythmic 5:4 section using divide/beat.</li>
+<li><strong>Drop:</strong> Use round trip modulation to return to the original groove, invoking a sense of homecoming or “resolution”.</li>
+</ul>
+<h3>In Combination with Other Modules:</h3>
+<ul>
+<li><strong>Sequencers (Voltage Block, René, Step Sequencers):</strong> Drive sequencer clock inputs from Messed Up's <em>beat</em>, <em>divide</em>, or <em>truncate</em> outputs for polymetric patterning.</li>
+<li><strong>Drum Modules:</strong> Use <em>downbeat</em> output to trigger accent snares or transitions.</li>
+<li><strong>Logic Modules:</strong> Combine Messed Up outputs (beat, divide, truncate) in an OR/AND module to create unique gate patterns for triggers, envelopes, or effects.</li>
+<li><strong>Modulation Sources:</strong> Use End of Modulation (EoM) output to trigger scene changes, effect sweeps, or sample switches at section transitions.</li>
+</ul>
+<hr />
+<h2>4. Advanced Tips</h2>
+<ul>
+<li><strong>Metric Modulation as a Narrative Tool:</strong><br />
+  Let the metric modulation itself <em>tell the story</em> — let songs drift into new tempos, then snap back to the theme. Build tension with gradual modulations, then deliver release by returning to the grid.</li>
+<li><strong>Automation and Randomization:</strong><br />
+  With extensive CV control, you can use random sources or step sequenced voltages to automate clock and count changes, creating unpredictable arrangement shifts — or keeping listeners on the edge.</li>
+</ul>
+<hr />
+<h2>Conclusion</h2>
+<p><strong>Messed Up is a performance and composition powerhouse</strong> for turning rigid, repetitive patterns into expressive, evolving songs. Strategic use of modulation, presets, and outputs for synchronizing external sequencers and drum machines can give your modular compositions a true narrative arc: intros, builds, drops, and big returns — all tightly clocked and dynamically polymetric.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Cute_Lab_Mom_Jeans</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Cute Lab — Mom Jeans</h1>
+<ul>
+<li><a href="../../manuals/mom-jeans-manual-rev1-1.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="sandbox:/mnt/data/manuals/MomJeans_Manual_Rev1.1.pdf"><strong>Download the Mom Jeans Manual PDF</strong></a></p>
+<hr />
+<h1>Creative Sound Design with Mom Jeans Oscillator</h1>
+<p>Based on the manual you provided, here's a sound design analysis and recommendations for using the Mom Jeans oscillator to craft <strong>distorted percussion</strong>, <strong>aggressive basslines</strong>, and <strong>atmospheric pads</strong>. I'll include modulation tips, CV patching strategies, and parameter combinations tailored for each sound type.</p>
+<hr />
+<h2><strong>General Modulation Concepts</strong></h2>
+<p>Mom Jeans offers <strong>CV modulation</strong> over nearly every key parameter: Shape, Density, Cadence, Torque, FM Index, Pitch (V/Oct and Linear FM), plus toggles for Coupling and Quantization. This gives you a wide palette for animation and morphing:</p>
+<ul>
+<li><strong>Shape</strong> — Crossfades between seven waveforms (from soft to stepped saw).</li>
+<li><strong>Density</strong> — Grain/pulsaret width, affects brightness, noisiness, and texture.</li>
+<li><strong>Cadence / Torque</strong> — Set internal rate and depth of density modulation; can track pitch for harmonic effects.</li>
+<li><strong>FM</strong> — Traditional and linear FM and hard sync for added harmonic complexity or aliasing.</li>
+<li><strong>Pulsar vs. Square Outputs</strong> — Mix or use separately for cleaner or more complex timbres.</li>
+</ul>
+<hr />
+<h2><strong>1. Distorted Percussive Sounds</strong></h2>
+<p>For punchy, gritty, or metallic percussion like snares, metallic blips, and "machine" hits:</p>
+<h3><strong>Patch Example</strong></h3>
+<ul>
+<li><strong>Trigger/Envelope → Linear FM or Density CV In:</strong> Use a sharp envelope or trigger as a CV or audio signal.</li>
+<li><strong>Shape:</strong> Mid to high (rectangle, saw, or stepped saw for more harmonics).</li>
+<li><strong>Density:</strong> Set low or high (extremes for clickiness or metallic texture).</li>
+<li><strong>Cadence:</strong> Moderate to fast; try high values for rapid modulation.</li>
+<li><strong>Torque:</strong> High, to create extreme grain modulation (for noisier or unstable attacks).</li>
+<li><strong>Coupling:</strong> OFF (for chaos) or ON (for tuned metallic effects).</li>
+<li><strong>Quantization:</strong> OFF for randomness, ON for stepped, robotic percussion.</li>
+<li><strong>Sync:</strong> Hard sync with another VCO/LFO for metallic or ringing effects.</li>
+<li><strong>Output:</strong> Use the Pulsar out for grit, mix in Square out for a more structured attack.</li>
+</ul>
+<h3><strong>Extra Tips</strong></h3>
+<ul>
+<li>Automated or random modulation of <strong>Density</strong> and <strong>Shape</strong> via fast LFO, gate, or sample-and-hold can simulate analog drum machine randomness.</li>
+<li>Try audio-rate density modulation (another VCO patched to Density CV) for extreme aliasing and industrial overtones.</li>
+</ul>
+<hr />
+<h2><strong>2. Dubstep / DnB Basslines</strong></h2>
+<p>For heavy, morphing, tearing bass that's alive with movement and harmonics:</p>
+<h3><strong>Patch Example</strong></h3>
+<ul>
+<li><strong>V/Oct:</strong> Sequence with a pitch CV from your MIDI-to-CV/gate.</li>
+<li><strong>Shape:</strong> Sweep across the center point for complex harmonic movement; automate with envelope or LFO for "wub" sounds.</li>
+<li><strong>Density:</strong> Modulate with envelope or LFO synced to the bass pattern—extremes for gnarly, broken digital bass, middle values for harmonically rich "formant" bass.</li>
+<li><strong>Cadence:</strong> Tie to pitch (Coupling ON) for consistent sub presence.</li>
+<li><strong>Torque:</strong> High, to exaggerate modulation.</li>
+<li><strong>FM:</strong> Use moderate linear FM from another oscillator (possibly envelope FM for "growls"), modulate FM Index to sweep between harmonics.</li>
+<li><strong>Quantization:</strong> Try ON for stepped vowel/formant sounds; OFF for smoother morphs.</li>
+<li><strong>Output:</strong> Rout Pulsar output through a VCA and filter for extreme sounds, Square out to layer solid sub.</li>
+</ul>
+<h3><strong>Extra Tips</strong></h3>
+<ul>
+<li>Automate <strong>Density</strong> and <strong>Shape</strong> simultaneously for formant basslines (classic dubstep technique).</li>
+<li>Routing sequencer gates to the <strong>Sync</strong> input can produce gnarly resets and tight rhythmic effects.</li>
+</ul>
+<hr />
+<h2><strong>3. Haunting Atmospheric Pads</strong></h2>
+<p>For eerie, shimmery, textural beds (think sci-fi or horror ambiences):</p>
+<h3><strong>Patch Example</strong></h3>
+<ul>
+<li><strong>Pitch:</strong> Low to mid, slow LFO slight modulation for sluggish drift.</li>
+<li><strong>Shape:</strong> Slowly sweep with LFO or random CV for evolving tonality.</li>
+<li><strong>Density:</strong> Keep low to mid (gentle formants and breathy texture). Animate with slow random mod or slow S/H.</li>
+<li><strong>Cadence:</strong> Slow, or coupled to pitch for shimmer.</li>
+<li><strong>Torque:</strong> Moderate, just enough to keep movement without becoming rhythmically obvious.</li>
+<li><strong>Coupling/Quantization:</strong> OFF for unpredictable, ghostly movement; ON for subtle, familiar organ-like timbres.</li>
+<li><strong>FM:</strong> Try very shallow, slow audio-rate FM for detune/phasing.</li>
+<li><strong>Output:</strong> Use only Pulsar out, or combine with subtle Square for slower, rounder undertones.</li>
+</ul>
+<h3><strong>Extra Tips</strong></h3>
+<ul>
+<li>Send multiple, unsynced slow LFOs or random voltages to different CV ins for organic drift.</li>
+<li>Try self-patching the Pulsar output (attenuated) back to Torque or Density CV input for chaotic, feedback-like modulation.</li>
+</ul>
+<hr />
+<h2><strong>Parameter Modulation Summary Table</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Sound Type</th>
+<th>Key Params</th>
+<th>Modulation Suggestions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Percussion</td>
+<td>Density, Shape, Cadence, Torque, FM, Sync</td>
+<td>Fast envelope/trig modulate Density &amp; Shape, hard sync, high Torque</td>
+</tr>
+<tr>
+<td>Basslines</td>
+<td>Shape, Density, FM, Cadence (Coupled), Quant</td>
+<td>Automated formant sweeps, FM growls, Quant for stepped movement</td>
+</tr>
+<tr>
+<td>Pads</td>
+<td>Shape, Density, Cadence, Torque (all slow)</td>
+<td>Slow/random LFOs and S/H, light FM, uncoupled modes for drift</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2><strong>Final Tips</strong></h2>
+<ul>
+<li><strong>Extreme settings</strong> are encouraged: push Density/Cadence/Torque to their limits and modulate deeply for digital artifacts.</li>
+<li>Abuse the <strong>Coupling</strong> and <strong>Quantization</strong> toggles to flip between organic flow and stepped robotic sound.</li>
+<li><strong>Pulsar Output</strong> excels at bright, harmonically rich tones; <strong>Square Output</strong> for foundation/subs.</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor"><strong>Generated With Eurorack Processor</strong></a></p>
+</body>
+</html>
