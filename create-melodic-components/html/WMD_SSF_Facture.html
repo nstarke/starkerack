@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>WMD_SSF_Facture</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>WMD SSF — Facture</h1>
+<ul>
+<li><a href="../../manuals/manual_black_fracture.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>WMD Fracture — using it for melodic components</h1>
+<p>Fracture is not a traditional oscillator/VCO voice. It is a <strong>multi-particle percussion synthesizer</strong> built from bursts of very short samples, pseudo-random pitch assignment, filtering, stereo spread, and reverb. So its natural habitat is claps, applause, ticks, snaps, and granular percussion.</p>
+<p>That said, as a Eurorack musician, I’d absolutely use it for <strong>melodic support, tuned percussion, and pitch-adjacent textures</strong> rather than only drums.</p>
+<h2>What in the manual matters for melody</h2>
+<p>From the manual, the key features for melodic use are:</p>
+<ul>
+<li><strong>PITCH CV input</strong></li>
+<li>This is the main melodic hook.</li>
+<li>It “takes control of the center pitch of the particle burst” and disables the FREQ knob’s control over pitch.</li>
+<li><strong>FREQ</strong></li>
+<li>Depending on <strong>PUNCH</strong> mode, this affects filter frequency and sometimes pitch.</li>
+<li><strong>PUNCH modes</strong></li>
+<li>Mode 1: filter only</li>
+<li>Mode 2: filter + pitch</li>
+<li>Mode 3: filter + pitch with parallel bandpass</li>
+<li><strong>SPREAD</strong></li>
+<li>Adds variance in pitch and panning around the center</li>
+<li>For melodic work, lower settings give more pitch focus</li>
+<li><strong>SURFACE</strong></li>
+<li>Selects among 23 transient microsample families</li>
+<li>Some surfaces will read as much more “pitched” than others</li>
+<li><strong>DECAY / TAIL</strong></li>
+<li>Shape whether the result is a tight, struck note, a looser cloud, or a decaying applause-like texture</li>
+<li><strong>DENSITY</strong></li>
+<li>Controls how many particles attempt to occur</li>
+<li>Lower density tends to sound more pointillistic and articulate</li>
+<li>Higher density becomes more cloud-like/noisy</li>
+<li><strong>TRIG / TICK / ACC</strong></li>
+<li>TRIG starts a burst</li>
+<li>TICK fires a single particle on a rising edge</li>
+<li>ACC changes the burst to louder/longer/accented if high during TRIG</li>
+<li><strong>Stereo outs</strong></li>
+<li>Helpful for widening melodic layers or creating animated stereo ornamentation</li>
+<li><strong>INF mode</strong></li>
+<li>Lets you sustain a particle cloud instead of a normal decaying burst</li>
+</ul>
+<h2>The big idea: Fracture as a “pitched transient voice”</h2>
+<p>Fracture can make melodic material when you stop thinking of it as a clap and start thinking of it as:</p>
+<ul>
+<li>a <strong>tuned granular percussion source</strong></li>
+<li>a <strong>struck microsample voice</strong></li>
+<li>a <strong>stereo ornament generator</strong></li>
+<li>a <strong>pitched noise/chime layer</strong></li>
+</ul>
+<p>It will not behave like a stable sine/triangle oscillator. Instead, it gives you notes with:
+- an unstable or clustered pitch center
+- transient-rich attack
+- pseudo-random variation
+- strong spectral character</p>
+<p>That makes it especially useful for:</p>
+<ul>
+<li>melodic percussion</li>
+<li>glitch melodies</li>
+<li>arpeggiated accents</li>
+<li>top-line texture</li>
+<li>tuned fills</li>
+<li>stereo counter-melody</li>
+<li>generative melodic clouds</li>
+</ul>
+<hr />
+<h2>Best controls for tuning Fracture melodically</h2>
+<h2>1. Use PITCH CV as the note source</h2>
+<p>Send sequencer CV, quantized random CV, or keyboard CV into <strong>PITCH</strong>.</p>
+<p>Why:
+- The manual states this input takes over center pitch.
+- This gives the clearest pitch relationship to your patch.</p>
+<p>Best practice:
+- Use a <strong>quantizer</strong> before PITCH if you want recognizable scales.
+- Use a precision adder for transposition.</p>
+<h2>2. Keep SPREAD low for clearer note identity</h2>
+<p>SPREAD increases pitch variance from the center.</p>
+<p>For melody:
+- <strong>Low SPREAD</strong> = more focused pitch
+- <strong>High SPREAD</strong> = cluster/chord-ish/noise-ish smear</p>
+<p>A very small amount of SPREAD can be beautiful because it gives a chorus/ensemble effect without destroying note center.</p>
+<h2>3. Choose surfaces that read as pitched</h2>
+<p>Because SURFACE chooses different transient microsamples, some will feel:</p>
+<ul>
+<li>woody and clicky</li>
+<li>noisy and clap-like</li>
+<li>snappy and broad-spectrum</li>
+<li>object-like and resonant</li>
+</ul>
+<p>For melody, favor surfaces that seem to have:
+- a short resonant body
+- less broadband noise
+- more distinct “tap,” “stick,” or “object” tone</p>
+<p>You’ll have to audition by ear, but typically:
+- stick-like
+- ball-like
+- toggle-like
+- tighter microsamples</p>
+<p>…will often pitch-track more convincingly than pure clap/noise textures.</p>
+<h2>4. Use PUNCH mode carefully</h2>
+<p>PUNCH changes how FREQ affects the sound.</p>
+<p>For melodic work:
+- <strong>Mode 1</strong> is useful if you want pitch from PITCH CV only, and FREQ only as timbral shaping.
+- <strong>Mode 2</strong> is useful if you want FREQ to co-shape tone and pitch.
+- <strong>Mode 3</strong> is good when you want more aggressive, resonant, cutting melodic transients.</p>
+<p>If you need stable note relationships:
+- patch your melody to <strong>PITCH</strong>
+- use <strong>PUNCH mode 1</strong>
+- use <strong>FREQ</strong> as spectral emphasis</p>
+<p>That gives the cleanest division between note and timbre.</p>
+<h2>5. Use TICK for plucked melodic points</h2>
+<p>The manual says <strong>TICK</strong> plays a single particle sample on the rising edge.</p>
+<p>This is extremely useful for melody:
+- one trigger = one tiny struck event
+- less clouding than a full TRIG burst
+- more “Mallet / pluck / glitch note” behavior</p>
+<p>If you want Fracture to behave like a strange melodic percussion synth, <strong>TICK is often the best entry point</strong>.</p>
+<h2>6. Use TRIG for fuller notes</h2>
+<p>TRIG creates a burst, so it sounds more like:
+- clap note
+- fluttering strike
+- granular flam
+- mini-cloud</p>
+<p>For melody, this works well when:
+- DECAY is moderate
+- DENSITY is not too high
+- SPREAD stays low
+- surfaces are chosen for resonance rather than noise</p>
+<h2>7. Shape note articulation with DECAY and TAIL</h2>
+<p>These determine how each note decays.</p>
+<p>Useful melodic interpretations:</p>
+<ul>
+<li><strong>Short DECAY + TAIL mode 1</strong></li>
+<li>tight struck notes</li>
+<li>best for rhythmic sequences</li>
+<li><strong>Medium DECAY + TAIL mode 2</strong></li>
+<li>more natural tails</li>
+<li>nice for melodic ostinatos</li>
+<li><strong>Longer DECAY + TAIL mode 3</strong></li>
+<li>drifting, probabilistic decay</li>
+<li>ideal for ambient melodic particles</li>
+</ul>
+<p>If you want “pitched applause” or “tuned granular shower,” use longer decays and probability-based tails.</p>
+<hr />
+<h2>Musical patch approaches</h2>
+<h2>1. Tuned percussion line</h2>
+<p>This is the most direct melodic use.</p>
+<p>Patch:
+- Sequencer CV → Quantizer → <strong>PITCH</strong>
+- Trigger sequencer → <strong>TICK</strong>
+- Audio out L/R → mixer</p>
+<p>Settings:
+- Low to medium <strong>DENSITY</strong>
+- Low <strong>SPREAD</strong>
+- Short <strong>DECAY</strong>
+- <strong>PUNCH mode 1 or 2</strong>
+- Adjust <strong>FREQ</strong> for brightness/resonance
+- Moderate or low <strong>REVERB</strong></p>
+<p>Result:
+- glockenspiel-like glitches
+- tuned wood/click percussion
+- microsampled marimba-ish line
+- IDM melodic percussion</p>
+<h2>2. Burst-note melody</h2>
+<p>Use full TRIG instead of TICK.</p>
+<p>Patch:
+- Sequencer CV → Quantizer → <strong>PITCH</strong>
+- Gate/trigger sequencer → <strong>TRIG</strong>
+- Accent pattern → <strong>ACC/TICK high during TRIG</strong></p>
+<p>Settings:
+- Medium <strong>DECAY</strong>
+- Medium <strong>DENSITY</strong>
+- Low <strong>SPREAD</strong>
+- TAIL mode 2</p>
+<p>Result:
+- each note becomes a little burst or flam
+- good for animated lead fragments
+- especially good in broken beat, electro, or experimental pop</p>
+<h2>3. Stereo counter-melody</h2>
+<p>Exploit the stereo panning and spread.</p>
+<p>Patch:
+- Slow sequencer or random quantized CV → <strong>PITCH</strong>
+- Sparse triggers → <strong>TRIG</strong>
+- Stereo outs to left/right mixer channels</p>
+<p>Settings:
+- Medium <strong>SPREAD</strong>
+- Longer <strong>DECAY</strong>
+- Moderate <strong>REVERB</strong>
+- TAIL mode 2 or 3</p>
+<p>Result:
+- drifting stereo melodic dust
+- a secondary melodic layer behind the main voice
+- excellent for ambient, kosmische, and soundtrack work</p>
+<h2>4. Chord illusion / cluster harmony</h2>
+<p>Fracture won’t make true chords in the normal subtractive sense, but SPREAD gives a convincing cluster around a pitch center.</p>
+<p>Patch:
+- Quantized root-note CV → <strong>PITCH</strong>
+- Trigger pattern → <strong>TRIG</strong></p>
+<p>Settings:
+- Medium <strong>SPREAD</strong>
+- Medium/high <strong>DENSITY</strong>
+- Medium <strong>DECAY</strong>
+- TAIL mode 3
+- Hall reverb</p>
+<p>Result:
+- each note becomes a little harmonic cloud
+- suggests suspended chords or upper extensions
+- good for intro pads made of particles</p>
+<h2>5. Arpeggio ornament layer</h2>
+<p>Use Fracture over another melodic voice.</p>
+<p>Patch:
+- Mult your melodic sequencer CV:
+  - one copy to your main oscillator voice
+  - one copy to Fracture <strong>PITCH</strong>
+- Send a faster rhythmic subdivision to <strong>TICK</strong>
+- Optionally send accents to <strong>ACC</strong></p>
+<p>Settings:
+- Short <strong>DECAY</strong>
+- Lower <strong>DENSITY</strong>
+- Low <strong>SPREAD</strong>
+- Bright <strong>FREQ</strong>
+- Light room reverb</p>
+<p>Result:
+- your main melody gets a sparkling top layer
+- Fracture behaves like note dust, grace notes, or a pseudo-arpeggiator</p>
+<h2>6. Generative melodic cloud with INF mode</h2>
+<p>The manual notes INF disables the decay envelope and freely produces particles, with trigger/button modulating density to suggest a burst inside an infinite cloud.</p>
+<p>Patch:
+- Slow random quantized CV → <strong>PITCH</strong>
+- Slow modulation → <strong>FREQ</strong>
+- Occasional triggers → <strong>TRIG</strong>
+- Optional slow CV to <strong>SURFACE</strong> if available from external modulation source through attenuator</p>
+<p>Settings:
+- <strong>INF on</strong>
+- Low/medium <strong>DECAY</strong> to control the parameter that would have been enveloped
+- TAIL mode 2 or 3
+- Moderate <strong>SPREAD</strong>
+- Reverb up</p>
+<p>Result:
+- sustained tuned particle atmosphere
+- shimmering semi-melodic pad
+- evolving bell-fog texture</p>
+<hr />
+<h2>How I would combine Fracture with typical Eurorack modules for melody</h2>
+<p>Since Fracture is a texture-forward voice, it really shines when paired with standard utility and pitch modules.</p>
+<h2>With a quantizer</h2>
+<p>Essential for tonal music.</p>
+<p>Use:
+- random CV → quantizer → PITCH
+- sequencer CV → quantizer → PITCH</p>
+<p>Why:
+- Fracture’s internal randomness benefits from a stable pitch center
+- quantization makes the melody legible</p>
+<h2>With a precision adder</h2>
+<p>Great for:
+- octave jumps
+- transposition
+- harmonic movement</p>
+<p>Use:
+- melodic CV to PITCH
+- transposition CV through precision adder upstream</p>
+<h2>With a sequencer</h2>
+<p>Three good strategies:
+1. Step CV to PITCH, triggers to TICK for clean note events
+2. Step CV to PITCH, triggers to TRIG for denser note bodies
+3. Independent trigger sequencing for polyrhythmic melodic percussion</p>
+<h2>With envelopes and VCAs downstream</h2>
+<p>Even though Fracture has internal dynamics, external shaping helps.</p>
+<p>Use:
+- Fracture output → VCA or LPG → effects/mixer
+- envelope triggered from same gate source</p>
+<p>Why:
+- lets you tighten or exaggerate note contour
+- allows sidechain-like dynamics
+- makes Fracture sit like a melodic instrument in a mix</p>
+<h2>With filters</h2>
+<p>A great pairing.</p>
+<p>Use:
+- Fracture output → resonant LPF/BPF</p>
+<p>Why:
+- can emphasize a clearer fundamental-like region
+- can remove noisy highs and make notes sound more tonal
+- can turn harsh clatter into tuned mallet-like signals</p>
+<h2>With delay/reverb</h2>
+<p>Especially effective because Fracture is transient-rich.</p>
+<p>Use:
+- stereo delay after Fracture
+- ping-pong delay for melodic repeats
+- shimmer or hall reverb for ambient tuned particles</p>
+<h2>With a comparator / clock logic</h2>
+<p>To create melodic accents:
+- main triggers to TRIG
+- selected logic-derived pulses to ACC</p>
+<p>This can make certain notes bloom into bigger “accented melodic hits.”</p>
+<hr />
+<h2>Good melodic roles in a track</h2>
+<p>Fracture works best in these melodic roles:</p>
+<h3>1. Top percussion melody</h3>
+<p>Short, high, tuned, articulate notes above the main synths.</p>
+<h3>2. Counter-line</h3>
+<p>Sparse notes answering a lead or vocal.</p>
+<h3>3. Harmonic glitter</h3>
+<p>Quantized pitch fed into long-decay bursts with reverb.</p>
+<h3>4. Intro/outro atmosphere</h3>
+<p>INF mode plus slow pitch shifts creates evolving tonal particles.</p>
+<h3>5. Layer with another voice</h3>
+<p>Use it to add attack complexity to a pluck, chord stab, or bassline.</p>
+<p>A particularly strong trick:
+- pair Fracture with a sine or triangle voice on the same sequence
+- tune Fracture by ear to reinforce upper partials
+- keep its level lower than the main voice</p>
+<p>That gives a hybrid sound: stable pitch from the main oscillator, expressive attack from Fracture.</p>
+<hr />
+<h2>Practical melodic settings to try</h2>
+<h2>Patch A: “Glitch Marimba”</h2>
+<ul>
+<li>PITCH: quantized melody</li>
+<li>Trigger source: TICK</li>
+<li>SURFACE: woody/object-like</li>
+<li>SPREAD: very low</li>
+<li>DECAY: short</li>
+<li>DENSITY: low</li>
+<li>PUNCH: mode 1</li>
+<li>FREQ: tuned for resonant brightness</li>
+<li>REVERB: low</li>
+</ul>
+<h2>Patch B: “Granular Lead Accent”</h2>
+<ul>
+<li>PITCH: same sequence as main lead</li>
+<li>Trigger source: TRIG on selected steps</li>
+<li>ACC: accents on downbeats</li>
+<li>SPREAD: low</li>
+<li>DECAY: medium</li>
+<li>DENSITY: medium</li>
+<li>TAIL: mode 2</li>
+<li>PUNCH: mode 2</li>
+<li>REVERB: moderate</li>
+</ul>
+<h2>Patch C: “Ambient Bell Cloud”</h2>
+<ul>
+<li>PITCH: slow random quantized CV</li>
+<li>Trigger source: sparse TRIG</li>
+<li>SPREAD: medium</li>
+<li>DECAY: long</li>
+<li>DENSITY: medium</li>
+<li>TAIL: mode 3</li>
+<li>PUNCH: mode 3</li>
+<li>REVERB: hall/high</li>
+<li>stereo out used fully</li>
+</ul>
+<h2>Patch D: “Pseudo Chords”</h2>
+<ul>
+<li>PITCH: root notes only</li>
+<li>Trigger source: TRIG</li>
+<li>SPREAD: medium-high</li>
+<li>DECAY: medium-long</li>
+<li>DENSITY: medium-high</li>
+<li>TAIL: mode 3</li>
+<li>REVERB: moderate-high</li>
+</ul>
+<p>This won’t create exact triads, but it will imply harmony through clustered resonant particles.</p>
+<hr />
+<h2>Limitations for melodic use</h2>
+<p>To be realistic, the manual suggests Fracture is still fundamentally a <strong>particle percussion</strong> module. So:</p>
+<ul>
+<li>It likely won’t track pitch as cleanly as a dedicated VCO.</li>
+<li>Timbre may dominate over note identity depending on SURFACE.</li>
+<li>High DENSITY and high SPREAD reduce melodic clarity.</li>
+<li>Randomized per-particle pitch/amplitude/pan means repetition is intentionally imperfect.</li>
+</ul>
+<p>So if your goal is:
+- exact basslines
+- stable leads
+- calibrated 1V/oct behavior across many octaves</p>
+<p>…Fracture is probably not the primary voice.</p>
+<p>But if your goal is:
+- expressive tuned percussion
+- melodic textures
+- sparkling sequence layers
+- stereo note clouds
+- humanized, lively pitch material</p>
+<p>…it is excellent.</p>
+<hr />
+<h2>Best overall recipe for getting melody from Fracture</h2>
+<p>If you want the shortest path to a usable melodic result:</p>
+<ol>
+<li>Send <strong>quantized CV</strong> into <strong>PITCH</strong></li>
+<li>Use <strong>TICK</strong> instead of TRIG at first</li>
+<li>Keep <strong>SPREAD low</strong></li>
+<li>Keep <strong>DENSITY low to medium</strong></li>
+<li>Pick a more resonant/woody <strong>SURFACE</strong></li>
+<li>Use <strong>PUNCH mode 1</strong></li>
+<li>Use <strong>FREQ</strong> to find the sweet spot</li>
+<li>Add a little reverb</li>
+<li>Optionally filter the output further</li>
+</ol>
+<p>That gives the clearest “pitched percussion instrument” behavior.</p>
+<p>If you want, I can also turn this into:
+- a <strong>quick-start patch sheet</strong>
+- <strong>techno / ambient / IDM-specific patch recipes</strong>
+- or a <strong>control-by-control cheat sheet</strong> for Fracture.  </p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erogenous_Tones_Levita8</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erogenous Tones — Levita8</h1>
+<ul>
+<li><a href="../../manuals/l8-instructions.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://erogenous-tones.com">Manual PDF</a></p>
+<h1>Erogenous Tones LEVIT8 — melodic use cases</h1>
+<p>The LEVIT8 is an <strong>8-channel attenuator / gain / inverter / mixer utility</strong>. It is not a sound source or quantizer by itself, but in a melodic Eurorack patch it is extremely useful as a <strong>CV sculpting and pitch-combining tool</strong>.</p>
+<h2>What it does musically</h2>
+<p>From the manual:</p>
+<ul>
+<li>8 channels of <strong>linear attenuation/gain</strong></li>
+<li>max gain about <strong>2x</strong></li>
+<li>some channels have <strong>invert switches</strong></li>
+<li>works with <strong>audio, CV, gates</strong></li>
+<li>if nothing is patched to an input, that input is normalized to <strong>+5V</strong></li>
+<li>outputs can act as:</li>
+<li><strong>8 independent processors</strong></li>
+<li><strong>one or two 4-to-1 mixers</strong></li>
+<li><strong>one 8-to-1 mixer</strong></li>
+<li>channels saturate around <strong>±10V</strong></li>
+</ul>
+<p>That means LEVIT8 is great for building melodic control voltages from simpler sources.</p>
+<hr />
+<h2>Best melodic roles for LEVIT8</h2>
+<h2>1. Pitch CV attenuator for sequence control</h2>
+<p>A common melodic use is scaling pitch-related CV before it reaches an oscillator.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequencer pitch CV -&gt; LEVIT8 input</li>
+<li>LEVIT8 output -&gt; quantizer or oscillator 1V/oct input</li>
+</ul>
+<h3>Why</h3>
+<ul>
+<li>Reduce melodic range for tighter basslines</li>
+<li>Boost weak CV sources</li>
+<li>Invert contours for contrary motion melodies</li>
+</ul>
+<p>Because gain goes up to about 2x, you can make a small modulation source cover a larger pitch range.</p>
+<hr />
+<h2>2. Manual transpose source using normalized +5V</h2>
+<p>Since unpatched inputs are normalized to <strong>5V</strong>, each unused channel can become a <strong>manual DC voltage generator</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Leave a channel input empty</li>
+<li>Turn its knob to create a chosen voltage</li>
+<li>Send output to:</li>
+<li>oscillator pitch input</li>
+<li>quantizer transpose input</li>
+<li>sequencer transpose input</li>
+</ul>
+<h3>Why</h3>
+<p>This gives you a quick manual transpose control.<br />
+On invert-capable channels, you can generate <strong>negative offsets</strong> too.</p>
+<p>This is one of the most useful melodic tricks in the module:
+- create base pitch offsets
+- shift a sequence up/down by intervals
+- bias random CV before quantization</p>
+<hr />
+<h2>3. Mix several CV sources into one melody</h2>
+<p>LEVIT8 can sum multiple channels at output 4 or output 8 depending on the MIX switch settings.</p>
+<h3>Patch idea</h3>
+<p>Use the 4-channel mix:
+- Ch 1: sequencer pitch
+- Ch 2: slow LFO
+- Ch 3: DC offset from empty normalized jack
+- Ch 4: random stepped voltage
+- MIX on channel 4 up
+- Output 4 -&gt; quantizer -&gt; oscillator</p>
+<h3>Result</h3>
+<p>You get a composite melodic CV made from:
+- structured notes
+- vibrato or contour
+- transposition
+- random variation</p>
+<p>This is one of the strongest melodic uses for LEVIT8: <strong>CV summing before quantization</strong>.</p>
+<hr />
+<h2>4. Create quantizer-friendly melodies from modulation sources</h2>
+<p>LEVIT8 is very good before a quantizer.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Patch several modulation sources into channels:</li>
+<li>triangle LFO</li>
+<li>envelope</li>
+<li>random stepped CV</li>
+<li>DC offset</li>
+<li>Mix them at output 4 or 8</li>
+<li>Send mixer output to a quantizer</li>
+<li>Quantizer output -&gt; oscillator pitch</li>
+</ul>
+<h3>Why</h3>
+<p>A quantizer turns mixed analog voltages into notes, and LEVIT8 lets you shape:
+- melodic density
+- interval size
+- direction
+- register</p>
+<p>This is an excellent way to make evolving melodies from non-sequencer CV.</p>
+<hr />
+<h2>5. Invert melodic motion</h2>
+<p>The invert switches let some channels flip voltage polarity.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequencer CV multed to two LEVIT8 channels</li>
+<li>One normal, one inverted</li>
+<li>Send the two outputs to different oscillators, or mix selectively</li>
+</ul>
+<h3>Musical use</h3>
+<ul>
+<li>oscillator 1 rises while oscillator 2 falls</li>
+<li>create contrary-motion counterpoint</li>
+<li>invert modulation before quantizing for a mirrored melody</li>
+</ul>
+<p>If your downstream module expects pitch CV, inversion can create musically related but opposite contours.</p>
+<hr />
+<h2>6. Make interval layers and harmonized pitch CV</h2>
+<p>Because channels can independently scale copies of the same source, LEVIT8 can build related pitch lines.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Mult one pitch sequence into several LEVIT8 channels</li>
+<li>Set each channel to a different amount/offset</li>
+<li>Send:</li>
+<li>one output to oscillator A</li>
+<li>another to oscillator B</li>
+<li>another through a quantizer for a third line</li>
+</ul>
+<h3>Why</h3>
+<p>This allows:
+- reduced or expanded intervals
+- offset versions of the same melody
+- parallel melodic voices</p>
+<p>For strict harmony, send the processed CVs through quantizers or use quantizer transpose inputs.</p>
+<hr />
+<h2>7. Use it as a precision-ish performance macro for melody</h2>
+<p>While it is not marketed as a precision adder, LEVIT8 can still be used performatively to shape melodic behavior.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Ch 1: main sequence</li>
+<li>Ch 2: manual DC offset</li>
+<li>Ch 3: envelope amount to pitch</li>
+<li>Ch 4: random stepped CV</li>
+<li>Output 4 -&gt; quantizer</li>
+</ul>
+<p>Now the knobs become performance controls for:
+- transposition
+- sequence range
+- ornament amount
+- instability/randomness</p>
+<p>This can turn a static melody into an expressive one.</p>
+<hr />
+<h2>8. Build an 8-source melodic CV bus</h2>
+<p>If channel 8 mix is engaged while channel 4 mix is off, output 8 becomes a mix of <strong>all 8 channels</strong>.</p>
+<h3>Patch idea</h3>
+<p>Send up to 8 sources:
+- sequencer row A
+- sequencer row B
+- offset voltage
+- LFO
+- random source
+- envelope
+- gate-derived accent CV
+- keyboard CV</p>
+<p>Then:
+- Output 8 -&gt; quantizer -&gt; oscillator</p>
+<h3>Why</h3>
+<p>This creates a powerful “meta-melody” bus.<br />
+You can blend many influences into one final note stream.</p>
+<p>This is especially effective in generative patches.</p>
+<hr />
+<h2>9. Shift melodies with DC offset for register control</h2>
+<p>Because unused inputs default to +5V, LEVIT8 is very handy for moving a melody into a different octave/register.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Ch 1: melody CV</li>
+<li>Ch 2: empty input, knob set as offset</li>
+<li>Mix to output 4</li>
+<li>Output 4 -&gt; quantizer or oscillator</li>
+</ul>
+<h3>Result</h3>
+<p>You can move the melody:
+- slightly upward/downward
+- into a higher register
+- into saturation for more extreme effects</p>
+<p>This is useful for live performance transitions.</p>
+<hr />
+<h2>10. Process gates or accents into melodic influence</h2>
+<p>The manual says it works with <strong>gates</strong> too.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Gate or trigger pattern -&gt; LEVIT8 channel</li>
+<li>Attenuate heavily</li>
+<li>Mix with pitch CV</li>
+<li>Send to quantizer</li>
+</ul>
+<h3>Result</h3>
+<p>Gates become stepped voltage contributions that alter pitch only when active, creating:
+- accents that also transpose
+- conditional note jumps
+- rhythmic melody shifts</p>
+<p>This is a smart way to tie rhythm and melody together.</p>
+<hr />
+<h1>Practical melodic patch examples</h1>
+<h2>Patch 1: Simple transposable sequence</h2>
+<ul>
+<li>Sequencer pitch out -&gt; Ch 1</li>
+<li>Empty Ch 2 as DC offset</li>
+<li>Channel 4 MIX up</li>
+<li>Out 4 -&gt; quantizer -&gt; VCO 1V/oct</li>
+</ul>
+<p>Use:
+- Ch 1 knob for sequence range
+- Ch 2 knob for transpose</p>
+<hr />
+<h2>Patch 2: Generative melody builder</h2>
+<ul>
+<li>Stepped random CV -&gt; Ch 1</li>
+<li>Slow LFO -&gt; Ch 2</li>
+<li>Envelope -&gt; Ch 3</li>
+<li>Empty Ch 4 for offset</li>
+<li>Channel 4 MIX up</li>
+<li>Out 4 -&gt; quantizer -&gt; oscillator</li>
+</ul>
+<p>Use the knobs to balance:
+- randomness
+- contour
+- note density
+- register</p>
+<hr />
+<h2>Patch 3: Two related melodic voices</h2>
+<ul>
+<li>Main sequence multed to Ch 1 and Ch 5</li>
+<li>Random stepped CV -&gt; Ch 2</li>
+<li>Empty Ch 3 for transpose</li>
+<li>Slow LFO -&gt; Ch 6</li>
+<li>MIX Ch 4 up for voice A</li>
+<li>MIX Ch 8 up with Ch 4 also engaged for voice B</li>
+<li>Out 4 -&gt; quantizer A -&gt; oscillator A</li>
+<li>Out 8 -&gt; quantizer B -&gt; oscillator B</li>
+</ul>
+<p>This gives two separate melodic streams derived from related material.</p>
+<hr />
+<h2>Patch 4: Contrary-motion duet</h2>
+<ul>
+<li>Sequencer pitch multed to one normal channel and one invert-capable channel</li>
+<li>Add separate offsets to each path using empty normalized channels</li>
+<li>Send each output to separate quantizers/oscillators</li>
+</ul>
+<p>Result:
+- one melody ascends
+- the other mirrors or counters it</p>
+<hr />
+<h1>Strengths for melodic patching</h1>
+<p>LEVIT8 is especially good at:</p>
+<ul>
+<li><strong>combining multiple CV sources</strong></li>
+<li><strong>manual transposition</strong></li>
+<li><strong>offsetting and biasing CV</strong></li>
+<li><strong>inverting melodic contours</strong></li>
+<li><strong>building pre-quantizer composite voltages</strong></li>
+<li><strong>making one sequence produce several related voices</strong></li>
+</ul>
+<hr />
+<h1>Important caveats</h1>
+<h2>1. Not a quantizer</h2>
+<p>For tonal melody, LEVIT8 works best with a <strong>quantizer</strong> after it.</p>
+<p>Without quantization, summed voltages may not land on exact musical intervals.</p>
+<h2>2. Not guaranteed as a precision adder</h2>
+<p>The manual presents it as a gain/invert/mix utility, not a precision pitch utility.<br />
+So for exact octave transposition at 1V/oct, use care and test by ear/tuner.</p>
+<h2>3. Beware normalized DC in mixes</h2>
+<p>If a channel is unpatched, it adds DC from the normalized +5V source.<br />
+That is useful for transpose, but if you forget to turn the knob down, it will affect the melody unexpectedly.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The LEVIT8 is a <strong>melodic CV utility powerhouse</strong>. It shines when used to:</p>
+<ul>
+<li>scale sequencer voltages</li>
+<li>mix random and deterministic CV</li>
+<li>add manual transpose</li>
+<li>invert pitch movement</li>
+<li>create layered or generative note streams before a quantizer</li>
+</ul>
+<p>By itself it does not create notes, but together with a <strong>sequencer, random source, quantizer, and oscillator</strong>, it becomes a central tool for designing expressive melodic control voltages.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>4ms_Rotating_Clock_Divider</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>4ms — Rotating Clock Divider</h1>
+<ul>
+<li><a href="../../manuals/RCD-manual-1.2.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>4ms Rotating Clock Divider — melodic use in a Eurorack patch</h1>
+<p>The attached manual is for the <strong>4ms Rotating Clock Divider (RCD)</strong>. This module is fundamentally a <strong>rhythm and timing utility</strong>, but in Eurorack that very often means it can become a <strong>melodic structure generator</strong> when paired with sequencers, quantizers, switches, sample &amp; holds, oscillators, envelopes, and logic.</p>
+<p>Since only one manual is attached here, I’ll explain how <strong>this module can be used with other common Eurorack module types</strong> to create melodic parts.</p>
+<hr />
+<h2>What the RCD does musically</h2>
+<p>The RCD takes one incoming clock and produces <strong>8 divided clocks</strong>. Each output is a different division of the master pulse:</p>
+<ul>
+<li>/1, /2, /3, /4, /5, /6, /7, /8 by default</li>
+<li>or divisions across larger ranges up to <strong>/64</strong></li>
+<li>and all outputs can be <strong>rotated together</strong> with CV</li>
+</ul>
+<p>This matters melodically because melodic phrasing in modular often comes from:</p>
+<ul>
+<li><strong>when notes happen</strong></li>
+<li><strong>how often notes change</strong></li>
+<li><strong>when a sequence resets</strong></li>
+<li><strong>which lane or voice is selected</strong></li>
+<li><strong>how accents and phrase lengths drift against each other</strong></li>
+</ul>
+<p>The RCD gives you all of that from one master pulse source.</p>
+<hr />
+<h2>Key features that are especially useful for melody</h2>
+<p>From the manual, the most important melody-building features are:</p>
+<ul>
+<li><strong>8 clock outputs</strong> at different divisions</li>
+<li><strong>CV Rotate</strong> to shift all divide values at once</li>
+<li><strong>CV Reset</strong> to re-align phrase starts</li>
+<li><strong>Up-beat / Down-beat counting</strong></li>
+<li><strong>Trigger or Gate mode</strong></li>
+<li><strong>Spread mode</strong></li>
+<li><strong>Auto-reset</strong></li>
+<li><strong>Selectable max divide range: 8 / 16 / 32 / 64</strong></li>
+</ul>
+<p>These let you turn one stable clock into <strong>evolving note timings, phrase resets, harmonic movement, and polymetric melody generation</strong>.</p>
+<hr />
+<h1>Core melodic patch ideas</h1>
+<h2>1. Use the RCD as a sequencer clock distributor</h2>
+<p>This is the simplest and most immediately musical use.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Master clock → <strong>RCD Clock In</strong></li>
+<li>RCD outputs to different sequencers / sample &amp; hold / envelope triggers:</li>
+<li>/1 → fast sequencer clock</li>
+<li>/2 → bassline sequencer</li>
+<li>/3 or /5 → melody sequencer</li>
+<li>/8 → phrase reset or transposition trigger</li>
+</ul>
+<h3>Musical result</h3>
+<p>You get multiple melodic layers moving at related but different rates:</p>
+<ul>
+<li>bass changes every 2 pulses</li>
+<li>melody changes every 3 or 5 pulses</li>
+<li>transposition changes every 8 pulses</li>
+</ul>
+<p>This creates <strong>polymeter</strong>, which is one of the easiest ways to make modular melodies feel alive.</p>
+<h3>Why it works</h3>
+<p>If one pitch source changes every /3 and another every /4, the relationship between them constantly shifts before lining up again.</p>
+<hr />
+<h2>2. Clock a Sample &amp; Hold to generate stepped melodies</h2>
+<p>The RCD is excellent for controlling <strong>when random or semi-random voltages become notes</strong>.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Noise / random CV / slow modulation source → <strong>Sample &amp; Hold input</strong></li>
+<li>RCD output (say /4) → <strong>Sample &amp; Hold clock</strong></li>
+<li>Sample &amp; Hold output → <strong>Quantizer</strong></li>
+<li>Quantizer output → <strong>Oscillator 1V/oct</strong></li>
+</ul>
+<h3>Variations</h3>
+<ul>
+<li>/3 clock for odd phrasing</li>
+<li>/5 for long looping melodic asymmetry</li>
+<li>Rotate CV for changing note density over time</li>
+</ul>
+<h3>Musical result</h3>
+<p>You get a melody that updates at a controlled subdivision of the master clock.</p>
+<h3>Better version</h3>
+<p>Use multiple RCD outputs:
+- /4 → melody note changes
+- /8 → transpose the quantizer root or switch scales
+- /16 → reset a second modulation source</p>
+<p>Now the melody has <strong>notes, phrases, and sections</strong> all derived from one clock tree.</p>
+<hr />
+<h2>3. Build a melody from sequential switching</h2>
+<p>One of my favorite uses of an RCD is to drive <strong>switches</strong>.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Several fixed voltages or sequencer rows → sequential switch inputs</li>
+<li>RCD outputs → switch advance / switch reset / gate different paths</li>
+<li>Switch output → quantizer → oscillator</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>/1 → trigger main note envelope</li>
+<li>/2 → advance switch</li>
+<li>/8 → reset switch</li>
+<li>/3 → trigger a second accent envelope</li>
+</ul>
+<h3>Musical result</h3>
+<p>The switch chooses different pitch sources at different rates, generating melodies that feel composed rather than random.</p>
+<p>This is especially strong if your switch selects among:
+- chord tones
+- different sequencer rows
+- intervals
+- octave offsets</p>
+<hr />
+<h2>4. Use Rotate CV as a melodic variation control</h2>
+<p>The <strong>CV Rotate</strong> input is the RCD’s signature feature.</p>
+<p>Instead of outputs always being /1 to /8, Rotate shifts them. So what used to be /1 becomes /2, /2 becomes /3, etc., wrapping around.</p>
+<h3>Musical meaning</h3>
+<p>Rotate changes the <strong>timing roles</strong> of each jack without needing to repatch.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>LFO / envelope / manual CV / pressure / random stepped CV → <strong>CV Rotate</strong></li>
+<li>Patch several RCD outputs into:</li>
+<li>sequencer clocks</li>
+<li>reset inputs</li>
+<li>sample &amp; hold clocks</li>
+<li>switch advance</li>
+<li>envelope triggers</li>
+</ul>
+<h3>Result</h3>
+<p>As Rotate moves:
+- the melodic sequencer may slow down
+- a reset may happen earlier or later
+- transposition may become more or less frequent
+- accents shift positions</p>
+<p>This feels like <strong>arrangement-level mutation</strong> from a single CV.</p>
+<h3>Great performance use</h3>
+<p>Send a slow triangle or stepped random CV to Rotate to create evolving melodic phrasing without touching cables.</p>
+<hr />
+<h2>5. Use Spread mode for wider phrase spacing</h2>
+<p>The manual explains that <strong>Spread mode</strong> spaces the divisions across the selected max range.</p>
+<p>For example:
+- with Max Div 32 and Spread On, outputs become:
+  - /4, /8, /12, /16, /20, /24, /28, /32</p>
+<p>This is excellent for melodic patching because it separates musical functions by time scale.</p>
+<h3>Patch concept</h3>
+<p>With Spread On:
+- /4 → note changes
+- /8 → ornament trigger
+- /12 → chord change
+- /16 → sequence reset
+- /24 or /32 → octave or transposition shift</p>
+<h3>Musical result</h3>
+<p>Instead of all outputs being clustered around fast divisions, you get <strong>clear hierarchies</strong>:
+- note level
+- bar level
+- phrase level
+- section level</p>
+<p>This is one of the best ways to make a modular patch sound intentional and “song-like.”</p>
+<hr />
+<h2>6. Use odd divisions for melodic phrasing</h2>
+<p>The odd outputs (/3, /5, /7) are where the real magic often happens.</p>
+<h3>Why odd divisions matter</h3>
+<p>They create patterns that don’t line up in the usual 4/4 way, which gives:
+- rotating accents
+- evolving phrase starts
+- melodic syncopation
+- cross-rhythmic note placement</p>
+<h3>Patch concept</h3>
+<ul>
+<li>/5 → trigger a melodic voice</li>
+<li>/4 → trigger another melodic voice</li>
+<li>/7 → reset a transposition sequencer or switch</li>
+<li>/8 → envelope for a bass voice</li>
+</ul>
+<h3>Musical result</h3>
+<p>Melodic parts phase against each other, producing emergent patterns.</p>
+<p>For techno, electro, generative ambient, or Berlin-school style sequencing, this is gold.</p>
+<hr />
+<h2>7. Use the RCD to control transposition</h2>
+<p>A very strong melodic technique is to separate:
+- <strong>note rhythm</strong>
+- <strong>pitch rhythm</strong>
+- <strong>transposition rhythm</strong></p>
+<p>The RCD can control all three.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Sequencer row A → quantizer → oscillator</li>
+<li>A second CV source (or precision adder input) provides transposition</li>
+<li>RCD /8 or /16 triggers a sample &amp; hold that captures a new transpose voltage</li>
+<li>RCD /4 triggers main notes</li>
+</ul>
+<h3>Result</h3>
+<p>The notes move regularly, but the key center changes more slowly.</p>
+<p>This creates a melody with clear phrasing:
+- note events happen often
+- harmonic movement happens less often</p>
+<hr />
+<h2>8. Drive quantizer scale changes or root changes</h2>
+<p>If your quantizer has inputs for:
+- root
+- scale select
+- shift
+- transpose</p>
+<p>then the RCD becomes a very musical macro-controller.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>/4 → note sample &amp; hold</li>
+<li>/8 → root change trigger</li>
+<li>/16 → scale change trigger</li>
+<li>/32 → global reset</li>
+</ul>
+<h3>Musical result</h3>
+<p>Melodies can evolve from:
+- minor to major
+- pentatonic to chromatic
+- root C to root F
+- then reset cleanly</p>
+<p>This is especially useful in generative patches where you want change without chaos.</p>
+<hr />
+<h2>9. Use CV Reset for phrase structure</h2>
+<p>The manual notes that <strong>CV Reset resets on the next clock pulse</strong>, keeping things rhythmically aligned.</p>
+<p>That makes it ideal for phrase control.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Slow divided output from same RCD or another clock divider → <strong>CV Reset</strong></li>
+<li>Faster outputs → sequencers / sample &amp; hold / switch</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>/3 clocks melody note changes</li>
+<li>/5 clocks ornament</li>
+<li>/16 resets everything</li>
+</ul>
+<h3>Musical result</h3>
+<p>You get complex interplay inside a repeating larger phrase.</p>
+<p>This gives you the best of both worlds:
+- local complexity
+- global repetition</p>
+<p>That balance is what often makes a modular melody feel memorable.</p>
+<hr />
+<h2>10. Auto-reset for looping melodic cycles</h2>
+<p>The manual says auto-reset can reset after:
+- 16
+- 32
+- 64
+- 128 pulses depending on max divide range</p>
+<h3>Why that matters</h3>
+<p>Without reset, divisions can create long drifting relationships.
+With auto-reset, you force those relationships into a repeating form.</p>
+<h3>Patch use</h3>
+<p>If you want:
+- a 16-step melodic phrase that still uses odd divisions internally,
+then set auto-reset so the whole system comes back to the start every 16 clocks.</p>
+<h3>Musical result</h3>
+<p>This is very useful for:
+- structured techno
+- melodic IDM
+- repeating bassline systems
+- performance patches where you need repeatability</p>
+<hr />
+<h1>Trigger mode vs Gate mode for melody</h1>
+<p>The manual makes an important distinction.</p>
+<h2>Trigger mode</h2>
+<p>Outputs are short pulses based on the input clock width.</p>
+<p>Best for:
+- advancing sequencers
+- triggering sample &amp; hold
+- pinging envelopes
+- striking LPGs</p>
+<p>For melodic note generation, this is often the most straightforward mode.</p>
+<h2>Gate mode</h2>
+<p>Outputs stay high for 50% of the divided waveform.</p>
+<p>Best for:
+- opening VCAs for sustained notes
+- controlling logic patches
+- making note lengths proportional to division
+- creating tied or held melodic notes</p>
+<h3>Musical implication</h3>
+<p>In gate mode:
+- /2 creates longer sustained notes
+- /5 creates asymmetrical gate timing
+- odd divisions create especially interesting note-length behavior</p>
+<p>This can turn the RCD from a pure rhythm source into a <strong>phrase articulation generator</strong>.</p>
+<hr />
+<h1>Up counting vs Down counting for melody</h1>
+<p>The manual describes two behaviors:</p>
+<h2>Up-beat counting</h2>
+<p>Each jack fires after N pulses.</p>
+<p>This feels like:
+- delayed entrances
+- pickup-style phrasing
+- staggered melodic activity</p>
+<p>Great for generative melodies where events “arrive” at different times after reset.</p>
+<h2>Down-beat counting</h2>
+<p>All jacks fire after reset, then cycle.</p>
+<p>This feels like:
+- stronger phrase downbeats
+- more obvious bar starts
+- immediate layered attacks</p>
+<p>Better for patches where you want every voice to line up at the beginning of the phrase.</p>
+<h3>Musical advice</h3>
+<ul>
+<li>Use <strong>up counting</strong> for evolving, less obvious melodic structures</li>
+<li>Use <strong>down counting</strong> when you want phrase starts to hit hard together</li>
+</ul>
+<hr />
+<h1>Best module pairings for melodic use</h1>
+<h2>With a quantizer</h2>
+<p>Probably the single best pairing.</p>
+<p>RCD handles:
+- timing
+- resets
+- phrase lengths</p>
+<p>Quantizer handles:
+- pitch organization
+- scale coherence</p>
+<h3>Example</h3>
+<ul>
+<li>random CV → S&amp;H → quantizer</li>
+<li>RCD /5 clocks S&amp;H</li>
+<li>RCD /16 changes root</li>
+<li>RCD /32 resets pattern</li>
+</ul>
+<p>Result: coherent generative melody.</p>
+<hr />
+<h2>With a sequencer</h2>
+<p>The RCD can make one sequencer behave like several.</p>
+<h3>Example uses</h3>
+<ul>
+<li>/1 clocks the main sequencer</li>
+<li>/4 clocks row advance on another sequencer</li>
+<li>/8 resets sequencer</li>
+<li>/3 toggles a switch between two pitch rows</li>
+</ul>
+<p>Result: a simple sequencer becomes a much richer melodic engine.</p>
+<hr />
+<h2>With sequential switches</h2>
+<p>Extremely powerful.</p>
+<p>Use divided clocks to:
+- step through note sources
+- alternate melodies
+- swap octaves
+- insert rests</p>
+<p>This creates melodic arrangement from clocks alone.</p>
+<hr />
+<h2>With logic modules</h2>
+<p>A logic module plus RCD can generate note triggers that feel composed.</p>
+<h3>Example</h3>
+<ul>
+<li>/3 and /4 into AND/OR/XOR</li>
+<li>result clocks a sample &amp; hold or envelope</li>
+</ul>
+<p>This produces note timings from the intersections or unions of divided pulses.</p>
+<h3>Musical feel</h3>
+<ul>
+<li>AND = sparse coincidence notes</li>
+<li>OR = busier melodic activity</li>
+<li>XOR = syncopated, unstable patterns</li>
+</ul>
+<hr />
+<h2>With sample &amp; hold / track &amp; hold</h2>
+<p>Ideal for stepped melodies and phrase control.</p>
+<p>Use one divided output to sample pitch, another to sample transposition, and another to reset or reseed random motion.</p>
+<hr />
+<h2>With precision adder / mixer</h2>
+<p>Use slow RCD outputs to bring in interval offsets:
+- octave jumps
+- fifths
+- chord roots</p>
+<p>You can create harmonic motion from timed voltage additions.</p>
+<hr />
+<h2>With envelope generators and VCAs</h2>
+<p>Trigger mode gives note onsets.
+Gate mode gives actual note durations.</p>
+<p>This is a big deal melodically, because note length is as important as note pitch.</p>
+<hr />
+<h1>Concrete melodic patch recipes</h1>
+<h2>Patch 1: Generative lead melody</h2>
+<ul>
+<li>Master clock → RCD Clock In</li>
+<li>Smooth random CV → Sample &amp; Hold in</li>
+<li>RCD /5 → Sample &amp; Hold clock</li>
+<li>Sample &amp; Hold out → Quantizer</li>
+<li>Quantizer out → VCO 1V/oct</li>
+<li>RCD /5 → Envelope trigger</li>
+<li>Envelope → VCA</li>
+<li>RCD /16 → Quantizer root change or reset</li>
+</ul>
+<p><strong>Result:</strong> a repeating-but-evolving lead line with phrase resets.</p>
+<hr />
+<h2>Patch 2: Bassline + melody from one clock</h2>
+<ul>
+<li>Master clock → RCD</li>
+<li>/2 → bass sequencer clock</li>
+<li>/3 → melody sequencer clock</li>
+<li>/8 → both sequencers reset</li>
+<li>/5 → transpose melody every few beats</li>
+</ul>
+<p><strong>Result:</strong> bass and lead stay related but cycle against each other.</p>
+<hr />
+<h2>Patch 3: Shifted arpeggio machine</h2>
+<ul>
+<li>Fixed chord voltages or sequencer row → sequential switch inputs</li>
+<li>RCD /1 or /2 → envelope trigger</li>
+<li>RCD /3 → switch advance</li>
+<li>RCD /8 → switch reset</li>
+<li>Switch out → quantizer → oscillator</li>
+</ul>
+<p>Add:
+- slow CV to Rotate</p>
+<p><strong>Result:</strong> the order and pacing of chord tones keeps morphing.</p>
+<hr />
+<h2>Patch 4: Polymetric dual melody</h2>
+<ul>
+<li>RCD /4 → voice A note generator</li>
+<li>RCD /5 → voice B note generator</li>
+<li>Both voices quantized to same scale</li>
+<li>/16 → reset voice A</li>
+<li>/20 or /24 in spread mode → reset/transposition for voice B</li>
+</ul>
+<p><strong>Result:</strong> two melodies weave around each other and rejoin over longer cycles.</p>
+<hr />
+<h2>Patch 5: Gate-mode melodic phrasing</h2>
+<ul>
+<li>Set RCD to <strong>Gate mode</strong></li>
+<li>/2 gate → VCA for bass voice</li>
+<li>/3 gate → VCA for lead voice</li>
+<li>/5 gate → open secondary modulation VCA</li>
+<li>pitch comes from sequencer or quantized random source</li>
+</ul>
+<p><strong>Result:</strong> timing and note lengths are derived from divisions, giving organic phrasing.</p>
+<hr />
+<h1>Advanced melodic strategies</h1>
+<h2>1. Rotate the structure, not just the rhythm</h2>
+<p>If outputs are patched to several critical destinations, Rotate CV can transform the whole melodic architecture.</p>
+<p>For example:
+- one output clocks notes
+- one output changes octave
+- one output resets a phrase
+- one output changes scale</p>
+<p>As Rotate moves, these roles shift in time. This feels almost like a composed variation system.</p>
+<hr />
+<h2>2. Use slow CV into Rotate for evolving form</h2>
+<p>Because Rotate responds to 0–5V and moves outputs through division assignments, you can automate form over time.</p>
+<p>Good CV sources:
+- stepped random
+- sequencer row
+- pressure controller
+- slow envelope
+- joystick</p>
+<p>This is excellent for live performance.</p>
+<hr />
+<h2>3. Use audio-rate clocking for crude subharmonic pitch structures</h2>
+<p>The manual notes the RCD can run into audio range and can “crudely step pitch downward.”</p>
+<p>That means if you patch an audio-rate square wave as the input clock, the outputs become sub-divided square-like signals at lower frequencies.</p>
+<h3>Musical use</h3>
+<ul>
+<li>use outputs as crude suboscillators</li>
+<li>mix /2, /3, /4, /5 for organ-like or subharmonic tones</li>
+<li>then sequence filters or VCAs melodically</li>
+</ul>
+<p>This is not precise V/oct melody generation, but it is musically interesting.</p>
+<hr />
+<h2>4. Build phrase memory with resets</h2>
+<p>Patch one of the slower outputs back into Reset.</p>
+<p>The manual explicitly notes this is valid and independent of Auto-reset.</p>
+<h3>Example</h3>
+<ul>
+<li>/7 patched to Reset</li>
+<li>faster outputs drive note events</li>
+</ul>
+<p>Now the system creates a repeating 7-pulse phrase, even if other divisions would normally run longer.</p>
+<p>This is a very modular way to “compose” phrase lengths.</p>
+<hr />
+<h1>Practical musical advice</h1>
+<h2>Best settings for immediate melodic use</h2>
+<p>If you want the RCD to be musical quickly:</p>
+<ul>
+<li><strong>Trigger mode</strong></li>
+<li><strong>Up counting</strong> for staggered phrase emergence, or <strong>Down counting</strong> for obvious phrase starts</li>
+<li><strong>Spread On</strong> if you want phrase hierarchy</li>
+<li><strong>Max Divide 16 or 32</strong> for more structural timing options</li>
+<li>Use <strong>CV Rotate</strong> from a slow source</li>
+</ul>
+<p>That setup gives a lot of melodic variation without becoming too chaotic.</p>
+<hr />
+<h2>When to use Spread Off</h2>
+<p>Use <strong>Spread Off</strong> when you want neighboring outputs to be closely related:
+- /1, /2, /3, /4...
+- ideal for tight rhythmic melody work
+- good for dense arpeggiation and quick note changes</p>
+<h2>When to use Spread On</h2>
+<p>Use <strong>Spread On</strong> when you want the outputs to occupy different time scales:
+- note events
+- accents
+- phrase changes
+- section changes</p>
+<p>This is better for complete musical structures.</p>
+<hr />
+<h2>When to use max divide 8 vs 16/32/64</h2>
+<h3>Max 8</h3>
+<ul>
+<li>immediate musical divisions</li>
+<li>compact rhythmic relationships</li>
+<li>easy to understand live</li>
+</ul>
+<h3>Max 16</h3>
+<ul>
+<li>more melodic phrase variation</li>
+<li>still manageable</li>
+</ul>
+<h3>Max 32 or 64</h3>
+<ul>
+<li>long-form generative structures</li>
+<li>slower harmonic changes</li>
+<li>excellent for ambient, generative, and evolving techno patches</li>
+</ul>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>4ms Rotating Clock Divider</strong> is not a pitch sequencer by itself, but it is an extremely powerful <strong>melodic organizer</strong>.</p>
+<p>It creates melody by controlling:</p>
+<ul>
+<li>when notes happen</li>
+<li>how long they last</li>
+<li>when patterns reset</li>
+<li>how transpositions are timed</li>
+<li>how multiple voices phase against each other</li>
+<li>how phrase structure changes over time</li>
+</ul>
+<p>Its most musically powerful features for melody are:</p>
+<ul>
+<li><strong>odd divisions</strong></li>
+<li><strong>CV Rotate</strong></li>
+<li><strong>Spread mode</strong></li>
+<li><strong>Reset behavior</strong></li>
+<li><strong>Trigger/Gate mode</strong></li>
+<li><strong>Up/Down counting</strong></li>
+</ul>
+<p>In practice, the RCD shines when paired with:</p>
+<ul>
+<li>quantizers</li>
+<li>sequencers</li>
+<li>sample &amp; hold</li>
+<li>switches</li>
+<li>logic</li>
+<li>envelope generators</li>
+<li>VCAs</li>
+<li>precision adders</li>
+</ul>
+<p>If you want, I can also turn this into:
+1. a <strong>set of specific patch recipes by genre</strong> (techno, ambient, IDM, Berlin school), or<br />
+2. a <strong>“best companion modules for the RCD” guide</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

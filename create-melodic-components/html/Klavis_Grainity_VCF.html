@@ -1,0 +1,545 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Klavis_Grainity_VCF</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Klavis — Grainity VCF</h1>
+<ul>
+<li><a href="../../manuals/Klavis_-_Grainity_User_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Klavis Grainity — using it to create melodic components in a Eurorack system</h1>
+<p>The <strong>Klavis Grainity</strong> is not just a filter. It’s really a <strong>dual-path melodic spectral processor</strong>:</p>
+<ul>
+<li>one side is a fairly standard <strong>multimode analog VCF</strong></li>
+<li>the other is a <strong>granular-style analog filter engine</strong> whose filter state is stepped by the detected cycle of an input signal or by an external trigger/audio source</li>
+</ul>
+<p>That makes it unusually good for generating <strong>pitched overtones, subharmonics, interval relationships, chord-like layers, pseudo-sequenced filter motion, and harmonically related movement</strong> from a simple oscillator line.</p>
+<h2>What the module does best for melody</h2>
+<p>From a musician’s perspective, Grainity excels at turning a plain melodic source into:</p>
+<ul>
+<li><strong>tracked filter melodies</strong></li>
+<li><strong>harmonic doubles above the played note</strong></li>
+<li><strong>sub-octave / subharmonic reinforcement</strong></li>
+<li><strong>triad-like textures from one oscillator</strong></li>
+<li><strong>moving formant and flanging timbres that still follow pitch</strong></li>
+<li><strong>rhythmic melodic patterns tied to pitch or external clocks</strong></li>
+<li><strong>parallel voices</strong> via its three outputs:</li>
+<li><strong>M.VCF out</strong></li>
+<li><strong>G.VCF out</strong></li>
+<li><strong>Mix out</strong></li>
+</ul>
+<p>Because both filters share the same <strong>cutoff</strong> and <strong>resonance</strong> controls, you can keep both paths musically related while using the granular side to introduce extra interval content.</p>
+<hr />
+<h2>Core idea: how Grainity becomes melodic</h2>
+<p>The manual makes clear that the granular engine is stepped by:</p>
+<ul>
+<li>the <strong>zero-crossings</strong> of the input audio, or</li>
+<li>the <strong>Detect</strong> input instead</li>
+</ul>
+<p>Then the module applies:</p>
+<ul>
+<li>a chosen <strong>Structure</strong> (predefined looping filter/phase pattern)</li>
+<li>optional <strong>Track</strong> retuning</li>
+<li>optional <strong>Phase</strong> offset</li>
+<li>optional <strong>Division</strong></li>
+</ul>
+<p>This matters musically because it means the granular section can behave like a <strong>pitch-related pattern generator</strong>, except it’s modifying filter states rather than outputting raw oscillator pitch.</p>
+<h3>The most melodic controls are:</h3>
+<h4>1. <strong>V/Oct input</strong></h4>
+<p>This applies to the shared cutoff of both filter sections.<br />
+Use it with the same pitch CV as your oscillator to make the filter behavior follow the note line.</p>
+<p>Best use:
+- send your sequencer/keyboard pitch CV to both:
+  - your VCO
+  - Grainity <strong>V/Oct</strong></p>
+<p>That keeps the filtering and resonance behavior musically aligned with the note being played.</p>
+<hr />
+<h4>2. <strong>Track mode</strong></h4>
+<p>This is one of the most important melodic features.</p>
+<p>When <strong>Track</strong> is enabled, Grainity detects the input pitch and retunes the granular cycling from <strong>unison up to slightly above an octave</strong>. The manual describes this as a kind of <strong>virtual VCO for control only</strong>.</p>
+<p>Musically, this lets you create:</p>
+<ul>
+<li><strong>unison reinforcement</strong></li>
+<li><strong>fifths</strong></li>
+<li><strong>third-ish or sixth-ish harmonic relationships</strong></li>
+<li><strong>octave doubling</strong></li>
+<li>subtle <strong>detuned melodic thickening</strong></li>
+</ul>
+<p>A key example from the manual:
+- if the incoming note is C
+- and Track retunes the cycling toward G
+- the granular filter cycles in a <strong>3:2 relationship</strong></p>
+<p>That’s huge for melody writing because it means one monophonic line can produce a musically related second layer.</p>
+<hr />
+<h4>3. <strong>Structure</strong></h4>
+<p>Structures are looping filter-state patterns of length:</p>
+<ul>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>8</li>
+<li>plus random structures</li>
+</ul>
+<p>Longer structures tend to produce:
+- more <strong>subharmonics</strong>
+- deeper <strong>sub-octave implications</strong>
+- more complex internal harmonic motion</p>
+<p>Shorter structures tend to feel:
+- more stable
+- more intervallic
+- easier to tune into melodic contexts</p>
+<p>For melody:
+- start with <strong>2-step</strong> and <strong>3-step</strong> structures
+- then move to <strong>4-step</strong> and <strong>5-step</strong> if you want richer harmonic motion
+- use <strong>8-step</strong> with external triggering for pattern-like melodic filtering</p>
+<hr />
+<h4>4. <strong>Division</strong></h4>
+<p>Division repeats each step before moving to the next.</p>
+<p>Values shown by the display map to:
+- 1, 2, 3, 4, 5, 8, 16, 32, 64, 128</p>
+<p>This is extremely useful melodically.</p>
+<p>Small divisions:
+- create additional harmonic layers
+- work especially well with <strong>Track</strong>
+- can help form <strong>3-note chord-like results from a single VCO</strong>, per the manual</p>
+<p>Large divisions:
+- create <strong>slow evolving rhythmic pitch-related filter patterns</strong>
+- especially when the source is pitched audio or when Detect is externally clocked</p>
+<hr />
+<h4>5. <strong>Phase / Frq control</strong></h4>
+<p>With <strong>Track off</strong>, this is <strong>Phase</strong>
+- creates subtle tonal shifts
+- flanging / phasing
+- unison-like motion when modulated</p>
+<p>With <strong>Track on</strong>, this becomes <strong>Frq</strong>
+- retunes the granular cycling musically
+- this is where you dial in interval relationships</p>
+<p>For melodic work:
+- with Track on, this is your <strong>interval/harmony knob</strong>
+- with Track off and CV applied, this is your <strong>animated doubling / chorus voice knob</strong></p>
+<hr />
+<h2>Best melodic patch roles</h2>
+<h2>1. Monophonic line enhancer</h2>
+<h3>Patch</h3>
+<ul>
+<li>VCO saw or pulse -&gt; <strong>Input</strong></li>
+<li>Sequencer pitch CV -&gt; VCO 1V/Oct and Grainity <strong>V/Oct</strong></li>
+<li><strong>G.VCF out</strong> or <strong>Mix out</strong> -&gt; VCA -&gt; output</li>
+<li>Enable <strong>Track</strong></li>
+<li>Try a short <strong>2-step or 3-step Structure</strong></li>
+<li>Low to medium <strong>Division</strong></li>
+<li>Medium resonance</li>
+</ul>
+<h3>Result</h3>
+<p>A lead or bassline gains:
+- harmonically related extra content
+- vocal/formant movement
+- pseudo-interval doubling</p>
+<p>This is probably the most immediate “melodic” use of the module.</p>
+<hr />
+<h2>2. One oscillator into a chord-like voice</h2>
+<p>The manual explicitly says careful use of <strong>Track + Division</strong> can create <strong>3-note chords from a single VCO</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Single VCO triangle/saw -&gt; <strong>Input</strong></li>
+<li>Same pitch CV -&gt; VCO and Grainity <strong>V/Oct</strong></li>
+<li>Enable <strong>Track</strong></li>
+<li>Sweep <strong>Frq</strong></li>
+<li>Try <strong>Division 2, 3, 4, or 5</strong></li>
+<li>Try <strong>3-step, 4-step, and 5-step Structures</strong></li>
+<li>Use <strong>Mix out</strong></li>
+<li>Set M.VCF to <strong>IN</strong>, <strong>LP2</strong>, or <strong>BP</strong> depending on how much raw oscillator you want</li>
+</ul>
+<h3>Why it works</h3>
+<p>You hear:
+- the original tone or filtered original from M.VCF
+- plus the harmonically offset granular component from G.VCF</p>
+<p>This creates the perception of:
+- root + interval + coloration
+- or root + upper harmony + sub component</p>
+<h3>Musical use</h3>
+<p>Great for:
+- monophonic acid lines that imply chords
+- modal drones
+- arpeggios that sound fuller without multiple oscillators
+- pseudo-polyphonic hooks</p>
+<hr />
+<h2>3. Bassline with subharmonic reinforcement</h2>
+<p>Longer structures generate stronger subharmonic behavior.</p>
+<h3>Patch</h3>
+<ul>
+<li>VCO square/saw -&gt; <strong>Input</strong></li>
+<li>Pitch CV to VCO and Grainity <strong>V/Oct</strong></li>
+<li>Try <strong>4-step, 5-step, or 6-step</strong> structures</li>
+<li>Moderate resonance</li>
+<li>Track on or off depending on desired tightness</li>
+<li>Lower cutoff to emphasize low spectral motion</li>
+<li>Mix in some M.VCF lowpass output</li>
+</ul>
+<h3>Result</h3>
+<p>The bassline becomes:
+- thicker
+- more vocal
+- richer in implied lower tones
+- more animated than a normal filter sweep</p>
+<p>This is especially effective when the source octave is played a little higher, as the manual suggests for longer structures.</p>
+<hr />
+<h2>4. Parallel lead voice using the two outputs</h2>
+<p>Grainity really wants to be treated as a <strong>dual voice shaper</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>VCO -&gt; <strong>Input</strong></li>
+<li>Pitch CV -&gt; VCO + Grainity <strong>V/Oct</strong></li>
+<li><strong>M.VCF out</strong> to left mixer channel</li>
+<li><strong>G.VCF out</strong> to right mixer channel</li>
+<li>Use different VCAs, envelopes, effects, or panning for each</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- one more conventional filtered voice
+- one more radical harmonically transformed voice</p>
+<p>This can create:
+- stereo melodic width
+- call-and-response inside one patch
+- a lead plus “ghost harmony”
+- a dry/focused tone paired with an unstable overtone voice</p>
+<p>The manual even notes that sometimes G.VCF can sound sufficiently unrelated to the source that the two outputs can be treated almost like independent channels.</p>
+<hr />
+<h2>5. Externally imposed melodic filtering with Detect</h2>
+<p>The <strong>Detect</strong> input is where Grainity becomes compositionally powerful.</p>
+<p>It lets one signal define the granular stepping while another signal is being filtered.</p>
+<p>That means you can separate:
+- <strong>what is heard</strong>
+from
+- <strong>what controls the melodic stepping</strong></p>
+<h3>Patch concept</h3>
+<ul>
+<li>Complex audio, chord, noise, percussion, or mixed voice -&gt; <strong>Input</strong></li>
+<li>Simple VCO or other pitch source -&gt; <strong>Detect</strong></li>
+</ul>
+<h3>Melodic result</h3>
+<p>The heard sound inherits motion from the Detect source’s cycle pattern.</p>
+<p>This is ideal for:
+- imposing a melody onto a non-melodic source
+- making chords behave more predictably
+- deriving lead tones from noisy content
+- turning drums into pitched rhythmic textures</p>
+<hr />
+<h2>6. Chord processing where one note guides harmony</h2>
+<p>The manual gives a direct recipe:
+- feed the full chord to <strong>Input</strong>
+- send one note, usually the <strong>lowest voice</strong>, to <strong>Detect</strong></p>
+<h3>Why this is musically useful</h3>
+<p>A full chord has too many zero-crossings and can make the granular section chaotic.<br />
+Using one note on Detect makes the stepping stable and harmonically meaningful.</p>
+<h3>Patch</h3>
+<ul>
+<li>Three VCO chord mix -&gt; <strong>Input</strong></li>
+<li>Lowest note’s VCO -&gt; <strong>Detect</strong></li>
+<li>Shared pitch source for musical coherence</li>
+<li>G.VCF out or Mix out to VCA</li>
+</ul>
+<h3>Result</h3>
+<p>You preserve chord richness while making the granular engine track a specific harmonic anchor.</p>
+<p>This is excellent for:
+- pads
+- chord stabs
+- melodic techno chord loops
+- filtered organ-like riffs</p>
+<hr />
+<h2>7. Rhythmic melodic sequences from Detect triggers</h2>
+<p>Detect also accepts triggers, gates, LFOs, and audio.</p>
+<p>This lets you step structures at <strong>sub-audio rates</strong>, making Grainity act like a <strong>timbral sequence generator</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sustained oscillator or drone -&gt; <strong>Input</strong></li>
+<li>Clock / trigger sequence -&gt; <strong>Detect</strong></li>
+<li>Structure: <strong>4-step, 5-step, 6-step, or 8-step</strong></li>
+<li>Division: low values first</li>
+<li>V/Oct tracking from your pitch source</li>
+<li>Track usually off unless experimenting</li>
+</ul>
+<h3>Result</h3>
+<p>Each trigger advances the granular filter structure, creating:
+- repeating melodic timbre phrases
+- pseudo-arpeggiation
+- rhythmic tonal accents
+- sequence-like formant patterns</p>
+<p>If the input is a sustained pitched note, this can sound like a <strong>melodic sequence without changing oscillator pitch</strong>.</p>
+<p>That’s very useful for:
+- sequenced drones
+- Berlin-school style movement
+- gated pad figures
+- evolving ostinatos</p>
+<hr />
+<h2>8. Use M.VCF “IN” mode to blend dry pitch with granular harmony</h2>
+<p>The multimode side has an <strong>IN</strong> option that passes the unaltered input.<br />
+The manual specifically notes this can be useful mixed with G.VCF.</p>
+<h3>Why this matters for melody</h3>
+<p>One of the easiest ways to keep the result musical is to retain a stable pitch center.</p>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator -&gt; Input</li>
+<li>M.VCF set to <strong>IN</strong></li>
+<li>Mix toward center</li>
+<li>G.VCF supplying the movement/harmonic complexity</li>
+<li>Modulate Mix CV for changing emphasis</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- stable root definition from the dry input
+- animated overtone and interval content from G.VCF</p>
+<p>This is one of the best patches for:
+- hooks
+- basslines
+- melodic arps
+- anything where you want “weird” but still clearly pitched</p>
+<hr />
+<h2>9. Animate melodic notes with Phase modulation</h2>
+<p>With <strong>Track off</strong>, the Φ/Frq control becomes <strong>Phase</strong>.</p>
+<p>The manual describes this as producing:
+- subtle tonal variation
+- phasing/flanging
+- unison-like effects when CV modulated</p>
+<h3>Patch</h3>
+<ul>
+<li>Melodic oscillator -&gt; Input</li>
+<li>Slow LFO / random slew / vector modulation -&gt; Φ/Frq CV</li>
+<li>Track off</li>
+<li>Use a stable short structure</li>
+<li>Mix some M.VCF with G.VCF</li>
+</ul>
+<h3>Result</h3>
+<p>Your melody becomes:
+- wider
+- chorus-like
+- gently detuned
+- more animated without losing pitch identity</p>
+<p>This is a strong patch for:
+- lead lines
+- pads
+- melodic plucks
+- synth-pop style chorus movement</p>
+<p>The manual specifically recommends irregular evolving signals for chorus-like results.</p>
+<hr />
+<h2>10. Create “melody from percussion”</h2>
+<p>This is unusual but musically interesting.</p>
+<p>The manual suggests two ways:</p>
+<h3>A. Use a VCO on Detect</h3>
+<ul>
+<li>Percussion -&gt; Input</li>
+<li>Tuned VCO -&gt; Detect</li>
+</ul>
+<p>Now the percussive sound takes on pitched granular stepping, which can produce a melodic impression.</p>
+<h3>B. Use the drum trigger on Detect</h3>
+<ul>
+<li>Percussion audio -&gt; Input</li>
+<li>Drum trigger/gate -&gt; Detect</li>
+</ul>
+<p>Now the structure changes once per drum hit.</p>
+<h3>Musical applications</h3>
+<ul>
+<li>tuned percussion lines</li>
+<li>melodic hats</li>
+<li>bass drum harmonic accents</li>
+<li>hybrid drum+melody parts in techno/IDM</li>
+</ul>
+<hr />
+<h2>11. Mixed music or loops as melodic material</h2>
+<p>The manual suggests extracting rhythmic events from a full mix and feeding those to Detect.</p>
+<p>In a modular music-making context, this translates well to:
+- drum loops
+- stems
+- resampled phrases</p>
+<h3>Patch</h3>
+<ul>
+<li>Loop or mix -&gt; Input</li>
+<li>Filtered band / comparator / gate extractor -&gt; Detect</li>
+</ul>
+<h3>Result</h3>
+<p>The granular filter stepping can lock to prominent features in the loop, creating:
+- musically reactive filtering
+- pitch-related rhythmic melody artifacts
+- loop-derived harmonic motion</p>
+<p>This is more experimental, but very powerful.</p>
+<hr />
+<h1>How to think about the three outputs musically</h1>
+<h2>1. <strong>M.VCF out</strong></h2>
+<p>Use for:
+- the stable melodic anchor
+- traditional subtractive filtering
+- dry or semi-dry pitch reference
+- second voice in stereo</p>
+<p>Best modes for melody:
+- <strong>LP2</strong> for gentle shaping
+- <strong>LP4</strong> for focused bass/lead control
+- <strong>BP</strong> for vocal mids
+- <strong>IN</strong> for preserving pitch center while blending G.VCF</p>
+<hr />
+<h2>2. <strong>G.VCF out</strong></h2>
+<p>Use for:
+- harmonic transformations
+- pseudo-chords
+- subharmonic bass enrichment
+- flanged or formant melodic lines
+- aggressive timbral melody</p>
+<p>This is usually the “character” output.</p>
+<hr />
+<h2>3. <strong>Mix out</strong></h2>
+<p>Use for:
+- immediately playable melodic sounds
+- balancing clarity and complexity
+- CV morphing between stable and unstable voices</p>
+<p>This is the most performance-friendly output.</p>
+<hr />
+<h1>Best practical melodic patches</h1>
+<h2>Patch 1: Harmonic lead from one oscillator</h2>
+<ul>
+<li>Saw VCO -&gt; Input</li>
+<li>Pitch CV -&gt; VCO and Grainity V/Oct</li>
+<li>Track on</li>
+<li>Structure 2A, 2b, 3A, or 3b to start</li>
+<li>Division 1 or 2</li>
+<li>M.VCF = IN or LP2</li>
+<li>Mix around noon to 2 o’clock toward G.VCF</li>
+</ul>
+<p><strong>Sound:</strong> lead with interval color and extra vocal edge.</p>
+<hr />
+<h2>Patch 2: Chord-implying bass</h2>
+<ul>
+<li>Square VCO -&gt; Input</li>
+<li>Pitch CV -&gt; VCO and V/Oct</li>
+<li>Track on</li>
+<li>Structure 4A–4F or 5A–5d</li>
+<li>Division 2–4</li>
+<li>M.VCF LP4</li>
+<li>Moderate resonance</li>
+</ul>
+<p><strong>Sound:</strong> monophonic bass that implies stacked harmony.</p>
+<hr />
+<h2>Patch 3: Sequenced timbre melody</h2>
+<ul>
+<li>Sustained oscillator/drone -&gt; Input</li>
+<li>Trigger sequencer -&gt; Detect</li>
+<li>Structure 8A–8F</li>
+<li>Division 1</li>
+<li>Track off</li>
+<li>Modulate cutoff via envelope or slow CV</li>
+</ul>
+<p><strong>Sound:</strong> rhythmic melodic phrase from filter-state sequencing rather than note changes.</p>
+<hr />
+<h2>Patch 4: Chord stabilizer</h2>
+<ul>
+<li>Mixed 3-VCO chord -&gt; Input</li>
+<li>Lowest VCO -&gt; Detect</li>
+<li>Pitch CV shared</li>
+<li>Track on</li>
+<li>Structure 3-step or 4-step</li>
+<li>Blend M.VCF and G.VCF</li>
+</ul>
+<p><strong>Sound:</strong> rich chord with controlled harmonic animation instead of chaos.</p>
+<hr />
+<h2>Patch 5: Chorus lead</h2>
+<ul>
+<li>VCO -&gt; Input</li>
+<li>Track off</li>
+<li>Slow random or slewed S&amp;H -&gt; Φ/Frq CV</li>
+<li>Structure all-pass or short low-pass family</li>
+<li>M.VCF + G.VCF mixed</li>
+</ul>
+<p><strong>Sound:</strong> pitch-stable melody with animated ensemble feel.</p>
+<hr />
+<h1>Recommended workflow for writing melodic parts</h1>
+<h2>Start simple</h2>
+<p>Use:
+- one clean VCO
+- short structures
+- low division
+- Track on
+- M.VCF set to IN or LP2</p>
+<p>This gives you a strong reference point.</p>
+<h2>Then add complexity in this order</h2>
+<ol>
+<li>adjust <strong>Frq/Track</strong> for interval feel</li>
+<li>change <strong>Structure</strong></li>
+<li>increase <strong>Division</strong></li>
+<li>add <strong>Phase/Frq CV</strong></li>
+<li>introduce external <strong>Detect</strong></li>
+<li>separate <strong>M.VCF</strong> and <strong>G.VCF</strong> into different channels</li>
+</ol>
+<p>That progression helps keep the patch musical instead of immediately chaotic.</p>
+<hr />
+<h1>Best pairings with other module types</h1>
+<p>Even though only Grainity is present here, these are the module partners it most obviously wants for melodic work:</p>
+<h2>With a VCO</h2>
+<p>Essential. Grainity shines with:
+- saw
+- pulse
+- triangle
+- sync tones
+- additive or complex waves</p>
+<p>Simple wave to Detect, complex wave to Input is directly recommended in the manual.</p>
+<h2>With a sequencer</h2>
+<p>Needed for:
+- pitch CV to VCO and Grainity V/Oct
+- trigger patterns to Detect
+- modulation lanes to Struct / Div / Mix / Φ/Frq</p>
+<h2>With a mixer or mult</h2>
+<p>Very useful for:
+- splitting one VCO to Input and Detect
+- mixing chords to Input while sending one voice to Detect
+- blending M.VCF and G.VCF externally</p>
+<h2>With modulation</h2>
+<p>LFOs, random, envelopes are great on:
+- Mix CV
+- Struct CV
+- Div CV
+- Φ/Frq CV
+- FM
+- Q CV</p>
+<h2>With VCAs</h2>
+<p>Important if you want the two outputs to behave as two separate melodic voices.</p>
+<hr />
+<h1>Performance tips</h1>
+<h2>1. Use Mix as a macro control</h2>
+<p>Because Mix crossfades between conventional and granular filter voices, it’s a powerful live performance control for bringing in harmonic complexity.</p>
+<h2>2. Keep M.VCF as a pitch anchor</h2>
+<p>If the G.VCF becomes too abstract, keep some dry or lightly filtered signal in the mix.</p>
+<h2>3. Track + low division is the sweet spot</h2>
+<p>For clearly melodic use, this is often where the best interval-like results live.</p>
+<h2>4. Use longer structures for bass and drones</h2>
+<p>These are better for subharmonic or evolving textures than for precise fast melodies.</p>
+<h2>5. Detect is the secret weapon</h2>
+<p>Whenever the input is too busy:
+- use a simpler correlated source on Detect</p>
+<p>That turns Grainity from chaotic to compositionally useful.</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>Klavis Grainity</strong> is best understood as a <strong>melodic harmonic filter instrument</strong>, not merely a special-effect VCF.</p>
+<p>It can be used to create melodic components by:</p>
+<ul>
+<li>tracking incoming pitch with <strong>V/Oct</strong></li>
+<li>generating harmonic relationships using <strong>Track</strong></li>
+<li>building interval and chord-like textures using <strong>Structure + Division</strong></li>
+<li>separating control from sound using <strong>Detect</strong></li>
+<li>blending stable and transformed tones with <strong>M.VCF / G.VCF / Mix</strong></li>
+<li>creating pseudo-sequences from trigger-driven structure stepping</li>
+<li>adding chorus, formant, and subharmonic motion to otherwise plain melodic lines</li>
+</ul>
+<p>If I were using it in a patch, I’d treat it as a way to get <strong>more melody out of less source material</strong>:
+- one oscillator becomes a layered lead
+- one bassline becomes harmonically richer
+- one chord becomes animated but controlled
+- one drone becomes a sequence</p>
+<p>That is where Grainity seems most musically valuable.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

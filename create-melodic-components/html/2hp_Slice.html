@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Slice</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Slice</h1>
+<ul>
+<li><a href="../../manuals/2hp_Slice.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://twohp.com/modules/slice">2hp Slice Manual PDF</a></p>
+<h1>Using 2hp Slice to Create Melodic Components</h1>
+<p>The attached manual is for <strong>2hp Slice</strong>, a <strong>beat repeat / glitch engine</strong>. On its own, Slice is not a pitch-generating oscillator or quantizer, but it can be used very effectively to create <strong>melodic rhythm, pitched textures, repeating motifs, and variation</strong> when paired with sound sources, samplers, loopers, and modulation.</p>
+<h2>What Slice does musically</h2>
+<p>Slice takes incoming audio and, when triggered, <strong>repeats small clock-synced chunks</strong> of that audio. Because the repeat size is tied to the clock, it can produce:</p>
+<ul>
+<li>rhythmic stutters</li>
+<li>granular-like time slices</li>
+<li>glitch fills</li>
+<li>pitch-like artifacts when the slices get very short</li>
+<li>evolving repeated motifs from already melodic material</li>
+</ul>
+<h3>Key controls relevant to melodic use</h3>
+<ul>
+<li><strong>Audio In / Audio Out</strong></li>
+<li>Feed Slice any melodic audio: oscillator voice, sample playback, looped phrase, or full voice chain.</li>
+<li><strong>Clock In</strong></li>
+<li>Sets the rhythmic base for all repeat divisions.</li>
+<li>Works from <strong>10 BPM to audio rate</strong>, which is very important: at slower rates you get musical rhythmic repeats; at faster rates you can enter more tone-like or timbral territory.</li>
+<li><strong>Trig Gate In / Trig Button</strong></li>
+<li>Activates the repeat effect.</li>
+<li>Threshold: <strong>0.4V</strong></li>
+<li>Can operate in:<ul>
+<li><strong>Latching mode</strong>: repeat stays on after trigger until toggled off</li>
+<li><strong>Momentary mode</strong>: repeat is active only while gate is high</li>
+</ul>
+</li>
+<li><strong>Size Knob</strong></li>
+<li>Sets repeat length relative to the clock.</li>
+<li>Range includes:<ul>
+<li>2 bars</li>
+<li>1 bar</li>
+<li>1/2</li>
+<li>1/4</li>
+<li>1/4 triplet</li>
+<li>1/8</li>
+<li>1/8 triplet</li>
+<li>1/16</li>
+<li>1/16 triplet</li>
+<li>1/32</li>
+<li>1/64</li>
+<li>1/128</li>
+<li>1/256</li>
+</ul>
+</li>
+<li><strong>Triplet Toggle</strong></li>
+<li>Includes/removes triplet divisions from the available size range.</li>
+<li><strong>Size CV</strong></li>
+<li>CV control over repeat size</li>
+<li>Range: <strong>-5V to +5V</strong></li>
+</ul>
+<h2>How Slice contributes to melody</h2>
+<p>Slice is best thought of as a <strong>melodic transformer</strong>, not a melody source. It works especially well in these roles:</p>
+<h3>1. Turning a simple phrase into a melodic hook</h3>
+<p>If you send a melodic line, arpeggio, bassline, or vocal phrase into Slice, it can isolate tiny rhythmic fragments and repeat them. This creates:</p>
+<ul>
+<li>repeated notes from a single transient</li>
+<li>syncopated melodic fragments</li>
+<li>“hook” moments from longer phrases</li>
+<li>fills that sound intentional and compositional</li>
+</ul>
+<p>A plain 4-note line can become much more interesting if Slice grabs a short segment at the end of every bar.</p>
+<h3>2. Creating apparent pitch shifts with very short slices</h3>
+<p>When repeat times get extremely short, repeated audio can begin to sound <strong>pitched</strong> or “resonant,” especially with harmonically rich material. This can create:</p>
+<ul>
+<li>metallic tuned blips</li>
+<li>buzzy pseudo-oscillator tones</li>
+<li>rising or falling glitch tones when modulating Size</li>
+<li>melodic percussion from non-melodic material</li>
+</ul>
+<p>This is especially strong when the incoming audio has clear harmonic content, such as:
+- saw or square oscillator voices
+- vocal samples
+- plucked sounds
+- drum hits with tone</p>
+<h3>3. Producing rhythmic melody from non-melodic audio</h3>
+<p>If you feed drums or noise bursts into Slice and clock it tightly, short repeated sections can create tonal-feeling motifs. With careful timing, this becomes a kind of <strong>percussive melody</strong> or <strong>pitched glitch lead</strong>.</p>
+<hr />
+<h1>Pairing ideas from the manual</h1>
+<p>The manual explicitly recommends pairing Slice with:</p>
+<ul>
+<li><strong>2hp Rnd</strong></li>
+<li><strong>2hp Play</strong></li>
+<li><strong>2hp Drum Machine</strong></li>
+<li><strong>2hp Loop</strong></li>
+</ul>
+<p>Below is how each pairing can help generate melodic components.</p>
+<hr />
+<h2>1. Slice + Play: strongest melodic pairing</h2>
+<p>The manual specifically mentions <strong>Play</strong> as a sampler companion and suggests multing modulation to <strong>Slice Size</strong> and <strong>Play pitch</strong>.</p>
+<h3>Why this is strong</h3>
+<p>Play already gives you sample-based tonal content:
+- vocals
+- chops
+- melodic samples
+- breakbeats
+- instrument one-shots</p>
+<p>Slice then rhythmically repeats sections of that audio, while Play can shift pitch. This combination can create:</p>
+<ul>
+<li>pitched vocal chops</li>
+<li>chopped sample melodies</li>
+<li>rising/falling glitch leads</li>
+<li>pitched call-and-response phrases</li>
+</ul>
+<h3>Patch idea: linked pitch and slice length</h3>
+<p>The manual suggests:
+- mult one CV source to:
+  - <strong>Slice Size CV</strong>
+  - <strong>Play pitch</strong></p>
+<h3>Musical result</h3>
+<ul>
+<li><strong>longer slices = lower pitch</strong></li>
+<li><strong>shorter slices = higher pitch</strong></li>
+</ul>
+<p>This creates a natural-feeling mapping where:
+- slower, longer repeats feel deeper and more stable
+- shorter, faster repeats feel brighter and higher</p>
+<p>That can produce very expressive melodic movement from even a single sample.</p>
+<h3>Example patch</h3>
+<ul>
+<li>Play output → Slice audio input</li>
+<li>Master clock → Slice clock input</li>
+<li>Gate pattern → Slice trig input</li>
+<li>Sequenced or random CV multed to:</li>
+<li>Play pitch</li>
+<li>Slice Size CV</li>
+</ul>
+<h3>Result</h3>
+<p>A sampled phrase becomes a playable melodic-glanular instrument. You can get:
+- rhythmic riffs
+- pitch-synced glitch fills
+- evolving top lines</p>
+<hr />
+<h2>2. Slice + Loop: building melodic loops from repeats</h2>
+<p>The manual highlights using Loop with Slice to:
+- capture beat repeats
+- pitch them up/down
+- reverse them
+- use Frippertronics-style looping</p>
+<h3>Why this matters melodically</h3>
+<p>Slice produces short repeat gestures; Loop can <strong>freeze and preserve</strong> those moments. Once captured, they become reusable melodic material.</p>
+<h3>Musical uses</h3>
+<ul>
+<li>capture a particularly good Slice repeat and turn it into a looped melodic phrase</li>
+<li>pitch the loop for harmonic movement</li>
+<li>reverse the captured repeat for a contrasting melody</li>
+<li>layer a stable loop underneath live Slice improvisation</li>
+</ul>
+<h3>Patch workflow</h3>
+<ul>
+<li>Melodic source → Slice</li>
+<li>Slice out → Loop in</li>
+<li>Trigger Slice for interesting fragments</li>
+<li>Record the best moments in Loop</li>
+<li>Repitch or reverse the loop</li>
+</ul>
+<h3>Result</h3>
+<p>This turns transient glitch moments into:
+- repeatable hooks
+- atmospheric pitched textures
+- melodic beds
+- transitional FX that still feel harmonic</p>
+<p>This is one of the best ways to use Slice in a song structure, because it lets you move from improvisation to fixed musical phrases.</p>
+<hr />
+<h2>3. Slice + Rnd: generative melodic variation</h2>
+<p>The manual recommends <strong>Rnd</strong> for both clocking and modulating Slice.</p>
+<h3>Why this helps</h3>
+<p>Rnd can provide:
+- clock-synced gates
+- clock-synced CV</p>
+<p>That means Slice can receive:
+- regular or semi-random triggers
+- moving Size CV
+- variation synchronized to tempo</p>
+<h3>Melodic potential</h3>
+<p>Rnd doesn’t directly create tonal pitch unless routed elsewhere too, but paired with a melodic source it can create:
+- generative phrase slicing
+- changing subdivisions that form melodic motifs
+- evolving glitch arpeggios from static audio
+- randomized fill behavior</p>
+<h3>Good melodic strategy</h3>
+<p>Use Rnd to modulate <strong>both</strong>:
+- Slice Size CV
+- the pitch of your source voice or sampler</p>
+<p>This creates correlation between:
+- where the phrase is sliced
+- what pitch the phrase is playing</p>
+<h3>Result</h3>
+<p>You get semi-composed generative melodies that feel related rather than chaotic.</p>
+<hr />
+<h2>4. Slice + Drum Machine: percussive melody and fills</h2>
+<p>The manual frames this pairing mostly around drum fills, hi-hat triplets, and repeat rises. That sounds rhythmic rather than melodic, but in practice it can be very melodic too.</p>
+<h3>How drums become melodic</h3>
+<p>If the Drum Machine includes tuned percussion, toms, tonal hats, or resonant sounds, Slice can:
+- isolate short tonal drum segments
+- create pitched-sounding rolls
+- make ratcheting fills that imply melody
+- turn a groove into a hook through repetition</p>
+<h3>Best uses</h3>
+<ul>
+<li>repeat just the tail of a tonal snare/clap</li>
+<li>create triplet hat bursts that interact with a bassline</li>
+<li>use short slice values for rising “laser” fills</li>
+</ul>
+<h3>Result</h3>
+<p>You may not get conventional note-sequence melody, but you get <strong>melodic percussion</strong>, which is often what makes electronic arrangements feel alive.</p>
+<hr />
+<h1>Best practical melodic patch strategies</h1>
+<h2>A. Chopped lead line</h2>
+<p>Use Slice after a complete melodic voice.</p>
+<p><strong>Patch:</strong>
+- Oscillator + VCA + filter + envelope voice → Slice in
+- Clock → Slice clock
+- Gate sequence for fills → Slice trig
+- Modulation → Slice Size CV</p>
+<p><strong>What happens:</strong>
+Slice creates repeating fragments of your lead only at selected moments, adding hooks and phrase accents.</p>
+<p><strong>Best for:</strong>
+- techno leads
+- IDM stutters
+- glitch-pop vocals
+- bassline fills</p>
+<hr />
+<h2>B. Vocal/sample melody instrument</h2>
+<p>Use Play into Slice.</p>
+<p><strong>Patch:</strong>
+- Play out → Slice in
+- Main clock → Slice clock
+- Random or sequenced gate → Slice trig
+- Shared CV → Play pitch + Slice Size CV</p>
+<p><strong>What happens:</strong>
+A single sample becomes an animated melodic instrument.</p>
+<p><strong>Best for:</strong>
+- vocal chops
+- sample house
+- hyperpop-style glitches
+- breakbeat edits</p>
+<hr />
+<h2>C. Granular pseudo-oscillator</h2>
+<p>Drive Slice with harmonically rich sustained audio and use very short repeat sizes.</p>
+<p><strong>Patch:</strong>
+- Sustained oscillator drone or sample → Slice in
+- Fast clock → Slice clock
+- Gate held high or latching mode engaged
+- Manually scan Size</p>
+<p><strong>What happens:</strong>
+At short divisions, the repeated micro-segment can produce tuned or quasi-tuned textures.</p>
+<p><strong>Best for:</strong>
+- glitch leads
+- metallic pads
+- artificial plucks
+- experimental melodies</p>
+<hr />
+<h2>D. Capture-and-compose method</h2>
+<p>Use Slice for discovery and Loop for arrangement.</p>
+<p><strong>Patch:</strong>
+- Melodic source → Slice → Loop
+- Trigger Slice manually or with sequencer
+- Record appealing fragments into Loop
+- Repitch/reverse the loop</p>
+<p><strong>What happens:</strong>
+Improvised glitch events become stable compositional elements.</p>
+<p><strong>Best for:</strong>
+- building hooks
+- turning accidents into motifs
+- live performance resampling
+- ambient/glitch composition</p>
+<hr />
+<h1>Important performance behaviors</h1>
+<h2>Latching vs momentary gate mode</h2>
+<p>This matters a lot for melodic phrasing.</p>
+<h3>Latching mode</h3>
+<ul>
+<li>One trigger turns Slice on</li>
+<li>Next trigger turns it off</li>
+</ul>
+<p><strong>Use for:</strong>
+- sustained chopped passages
+- turning a whole phrase into a repeated texture
+- performance toggling between clean and glitched sections</p>
+<h3>Momentary mode</h3>
+<ul>
+<li>Slice is active only while gate stays high</li>
+</ul>
+<p><strong>Use for:</strong>
+- short fills
+- ratchets
+- transient note repeats
+- precise rhythmic punctuation</p>
+<p>To change modes:
+- <strong>hold the Trig button while powering up the module</strong></p>
+<p>For melodic work, <strong>momentary mode</strong> is usually better for tight phrase control, while <strong>latching mode</strong> is better for dramatic section changes.</p>
+<hr />
+<h1>Triplets and melodic feel</h1>
+<p>The <strong>Triplet toggle</strong> is deceptively powerful for melody.</p>
+<h3>With triplets enabled</h3>
+<p>You get:
+- swing-like subdivisions
+- polyrhythmic melodic stutters
+- more expressive fills
+- less rigid machine-grid phrasing</p>
+<h3>With triplets disabled</h3>
+<p>You get:
+- cleaner binary divisions
+- more techno/electro precision
+- easier synchronization with straight sequenced melodies</p>
+<p>For melodic variation, turning triplets on can make a static phrase feel much more human or “musical.”</p>
+<hr />
+<h1>Clocking considerations for melodic results</h1>
+<p>Since Slice is clock-dependent, the clock choice strongly affects how melodic it feels.</p>
+<h2>Slow clock</h2>
+<ul>
+<li>broader rhythmic repeats</li>
+<li>phrase-level looping</li>
+<li>musical and recognizable motifs</li>
+</ul>
+<h2>Medium clock</h2>
+<ul>
+<li>ratchets and note subdivisions</li>
+<li>sequence embellishment</li>
+<li>arpeggio-style rhythmic chopping</li>
+</ul>
+<h2>Very fast clock</h2>
+<ul>
+<li>timbral/pitch-like artifacts</li>
+<li>granular textures</li>
+<li>buzzy melodic effects</li>
+</ul>
+<p>If your goal is <strong>recognizable melody</strong>, stay in slower to medium divisions. If your goal is <strong>pitched glitch texture</strong>, use faster clocks and tiny slice sizes.</p>
+<hr />
+<h1>Limitations to understand</h1>
+<p>Slice is not:
+- a quantizer
+- a traditional pitch sequencer
+- a V/Oct oscillator
+- a harmonic processor</p>
+<p>So it does not generate conventional note melodies by itself.</p>
+<p>Instead, it excels at:
+- <strong>reframing existing melodic material</strong>
+- <strong>extracting motifs</strong>
+- <strong>creating rhythmic pitch illusions</strong>
+- <strong>adding expressive glitch phrasing</strong>
+- <strong>transforming samples or loops into melodic texture</strong></p>
+<p>That makes it especially useful in systems where you already have:
+- a sampler
+- a looper
+- a melodic voice
+- a random CV source
+- a sequencer</p>
+<hr />
+<h1>Best overall “melodic system” from this manual</h1>
+<p>If using only the module relationships shown in the manual, the strongest melodic chain is:</p>
+<p><strong>Play → Slice → Loop</strong></p>
+<p>with <strong>Rnd</strong> providing modulation and timing.</p>
+<h3>Why this works</h3>
+<ul>
+<li><strong>Play</strong> provides pitched/sample content</li>
+<li><strong>Slice</strong> creates rhythmic micro-repetition and glitch phrasing</li>
+<li><strong>Loop</strong> captures and transforms the best moments</li>
+<li><strong>Rnd</strong> adds evolving movement</li>
+</ul>
+<h3>This system can produce</h3>
+<ul>
+<li>vocal chop melodies</li>
+<li>evolving sample leads</li>
+<li>repeated micro-hooks</li>
+<li>pitched glitch textures</li>
+<li>looped ambient melodic fragments</li>
+<li>generative top lines</li>
+</ul>
+<hr />
+<h1>Summary</h1>
+<h2>Most melodic use cases for Slice</h2>
+<ol>
+<li><strong>As a stutter effect on an existing melodic voice</strong></li>
+<li><strong>As a sample-chopper with Play</strong></li>
+<li><strong>As a glitch phrase generator captured by Loop</strong></li>
+<li><strong>As a pseudo-pitched texture device with short repeat sizes</strong></li>
+<li><strong>As a rhythm-to-melody transformer using synced CV from Rnd</strong></li>
+</ol>
+<h2>Best pairings from the manual for melody</h2>
+<ul>
+<li><strong>Play</strong>: best for direct melodic/sample work</li>
+<li><strong>Loop</strong>: best for capturing and reusing melodic fragments</li>
+<li><strong>Rnd</strong>: best for generative variation</li>
+<li><strong>Drum Machine</strong>: best for melodic percussion and fills</li>
+</ul>
+<p>If you want, I can also turn this into:
+- a <strong>set of concrete patch recipes</strong>
+- a <strong>beginner/intermediate/advanced usage guide</strong>
+- or a <strong>“best melodic patches for 2hp Slice” cheat sheet</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

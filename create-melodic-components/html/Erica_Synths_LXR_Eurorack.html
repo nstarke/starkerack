@@ -1,0 +1,576 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erica_Synths_LXR_Eurorack</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erica Synths — LXR Eurorack</h1>
+<ul>
+<li><a href="../../manuals/LXR_eurorack_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.ericasynths.lv/media/LXR_Eurorack_owners_manual_v2.pdf">Erica Synths x Sonic Potions LXR Eurorack Owners Manual (PDF)</a></p>
+<h1>Using the Erica Synths x Sonic Potions LXR Eurorack Module for Melodic Music</h1>
+<p>Although the LXR is primarily a <strong>6-voice digital drum synthesizer</strong>, the manual makes it clear that it is much more than a fixed percussion box. With per-voice synthesis, modulation, FM, filters, envelopes, CV assignment, 1V/Oct behavior, routing, LFOs, and effects, it can be used as a <strong>melodic percussion synth</strong>, <strong>bass voice</strong>, <strong>FM bell source</strong>, <strong>chord-like layered texture generator</strong>, and <strong>animated tonal FX instrument</strong>.</p>
+<h2>Big picture</h2>
+<p>The LXR gives you:</p>
+<ul>
+<li><strong>6 synth voices</strong></li>
+<li><strong>Different voice architectures</strong> optimized for different sound families</li>
+<li><strong>5 assignable CV inputs</strong></li>
+<li><strong>6 LFOs</strong></li>
+<li><strong>3-slot modulation matrix per voice</strong></li>
+<li><strong>Accent modulation</strong></li>
+<li><strong>Per-voice filter, envelopes, transient, distortion, sample-rate reduction</strong></li>
+<li><strong>Output routing to stereo pairs, mono outs, or FX bus</strong></li>
+<li>A special modulation target called <strong>“v/o”</strong> for <strong>1V/Oct tonal control</strong></li>
+</ul>
+<p>This means the module can move beyond drums and become a playable <strong>multi-timbral melodic sound source</strong>.</p>
+<hr />
+<h1>What in the manual supports melodic use?</h1>
+<h2>1. 1V/Oct pitch control via the mod matrix</h2>
+<p>One of the most important details in the manual is in the modulation section:</p>
+<ul>
+<li>Each voice has a <strong>3-slot modulation matrix</strong></li>
+<li>Sources include:</li>
+<li><strong>5 CV inputs</strong></li>
+<li><strong>6 LFOs</strong></li>
+<li><strong>6 accent signals</strong></li>
+<li>There is a special destination called <strong>“v/o”</strong></li>
+<li>With <strong>amount = 100%</strong>, incoming CV is scaled for <strong>1V/Oct tracking</strong></li>
+<li>Negative CVs are ignored in this mode</li>
+<li>This gives about a <strong>5-octave range</strong></li>
+</ul>
+<p>This is the core feature that turns the LXR into a melodic instrument.</p>
+<h3>Practical use</h3>
+<p>Patch a sequencer, keyboard controller, or quantized CV source into one of the <strong>CV inputs</strong>, then assign that CV to the selected voice’s <strong>v/o</strong> destination in the mod matrix. Now that drum voice can be played chromatically.</p>
+<hr />
+<h2>2. Several voice types can function as pitched synth voices</h2>
+<p>The manual describes these voice families:</p>
+<ul>
+<li><strong>Drum voices 1–3</strong></li>
+<li><strong>Snare voice (voice 4)</strong></li>
+<li><strong>Cymbal/Clap voice (voice 5)</strong></li>
+<li><strong>Hihat/open hihat voice (voices 6/7 shared behavior)</strong></li>
+</ul>
+<p>Some are more naturally melodic than others.</p>
+<h2>Best melodic candidates</h2>
+<h3>Drum voices 1–3</h3>
+<p>These are the strongest general-purpose melodic voices because they include:</p>
+<ul>
+<li>Main oscillator</li>
+<li>FM or mix oscillator behavior</li>
+<li>Pitch envelope</li>
+<li>Filter</li>
+<li>Amp envelope</li>
+<li>Transient generator</li>
+<li>Distortion</li>
+<li>Sample-rate reduction</li>
+</ul>
+<p>These can become:</p>
+<ul>
+<li>basslines</li>
+<li>tom-like tuned percussion</li>
+<li>plucks</li>
+<li>acid-style leads</li>
+<li>digital synth stabs</li>
+<li>cowbells and synthetic keys</li>
+</ul>
+<h3>Cymbal/Clap voice (voice 5)</h3>
+<p>This voice uses <strong>3-operator FM</strong>, making it excellent for:</p>
+<ul>
+<li>bells</li>
+<li>metallic keys</li>
+<li>mallets</li>
+<li>dissonant melodic percussion</li>
+<li>evolving inharmonic textures</li>
+</ul>
+<p>The manual explicitly points out that this voice is “great for metallic and noisy sounds,” and later in the drum synthesis section it recommends FM for <strong>realistic bells</strong>.</p>
+<h3>Snare voice (voice 4)</h3>
+<p>Less ideal as a conventional lead, but very useful for:</p>
+<ul>
+<li>noisy synth plucks</li>
+<li>tuned electro zaps</li>
+<li>layered body+noise percussion melodies</li>
+<li>clap/snare hybrid melodic hits</li>
+</ul>
+<p>The manual even suggests using the tonal part alone with pitch modulation for a <strong>Kraftwerk-style zap</strong>.</p>
+<h3>Hi-hat voice</h3>
+<p>This can be used melodically in an experimental sense, especially for:</p>
+<ul>
+<li>tuned metallic blips</li>
+<li>short digital chord fragments</li>
+<li>glitch arps</li>
+<li>bright noise pings</li>
+</ul>
+<p>But it is less straightforward for conventional tonal roles.</p>
+<hr />
+<h1>How to build melodic parts on the LXR</h1>
+<h2>Method 1: Turn a drum voice into a bass or lead synth</h2>
+<p>Use one of <strong>Drum voices 1–3</strong>.</p>
+<h3>Setup concept</h3>
+<ol>
+<li>Select voice 1, 2, or 3</li>
+<li>In the <strong>MOD menu</strong>, assign:</li>
+<li><strong>src = CV input</strong></li>
+<li><strong>dst = v/o</strong></li>
+<li><strong>amt = 100%</strong></li>
+<li>Send a sequenced pitch CV into the chosen CV input</li>
+<li>Trigger the voice rhythmically with the trigger input</li>
+<li>Tune the oscillator to a useful base range</li>
+<li>Shape with filter and envelopes</li>
+</ol>
+<h3>Recommended settings for bass</h3>
+<ul>
+<li><strong>OSC page</strong></li>
+<li>waveform: sine, triangle, or rectangle</li>
+<li>coarse tune: low</li>
+<li>fine tune: by ear</li>
+<li><strong>AEG</strong></li>
+<li>attack: 0</li>
+<li>decay: medium</li>
+<li>slope: slightly exponential</li>
+<li><strong>MOD</strong></li>
+<li>pitch envelope amount: low to moderate</li>
+<li>decay: short</li>
+<li><strong>FIL</strong></li>
+<li>lowpass</li>
+<li>moderate resonance</li>
+<li><strong>MIX</strong></li>
+<li>mild drive</li>
+<li>route to a clean output or FX bus</li>
+</ul>
+<h3>Result</h3>
+<p>You get a playable <strong>mono bass synth voice</strong> that can still retain percussive articulation.</p>
+<hr />
+<h2>Method 2: Make tuned plucks and synth stabs</h2>
+<p>The amplitude envelope and filter section make the LXR very good at short, punchy synthesized notes.</p>
+<h3>Patch recipe</h3>
+<p>Use a <strong>drum voice</strong> or the <strong>snare voice</strong>:
+- short attack
+- moderate decay
+- bandpass or lowpass filter
+- small pitch envelope amount
+- optional transient for sharper attack</p>
+<p>This creates:
+- plucks
+- clave-like tonal hits
+- marimba-ish digital percussion
+- electro stabs</p>
+<h3>Tip</h3>
+<p>Use the <strong>transient generator</strong> sparingly. Too much transient makes the note feel drum-like; a little gives articulation without losing pitch definition.</p>
+<hr />
+<h2>Method 3: FM bells, mallets, and metallic melodies</h2>
+<p>The manual specifically suggests FM for bells.</p>
+<p>Use <strong>Voice 5 (Cymbal/Clap)</strong>.</p>
+<h3>Why it works</h3>
+<p>Its 3-operator FM structure naturally creates:
+- inharmonic overtones
+- metallic spectra
+- bell-like decays
+- complex tuned attacks</p>
+<h3>Recommended approach</h3>
+<ul>
+<li>Tune FM oscillator relationships by ear</li>
+<li>Use a <strong>bandpass filter</strong></li>
+<li>Use an <strong>exponential amplitude decay</strong></li>
+<li>Add a small amount of <strong>sample-rate reduction</strong> for extra metallic edge</li>
+<li>Sequence pitch using <strong>v/o</strong></li>
+</ul>
+<h3>Musical applications</h3>
+<ul>
+<li>bell melodies</li>
+<li>techno mallet riffs</li>
+<li>ambient metallic arpeggios</li>
+<li>gamelan-like textures</li>
+<li>digital keys</li>
+</ul>
+<hr />
+<h2>Method 4: Use mixed oscillator mode for interval-like timbres</h2>
+<p>On drum voices, the <strong>FM page</strong> allows:
+- <strong>FM mode</strong>
+- <strong>Mix mode</strong></p>
+<p>In <strong>Mix mode</strong>, the main oscillator and FM oscillator are mixed rather than one modulating the other.</p>
+<p>This is especially useful for melodic work because you can create:
+- dual-oscillator tones
+- detuned unisons
+- interval-like clangs
+- richer harmonic lead sounds</p>
+<h3>Example</h3>
+<p>Set:
+- main osc = rectangle
+- second osc = rectangle or saw
+- tune second oscillator to a musically related offset
+- use a bandpass or lowpass filter</p>
+<p>This is especially good for:
+- synthetic cowbells
+- harmonically rich stabs
+- pseudo-chords
+- techno riffs</p>
+<p>The manual’s <strong>808 cowbell</strong> example is basically a melodic interval patch built this way.</p>
+<hr />
+<h1>Melodic sound design strategies from the manual</h1>
+<h2>1. Use the filter musically</h2>
+<p>The filter is a <strong>2-pole state variable filter</strong> with multiple types:</p>
+<ul>
+<li>lowpass</li>
+<li>highpass</li>
+<li>bandpass</li>
+<li>unit gain bandpass</li>
+<li>notch</li>
+<li>peak</li>
+<li>LP2</li>
+</ul>
+<p>These are useful for melodic shaping:</p>
+<h3>Lowpass</h3>
+<p>Good for:
+- basses
+- leads
+- warm plucks</p>
+<h3>Bandpass</h3>
+<p>Good for:
+- bells
+- mallets
+- nasal leads
+- tuned percussion</p>
+<h3>Peak</h3>
+<p>Good for:
+- emphasizing note pitch
+- resonant attack focus
+- “struck body” feeling</p>
+<h3>LP2</h3>
+<p>The manual describes it as more digital and resonant, good for screaming acid sounds. This makes it excellent for:
+- acid basslines
+- aggressive resonant leads
+- unstable melodic techno sequences</p>
+<hr />
+<h2>2. Use the envelopes like synth envelopes, not just drum envelopes</h2>
+<p>The manual’s envelope section is crucial for melodic use.</p>
+<p>You have control over:
+- attack
+- decay
+- slope
+- repeat (on some voices)</p>
+<h3>Melodic implications</h3>
+<ul>
+<li><strong>Fast attack + short decay</strong> = pluck</li>
+<li><strong>Fast attack + medium decay</strong> = stab</li>
+<li><strong>Longer decay</strong> = bell or sustained percussive tone</li>
+<li><strong>Exponential slope</strong> = natural struck sound</li>
+<li><strong>Logarithmic slope</strong> = more synthetic tail behavior</li>
+</ul>
+<p>For melodic percussion, exponential decay usually feels most natural.</p>
+<hr />
+<h2>3. Use pitch envelopes carefully</h2>
+<p>Pitch envelopes are great for drums, but too much destroys tonal clarity.</p>
+<p>For melodic parts:
+- keep pitch envelope low
+- use short decay
+- use it mainly for attack character</p>
+<p>This gives:
+- plucked articulation
+- analog-style “dip” or “snap”
+- more presence without detuning the note center too much</p>
+<hr />
+<h2>4. Use transient modes to define note articulation</h2>
+<p>The transient generator has multiple modes:</p>
+<ul>
+<li><strong>Snappy</strong></li>
+<li><strong>Offset</strong></li>
+<li><strong>Sample</strong></li>
+</ul>
+<p>These can turn a plain note into something more expressive.</p>
+<h3>Best uses for melodic work</h3>
+<ul>
+<li><strong>Snappy</strong>: adds struck attack, good for bass or tom-like notes</li>
+<li><strong>Offset</strong>: adds pop or phase-defined attack, great for clicky plucks</li>
+<li><strong>Sample</strong>: good for hybrid percussion-key sounds</li>
+</ul>
+<p>For clean melodic lines, use low transient volume.</p>
+<hr />
+<h2>5. Use sample-rate reduction as a harmonic shaper</h2>
+<p>The sample-rate reducer is not only for destruction. At subtle settings it can add:
+- metallic overtones
+- digital edge
+- animated brightness</p>
+<p>This is especially effective on:
+- FM bells
+- leads
+- tuned percussion</p>
+<p>Too much will obscure pitch, so for melodic roles it works best in moderation.</p>
+<hr />
+<h2>6. Use distortion for sustain and presence</h2>
+<p>Per-voice distortion on the mixer page can make tones more present and stable in a mix.</p>
+<p>For melody:
+- light saturation = fuller bass
+- moderate drive = stronger harmonics for filter shaping
+- hard clipping = aggressive industrial lead tones</p>
+<p>The FX drive can also process multiple routed voices together, creating glued melodic/percussive hybrids.</p>
+<hr />
+<h1>LFOs and modulation for melodic animation</h1>
+<p>The LXR has <strong>6 LFOs</strong>, selectable per voice through the modulation matrix.</p>
+<p>These are extremely useful for turning static pitched sounds into musical phrases.</p>
+<h2>Good melodic modulation targets</h2>
+<ul>
+<li>filter frequency</li>
+<li>oscillator pitch (small amounts)</li>
+<li>FM amount</li>
+<li>pulse width</li>
+<li>distortion amount</li>
+<li>sample rate</li>
+<li>pan</li>
+</ul>
+<h2>Musical examples</h2>
+<h3>Slow filter LFO</h3>
+<p>Creates:
+- animated bassline movement
+- evolving bell timbre
+- subtle variation across repeated notes</p>
+<h3>Retriggered LFO as an extra envelope</h3>
+<p>The manual explicitly notes that LFO retrigger can be used like an additional envelope.</p>
+<p>This is powerful for melodic sounds:
+- assign LFO to filter cutoff
+- retrigger from the same voice
+- choose a one-shot-like waveform behavior by timing the cycle</p>
+<p>Result:
+- extra pluck contour
+- custom filter sweep per note
+- pseudo-AD modulation</p>
+<h3>Small pitch LFO</h3>
+<p>Good for:
+- vibrato
+- unstable analog drift
+- detuned metallic shimmer</p>
+<hr />
+<h1>Building layered melodic arrangements with multiple voices</h1>
+<p>Because the LXR has 6 voices, it can provide more than one melodic role at once.</p>
+<h2>Example multi-voice melodic setup</h2>
+<h3>Voice 1: Bass</h3>
+<ul>
+<li>sine/triangle</li>
+<li>lowpass</li>
+<li>short-medium decay</li>
+<li>1V/Oct from CV1</li>
+</ul>
+<h3>Voice 2: Pluck</h3>
+<ul>
+<li>saw or rectangle</li>
+<li>bandpass</li>
+<li>short decay</li>
+<li>mild transient</li>
+<li>same or different pitch CV via another mod slot/CV input</li>
+</ul>
+<h3>Voice 5: Bell layer</h3>
+<ul>
+<li>FM metallic patch</li>
+<li>longer decay</li>
+<li>bandpass</li>
+<li>subtle LFO on filter</li>
+<li>1V/Oct from CV input</li>
+</ul>
+<h3>Voice 4: Noise accent line</h3>
+<ul>
+<li>snare voice with mostly tonal oscillator</li>
+<li>filtered noise mixed low</li>
+<li>short sequence for syncopated zaps</li>
+</ul>
+<p>This lets the LXR act almost like an entire compact melodic percussion section.</p>
+<hr />
+<h1>Using accents musically</h1>
+<p>The manual explains that accent can modulate:
+- voice volume
+- any parameter of the voice</p>
+<p>This is very useful for melody, because accent is not only about loudness.</p>
+<h2>Good accent destinations for melodic phrasing</h2>
+<ul>
+<li>filter cutoff</li>
+<li>FM amount</li>
+<li>decay</li>
+<li>drive</li>
+<li>transient volume</li>
+</ul>
+<h3>Result</h3>
+<p>Different notes in a melodic line can have:
+- brighter attacks
+- different harmonic content
+- longer tails
+- more aggression</p>
+<p>That creates expressive phrasing from otherwise repetitive sequences.</p>
+<hr />
+<h1>Morphing kits for harmonic transformation</h1>
+<p>The <strong>Performance Mode</strong> includes <strong>Morph</strong>, which interpolates from the current kit to another kit.</p>
+<p>For melodic use, this can be brilliant.</p>
+<h2>Best use case</h2>
+<p>Create:
+- one kit with a stable melodic patch set
+- another kit with altered tuning, filter settings, FM amount, and decay</p>
+<p>Then morph between them.</p>
+<h3>Musical outcomes</h3>
+<ul>
+<li>timbral modulation across a phrase</li>
+<li>shifting from bass to bell-like tone</li>
+<li>changing interval structure in layered melodic percussion</li>
+<li>live performance transitions</li>
+</ul>
+<p>The manual even suggests saving slightly modified versions of favorite presets and morphing between them to control many parameters at once.</p>
+<p>For melodic performance, this is one of the most powerful features.</p>
+<hr />
+<h1>FX as melodic tools</h1>
+<p>Only one global FX processor can be active at a time, but it can still be very effective.</p>
+<h2>Drive FX</h2>
+<p>Use for:
+- thickening bass voices
+- aggressive lead textures
+- gluing multiple melodic voices together</p>
+<p>Because multiple voices can hit the same distortion bus, you can get complex intermodulation between pitched sources.</p>
+<h2>Ringmod FX</h2>
+<p>Excellent for:
+- robotic tuned percussion
+- atonal melodic textures
+- clangorous harmonic enhancement</p>
+<p>On already-pitched material, ringmod creates sidebands that can either enrich or destabilize tonality.</p>
+<h2>Compressor</h2>
+<p>Useful if you want the melodic elements to sit more evenly and feel “finished.”</p>
+<h2>Delay</h2>
+<p>Especially strong for:
+- arpeggio extension
+- metallic echoes
+- dub-techno percussion melodies
+- stereo movement</p>
+<p>Short delay times with modulation can also produce flange-like coloration, which can be very nice on bells or zaps.</p>
+<hr />
+<h1>Patch ideas for melodic music</h1>
+<h2>1. Acid percussion bass</h2>
+<ul>
+<li>Voice: Drum 1</li>
+<li>Wave: saw or rectangle</li>
+<li>CV to v/o at 100%</li>
+<li>Short attack, medium decay</li>
+<li>LP2 filter</li>
+<li>medium-high resonance</li>
+<li>accent to filter cutoff</li>
+<li>optional drive</li>
+</ul>
+<p>Use trigger sequencing for rhythmic bass patterns.</p>
+<hr />
+<h2>2. FM bell melody</h2>
+<ul>
+<li>Voice: Cymbal/Clap</li>
+<li>Tune operators for metallic partials</li>
+<li>Bandpass filter</li>
+<li>Exponential decay</li>
+<li>Mild sample-rate reduction</li>
+<li>LFO on filter cutoff</li>
+<li>CV to v/o</li>
+</ul>
+<p>Perfect for ambient, IDM, electro, or melodic techno.</p>
+<hr />
+<h2>3. Kraftwerk zap lead</h2>
+<ul>
+<li>Voice: Snare</li>
+<li>Reduce noise mix</li>
+<li>Raise oscillator pitch</li>
+<li>Use pitch envelope moderately</li>
+<li>Bandpass or highpass filter</li>
+<li>Short decay</li>
+<li>CV to v/o</li>
+</ul>
+<p>Great for robotic melodic motifs.</p>
+<hr />
+<h2>4. Hybrid marimba/tom line</h2>
+<ul>
+<li>Voice: Drum 2 or 3</li>
+<li>Sine or triangle</li>
+<li>Small transient</li>
+<li>Peak or bandpass filter</li>
+<li>Fast attack</li>
+<li>Medium-short exponential decay</li>
+<li>slight distortion</li>
+<li>CV to v/o</li>
+</ul>
+<p>Works well for tuned percussion sequences.</p>
+<hr />
+<h2>5. Layered metallic chord illusion</h2>
+<p>Use multiple voices with fixed interval tunings:
+- Voice 1 = root
+- Voice 2 = +7 semitones
+- Voice 5 = complex FM overtone layer</p>
+<p>Trigger together from the same rhythmic pattern. Even without true polyphonic keyboard control, you can create harmonic stacks and pseudo-chords.</p>
+<hr />
+<h1>Best workflow for melodic integration in a eurorack system</h1>
+<h2>With external sequencers</h2>
+<p>The LXR becomes much more melodic when paired with:
+- quantized CV sequencers
+- keyboard controllers
+- precision voltage sources
+- sequential switches
+- logic/rhythm generators for triggers</p>
+<h3>Recommended patch structure</h3>
+<ul>
+<li>Trigger source -&gt; LXR trigger input</li>
+<li>Pitch CV source -&gt; LXR CV input</li>
+<li>Optional accent gate -&gt; accent input</li>
+<li>Additional modulation CV -&gt; another CV input</li>
+<li>Audio out -&gt; mixer / filter / external effects</li>
+</ul>
+<p>This gives separate control over:
+- when a note happens
+- what pitch it is
+- how expressive it is
+- how timbre evolves</p>
+<hr />
+<h1>Limitations to keep in mind</h1>
+<p>The LXR can be melodic, but it is still a drum-oriented architecture.</p>
+<h2>Important practical constraints</h2>
+<ul>
+<li>Voices are not all equally suitable for tonal tracking</li>
+<li>Envelopes are drum-oriented rather than full sustain ADSR types</li>
+<li>It excels more at:</li>
+<li>plucks</li>
+<li>bass hits</li>
+<li>bells</li>
+<li>mallets</li>
+<li>zaps</li>
+<li>tuned percussion
+  than at long sustaining pads</li>
+<li>Only one global FX processor can run at a time</li>
+<li>1V/Oct uses the modulation matrix, so setup requires routing</li>
+</ul>
+<p>So think of it less as a traditional polysynth and more as a <strong>multi-voice melodic percussion and electronic timbre generator</strong>.</p>
+<hr />
+<h1>Best melodic roles for the LXR</h1>
+<p>From the manual, the strongest melodic uses are:</p>
+<ul>
+<li><strong>Tuned bass drum/bass synth</strong></li>
+<li><strong>Electro tom melodies</strong></li>
+<li><strong>FM bell lines</strong></li>
+<li><strong>Synthetic mallet riffs</strong></li>
+<li><strong>Cowbell and tuned metallic percussion</strong></li>
+<li><strong>Zap leads</strong></li>
+<li><strong>Acid percussive sequences</strong></li>
+<li><strong>Layered chord-like rhythmic hits</strong></li>
+<li><strong>Morphing timbral melody voices</strong></li>
+</ul>
+<hr />
+<h1>Conclusion</h1>
+<p>The Erica Synths x Sonic Potions LXR is absolutely capable of melodic use when treated as a <strong>CV-playable drum synth voice bank</strong> rather than only a percussion source. The key feature is the <strong>mod matrix destination “v/o”</strong>, which enables proper pitch control from external CV. Once that is in place, the module’s oscillators, FM structures, filters, transient shaping, envelopes, LFOs, accent modulation, and effects make it highly capable for:</p>
+<ul>
+<li>basslines</li>
+<li>bell melodies</li>
+<li>tuned percussion</li>
+<li>plucks and stabs</li>
+<li>metallic leads</li>
+<li>evolving rhythmic harmonic textures</li>
+</ul>
+<p>In a eurorack system, it works best when combined with:
+- a quantized pitch sequencer
+- trigger sequencing
+- accent/gate variation
+- external mixing and effects</p>
+<p>Used this way, the LXR can cover a lot of the melodic and harmonic edge of a track while still retaining the punch and character of a drum synth.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

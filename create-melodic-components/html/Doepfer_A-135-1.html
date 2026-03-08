@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-135-1</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-135-1</h1>
+<ul>
+<li><a href="../../manuals/A135_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Doepfer A-135 VC-Mixer — melodic use analysis</h1>
+<p>The <strong>Doepfer A-135 VC-Mixer</strong> is a <strong>4-channel voltage-controlled mixer</strong> built from <strong>four linear VCAs summed to one output</strong>. Each channel has:</p>
+<ul>
+<li><strong>Audio input</strong> with level attenuator</li>
+<li><strong>CV input</strong> with CV attenuator</li>
+<li><strong>Gain</strong> control for offset / base level</li>
+<li>One shared <strong>mixed audio output</strong></li>
+</ul>
+<h2>What it does musically</h2>
+<p>On its own, the A-135 is not a pitch source, quantizer, or oscillator. It is a <strong>dynamic blending tool</strong>. For melodic patching, that makes it useful for:</p>
+<ul>
+<li><strong>Crossfading between pitched sound sources</strong></li>
+<li><strong>Animating timbre over a melodic line</strong></li>
+<li><strong>Voltage-controlled layering of harmonically related voices</strong></li>
+<li><strong>Mixing multiple waveforms from one oscillator into a changing lead/bass tone</strong></li>
+<li><strong>Creating pseudo-sequenced melodies when audio-rate or CV-rate modulation selects different inputs</strong></li>
+<li><strong>Building morphing melodic textures when paired with envelopes, LFOs, sequencers, or a morph controller</strong></li>
+</ul>
+<p>The manual explicitly points out one especially important use:</p>
+<ul>
+<li>With the <strong>Doepfer A-144 Morphing Controller</strong>, the A-135 can perform <strong>4-way crossfading/morphing</strong> from a single control voltage.</li>
+</ul>
+<p>That is very powerful for melody, because one melodic phrase can keep the same pitch while its <strong>instrument identity</strong> changes continuously.</p>
+<hr />
+<h2>Key functional details from the manual</h2>
+<h2>1. Four VCAs into one mix</h2>
+<p>Each input signal is passed through its own <strong>linear VCA</strong>, and all four are summed at <strong>Audio Out</strong>.</p>
+<p>This means the A-135 can mix:</p>
+<ul>
+<li>four different oscillators playing related pitches</li>
+<li>four different waveforms from a single oscillator</li>
+<li>four filtered variants of one oscillator</li>
+<li>even four CV-derived or audio-derived modulation signals for unusual melodic structures</li>
+</ul>
+<h2>2. Linear response</h2>
+<p>The manual says the CEM3381 VCAs have a <strong>linear control response</strong>.</p>
+<p>Musically, that means:</p>
+<ul>
+<li>Great for <strong>controlled blending</strong></li>
+<li>Good for <strong>precise fades</strong></li>
+<li>Very useful for <strong>mixing CV-like shapes or audio-rate modulation</strong></li>
+<li>Slightly less “natural loudness” feeling than exponential VCAs for final amplitude shaping, but excellent for <strong>morphing and balance control</strong></li>
+</ul>
+<h2>3. Gain as offset</h2>
+<p>Each channel’s <strong>Gain</strong> sets a baseline amount of that signal in the mix even with no external CV.</p>
+<p>This is very important for melodic use:</p>
+<ul>
+<li><strong>Gain at 0</strong>: channel only appears when CV opens it</li>
+<li><strong>Gain above 0</strong>: channel is always partially present, and CV adds/subtracts around that base</li>
+<li>For <strong>bipolar CVs</strong> like LFOs, random, or some modulation sources, setting Gain above 0 lets the negative part of the modulation still produce useful movement</li>
+</ul>
+<p>This allows both:</p>
+<ul>
+<li><strong>gated entry of notes/tones</strong></li>
+<li><strong>continuous evolving blend around a center point</strong></li>
+</ul>
+<h2>4. Effective CV range</h2>
+<p>The manual states the effective VCA control range is about:</p>
+<ul>
+<li><strong>0 V = closed</strong></li>
+<li><strong>+5 V = maximum amplification</strong></li>
+</ul>
+<p>The effective control voltage is the sum of:</p>
+<ul>
+<li>the <strong>Gain</strong> control offset</li>
+<li>the external <strong>CV input</strong>, scaled by the <strong>ext. CV</strong> attenuator</li>
+</ul>
+<p>So for melodic patches, you’ll get the best behavior from envelopes, sequencer CV tracks, LFOs, or controller voltages in roughly that range.</p>
+<hr />
+<h1>How to use the A-135 for melodic components</h1>
+<h2>A. Morph between four pitched oscillators</h2>
+<p>This is the most obvious melodic application.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Patch <strong>four VCOs</strong> into the four <strong>Audio In</strong> jacks</li>
+<li>Tune them to:</li>
+<li>unison</li>
+<li>octave</li>
+<li>fifth</li>
+<li>another chord tone or detuned voice</li>
+<li>Send separate CVs or a morphing CV setup to the four VCAs</li>
+<li>Take <strong>Audio Out</strong> to your filter or final VCA</li>
+</ul>
+<h3>Result</h3>
+<p>You can create a melodic line whose pitch stays coherent while the harmonic emphasis changes over time.</p>
+<h3>Good musical outcomes</h3>
+<ul>
+<li>Bassline that shifts between pure sine, octave reinforcement, and fifth-heavy tone</li>
+<li>Lead voice that moves from soft to bright by fading in additional harmonics</li>
+<li>Chordal monophonic voice where intervals enter and leave dynamically</li>
+</ul>
+<hr />
+<h2>B. Mix multiple waveforms from one oscillator into a melodic timbre</h2>
+<p>If your oscillator offers multiple simultaneous outputs, the A-135 becomes a <strong>voltage-controlled timbre composer</strong>.</p>
+<h3>Patch idea</h3>
+<p>From one VCO:
+- Saw → channel 1
+- Pulse → channel 2
+- Triangle → channel 3
+- Sub output → channel 4</p>
+<p>Then:
+- Use envelopes or slow CVs into the A-135 CV inputs
+- Output the mix to filter/VCA</p>
+<h3>Result</h3>
+<p>Each note of your melody can have a different internal waveform blend.</p>
+<h3>Why this works well</h3>
+<p>The pitch remains locked because all sources come from the same oscillator, but the <strong>tone color</strong> shifts continuously.</p>
+<p>This is especially useful for:
+- expressive mono leads
+- evolving arpeggios
+- bass voices with changing body and edge</p>
+<hr />
+<h2>C. Sequentially “select” different pitched sources</h2>
+<p>Because each channel has its own CV control, you can use envelopes, gates, or sequencer CVs to bring in different sources at different times.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Put four differently tuned oscillators or four differently processed versions of one oscillator into the inputs</li>
+<li>Use four gate/envelope patterns to open different channels at different moments</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of one static melody voice, you get a <strong>composite melodic instrument</strong> where different notes seem to come from different layers.</p>
+<h3>Musical uses</h3>
+<ul>
+<li>Call-and-response between intervals</li>
+<li>Alternate note colors in a sequence</li>
+<li>Accent structure by opening extra channels only on selected steps</li>
+</ul>
+<hr />
+<h2>D. Use it as a chord/interval animator</h2>
+<p>The A-135 is very good at mixing intervals around a root.</p>
+<h3>Patch idea</h3>
+<p>Tune channels to:
+- Ch 1 = root
+- Ch 2 = third
+- Ch 3 = fifth
+- Ch 4 = octave or seventh</p>
+<p>Control the channel levels with:
+- envelopes
+- sequencer CV rows
+- LFOs
+- manual gain offsets</p>
+<h3>Result</h3>
+<p>You can turn a single-note line into a <strong>moving harmonic texture</strong>.</p>
+<p>This is especially effective for:
+- drones with melodic emphasis
+- techno stabs that open into chords
+- lead lines that imply harmony without full polyphony</p>
+<hr />
+<h2>E. Use CV or audio as modulation for animated melodic timbres</h2>
+<p>The manual notes the control voltages can come from many sources, including <strong>audio signals</strong> for special effects akin to <strong>ring modulation or FM-like sounds</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Put pitched audio into the inputs</li>
+<li>Send:</li>
+<li>LFOs</li>
+<li>envelopes</li>
+<li>random</li>
+<li>sequencer voltages</li>
+<li>even audio-rate modulators
+  into the <strong>CV inputs</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Melodic material becomes rhythmically or spectrally animated.</p>
+<h3>Melodic relevance</h3>
+<p>This can make:
+- static melodies feel alive
+- repeated notes evolve in brightness/weight
+- harmonically related oscillators interfere in complex ways</p>
+<p>At audio-rate CV, the A-135 stops being just a mixer and starts behaving more like a <strong>compound spectral animation stage</strong>.</p>
+<hr />
+<h1>Especially strong pairings with other modules mentioned in the manual</h1>
+<p>The manual mentions several control sources. Here is how they help melodic work.</p>
+<h2>With envelopes (A-140, A-141, A-142, A-170)</h2>
+<p>Use an envelope per channel or shared differently attenuated envelopes.</p>
+<h3>Best for</h3>
+<ul>
+<li>plucked note articulation</li>
+<li>bringing in harmonics per note</li>
+<li>swelling chord tones on longer notes</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Root oscillator always slightly present via Gain</li>
+<li>Fifth oscillator opened by envelope</li>
+<li>Octave oscillator opened only on accents</li>
+</ul>
+<p>This creates a melodic voice that feels orchestrated rather than static.</p>
+<hr />
+<h2>With LFOs (A-145, A-146, A-147)</h2>
+<p>LFOs create cyclical changes in the blend.</p>
+<h3>Best for</h3>
+<ul>
+<li>slowly evolving melodic drones</li>
+<li>looping patterns with changing timbre</li>
+<li>wobbling interval content</li>
+</ul>
+<h3>Tip from the manual’s behavior</h3>
+<p>For bipolar LFOs, set <strong>Gain above 0</strong> so the negative half of the wave still affects the audible blend.</p>
+<hr />
+<h2>With random (A-118, A-148)</h2>
+<p>Random CV can vary which source is dominant.</p>
+<h3>Best for</h3>
+<ul>
+<li>generative melody color</li>
+<li>unstable harmonic mixtures</li>
+<li>subtle humanized variation between notes</li>
+</ul>
+<h3>Example</h3>
+<p>A melody from one pitch source can sound different every note by randomly emphasizing different waveform or interval layers.</p>
+<hr />
+<h2>With sequencers (A-155, MAQ16/3)</h2>
+<p>A sequencer can control the VCA levels as well as pitch elsewhere in the patch.</p>
+<h3>Best for</h3>
+<ul>
+<li>per-step timbre sequencing</li>
+<li>step-dependent chord emphasis</li>
+<li>rhythmic blending of melodic layers</li>
+</ul>
+<h3>Very musical approach</h3>
+<p>Use one sequencer row for pitch and another row to control one or more A-135 channels.<br />
+That gives you a melody where <strong>pitch and tone are co-composed</strong>.</p>
+<hr />
+<h2>With MIDI-CV interfaces (A-190, A-191, MCV4, MCV24)</h2>
+<p>The manual notes MIDI-derived CV like:
+- pitch
+- aftertouch
+- pitch bend
+- modulation
+- volume
+- arbitrary MIDI CC</p>
+<h3>Best for</h3>
+<ul>
+<li>expressive performance control</li>
+<li>keyboard-controlled voice morphing</li>
+<li>aftertouch opening additional harmonic layers on sustained notes</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Play melody from keyboard</li>
+<li>Route aftertouch to one A-135 channel controlling an octave-up oscillator</li>
+<li>Route mod wheel to another channel controlling a brighter waveform</li>
+</ul>
+<p>This creates a highly playable melodic patch.</p>
+<hr />
+<h2>With A-144 Morphing Controller</h2>
+<p>This is the most compositionally interesting combination described in the manual.</p>
+<h3>Why it matters</h3>
+<p>The A-144 generates related control voltages that can fade across four channels from one master CV.</p>
+<h3>Result</h3>
+<p>You can smoothly move across:
+- four oscillators
+- four waveforms
+- four filtered tonal variants
+- four harmonically tuned layers</p>
+<h3>Melodic use</h3>
+<p>This gives you a single <strong>morph position</strong> control for your lead or bass voice.</p>
+<p>One note sequence can continuously transform from:
+- sine-like purity
+- midrange body
+- bright saw edge
+- harmonic stack</p>
+<p>That is extremely effective for melodic phrasing.</p>
+<hr />
+<h1>Practical patch recipes for melody</h1>
+<h2>1. Four-waveform mono lead</h2>
+<h3>Patch</h3>
+<ul>
+<li>Same VCO:</li>
+<li>triangle → In 1</li>
+<li>saw → In 2</li>
+<li>pulse → In 3</li>
+<li>sub → In 4</li>
+<li>Envelope or LFO to one or more CV inputs</li>
+<li>Set initial channel balance with Audio In knobs</li>
+<li>Use Gain to keep some layers always audible</li>
+</ul>
+<h3>Sound</h3>
+<p>A lead voice whose tone changes over the phrase without changing pitch source.</p>
+<h3>Why it’s melodic</h3>
+<p>The note identity stays strong, but articulation becomes expressive.</p>
+<hr />
+<h2>2. Harmonic bass blender</h2>
+<h3>Patch</h3>
+<ul>
+<li>VCO 1 root → In 1</li>
+<li>VCO 2 octave down → In 2</li>
+<li>VCO 3 fifth → In 3</li>
+<li>Distorted or filtered root → In 4</li>
+<li>Main envelope opens root strongly</li>
+<li>Accent envelope or sequencer row opens fifth/distorted layer on selected steps</li>
+</ul>
+<h3>Sound</h3>
+<p>A bassline with dynamic harmonic accents.</p>
+<h3>Why it works</h3>
+<p>You get melodic clarity plus motion in harmonic density.</p>
+<hr />
+<h2>3. Morphing arpeggio voice</h2>
+<h3>Patch</h3>
+<ul>
+<li>Four differently filtered versions of the same melodic oscillator into the four inputs</li>
+<li>A-144 or slow CV scans the channel levels</li>
+<li>Pitch sequence sent to the oscillator</li>
+<li>Output to final VCA</li>
+</ul>
+<h3>Sound</h3>
+<p>Arpeggio seems to “travel” through different instrumental colors.</p>
+<h3>Why it’s strong</h3>
+<p>The melody repeats, but the ear hears development through morphing tone.</p>
+<hr />
+<h2>4. Per-step timbre sequenced melody</h2>
+<h3>Patch</h3>
+<ul>
+<li>One pitch CV row controls oscillator pitch</li>
+<li>Another sequencer row controls one A-135 CV input</li>
+<li>Additional rows or gates trigger other channels</li>
+<li>Inputs are different waveforms or interval voices</li>
+</ul>
+<h3>Sound</h3>
+<p>Each step of the melody has a distinct voicing.</p>
+<h3>Result</h3>
+<p>This feels like a melody with arrangement built in.</p>
+<hr />
+<h2>5. Crossfaded chord voice</h2>
+<h3>Patch</h3>
+<ul>
+<li>Root / third / fifth / octave oscillators into channels 1–4</li>
+<li>Shared melodic gate/envelope opens root</li>
+<li>Slow LFOs or manual faders set the balance of upper tones</li>
+<li>Or use A-144 for controlled scan across them</li>
+</ul>
+<h3>Sound</h3>
+<p>A monophonic melody with implied chord movement.</p>
+<h3>Good for</h3>
+<ul>
+<li>ambient</li>
+<li>Berlin-school</li>
+<li>electro</li>
+<li>soundtrack patches</li>
+</ul>
+<hr />
+<h1>Performance tips from the module behavior</h1>
+<h2>Set input levels first</h2>
+<p>The <strong>Audio In</strong> attenuators help compensate for different source levels.<br />
+Do this before trying to fine-tune CV behavior, otherwise one source may dominate unfairly.</p>
+<h2>Use Gain = 0 for envelope-opened channels</h2>
+<p>For note-triggered layers, start with <strong>Gain at 0</strong> so the sound appears only when CV opens it.</p>
+<h2>Use Gain &gt; 0 for bipolar modulation</h2>
+<p>As the manual explains, if using an LFO or other bipolar source, add some Gain so the whole modulation swing becomes useful.</p>
+<h2>Think of it as a “timbre sequencer”</h2>
+<p>Even though it is called a mixer, melodically it often behaves more like:
+- a voicing animator
+- a harmonic blender
+- a 4-way timbre scanner</p>
+<h2>Watch summed levels</h2>
+<p>Four active channels can produce a hot output. If several pitched sources are all open together, the mix may get dense or clip later stages. Keep balance under control.</p>
+<hr />
+<h1>Best melodic roles for the A-135</h1>
+<p>The A-135 is especially effective for:</p>
+<ul>
+<li><strong>Leads with evolving tone</strong></li>
+<li><strong>Basslines with harmonic accents</strong></li>
+<li><strong>Morphing mono voices</strong></li>
+<li><strong>Blended interval/chord textures</strong></li>
+<li><strong>Timbre sequencing</strong></li>
+<li><strong>Crossfading between oscillators or processing chains</strong></li>
+</ul>
+<p>It is less about generating melody directly and more about making a melody feel:</p>
+<ul>
+<li>arranged</li>
+<li>expressive</li>
+<li>morphing</li>
+<li>harmonically alive</li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Doepfer A-135 VC-Mixer</strong> is best understood as a <strong>melodic voice sculptor</strong> rather than a melody generator. It lets you take pitch material from oscillators or other melodic modules and turn that material into something much more dynamic by controlling:</p>
+<ul>
+<li>which layers are heard</li>
+<li>how strongly they are heard</li>
+<li>when they enter</li>
+<li>how they morph over time</li>
+</ul>
+<p>Its most musical strengths are:</p>
+<ol>
+<li><strong>voltage-controlled blending of four pitched sources</strong></li>
+<li><strong>waveform mixing for animated melodic timbres</strong></li>
+<li><strong>harmonic layering of intervals and chord tones</strong></li>
+<li><strong>crossfading/morphing, especially with the A-144</strong></li>
+</ol>
+<p>If you share the other manual PDFs too, I can analyze <strong>how all of the modules work together as a complete melodic system</strong> and propose specific patch recipes.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_VCA</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — VCA</h1>
+<ul>
+<li><a href="../../manuals/Tiptop Audio VCA user manual_6.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://tiptopaudio.com/vca/">Tiptop Audio VCA Manual PDF</a></p>
+<h1>Using the Tiptop Audio VCA to Create Melodic Components</h1>
+<p>The attached manual is for the <strong>Tiptop Audio VCA</strong>, a single-channel <strong>variable-response voltage controlled amplifier</strong> with:</p>
+<ul>
+<li><strong>LEVEL</strong>: output gain / post-VCA volume</li>
+<li><strong>SHAPE</strong>: CV response morphing from <strong>logarithmic -&gt; linear -&gt; exponential</strong></li>
+<li><strong>OFFSET</strong>: manual bias to open the VCA / shift incoming CV behavior</li>
+<li><strong>CV IN attenuator</strong></li>
+<li><strong>CV IN / Audio IN / Audio OUT</strong></li>
+<li>Clip LEDs for both CV and audio</li>
+</ul>
+<p>Although a VCA is often thought of as “just volume control,” this module is actually a core melodic utility because it can shape:</p>
+<ul>
+<li>note articulation</li>
+<li>modulation depth</li>
+<li>FM index</li>
+<li>filter movement amount</li>
+<li>effect-send animation</li>
+<li>ducking and dynamic phrasing</li>
+</ul>
+<p>In a melodic system, that means it helps turn a plain oscillator pitch sequence into a <strong>performed line</strong>.</p>
+<hr />
+<h2>What this VCA is especially good at</h2>
+<p>The standout feature in this module is the <strong>SHAPE</strong> control. It changes how incoming CV opens the amplifier:</p>
+<ul>
+<li><strong>Logarithmic</strong>: faster perceived opening at lower CV; can feel punchy or snappy</li>
+<li><strong>Linear</strong>: accurate proportional response; ideal for CV processing</li>
+<li><strong>Exponential</strong>: more natural for audio loudness; often best for musical envelopes</li>
+</ul>
+<p>This makes the module useful in two major melodic roles:</p>
+<ol>
+<li><strong>Final note amplitude shaping</strong></li>
+<li><strong>Dynamic control of another modulation source</strong></li>
+</ol>
+<p>That second role is where a lot of melodic expression comes from.</p>
+<hr />
+<h1>Best melodic uses described in the manual</h1>
+<h2>1. Standard voice articulation</h2>
+<p>The manual’s most important melodic patch is the classic:</p>
+<p><strong>VCO -&gt; VCF (optional) -&gt; VCA -&gt; output</strong><br />
+<strong>Envelope -&gt; VCA CV input</strong></p>
+<p>This is the basic architecture for turning a raw oscillator into playable notes.</p>
+<h3>Why it matters musically</h3>
+<p>Without the VCA, a pitched oscillator is just a constant drone.<br />
+With the VCA controlled by an envelope, each note gets:</p>
+<ul>
+<li>attack</li>
+<li>sustain contour</li>
+<li>release</li>
+<li>phrasing</li>
+<li>separation between notes</li>
+</ul>
+<h3>Recommended settings from the manual</h3>
+<p>For typical audio amplitude shaping:</p>
+<ul>
+<li><strong>SHAPE</strong>: toward <strong>logarithmic</strong> or <strong>exponential</strong></li>
+<li><strong>OFFSET</strong>: off</li>
+<li><strong>LEVEL</strong>: adjusted to taste</li>
+<li><strong>CV IN attenuator</strong>: high enough for full envelope range, but not clipping</li>
+</ul>
+<h3>Musical result</h3>
+<p>This gives you:</p>
+<ul>
+<li>plucks</li>
+<li>pads</li>
+<li>bass notes</li>
+<li>leads</li>
+<li>staccato or legato phrasing depending on envelope and gate timing</li>
+</ul>
+<p>If you are building melodic content, this is the first job of the VCA.</p>
+<hr />
+<h2>2. Voltage-controlled modulation depth</h2>
+<p>The manual shows using the VCA to control the amount of an LFO going to filter cutoff.</p>
+<p>Patch concept:</p>
+<p><strong>LFO or modulation oscillator -&gt; VCA audio/signal in</strong><br />
+<strong>Envelope -&gt; VCA CV in</strong><br />
+<strong>VCA out -&gt; filter FM / cutoff CV</strong></p>
+<h3>Why this is melodic</h3>
+<p>For melodic lines, static modulation often sounds repetitive.<br />
+This patch lets each note have a different amount of movement over time.</p>
+<p>For example:</p>
+<ul>
+<li>note begins pure, then vibrato fades in</li>
+<li>note starts dull, then filter wobble grows</li>
+<li>longer notes bloom with modulation while short notes remain clean</li>
+</ul>
+<h3>Best SHAPE setting</h3>
+<p>The manual suggests <strong>linear</strong> for CV processing, which makes sense here because you want predictable modulation scaling.</p>
+<h3>Musical applications</h3>
+<p>Use this for:</p>
+<ul>
+<li>delayed vibrato on leads</li>
+<li>animated filter sweeps on arpeggios</li>
+<li>expressive movement on sustained notes</li>
+<li>per-note timbral change tied to articulation</li>
+</ul>
+<p>This is one of the most useful ways to make a melodic patch feel alive.</p>
+<hr />
+<h2>3. FM index control for melodic timbre animation</h2>
+<p>The manual includes a patch where one oscillator modulates another through the VCA:</p>
+<p><strong>VCO2 sine -&gt; VCA IN</strong><br />
+<strong>Envelope -&gt; VCA CV</strong><br />
+<strong>VCA OUT -&gt; VCO1 FM input</strong><br />
+<strong>VCO1 audio -&gt; mixer/output</strong></p>
+<h3>Why this is powerful for melody</h3>
+<p>This patch gives you <strong>time-varying FM amount per note</strong>.</p>
+<p>That means a note can:</p>
+<ul>
+<li>start bright and noisy, then settle</li>
+<li>begin pure and grow complex</li>
+<li>have different harmonic intensity depending on envelope shape</li>
+</ul>
+<h3>Melodic uses</h3>
+<p>This is excellent for:</p>
+<ul>
+<li>bell tones</li>
+<li>evolving leads</li>
+<li>electric piano-ish sounds</li>
+<li>metallic arpeggios</li>
+<li>expressive bass attacks</li>
+</ul>
+<h3>Important controls</h3>
+<ul>
+<li><strong>OFFSET</strong> around middle can help with bipolar modulation behavior</li>
+<li><strong>CV IN attenuator</strong> controls maximum FM depth</li>
+<li><strong>LEVEL</strong> affects how much modulation gets sent onward</li>
+<li><strong>SHAPE</strong> changes how quickly FM depth grows with the envelope</li>
+</ul>
+<p>For melodies, this is one of the best uses of a VCA beyond basic loudness.</p>
+<hr />
+<h2>4. AM / ring-mod-like melodic textures</h2>
+<p>The manual notes that the CV input can accept audio, letting the VCA act as an <strong>amplitude modulator</strong>.</p>
+<p>Patch concept:</p>
+<p><strong>Carrier oscillator -&gt; Audio IN</strong><br />
+<strong>Modulator oscillator -&gt; CV IN</strong><br />
+<strong>OUT -&gt; mixer/filter/output</strong></p>
+<h3>Why it helps melodic composition</h3>
+<p>Amplitude modulation can create:</p>
+<ul>
+<li>tremolo at low modulator rates</li>
+<li>clangorous sidebands at audio rates</li>
+<li>harmonic complexity tied to oscillator tuning</li>
+</ul>
+<p>If both oscillators are tuned musically, you can get:</p>
+<ul>
+<li>chimes</li>
+<li>metallic intervals</li>
+<li>animated drones with pitch center</li>
+<li>bright melodic overlays</li>
+</ul>
+<h3>Practical note</h3>
+<p>Because the response curve is variable, you can experiment with <strong>SHAPE</strong> to hear how the modulation contour changes.</p>
+<hr />
+<h1>How the VCA helps build full melodic voices</h1>
+<h2>A. Lead voice</h2>
+<p>Patch:</p>
+<ul>
+<li>VCO saw or pulse -&gt; filter -&gt; VCA -&gt; output</li>
+<li>envelope -&gt; VCA CV</li>
+<li>optional LFO -&gt; second VCA -&gt; filter cutoff</li>
+<li>pitch CV from sequencer -&gt; VCO 1V/oct</li>
+</ul>
+<p>Result:</p>
+<ul>
+<li>envelope shapes note volume</li>
+<li>second modulation path adds expressive timbre movement</li>
+<li>SHAPE lets you fine-tune how “played” the lead feels</li>
+</ul>
+<h3>Tips</h3>
+<ul>
+<li>Use <strong>exponential-ish</strong> VCA shape for natural note loudness</li>
+<li>Use <strong>logarithmic</strong> for punchier attack feeling</li>
+<li>Keep CV LED just below clipping for full dynamic range</li>
+</ul>
+<hr />
+<h2>B. Bass voice</h2>
+<p>Patch:</p>
+<ul>
+<li>VCO triangle/saw -&gt; optional filter -&gt; VCA -&gt; output</li>
+<li>short envelope -&gt; VCA CV</li>
+<li>optional second oscillator/LFO through VCA into filter FM or FM input</li>
+</ul>
+<p>Result:</p>
+<ul>
+<li>tight articulation</li>
+<li>dynamic thump</li>
+<li>controlled bite on note onset</li>
+</ul>
+<h3>Tips from the manual behavior</h3>
+<p>Avoid unwanted clipping on rounded bass sounds unless distortion is desired.<br />
+The manual specifically notes clipping may hurt “nicely rounded bass drums or bass lines.”</p>
+<p>So for melodic bass:</p>
+<ul>
+<li>watch the red audio clip LED</li>
+<li>use LEVEL to match gain rather than overdrive by accident</li>
+</ul>
+<hr />
+<h2>C. Plucked sequence</h2>
+<p>Patch:</p>
+<ul>
+<li>bright oscillator -&gt; filter -&gt; VCA</li>
+<li>short decay envelope -&gt; VCA CV</li>
+<li>SHAPE toward logarithmic or exponential</li>
+<li>optional slow modulation amount through a second VCA into filter</li>
+</ul>
+<p>Result:</p>
+<ul>
+<li>articulate plucks</li>
+<li>sharper transient</li>
+<li>per-note filter animation if modulation depth is enveloped</li>
+</ul>
+<p>This is great for:</p>
+<ul>
+<li>Berlin-school patterns</li>
+<li>minimal techno hooks</li>
+<li>melodic ostinatos</li>
+</ul>
+<hr />
+<h2>D. Evolving melodic pad or drone with note emphasis</h2>
+<p>Patch:</p>
+<ul>
+<li>oscillator or mixed oscillators -&gt; VCA -&gt; output</li>
+<li>envelope with slow attack/release -&gt; VCA CV</li>
+<li>OFFSET raised slightly so sound never fully closes</li>
+<li>modulation source through VCA into filter or FM</li>
+</ul>
+<h3>Why OFFSET matters</h3>
+<p>The manual explains OFFSET can keep the VCA partially open so notes don’t fall to total silence.<br />
+For melodic work, that means:</p>
+<ul>
+<li>drones with articulated accents</li>
+<li>legato bed textures</li>
+<li>notes that rise out of a sustained tone</li>
+</ul>
+<p>This is very useful if you want melody embedded inside an ambient texture.</p>
+<hr />
+<h1>Musically important controls from the manual</h1>
+<h2>SHAPE</h2>
+<p>This is the main “feel” control.</p>
+<h3>For melodic audio loudness</h3>
+<p>Use:
+- <strong>center to right</strong> for more natural or exponential amplitude feel
+- <strong>left</strong> for punchier or unusual behavior</p>
+<h3>For modulation CV processing</h3>
+<p>Use:
+- <strong>center / linear</strong></p>
+<h3>Creative melodic trick</h3>
+<p>Sweep SHAPE while looping a sequence.<br />
+This changes how the envelope translates into loudness or modulation amount, giving:</p>
+<ul>
+<li>more pluck</li>
+<li>smoother swells</li>
+<li>more abrupt FM bursts</li>
+<li>softer note entry</li>
+</ul>
+<p>It’s almost like changing the playing technique of the sequence.</p>
+<hr />
+<h2>OFFSET</h2>
+<p>The manual gives three key uses that are highly relevant musically:</p>
+<ol>
+<li><strong>Manually open the VCA</strong></li>
+<li><strong>Keep some sound present between notes</strong></li>
+<li><strong>Correctly handle bipolar sources like LFOs</strong></li>
+</ol>
+<h3>Melodic application ideas</h3>
+<ul>
+<li>add sustain floor to a sequence</li>
+<li>create legato phrasing without changing the envelope</li>
+<li>center a bipolar vibrato/modulation source so both halves affect the destination</li>
+</ul>
+<p>This is especially useful when controlling melodic modulation depth.</p>
+<hr />
+<h2>CV IN attenuator</h2>
+<p>This sets how strongly the incoming envelope/LFO/audio modulates the VCA.</p>
+<h3>Melodic use</h3>
+<p>It acts like a <strong>performance depth control</strong> for:</p>
+<ul>
+<li>note loudness range</li>
+<li>vibrato amount</li>
+<li>FM brightness</li>
+<li>filter movement intensity</li>
+</ul>
+<p>A small reduction here can make a sequence sit better in a mix or become more subtle and expressive.</p>
+<hr />
+<h2>LEVEL</h2>
+<p>Post-VCA gain.</p>
+<h3>Musically</h3>
+<p>Use it to:</p>
+<ul>
+<li>balance voices</li>
+<li>compensate for different SHAPE settings</li>
+<li>set FM send level</li>
+<li>set effect send amount</li>
+</ul>
+<p>The manual notes different SHAPE settings can produce different gain, so LEVEL often becomes part of the tone-shaping workflow.</p>
+<hr />
+<h1>Five strong melodic patch ideas based on the manual</h1>
+<h2>1. Classic subtractive melody voice</h2>
+<ul>
+<li>Sequencer pitch CV -&gt; oscillator 1V/oct</li>
+<li>Gate -&gt; envelope trigger</li>
+<li>Oscillator -&gt; filter -&gt; VCA -&gt; mixer</li>
+<li>Envelope -&gt; VCA CV</li>
+</ul>
+<p>Use SHAPE near exponential.<br />
+This gives a standard melodic synth voice.</p>
+<hr />
+<h2>2. Envelope-controlled vibrato lead</h2>
+<ul>
+<li>LFO sine -&gt; VCA IN</li>
+<li>Envelope -&gt; VCA CV</li>
+<li>VCA OUT -&gt; oscillator FM input or pitch modulation attenuator input</li>
+</ul>
+<p>Now vibrato appears only after the note starts.<br />
+This is one of the most expressive lead techniques possible with a VCA.</p>
+<hr />
+<h2>3. Per-note filter animation</h2>
+<ul>
+<li>LFO or second oscillator in LFO mode -&gt; VCA IN</li>
+<li>Envelope -&gt; VCA CV</li>
+<li>VCA OUT -&gt; filter cutoff CV</li>
+</ul>
+<p>Each note opens with a different modulation depth contour.<br />
+Excellent for arpeggios and repeating melodic figures.</p>
+<hr />
+<h2>4. FM lead with dynamic brightness</h2>
+<ul>
+<li>Modulator oscillator sine -&gt; VCA IN</li>
+<li>Envelope -&gt; VCA CV</li>
+<li>VCA OUT -&gt; carrier oscillator FM input</li>
+<li>Carrier oscillator out -&gt; filter or directly out</li>
+</ul>
+<p>You get per-note harmonic evolution.<br />
+Great for modern melodic techno, IDM, electro, and ambient leads.</p>
+<hr />
+<h2>5. Semi-legato drone melody</h2>
+<ul>
+<li>Oscillator -&gt; VCA -&gt; output</li>
+<li>Envelope -&gt; VCA CV</li>
+<li>OFFSET slightly up</li>
+<li>Long release</li>
+</ul>
+<p>This leaves a low-level tone between notes while still accenting each step.<br />
+Very effective for ambient melodic work.</p>
+<hr />
+<h1>Notes on gain staging and clipping</h1>
+<p>The manual emphasizes both <strong>CV clipping</strong> and <strong>audio clipping</strong> LEDs.</p>
+<h2>CV clipping</h2>
+<p>If the CV LED flashes, peaks are clipped.</p>
+<p>For melody, this matters because clipped envelopes can make dynamics feel flattened and harsh.<br />
+If notes feel like they all hit the same loudness too abruptly, back off the <strong>CV IN</strong> control.</p>
+<h2>Audio clipping</h2>
+<p>If the red audio LED flashes, the signal is clipping.</p>
+<p>Sometimes this is desirable, but for melodic clarity:</p>
+<ul>
+<li>keep basses cleaner</li>
+<li>keep FM signals controlled</li>
+<li>avoid accidental distortion unless it supports the musical role</li>
+</ul>
+<hr />
+<h1>How this module works with a larger melodic Eurorack system</h1>
+<p>Even though this manual is just for the VCA, it clearly pairs well with:</p>
+<ul>
+<li><strong>oscillators</strong> for pitched sources</li>
+<li><strong>envelopes</strong> for note articulation</li>
+<li><strong>filters</strong> for subtractive tone shaping</li>
+<li><strong>LFOs</strong> for vibrato and animated movement</li>
+<li><strong>sequencers</strong> for pitch and trigger information</li>
+<li><strong>effects</strong> for automated sends</li>
+</ul>
+<p>In practical melodic patching, this VCA is not the “sound source,” but it is often the module that makes the source feel like a playable instrument.</p>
+<hr />
+<h1>Best musical roles summary</h1>
+<h2>Most direct melodic roles</h2>
+<ul>
+<li>final amplitude shaping for notes</li>
+<li>dynamic control of filter modulation depth</li>
+<li>dynamic control of FM index</li>
+<li>audio-rate amplitude modulation</li>
+<li>effect-send automation for melodic phrases</li>
+<li>ducking/accent shaping</li>
+</ul>
+<h2>Best settings by task</h2>
+<ul>
+<li><strong>Audio loudness control</strong>: exponential / right side</li>
+<li><strong>CV processing</strong>: linear / center</li>
+<li><strong>Punchy experimental articulation</strong>: logarithmic / left</li>
+<li><strong>Legato or drone phrasing</strong>: add OFFSET</li>
+<li><strong>Subtle modulation depth</strong>: lower CV IN attenuator</li>
+<li><strong>Full articulation</strong>: raise CV IN to just below clipping</li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>The Tiptop Audio VCA is much more than a utility. In a melodic patch, it can control:</p>
+<ul>
+<li>when a note speaks</li>
+<li>how strongly it speaks</li>
+<li>how its timbre evolves</li>
+<li>how its modulation blooms over time</li>
+<li>how effects and movement are introduced per note</li>
+</ul>
+<p>If you’re building melodic voices, the most important combinations are:</p>
+<ol>
+<li><strong>Oscillator + Envelope + VCA</strong> for note articulation  </li>
+<li><strong>LFO/oscillator + VCA + Envelope</strong> for dynamic modulation depth  </li>
+<li><strong>Modulator oscillator + VCA + Envelope + carrier oscillator</strong> for FM-based melodic expression</li>
+</ol>
+<p>That combination turns static pitch sequences into phrases with contour, expression, and musical motion.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

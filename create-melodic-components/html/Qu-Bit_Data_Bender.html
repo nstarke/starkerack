@@ -1,0 +1,432 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Data_Bender</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Data Bender</h1>
+<ul>
+<li><a href="../../manuals/QB_Data_Bender.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Using Qu-Bit Data Bender to create melodic components</h1>
+<p>Data Bender is not a pitch source or quantizer by itself, but it <em>can</em> be used very effectively to generate, transform, and perform melodic material from incoming audio. In a melodic patch, think of it as a <strong>phrase looper + timing slicer + pitch mangler + glitch arranger</strong>.</p>
+<h2>What the module is good at musically</h2>
+<p>From the manual, Data Bender gives you:</p>
+<ul>
+<li><strong>Stereo audio buffering</strong></li>
+<li><strong>Clocked or free-running capture windows</strong></li>
+<li><strong>Subdivision of recorded audio with Repeats</strong></li>
+<li><strong>Pitch/speed control in Micro mode via Bend</strong></li>
+<li><strong>Reverse playback</strong></li>
+<li><strong>Buffer traversal and silence insertion</strong></li>
+<li><strong>Macro-mode randomized tape/CD/software-failure gestures</strong></li>
+<li><strong>Freeze</strong>, which turns a live phrase into playable source material</li>
+</ul>
+<p>That means the module is ideal for turning:
+- a simple melody into a chopped motif,
+- a drone into pitched fragments,
+- a sequenced line into rhythmic hooks,
+- or a recorded phrase into evolving melodic glitches.</p>
+<hr />
+<h2>Best ways to use Data Bender for melody</h2>
+<h2>1. Capture a melodic line, then repitch it in Micro mode</h2>
+<p>This is the most direct melodic use.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a melodic source into Data Bender:</li>
+<li>VCO + VCA + envelope</li>
+<li>a complete mono synth voice</li>
+<li>sampled piano, voice, plucks, etc.</li>
+<li>Set:</li>
+<li><strong>Mode: Micro</strong></li>
+<li><strong>Mix: mostly wet or 100% wet</strong></li>
+<li><strong>Repeats: low</strong></li>
+<li><strong>Time: short to medium</strong></li>
+<li>Use <strong>Freeze</strong> to capture a phrase</li>
+<li>Use <strong>Bend</strong> to change playback speed</li>
+</ul>
+<h3>Why it works</h3>
+<p>In <strong>Micro mode</strong>, <strong>Bend acts as playback speed</strong>, from <strong>-3 octaves to +3 octaves</strong>, with reverse available by pressing Bend. This is effectively a live varispeed repitching control. Once a phrase is frozen, Bend turns the captured audio into playable pitched material.</p>
+<h3>Musical result</h3>
+<ul>
+<li>Lower Bend settings = slowed-down, lower melodic playback</li>
+<li>Higher Bend settings = higher pitched phrase fragments</li>
+<li>Reverse = ghostly backmasked melody</li>
+</ul>
+<h3>Performance tip</h3>
+<p>Capture a short phrase, freeze it, and then manually sweep Bend to create:
+- octave jumps,
+- detuned transitional fills,
+- tape-stop style pitch falls into downbeats.</p>
+<p>This works especially well for techno, IDM, ambient, and glitch-pop melodies.</p>
+<hr />
+<h2>2. Use Time as phrase length to define melodic loop size</h2>
+<p><strong>Time</strong> sets the sample period for incoming audio. Internally clocked, it ranges from <strong>16 seconds down to 80Hz</strong>. Externally clocked, it becomes a <strong>divide/multiply</strong> of the incoming clock.</p>
+<h3>Melodic use</h3>
+<p>If your source is a sequenced melody, Time determines how much of that melody gets captured.</p>
+<h3>Practical musical ranges</h3>
+<ul>
+<li><strong>Longer Time</strong></li>
+<li>captures entire melodic phrases</li>
+<li>good for evolving loops and phrase resampling</li>
+<li><strong>Shorter Time</strong></li>
+<li>captures only a note, attack, or tiny interval</li>
+<li>great for micro-loops that become pseudo-oscillators or tuned grains</li>
+</ul>
+<h3>Best approach</h3>
+<p>Clock Data Bender from the same clock as your sequencer, then use Time divisions/multiplications to grab:
+- one beat,
+- half a bar,
+- one bar,
+- or 2–4 bars.</p>
+<p>This lets you restructure a melody while keeping it synchronized.</p>
+<hr />
+<h2>3. Use Repeats to turn melody into rhythmic motifs</h2>
+<p><strong>Repeats</strong> divides the primary buffer into smaller subsections. This is one of the strongest musical controls for melody.</p>
+<h3>What it does melodically</h3>
+<p>If the buffer contains a phrase, Repeats slices it into chunks. Those chunks then repeat, which turns a melodic line into:
+- ostinatos,
+- syncopated hooks,
+- stutters,
+- ratchets,
+- call-and-response fragments.</p>
+<h3>Musical examples</h3>
+<p>If you record a 1-bar melody:
+- low Repeats = full phrase
+- medium Repeats = 2–4 chunks, useful for motif extraction
+- high Repeats = tiny snippets, almost granular melodic texture</p>
+<h3>Great pairing</h3>
+<p>Use:
+- <strong>Repeats</strong> to create the subdivision,
+- <strong>Break</strong> in Micro mode to choose which slice,
+- <strong>Bend</strong> to transpose or reverse it.</p>
+<p>That combination effectively turns a captured melody into a playable phrase bank.</p>
+<hr />
+<h2>4. Use Break in Micro mode as melodic phrase selection</h2>
+<p>In <strong>Micro mode</strong>, <strong>Break</strong> toggles between:
+- <strong>Traverse</strong>
+- <strong>Silence</strong></p>
+<p>For melody, <strong>Traverse</strong> is the key mode.</p>
+<h3>Traverse mode</h3>
+<p>Break selects the current subsection of the active buffer, based on how many sections Repeats has created.</p>
+<p>So if Repeats divides the phrase into 8 parts, Break lets you choose which part plays.</p>
+<h3>Why this is melodic</h3>
+<p>If the original phrase contains different notes or note groups across the bar, Traverse becomes a sort of <strong>manual phrase-address selector</strong>.</p>
+<p>You can:
+- park on one note fragment,
+- jump between phrase segments,
+- CV-scan through the slices for new melodies.</p>
+<h3>Best patch use</h3>
+<p>Feed CV into <strong>Break CV</strong> and modulate it slowly or stepped.<br />
+This creates melodic rearrangement from one recorded line.</p>
+<h3>Result</h3>
+<p>A single recorded melody can become:
+- a new lead line,
+- a broken arpeggio,
+- a shuffled motif generator.</p>
+<hr />
+<h2>5. Use Freeze as a melodic sampler hold</h2>
+<p><strong>Freeze</strong> stops new recording into the buffer while keeping the current audio available for manipulation.</p>
+<p>This is one of the most important functions for melodic use.</p>
+<h3>Why it matters</h3>
+<p>Without Freeze, Data Bender is constantly rewriting the buffer. With Freeze, a phrase becomes stable and playable.</p>
+<h3>Performance workflow</h3>
+<ol>
+<li>Feed in a melodic sequence</li>
+<li>Let a good phrase enter the buffer</li>
+<li>Hit <strong>Freeze</strong></li>
+<li>Use:</li>
+<li>Bend for pitch</li>
+<li>Repeats for slicing</li>
+<li>Break for phrase location or silence</li>
+<li>Corrupt for character</li>
+<li>Mix to blend with dry source</li>
+</ol>
+<h3>Special useful behavior</h3>
+<p>The manual notes that if <strong>Mix is fully dry</strong>, engaging Freeze will instantly set the mix fully wet. This is excellent for performance:
+- audience hears dry melody,
+- you capture silently,
+- then Freeze drops in the glitched melodic version instantly.</p>
+<p>That makes Data Bender a strong live melodic transition tool.</p>
+<hr />
+<h2>6. Use external clock mode to keep melodic edits in tempo</h2>
+<p>For music with clear meter, external clock mode is the most musical.</p>
+<h3>In external clock mode</h3>
+<p>Time becomes a division/multiplication selector:
+- divide by 16
+- divide by 8
+- divide by 4
+- divide by 2
+- match input
+- multiply by 2
+- multiply by 3
+- multiply by 4
+- multiply by 8</p>
+<h3>Why it helps melody</h3>
+<p>This lets Data Bender capture and process buffer updates in exact relation to the song pulse.</p>
+<h3>Melodic applications</h3>
+<ul>
+<li>Capture one note every quarter note</li>
+<li>Refresh a melodic fragment every eighth note</li>
+<li>Hold a phrase over 1–4 bars</li>
+<li>Create triplet-based re-slicing of a straight melodic source</li>
+</ul>
+<p>This is especially effective when your melodic source is:
+- an arpeggiator,
+- step sequencer,
+- quantized random melody,
+- chord stab loop.</p>
+<hr />
+<h2>7. Use Macro mode for automatic melodic mutation</h2>
+<p><strong>Macro mode</strong> is less precise, but very musical if you want “alive” melodic degradation.</p>
+<h3>Bend in Macro mode</h3>
+<p>Adds tape-like manipulations such as:
+- varispeed pitch changes,
+- reverse playback,
+- clicks/pops,
+- tape-stop behavior.</p>
+<h3>Break in Macro mode</h3>
+<p>Adds digital malfunction gestures such as:
+- stutters,
+- playback jumps,
+- synchronized dropouts,
+- subsection changes.</p>
+<h3>Why use this for melody</h3>
+<p>If you already have a stable melodic phrase coming in, Macro mode can turn it into:
+- unstable leads,
+- broken refrains,
+- haunted counter-melodies,
+- evolving fills.</p>
+<h3>Best use case</h3>
+<p>Set a sequenced melody, freeze periodically, and let Macro mode generate variation at clock divisions. This is great for:
+- glitch house
+- broken beat
+- ambient minimalism
+- experimental pop transitions</p>
+<p>If you want the melody to stay somewhat intelligible, keep:
+- Bend low
+- Break low to medium
+- Mix below 100%</p>
+<hr />
+<h2>8. Use Corrupt to shape melodic tone and articulation</h2>
+<p>Corrupt has three modes:</p>
+<ul>
+<li><strong>Decimate</strong>: bit-crushing and downsampling</li>
+<li><strong>Dropout</strong>: random dropouts</li>
+<li><strong>Destroy</strong>: saturation and clipping</li>
+</ul>
+<p>These are not pitch tools directly, but they matter a lot for melodic identity.</p>
+<h3>Decimate</h3>
+<p>Best for:
+- chiptune-like leads
+- degraded digital arps
+- reducing harmonic complexity so melodic contour stands out</p>
+<h3>Dropout</h3>
+<p>Best for:
+- broken melodic continuity
+- making sustained notes pulse or vanish
+- adding tension to repeating melodic loops</p>
+<h3>Destroy</h3>
+<p>Best for:
+- aggressive lead phrases
+- making frozen melodic snippets punch through a mix
+- turning smooth melodies into harsh hooks</p>
+<h3>Musical advice</h3>
+<p>For melody, Decimate is usually the most useful first choice because it preserves contour while changing timbre.</p>
+<hr />
+<h2>9. Use Mix to turn Data Bender into a melodic parallel processor</h2>
+<p><strong>Mix</strong> blends live input with processed buffer.</p>
+<p>This is crucial for retaining musical clarity.</p>
+<h3>Good strategies</h3>
+<ul>
+<li><strong>25–50% wet</strong>: original melody stays intelligible, glitches add ornament</li>
+<li><strong>50–75% wet</strong>: phrase becomes hybrid, strong for hooks</li>
+<li><strong>100% wet</strong>: full resampled melodic reconstruction</li>
+</ul>
+<h3>Practical outcome</h3>
+<p>If you are working with tonal material, keeping some dry signal often helps the listener track pitch center even while the processed signal is jumping around.</p>
+<hr />
+<h2>Strong melodic patch strategies</h2>
+<h2>A. Glitch arpeggiator from a sequenced lead</h2>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer → VCO/voice → Data Bender</li>
+<li>Clock source → Data Bender Clock in</li>
+<li>Mode: <strong>Micro</strong></li>
+<li>Time: synced to 1 bar or 1/2 bar</li>
+<li>Repeats: medium</li>
+<li>Break: Traverse</li>
+<li>Bend: slight positive or negative shift</li>
+<li>Freeze: used to capture good moments</li>
+</ul>
+<h3>What happens</h3>
+<p>A normal melody becomes a bank of rhythmic note fragments. By modulating Break and Repeats, you create a rearranged arpeggio from recorded material.</p>
+<h3>Best for</h3>
+<ul>
+<li>IDM</li>
+<li>melodic techno</li>
+<li>electro</li>
+</ul>
+<hr />
+<h2>B. Tape-melody looper</h2>
+<p>This is closely aligned with the manual’s <strong>Lo-Fi Tape Machine</strong> example.</p>
+<h3>Patch</h3>
+<ul>
+<li>Melodic source → Data Bender</li>
+<li>Random or smooth CV → Bend CV</li>
+<li>Slow CV → Time CV</li>
+<li>Mode: <strong>Micro</strong></li>
+<li>Mix: 100%</li>
+<li>Repeats: 0</li>
+<li>Bend: around midpoint</li>
+<li>Corrupt: moderate</li>
+<li>Windowing: low or off</li>
+</ul>
+<h3>What happens</h3>
+<p>The melody smears, drifts in pitch, and behaves like unstable tape playback. Great for nostalgic or haunted melodic lines.</p>
+<h3>Best for</h3>
+<ul>
+<li>ambient</li>
+<li>vaporwave</li>
+<li>lo-fi house</li>
+<li>soundtrack work</li>
+</ul>
+<hr />
+<h2>C. CD-skip lead slicer</h2>
+<p>Based on the manual’s <strong>CD Skip</strong> patch.</p>
+<h3>Patch</h3>
+<ul>
+<li>Short melodic phrase or vocal lead into Data Bender</li>
+<li>Mode: <strong>Micro</strong></li>
+<li>Break mode: <strong>Traverse</strong></li>
+<li>Repeats modulated by stepped CV</li>
+<li>Optional clock sync</li>
+</ul>
+<h3>What happens</h3>
+<p>The melody is chopped into addressable sections, creating skipping-note behavior like a damaged CD. Excellent for rhythmic melodic hooks.</p>
+<h3>Best for</h3>
+<ul>
+<li>glitch</li>
+<li>hyperpop</li>
+<li>broken beat</li>
+<li>experimental hip-hop</li>
+</ul>
+<hr />
+<h2>D. Frozen note as pseudo-oscillator</h2>
+<h3>Patch</h3>
+<ul>
+<li>Feed a short, harmonically rich sound into Data Bender</li>
+<li>Set very short Time</li>
+<li>Freeze a tiny piece</li>
+<li>Increase Repeats</li>
+<li>Sweep Bend</li>
+</ul>
+<h3>What happens</h3>
+<p>A tiny fragment loops so fast it starts behaving like a pitched tone or digital grain oscillator. It will not track 1V/oct, but it can produce stable-ish pitched material for drones, leads, and textures.</p>
+<h3>Best for</h3>
+<ul>
+<li>experimental melody</li>
+<li>microsound</li>
+<li>alien basslines</li>
+</ul>
+<hr />
+<h2>E. Countermelody extractor</h2>
+<h3>Patch</h3>
+<ul>
+<li>Main melodic line into Data Bender</li>
+<li>Mix around 40–60%</li>
+<li>Freeze only occasional notes or phrase endings</li>
+<li>Use Break Traverse to isolate fragments</li>
+<li>Transpose with Bend</li>
+</ul>
+<h3>What happens</h3>
+<p>The dry signal carries the main melody while the wet path generates ghost fragments, reversed tails, and transposed phrase echoes. This is a great way to create countermelody without adding another oscillator voice.</p>
+<hr />
+<h2>Important limitations for melodic use</h2>
+<p>Data Bender is powerful, but it is important to understand what it is <em>not</em>:</p>
+<ul>
+<li>It is <strong>not a precision pitch quantizer</strong></li>
+<li>It is <strong>not a tuned sampler with exact note tracking</strong></li>
+<li>It is <strong>not a clean granular oscillator</strong></li>
+</ul>
+<p>So for tonal music, it works best:
+- after a clearly pitched source,
+- with clock sync,
+- with restrained Bend settings if you want recognizable harmony,
+- or in a deliberately unstable/glitch-oriented context.</p>
+<p>If you need exact scales, pair the source melody with:
+- a quantized sequencer,
+- a stable oscillator,
+- or a sampler that already plays in tune,
+then use Data Bender for transformation.</p>
+<hr />
+<h2>Best musical roles in a system</h2>
+<p>Data Bender can contribute melodic components as:</p>
+<ul>
+<li><strong>phrase looper</strong></li>
+<li><strong>motif slicer</strong></li>
+<li><strong>reverse/transposed phrase processor</strong></li>
+<li><strong>glitch lead designer</strong></li>
+<li><strong>countermelody generator</strong></li>
+<li><strong>degraded tape melody effect</strong></li>
+<li><strong>clocked stutter instrument</strong></li>
+<li><strong>frozen phrase texture source</strong></li>
+</ul>
+<p>It excels when fed by:
+- sequenced mono voices,
+- arpeggios,
+- chord stabs,
+- vocals,
+- FM plucks,
+- wavetable melodies,
+- sampled phrases.</p>
+<hr />
+<h2>Recommended starting settings for melodic work</h2>
+<h2>Stable melodic remix</h2>
+<ul>
+<li>Mode: Micro</li>
+<li>Mix: 50%</li>
+<li>Time: 25–40%</li>
+<li>Repeats: 20–35%</li>
+<li>Break: Traverse</li>
+<li>Bend: slight</li>
+<li>Corrupt: low Decimate</li>
+<li>Clock: external sync</li>
+</ul>
+<h2>Broken lead</h2>
+<ul>
+<li>Mode: Macro</li>
+<li>Mix: 70–100%</li>
+<li>Time: synced to 1/2 bar</li>
+<li>Repeats: medium</li>
+<li>Bend: medium</li>
+<li>Break: medium-high</li>
+<li>Corrupt: Dropout or Decimate</li>
+</ul>
+<h2>Tape-style melody</h2>
+<ul>
+<li>Mode: Micro</li>
+<li>Freeze active on a phrase</li>
+<li>Bend: modulated slowly</li>
+<li>Corrupt: low Destroy or low Decimate</li>
+<li>Repeats: low</li>
+<li>Windowing: low</li>
+</ul>
+<hr />
+<h2>Bottom line</h2>
+<p>Data Bender creates melodic components best by <strong>capturing existing pitched material and turning it into new phrases</strong>. Its strongest melodic features are:</p>
+<ul>
+<li><strong>Freeze</strong> to hold musical material</li>
+<li><strong>Micro Bend</strong> for repitching and reverse playback</li>
+<li><strong>Repeats + Break Traverse</strong> for phrase slicing and resequencing</li>
+<li><strong>Clock sync</strong> for rhythmic coherence</li>
+<li><strong>Mix</strong> for blending clear melody with corrupted variation</li>
+</ul>
+<p>If you treat it like a <strong>melodic phrase corruptor</strong> rather than a note generator, it becomes extremely useful for hooks, variations, transitions, fills, and evolving lead textures.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

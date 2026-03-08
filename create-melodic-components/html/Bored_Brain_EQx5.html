@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bored_Brain_EQx5</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Bored Brain — EQx5</h1>
+<ul>
+<li><a href="../../manuals/EQx5-UserGuide_1.0.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="EQx5-UserGuide_1.0.pdf">Manual PDF: EQx5 User Guide 1.0</a></p>
+<h1>Boredbrain EQx5: using it for melodic work in a Eurorack patch</h1>
+<p>From the attached manual, the <strong>Boredbrain EQx5</strong> is a <strong>5-band voltage-controlled stereo equalizer</strong>. It is not a pitch source or oscillator, but it can be very effective in building <strong>melodic components</strong> by shaping harmonics, emphasizing note movement, and animating timbre in a way that makes lines feel more musical and articulated.</p>
+<h2>What the module does</h2>
+<p>Key functions from the manual:</p>
+<ul>
+<li><strong>5 frequency bands</strong> with <strong>±12 dB</strong> gain</li>
+<li>Bands:</li>
+<li><strong>LOW</strong>: 100 Hz shelf</li>
+<li><strong>LO-MID</strong>: 400 Hz peak</li>
+<li><strong>MID</strong>: 1 kHz peak</li>
+<li><strong>HI-MID</strong>: 4 kHz peak</li>
+<li><strong>HIGH</strong>: 10 kHz shelf</li>
+<li><strong>Post-EQ LEVEL</strong> control</li>
+<li><strong>BALANCE</strong> control for stereo / dual-input crossfading</li>
+<li><strong>CV control over all parameters</strong></li>
+<li><strong>Stereo I/O</strong></li>
+<li><strong>Additional mono sum output</strong></li>
+</ul>
+<p>This means the EQx5 is best understood as a <strong>voltage-controlled spectral sculptor</strong>. In melodic patches, that translates to:
+- changing the tone of notes over time
+- accenting note attacks
+- separating melodic voices in a mix
+- creating moving formant-like contours
+- crossfading between two sound sources to suggest phrase development</p>
+<hr />
+<h1>How EQx5 contributes to melodic material</h1>
+<h2>1. Turn static oscillators into expressive melodic voices</h2>
+<p>A raw VCO melody can sound flat even when the pitch sequence is good. The EQx5 can add phrase-level motion by modulating selected bands.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a melodic voice into the EQx5.</li>
+<li>Use:</li>
+<li>a slow envelope or LFO on <strong>MID</strong></li>
+<li>a second modulation source on <strong>HI-MID</strong></li>
+<li>subtle CV on <strong>LEVEL</strong></li>
+<li>Keep the boosts moderate.</li>
+</ul>
+<h3>Result</h3>
+<p>As notes play, the spectral emphasis shifts. The pitch sequence remains the same, but the line feels more articulated, almost as if it is being “played” rather than merely sequenced.</p>
+<p>This is especially effective with:
+- saw waves
+- pulse waves
+- FM tones
+- wavetable voices</p>
+<hr />
+<h2>2. Emphasize note attacks for clearer melodies</h2>
+<p>Melodic clarity often comes from transient definition, not just pitch.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Route an envelope that is already triggered by your melodic gate into:</li>
+<li><strong>HIGH CV</strong></li>
+<li>or <strong>HI-MID CV</strong></li>
+<li>Use a small positive modulation amount.</li>
+</ul>
+<h3>Result</h3>
+<p>Each note gets a brighter onset, helping the melody cut through a dense patch. This works like a dynamic articulation layer, similar to how acoustic instruments have attack-specific spectral changes.</p>
+<p>If the melody is too sharp, balance this by gently reducing:
+- <strong>HIGH</strong>
+- or boosting <strong>LOW-MID</strong> for warmth</p>
+<hr />
+<h2>3. Create vowel/formant-like melodic timbres</h2>
+<p>Because the EQx5 has several fixed bands, you can shape a sound into different “spectral vowels.” Modulating between these gives melodic phrases an almost vocal quality.</p>
+<h3>Patch idea</h3>
+<p>Start with a harmonically rich oscillator. Then create settings like:</p>
+<ul>
+<li><strong>“Oo” style</strong></li>
+<li>more <strong>LOW</strong></li>
+<li>some <strong>LO-MID</strong></li>
+<li>
+<p>less <strong>HIGH</strong></p>
+</li>
+<li>
+<p><strong>“Ah” style</strong></p>
+</li>
+<li>stronger <strong>MID</strong></li>
+<li>
+<p>some <strong>HI-MID</strong></p>
+</li>
+<li>
+<p><strong>“Ee” style</strong></p>
+</li>
+<li>reduced low bands</li>
+<li>more <strong>HI-MID</strong> and <strong>HIGH</strong></li>
+</ul>
+<p>Use CV to move between these contours during a sequence.</p>
+<h3>Result</h3>
+<p>The melody gains a talking/singing quality even without a filter sweep. This is a powerful way to make simple sequences feel more memorable.</p>
+<hr />
+<h2>4. Use CV on multiple bands to create timbral counterpoint</h2>
+<p>The manual specifically suggests <strong>multiple tempo-synced modulations</strong> and <strong>band-isolated amplitude modulation</strong>.</p>
+<p>For melodic composition, this is useful because different harmonic regions can move independently.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Clock-sync one LFO to modulate <strong>LOW-MID</strong></li>
+<li>Use a different division for <strong>MID</strong></li>
+<li>Use a very slow modulation on <strong>HIGH</strong></li>
+<li>Send a melody through the module</li>
+</ul>
+<h3>Result</h3>
+<p>The note pitch may be repeating a short pattern, but the harmonic emphasis evolves over a longer cycle. This creates the impression of <strong>melodic development through timbre</strong>, which is very effective in minimal, generative, or Berlin-style patches.</p>
+<hr />
+<h2>5. Make two melodic voices interact with BALANCE</h2>
+<p>The manual describes <strong>BALANCE</strong> as an equal-power crossfader for the left and right inputs, with a mono sum output available. This is one of the most compositionally useful features.</p>
+<h3>Patch idea</h3>
+<p>Feed two related sound sources into <strong>L</strong> and <strong>R</strong>:
+- two oscillators tuned to the same melody but with different waveforms
+- root and harmony voices
+- a dry voice and a wavefolded / FM variant
+- two separate sequences</p>
+<p>Then modulate <strong>BALANCE</strong> with:
+- a slow LFO
+- a stepped random voltage
+- a phrase envelope
+- a manual performance gesture</p>
+<p>Take the <strong>mono out</strong> if you want a single blended melodic line.</p>
+<h3>Result</h3>
+<p>You can morph between two melodic timbres or two actual parts. This is excellent for:
+- verse/chorus variation
+- call-and-response textures
+- adding harmonic motion without changing the main sequencer
+- moving from soft to aggressive phrasing over time</p>
+<p>The manual also notes this can be used like a <strong>VCA-like volume crossfader</strong> when combined with <strong>LEVEL CV</strong>.</p>
+<hr />
+<h2>6. Separate melody from bass or chords in a full patch</h2>
+<p>Even if the EQx5 is processing a subgroup rather than one oscillator, it can help define melodic roles.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a bus containing several elements into the EQx5.</li>
+<li>Use boosts around:</li>
+<li><strong>MID</strong> and <strong>HI-MID</strong> to help lead lines speak</li>
+<li>Reduce <strong>LOW</strong> if the melody is being masked by bass content</li>
+</ul>
+<h3>Result</h3>
+<p>The melodic content becomes easier to hear. In a modular context, spectral separation often matters as much as note selection.</p>
+<p>This is especially useful if your patch includes:
+- drones
+- chords
+- percussion
+- noise layers</p>
+<hr />
+<h2>7. Animate harmonically rich drones into implied melodies</h2>
+<p>A drone can become “melodic” if different partials are brought in and out rhythmically.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Use a static or slowly changing oscillator drone</li>
+<li>Modulate 2–3 EQ bands with envelopes or synced LFOs</li>
+<li>Optionally crossfade between two drone sources with <strong>BALANCE</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Instead of hearing a fixed drone, the ear begins to track moving harmonic regions as if they were melodic gestures. This is a great way to create ambient or experimental melodic content without sequencing traditional notes.</p>
+<hr />
+<h1>Best musical roles for EQx5 in melodic patching</h1>
+<h2>Excellent for</h2>
+<ul>
+<li>adding expression to sequenced lines</li>
+<li>making repeated melodies feel less repetitive</li>
+<li>spectral phrasing</li>
+<li>formant-style shaping</li>
+<li>crossfading between melodic layers</li>
+<li>helping a lead stand out in a mix</li>
+<li>making drones and textures feel melodic</li>
+</ul>
+<h2>Less suited for</h2>
+<ul>
+<li>generating pitch directly</li>
+<li>quantized melody creation</li>
+<li>envelope-per-note shaping as precisely as a dedicated filter/VCA combo</li>
+<li>narrow resonant filter-style sweeps</li>
+</ul>
+<p>This module is more about <strong>tone choreography</strong> than pitch generation.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Recipe 1: Expressive lead enhancer</h2>
+<ul>
+<li>VCO -&gt; VCF/VCA -&gt; EQx5</li>
+<li>Sequencer pitch + gate drive the voice</li>
+<li>Envelope multed to:</li>
+<li>VCA</li>
+<li><strong>HI-MID CV</strong></li>
+<li>Slow LFO to <strong>MID CV</strong></li>
+<li>Slight random CV to <strong>LEVEL</strong></li>
+</ul>
+<p><strong>Use when:</strong> a lead sequence is good but needs life and articulation.</p>
+<hr />
+<h2>Recipe 2: Morphing dual-voice melody</h2>
+<ul>
+<li>Voice A into <strong>L input</strong></li>
+<li>Voice B into <strong>R input</strong></li>
+<li>Take <strong>mono out</strong></li>
+<li>Slow CV into <strong>BALANCE</strong></li>
+<li>Envelope into <strong>LEVEL</strong></li>
+<li>Set slightly different EQ curves for each side’s apparent contribution through the shared processing behavior</li>
+</ul>
+<p><strong>Use when:</strong> you want one melody to evolve between two identities.</p>
+<hr />
+<h2>Recipe 3: Talking bassline</h2>
+<ul>
+<li>Rich bass oscillator into EQx5</li>
+<li>Sequence pitch normally</li>
+<li>Accent envelope into <strong>LO-MID</strong> and <strong>MID</strong></li>
+<li>Small inverse or reduced <strong>HIGH</strong></li>
+<li>Optional slow movement on <strong>BALANCE</strong> if using a second bass timbre</li>
+</ul>
+<p><strong>Use when:</strong> a bassline should carry melodic personality, not just low-end support.</p>
+<hr />
+<h2>Recipe 4: Generative timbral melody</h2>
+<ul>
+<li>Drone or repeating ostinato into EQx5</li>
+<li>Clocked modulation to <strong>LOW-MID</strong>, <strong>MID</strong>, and <strong>HI-MID</strong></li>
+<li>Different clock divisions for each</li>
+<li>Mild CV on <strong>LEVEL</strong></li>
+</ul>
+<p><strong>Use when:</strong> you want evolving melodic impressions without adding more note data.</p>
+<hr />
+<h1>If used with other modules</h1>
+<p>Only one manual was attached, so I can only directly analyze the <strong>EQx5</strong>. In a larger melodic Eurorack system, it pairs especially well with:</p>
+<ul>
+<li><strong>Oscillators / complex VCOs</strong>: provides harmonic sculpting</li>
+<li><strong>Sequencers / quantizers</strong>: pitches the material while EQx5 adds expressive timbre motion</li>
+<li><strong>Envelope generators</strong>: animate note attacks via band CV</li>
+<li><strong>LFOs / random CV</strong>: create long-form spectral development</li>
+<li><strong>VCAs / filters</strong>: combine amplitude, subtractive tone, and band-focused EQ movement</li>
+<li><strong>Stereo voices / dual oscillators</strong>: exploit BALANCE for crossfaded melodic variation</li>
+</ul>
+<p>If you want, send the other module manuals too and I can explain <strong>how those specific modules work together as a full melodic system</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

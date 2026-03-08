@@ -1,0 +1,625 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_MultiGrain</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — MultiGrain</h1>
+<ul>
+<li><a href="../../manuals/multigrain_manual_v1.2_2025.09.02.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF: Intellijel Multigrain v1.2</a></p>
+<h1>Using Intellijel Multigrain to Create Melodic Components in Eurorack</h1>
+<p>The attached manual is for the <strong>Intellijel Multigrain</strong>, a <strong>live stereo morphing granular sampler</strong>. Even though it is not a traditional oscillator/VCO voice, it is extremely capable of producing <strong>pitched, melodic, and harmonic material</strong> when patched thoughtfully.</p>
+<p>Below is a musician-focused analysis of how this module can be used to create melodic components in music.</p>
+<hr />
+<h2>What Multigrain is, musically</h2>
+<p>Multigrain is best understood as a <strong>granular voice and sample-based sound source</strong> with:</p>
+<ul>
+<li><strong>8 playable sounds</strong></li>
+<li><strong>2 scenes per sound</strong></li>
+<li><strong>morphing between scenes</strong></li>
+<li><strong>pitch control</strong></li>
+<li><strong>quantization</strong></li>
+<li><strong>CV-addressable sound selection</strong></li>
+<li><strong>syncable grain generation</strong></li>
+<li><strong>sample recording / live input processing</strong></li>
+</ul>
+<p>So for melody work, it can act like:</p>
+<ul>
+<li>a <strong>pitched sample voice</strong></li>
+<li>a <strong>granular lead</strong></li>
+<li>a <strong>chord/texture generator</strong></li>
+<li>a <strong>quantized melodic percussion source</strong></li>
+<li>a <strong>multi-sound pseudo-rompler</strong></li>
+<li>a <strong>live resampling melodic processor</strong></li>
+</ul>
+<hr />
+<h1>Core melodic features</h1>
+<h2>1. Pitch control</h2>
+<p>The most obvious melodic function is the <strong>PITCH</strong> parameter.</p>
+<p>From the manual:</p>
+<ul>
+<li>Pitch spans <strong>±2 octaves</strong> from the knob</li>
+<li>With modulation, pitch can extend to <strong>±3 octaves</strong></li>
+<li>Pitch can be modulated by <strong>X / Y / Z CV</strong></li>
+<li>Full-depth modulation from X/Y/Z can give <strong>1V/oct-style control</strong></li>
+<li>Fine tune is available on the <strong>Alt Page</strong></li>
+</ul>
+<h3>Why this matters</h3>
+<p>This means Multigrain can be patched like a playable voice:</p>
+<ul>
+<li>send a sequencer CV to <strong>X</strong>, <strong>Y</strong>, or <strong>Z</strong></li>
+<li>assign that mod input to <strong>PITCH</strong></li>
+<li>set mod depth to full</li>
+<li>optionally enable the quantizer</li>
+</ul>
+<p>That gives you melodic lines from any loaded sample or live sound.</p>
+<hr />
+<h2>2. Built-in quantizer</h2>
+<p>The module includes a <strong>per-sound pitch quantizer</strong>.</p>
+<p>You can:</p>
+<ul>
+<li>enable any notes in a 12-TET scale</li>
+<li>set a root note</li>
+<li>choose whether quantization affects:</li>
+<li><strong>pitch knob + modulation</strong></li>
+<li>or <strong>modulation only</strong></li>
+</ul>
+<h3>Musical implication</h3>
+<p>This is one of the strongest melody-oriented features in the module.</p>
+<p>You can use Multigrain as:</p>
+<ul>
+<li>a <strong>scale-locked lead voice</strong></li>
+<li>a <strong>harmonically constrained texture source</strong></li>
+<li>a <strong>tonal sample player</strong></li>
+<li>a <strong>melodic granular arp machine</strong></li>
+</ul>
+<p>This is especially useful when granular playback would otherwise feel too unstable or atonal.</p>
+<hr />
+<h2>3. 8 sounds as playable note colors</h2>
+<p>The <strong>8 sound slots</strong> are not just storage—they are part of performance.</p>
+<p>Each sound can hold:</p>
+<ul>
+<li>its own sample or live source</li>
+<li>its own scene states</li>
+<li>its own quantizer settings</li>
+<li>its own fine tuning</li>
+<li>its own pitch/rate/size relationships</li>
+</ul>
+<h3>This allows:</h3>
+<ul>
+<li>one sound per note family</li>
+<li>one sound per chord tone</li>
+<li>one sound per articulation</li>
+<li>one sound per section of a melody</li>
+</ul>
+<p>For example:</p>
+<ul>
+<li>Sound 1 = soft vowel pad</li>
+<li>Sound 2 = plucked piano transient</li>
+<li>Sound 3 = bright string scrape</li>
+<li>Sound 4 = vocal chop</li>
+<li>Sound 5 = breathy flute attack</li>
+<li>Sound 6 = granular bell</li>
+<li>Sound 7 = noisy harmonic texture</li>
+<li>Sound 8 = low drone support</li>
+</ul>
+<p>Then use <strong>SELECT CV</strong> or <strong>NEXT</strong> to sequence through them.</p>
+<p>This gives melody a kind of <strong>sample-orchestrated phrasing</strong> instead of fixed timbre.</p>
+<hr />
+<h1>Best melodic patch approaches</h1>
+<h2>A. Classic quantized granular lead</h2>
+<h3>Patch</h3>
+<ul>
+<li>Load a pitched sample into one sound</li>
+<li>good choices: sine-ish tone, flute, vocal, string harmonic, piano note, synth waveform</li>
+<li>Patch sequencer pitch CV into <strong>X</strong></li>
+<li>Assign <strong>X → PITCH</strong> at full depth</li>
+<li>Enable <strong>Quantizer</strong></li>
+<li>Set desired scale</li>
+<li>Use <strong>GATE</strong> input to trigger notes</li>
+<li>Keep:</li>
+<li><strong>SCAN</strong> near center</li>
+<li><strong>WRAP</strong> modest</li>
+<li><strong>SIZE</strong> medium</li>
+<li><strong>RATE</strong> low or linked carefully</li>
+</ul>
+<h3>Result</h3>
+<p>A playable melodic voice where each trigger produces a pitched grain or stream of grains.</p>
+<h3>Musical character</h3>
+<p>Compared with a normal oscillator, this gives:
+- more texture
+- more sample identity
+- more transient variation
+- more unstable or expressive tone</p>
+<p>Excellent for:
+- leads
+- hooks
+- fragile melodies
+- cinematic top lines</p>
+<hr />
+<h2>B. Multi-articulation melodic voice</h2>
+<p>Because each sound can be separately configured, you can create a <strong>performance bank of articulations</strong>.</p>
+<h3>Example setup</h3>
+<p>Use all 8 sound slots as versions of one instrument:</p>
+<ul>
+<li>Sound 1 = short pluck</li>
+<li>Sound 2 = soft sustain</li>
+<li>Sound 3 = reverse swell</li>
+<li>Sound 4 = filtered muted tone</li>
+<li>Sound 5 = wide blurred version</li>
+<li>Sound 6 = bright harmonic version</li>
+<li>Sound 7 = noisy attack version</li>
+<li>Sound 8 = lower octave variation</li>
+</ul>
+<p>Then:
+- use one CV source for pitch
+- use <strong>SELECT</strong> or <strong>NEXT</strong> to choose timbre per note/event</p>
+<h3>Result</h3>
+<p>A single melodic line can feel much more alive, because timbre changes note-to-note.</p>
+<p>This is especially strong for:
+- generative melodies
+- evolving ostinatos
+- “acoustic-like” phrasing
+- IDM / ambient / soundtrack writing</p>
+<hr />
+<h2>C. Melodies from scanned sample regions</h2>
+<p>The <strong>START / WRAP / SCAN</strong> controls are very important musically.</p>
+<p>These let you choose where the grains come from in the sample.</p>
+<h3>Melodic use</h3>
+<p>Instead of using a whole sample as one static source, you can load:</p>
+<ul>
+<li>a multisampled instrument phrase</li>
+<li>a vocal phrase</li>
+<li>a recording of several pitches in sequence</li>
+<li>a chord arpeggio</li>
+<li>a plucked riff</li>
+</ul>
+<p>Then use:</p>
+<ul>
+<li><strong>START</strong> to select a region</li>
+<li><strong>WRAP</strong> to constrain the usable area</li>
+<li><strong>SCAN</strong> to move through the region</li>
+</ul>
+<h3>Result</h3>
+<p>The melody is shaped not only by pitch CV, but also by <strong>which fragment of the sample is being harvested</strong>.</p>
+<p>This can create:
+- melodic variation
+- pseudo-formant shifts
+- changing note attacks
+- phrase internal movement</p>
+<p>This is one of the most “granular” ways to make melody feel alive.</p>
+<hr />
+<h2>D. Chord and harmonic melody source</h2>
+<p>Multigrain is stereo and sample-based, so it works very well with <strong>chord samples</strong>.</p>
+<h3>Technique</h3>
+<p>Load:
+- sustained chords
+- stacked intervals
+- vocal harmonies
+- orchestral clusters
+- synth stabs</p>
+<p>Then use:
+- <strong>PITCH</strong> for transposition
+- <strong>QUANT</strong> to keep movement tonal
+- <strong>SIZE–PITCH link</strong> if you want content-preserving transposition behavior
+- <strong>SCENE morphing</strong> to move between harmonic densities</p>
+<h3>Result</h3>
+<p>You can generate:
+- chord pads
+- harmonic stabs
+- parallel harmonies
+- melodic phrases with built-in interval content</p>
+<p>This is especially effective when your “melody” is really a <strong>harmonized line</strong>.</p>
+<hr />
+<h1>Scene morphing as melodic expression</h1>
+<p>Each sound has <strong>Scene A</strong> and <strong>Scene B</strong>, and the <strong>Morph fader/CV</strong> blends between them.</p>
+<p>This is huge for melody, because it means one note source can have two states:</p>
+<ul>
+<li>Scene A = stable, centered, tonal</li>
+<li>Scene B = unstable, bright, scattered, reversed, blurred</li>
+</ul>
+<h3>Example uses</h3>
+<h2>1. Phrase shaping</h2>
+<p>Use Scene A for verse-like clarity and Scene B for chorus-like expansion.</p>
+<h2>2. Dynamic articulation</h2>
+<p>Morph amount can act like an expressive control similar to:
+- bow pressure
+- breath intensity
+- filter opening
+- picking angle</p>
+<h2>3. Harmonic transformation</h2>
+<p>Because scene morphing also morphs modulation depths, you can go from:
+- static pitch
+- to heavily randomized pitch/scan behavior</p>
+<p>without repatching.</p>
+<h2>4. Performance transitions</h2>
+<p>For melody, this is fantastic:
+- intro = pure sustained grain
+- buildup = more scan and blur
+- drop = tighter, brighter, percussive
+- outro = slow, reversed, diffused</p>
+<hr />
+<h1>The two link modes are especially important for melodic use</h1>
+<h2>RATE–SIZE link</h2>
+<p>When linked:
+- grain rate depends on grain size
+- smaller grains = faster triggering
+- larger grains = slower triggering</p>
+<h3>Melodic effect</h3>
+<p>This helps maintain more coherent texture as pitch material changes.</p>
+<p>Useful when you want:
+- sustained notes with overlap
+- a more “playable instrument” feel
+- less manual balancing of size/rate</p>
+<hr />
+<h2>SIZE–PITCH link</h2>
+<p>When linked:
+- pitch changes also affect grain duration so the same audio content stays inside the grain</p>
+<h3>Why this matters melodically</h3>
+<p>This is often the better setting for pitched material such as:
+- vocals
+- piano
+- plucks
+- acoustic notes
+- phrases</p>
+<p>It preserves identity across transposition more naturally than simple independent pitch/size control.</p>
+<p>For melodic patches, this can make the voice feel much more intentional and musical.</p>
+<hr />
+<h1>Using live sounds melodically</h1>
+<p>Version 1.2 adds <strong>Live Sounds</strong>, where any sound can derive grains from the live input via the Looping Recorder.</p>
+<p>This is extremely useful for melody.</p>
+<h2>Live melodic use cases</h2>
+<h3>1. Turn another oscillator into a granular melody voice</h3>
+<p>Patch an oscillator, voice, or external synth into <strong>IN L / IN R</strong>.</p>
+<p>Then:
+- assign a sound as <strong>Live Sound</strong>
+- send pitch CV to Multigrain’s pitch modulation
+- trigger via GATE
+- use quantizer if desired</p>
+<p>Now your incoming audio becomes raw material for a new granular melodic layer.</p>
+<h3>2. Granular harmonizer</h3>
+<p>Feed in a monophonic melody from another module or external instrument.</p>
+<p>Then use Multigrain to:
+- transpose it
+- quantize it
+- freeze it
+- generate new melodic material from it</p>
+<h3>3. Resample-and-play workflow</h3>
+<p>Capture a phrase, then:
+- assign it to a sound
+- transpose it melodically
+- scan different parts for note variation</p>
+<p>This is a strong way to derive melody from field recordings, vocals, or other modules.</p>
+<hr />
+<h1>Using sound selection as a melodic sequencer dimension</h1>
+<p>Multigrain has three sound control inputs:</p>
+<ul>
+<li><strong>GATE</strong></li>
+<li><strong>NEXT</strong></li>
+<li><strong>SELECT</strong></li>
+</ul>
+<p>These are not pitch CV, but they are still highly musical.</p>
+<h2>SELECT input</h2>
+<p>Maps 0–5V across sounds 1–8.</p>
+<h3>Melodic uses</h3>
+<p>If each sound contains:
+- a different pitch center
+- a different sample
+- a different harmonic region
+- a different articulation</p>
+<p>then SELECT becomes a <strong>meta-sequencer for melodic timbre</strong>.</p>
+<p>This can create:
+- timbral melodies
+- phrase alternation
+- call-and-response
+- note-family switching</p>
+<h2>NEXT input</h2>
+<p>Advances to the next occupied sound.</p>
+<h3>Melodic uses</h3>
+<p>This is excellent for:
+- stepping through tuned samples
+- rotating through chord tones
+- cycling through attack/sustain/reverse variations
+- creating pseudo-arpeggios</p>
+<p>If you organize sounds carefully, NEXT becomes a <strong>musical phrase rotator</strong>.</p>
+<hr />
+<h1>Sample choices that work best for melody</h1>
+<p>The manual’s sample guide is very useful here. For melodic work, the best sample types are usually:</p>
+<h2>Strong choices</h2>
+<ul>
+<li>single sustained notes</li>
+<li>plucked instrument notes</li>
+<li>vocal vowels</li>
+<li>choral tones</li>
+<li>bell tones</li>
+<li>mallet hits</li>
+<li>waveforms or simple synth tones</li>
+<li>strings and harmonics</li>
+<li>short musical phrases</li>
+<li>multisample chains</li>
+</ul>
+<h2>Also strong</h2>
+<ul>
+<li>stereo split samples with different content L/R</li>
+<li>chord samples</li>
+<li>arps and strums</li>
+<li>nature sounds with pitch identity</li>
+<li>breathy/noisy acoustic sources for expressive upper voices</li>
+</ul>
+<h2>Less straightforward</h2>
+<ul>
+<li>very dense full-mix material</li>
+<li>samples with too much silence</li>
+<li>poorly trimmed one-shots</li>
+</ul>
+<p>These can still be musical, but are harder to control melodically.</p>
+<hr />
+<h1>Best parameter strategies for melodic clarity</h1>
+<p>If your goal is melody, not pure texture, here’s how I’d approach the main controls.</p>
+<h2>START</h2>
+<p>Use to choose the musically useful part of the sample:
+- the onset for attack
+- the steady-state region for sustain
+- the tail for airy texture</p>
+<h2>WRAP</h2>
+<p>Keep fairly narrow for more stable note identity.</p>
+<h2>SCAN</h2>
+<ul>
+<li>centered for stable tones</li>
+<li>slight movement for life</li>
+<li>large movement for phrase animation</li>
+</ul>
+<h2>SHAPE</h2>
+<p>For melody:
+- <strong>Bell</strong>, <strong>Tukey</strong>, or <strong>Triangle</strong> often feel most natural
+- <strong>Square</strong> and <strong>Ramp</strong> can be more effect-like</p>
+<h2>LEVEL</h2>
+<p>Straightforward note balancing.</p>
+<h2>TONE</h2>
+<p>Useful for fitting a melodic line into a mix:
+- lowpass for background lines
+- highpass for airy leads</p>
+<h2>RATE</h2>
+<ul>
+<li>low rate for discrete notes</li>
+<li>higher rate for shimmer / sustained clouds</li>
+</ul>
+<h2>SIZE</h2>
+<ul>
+<li>medium-to-long for recognizable pitch/body</li>
+<li>short for pointillistic melodic fragments</li>
+</ul>
+<h2>BLUR</h2>
+<p>Great for melodic ambience, but too much can smear note definition.</p>
+<h2>REVERSE</h2>
+<p>Excellent for alternate articulations and phrase endings.</p>
+<hr />
+<h1>Modulation strategies for melodic writing</h1>
+<p>Multigrain really shines when melody is not static.</p>
+<h2>1. Modulate pitch subtly</h2>
+<p>Use small modulation on pitch for:
+- vibrato-like movement
+- note instability
+- humanized phrasing</p>
+<p>If you want real melodic accuracy, keep the main pitch under sequencer control and use subtle mod only.</p>
+<h2>2. Modulate START</h2>
+<p>This is one of the best melodic gestures on the module.</p>
+<p>A little START modulation changes:
+- attack
+- spectral emphasis
+- vowel/formant character
+- sample micro-position</p>
+<p>This makes repeated notes feel alive.</p>
+<h2>3. Modulate MORPH</h2>
+<p>For expressive phrase shaping, patch an envelope, slow LFO, or performance CV into <strong>MORPH</strong>.</p>
+<h2>4. Use random on non-pitch parameters</h2>
+<p>For melody, random is best applied lightly to:
+- START
+- TONE
+- LEVEL
+- SHAPE
+- SCAN</p>
+<p>This creates variation without destroying tonal intent.</p>
+<h2>5. Be careful with random pitch</h2>
+<p>Unless you want aleatoric melody, random pitch should be restrained or quantized.</p>
+<hr />
+<h1>Quantized pitch modulation patch recipe</h1>
+<p>A practical melodic patch:</p>
+<h2>Patch</h2>
+<ul>
+<li>Load a pitched sample into SOUND 1</li>
+<li>Sequencer CV → <strong>X</strong></li>
+<li>Gate sequencer → <strong>GATE</strong></li>
+<li>Assign <strong>X to PITCH</strong> at 100%</li>
+<li>Enable <strong>Quantizer</strong></li>
+<li>Choose scale</li>
+<li>Fine tune sample root if needed</li>
+<li>Set:</li>
+<li>SIZE medium</li>
+<li>RATE low/moderate</li>
+<li>SHAPE bell/tukey</li>
+<li>WRAP narrow</li>
+<li>SCAN near center</li>
+</ul>
+<h2>Optional additions</h2>
+<ul>
+<li>Envelope or pressure CV → <strong>MORPH</strong></li>
+<li>Slow random → <strong>START</strong></li>
+<li>Clock → <strong>SYNC</strong></li>
+<li>THRU enabled with external source for hybrid layering</li>
+</ul>
+<h2>Result</h2>
+<p>A stable granular lead voice that remains musically scaled.</p>
+<hr />
+<h1>Using SYNC for melodic rhythm</h1>
+<p>The <strong>SYNC</strong> input does not quantize pitch, but it does quantize the grain engine rhythmically.</p>
+<p>For melody this matters because rhythmic note structure often defines the phrase as much as pitch.</p>
+<h2>With SYNC enabled:</h2>
+<ul>
+<li>RATE can divide/multiply clock</li>
+<li>Live sound grain position can quantize to clock multiples</li>
+</ul>
+<h3>Musical result</h3>
+<p>You can build:
+- clocked melodic pulses
+- sync’d granular arps
+- tempo-locked repeated notes
+- rhythmic harmonic clouds</p>
+<p>This is very useful for:
+- techno
+- electronica
+- rhythmic ambient
+- generative melodic loops</p>
+<hr />
+<h1>Multigrain as a melodic percussion instrument</h1>
+<p>Not all melody needs to be legato or tonal in a traditional way.</p>
+<p>Using short samples and careful pitch sequencing, Multigrain can become:</p>
+<ul>
+<li>tuned percussion</li>
+<li>mallet voice</li>
+<li>kalimba-like line generator</li>
+<li>vocal chop melody source</li>
+<li>bell arp generator</li>
+</ul>
+<h3>Best approach</h3>
+<ul>
+<li>short, trimmed samples</li>
+<li>lower RATE</li>
+<li>smaller SIZE</li>
+<li>quantized PITCH modulation</li>
+<li>clear envelope shape</li>
+<li>restrained BLUR</li>
+</ul>
+<p>This works especially well for:
+- plucks
+- pointillist melodies
+- glitch-pop lines
+- percussive ostinatos</p>
+<hr />
+<h1>Multigrain as a harmonic counterpoint generator</h1>
+<p>A very strong advanced use is to derive <strong>countermelodies</strong> from existing material.</p>
+<h2>Method</h2>
+<p>Feed in or sample:
+- a vocal phrase
+- a pad chord
+- a lead line
+- a sustained instrument note</p>
+<p>Then:
+- retune it with quantized pitch CV
+- isolate different parts with START/WRAP
+- use scene morphing for articulation changes
+- select different sounds for contrasting phrase fragments</p>
+<h3>Result</h3>
+<p>Instead of writing a second voice from scratch, you generate one from related material, which often sounds more cohesive.</p>
+<p>This is one of the nicest compositional uses of Multigrain.</p>
+<hr />
+<h1>Strong melodic workflows</h1>
+<h2>Workflow 1: Granular lead</h2>
+<ul>
+<li>One pitched sample</li>
+<li>X = pitch CV</li>
+<li>GATE = note trigger</li>
+<li>Quantizer on</li>
+<li>Morph for expression</li>
+</ul>
+<h2>Workflow 2: Sample-orchestrated melody</h2>
+<ul>
+<li>Several sounds, each with different articulation/sample</li>
+<li>SELECT or NEXT changes timbre</li>
+<li>One shared pitch source</li>
+</ul>
+<h2>Workflow 3: Harmonic clouds</h2>
+<ul>
+<li>Chord or choir samples</li>
+<li>Pitch sequenced and quantized</li>
+<li>Long size, moderate blur</li>
+<li>Scene morphing for density</li>
+</ul>
+<h2>Workflow 4: Vocal chop instrument</h2>
+<ul>
+<li>Record or load vocal phrase</li>
+<li>Use START/WRAP/SCAN to isolate regions</li>
+<li>Pitch-sequence via X/Y/Z</li>
+<li>Quantize to scale</li>
+</ul>
+<h2>Workflow 5: Live harmonizer texture</h2>
+<ul>
+<li>Live input as source</li>
+<li>Freeze loop</li>
+<li>Play it melodically with quantized pitch CV</li>
+</ul>
+<hr />
+<h1>Limitations to be aware of for melody</h1>
+<p>Multigrain is excellent for melodic material, but it is not a perfect substitute for a dedicated oscillator voice.</p>
+<h2>Things to keep in mind</h2>
+<ul>
+<li>Pitch depends heavily on source material</li>
+<li>Some samples won’t transpose musically across wide ranges</li>
+<li>Granular behavior can reduce note definition if RATE/SIZE are too extreme</li>
+<li>Too much SCAN/WRAP/randomization can make pitch identity vague</li>
+<li>Blur can smear fast lines</li>
+</ul>
+<p>So if you want very clear melody:
+- choose clean samples
+- tune carefully
+- use quantizer
+- keep grain parameters conservative at first</p>
+<p>Then expand into more experimental settings.</p>
+<hr />
+<h1>Best companion module types for melodic use</h1>
+<p>If you're asking how this module can be used “together” with other Eurorack tools, Multigrain pairs especially well with:</p>
+<h2>Sequencers</h2>
+<p>For pitch CV into X/Y/Z and gates into GATE.</p>
+<h2>Quantized CV sources</h2>
+<p>Even though it has its own quantizer, external quantized modulation can also be useful.</p>
+<h2>Envelope generators</h2>
+<p>For dynamic MORPH control.</p>
+<h2>Clocks / trigger generators</h2>
+<p>To sync grain rhythm and stepping through sounds.</p>
+<h2>Audio sources / oscillators / samplers</h2>
+<p>For Live Sound input and resampling.</p>
+<h2>Mixers / VCAs / filters</h2>
+<p>To shape Multigrain like a full voice in a patch.</p>
+<h2>Reverb / delay / spatial tools</h2>
+<p>Though Blur exists, external effects can widen melodic context further.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Intellijel Multigrain</strong> is a highly capable <strong>melodic sound source</strong>, especially if you think of it as a <strong>granular instrument</strong> rather than just a sampler.</p>
+<p>Its strongest melodic assets are:</p>
+<ul>
+<li><strong>pitch control with CV</strong></li>
+<li><strong>built-in quantizer</strong></li>
+<li><strong>fine tuning</strong></li>
+<li><strong>sound selection by CV</strong></li>
+<li><strong>scene morphing</strong></li>
+<li><strong>live/sample hybrid sources</strong></li>
+<li><strong>expressive control over grain identity</strong></li>
+</ul>
+<p>It excels at:</p>
+<ul>
+<li>granular leads</li>
+<li>harmonic textures</li>
+<li>melodic chops</li>
+<li>tuned percussive lines</li>
+<li>evolving sample-based phrases</li>
+<li>live-derived melodic resynthesis</li>
+</ul>
+<p>If I were using it in a melodic patch, I would most often treat it as one of these three things:</p>
+<ol>
+<li><strong>A quantized granular lead voice</strong></li>
+<li><strong>A bank of timbrally shifting melodic articulations</strong></li>
+<li><strong>A harmonic/countermelodic texture generator derived from recorded material</strong></li>
+</ol>
+<p>If you want, I can also turn this into:
+- a <strong>set of concrete patch recipes</strong>
+- a <strong>“best companion modules” guide</strong>
+- or a <strong>melodic use cheat sheet</strong> for Multigrain.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

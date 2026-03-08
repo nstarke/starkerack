@@ -1,0 +1,288 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-160-5</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-160-5</h1>
+<ul>
+<li><a href="../../manuals/A-160-5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a1605.htm">Manual PDF / Product Page: Doepfer A-160-5 Voltage Controlled Clock Multiplier / Ratcheting Controller</a></p>
+<h1>Using These Modules Together for Melodic Music</h1>
+<p>From the manual pages, the main module described is the <strong>Doepfer A-160-5 Voltage Controlled Clock Multiplier / Ratcheting Controller</strong>, shown in patch examples together with the <strong>Doepfer A-155 sequencer</strong> and <strong>A-154 Sequencer Controller</strong>.<br />
+Used together, these modules are very good at creating <strong>melodic lines with rhythmic variation</strong>, especially <strong>ratcheting melodies</strong>, <strong>accented note repeats</strong>, and <strong>step-dependent articulation</strong>.</p>
+<h2>What each module contributes</h2>
+<h3>A-160-5</h3>
+<p>The A-160-5 is a <strong>voltage-controlled clock multiplier</strong>. It takes an incoming clock and creates a faster clock at its output according to:
+- the <strong>CV at CV In</strong> (0 to +5V)
+- the <strong>Mode switch</strong>
+- or the <strong>Manual control</strong> if no CV is patched</p>
+<p>Important behavior:
+- <strong>0V CV = no output clock</strong>
+- Increasing CV selects higher multiplication factors
+- The 3 switch modes choose different factor sets:
+  - <strong>integers</strong>
+  - <strong>powers of two</strong>
+  - <strong>mixed set</strong></p>
+<p>This makes it ideal for <strong>ratcheting</strong>, where one sequencer step can produce:
+- no trigger
+- one trigger
+- two triggers
+- several triggers</p>
+<h3>A-155 Sequencer</h3>
+<p>The A-155 is the core melodic sequencer in the patch examples. It provides:
+- a stepped CV row for <strong>pitch</strong>
+- another CV row that can be used to control the <strong>ratchet amount per step</strong>
+- gate/trigger signals for note events</p>
+<h3>A-154 Sequencer Controller</h3>
+<p>The A-154 expands sequencing control and helps with:
+- clocking and transport control
+- more flexible sequencing behavior
+- easier integration of the A-155 into more complex performance patches</p>
+<p>In the example, the A-154/A-155 combo is used as the sequencer source, while the A-160-5 adds <strong>sub-step trigger multiplication</strong>.</p>
+<hr />
+<h2>Core melodic use case: ratcheting melody lines</h2>
+<p>This is the most direct melodic patch shown by the manual.</p>
+<h2>Basic patch idea</h2>
+<p>Use:
+- one sequencer CV row for <strong>pitch</strong>
+- another sequencer CV row for <strong>ratchet density</strong>
+- the A-160-5 to generate repeated triggers within a single step</p>
+<h3>Patch flow</h3>
+<ol>
+<li><strong>Sequencer clock</strong> goes to the <strong>A-160-5 Clock In</strong></li>
+<li><strong>A-155 pitch CV row</strong> goes to your <strong>VCO 1V/oct input</strong></li>
+<li><strong>A-155 second CV row</strong> goes to <strong>A-160-5 CV In</strong></li>
+<li><strong>A-160-5 Clock Out</strong> goes to the <strong>gate input of an envelope</strong> or directly to a trigger destination</li>
+<li>Envelope opens a VCA for the VCO</li>
+</ol>
+<h3>Result</h3>
+<p>For each step:
+- the <strong>pitch row</strong> determines the note
+- the <strong>second CV row</strong> determines how many times that note retriggers during the step</p>
+<p>So instead of a plain 8-step melody, you get:
+- single notes on some steps
+- fast repeated notes on others
+- muted steps where CV = 0V</p>
+<p>That gives a melody much more motion and phrasing than a standard one-trigger-per-step sequence.</p>
+<hr />
+<h2>Why this is musically powerful</h2>
+<h3>1. Per-step rhythmic articulation</h3>
+<p>A normal sequencer often gives each step equal weight.<br />
+With the A-160-5, each step can behave differently:
+- step 1: one note
+- step 2: two repeats
+- step 3: four repeats
+- step 4: rest
+- step 5: fast burst</p>
+<p>This turns a static melody into something much more expressive.</p>
+<h3>2. Ratcheting without changing pitch</h3>
+<p>Because the pitch CV can stay constant during the step while only the trigger rate changes, one pitch can become:
+- a stab
+- a tremolo-like pulse
+- a rising-energy repeated note
+- a sequenced ornament</p>
+<p>This is especially useful for Berlin-school, trance, techno, electro, and arpeggiated melodic music.</p>
+<h3>3. Built-in mute via 0V</h3>
+<p>The manual states that <strong>0V at CV In produces no output clock</strong>.<br />
+This means a sequencer row controlling the A-160-5 can also create <strong>rests</strong>. That is extremely useful for melody shaping:
+- not every pitch step has to sound
+- some notes can be skipped entirely
+- ratchet control doubles as articulation/mute programming</p>
+<hr />
+<h2>Best musical strategies</h2>
+<h2>1. One row for pitch, one row for ratchet</h2>
+<p>This is the most obvious and effective patch.</p>
+<h3>Example</h3>
+<ul>
+<li>Row 1: melodic notes</li>
+<li>Row 2:</li>
+<li>0V = rest</li>
+<li>low CV = 1 pulse</li>
+<li>medium CV = 2–3 pulses</li>
+<li>higher CV = 4 or more pulses</li>
+</ul>
+<p>This gives you a melody where every step has both:
+- a note value
+- a performance gesture</p>
+<p>It feels almost like sequencing <strong>pitch + picking pattern</strong>.</p>
+<hr />
+<h2>2. Use powers-of-two mode for cleaner rhythmic structure</h2>
+<p>The middle mode uses <strong>powers of two</strong>.<br />
+This is often best for musical consistency because the subdivisions tend to feel more regular:
+- 1x
+- 2x
+- 4x
+- 8x, etc.</p>
+<p>For melodic work, this is excellent when you want:
+- tight, grid-aligned repeats
+- predictable rhythmic ornamentation
+- less “odd” variation</p>
+<p>Good for:
+- arpeggios
+- trance plucks
+- sequenced basslines
+- Berlin-school pulses</p>
+<hr />
+<h2>3. Use integer mode for more organic phrasing</h2>
+<p>The integer mode gives more conventional multiplying factors.<br />
+This can create less symmetrical and more human-feeling variations across steps.</p>
+<p>Good for:
+- expressive melodic sequences
+- less mechanical phrasing
+- patterns that avoid always dividing into powers of two</p>
+<hr />
+<h2>4. Use mixed mode for evolving melodic figures</h2>
+<p>The mixed mode can be the most playful. It creates a wider range of subdivisions depending on CV.<br />
+This is useful when your sequencer row is already programmed melodically and you want a broader range of ratchet behaviors.</p>
+<p>Good for:
+- live performance
+- happy accidents
+- evolving lead sequences
+- generative or semi-generative melody work</p>
+<hr />
+<h2>5. Send the multiplied clock to envelopes, not pitch</h2>
+<p>The A-160-5 does not generate melody by itself; it generates <strong>timing density</strong>.<br />
+The best melodic use is usually:
+- pitch CV to oscillator
+- A-160-5 output to envelope gate/trigger input</p>
+<p>That way repeated clocks retrigger the same note within the step.</p>
+<p>This creates:
+- note repeats
+- fluttering plucks
+- mandolin-like repeated articulations
+- classic sequencer ratchets</p>
+<hr />
+<h2>Patch recipes for melodic components</h2>
+<h2>Patch 1: Berlin-school ratcheting lead</h2>
+<h3>Connections</h3>
+<ul>
+<li>Master clock → A-154/A-155 clock input</li>
+<li>Same clock → A-160-5 Clock In</li>
+<li>A-155 Row 1 CV → VCO 1V/oct</li>
+<li>A-155 Row 2 CV → A-160-5 CV In</li>
+<li>A-160-5 Clock Out → ADSR gate in</li>
+<li>ADSR → VCA CV</li>
+<li>VCO → VCF → VCA</li>
+</ul>
+<h3>Programming idea</h3>
+<ul>
+<li>Row 1: simple minor-scale melody</li>
+<li>Row 2:</li>
+<li>some steps at 0V for rests</li>
+<li>some low for single notes</li>
+<li>some medium for doubles</li>
+<li>occasional high settings for dramatic bursts</li>
+</ul>
+<h3>Musical result</h3>
+<p>A classic sequenced melody with animated repeated notes, very reminiscent of vintage electronic sequencing styles.</p>
+<hr />
+<h2>Patch 2: Accented melodic ornamentation</h2>
+<p>Instead of ratcheting many steps, only ratchet selected notes.</p>
+<h3>Programming idea</h3>
+<ul>
+<li>Most steps = one pulse</li>
+<li>Key melody notes = multiple pulses</li>
+<li>Phrase endings = mute or single pulse</li>
+</ul>
+<h3>Result</h3>
+<p>The melody remains clear, but some notes become:
+- ornaments
+- accents
+- fills
+- transitions</p>
+<p>This is excellent for making a melody feel composed rather than purely looped.</p>
+<hr />
+<h2>Patch 3: Bassline with rhythmic fill steps</h2>
+<p>Use the A-160-5 on a bass sequence.</p>
+<h3>Programming idea</h3>
+<ul>
+<li>Low notes on Row 1</li>
+<li>Row 2 mostly low values</li>
+<li>Every 4th or 8th step gets a higher ratchet amount</li>
+</ul>
+<h3>Result</h3>
+<p>A bassline with occasional rapid retriggers, like:
+- pick-style bass attacks
+- sequenced rolls
+- fill notes before loop restart</p>
+<p>This is very effective in techno and electro.</p>
+<hr />
+<h2>Patch 4: Dual-function melodic row with silence control</h2>
+<p>Because 0V mutes the A-160-5 output, the ratchet-control row can define:
+- whether a note sounds
+- how often it retriggers</p>
+<h3>Result</h3>
+<p>You can separate:
+- <strong>pitch composition</strong> from Row 1
+- <strong>phrase articulation</strong> from Row 2</p>
+<p>This is powerful because Row 2 becomes a true <strong>performance lane</strong>:
+- mute
+- normal note
+- repeated note
+- dense repeated note</p>
+<p>That’s almost like sequencing picking, bowing, or strumming intensity.</p>
+<hr />
+<h2>Important technical limitation for musical use</h2>
+<p>The manual notes that the A-160-5 needs <strong>a few clock pulses to stabilize</strong> if the incoming clock changes frequency.<br />
+So for best melodic results:
+- feed it a <strong>steady clock</strong>
+- avoid rapidly varying the incoming clock tempo
+- do not expect perfect output immediately after abrupt clock changes</p>
+<p>In practice, this means it works best when driven by:
+- a stable master clock
+- a sequencer clock with fixed or slowly changing tempo</p>
+<p>This is important if you want clean ratchets that stay musically tight.</p>
+<hr />
+<h2>Practical performance advice</h2>
+<h2>Keep the incoming clock steady</h2>
+<p>Since multiplication is derived from averaging recent clock cycles, a jittery or wildly changing clock can make the output feel unstable.</p>
+<h2>Use the manual knob for auditioning</h2>
+<p>If nothing is patched to CV In, the <strong>Manual</strong> knob selects multiplication.<br />
+This is useful for:
+- testing rhythmic densities by ear
+- finding the best mode before applying sequencer CV
+- live performance tweaks if you temporarily remove CV control</p>
+<h2>Program musically, not maximally</h2>
+<p>Too many ratchets on every step can blur the melody. Usually the best results come from contrast:
+- many normal notes
+- a few repeated notes
+- some rests
+- occasional bursts</p>
+<p>That creates phrasing instead of chaos.</p>
+<h2>Match envelope settings to ratchet speed</h2>
+<p>If your envelope is too long, fast ratchets may smear together.<br />
+For clearer melodic repeats:
+- use shorter decay/release
+- use snappy envelopes
+- tune VCA/VCF response for articulation</p>
+<hr />
+<h2>Best kinds of melodic content these modules make</h2>
+<p>These modules are especially strong for:</p>
+<ul>
+<li><strong>Berlin-school sequences</strong></li>
+<li><strong>Tangerine Dream-style ratcheting lines</strong></li>
+<li><strong>trance/arpeggiated leads</strong></li>
+<li><strong>techno melodic loops</strong></li>
+<li><strong>electro basslines with repeated triggers</strong></li>
+<li><strong>ornamented step-sequenced melodies</strong></li>
+<li><strong>plucked repeating note phrases</strong></li>
+<li><strong>gated melodic ostinatos</strong></li>
+</ul>
+<p>They are less about freehand melody generation and more about <strong>adding expressive rhythmic articulation to sequenced pitch material</strong>.</p>
+<hr />
+<h2>Summary</h2>
+<p>Used together, the <strong>A-155/A-154</strong> provide the <strong>melodic pitch structure</strong>, while the <strong>A-160-5</strong> provides <strong>per-step trigger multiplication</strong>.<br />
+That means you can create melodic phrases where each note step has its own articulation:
+- silent
+- single-hit
+- double-hit
+- rapid repeated burst</p>
+<p>This is one of the most effective classic Eurorack methods for creating <strong>animated, musical, rhythmic melodies</strong> from simple sequencer rows.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

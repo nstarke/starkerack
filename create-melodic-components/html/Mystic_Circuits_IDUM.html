@@ -1,0 +1,502 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mystic_Circuits_IDUM</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mystic Circuits — IDUM</h1>
+<ul>
+<li><a href="../../manuals/IDUM Manual Draft 7.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Using Mystic Circuits IDUM to create melodic components</h1>
+<p>IDUM is primarily a <strong>trigger/gate manipulation module</strong>, but it can absolutely be used to create melodic structure when paired with a sequencer, oscillator, envelope/VCA, quantizer, or pitch source. The key idea is:</p>
+<ul>
+<li><strong>IDUM does not generate pitch CV itself</strong></li>
+<li>It <strong>reshapes trigger timing and clock behavior</strong></li>
+<li>That means it can create melody by controlling:</li>
+<li><strong>when notes happen</strong></li>
+<li><strong>how long notes last</strong></li>
+<li><strong>which melodic lane is heard</strong></li>
+<li><strong>how a pitch sequencer advances</strong></li>
+<li><strong>when repeated or broken rhythmic phrases recur</strong></li>
+</ul>
+<h2>What IDUM does best for melody</h2>
+<p>From the manual, IDUM offers:</p>
+<ul>
+<li>4 trigger inputs and 4 processed trigger outputs</li>
+<li>1 clock input and 1 processed clock output</li>
+<li>8 performance modes:</li>
+<li>Hold</li>
+<li>Burst</li>
+<li>Multiply/Divide</li>
+<li>Bouncing Ball</li>
+<li>Rotate</li>
+<li>Gate Delay</li>
+<li>Break</li>
+<li>Clock Skip</li>
+<li>A looper that records the last 8 steps of trigger/modification activity</li>
+<li>CV control over:</li>
+<li>Chance</li>
+<li>Mode</li>
+<li>Param</li>
+<li>Length</li>
+<li>Loop</li>
+</ul>
+<p>So musically, IDUM is best understood as a <strong>melody animator</strong> rather than a melody source.</p>
+<hr />
+<h1>Core melodic patch concepts</h1>
+<h2>1. Clock a pitch sequencer with IDUM’s clock output</h2>
+<p>This is the most direct melodic use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Master clock → <strong>IDUM clock input</strong></li>
+<li>IDUM <strong>clock output</strong> → pitch sequencer clock input</li>
+<li>Pitch sequencer CV output → oscillator 1V/oct</li>
+<li>One IDUM trigger output → envelope → VCA</li>
+</ul>
+<h3>Result</h3>
+<p>IDUM changes how the sequencer advances, so your melody changes without changing the programmed notes.</p>
+<h3>Best modes for this</h3>
+<ul>
+<li><strong>Clock Skip</strong>: skips or ratchets sequencer steps</li>
+<li><strong>Burst</strong> / <strong>Multiply-Divide</strong>: can create denser trigger events around a melodic line</li>
+<li><strong>Looper</strong>: freezes and replays interesting phrase fragments</li>
+</ul>
+<h3>Why this works</h3>
+<p>If the pitch sequencer contains a stable set of notes, IDUM can make it feel:
+- syncopated
+- fragmented
+- ratcheted
+- stuck and released
+- pseudo-arpeggiated</p>
+<p>This is probably the strongest melodic application described or implied by the manual.</p>
+<hr />
+<h2>2. Use trigger outputs to articulate multiple melodic voices</h2>
+<p>Because IDUM has <strong>4 trigger channels</strong>, each output can fire a different melodic voice or different articulation path.</p>
+<h3>Patch</h3>
+<ul>
+<li>Four gate sources or one multi-lane trigger sequencer into TR1–TR4</li>
+<li>TR outputs from IDUM to:</li>
+<li>envelopes for different oscillators</li>
+<li>different LPGs</li>
+<li>different voices tuned to chord tones</li>
+<li>one envelope per transposition layer</li>
+</ul>
+<h3>Result</h3>
+<p>IDUM becomes a <strong>melodic phrase router/shuffler</strong>.</p>
+<p>For example:
+- TR1 = root note voice
+- TR2 = third
+- TR3 = fifth
+- TR4 = octave or counter-melody</p>
+<p>Then:
+- <strong>Rotate mode</strong> reassigns which input drives which output
+- <strong>Gate Delay mode</strong> creates strummed chord timing
+- <strong>Hold mode</strong> turns staccato notes into sustained drones or legato accents</p>
+<p>This is especially effective for pseudo-polyphonic modular patches.</p>
+<hr />
+<h2>3. Use IDUM to generate note density from sparse melodies</h2>
+<p>If you already have a simple melodic gate pattern, IDUM can make it more expressive.</p>
+<h3>Patch</h3>
+<ul>
+<li>Simple trigger sequence into one or more TR inputs</li>
+<li>Corresponding pitch CV from a sequencer or keyboard</li>
+<li>IDUM output triggers an envelope controlling the melodic voice</li>
+</ul>
+<h3>Best modes</h3>
+<h4>Hold</h4>
+<ul>
+<li>Lengthens notes for legato lines</li>
+<li>Or probabilistically skips note events</li>
+<li>Great for turning rigid patterns into phrased melodies</li>
+</ul>
+<h4>Burst</h4>
+<ul>
+<li>Ratchets single notes into repeated ornaments</li>
+<li>Excellent for acid-style trills, repeated plucks, or fast lead embellishments</li>
+</ul>
+<h4>Multiply/Divide</h4>
+<ul>
+<li>Similar to burst, but based on trigger interval rather than clock</li>
+<li>More organic on irregular lines</li>
+</ul>
+<h4>Bouncing Ball</h4>
+<ul>
+<li>Creates accelerating/decelerating note clusters</li>
+<li>Useful for fills, ornamentation, and glitch melody tails</li>
+</ul>
+<p>These modes let one pitch become many articulations.</p>
+<hr />
+<h1>Mode-by-mode melodic uses</h1>
+<h2>1. Hold mode</h2>
+<p><strong>What it does:</strong> lengthens incoming gates or probabilistically skips them.</p>
+<h3>Melodic use</h3>
+<ul>
+<li>Turn short plucks into sustained tones</li>
+<li>Create legato phrasing on a melodic sequence</li>
+<li>Thin out dense note patterns by skipping some notes</li>
+<li>Make one voice drone while others remain rhythmic</li>
+</ul>
+<h3>Good patch</h3>
+<ul>
+<li>Pitch sequencer CV → oscillator</li>
+<li>Trigger sequencer → IDUM TR input</li>
+<li>IDUM output → envelope or LPG</li>
+</ul>
+<h3>Musical effect</h3>
+<ul>
+<li>Counter-clockwise param: fewer note articulations, more space</li>
+<li>Clockwise param: longer notes, tied phrases, held accents</li>
+</ul>
+<p>This is one of the best modes for expressive melodic phrasing.</p>
+<hr />
+<h2>2. Burst mode</h2>
+<p><strong>What it does:</strong> creates trigger bursts based on the clock.</p>
+<h3>Melodic use</h3>
+<ul>
+<li>Ratcheting notes</li>
+<li>Repeated notes on one pitch step</li>
+<li>Ornamenting a melody line</li>
+<li>Turning occasional notes into fast trills</li>
+</ul>
+<h3>Good patch</h3>
+<ul>
+<li>Single melodic gate stream into TR1</li>
+<li>IDUM TR1 output → envelope for voice</li>
+<li>Sequencer CV stays steady while the burst repeats articulation</li>
+</ul>
+<h3>Musical effect</h3>
+<ul>
+<li>Great for techno, IDM, electro, acid, arp-like motion</li>
+<li>Can make a simple 8-step melody sound highly animated</li>
+</ul>
+<p>If your oscillator pitch is changing with each sequencer step, the bursts will emphasize the current note. If pitch is sample-and-held elsewhere, the result can be even more complex.</p>
+<hr />
+<h2>3. Multiply/Divide mode</h2>
+<p><strong>What it does:</strong> changes burst speed based on the interval between recent incoming triggers.</p>
+<h3>Melodic use</h3>
+<ul>
+<li>Makes melody articulation respond to the shape of the phrase</li>
+<li>Slower input notes can become dense repeats</li>
+<li>Uneven melodic rhythms become more alive and less grid-locked</li>
+</ul>
+<h3>Best for</h3>
+<ul>
+<li>Humanized or irregular trigger sources</li>
+<li>Keyboard-generated gates</li>
+<li>Euclidean or probabilistic melodic rhythms</li>
+</ul>
+<p>This mode is less rigid than Burst and often feels more “performed.”</p>
+<hr />
+<h2>4. Bouncing Ball mode</h2>
+<p><strong>What it does:</strong> creates accelerating or decelerating bursts.</p>
+<h3>Melodic use</h3>
+<ul>
+<li>Grace notes</li>
+<li>Run-ups into a note</li>
+<li>Falling echo-like note repetitions</li>
+<li>End-of-phrase melodic flurries</li>
+</ul>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a sparse melody trigger pattern through IDUM</li>
+<li>Use Bouncing Ball on only occasional events via Chance</li>
+<li>Feed result to an envelope on a lead voice</li>
+</ul>
+<h3>Musical effect</h3>
+<ul>
+<li>Works beautifully for glitch leads, prepared arpeggios, and expressive fills</li>
+<li>Can simulate hand-played ornamentation</li>
+</ul>
+<p>This is especially good for melodic transitions rather than constant use.</p>
+<hr />
+<h2>5. Rotate mode</h2>
+<p><strong>What it does:</strong> scrambles the mapping of inputs to outputs.</p>
+<h3>Melodic use</h3>
+<p>This gets very interesting if each output corresponds to a different pitch or melodic function.</p>
+<h3>Patch ideas</h3>
+<h4>A. Chord tone selector</h4>
+<ul>
+<li>4 outputs each trigger a separate envelope/VCA</li>
+<li>Each VCA opens a different fixed CV or oscillator tuned to:</li>
+<li>root</li>
+<li>third</li>
+<li>fifth</li>
+<li>seventh</li>
+</ul>
+<p>Rotate changes which incoming rhythm plays which chord tone.</p>
+<h4>B. Multi-sequencer lane switching</h4>
+<ul>
+<li>4 outputs trigger 4 different sample-and-holds or envelopes</li>
+<li>Each lane corresponds to a different melodic contour</li>
+</ul>
+<h3>Musical effect</h3>
+<ul>
+<li>Implied counterpoint</li>
+<li>Revoicing chords</li>
+<li>Rotating motif assignment</li>
+<li>Melodic call-and-response</li>
+</ul>
+<p>This is one of the most compositionally rich modes for melodic work.</p>
+<hr />
+<h2>6. Gate Delay mode</h2>
+<p><strong>What it does:</strong> delays gates by varying amounts per channel.</p>
+<h3>Melodic use</h3>
+<ul>
+<li>Strummed chords</li>
+<li>Flam-like double notes</li>
+<li>Offset canon lines</li>
+<li>Swinging one melodic layer against another</li>
+</ul>
+<h3>Patch idea</h3>
+<p>If four outputs trigger four pitch voices tuned as a chord:
+- TR1 = root
+- TR2 = third
+- TR3 = fifth
+- TR4 = octave</p>
+<p>Gate Delay makes the chord “fan out” in time rather than striking simultaneously.</p>
+<h3>Musical effect</h3>
+<ul>
+<li>Harp-like chord rolls</li>
+<li>Loose ensemble feel</li>
+<li>Stereo melodic spreads if panned</li>
+</ul>
+<p>Excellent for adding sophistication to otherwise static harmonic patches.</p>
+<hr />
+<h2>7. Break mode</h2>
+<p><strong>What it does:</strong> applies preset rhythmic masks influenced by incoming triggers.</p>
+<h3>Melodic use</h3>
+<p>Though aimed at drums, it can also drive:
+- bassline gates
+- plucked lead patterns
+- modal ostinatos
+- sequence resets</p>
+<h3>Patch idea</h3>
+<ul>
+<li>One sustained or repeated pitch sequence</li>
+<li>IDUM Break mode gates the melodic voice in breakbeat-derived patterns</li>
+</ul>
+<h3>Musical effect</h3>
+<ul>
+<li>Turns a simple note row into syncopated melodic riffs</li>
+<li>Great for IDM, electro, and broken-beat bass patterns</li>
+</ul>
+<p>Use this especially with short envelopes and bright timbres.</p>
+<hr />
+<h2>8. Clock Skip mode</h2>
+<p><strong>What it does:</strong> manipulates only the clock output, skipping or ratcheting clocks.</p>
+<h3>Melodic use</h3>
+<p>This is the most directly melodic mode if you are clocking a pitch sequencer.</p>
+<h3>Patch</h3>
+<ul>
+<li>Master clock → IDUM clock input</li>
+<li>IDUM clock output → melodic sequencer clock</li>
+<li>Sequencer CV → oscillator pitch</li>
+<li>Separate IDUM TR output or another gate source → envelope</li>
+</ul>
+<h3>Results</h3>
+<ul>
+<li><strong>Skip side</strong>: sequencer jumps ahead, causing melodic leaps and phrase displacement</li>
+<li><strong>Ratchet side</strong>: sequencer advances multiple times quickly, creating arpeggio-like runs</li>
+</ul>
+<h3>With CYCLE switch</h3>
+<ul>
+<li><strong>CYCLE up</strong> tries to return the sequencer to original position after modification</li>
+<li><strong>CYCLE down</strong> allows drift</li>
+</ul>
+<h3>Musical interpretation</h3>
+<ul>
+<li>CYCLE up = controlled variation</li>
+<li>CYCLE down = evolving melodic mutation</li>
+</ul>
+<p>This is probably the best mode for creating changing melodies from fixed pitch material.</p>
+<hr />
+<h1>The looper as a melodic phrase tool</h1>
+<p>The looper stores the <strong>last 8 steps of triggers plus modification activity</strong> and replays them.</p>
+<h2>Why that matters for melody</h2>
+<p>You can improvise with IDUM until it creates an interesting melodic rhythm/clock mutation, then capture it.</p>
+<h3>Melodic uses</h3>
+<ul>
+<li>Freeze a happy accident</li>
+<li>Turn an evolving pattern into a repeatable phrase</li>
+<li>Shorten loop length for ostinatos</li>
+<li>Scrub start point to shift phrase emphasis</li>
+<li>Change loop speed with PARAM</li>
+<li>Use CHANCE to decide whether saved modifications occur on each looped step</li>
+</ul>
+<h3>Patch idea</h3>
+<ul>
+<li>Build an animated melodic sequence with Clock Skip + trigger processing</li>
+<li>Engage LOOP when the phrase gets interesting</li>
+<li>Reduce LENGTH for a 3- or 4-step motif</li>
+<li>Scrub the MODE control for phrase rearrangement</li>
+</ul>
+<p>This makes IDUM useful not just as a chaos device, but as a <strong>phrase capture and composition module</strong>.</p>
+<hr />
+<h1>Best module pairings for melodic use</h1>
+<h2>1. With an 8-step pitch sequencer</h2>
+<p>The manual itself shows this kind of patch.</p>
+<p>Use IDUM clock output to alter the sequencer’s step motion while a trigger output articulates the voice.</p>
+<p><strong>Good for:</strong>
+- basslines
+- lead riffs
+- arpeggio mutation
+- looping motifs</p>
+<h2>2. With a quantizer</h2>
+<p>If you use random CV, sampled CV, or transposition voltages elsewhere, IDUM can supply the articulation logic while the quantizer keeps things tonal.</p>
+<p><strong>Good for:</strong>
+- semi-random melodies
+- generative patches
+- controlled chaos</p>
+<h2>3. With sample &amp; hold / switch modules</h2>
+<p>IDUM’s trigger outputs can clock S&amp;H modules or address sequential switches.</p>
+<p><strong>Good for:</strong>
+- changing pitch sources
+- selecting between melodic rows
+- rotating scales or transpositions</p>
+<h2>4. With multiple oscillators or chord voices</h2>
+<p>Using the 4 trigger outputs to fire multiple tuned voices makes Rotate and Gate Delay especially useful.</p>
+<p><strong>Good for:</strong>
+- chords
+- broken harmony
+- melodic percussion lines
+- contrapuntal textures</p>
+<h2>5. With envelope + LPG voices</h2>
+<p>Because IDUM is all about gates, it pairs naturally with plucked voices.</p>
+<p><strong>Good for:</strong>
+- marimba-like riffs
+- acid plucks
+- glitch melodies
+- modal ostinatos</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Mutating bassline</h2>
+<ul>
+<li>Master clock → IDUM CL in</li>
+<li>IDUM CL out → pitch sequencer clock</li>
+<li>Pitch sequencer CV → VCO 1V/oct</li>
+<li>IDUM TR1 out → envelope → VCA</li>
+<li>Set mode to <strong>Clock Skip</strong></li>
+<li>Set chance medium-high</li>
+<li>Set length short</li>
+</ul>
+<p><strong>Result:</strong> a stable bass sequence that occasionally skips ahead or ratchets into little runs.</p>
+<hr />
+<h2>Patch 2: Ratcheted lead line</h2>
+<ul>
+<li>Keyboard or sequencer gate → IDUM TR1 in</li>
+<li>Pitch CV directly to oscillator</li>
+<li>IDUM TR1 out → envelope → VCA</li>
+<li>Clock into IDUM CL in</li>
+<li>Mode = <strong>Burst</strong></li>
+<li>Param on multiplier side</li>
+<li>Chance moderate</li>
+</ul>
+<p><strong>Result:</strong> occasional repeated-note ornaments on your lead voice.</p>
+<hr />
+<h2>Patch 3: Strummed chord engine</h2>
+<ul>
+<li>Four pitch voices tuned to chord tones</li>
+<li>Four envelopes/VCAs triggered by IDUM TR1–TR4 out</li>
+<li>Multi-lane trigger source into TR1–TR4 in</li>
+<li>Mode = <strong>Gate Delay</strong> or <strong>Rotate</strong></li>
+</ul>
+<p><strong>Result:</strong> animated chord voicings with rolling or re-assigned note order.</p>
+<hr />
+<h2>Patch 4: Melodic breakbeat mask</h2>
+<ul>
+<li>Regular gate pattern into TR inputs</li>
+<li>Pitch sequencer or fixed pitch set to a scale</li>
+<li>IDUM outputs trigger melodic voices</li>
+<li>Mode = <strong>Break</strong></li>
+<li>Use different outputs for bass, mid, high plucks</li>
+</ul>
+<p><strong>Result:</strong> rhythmic melodic phrases with breakbeat logic rather than straightforward sequencing.</p>
+<hr />
+<h2>Patch 5: Captured motif looper</h2>
+<ul>
+<li>Use any of the above patches</li>
+<li>Play with mode, chance, length until a phrase emerges</li>
+<li>Press <strong>LOOP</strong></li>
+<li>Set loop length to 2–4</li>
+<li>Adjust speed with PARAM</li>
+</ul>
+<p><strong>Result:</strong> improvised phrase becomes a playable melodic motif.</p>
+<hr />
+<h1>Important limitations</h1>
+<h2>IDUM does not output pitch CV</h2>
+<p>So for melody you still need:
+- a sequencer
+- a quantizer
+- a keyboard/controller
+- random CV source
+- or tuned oscillators/chord structure</p>
+<h2>Clock-manipulated sequencers vary in compatibility</h2>
+<p>The manual notes:
+- simpler analog sequencers generally work better
+- complex digital sequencers may not respond ideally to clock manipulation
+- CYCLE behavior may vary by sequencer</p>
+<p>For melodic use, this matters a lot. If your sequencer does not like skipped or burst clocks, use IDUM more on <strong>trigger articulation</strong> than on clock mutation.</p>
+<h2>Looper only captures one trigger per step</h2>
+<p>So very dense melodic ratchets may not be reproduced exactly in the looper.</p>
+<hr />
+<h1>Best musical roles for IDUM in melodic patches</h1>
+<p>IDUM shines as:</p>
+<ul>
+<li>a <strong>melody articulator</strong></li>
+<li>a <strong>phrase mutator</strong></li>
+<li>a <strong>clock-based melodic variation tool</strong></li>
+<li>a <strong>ratchet and ornament generator</strong></li>
+<li>a <strong>trigger router for harmonic voices</strong></li>
+<li>a <strong>phrase capture looper</strong></li>
+</ul>
+<p>It is less a “write the notes” module and more a <strong>make the notes alive</strong> module.</p>
+<hr />
+<h1>Summary</h1>
+<p>If you use IDUM with melodic modules, the most effective strategies are:</p>
+<ol>
+<li><strong>Clock a pitch sequencer from IDUM</strong></li>
+<li>
+<p>best for mutated basslines and lead riffs</p>
+</li>
+<li>
+<p><strong>Use trigger outputs to fire melodic envelopes</strong></p>
+</li>
+<li>
+<p>best for ratchets, phrasing, and articulation changes</p>
+</li>
+<li>
+<p><strong>Assign the 4 outputs to different tuned voices or chord tones</strong></p>
+</li>
+<li>
+<p>best for harmony, chord strums, and rotated motifs</p>
+</li>
+<li>
+<p><strong>Use the looper to capture emergent phrases</strong></p>
+</li>
+<li>
+<p>best for composition from improvisation</p>
+</li>
+<li>
+<p><strong>Exploit specific modes musically</strong></p>
+</li>
+<li>Hold = phrasing</li>
+<li>Burst = ratchets</li>
+<li>Multiply/Divide = elastic repetition</li>
+<li>Bouncing Ball = ornaments</li>
+<li>Rotate = harmonic reassignment</li>
+<li>Gate Delay = strums/canons</li>
+<li>Break = syncopated melodic masks</li>
+<li>Clock Skip = sequence mutation</li>
+</ol>
+<p>If you want, I can also turn this into:
+- a <strong>patch cookbook</strong>
+- a <strong>mode-by-mode melodic cheat sheet</strong>
+- or a <strong>“best companion modules for IDUM” guide</strong></p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

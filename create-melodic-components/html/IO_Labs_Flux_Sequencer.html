@@ -1,0 +1,457 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>IO_Labs_Flux_Sequencer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>IO Labs — Flux Sequencer</h1>
+<ul>
+<li><a href="../../manuals/IO Labs - Flux Sequencer - 107 User Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Using IOLabs Flux to Create Melodic Components in a Eurorack System</h1>
+<p>Flux is presented primarily as a <strong>4-channel rhythm sequencer</strong>, but the manual makes it clear that it can also be a very capable <strong>melodic control source</strong> when you treat its CV lanes, quantization, modulation buses, and auxiliary trigger logic as pitch-and-phrase tools rather than only percussion tools.</p>
+<h2>What Flux gives you for melody</h2>
+<p>Each of the 4 channels includes:</p>
+<ul>
+<li><strong>1 main rhythm output</strong></li>
+<li><strong>2 auxiliary rhythm outputs</strong></li>
+<li><strong>1 CV output</strong></li>
+</ul>
+<p>So across the module you effectively get:</p>
+<ul>
+<li><strong>4 independent CV lanes</strong></li>
+<li><strong>12 trigger/gate lanes</strong> total if you count main + aux outputs per channel</li>
+</ul>
+<p>That combination is enough to build complete melodic structures:
+- pitch CV
+- note gates
+- accent/variation gates
+- transposition or articulation modulation
+- phrase resets and derived clocks</p>
+<h2>The key melodic features in the manual</h2>
+<h3>1. Per-step CV sequencing</h3>
+<p>On <strong>Main UI Page 2: CV Outs</strong>, each step can output one of several CV modes:</p>
+<ul>
+<li><strong>VOLT</strong> — fixed voltage per step</li>
+<li><strong>LFO</strong> — free-running modulation source</li>
+<li><strong>ENV+ / ENV-</strong> — envelope shapes</li>
+<li><strong>RANDS</strong> — random voltage once per step</li>
+<li><strong>RANDT</strong> — random voltage once per trigger within a step</li>
+</ul>
+<p>For melody, <strong>VOLT</strong> is the most direct pitch sequencer mode.<br />
+Set a channel’s CV output to <strong>VOLT</strong>, then program <strong>MAXV</strong> per step as your note value.</p>
+<p>Because each step has independent values, you can create:
+- basslines
+- lead melodies
+- repeating motifs
+- transposition sequences</p>
+<h3>2. Built-in quantization</h3>
+<p>Flux’s CV output includes <strong>per-step quantization</strong> via:</p>
+<ul>
+<li><strong>QUAN</strong> — number of equally spaced nodes per volt, from 1–24</li>
+<li><strong>QUAN NODES</strong> — enable/disable individual notes in that division</li>
+</ul>
+<p>This is extremely useful for melodic work.</p>
+<p>Examples:
+- Set <strong>QUAN = 12</strong> for semitone division across each volt
+- Turn on only scale tones in <strong>QUAN NODES</strong> to create a custom scale
+- Change quantization settings per step for modal movement or unusual harmonic behavior</p>
+<p>This means Flux can behave like:
+- a pitch sequencer
+- a scale-locked melody generator
+- a constrained random melodic source</p>
+<h3>3. Per-step voltage range</h3>
+<p>Each step has:
+- <strong>MINV</strong>
+- <strong>MAXV</strong></p>
+<p>For melody this is powerful because you can define:
+- fixed pitch by setting VOLT mode and using MAXV
+- pitch windows for random generation in <strong>RANDS</strong> or <strong>RANDT</strong>
+- limited register zones for phrases</p>
+<p>For example:
+- bass channel: keep MINV/MAXV low
+- lead channel: set higher voltage range
+- harmony channel: use same quant scale, different voltage span</p>
+<h3>4. Trigger generation for note articulation</h3>
+<p>Flux’s main strength is timing. Its rhythm engine can generate very intricate trigger structures using:</p>
+<ul>
+<li><strong>DENS</strong></li>
+<li><strong>CURV</strong></li>
+<li><strong>VAL</strong></li>
+<li><strong>LENG</strong></li>
+<li><strong>PHAS</strong></li>
+<li><strong>COMP</strong></li>
+<li><strong>MASK</strong></li>
+<li><strong>PROB</strong></li>
+<li><strong>HUMA</strong></li>
+</ul>
+<p>For melody, these parameters do not just make rhythms—they shape <strong>note articulation</strong>.</p>
+<p>Patch idea:
+- CV out → oscillator pitch input
+- main rhythm out → envelope gate or LPG trigger</p>
+<p>Then Flux determines:
+- <strong>which pitch</strong> is heard via CV
+- <strong>when it is heard</strong> via trigger output</p>
+<p>This lets you make melodies that are:
+- straight and clocked
+- ratcheted
+- polyrhythmic
+- sparse
+- humanized
+- probability-based</p>
+<h2>Practical melodic patching strategies</h2>
+<hr />
+<h2>1. Basic 1V/oct melodic sequencer</h2>
+<h3>Patch</h3>
+<ul>
+<li><strong>Channel CV out</strong> → oscillator <strong>1V/oct</strong></li>
+<li><strong>Channel main rhythm out</strong> → envelope gate in</li>
+<li><strong>Envelope out</strong> → VCA CV in</li>
+<li><strong>Oscillator audio</strong> → VCA → mixer/filter</li>
+</ul>
+<h3>Setup</h3>
+<ul>
+<li>On CV page, set <strong>CVSEL = VOLT</strong></li>
+<li>Set <strong>QUAN = 12</strong></li>
+<li>Enable desired scale degrees in <strong>QUAN NODES</strong></li>
+<li>Program per-step <strong>MAXV</strong> values</li>
+<li>On rhythm page, set note timing with:</li>
+<li><strong>DENS = 1</strong> for one note per step at first</li>
+<li>adjust <strong>LENG</strong> for note duration framework</li>
+<li>use <strong>GATE</strong> to control note length feel</li>
+</ul>
+<h3>Result</h3>
+<p>Flux acts like a melodic step sequencer, but with more flexible timing than a standard 16-step pitch sequencer.</p>
+<hr />
+<h2>2. Ratcheting melodic lines</h2>
+<p>Because trigger density can exceed 1 per step, a single step can generate multiple note events.</p>
+<h3>Patch</h3>
+<ul>
+<li>CV out → oscillator 1V/oct</li>
+<li>Main rhythm out → envelope gate</li>
+</ul>
+<h3>Setup</h3>
+<ul>
+<li>Use <strong>CVSEL = VOLT</strong></li>
+<li>For selected steps increase <strong>DENS</strong></li>
+<li>Experiment with <strong>CURV</strong> and <strong>VAL</strong></li>
+<li><strong>VAL = 0</strong> gives even subdivisions</li>
+<li>positive/negative values skew trigger spacing</li>
+<li>Adjust <strong>GATE</strong> for tight plucks or longer ties</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- repeated notes
+- clustered attacks
+- accelerating/decelerating note bursts
+- ornamental melodic figures</p>
+<p>This is especially effective for:
+- Berlin-school lines
+- IDM-style ratchets
+- generative arpeggio embellishments</p>
+<hr />
+<h2>3. Quantized random melody generator</h2>
+<h3>Patch</h3>
+<ul>
+<li>CV out → oscillator 1V/oct</li>
+<li>Main output → envelope gate</li>
+</ul>
+<h3>Setup</h3>
+<ul>
+<li>Set <strong>CVSEL = RANDS</strong> for one random note per step<br />
+  or <strong>RANDT</strong> for a new random note on every trigger</li>
+<li>Set <strong>MINV/MAXV</strong> to constrain register</li>
+<li>Set <strong>QUAN = 12</strong></li>
+<li>Use <strong>QUAN NODES</strong> to define the scale</li>
+<li>Use <strong>PROB</strong>, <strong>MASK</strong>, and <strong>DENS</strong> to control phrase density</li>
+</ul>
+<h3>Result</h3>
+<p>This creates scale-constrained generative melodies.</p>
+<p>Use:
+- <strong>RANDS</strong> for stable note-per-step random sequencing
+- <strong>RANDT</strong> for volatile, trigger-level melodic motion</p>
+<p>This is one of the strongest melodic uses of Flux.</p>
+<hr />
+<h2>4. Four-part melodic system</h2>
+<p>Because Flux has <strong>4 channels</strong>, it can function as a small compositional brain for multi-voice music.</p>
+<h3>Example allocation</h3>
+<ul>
+<li><strong>CH1</strong>: bassline pitch + gate</li>
+<li><strong>CH2</strong>: lead melody</li>
+<li><strong>CH3</strong>: harmony or countermelody</li>
+<li><strong>CH4</strong>: modulation lane or additional voice</li>
+</ul>
+<h3>Possible patching</h3>
+<ul>
+<li>Each channel CV out → separate oscillator or voice 1V/oct</li>
+<li>Each channel main output → each voice envelope gate</li>
+<li>AUX outputs → accents, resets, chord changes, clocking other modules</li>
+</ul>
+<h3>Result</h3>
+<p>You can create:
+- interlocking melodic polyrhythms
+- canon-like patterns
+- polymetric harmony
+- percussion-plus-melody hybrids</p>
+<p>Because each channel has independent loop points and timing behavior, voices can cycle against one another.</p>
+<hr />
+<h2>5. Using AUX outputs as melodic articulators</h2>
+<p>Each channel has <strong>AUX1</strong> and <strong>AUX2</strong> with many modes, including:</p>
+<ul>
+<li>delayed copies</li>
+<li>first/last trigger</li>
+<li>start-of-step</li>
+<li>dividers</li>
+<li>boolean logic</li>
+<li>clock divisions</li>
+<li>CV threshold comparisons</li>
+</ul>
+<p>For melody, AUX outs are excellent for:
+- accents
+- opening a second envelope
+- switching wavefolders or filters
+- clocking sample-and-hold
+- triggering octave jumps or transposition events
+- selectively firing a second oscillator layer</p>
+<h3>Example</h3>
+<ul>
+<li>Main out triggers the note envelope</li>
+<li>AUX1 triggers a second, shorter envelope to open a filter only on selected steps</li>
+<li>AUX2 sends a divider or logic-derived pulse to transpose another sequencer</li>
+</ul>
+<p>This can make a simple melody feel animated and phrased.</p>
+<hr />
+<h2>6. Melodic modulation with Macro Pots, CV inputs, and Evolve LFOs</h2>
+<p>Flux has 3 modulation sources:</p>
+<ul>
+<li><strong>Macro Pots</strong></li>
+<li><strong>CV Inputs</strong></li>
+<li><strong>Evolve internal LFOs</strong></li>
+</ul>
+<p>These can modulate many parameters including rhythm and CV behavior.</p>
+<h3>Why this matters melodically</h3>
+<p>You can modulate:
+- <strong>MAXV / MINV</strong> for transposition or pitch drift
+- <strong>ATK / REL / ACUR / RCUR</strong> for note shape
+- <strong>DENS</strong> for phrase activity
+- <strong>VAL / CURV / COMP / PHAS</strong> for articulation timing
+- <strong>SHUF</strong> for groove changes
+- even <strong>BPM</strong> in internal mode</p>
+<h3>Musical uses</h3>
+<ul>
+<li>a macro knob for live transposition</li>
+<li>CV input to animate note range</li>
+<li>slow Evolve LFO to drift melody density over time</li>
+<li>performance macros that move from sparse to busy lines</li>
+</ul>
+<p>The manual notes that modulation is controlled through <strong>mod buses</strong>:
+- Yellow
+- Grey
+- Purple</p>
+<p>Per step, you choose which bus affects it.<br />
+That means modulation can be active on some steps and absent on others, which is very useful for melodic phrasing.</p>
+<h3>Example phrase design</h3>
+<ul>
+<li>Put transposition modulation only on steps 5–8</li>
+<li>Apply density modulation only to end-of-bar steps</li>
+<li>Apply CV modulation to one phrase section but not another</li>
+</ul>
+<p>This creates evolving melody with intentional structure.</p>
+<hr />
+<h2>7. Envelopes and LFOs as melodic support signals</h2>
+<p>The CV outputs are not limited to pitch.</p>
+<p>A channel can instead generate:
+- <strong>AR envelopes</strong>
+- <strong>inverted envelopes</strong>
+- <strong>free-running LFOs</strong></p>
+<p>So one channel can sequence melody, while another channel’s CV out can modulate:
+- filter cutoff
+- wavefold amount
+- FM index
+- VCA level
+- stereo placement</p>
+<h3>Melodic use case</h3>
+<ul>
+<li>CH1 CV = pitch for oscillator A</li>
+<li>CH1 main out = note gate</li>
+<li>CH2 CV = synced envelope controlling filter</li>
+<li>CH2 main or AUX = accent trigger</li>
+</ul>
+<p>Now Flux is doing both pitch and expression.</p>
+<hr />
+<h2>8. Scale-based melodic probability and masking</h2>
+<p>The rhythm side includes:
+- <strong>PROB</strong>
+- <strong>MASK</strong>
+- <strong>MSK&gt;</strong>
+- <strong>LOOP</strong>
+- <strong>STEP on/off</strong>
+- <strong>GEN</strong> on/off generator</p>
+<p>For melody, these functions create phrase variation.</p>
+<h3>Good uses</h3>
+<ul>
+<li><strong>PROB St</strong>: occasionally skip an entire note group</li>
+<li><strong>PROB Tr</strong>: probabilistically thin ratchets within a step</li>
+<li><strong>MASK</strong>: create repeating omission patterns</li>
+<li><strong>LOOP</strong>: set shorter phrase loops inside longer harmonic movement</li>
+<li><strong>ON/OFF generator</strong>: algorithmically create active/inactive steps</li>
+</ul>
+<p>If the pitch stays the same but note occurrence changes, you get melodic variation without reprogramming the line.</p>
+<hr />
+<h2>9. Shuffle and humanization for melodic groove</h2>
+<p>The module provides:
+- <strong>SHUF</strong>
+- <strong>SH16</strong>
+- <strong>HUMA</strong></p>
+<p>These are often thought of as drum tools, but they are equally important for melody.</p>
+<p>Use them to make:
+- basslines swing
+- leads feel less rigid
+- arps become more playable and human</p>
+<p>A very mechanical pitch sequence can become musically convincing with just subtle timing movement.</p>
+<hr />
+<h2>10. Burst mode for triggered melodic phrases</h2>
+<p>In <strong>BURST</strong> mode, a channel’s step can be triggered from gate inputs or MIDI notes. This can be used for melodic bursts or ornaments.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>External keyboard gate / sequencer pulse into gate input</li>
+<li>Flux in Burst mode</li>
+<li>CV out to oscillator pitch</li>
+<li>Main output to envelope gate</li>
+</ul>
+<h3>Result</h3>
+<p>Each incoming trigger can launch:
+- a ratcheted note burst
+- a predesigned ornament
+- a short melodic flourish</p>
+<p>This is great for:
+- fills
+- grace-note clusters
+- responsive live performance phrases</p>
+<hr />
+<h2>Best melodic workflows from the manual</h2>
+<h2>Workflow 1: Flux as a classic melody sequencer</h2>
+<p>Use:
+- <strong>CVSEL = VOLT</strong>
+- <strong>QUAN = 12</strong>
+- <strong>QUAN NODES</strong> = scale
+- <strong>DENS = 1</strong>
+- main out as note gate</p>
+<p>This gives you a stable, scale-aware melodic sequencer.</p>
+<h2>Workflow 2: Flux as a generative melodic composer</h2>
+<p>Use:
+- <strong>CVSEL = RANDS or RANDT</strong>
+- quantization enabled
+- probability, masking, and modulation buses active
+- AUX outputs for accents and phrase changes</p>
+<p>This gives you self-varying melodic material.</p>
+<h2>Workflow 3: Flux as melody + articulation brain</h2>
+<p>Use one channel for pitch and note gate, and the AUX outs for:
+- accent triggers
+- filter pings
+- phrase resets
+- clock divisions</p>
+<p>This turns one melodic line into a complete articulated performance lane.</p>
+<h2>Workflow 4: Flux as a 4-voice polymetric melody engine</h2>
+<p>Use all 4 channels with different:
+- loop lengths
+- quantization scales
+- step lengths
+- densities
+- shuffle amounts</p>
+<p>This creates layered melodic counterpoint.</p>
+<hr />
+<h2>Especially strong pairings with other Eurorack module types</h2>
+<p>Flux will work particularly well with:</p>
+<h3>Oscillators / voices with 1V/oct input</h3>
+<p>Use CV outs for pitch and main outs for note triggers.</p>
+<h3>Quantizer-adjacent voices</h3>
+<p>Flux already has internal quantization, so it works especially well with voices that want clean stepped pitch CV.</p>
+<h3>LPGs and percussion voices</h3>
+<p>Because Flux is rhythm-centric, it excels at plucked and percussive melodic patches.</p>
+<h3>Sequential switches</h3>
+<p>Use AUX logic/dividers to switch between oscillators, timbres, or transposition sources.</p>
+<h3>Sample &amp; hold / shift register modules</h3>
+<p>RANDT and AUX clocks can feed or synchronize generative melodic systems.</p>
+<h3>VCAs and filters</h3>
+<p>Use additional CV channels or envelope modes for dynamic shaping of melodic voices.</p>
+<h3>MIDI-connected systems</h3>
+<p>The manual notes MIDI I/O support from v1.06 onward, including clocks, note outs, and control messages, so Flux can coordinate melodic structures across modular and external synths.</p>
+<hr />
+<h2>Important caveats for melodic use</h2>
+<p>The manual warns about parameters that can cause silence. For melodic patches, watch out for:</p>
+<ul>
+<li><strong>DENS = 0</strong></li>
+<li><strong>MASK</strong> muting all effective triggers</li>
+<li><strong>PHAS</strong> pushing triggers outside step boundaries</li>
+<li><strong>negative COMP</strong> expanding triggers beyond step length</li>
+<li><strong>MOD = OFF</strong> if you expect macro/CV modulation on that step</li>
+</ul>
+<p>If a melodic line disappears, these are the first things to check.</p>
+<p>Also note:
+- the CV output range is <strong>0–8V</strong>
+- many oscillators expect <strong>1V/oct</strong>, so this is musically useful, but you may want to constrain the range to avoid excessively wide pitch spans
+- use <strong>MINV/MAXV</strong> carefully to keep melodies in register</p>
+<hr />
+<h2>A few concrete melodic patch recipes</h2>
+<h2>1. Scale-locked bassline</h2>
+<ul>
+<li>CH1 CV out → bass oscillator 1V/oct</li>
+<li>CH1 main out → envelope gate</li>
+<li>CH1 CVSEL = VOLT</li>
+<li>QUAN = 12</li>
+<li>enable minor scale notes in QUAN NODES</li>
+<li>DENS = 1</li>
+<li>SHUF slightly above 0</li>
+</ul>
+<p>Result: tight bassline with swing.</p>
+<h2>2. Generative lead</h2>
+<ul>
+<li>CH2 CV out → lead voice 1V/oct</li>
+<li>CH2 main out → envelope gate</li>
+<li>CVSEL = RANDS</li>
+<li>MINV/MAXV limited to 1–3V equivalent range</li>
+<li>QUAN = 12 with pentatonic nodes enabled</li>
+<li>PROB &lt; 100</li>
+<li>HUMA moderate</li>
+<li>AUX1 = DEL or 1st for accents</li>
+</ul>
+<p>Result: melodic but controlled random lead phrasing.</p>
+<h2>3. Ratcheting arp</h2>
+<ul>
+<li>CH3 CV out → oscillator pitch</li>
+<li>CH3 main out → envelope gate</li>
+<li>CVSEL = VOLT</li>
+<li>some steps with high DENS</li>
+<li>CURV and VAL adjusted for acceleration/deceleration</li>
+<li>AUX output triggers filter envelope</li>
+</ul>
+<p>Result: animated arpeggio line with timbral articulation.</p>
+<h2>4. Harmony drone with motion</h2>
+<ul>
+<li>CH4 CV out = LFO or ENV to modulate filter/FM on another voice</li>
+<li>AUX outs provide divider clocks or logic gates</li>
+<li>another channel handles pitch</li>
+</ul>
+<p>Result: Flux provides harmonic motion and expression, not just notes.</p>
+<hr />
+<h2>Bottom line</h2>
+<p>Flux can absolutely be used to create <strong>melodic components</strong>, not just drum patterns. Its most useful melodic strengths are:</p>
+<ul>
+<li><strong>4 independent CV/gate sequencing lanes</strong></li>
+<li><strong>per-step fixed or random voltages</strong></li>
+<li><strong>built-in quantization and selectable quantization nodes</strong></li>
+<li><strong>complex rhythmic articulation</strong></li>
+<li><strong>AUX outputs for accents, dividers, logic, and phrase control</strong></li>
+<li><strong>deep modulation via macros, CV inputs, and internal LFOs</strong></li>
+<li><strong>per-step modulation bus assignment for structured variation</strong></li>
+</ul>
+<p>In practice, Flux is best understood as a <strong>composition and articulation engine</strong>:<br />
+it can generate pitch, timing, dynamics, variation, and phrase structure all at once. If paired with oscillators, VCAs, filters, and envelopes, it can drive entire melodic and harmonic systems with a level of rhythmic sophistication that most pitch sequencers do not offer.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

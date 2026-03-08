@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Worng_Electronics_Vector_Space</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Worng Electronics — Vector Space</h1>
+<ul>
+<li><a href="../../manuals/Vector Space Manual v1.00.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Vector Space Manual PDF</a></p>
+<h1>WORNG Electronics Vector Space: using it for melodic patching</h1>
+<p>Vector Space is not a pitch source by itself. It’s a <strong>CV relationship generator</strong>: you feed it <strong>three modulation or pitch-related voltages</strong>, and it gives you <strong>17 related outputs</strong>. That makes it extremely useful for building <strong>melodies, harmonies, counterpoint, voice-leading, and evolving pitch structures</strong>.</p>
+<h2>What the module does musically</h2>
+<p>Vector Space takes three inputs: <strong>i, j, k</strong>.</p>
+<p>It then derives 17 outputs in three families:</p>
+<ul>
+<li><strong>8 Cube outputs</strong></li>
+<li><strong>6 Plane outputs</strong></li>
+<li><strong>3 Sphere outputs</strong>:</li>
+<li>Sphere</li>
+<li>NegSphere</li>
+<li>UnSphere</li>
+</ul>
+<p>It can process CV or audio, but for melody-making the key idea is:</p>
+<blockquote>
+<p>Send in three changing voltages, then use the different outputs as related melodic control voltages.</p>
+</blockquote>
+<p>Because all 17 outputs are derived from the same three sources, they tend to sound <strong>coherent together</strong>, even when they are different enough to create separate melodic lines.</p>
+<hr />
+<h2>Important setup idea: unipolar vs bipolar</h2>
+<p>Each input has a <strong>++ / +- switch</strong>:</p>
+<ul>
+<li><strong>+-</strong> = bipolar, about <strong>±5V</strong></li>
+<li><strong>++</strong> = unipolar, about <strong>0–10V</strong></li>
+</ul>
+<p>This matters a lot for melodic work.</p>
+<h3>For pitch use:</h3>
+<ul>
+<li><strong>Stepped random</strong>, sequencers, or addressed voltages usually work well in <strong>unipolar</strong></li>
+<li><strong>LFOs</strong> and many modulation sources often make more sense in <strong>bipolar</strong></li>
+<li>Flipping the switch acts like an <strong>offset/performance move</strong>, which can instantly reshape the melodic relationships</li>
+</ul>
+<p>If you’re patching into a quantizer, these switches are a great way to push a line into a different register or change its contour.</p>
+<hr />
+<h1>How each output family helps create melody</h1>
+<h2>1. Cube outputs: the clearest melodic material</h2>
+<p>The <strong>Cube outputs</strong> are the most straightforward combinations of the three inputs, with in-phase and out-of-phase mixtures.</p>
+<h3>Musically, use them for:</h3>
+<ul>
+<li>Related melodies across several voices</li>
+<li>Voice-leading variants of one harmonic motion</li>
+<li>Pitch CVs for multiple oscillators via quantizers</li>
+<li>Root / inversion-like movement when the inputs are sequenced differently</li>
+</ul>
+<h3>Why they work</h3>
+<p>These outputs are easier to understand and tend to preserve the identity of the incoming CVs. If your three inputs are:
+- a sequence
+- a slow transposition source
+- a rhythmic stepped random</p>
+<p>then each Cube output becomes a different weighted/sign-flipped combination of those three behaviors.</p>
+<h3>Best use case</h3>
+<p>Run <strong>several Cube outputs into separate quantizers</strong> or into a <strong>multi-channel quantizer</strong>, then send them to multiple VCOs. This gives you:
+- one melody
+- a countermelody
+- a bassline
+- a harmony voice</p>
+<p>all evolving from the same underlying motion.</p>
+<hr />
+<h2>2. Plane outputs: excellent for harmonic clustering and counterpoint</h2>
+<p>The manual specifically points out a special property of the <strong>Plane outputs</strong>:</p>
+<blockquote>
+<p>at any one moment, three of the outputs will have similar voltages, but which three changes as the input phases change</p>
+</blockquote>
+<p>That is extremely musically useful.</p>
+<h3>Musically, use them for:</h3>
+<ul>
+<li>three-part counterpoint</li>
+<li>clustered harmony that opens and closes</li>
+<li>canon-like related voices</li>
+<li>melodic lines that converge and diverge</li>
+<li>pseudo-chord voicings from moving CVs</li>
+</ul>
+<p>Because these outputs use <strong>rectified versions</strong> of two inputs plus a phased version of the third, they are more skewed positive and can create very interesting pitch behavior after quantization.</p>
+<h3>Why they’re powerful for melody</h3>
+<p>When quantized, the “three outputs tracking together” behavior can produce:
+- temporary unisons
+- close intervals
+- shifting triad-like movement
+- melodic braiding between voices</p>
+<p>This is especially effective when each Plane output goes to its own oscillator voice.</p>
+<h3>Extra bonus</h3>
+<p>Rectification can effectively <strong>double modulation frequency</strong>, so if one of your inputs is an LFO or oscillating stepped source, Plane outputs can generate more active note changes than the original source.</p>
+<hr />
+<h2>3. Sphere / NegSphere / UnSphere: contour, center gravity, and tension</h2>
+<p>These three are less like “normal mixed pitch CVs” and more like <strong>meta-melodic controls</strong>.</p>
+<h3>Sphere</h3>
+<p>A sum of all rectified inputs, representing how far the point is from the center.</p>
+<p><strong>Use it for:</strong>
+- a master transposition lane
+- melody intensity
+- opening into higher register as motion increases
+- quantized “energy melody”</p>
+<p>Because it’s based on rectified inputs, it tends to stay positive and can create a strong upward-biased melodic contour.</p>
+<h3>NegSphere</h3>
+<p>Negative version of Sphere.</p>
+<p><strong>Use it for:</strong>
+- contrary-motion bassline
+- opposite-register melodic reflection
+- downward counterline to a Sphere melody</p>
+<p>This is especially useful if Sphere controls a high voice and NegSphere controls a bass voice.</p>
+<h3>UnSphere</h3>
+<p>Represents distance to the closest edge of the sphere; highest at the center, lower toward the edges.</p>
+<p><strong>Use it for:</strong>
+- central “home note” behavior
+- tonic-like stabilizing melody
+- drone pitch selection
+- a middle voice that is most active when the modulation space is balanced</p>
+<p>This output is especially good for creating a sense of <strong>melodic center</strong> while the Cube and Plane outputs create more unstable motion around it.</p>
+<hr />
+<h1>Best melodic patch strategies</h1>
+<h2>1. Generative counterpoint patch</h2>
+<p>This is the most obvious melodic use from the manual.</p>
+<h3>Patch:</h3>
+<ul>
+<li>Send <strong>three stepped voltages</strong> into <strong>i, j, k</strong></li>
+<li>sequencers</li>
+<li>Turing/random stepped CV</li>
+<li>sample and hold</li>
+<li>clocked voltage source</li>
+<li>Take <strong>3 or more Plane outputs</strong></li>
+<li>Send each through a <strong>quantizer</strong></li>
+<li>Patch each quantized output to separate VCOs</li>
+</ul>
+<h3>Result:</h3>
+<p>You get several related melodic voices that:
+- often move together
+- then split apart
+- then regroup in new combinations</p>
+<h3>Improve it:</h3>
+<ul>
+<li>Use different clock divisions for the 3 input sources</li>
+<li>Use one source as a slow transpose lane</li>
+<li>Flip input polarity/range switches live</li>
+<li>Use different quantizer scales for different voices:</li>
+<li>one diatonic</li>
+<li>one pentatonic</li>
+<li>one chord-constrained</li>
+</ul>
+<p>This can create rich ambient, generative, or minimalist melodic systems.</p>
+<hr />
+<h2>2. One module becomes “melody orchestra”</h2>
+<p>Use Vector Space as the center of a multi-voice patch.</p>
+<h3>Inputs:</h3>
+<ul>
+<li><strong>i</strong> = primary sequencer</li>
+<li><strong>j</strong> = slow random stepped CV</li>
+<li><strong>k</strong> = envelope or slow triangle LFO</li>
+</ul>
+<h3>Outputs:</h3>
+<ul>
+<li>Cube output 1 → quantizer → lead voice</li>
+<li>Cube output 2 → quantizer → second voice</li>
+<li>Plane output 1 → quantizer → pluck voice</li>
+<li>NegSphere → quantizer → bass</li>
+<li>UnSphere → quantizer → drone or pad pitch</li>
+</ul>
+<h3>Result:</h3>
+<p>A full melodic ecosystem from one sequencer plus two modulation sources.</p>
+<p>The sequencer provides recognizable musical structure, while the other two sources constantly reshape interval relationships.</p>
+<hr />
+<h2>3. Harmonic voice-leading patch</h2>
+<p>This works well if you want music that sounds composed rather than random.</p>
+<h3>Inputs:</h3>
+<ul>
+<li><strong>i</strong> = root movement sequencer</li>
+<li><strong>j</strong> = slow transposition CV</li>
+<li><strong>k</strong> = stepped interval source or octave offset source</li>
+</ul>
+<h3>Outputs:</h3>
+<p>Use several <strong>Cube outputs</strong> into quantizers and then VCOs.</p>
+<h3>Result:</h3>
+<p>The different outputs will behave like alternate harmonizations of the same motion. Since the outputs are mathematically related, your voices tend to move with internal logic rather than feeling disconnected.</p>
+<p>This is great for:
+- Berlin-school lines
+- modal harmony
+- evolving ostinati
+- contrapuntal polysynth-style patches</p>
+<hr />
+<h2>4. Joystick-played melody space</h2>
+<p>The manual discusses joystick use for spatialization, but it also works beautifully for melody.</p>
+<h3>Patch:</h3>
+<ul>
+<li>Joystick X → i</li>
+<li>Joystick Y → j</li>
+<li>Slow CV or sequence → k</li>
+</ul>
+<p>Take several Cube/Plane outputs through quantizers to oscillators.</p>
+<h3>Result:</h3>
+<p>Your hand movement “navigates” a field of related notes and harmonies. This gives a very performable way to:
+- sweep through chord voicings
+- discover melodies by hand
+- improvise harmonic changes
+- control several voices at once</p>
+<p>UnSphere is especially useful here as a center-focused voice.</p>
+<hr />
+<h2>5. Use Sphere outputs as melodic macro-controls</h2>
+<p>Instead of using all outputs directly as pitch, use some of them to control the melody system around a main sequence.</p>
+<h3>Example:</h3>
+<ul>
+<li>Main sequencer directly to lead oscillator</li>
+<li>Sphere → transpose input of quantizer</li>
+<li>NegSphere → bass quantizer CV</li>
+<li>UnSphere → secondary voice pitch or sequence address</li>
+</ul>
+<h3>Result:</h3>
+<p>The melody stays anchored by a clear sequence, but the harmony and accompaniment breathe around it.</p>
+<p>This is often more musical than using all 17 outputs as raw pitch.</p>
+<hr />
+<h1>Input source combinations that work especially well</h1>
+<h2>Three stepped CV sources</h2>
+<p>Best for:
+- generative melodies
+- multi-voice pitch generation
+- counterpoint</p>
+<p>Examples:
+- sequencer + random + sample &amp; hold
+- three differently clocked sequencers
+- one sequence copied into two attenuated/offset variants plus a third random source</p>
+<h2>Sequence + slow modulation + stepped random</h2>
+<p>Best for:
+- melodic patches that feel structured but alive</p>
+<p>This is probably the sweet spot for many musical uses.</p>
+<h2>Three LFOs into quantizers</h2>
+<p>Best for:
+- looping melodic systems
+- phase-based canon patterns
+- pseudo-polyrhythmic melodies</p>
+<p>Since Plane outputs can frequency-double through rectification, this can make surprisingly complex note movement from simple LFOs.</p>
+<h2>Audio-rate oscillators</h2>
+<p>Best for:
+- timbral/audio use more than conventional melody</p>
+<p>But if heavily attenuated and quantized, audio-rate interactions can create unstable stepped melodic artifacts. More experimental than tonal.</p>
+<hr />
+<h1>Practical melodic workflow</h1>
+<h2>Recommended signal chain</h2>
+<p>For pitch work, a very useful chain is:</p>
+<p><strong>CV sources → Vector Space → attenuation/offset if needed → quantizer → VCO 1V/oct</strong></p>
+<p>Why:
+- Vector Space can output large voltages
+- Some outputs may benefit from scaling before quantization
+- Quantizers turn its complex CV relationships into musically usable note sets</p>
+<h2>Use a shared quantizer scale</h2>
+<p>If multiple outputs are quantized to the same scale, the voices stay musically related even when the raw CVs diverge.</p>
+<p>Good scales:
+- minor pentatonic for forgiving generative patches
+- dorian/aeolian for melodic ambient work
+- chord quantization for strong harmonic identity</p>
+<h2>Use different octave placements</h2>
+<p>Even if two outputs are close in voltage, placing oscillators in different octaves makes the result feel intentional and layered.</p>
+<h2>Add slewing selectively</h2>
+<p>If some outputs are too jagged:
+- keep one voice fully stepped
+- slew another slightly
+- leave a third un-slewed but quantized</p>
+<p>This creates more expressive melodic contrast.</p>
+<hr />
+<h1>Particularly strong “together” uses inside one patch</h1>
+<p>Since the module has several output families, a very musical approach is to assign them roles:</p>
+<h2>Cube = principal melodic voices</h2>
+<p>Use for:
+- lead
+- alto
+- tenor lines</p>
+<h2>Plane = harmony/counterpoint voices</h2>
+<p>Use for:
+- clustered voices
+- inner parts
+- accompaniment arps</p>
+<h2>Sphere family = macro structure</h2>
+<p>Use for:
+- bassline
+- transposition
+- tonic center
+- phrase intensity</p>
+<p>This division gives the patch a natural musical hierarchy.</p>
+<hr />
+<h1>Concrete example patch: evolving 4-voice melody</h1>
+<h2>Inputs</h2>
+<ul>
+<li><strong>i</strong> = 8-step sequencer</li>
+<li><strong>j</strong> = slow clocked random CV</li>
+<li><strong>k</strong> = triangle LFO synced to phrase length</li>
+</ul>
+<p>Set:
+- sequencer likely <strong>unipolar</strong>
+- random source depends on source, often <strong>unipolar</strong>
+- LFO usually <strong>bipolar</strong></p>
+<h2>Outputs</h2>
+<ul>
+<li>Cube out A → quantizer → VCO 1 (lead)</li>
+<li>Cube out B → quantizer → VCO 2 (countermelody)</li>
+<li>Plane out A → quantizer → VCO 3 (inner voice)</li>
+<li>NegSphere → quantizer → VCO 4 (bass)</li>
+</ul>
+<h2>Supporting modulation</h2>
+<ul>
+<li>UnSphere → filter cutoff on the lead</li>
+<li>Sphere → VCA level for one harmony voice</li>
+</ul>
+<h2>Musical result</h2>
+<ul>
+<li>Lead follows recognizable sequenced motion</li>
+<li>Countermelody tracks but deviates</li>
+<li>Inner voice periodically converges with others</li>
+<li>Bass moves in contrary contour</li>
+<li>timbre and dynamics reflect the same vector movement</li>
+</ul>
+<p>This is a very efficient way to get a complete melodic composition from a small number of CV sources.</p>
+<hr />
+<h1>Concrete example patch: playable harmonic improvisation</h1>
+<h2>Inputs</h2>
+<ul>
+<li>Joystick X → i</li>
+<li>Joystick Y → j</li>
+<li>Slow random stepped CV → k</li>
+</ul>
+<h2>Outputs</h2>
+<ul>
+<li>3 Plane outs → 3 quantizers → 3 oscillators</li>
+<li>UnSphere → fourth quantizer → central drone/melody</li>
+<li>Sphere → transpose amount for one or more quantizers</li>
+</ul>
+<h2>Result</h2>
+<p>You can “steer” through harmonically related note regions by hand. This is excellent for:
+- live improvisation
+- soundtrack work
+- ambient chordal movement
+- controlled generative melody</p>
+<hr />
+<h1>What it pairs well with for melodic systems</h1>
+<p>Vector Space works especially well with:</p>
+<ul>
+<li><strong>Quantizers</strong></li>
+<li><strong>Precision adders / transposers</strong></li>
+<li><strong>Sequential switches</strong></li>
+<li><strong>Stepped random modules</strong></li>
+<li><strong>Clock dividers</strong></li>
+<li><strong>Joysticks</strong></li>
+<li><strong>Multi-channel VCO setups</strong></li>
+<li><strong>VCAs</strong> for voice balancing</li>
+<li><strong>Attenuverters/offset generators</strong></li>
+</ul>
+<p>If your goal is melody, the most important companion is a <strong>good quantizer</strong>.</p>
+<hr />
+<h1>Best musical roles for Vector Space</h1>
+<p>In a melodic patch, Vector Space is best thought of as one of these:</p>
+<ol>
+<li><strong>Multi-voice melody generator</strong></li>
+<li><strong>Harmony and counterpoint engine</strong></li>
+<li><strong>CV orchestrator for several quantized voices</strong></li>
+<li><strong>Performance interface for navigating pitch relationships</strong></li>
+<li><strong>Meta-modulation source for transposition and phrase structure</strong></li>
+</ol>
+<p>It is less about writing one exact melody and more about creating a <strong>field of related melodic possibilities</strong>.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>WORNG Vector Space is excellent for creating melodic components when used with quantizers and multiple voices. Its strength is not “a single tune,” but <strong>families of interrelated pitch lines</strong>:</p>
+<ul>
+<li><strong>Cube outputs</strong> for clear melodic variants</li>
+<li><strong>Plane outputs</strong> for converging/diverging counterpoint</li>
+<li><strong>Sphere outputs</strong> for center, tension, and contrary motion</li>
+</ul>
+<p>If you feed it:
+- one structured source,
+- one semi-random source,
+- and one slow modulator,</p>
+<p>you can get a whole melodic arrangement out of a single patch.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

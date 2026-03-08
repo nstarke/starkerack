@@ -1,0 +1,455 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kaona_Instruments_Stereo_Weaver</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Kaona Instruments — Stereo Weaver</h1>
+<ul>
+<li><a href="../../manuals/stereoweaver.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Kaona Stereoweaver — using it for melodic components</h1>
+<p>Stereoweaver is <strong>not a pitch or note generator</strong>. It’s a <strong>mono-to-stereo spatial processor</strong>. So when thinking about “melodic components,” its role is:</p>
+<ul>
+<li>making a mono melody feel wider, deeper, and more alive</li>
+<li>adding motion to repeated note lines</li>
+<li>turning simple sequences into evolving stereo phrases</li>
+<li>creating contrast between lead, bass, arp, and drone parts</li>
+</ul>
+<h2>What the module does</h2>
+<p>From the manual, Stereoweaver takes:</p>
+<ul>
+<li><strong>1 mono input</strong></li>
+<li>and creates <strong>2 stereo outputs: L and R</strong></li>
+</ul>
+<p>Core controls:</p>
+<ul>
+<li><strong>Depth</strong> — controls perceived depth and effect interaction</li>
+<li><strong>Phase</strong> — shifts phase relationship between channels from 0–180°</li>
+<li><strong>Motion</strong> — controls animation speed; includes <strong>Rotary</strong> mode</li>
+<li><strong>Haas</strong> — adds inter-channel micro-delay for spatial spread</li>
+<li><strong>Width</strong> — widens stereo image; includes <strong>Move</strong> behavior</li>
+<li>CV inputs for:</li>
+<li>Depth</li>
+<li>Phase</li>
+<li>Haas</li>
+<li>Width</li>
+</ul>
+<p>Other important details:</p>
+<ul>
+<li><strong>Input gain</strong> with clip indication</li>
+<li><strong>Independent L/R output levels</strong></li>
+<li>CV inputs are <strong>bipolar ±5V</strong></li>
+<li>CV amount is influenced by the corresponding knob position</li>
+</ul>
+<hr />
+<h1>Best use in a melodic Eurorack patch</h1>
+<h2>1. Stereo lead voice enhancement</h2>
+<p>Patch a complete mono melodic voice into Stereoweaver:</p>
+<ul>
+<li>VCO → VCF → VCA/envelope</li>
+<li>voice output → <strong>Stereoweaver IN MONO</strong></li>
+<li><strong>OUT L / OUT R</strong> → mixer or output module</li>
+</ul>
+<p>Use settings like:</p>
+<ul>
+<li><strong>Depth:</strong> low to medium</li>
+<li><strong>Phase:</strong> low to medium</li>
+<li><strong>Motion:</strong> slow</li>
+<li><strong>Haas:</strong> moderate</li>
+<li><strong>Width:</strong> medium</li>
+</ul>
+<p>Result:</p>
+<ul>
+<li>lead stays centered enough to remain intelligible</li>
+<li>stereo field opens around it</li>
+<li>repeated notes feel less static</li>
+<li>small differences in phase and Haas give presence without sounding like delay</li>
+</ul>
+<p>This is ideal for:</p>
+<ul>
+<li>melodies</li>
+<li>arpeggios</li>
+<li>plucked lines</li>
+<li>acid-style leads that need space without reverb</li>
+</ul>
+<hr />
+<h2>2. Make a simple sequence feel expressive</h2>
+<p>A basic 8-step melody can feel mechanical. Stereoweaver helps by adding <strong>micro-movement</strong>.</p>
+<p>Patch:</p>
+<ul>
+<li>sequencer → oscillator pitch</li>
+<li>gate → envelope</li>
+<li>mono synth voice → Stereoweaver</li>
+<li>slow LFO → <strong>Phase CV</strong></li>
+<li>another slow or unsynced LFO → <strong>Haas CV</strong> or <strong>Width CV</strong></li>
+</ul>
+<p>Why this works:</p>
+<ul>
+<li>the notes themselves do not change</li>
+<li>but the <em>space around each note</em> evolves</li>
+<li>this creates the perception of phrasing and development</li>
+</ul>
+<p>This is especially good for:</p>
+<ul>
+<li>repeating ostinatos</li>
+<li>Berlin-school sequences</li>
+<li>techno arps</li>
+<li>generative melodic loops</li>
+</ul>
+<hr />
+<h2>3. Animated stereo arpeggios</h2>
+<p>Arps benefit a lot from spatial differentiation because the note content is already active.</p>
+<p>Suggested patch:</p>
+<ul>
+<li>arpeggiated mono voice → Stereoweaver</li>
+<li>clocked triangle or sine LFO → <strong>Width CV</strong></li>
+<li>slower LFO → <strong>Phase CV</strong></li>
+<li>set <strong>Motion</strong> between slow and medium</li>
+</ul>
+<p>Try:</p>
+<ul>
+<li><strong>Depth:</strong> medium-high</li>
+<li><strong>Phase:</strong> medium</li>
+<li><strong>Haas:</strong> low-medium</li>
+<li><strong>Width:</strong> medium-high</li>
+</ul>
+<p>Result:</p>
+<ul>
+<li>different notes seem to occupy slightly different places in stereo</li>
+<li>the arp becomes less “flat”</li>
+<li>it feels like one melodic line unfolding in space</li>
+</ul>
+<p>If you push Depth and Phase, you can get:</p>
+<ul>
+<li>micro-chorus</li>
+<li>slight phasing</li>
+<li>a glassy or dreamlike animated arp texture</li>
+</ul>
+<hr />
+<h2>4. Leslie-like melodic motion with Rotary mode</h2>
+<p>The manual notes that <strong>Motion</strong> has a <strong>Rotary</strong> region that simulates a Leslie-type effect with:</p>
+<ul>
+<li>separate low/high “speaker” behavior</li>
+<li>speed offset</li>
+<li>amplitude variation</li>
+<li>phase variation</li>
+</ul>
+<p>This is very musical on:</p>
+<ul>
+<li>sustained leads</li>
+<li>organ-like patches</li>
+<li>drones with melodic articulation</li>
+<li>legato mono lines</li>
+</ul>
+<p>Patch idea:</p>
+<ul>
+<li>saw or pulse voice with gentle filter movement</li>
+<li>into Stereoweaver</li>
+<li>set <strong>Motion</strong> to <strong>Rotary</strong></li>
+<li>modulate <strong>Phase CV</strong> slowly</li>
+<li>keep <strong>Haas</strong> moderate</li>
+</ul>
+<p>This can make a static melody feel:</p>
+<ul>
+<li>spinning</li>
+<li>breathing</li>
+<li>vintage</li>
+<li>harmonically richer due to phase interaction</li>
+</ul>
+<p>For melodic use, avoid maxing everything at once unless you want abstraction.</p>
+<hr />
+<h2>5. Make counterpoint from one melodic line</h2>
+<p>Even though Stereoweaver doesn’t create new notes, it can make one melody behave like <strong>multiple spatially interacting strands</strong>.</p>
+<p>Use:</p>
+<ul>
+<li><strong>Width</strong> up</li>
+<li><strong>Move</strong> behavior engaged</li>
+<li><strong>Motion</strong> controlling displacement speed</li>
+<li><strong>Phase</strong> raised enough to increase channel differentiation</li>
+</ul>
+<p>The manual says in Move mode:</p>
+<ul>
+<li>left and right channels progressively exchange levels</li>
+<li>speed is defined by Motion</li>
+<li>amplitude depends on Phase</li>
+<li>at maximum, displacement becomes more chaotic</li>
+</ul>
+<p>Musically, that means a single line can feel like:</p>
+<ul>
+<li>it is being answered from side to side</li>
+<li>notes are “thrown” across the stereo field</li>
+<li>a melodic figure has internal motion similar to call-and-response</li>
+</ul>
+<p>Great for:</p>
+<ul>
+<li>FM plucks</li>
+<li>percussive melodies</li>
+<li>minimalist repeating motifs</li>
+</ul>
+<hr />
+<h2>6. Bassline support with careful stereo widening</h2>
+<p>Bass melodies can be widened, but carefully.</p>
+<p>Recommended:</p>
+<ul>
+<li><strong>Depth:</strong> low</li>
+<li><strong>Phase:</strong> low</li>
+<li><strong>Haas:</strong> very low</li>
+<li><strong>Width:</strong> subtle</li>
+<li><strong>Motion:</strong> slow</li>
+</ul>
+<p>This preserves:</p>
+<ul>
+<li>punch</li>
+<li>center stability</li>
+<li>mono compatibility</li>
+</ul>
+<p>Useful when:</p>
+<ul>
+<li>the bassline has upper harmonics</li>
+<li>you want subtle spatial animation without smearing the low end</li>
+</ul>
+<p>A good trick is to feed Stereoweaver a bass voice with some filtered harmonics or wavefolding, so the spatial effect is heard more in the upper partials.</p>
+<hr />
+<h2>7. Turn drones into melodic beds</h2>
+<p>A drone or held note can become a melodic support layer if its spatial structure evolves.</p>
+<p>Patch:</p>
+<ul>
+<li>sustained oscillator or chord-like mono sum</li>
+<li>slow envelope or random voltage to timbre/filter</li>
+<li>into Stereoweaver</li>
+<li>random stepped CV or smooth chaos → <strong>Width CV</strong></li>
+<li>slow sine → <strong>Haas CV</strong></li>
+<li>slow offset LFO → <strong>Phase CV</strong></li>
+</ul>
+<p>This creates:</p>
+<ul>
+<li>a stereo bed that shifts over time</li>
+<li>a background layer that supports foreground melodies</li>
+<li>the illusion of melodic movement even when pitch is static</li>
+</ul>
+<p>Especially effective in ambient and soundtrack work.</p>
+<hr />
+<h1>How each parameter affects melodic material</h1>
+<h2>Depth</h2>
+<p>This is the “immersion” control.</p>
+<ul>
+<li><strong>Low:</strong> direct, forward, focused</li>
+<li><strong>High:</strong> deeper, more enveloping</li>
+<li><strong>Very high:</strong> can produce micro-chorus and micro-phasing</li>
+</ul>
+<p>For melody:</p>
+<ul>
+<li>use <strong>low-medium</strong> for intelligible leads</li>
+<li>use <strong>medium-high</strong> for dreamy arps and pads</li>
+<li>use <strong>high</strong> for experimental melodic textures</li>
+</ul>
+<h2>Phase</h2>
+<p>This defines much of the stereo character.</p>
+<p>It affects:</p>
+<ul>
+<li>coherence</li>
+<li>strangeness</li>
+<li>diffusion</li>
+<li>stability</li>
+</ul>
+<p>For melody:</p>
+<ul>
+<li>lower values keep lines more solid</li>
+<li>higher values can make notes shimmer or sound uncanny</li>
+<li>CV on Phase is excellent for long-form evolution</li>
+</ul>
+<h2>Motion</h2>
+<p>This determines animation speed and can enter Rotary mode.</p>
+<p>For melody:</p>
+<ul>
+<li>slow = natural movement</li>
+<li>medium = noticeable stereo animation</li>
+<li>rotary = expressive sustained lead treatment</li>
+</ul>
+<p>If Width is in <strong>Move mode</strong>, Motion sets displacement speed.</p>
+<h2>Haas</h2>
+<p>Adds micro-delay between channels.</p>
+<p>For melody:</p>
+<ul>
+<li>moderate settings add presence and natural width</li>
+<li>higher settings make it more dramatic and characterful</li>
+</ul>
+<p>Useful for making a mono voice sound immediately larger without obvious echo.</p>
+<h2>Width</h2>
+<p>Controls stereo spread and center hollowness.</p>
+<p>For melody:</p>
+<ul>
+<li>subtle width keeps focus</li>
+<li>higher width makes a line cinematic</li>
+<li>Move mode adds dynamic left/right exchange</li>
+</ul>
+<p>This is one of the strongest controls for making repeated notes feel active.</p>
+<hr />
+<h1>CV strategies for musical patches</h1>
+<p>Since the CV inputs are bipolar and summed with knob settings, modulation can be very expressive.</p>
+<h2>Good modulation sources</h2>
+<p>Use:</p>
+<ul>
+<li>sine LFOs for smooth stereo drift</li>
+<li>random smooth voltage for organic variation</li>
+<li>envelopes for note-dependent widening</li>
+<li>stepped random for more experimental placement</li>
+<li>sequencer CV for phrase-based spatial changes</li>
+</ul>
+<h2>Especially useful assignments</h2>
+<h3>Width CV from envelope</h3>
+<p>Each note opens wider at attack, then narrows.</p>
+<p>Effect:</p>
+<ul>
+<li>melodies “bloom” on each note</li>
+</ul>
+<h3>Haas CV from slow LFO</h3>
+<p>Stereo depth breathes over bars.</p>
+<p>Effect:</p>
+<ul>
+<li>long phrases feel alive</li>
+</ul>
+<h3>Phase CV from random smooth source</h3>
+<p>Creates subtle instability and uniqueness.</p>
+<p>Effect:</p>
+<ul>
+<li>repeated melodic loops avoid sounding identical</li>
+</ul>
+<h3>Width CV + Motion in Move mode</h3>
+<p>Creates side-to-side phrase travel.</p>
+<p>Effect:</p>
+<ul>
+<li>spatial rhythm emerges from a static sequence</li>
+</ul>
+<hr />
+<h1>Example melodic patch recipes</h1>
+<h2>Patch 1: Wide techno sequence</h2>
+<ul>
+<li>8-step sequencer → VCO</li>
+<li>gate → envelope → VCA</li>
+<li>saw voice → lowpass filter</li>
+<li>filter/VCA output → Stereoweaver</li>
+</ul>
+<p>Settings:
+- Depth: 11 o’clock
+- Phase: 10 o’clock
+- Motion: 9–10 o’clock
+- Haas: 11 o’clock
+- Width: 1 o’clock</p>
+<p>Modulation:
+- slow LFO → Width CV
+- slower LFO → Haas CV</p>
+<p>Result:
+- wide, stable, modern stereo sequence</p>
+<hr />
+<h2>Patch 2: Dreamy ambient lead</h2>
+<ul>
+<li>triangle/sine + subtle FM</li>
+<li>long envelope</li>
+<li>mono voice → Stereoweaver</li>
+</ul>
+<p>Settings:
+- Depth: 2 o’clock
+- Phase: 1 o’clock
+- Motion: slow
+- Haas: noon
+- Width: 2 o’clock</p>
+<p>Modulation:
+- smooth random → Phase CV
+- slow sine → Width CV</p>
+<p>Result:
+- floating melodic line with evolving stereo aura</p>
+<hr />
+<h2>Patch 3: Rotating organ melody</h2>
+<ul>
+<li>organ-like patch or additive voice</li>
+<li>mono output → Stereoweaver</li>
+</ul>
+<p>Settings:
+- Depth: medium
+- Phase: medium
+- Motion: Rotary
+- Haas: low-medium
+- Width: medium</p>
+<p>Modulation:
+- slow CV to Phase
+- optional envelope to Width</p>
+<p>Result:
+- animated rotary-style melodic performance</p>
+<hr />
+<h2>Patch 4: Nervous experimental plucks</h2>
+<ul>
+<li>short-decay pluck voice</li>
+<li>mono output → Stereoweaver</li>
+</ul>
+<p>Settings:
+- Depth: high
+- Phase: medium-high
+- Motion: medium-fast
+- Haas: medium
+- Width: high / Move region</p>
+<p>Modulation:
+- stepped random → Width CV
+- smooth random → Haas CV</p>
+<p>Result:
+- melody turns into spatially fragmented, glitchy motion</p>
+<hr />
+<h1>Practical performance advice</h1>
+<h2>Keep the center for important melodies</h2>
+<p>If the melody must remain clear in a mix, do not overuse:</p>
+<ul>
+<li>Phase</li>
+<li>Haas</li>
+<li>Width</li>
+</ul>
+<p>A little goes a long way.</p>
+<h2>Use stronger settings on secondary melodies</h2>
+<p>Countermelodies, echoes, and background arps can tolerate:</p>
+<ul>
+<li>more Depth</li>
+<li>more Width</li>
+<li>more motion</li>
+<li>more phase weirdness</li>
+</ul>
+<h2>Watch mono compatibility</h2>
+<p>Because phase and Haas processing affect inter-channel relationships, extreme settings may collapse oddly in mono.</p>
+<p>So for club-focused or mono-sensitive music:</p>
+<ul>
+<li>keep bass nearly centered</li>
+<li>test the lead in mono</li>
+<li>use the wildest settings on upper textures</li>
+</ul>
+<h2>Use clipping musically</h2>
+<p>The manual notes the input can be driven intentionally. That means you can feed a hot melodic voice for extra coloration and interaction with the spatial effect.</p>
+<p>This can be great for:</p>
+<ul>
+<li>aggressive leads</li>
+<li>acid lines</li>
+<li>distorted drones</li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>Stereoweaver is best thought of as a <strong>melodic space animator</strong> rather than a melody generator.</p>
+<p>It helps create melodic components by:</p>
+<ul>
+<li>widening mono leads into stereo</li>
+<li>adding movement to repetitive sequences</li>
+<li>making arps and plucks feel more dimensional</li>
+<li>creating rotary and phasing-like character for sustained notes</li>
+<li>turning static phrases into evolving stereo performances</li>
+</ul>
+<p>If you pair it with:</p>
+<ul>
+<li>a sequencer</li>
+<li>one mono synth voice</li>
+<li>a few LFOs or random CV sources</li>
+</ul>
+<p>you can get a lot of melodic richness from otherwise simple material.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

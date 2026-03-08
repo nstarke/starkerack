@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Frequency_Central_Wonderland</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Frequency Central — Wonderland</h1>
+<ul>
+<li><a href="../../manuals/Wonderland-Build-Document.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://www.frequencycentral.co.uk/">Manual PDF</a></p>
+<h1>Frequency Central Wonderland — melodic use analysis</h1>
+<p>Wonderland is an <strong>8×8 patchbay / matrix mixer / switcher</strong> with:</p>
+<ul>
+<li><strong>8 inputs</strong></li>
+<li><strong>8 normal outputs</strong></li>
+<li><strong>8 inverted outputs</strong></li>
+<li><strong>64 push-on / push-off routing switches</strong></li>
+<li><strong>Per-input micro-attenuators</strong></li>
+<li>Ability to send:</li>
+<li>one input to many outputs</li>
+<li>many inputs to one output</li>
+<li>many inputs to many outputs</li>
+</ul>
+<p>From a musical Eurorack perspective, this makes Wonderland less of a “sound source” and more of a <strong>melody routing brain</strong>. It is especially useful for distributing, combining, and inverting pitch and modulation signals to generate structured melodic movement.</p>
+<h2>What it does well for melody</h2>
+<p>Because multiple inputs can be mixed to a single output, Wonderland can act like a:</p>
+<ul>
+<li><strong>precision-ish CV combiner</strong> for pitch-related control voltages</li>
+<li><strong>transpose distribution matrix</strong></li>
+<li><strong>variation router</strong> for sequences</li>
+<li><strong>inversion source</strong> using the dedicated inverted outputs</li>
+<li><strong>multi-destination melody sender</strong> for layered voices</li>
+</ul>
+<p>Its built-in input trimmers are important here: when summing melodic CV, you can reduce levels to avoid unwanted clipping or excessive pitch swings.</p>
+<hr />
+<h2>Best melodic roles in a patch</h2>
+<h2>1. Route one sequence to many voices</h2>
+<p>Patch a sequencer’s pitch CV into one Wonderland input.</p>
+<p>Then use the switch matrix to send that same sequence to:</p>
+<ul>
+<li>Output A → VCO 1 pitch</li>
+<li>Output B → VCO 2 pitch</li>
+<li>Output C → quantizer input</li>
+<li>Output D → a filter tracking input</li>
+<li>Output E → FM index CV input</li>
+</ul>
+<p>This lets one melodic line become the backbone of a whole patch.<br />
+Because each routing is switch-based, you can quickly decide which destinations are part of the current melodic gesture.</p>
+<h3>Musical result</h3>
+<ul>
+<li>unison melodies</li>
+<li>octave-doubled lines</li>
+<li>one sequence controlling several timbral destinations</li>
+<li>easy live rearrangement</li>
+</ul>
+<hr />
+<h2>2. Mix multiple pitch sources into a single melodic line</h2>
+<p>One of Wonderland’s strongest uses is combining separate CV sources before they hit an oscillator or quantizer.</p>
+<p>Example inputs:
+- Input 1: main sequencer pitch
+- Input 2: slow offset or transpose voltage
+- Input 3: random stepped CV
+- Input 4: keyboard or pressure CV
+- Input 5: LFO at low attenuation</p>
+<p>Route several of these to the same output.</p>
+<h3>Musical result</h3>
+<p>You get a composite melodic control voltage made from:
+- a base melody
+- transposition
+- ornamentation
+- subtle drift or vibrato-like movement
+- performance control</p>
+<p>For melodic patching, this is especially powerful <strong>before a quantizer</strong>, because messy summed voltages can be forced back into a scale.</p>
+<hr />
+<h2>3. Use it before a quantizer for evolving melodies</h2>
+<p>A very practical patch:</p>
+<ul>
+<li>Several CV sources into Wonderland inputs</li>
+<li>Wonderland output into a <strong>quantizer</strong></li>
+<li>Quantizer output into VCO pitch</li>
+</ul>
+<p>Possible inputs:
+- step sequencer row
+- random stepped voltage
+- envelope as a temporary pitch rise
+- fixed offset
+- another sequence running at a different clock division</p>
+<p>The switch matrix becomes a <strong>composition interface</strong>. Turning routes on and off changes which ingredients feed the quantizer, producing melodic variations without changing the source modules.</p>
+<h3>Why this works musically</h3>
+<p>Quantizers make Wonderland especially useful for melody because Wonderland can create rich but unstable CV mixtures, and the quantizer turns them into notes.</p>
+<hr />
+<h2>4. Create call-and-response lines with normal and inverted outputs</h2>
+<p>Every patched signal appears at both:</p>
+<ul>
+<li><strong>normal output</strong></li>
+<li><strong>inverted output</strong></li>
+</ul>
+<p>This is excellent for melodic counterpoint.</p>
+<p>Example:
+- Output A (normal) → quantizer/VCO 1
+- Output A inverted → another quantizer/VCO 2</p>
+<p>If both are quantized to the same scale, the second voice can become a mirrored version of the first. Depending on offsets and quantizer behavior, this can produce:
+- contrary motion
+- descending responses to ascending phrases
+- pseudo-fugal or mirror melody behavior</p>
+<h3>Tip</h3>
+<p>Inverted pitch often needs an offset or requantizing stage to sit in a useful register.<br />
+A quantizer after the inversion is often the key to making this musical.</p>
+<hr />
+<h2>5. Build transposition buses</h2>
+<p>Wonderland can serve as a central <strong>transpose matrix</strong>.</p>
+<p>Patch:
+- Input 1: base sequence
+- Input 2: +1V offset
+- Input 3: +0.583V or another interval source
+- Input 4: keyboard CV
+- Input 5: slow modulation</p>
+<p>Then route different combinations to different outputs:</p>
+<ul>
+<li>Output A = base melody</li>
+<li>Output B = base + octave</li>
+<li>Output C = base + fifth-ish offset</li>
+<li>Output D = base + performance transpose</li>
+</ul>
+<p>Send each output to a different voice or to different quantizers.</p>
+<h3>Musical result</h3>
+<p>You get harmonized melodic layers from one central source.<br />
+This is great for:
+- bass + lead relationships
+- canon-like voices at fixed intervals
+- chord-tone derived lines</p>
+<hr />
+<h2>6. Distribute one modulation source to shape multiple melodic parameters</h2>
+<p>Melody isn’t only pitch. Wonderland can route one CV to many destinations affecting melodic articulation:</p>
+<ul>
+<li>sequence CV to oscillator pitch</li>
+<li>same CV to wavefolder amount</li>
+<li>same CV inverted to filter cutoff</li>
+<li>same CV attenuated to decay time CV</li>
+</ul>
+<p>Because the module offers both normal and inverted outputs, one melodic contour can open one parameter while closing another.</p>
+<h3>Musical result</h3>
+<p>A melody becomes more expressive because pitch movement is tied to timbre and dynamics.</p>
+<hr />
+<h2>7. Switch melodic layers live</h2>
+<p>The 64 pushbuttons make Wonderland particularly performance-friendly.</p>
+<p>You can treat the matrix like a playable composition grid:
+- add a transpose source to a voice
+- remove random CV from a melody
+- send a melodic line to a second oscillator
+- suddenly introduce inversion to a counter-melody</p>
+<p>This is useful in live techno, ambient, or generative patches where you want to reshape melodic relationships without repatching cables.</p>
+<hr />
+<h2>Patch ideas for melodic creation</h2>
+<h2>Patch 1: Two-voice mirrored melody</h2>
+<p><strong>Goal:</strong> main melody plus inverse companion line</p>
+<p>Patch:
+- Sequencer pitch CV → Input 1
+- Input 1 routed to Output A
+- Output A normal → Quantizer 1 → VCO 1
+- Output A inverted → Quantizer 2 → VCO 2
+- Same gate source triggers both envelopes</p>
+<p>Result:
+- Voice 1 plays the main line
+- Voice 2 plays an inverted/mirrored line</p>
+<p>Best for:
+- contrapuntal melodies
+- haunting ambient duets
+- electro-style mirrored riffs</p>
+<hr />
+<h2>Patch 2: Generative melody mixer</h2>
+<p><strong>Goal:</strong> evolving quantized melody</p>
+<p>Patch:
+- Sequencer row 1 → Input 1
+- Turing/random stepped CV → Input 2
+- Slow triangle LFO → Input 3
+- Manual offset voltage → Input 4</p>
+<p>Route various combinations to Output B.</p>
+<p>Then:
+- Output B → Quantizer → VCO pitch</p>
+<p>Use the matrix buttons to add/remove contributing sources.</p>
+<p>Result:
+- melody changes with each routing state
+- easy movement between stable and unstable pitch material
+- performance-friendly generative composition</p>
+<hr />
+<h2>Patch 3: Harmony splitter from one sequence</h2>
+<p><strong>Goal:</strong> derive several related melodic lines from one sequence</p>
+<p>Patch:
+- Main sequence → Input 1
+- Octave offset → Input 2
+- Fifth-like offset → Input 3</p>
+<p>Create:
+- Output A = Input 1 only
+- Output B = Input 1 + Input 2
+- Output C = Input 1 + Input 3</p>
+<p>Send outputs to:
+- bass voice
+- lead voice
+- pluck voice</p>
+<p>Result:
+- harmonically linked melodic parts
+- simple arrangement from few sources
+- strong for melodic techno and Berlin-school style patterns</p>
+<hr />
+<h2>Patch 4: Sequence plus expressive performance control</h2>
+<p><strong>Goal:</strong> playable melody variation</p>
+<p>Patch:
+- Main sequencer CV → Input 1
+- Keyboard/controller pressure or joystick → Input 2
+- Slow random voltage → Input 3</p>
+<p>Route to one output feeding a quantizer and oscillator.</p>
+<p>Result:
+- the sequencer provides note structure
+- your controller adds expressive transposition or bends
+- random voltage adds slight melodic surprise</p>
+<p>This works nicely for live improvisation.</p>
+<hr />
+<h2>Patch 5: Use inversion for bass/lead opposition</h2>
+<p><strong>Goal:</strong> bass and lead move against each other</p>
+<p>Patch:
+- Base melodic CV → Input 1
+- Output C normal → lead quantizer/VCO
+- Output C inverted → bass quantizer/VCO</p>
+<p>Optionally add:
+- fixed offset to the bass side after quantization or before a second quantizer</p>
+<p>Result:
+- when lead climbs, bass tends to fall
+- strong tension and motion
+- cinematic and very musical when restrained to a scale</p>
+<hr />
+<h2>Things to watch out for</h2>
+<h2>1. It is a mixer, so pitch accuracy may depend on context</h2>
+<p>When using Wonderland for melodic CV, remember it is fundamentally summing and routing voltages. If you are doing strict 1V/oct harmonic work, summed voltages should be tested by ear and tuner. It will still be highly useful, but exact interval behavior depends on the rest of your system and how carefully levels are set.</p>
+<h2>2. Input attenuators are very important</h2>
+<p>The micro-attenuators help prevent overblown pitch jumps when multiple CVs are combined. For melody, they let you decide whether an added source acts as:
+- a full transpose
+- a subtle inflection
+- a tiny ornament</p>
+<h2>3. Inverted pitch usually benefits from quantization</h2>
+<p>Raw inverted pitch CV can be musically wild. Putting a quantizer after the inverted output often makes the result much more usable.</p>
+<h2>4. Multiple sources to one output can clip</h2>
+<p>The manual notes that many inputs summed to one output can cause clipping. For audio this may be desirable; for melodic CV it may produce unexpected note ranges or flattened behavior. Use the trimmers to tame this.</p>
+<hr />
+<h2>Best companion modules for melody</h2>
+<p>Wonderland becomes especially strong when paired with:</p>
+<ul>
+<li><strong>sequencers</strong> — for base note patterns</li>
+<li><strong>quantizers</strong> — to force mixed CV into scales</li>
+<li><strong>precision adders / offsets</strong> — for cleaner transposition</li>
+<li><strong>random stepped voltage generators</strong> — for melodic variation</li>
+<li><strong>joysticks / keyboards / touch controllers</strong> — for performance input</li>
+<li><strong>multiple oscillators</strong> — to exploit the many outputs</li>
+<li><strong>logic and clocks</strong> — for synchronized melodic changes</li>
+</ul>
+<hr />
+<h2>Overall musical takeaway</h2>
+<p>Wonderland is not a melody generator by itself, but it is a very powerful <strong>melodic infrastructure module</strong>.</p>
+<p>Used creatively, it can:
+- distribute one melody across several voices
+- combine several CV sources into evolving note lines
+- create mirrored or contrary-motion melodies via inversion
+- generate harmonized layers from a single sequence
+- act as a live-performance matrix for rearranging melodic relationships on the fly</p>
+<p>If your system already includes sequencers, quantizers, offsets, and oscillators, Wonderland can become the central place where those ingredients are recombined into <strong>riffs, harmonies, counter-melodies, and generative pitch structures</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

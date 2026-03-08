@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Turing_Machine</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Turing Machine</h1>
+<ul>
+<li><a href="../../manuals/TM_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Using the 2hp TM to Create Melodic Material</h1>
+<p>The attached manual is for the <strong>2hp TM</strong>, a compact probabilistic random sequencer/CV generator. On its own, it does not quantize pitch, clock itself, or generate gates for note articulation beyond responding to an incoming trigger. But as a melodic utility in a Eurorack system, it can be very effective when paired with a <strong>clock/trigger source</strong>, <strong>quantizer</strong>, <strong>VCO/voice</strong>, and optionally <strong>sample &amp; hold, slew, logic, or modulation</strong>.</p>
+<h2>What the module does</h2>
+<p>The <strong>TM</strong> outputs a <strong>0–5V random control voltage</strong> at its <strong>OUT</strong> jack whenever it receives a trigger or gate at <strong>TRIG</strong>.</p>
+<p>Its key idea is that it does not behave like pure chaos all the time. Instead, it stores a sequence of step voltages and uses a <strong>probability control</strong> to decide whether each step changes or remains the same as the sequence advances.</p>
+<h3>Core controls</h3>
+<ul>
+<li><strong>TRIG input</strong></li>
+<li>Advances/generates on incoming trigger or gate</li>
+<li>Threshold: <strong>2.5V</strong></li>
+<li><strong>PROB knob + PROB CV</strong></li>
+<li>Far left = <strong>100% probability</strong> of generating a new random voltage for the active step</li>
+<li>Far right = <strong>0% probability</strong>, effectively locking the existing sequence</li>
+<li><strong>STEPS knob + STEPS CV</strong></li>
+<li>Sequence length from <strong>1 to 32 steps</strong></li>
+<li><strong>AMP knob</strong></li>
+<li>Scales output range from <strong>0V to 5V</strong></li>
+<li><strong>OUT</strong></li>
+<li>Random/stored sequence CV output, <strong>0–5V</strong></li>
+</ul>
+<h2>Musical interpretation</h2>
+<p>This is best thought of as a <strong>Turing Machine-style looping random melody source</strong>:
+- At high probability settings, the melody changes constantly.
+- At low probability settings, the melody becomes increasingly repeatable.
+- At 0% probability, it acts like a locked sequence.
+- Changing <strong>STEPS</strong> changes phrase length.
+- Changing <strong>AMP</strong> changes melodic range before quantization.</p>
+<p>That makes it very useful for:
+- generative melodies
+- evolving basslines
+- semi-repeating motifs
+- controlled random transposition
+- modulation of melodic parameters</p>
+<hr />
+<h1>How to patch it for melody</h1>
+<h2>1. Basic generative melody patch</h2>
+<h3>Patch</h3>
+<ul>
+<li><strong>Clock/trigger source</strong> → <strong>TM TRIG</strong></li>
+<li><strong>TM OUT</strong> → <strong>quantizer IN</strong></li>
+<li><strong>quantizer OUT</strong> → <strong>VCO 1V/oct</strong></li>
+<li>Same clock or a related gate pattern → <strong>envelope/gate input</strong></li>
+<li>Envelope → <strong>VCA</strong></li>
+<li>VCO → <strong>filter/VCA/audio chain</strong></li>
+</ul>
+<h3>What happens</h3>
+<p>Each trigger advances the TM. The output voltage is quantized into musical notes, giving you a melody.</p>
+<h3>Suggested settings</h3>
+<ul>
+<li><strong>PROB</strong> around 9–12 o’clock for evolving repetition</li>
+<li><strong>STEPS</strong> around 5–8 for short melodic phrases</li>
+<li><strong>AMP</strong> around 10–1 o’clock to keep pitch movement in a usable range</li>
+</ul>
+<h3>Why it works</h3>
+<p>The quantizer turns the TM’s raw random voltages into scale tones. The TM’s probability memory gives the result more structure than pure sample-and-hold randomness.</p>
+<hr />
+<h2>2. Locked looping melody</h2>
+<h3>Patch</h3>
+<p>Same as above.</p>
+<h3>Settings</h3>
+<ul>
+<li>First, turn <strong>PROB</strong> left so new values are written often.</li>
+<li>Let it run until you hear a phrase you like.</li>
+<li>Then turn <strong>PROB</strong> fully right to <strong>lock the sequence</strong>.</li>
+</ul>
+<h3>Result</h3>
+<p>You now have a repeating melodic loop with up to <strong>32 steps</strong>.</p>
+<h3>Performance trick</h3>
+<p>Momentarily bring PROB left to let a few notes mutate, then return right. This gives subtle phrase evolution without losing the identity of the melody.</p>
+<hr />
+<h2>3. Controlled random bassline</h2>
+<h3>Patch</h3>
+<ul>
+<li>Trigger sequencer / clock divider → <strong>TM TRIG</strong></li>
+<li><strong>TM OUT</strong> → quantizer set to minor pentatonic / minor scale</li>
+<li>Quantizer out → bass VCO</li>
+<li>Gate pattern → envelope → VCA</li>
+</ul>
+<h3>Settings</h3>
+<ul>
+<li><strong>STEPS</strong>: 4–8</li>
+<li><strong>AMP</strong>: low to medium</li>
+<li><strong>PROB</strong>: low, around 1–3 o’clock if you want mostly stable looping with occasional mutation</li>
+</ul>
+<h3>Result</h3>
+<p>Because the output range is reduced with <strong>AMP</strong>, the quantizer sees a narrower CV span, which often creates tighter melodic contours suitable for basslines.</p>
+<hr />
+<h2>4. Melodic phrases with variable length</h2>
+<h3>Patch</h3>
+<ul>
+<li>Clock → <strong>TM TRIG</strong></li>
+<li>Slow LFO / random CV / sequencer row → <strong>STEPS CV</strong></li>
+<li><strong>TM OUT</strong> → quantizer → voice pitch</li>
+</ul>
+<h3>Result</h3>
+<p>The phrase length changes over time, causing the melodic cycle to shift.</p>
+<h3>Musical use</h3>
+<p>This is great for:
+- non-repeating ambient melodies
+- phase-like pattern changes
+- evolving techno arps</p>
+<h3>Tip</h3>
+<p>Subtle modulation of <strong>STEPS CV</strong> tends to be more musical than wild jumps.</p>
+<hr />
+<h2>5. Varying predictability over time</h2>
+<h3>Patch</h3>
+<ul>
+<li>Clock → <strong>TM TRIG</strong></li>
+<li>Slow LFO, envelope, or another random source → <strong>PROB CV</strong></li>
+<li><strong>TM OUT</strong> → quantizer → oscillator pitch</li>
+</ul>
+<h3>Result</h3>
+<p>The melody moves between:
+- highly unstable / novel
+- semi-repetitive
+- fully locked</p>
+<h3>Musical use</h3>
+<p>This is one of the strongest features of the module. You can automate tension and release:
+- verses: lower probability, more repeatability
+- transitions: higher probability, more mutation
+- breakdowns: fully random
+- choruses: locked phrase</p>
+<hr />
+<h1>Best companion modules for melodic use</h1>
+<p>Since TM is only one module, the "used together" part really means how it works alongside other common Eurorack categories.</p>
+<h2>1. Quantizer</h2>
+<p>This is the most important partner.</p>
+<p>TM outputs <strong>continuous random CV from 0–5V</strong>, not discrete musical notes. A quantizer converts that into a scale.</p>
+<h3>Good uses</h3>
+<ul>
+<li>Major/minor tonal melodies</li>
+<li>Pentatonic ambient lines</li>
+<li>Modal sequences</li>
+<li>Arpeggio-like note sets</li>
+</ul>
+<h3>Tip</h3>
+<p>If the quantizer supports transposition, feed a second CV source into transpose for harmonic movement while TM handles note selection.</p>
+<hr />
+<h2>2. Clock / trigger source</h2>
+<p>TM needs external timing.</p>
+<h3>Good trigger sources</h3>
+<ul>
+<li>steady clock for regular melodies</li>
+<li>Euclidean trigger generator for asymmetrical note timing</li>
+<li>gate sequencer for rhythmic melody placement</li>
+<li>clock divider/multiplier for slower or faster melodic movement</li>
+</ul>
+<h3>Tip</h3>
+<p>Changing the trigger rhythm changes the perceived sequence as much as changing the pitch data.</p>
+<hr />
+<h2>3. Oscillator or complete synth voice</h2>
+<p>Once quantized, TM can drive:
+- a sine or triangle oscillator for simple melodies
+- a wavetable VCO for animated lead lines
+- a complex oscillator for experimental phrases
+- a full voice module for compact patches</p>
+<hr />
+<h2>4. Envelope + VCA</h2>
+<p>TM does not produce note gates for articulation by itself beyond reacting to incoming triggers. So you usually pair the same trigger source, or a related rhythm source, with an envelope/VCA path.</p>
+<h3>Patch logic</h3>
+<ul>
+<li>trigger source branches:</li>
+<li>one copy to <strong>TM TRIG</strong></li>
+<li>one copy to <strong>envelope gate</strong></li>
+<li>TM controls pitch</li>
+<li>envelope controls note articulation</li>
+</ul>
+<hr />
+<h2>5. Slew limiter / glide</h2>
+<p>Placing a slew after the quantizer or before the oscillator can create:
+- portamento
+- gliding random melodies
+- smooth ambient pitch transitions</p>
+<p>Very effective for generative melodic textures.</p>
+<hr />
+<h2>6. Sample &amp; hold / switch / sequential switch</h2>
+<p>These can further structure TM’s output.</p>
+<h3>Ideas</h3>
+<ul>
+<li>Sample the TM less often than it is clocked</li>
+<li>Alternate between TM and another sequencer</li>
+<li>Use a switch to route TM to different voices</li>
+<li>Create call-and-response melodies</li>
+</ul>
+<hr />
+<h2>7. Precision adder / offset</h2>
+<p>Since TM outputs 0–5V, you may want to control register.</p>
+<h3>Uses</h3>
+<ul>
+<li>transpose the melody up/down</li>
+<li>constrain the note center</li>
+<li>combine TM with another sequencer row</li>
+<li>create harmonic movement over a static TM phrase</li>
+</ul>
+<hr />
+<h1>Practical melodic patch examples</h1>
+<h2>Patch A: Ambient generative lead</h2>
+<ul>
+<li>Slow clock → <strong>TM TRIG</strong></li>
+<li><strong>TM OUT</strong> → quantizer set to Dorian</li>
+<li>Quantizer → VCO pitch</li>
+<li>Same clock → envelope</li>
+<li>Envelope → LPG/VCA</li>
+<li>Slow triangle LFO → <strong>PROB CV</strong></li>
+<li>Slow random CV → <strong>STEPS CV</strong></li>
+</ul>
+<h3>Outcome</h3>
+<p>A self-evolving melody with recurring fragments and shifting phrase lengths.</p>
+<hr />
+<h2>Patch B: Techno riff generator</h2>
+<ul>
+<li>16th-note trigger pattern → <strong>TM TRIG</strong></li>
+<li><strong>TM OUT</strong> → quantizer in minor scale</li>
+<li>Quantizer → acid-style VCO pitch</li>
+<li>Trigger pattern → short envelope → VCA/filter env</li>
+<li><strong>PROB</strong> low enough to preserve groove</li>
+<li><strong>STEPS</strong> at 8 or 16</li>
+</ul>
+<h3>Outcome</h3>
+<p>A stable but mutable riff generator. Great for live performance by nudging PROB.</p>
+<hr />
+<h2>Patch C: Bass + lead derived from one source</h2>
+<ul>
+<li>Clock → <strong>TM TRIG</strong></li>
+<li><strong>TM OUT</strong> multed to:</li>
+<li>quantizer 1 → bass oscillator</li>
+<li>quantizer 2 or shifted copy → lead oscillator</li>
+<li>Use different trigger divisions for each envelope</li>
+</ul>
+<h3>Outcome</h3>
+<p>Correlated melodic layers from the same evolving sequence.</p>
+<hr />
+<h2>Patch D: TM as melodic modulation, not primary pitch</h2>
+<p>Instead of controlling oscillator pitch directly:
+- <strong>TM OUT</strong> → quantizer → oscillator FM amount CV
+- or <strong>TM OUT</strong> → filter cutoff CV
+- or <strong>TM OUT</strong> → wavefolder symmetry</p>
+<h3>Outcome</h3>
+<p>You preserve a fixed melody elsewhere while TM adds pseudo-melodic internal motion.</p>
+<hr />
+<h1>Strengths of the TM for melody</h1>
+<h2>1. Repeatability without rigidity</h2>
+<p>It sits between random source and sequencer.</p>
+<h2>2. Excellent for live improvisation</h2>
+<p>One knob move on <strong>PROB</strong> can move the patch from chaos to motif.</p>
+<h2>3. Compact</h2>
+<p>At <strong>2hp</strong>, it gives a lot of melodic utility in very little space.</p>
+<h2>4. Good phrase control</h2>
+<p><strong>STEPS</strong> from <strong>1–32</strong> lets it do anything from drones to long evolving patterns.</p>
+<h2>5. Range control via AMP</h2>
+<p>This is deceptively useful. Lowering amplitude before quantization can keep melodies focused and musical.</p>
+<hr />
+<h1>Limitations to keep in mind</h1>
+<h2>1. No built-in quantizer</h2>
+<p>You will usually want an external quantizer for tonal melodies.</p>
+<h2>2. No internal clock</h2>
+<p>Needs external triggers.</p>
+<h2>3. No explicit reset input</h2>
+<p>This means phrase alignment with other sequencers may be less exact than with a traditional sequencer.</p>
+<h2>4. Output is unipolar 0–5V</h2>
+<p>Depending on your oscillator and quantizer, this can span a wide register. You may want attenuation, offset, or transposition management.</p>
+<hr />
+<h1>Best workflow for composing melodic parts</h1>
+<p>A strong musical workflow with TM is:</p>
+<ol>
+<li><strong>Clock it</strong></li>
+<li><strong>Quantize it</strong></li>
+<li><strong>Set a musical scale</strong></li>
+<li><strong>Adjust AMP</strong> for range</li>
+<li><strong>Set STEPS</strong> for phrase length</li>
+<li><strong>Set PROB</strong> for stability vs mutation</li>
+<li><strong>Lock</strong> the sequence when you find a phrase you like</li>
+<li>Modulate <strong>PROB CV</strong> and <strong>STEPS CV</strong> slowly for long-term evolution</li>
+</ol>
+<p>This makes TM especially strong for:
+- ambient
+- Berlin-school style generative sequencing
+- minimal techno
+- experimental tonal patches
+- evolving soundtrack textures</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>2hp TM</strong> is best used as a <strong>probabilistic CV melody source</strong>. It becomes a powerful melodic tool when combined with:
+- a <strong>trigger/clock source</strong>
+- a <strong>quantizer</strong>
+- a <strong>voice or oscillator</strong>
+- and optionally <strong>CV modulation, slew, switching, or transposition</strong></p>
+<p>Its musical sweet spot is generating phrases that feel <strong>alive, semi-repeatable, and gradually mutating</strong>, rather than fully programmed or fully random.</p>
+<p>If you want, I can also turn this into:
+1. a <strong>patch recipe list</strong>,
+2. a <strong>beginner-friendly explanation</strong>,
+3. or a <strong>“best companion modules” table</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

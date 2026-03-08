@@ -1,0 +1,433 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Marbles</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Marbles</h1>
+<ul>
+<li><a href="../../manuals/Mutable Instruments - Marbles.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="PDF download">Manual PDF</a></p>
+<h1>Mutable Instruments Marbles — creating melodic components</h1>
+<p>Marbles is extremely strong for <strong>generating melodies, melodic variation, and semi-repeating pitch sequences</strong>. It is essentially a <strong>random sampler</strong> that combines:</p>
+<ul>
+<li>a clock and rhythm generator (<code>t</code> section),</li>
+<li>a random CV generator (<code>X</code> section),</li>
+<li>quantization / smoothing,</li>
+<li>loop capture and shuffle (<code>DEJA VU</code>),</li>
+<li>and external CV processing.</li>
+</ul>
+<p>If you use it as the “brain” of a patch, it can create anything from <strong>stable looping motifs</strong> to <strong>constantly evolving melodic lines</strong>.</p>
+<h2>What Marbles gives you musically</h2>
+<p>From the manual, the key melodic tools are:</p>
+<ul>
+<li><strong>3 CV outputs</strong></li>
+<li>clocked either by Marbles’ internal/random rhythm engine or an external clock.</li>
+<li><strong>Adjustable voltage distributions</strong></li>
+<li><code>SPREAD</code> moves from constant to bell-shaped, uniform, or discrete distributions.</li>
+<li><code>BIAS</code> pushes notes lower or higher in the available range.</li>
+<li><strong>Adjustable voltage range</strong></li>
+<li><code>0 to +2V</code> for melody-friendly pitch ranges,</li>
+<li><code>0 to +5V</code>,</li>
+<li><code>-5V to +5V</code>.</li>
+<li><strong>Quantized or smooth CV</strong></li>
+<li><code>STEPS</code> can progressively quantize notes into more tonal material,</li>
+<li>or go the other direction into slew/glide for portamento-like curves.</li>
+<li><strong>Programmable quantizer</strong></li>
+<li>6 programmable scales learned by “playing a short jam.”</li>
+<li><strong>Looping and shuffling</strong></li>
+<li><code>DEJA VU</code> can replay prior material as a loop,</li>
+<li>then increasingly shuffle the order of that loop,</li>
+<li>with loop lengths from <code>1 to 16 steps</code>.</li>
+<li><strong>External CV processing</strong></li>
+<li>an incoming sequence can be recorded into the <code>DEJA VU</code> loop and transformed by Marbles.</li>
+</ul>
+<hr />
+<h2>Best way to think about the module</h2>
+<p>Marbles is not just “random notes.”</p>
+<p>It is better understood as a <strong>melodic idea generator and variation engine</strong>:</p>
+<ul>
+<li>the <code>t</code> side decides <strong>when</strong> notes happen,</li>
+<li>the <code>X</code> side decides <strong>what pitches</strong> happen,</li>
+<li><code>STEPS</code> and the quantizer decide <strong>how tonal</strong> they are,</li>
+<li><code>DEJA VU</code> decides <strong>how memorable/repetitive</strong> they are.</li>
+</ul>
+<p>That makes it ideal for:</p>
+<ul>
+<li>lead melodies,</li>
+<li>basslines,</li>
+<li>arpeggio-like patterns,</li>
+<li>countermelodies,</li>
+<li>generative harmonic figures,</li>
+<li>pitch modulation for transposition or timbral animation.</li>
+</ul>
+<hr />
+<h2>Building melodic patches with Marbles</h2>
+<h2>1. Basic generative melody voice</h2>
+<p>This is the most direct use.</p>
+<h3>Patch</h3>
+<ul>
+<li><code>X1</code> or one of the CV outputs → oscillator <code>V/OCT</code></li>
+<li>one of the <code>t</code> outputs → envelope gate input</li>
+<li>envelope → VCA</li>
+<li>oscillator → filter/VCA/audio path</li>
+</ul>
+<h3>How it behaves</h3>
+<ul>
+<li>The <code>t</code> section provides note triggers.</li>
+<li>The <code>X</code> section provides pitch CV.</li>
+<li><code>STEPS</code> quantizes the output so pitches become scale-like.</li>
+<li><code>SPREAD</code> controls whether notes cluster tightly or range widely.</li>
+<li><code>BIAS</code> pushes the melody upward or downward.</li>
+</ul>
+<h3>Musical result</h3>
+<p>You get a self-playing melody that can range from:
+- narrow and motif-like,
+- to wide and exploratory,
+- to very tonal if <code>STEPS</code> is turned clockwise.</p>
+<p>This is ideal for:
+- ambient leads,
+- Berlin-school sequences,
+- generative techno hooks,
+- melodic percussion voices.</p>
+<hr />
+<h2>2. Creating stable repeating riffs with variation</h2>
+<p>One of Marbles’ signature strengths is the <code>DEJA VU</code> system.</p>
+<h3>Patch</h3>
+<p>Same as above:
+- <code>X</code> output → oscillator <code>V/OCT</code>
+- <code>t</code> output → envelope gate</p>
+<h3>Settings to explore</h3>
+<ul>
+<li>Turn up <code>DEJA VU</code></li>
+<li>Set loop length somewhere between <code>4–8 steps</code></li>
+<li>Keep <code>STEPS</code> moderately to strongly quantized</li>
+</ul>
+<h3>Musical result</h3>
+<p>Instead of pure randomness, Marbles begins to:
+- repeat recent melodic material,
+- form a recognizable phrase,
+- then optionally reorder it as shuffle increases.</p>
+<p>This is perfect for:
+- repeating synth riffs,
+- ostinatos,
+- evolving basslines,
+- melodic loops that feel composed rather than random.</p>
+<p>A very useful trick is:
+- use a <strong>short loop length</strong> for hook-like material,
+- then slowly change <code>SPREAD</code> or <code>BIAS</code> to morph the phrase without losing identity.</p>
+<hr />
+<h2>3. Bassline generation</h2>
+<p>The manual specifically notes a <code>0 to +2V</code> range that is useful “for melodies,” and that’s also very practical for basslines because it prevents huge pitch jumps.</p>
+<h3>Patch</h3>
+<ul>
+<li><code>X1</code> → bass oscillator <code>V/OCT</code></li>
+<li><code>t2</code> or another rhythm output → envelope/gate for bass voice</li>
+</ul>
+<h3>Settings</h3>
+<ul>
+<li>Lower voltage range</li>
+<li>Moderate quantization with <code>STEPS</code></li>
+<li>Low-to-mid <code>SPREAD</code></li>
+<li><code>BIAS</code> slightly downward</li>
+</ul>
+<h3>Why it works</h3>
+<p>These settings create:
+- tighter interval movement,
+- fewer wild leaps,
+- stronger tonal center,
+- more usable low-end phrases.</p>
+<h3>Musical result</h3>
+<ul>
+<li>rolling techno basslines,</li>
+<li>dubby pulse bass,</li>
+<li>minimal synth ostinatos,</li>
+<li>generative low-register accompaniment.</li>
+</ul>
+<p>If you increase <code>DEJA VU</code>, the bass starts to lock into a memorable phrase while still breathing.</p>
+<hr />
+<h2>4. Countermelody and multi-voice melodic texture</h2>
+<p>Marbles has <strong>3 CV outputs</strong>, which makes it excellent for deriving several related melodic lines.</p>
+<h3>Patch concept</h3>
+<ul>
+<li><code>X1</code> → voice 1 pitch</li>
+<li><code>X2</code> → voice 2 pitch</li>
+<li><code>X3</code> → voice 3 pitch</li>
+<li>different <code>t</code> outputs trigger different envelopes/voices</li>
+</ul>
+<h3>Why this is powerful</h3>
+<p>The manual mentions <strong>output diversity</strong>:
+- all outputs can follow the control panel similarly,
+- or react in different and opposite ways.</p>
+<p>This means one knob turn can produce:
+- one voice rising while another falls,
+- one line becoming more spread out while another tightens,
+- related but non-identical melodic motion.</p>
+<h3>Musical uses</h3>
+<ul>
+<li>lead + countermelody</li>
+<li>tri-voice generative ensemble</li>
+<li>melodic voice + bass + high ornament</li>
+<li>call-and-response between two synth voices</li>
+</ul>
+<p>This is one of the best ways to get “composed-sounding” generative music from a single module.</p>
+<hr />
+<h2>5. Rhythmic melody versus legato melody</h2>
+<p>Because Marbles combines gates and CV, you can shape how melodic phrasing feels.</p>
+<h3>For rhythmic/plucked melodies</h3>
+<ul>
+<li>use short gate duration</li>
+<li>clock <code>X</code> from the <code>t</code> outputs</li>
+<li>quantize with <code>STEPS</code></li>
+</ul>
+<p>Result:
+- crisp sequences,
+- arpeggio-like lines,
+- pointillistic melody.</p>
+<h3>For legato/singing melodies</h3>
+<ul>
+<li>turn <code>STEPS</code> counterclockwise for more slew</li>
+<li>use longer gates</li>
+<li>lower rhythmic density</li>
+</ul>
+<p>Result:
+- gliding pitch lines,
+- acid-like slides,
+- smooth evolving melodic contours.</p>
+<p>This duality is very useful: Marbles can act either like a <strong>sequencer</strong> or like a <strong>gestural CV performer</strong>.</p>
+<hr />
+<h2>6. Scale-constrained melody generation</h2>
+<p>The programmable quantizer is one of the biggest musical features.</p>
+<h3>What the manual says</h3>
+<p>Marbles offers:
+- <strong>6 programmable scales</strong>
+- programmed by playing a short jam in the desired scale
+- the module learns which notes are prominent</p>
+<h3>Why that matters</h3>
+<p>This is more musical than plain chromatic random voltages because you can teach Marbles:
+- major,
+- minor,
+- modal scales,
+- pentatonic collections,
+- custom note sets,
+- root-heavy tonal material.</p>
+<h3>Practical use</h3>
+<p>Once a scale is learned:
+- random notes become stylistically coherent,
+- <code>BIAS</code> and <code>SPREAD</code> feel musical rather than chaotic,
+- looped sequences are more likely to sound intentional.</p>
+<h3>Great applications</h3>
+<ul>
+<li>modal ambient music,</li>
+<li>tonal techno riffs,</li>
+<li>generative soundtrack melodies,</li>
+<li>pseudo-arpeggios inside a chosen harmonic language.</li>
+</ul>
+<hr />
+<h2>7. Using the three generative rhythm models for melody phrasing</h2>
+<p>The <code>t</code> section is not only a clock source; it shapes melodic phrasing.</p>
+<p>The manual describes three rhythm models:</p>
+<ol>
+<li><strong>Coin-toss routing</strong> of pulses to outputs  </li>
+<li><strong>Random division factor</strong> on one output and reciprocal on the other  </li>
+<li><strong>Kick/snare-like pattern generation</strong> similar to Grids  </li>
+</ol>
+<h3>Melodic implications</h3>
+<p>These models can determine:
+- when the melody speaks,
+- how often certain voices enter,
+- whether phrases feel binary, syncopated, or groove-oriented.</p>
+<h3>Example uses</h3>
+<ul>
+<li><code>t1</code> triggers a low voice sparsely</li>
+<li><code>t2</code> triggers the main melody</li>
+<li><code>t3</code> triggers a higher ornament voice</li>
+</ul>
+<p>This creates a melodic ecosystem where:
+- pitch variation comes from the <code>X</code> side,
+- phrase architecture comes from the <code>t</code> side.</p>
+<p>That is very effective for self-generating music.</p>
+<hr />
+<h2>8. Humanized melodies with jitter</h2>
+<p>The manual highlights adjustable <strong>jitter</strong> that ranges from accurate clock tracking to very erroneous while preserving overall tempo.</p>
+<h3>In melodic terms</h3>
+<p>Jitter affects the timing of notes, not just pitch.</p>
+<h3>Why it matters</h3>
+<p>Even if the pitch sequence is repetitive, jitter can make it feel:
+- looser,
+- more performed,
+- less machine-like,
+- more unstable and experimental.</p>
+<h3>Musical use cases</h3>
+<ul>
+<li>subtle groove in repeated riffs,</li>
+<li>broken-clock ambient melodies,</li>
+<li>unstable generative phrases,</li>
+<li>“drunk sequencer” leads that still stay in tempo overall.</li>
+</ul>
+<p>This is especially nice when combined with <code>DEJA VU</code>, because the notes may repeat while the timing remains slightly alive.</p>
+<hr />
+<h2>9. Turning external sequences into melodic variations</h2>
+<p>One of the most interesting features in the manual is external CV processing.</p>
+<h3>What it does</h3>
+<p>An external CV can be:
+- recorded into the <code>DEJA VU</code> loop,
+- then transformed by Marbles using:
+  - looping,
+  - shuffling,
+  - spreading,
+  - transposition,
+  - quantization,
+  - lag processing.</p>
+<h3>Why this is useful</h3>
+<p>If you already have another sequencer, keyboard CV, or recorded melodic source, Marbles can become a <strong>variation processor</strong> instead of a source.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>external sequencer pitch CV → Marbles external CV path → oscillator</li>
+<li>keyboard/improvised CV line → Marbles → voice</li>
+<li>another random source → Marbles to tame and organize it</li>
+</ul>
+<h3>Musical result</h3>
+<p>You can:
+- remix your own melodic phrase,
+- create alternate versions of a sequence,
+- preserve the contour but alter the order,
+- lock an improvised line into a learned scale,
+- add looping memory to otherwise linear phrases.</p>
+<p>This is one of the strongest “used together” ideas if Marbles is paired with any other sequencer module.</p>
+<hr />
+<h2>10. Making harmonically related voices</h2>
+<p>Even without a dedicated chord module, Marbles can generate related pitch streams for harmony-like textures.</p>
+<h3>Patch</h3>
+<ul>
+<li><code>X1</code> → oscillator A</li>
+<li><code>X2</code> → oscillator B</li>
+<li><code>X3</code> → oscillator C</li>
+<li>send all through quantized settings and same learned scale</li>
+</ul>
+<h3>Tuning approach</h3>
+<ul>
+<li>manually offset one or two oscillators by intervals,</li>
+<li>or use mixers/precision adders downstream if available.</li>
+</ul>
+<h3>Result</h3>
+<p>Because all three CV outputs are related by Marbles’ output-diversity behavior, you can get:
+- parallel melodic motion,
+- loose pseudo-harmony,
+- layered modal textures,
+- evolving three-note clouds.</p>
+<p>This works very well for:
+- ambient pads,
+- generative triads,
+- phased unison melodies,
+- layered plucks.</p>
+<hr />
+<h2>11. Tension and release through panel gestures</h2>
+<p>Marbles is especially playable because one knob move can reshape the melody dramatically.</p>
+<h3>Most important melody controls</h3>
+<ul>
+<li><code>SPREAD</code>:</li>
+<li>low = narrow melodic range</li>
+<li>high = wider leaps / more dramatic contour</li>
+<li><code>BIAS</code>:</li>
+<li>lower = lower notes emphasized</li>
+<li>higher = upper notes emphasized</li>
+<li><code>STEPS</code>:</li>
+<li>clockwise = more tonal / quantized / simplified pitch classes</li>
+<li>counterclockwise = more glide / smoothness</li>
+<li><code>DEJA VU</code>:</li>
+<li>low = fresh random material</li>
+<li>high = repeating and then shuffled motifs</li>
+</ul>
+<h3>Performance strategy</h3>
+<p>For live melodic development:
+- start with low <code>DEJA VU</code> and moderate <code>SPREAD</code>
+- let Marbles generate raw ideas
+- increase <code>DEJA VU</code> when a good phrase emerges
+- tighten <code>STEPS</code> for stronger tonality
+- reduce <code>SPREAD</code> to settle into a hook
+- then open it up again for a new section</p>
+<p>This makes Marbles excellent for hands-on composition during performance.</p>
+<hr />
+<h2>12. Example melodic patch recipes</h2>
+<h2>A. Generative lead</h2>
+<ul>
+<li><code>X1</code> → lead oscillator <code>V/OCT</code></li>
+<li><code>t2</code> → envelope trigger</li>
+<li>medium <code>SPREAD</code></li>
+<li>upward <code>BIAS</code></li>
+<li><code>STEPS</code> fairly quantized</li>
+<li><code>DEJA VU</code> at medium</li>
+</ul>
+<p><strong>Result:</strong> evolving but memorable lead line.</p>
+<h2>B. Evolving bass + melody</h2>
+<ul>
+<li><code>X1</code> → bass oscillator</li>
+<li><code>X2</code> → lead oscillator</li>
+<li><code>t1</code> → bass gate</li>
+<li><code>t2</code> → lead gate</li>
+<li>lower range for bass</li>
+<li>more spread for lead</li>
+</ul>
+<p><strong>Result:</strong> related bassline and top line from one module.</p>
+<h2>C. Ambient glissando voice</h2>
+<ul>
+<li><code>X1</code> → oscillator pitch</li>
+<li>no hard quantization; <code>STEPS</code> turned toward slew</li>
+<li>long envelope or drone voice</li>
+<li>sparse <code>t</code> triggers</li>
+</ul>
+<p><strong>Result:</strong> floating, singing melodic curves.</p>
+<h2>D. Looping motif machine</h2>
+<ul>
+<li>short <code>DEJA VU</code> length</li>
+<li>high enough <code>DEJA VU</code> to capture a phrase</li>
+<li>moderate quantization</li>
+<li>slow manual changes to <code>BIAS</code></li>
+</ul>
+<p><strong>Result:</strong> repeating motif that slowly mutates.</p>
+<h2>E. Melodic remix processor</h2>
+<ul>
+<li>external sequencer CV into Marbles external CV processing</li>
+<li>Marbles output to voice pitch</li>
+<li>use <code>DEJA VU</code>, <code>SPREAD</code>, and quantizer</li>
+</ul>
+<p><strong>Result:</strong> your original sequence reinterpreted into new melodic variants.</p>
+<hr />
+<h2>Strengths of Marbles for melody</h2>
+<p>Based on the manual, Marbles is especially good at:</p>
+<ul>
+<li><strong>tonal random melodies</strong></li>
+<li><strong>looping generative phrases</strong></li>
+<li><strong>related multi-voice melodic output</strong></li>
+<li><strong>basslines and leads from one module</strong></li>
+<li><strong>external sequence mutation</strong></li>
+<li><strong>live performance control over randomness vs repetition</strong></li>
+</ul>
+<p>It is less like a traditional step sequencer and more like a <strong>musical probability instrument</strong> for pitch and rhythm.</p>
+<hr />
+<h2>Bottom line</h2>
+<p>If you want melodic components from Marbles, the most effective approach is:</p>
+<ol>
+<li>Use the <code>t</code> section to define note timing and phrasing.</li>
+<li>Use one or more <code>X</code> outputs as pitch CV.</li>
+<li>Use <code>STEPS</code> and the programmable scales to keep pitches musical.</li>
+<li>Use <code>SPREAD</code> and <code>BIAS</code> to shape melodic contour and register.</li>
+<li>Use <code>DEJA VU</code> to turn randomness into hooks, riffs, and recurring motifs.</li>
+<li>Use multiple outputs for bass, lead, and countermelody at once.</li>
+<li>Feed external CV into it when you want sequence variation rather than pure generation.</li>
+</ol>
+<p>In practice, Marbles can act as:
+- a <strong>melody generator</strong>,
+- a <strong>bassline creator</strong>,
+- a <strong>counterpoint source</strong>,
+- a <strong>motif looper</strong>,
+- and a <strong>variation processor</strong> for other sequencers.</p>
+<p>It is one of the most musically flexible Eurorack modules for creating melodic material that feels both <strong>surprising and intentional</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

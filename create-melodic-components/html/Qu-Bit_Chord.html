@@ -1,0 +1,602 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Chord</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Chord</h1>
+<ul>
+<li><a href="../../manuals/QB_Chord.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Qu-Bit Chord v2 — using it to create melodic components</h1>
+<p>This manual is for the <strong>Qu-Bit Chord v2</strong>, a 4-voice polyphonic oscillator for Eurorack. Since only this module is included here, I’ll focus on how to use <strong>Chord v2 by itself and with common supporting Eurorack companions</strong> to build melodic material: leads, chord progressions, arpeggio-like motion, drones, counterpoint, and harmonized lines.</p>
+<h2>What this module is musically</h2>
+<p>Chord v2 is essentially:</p>
+<ul>
+<li><strong>four oscillators in one</strong></li>
+<li>internally related by <strong>chord quality</strong> and <strong>voicing</strong></li>
+<li>with <strong>independent outputs</strong> for root / third / fifth / seventh</li>
+<li>plus a <strong>mix output</strong></li>
+<li>and several modes that turn it from “chord oscillator” into a more flexible <strong>polyphonic pitch structure generator</strong></li>
+</ul>
+<p>That makes it especially strong for melodic duties because it can produce:</p>
+<ul>
+<li>a full chord from one pitch CV</li>
+<li>a chord plus a separate melody</li>
+<li>four quantized independent pitch lanes</li>
+<li>stacked unison voices for thick monophonic lines</li>
+<li>interval-based motion that stays musical</li>
+</ul>
+<hr />
+<h2>Core musical functions that matter for melody</h2>
+<h2>1. One CV can generate full harmonic melody</h2>
+<p>The <strong>V/Oct input</strong> controls the root note.<br />
+In standard chord mode, the module builds the other notes around that root according to:</p>
+<ul>
+<li><strong>Quality</strong>: maj7, min7, dom7, half-diminished, diminished, sus, augmented, etc.</li>
+<li><strong>Voicing</strong>: inversion and octave spacing</li>
+</ul>
+<p>So a simple sequencer into <strong>V/Oct</strong> gives you:</p>
+<ul>
+<li>moving root notes</li>
+<li>harmonized vertical structures</li>
+<li>melodic chord changes from a single line</li>
+</ul>
+<p>This is the easiest way to get musical melodic content quickly.</p>
+<h3>Good use:</h3>
+<ul>
+<li>Send an 8-step sequence into <strong>V/Oct</strong></li>
+<li>Take the <strong>Mix</strong> output to a filter/VCA</li>
+<li>Modulate <strong>Quality</strong> slowly</li>
+<li>You get a harmonic progression with evolving color</li>
+</ul>
+<hr />
+<h2>2. Melody mode creates “chord + lead”</h2>
+<p>This is probably the most immediately useful feature for songwriting.</p>
+<p>In <strong>Melody Mode</strong>:
+- the <strong>Lead input</strong> controls the <strong>Seventh output</strong> as an independent melodic voice
+- the other voices still behave as a chord tied to the root
+- inversions still affect that seventh voice</p>
+<p>So you can patch:</p>
+<ul>
+<li>one sequencer to <strong>V/Oct</strong> for the chord progression</li>
+<li>a second sequencer to <strong>Lead</strong> for a melody line</li>
+<li>take <strong>Mix</strong> for the harmony bed</li>
+<li>take <strong>Seventh out</strong> separately for the lead</li>
+</ul>
+<p>This gives you:
+- backing harmony and lead from one module
+- tightly related melodic material
+- easy “solo over chords” patches</p>
+<h3>Great patch idea:</h3>
+<ul>
+<li><strong>V/Oct</strong>: slow 4-step progression</li>
+<li><strong>Lead</strong>: faster 8- or 16-step melody</li>
+<li><strong>Triad mode on</strong> so the seventh is omitted from Mix</li>
+<li>Send <strong>Mix</strong> through one voice chain</li>
+<li>Send <strong>Seventh</strong> through a different VCA/filter/effect</li>
+</ul>
+<p>Result:
+- the chord accompaniment stays clean
+- the melodic lead sits independently above it</p>
+<p>This is one of the best uses of Chord v2 for melodic composition.</p>
+<hr />
+<h2>3. Auto-Harm makes melodic lines stay in key</h2>
+<p>The <strong>Harm</strong> button enables automatic harmonization and scale quantization.</p>
+<p>In normal or melody mode:
+- <strong>off</strong> = no quantization
+- <strong>blue</strong> = major
+- <strong>green</strong> = minor</p>
+<p>When enabled:
+- <strong>V/Oct</strong> and <strong>Lead</strong> are quantized to the chosen scale
+- chord quality is automatically adjusted to fit the key</p>
+<p>This means you can feed in:
+- a loose sequencer
+- random CV
+- voltage from a sample &amp; hold
+- pressure/joystick/manual CV</p>
+<p>…and Chord will pull it into usable melodic territory.</p>
+<h3>Musical value:</h3>
+<p>This is huge for creating:
+- melodic fragments that remain tonal
+- harmonized lines without needing an external quantizer
+- evolving generative melodies that still sound composed</p>
+<h3>Example:</h3>
+<ul>
+<li>random stepped CV into <strong>V/Oct</strong></li>
+<li>another random stepped CV into <strong>Lead</strong></li>
+<li><strong>Harm = Minor</strong></li>
+<li><strong>Melody Mode on</strong></li>
+</ul>
+<p>Now you get:
+- a shifting chord progression
+- a separate melody
+- both constrained to minor tonality</p>
+<p>Very effective for ambient, soundtrack, and generative music.</p>
+<hr />
+<h2>4. Free Poly Mode turns it into four pitch voices</h2>
+<p>In <strong>Free Poly Mode</strong>:
+- <strong>Coarse knob / V/Oct CV</strong> control root
+- <strong>Fine knob / Lead CV</strong> control third
+- <strong>Voicing knob / Voicing CV</strong> control fifth
+- <strong>Quality knob / Quality CV</strong> control seventh</p>
+<p>So instead of one chord relationship system, you now have <strong>four independently pitched oscillators</strong>.</p>
+<p>This can be used melodically for:</p>
+<ul>
+<li>4-note counterpoint</li>
+<li>four-note step-sequenced harmonies</li>
+<li>pseudo-paraphonic sequencing</li>
+<li>canon-like pitch structures</li>
+<li>clustered melodic motion</li>
+</ul>
+<p>If you have multiple pitch sequencers or CV lanes, this mode is extremely powerful.</p>
+<h3>Example:</h3>
+<p>Patch four related but different pitch CV sources:
+- bassline CV → <strong>V/Oct</strong>
+- upper melody → <strong>Lead</strong>
+- slower supporting motion → <strong>Voicing</strong>
+- tension note/random lane → <strong>Quality</strong></p>
+<p>Then take the separate outputs:
+- <strong>Root</strong>
+- <strong>Third</strong>
+- <strong>Fifth</strong>
+- <strong>Seventh</strong></p>
+<p>Process each differently.</p>
+<p>This creates true multi-part melodic content, not just static chord stacks.</p>
+<hr />
+<h2>5. Unison Poly Mode creates thick mono lines or interval riffs</h2>
+<p>In <strong>Unison Poly Mode</strong>:
+- all four oscillators are tuned together internally
+- each voice has its own pitch input:
+  - V/Oct → root output
+  - Lead → third output
+  - Voicing → fifth output
+  - Quality → seventh output</p>
+<p>This is excellent for:
+- layered lead synth lines
+- octave/unison riffs
+- detuned-feeling stacks via interval offsets
+- powerfully articulated melodic phrases</p>
+<p>Even though the manual describes them as tuned together, each voice can be externally addressed by its dedicated pitch input. That means you can create:</p>
+<ul>
+<li>same melody on all 4 voices with small differences</li>
+<li>parallel interval melodies</li>
+<li>stacked chord stabs from four sequencer lanes</li>
+</ul>
+<h3>Great lead patch:</h3>
+<ul>
+<li>copy the same sequence to all four pitch inputs</li>
+<li>offset some CVs by octaves or intervals externally</li>
+<li>use different outputs separately or mix them</li>
+<li>add slight modulation to waveform or FM</li>
+</ul>
+<p>This gives a huge supersaw / organ / ensemble style melodic line.</p>
+<hr />
+<h2>6. Separate outputs make melody orchestration easy</h2>
+<p>Chord gives you:</p>
+<ul>
+<li><strong>Root out</strong></li>
+<li><strong>Third out</strong></li>
+<li><strong>Fifth out</strong></li>
+<li><strong>Seventh out</strong></li>
+<li><strong>Mix out</strong></li>
+</ul>
+<p>This matters because melodic writing is not just notes — it’s also <strong>arrangement</strong>.</p>
+<p>You can use the outputs as:</p>
+<ul>
+<li><strong>Root</strong> = bass melody</li>
+<li><strong>Third/Fifth</strong> = inner harmony</li>
+<li><strong>Seventh</strong> = top line / tension line</li>
+<li><strong>Mix</strong> = complete harmonic blend</li>
+</ul>
+<h3>Practical routing ideas:</h3>
+<ul>
+<li>Root → lowpass filter for bass</li>
+<li>Third/Fifth → stereo effects</li>
+<li>Seventh → brighter voice for melody</li>
+<li>Mix → pad or drone layer</li>
+</ul>
+<p>This lets one module generate multiple melodic roles at once.</p>
+<hr />
+<h1>How to use Chord v2 for specific melodic components</h1>
+<h2>A. Chord progression generator</h2>
+<h3>Patch:</h3>
+<ul>
+<li>sequencer → <strong>V/Oct</strong></li>
+<li>envelope/LFO → <strong>Wave</strong></li>
+<li>slow CV → <strong>Quality</strong></li>
+<li>slow CV or manual changes → <strong>Voicing</strong></li>
+<li>output: <strong>Mix</strong></li>
+</ul>
+<h3>Result:</h3>
+<p>A chord progression with timbral evolution.</p>
+<h3>Why it works:</h3>
+<p>The root sequence defines the harmonic movement; Quality and Voicing add emotional and spatial variation.</p>
+<hr />
+<h2>B. Chords plus lead melody</h2>
+<h3>Patch:</h3>
+<ul>
+<li>progression sequencer → <strong>V/Oct</strong></li>
+<li>melody sequencer → <strong>Lead</strong></li>
+<li><strong>Mode = Melody</strong></li>
+<li><strong>Triad = on</strong></li>
+<li><strong>Mix</strong> out = accompaniment</li>
+<li><strong>Seventh</strong> out = lead</li>
+</ul>
+<h3>Result:</h3>
+<p>One module performs both harmony and melody.</p>
+<h3>Best for:</h3>
+<ul>
+<li>techno hooks</li>
+<li>synth-pop progressions</li>
+<li>soundtrack textures</li>
+<li>live improvisation</li>
+</ul>
+<hr />
+<h2>C. Generative tonal melody machine</h2>
+<h3>Patch:</h3>
+<ul>
+<li>random stepped CV → <strong>V/Oct</strong></li>
+<li>random stepped CV → <strong>Lead</strong></li>
+<li><strong>Mode = Melody</strong></li>
+<li><strong>Harm = Major or Minor</strong></li>
+<li>moderate clocking differences between the random sources</li>
+</ul>
+<h3>Result:</h3>
+<p>Self-generating harmonized melodic material that stays in key.</p>
+<h3>Tip:</h3>
+<p>Use <strong>minor mode</strong> for darker melodic behavior; use <strong>major</strong> for brighter, more diatonic movement.</p>
+<hr />
+<h2>D. Four-voice contrapuntal patch</h2>
+<h3>Patch:</h3>
+<ul>
+<li><strong>Mode = Free Poly</strong></li>
+<li>4 CV lanes or sequencers into:</li>
+<li>V/Oct</li>
+<li>Lead</li>
+<li>Voicing</li>
+<li>Quality</li>
+<li>use individual outs instead of Mix</li>
+</ul>
+<h3>Result:</h3>
+<p>Independent melodic lines from one oscillator module.</p>
+<h3>Best for:</h3>
+<ul>
+<li>experimental polyphony</li>
+<li>minimal music</li>
+<li>phase patterns</li>
+<li>evolving harmonic webs</li>
+</ul>
+<hr />
+<h2>E. Thick mono lead</h2>
+<h3>Patch:</h3>
+<ul>
+<li><strong>Mode = Unison Poly</strong></li>
+<li>same or closely related sequence to all pitch inputs</li>
+<li>mix outputs externally</li>
+<li>use a bright wavetable bank</li>
+<li>add linear FM lightly</li>
+</ul>
+<h3>Result:</h3>
+<p>Dense, harmonically rich lead melody.</p>
+<h3>Best for:</h3>
+<ul>
+<li>solos</li>
+<li>hooks</li>
+<li>arpeggiated riffs</li>
+<li>big synth lines</li>
+</ul>
+<hr />
+<h2>F. Bass + upper extension melody</h2>
+<h3>Patch:</h3>
+<ul>
+<li>sequencer → <strong>V/Oct</strong></li>
+<li><strong>Mode = Melody</strong></li>
+<li>another sequencer → <strong>Lead</strong></li>
+<li>Root out → bass voice chain</li>
+<li>Seventh out → lead voice chain</li>
+<li>Mix out or Third/Fifth outs → harmonic support</li>
+</ul>
+<h3>Result:</h3>
+<p>A complete melodic arrangement with low foundation and top-line motion.</p>
+<hr />
+<h1>The waveform side: why it matters melodically</h1>
+<p>Chord v2 has <strong>8 factory waveform banks</strong>:</p>
+<ol>
+<li>Bandlimited traditional waveforms</li>
+<li>Saw through low pass</li>
+<li>FM</li>
+<li>Distorted</li>
+<li>Voice</li>
+<li>Square with pulse-width control</li>
+<li>Video game</li>
+<li>Organ</li>
+</ol>
+<p>For melody, these banks change the role of the line dramatically.</p>
+<h2>Best banks for melodic use</h2>
+<h3>Traditional / filtered saw</h3>
+<ul>
+<li>best for clear pitch perception</li>
+<li>ideal for leads, chord stabs, bass melodies</li>
+</ul>
+<h3>FM</h3>
+<ul>
+<li>adds brightness and motion</li>
+<li>great for expressive melodic hooks</li>
+</ul>
+<h3>Voice</h3>
+<ul>
+<li>excellent for pseudo-choir melodies and formant-like chord lines</li>
+<li>especially strong for sustained harmonic melodies</li>
+</ul>
+<h3>Video game</h3>
+<ul>
+<li>focused, characterful melodic tone</li>
+<li>good for arps and memorable lead lines</li>
+</ul>
+<h3>Organ</h3>
+<ul>
+<li>ideal for block chords, drones, and contrapuntal lines</li>
+</ul>
+<hr />
+<h1>Voicing as a melodic tool, not just chord spacing</h1>
+<p>The <strong>Voicing</strong> control changes inversion and octave spacing.</p>
+<p>This is important because changing voicing can create the feeling of melodic movement even when the root stays the same.</p>
+<p>For example:
+- one held root CV
+- manually or via CV change the voicing
+- the upper voices jump octaves and invert</p>
+<p>That produces:
+- internal line motion
+- rising/falling upper-register phrases
+- pseudo-arpeggiated movement without changing the root</p>
+<h3>Good compositional trick:</h3>
+<p>Hold a single bass note, then sweep or sequence <strong>Voicing</strong>.<br />
+The chord “breathes” and generates melodic contour in the upper notes.</p>
+<p>Especially useful for:
+- ambient
+- drones
+- slow harmonic music
+- cinematic transitions</p>
+<hr />
+<h1>Quality as emotional melodic motion</h1>
+<p>The <strong>Quality</strong> control changes the intervals:</p>
+<ul>
+<li>major 7</li>
+<li>minor 7</li>
+<li>dominant 7</li>
+<li>half diminished</li>
+<li>diminished</li>
+<li>sus 2 / sus 4 style variants</li>
+<li>augmented</li>
+</ul>
+<p>This can be sequenced or modulated to create melodic color changes.</p>
+<h3>Musical effect:</h3>
+<p>Even if the root sequence stays simple, changing quality causes upper notes to move:
+- third shifts between major/minor/sus
+- fifth may flatten or sharpen
+- seventh changes tension</p>
+<p>That creates <strong>embedded melodies inside the harmony</strong>.</p>
+<h3>Example:</h3>
+<p>Hold one root note and sequence Quality:
+- Major 7 → Minor 7 → Dominant 7 → Sus → Augmented</p>
+<p>The upper voices create a moving harmonic melody over a pedal tone.</p>
+<hr />
+<h1>Triad mode is important for clear melodic separation</h1>
+<p>The <strong>Triad</strong> function removes the seventh from the Mix output and boosts level to compensate.</p>
+<p>This is especially useful when:
+- the seventh is being used as a separate lead voice in Melody mode
+- you want the chord to stay less dense
+- you want less harmonic clutter in the accompaniment</p>
+<h3>In practice:</h3>
+<ul>
+<li>Turn on Triad</li>
+<li>Use <strong>Mix</strong> as the backing harmony</li>
+<li>Use <strong>Seventh out</strong> as the melody</li>
+</ul>
+<p>This is one of the most practical “song arrangement” features in the module.</p>
+<hr />
+<h1>User chords: excellent for custom melodic languages</h1>
+<p>Chord v2 can load <strong>12 user chords</strong> from SD card.</p>
+<p>You can define custom interval structures, including microtonal or cluster-based chord shapes.</p>
+<p>Examples from the manual:
+- major: <code>4,7,11</code>
+- minor: <code>3,7,10</code>
+- dominant: <code>4,7,10</code>
+- tone cluster: <code>0.2,0.4,0.6</code></p>
+<p>This means you can design your own melodic-harmonic system.</p>
+<h2>Why that matters musically</h2>
+<p>You can create:
+- quartal chords
+- cluster harmony
+- suspended interval sets
+- gamelan-like stacks
+- custom modal structures
+- microtonal melodic ecosystems</p>
+<p>Then sequence the root note and get a whole custom harmonic melody system from one CV line.</p>
+<h3>Great advanced use:</h3>
+<p>Create 12 user chords that represent your own harmonic vocabulary, then sequence/changing the <strong>Quality</strong> selection across them.<br />
+Now Chord v2 becomes a personal harmonic instrument rather than a fixed chord box.</p>
+<hr />
+<h1>User wavetables for melodic identity</h1>
+<p>The SD card also allows custom wavetable loading.</p>
+<p>That matters for melody because timbre strongly affects perceived phrasing and identity.</p>
+<p>You can use custom waves to create:
+- vocal-ish leads
+- metallic melodic lines
+- sampled spectral movement
+- unique pads and chord colors</p>
+<p>The manual even notes you can drop in a song or sample for unusual results. That’s not always “clean,” but it can yield very distinctive melodic textures.</p>
+<hr />
+<h1>Best companion modules for making melody with Chord v2</h1>
+<p>Even though only Chord is shown in this manual, here’s how it naturally pairs with typical Eurorack tools.</p>
+<h2>1. Sequencer</h2>
+<p>Use one or more pitch sequencers for:
+- root progression
+- separate lead line
+- free poly pitch lanes</p>
+<p>Best roles:
+- one sequencer for chord roots
+- one sequencer for lead melody
+- one CV lane for quality changes</p>
+<hr />
+<h2>2. Quantizer</h2>
+<p>Less necessary because Harm mode already quantizes, but still useful if:
+- you want different scales
+- you want external harmonic control
+- you use Free Poly mode without auto-harm</p>
+<hr />
+<h2>3. Envelope + VCA</h2>
+<p>Chord is an oscillator, so for melodic phrasing you need articulation:
+- note on/off shape
+- plucks
+- stabs
+- sustained pads
+- pulsed chord rhythms</p>
+<p>Without VCA/envelope, you have pitch but not phrasing.</p>
+<hr />
+<h2>4. Filter</h2>
+<p>Vital for turning raw oscillator output into expressive melody:
+- lowpass for warm chords
+- bandpass for vocal-like lead
+- resonance for movement
+- envelope modulation for articulation</p>
+<hr />
+<h2>5. Clocked random / sample &amp; hold</h2>
+<p>Excellent with Harm mode:
+- random CV becomes tonal melody
+- changing root and lead independently makes evolving musical structures</p>
+<hr />
+<h2>6. Mixer</h2>
+<p>Very useful because Chord already provides multiple audio lanes. A mixer lets you:
+- balance root vs upper voices
+- pan voices
+- mute tones
+- build arrangement structure</p>
+<hr />
+<h2>7. Effects</h2>
+<p>Especially effective:
+- chorus for pads and chord beds
+- delay on lead voice
+- reverb on upper harmonies
+- saturation on bass/root</p>
+<hr />
+<h1>A few complete patch recipes</h1>
+<h2>Patch 1: Instant melodic synth-pop voice</h2>
+<ul>
+<li>Sequencer A → <strong>V/Oct</strong></li>
+<li>Sequencer B → <strong>Lead</strong></li>
+<li><strong>Mode = Melody</strong></li>
+<li><strong>Harm = Major</strong></li>
+<li><strong>Triad = On</strong></li>
+<li><strong>Mix</strong> → filter → VCA → reverb</li>
+<li><strong>Seventh</strong> → separate VCA → delay</li>
+</ul>
+<p>You get:
+- chord progression
+- top-line melody
+- clean separation between accompaniment and lead</p>
+<hr />
+<h2>Patch 2: Evolving ambient harmony</h2>
+<ul>
+<li>slow random CV → <strong>V/Oct</strong></li>
+<li>very slow random CV → <strong>Quality</strong></li>
+<li>slow LFO → <strong>Voicing</strong></li>
+<li><strong>Harm = Minor</strong></li>
+<li>choose <strong>Voice</strong> or <strong>Organ</strong> wavetable bank</li>
+<li><strong>Mix</strong> through long reverb</li>
+</ul>
+<p>You get:
+- drifting harmonic melody
+- scale-constrained changes
+- rich ambient chord movement</p>
+<hr />
+<h2>Patch 3: Polyphonic machine-music counterpoint</h2>
+<ul>
+<li><strong>Mode = Free Poly</strong></li>
+<li>four sequencer lanes into all four pitch inputs</li>
+<li>all four outputs to separate VCAs/filters</li>
+<li>each voice gets a different rhythm gate</li>
+</ul>
+<p>You get:
+- quasi-polyphonic independent melodic lines
+- interlocking voices
+- very sophisticated musical texture from one module</p>
+<hr />
+<h2>Patch 4: Thick lead hook</h2>
+<ul>
+<li><strong>Mode = Unison Poly</strong></li>
+<li>copy one melody CV to all pitch inputs</li>
+<li>offset one or two copies by octave externally</li>
+<li>use FM or distorted bank</li>
+<li>mix outputs externally with slight panning/effects</li>
+</ul>
+<p>You get:
+- huge melodic line
+- layered intervals
+- strong front-of-mix synth hook</p>
+<hr />
+<h2>Patch 5: Bassline plus chord stabs</h2>
+<ul>
+<li>Sequence root notes into <strong>V/Oct</strong></li>
+<li>Root out → bass filter/VCA</li>
+<li>Mix out → separate VCA for chord stabs</li>
+<li>trigger both from related but different envelopes</li>
+<li>modulate Quality every few bars</li>
+</ul>
+<p>You get:
+- coordinated bass and harmony
+- strong melodic coherence
+- compact patching</p>
+<hr />
+<h1>Important operational details from the manual</h1>
+<h2>CV ranges</h2>
+<p>Several parameter CV inputs are <strong>-5V to +5V</strong>, added to knob position:
+- Bank
+- Waveform
+- Voicing
+- Quality</p>
+<p>Pitch-related jacks are described as <strong>0V to 5V inputs</strong>:
+- V/Oct
+- Lead</p>
+<p>So for melody building, be aware of your source ranges and attenuation.</p>
+<hr />
+<h2>Calibration</h2>
+<p>Chord v2 can be calibrated for:
+- standard 1V/oct
+- or other systems like Buchla-style standards</p>
+<p>If your melodic intervals feel off across octaves, calibration is worth checking.</p>
+<hr />
+<h2>LFO mode</h2>
+<p>There is also a config option for <strong>LFO_MODE</strong>, which shifts the module 6 octaves lower.</p>
+<p>That turns Chord into four related LFOs instead of audio oscillators.</p>
+<p>While not directly melodic audio, this is very useful for:
+- self-modulating melodic patches
+- slow harmonic CV motion
+- interval-related modulation sent elsewhere</p>
+<p>For example:
+- use Chord in LFO mode
+- send outputs as related modulation to another oscillator’s pitch/filter/index
+- create harmonically structured modulation patterns</p>
+<hr />
+<h1>Bottom line</h1>
+<h2>The strongest melodic uses of Qu-Bit Chord v2 are:</h2>
+<ol>
+<li><strong>Chord progression from one pitch line</strong></li>
+<li><strong>Chord + independent melody in Melody mode</strong></li>
+<li><strong>Generative tonal sequencing with Harm quantization</strong></li>
+<li><strong>Four-voice contrapuntal writing in Free Poly mode</strong></li>
+<li><strong>Stacked lead sounds in Unison Poly mode</strong></li>
+<li><strong>Separating bass, harmony, and lead via individual outputs</strong></li>
+<li><strong>Designing your own melodic language with custom chords and wavetables</strong></li>
+</ol>
+<p>If you approach it just as a “chord oscillator,” you’ll use only part of it.<br />
+If you approach it as a <strong>compact harmonic composition engine</strong>, it becomes a very powerful melodic module.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

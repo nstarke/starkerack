@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Omnitone_Rhythmi</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Omnitone — Rhythmi</h1>
+<ul>
+<li><a href="../../manuals/Rhythmi_Information_Package.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Using Rhythmi to Create Melodic Components</h1>
+<p>Rhythmi is primarily a <strong>drum sequencer</strong>, but it has a few features that make it useful for building <strong>melodic and quasi-melodic material</strong>, especially when paired with other Eurorack modules.</p>
+<h2>What in Rhythmi is melodic?</h2>
+<p>The key melodic feature is:</p>
+<ul>
+<li><strong>TOM CV output</strong></li>
+<li>Outputs tom pitch</li>
+<li>Tracks <strong>1V/oct</strong></li>
+<li>Quantized to a <strong>minor pentatonic scale</strong></li>
+</ul>
+<p>This means Rhythmi is not only generating triggers for percussion, but also a usable pitch control signal. That makes it possible to treat the tom lane as a kind of melodic sequencer.</p>
+<h2>Core patch concept</h2>
+<p>Use Rhythmi as:</p>
+<ul>
+<li>a <strong>rhythmic brain</strong></li>
+<li>a <strong>trigger source</strong></li>
+<li>a <strong>pitched CV source</strong> via the TOM CV output</li>
+</ul>
+<p>Then patch it into:</p>
+<ul>
+<li>an oscillator</li>
+<li>a percussive voice with pitch input</li>
+<li>a low pass gate</li>
+<li>a sampler</li>
+<li>a resonant filter ping setup</li>
+<li>a quantized melodic voice</li>
+</ul>
+<h2>Best ways to extract melody from Rhythmi</h2>
+<h3>1. Tom lane as a melodic sequencer</h3>
+<p>Patch:</p>
+<ul>
+<li><strong>TOM trigger out</strong> → envelope or trigger input of a voice</li>
+<li><strong>TOM CV out</strong> → 1V/oct input of an oscillator or synth voice</li>
+</ul>
+<p>This turns the tom pattern into a melodic line. Since the TOM CV is quantized to minor pentatonic, it will usually sound musical immediately.</p>
+<p>Why this works well:</p>
+<ul>
+<li>The tom rhythm is already pattern-based</li>
+<li>The <strong>Energy</strong> control tends to create tom activity near the end of the loop, so you naturally get melodic fills</li>
+<li>The manual says tom pitch is biased toward a <strong>descending pattern near the end of the loop</strong>, which is excellent for fill-like melodic phrases</li>
+</ul>
+<p>This is one of the strongest hidden musical uses of the module.</p>
+<hr />
+<h3>2. Use the hi-hat gate output to articulate a melodic voice</h3>
+<p>The <strong>HI-HAT output</strong> produces:</p>
+<ul>
+<li>short triggers for closed hat</li>
+<li>longer gates for open hat</li>
+</ul>
+<p>You can repurpose that as <strong>articulation</strong> for a melodic patch:</p>
+<ul>
+<li><strong>HI-HAT out</strong> → envelope gate input / LPG strike input</li>
+<li><strong>TOM CV out</strong> → pitch input of oscillator</li>
+</ul>
+<p>This gives different note lengths depending on whether the pattern generates open or closed hats. So the hat lane can become a kind of phrasing generator for a melody.</p>
+<p>This is especially nice for:</p>
+<ul>
+<li>plucky voices</li>
+<li>noise-plus-filter melodic textures</li>
+<li>LPG-based “bongo melody” patches</li>
+</ul>
+<h2>Interaction of the major controls for melodic use</h2>
+<h3>Energy</h3>
+<p>Energy is extremely useful musically.</p>
+<p>From the manual:</p>
+<ul>
+<li>It increases kick, snare, and tom density</li>
+<li>It introduces more variation</li>
+<li>It creates fills, especially with toms</li>
+<li>At higher levels, crash triggers at loop starts</li>
+</ul>
+<p>For melodic use, this means:</p>
+<ul>
+<li>low Energy = sparse melodic notes</li>
+<li>medium Energy = more active riffs</li>
+<li>high Energy = dense fills and transitions</li>
+</ul>
+<p>You can think of Energy as a <strong>macro for melodic intensity</strong>.</p>
+<p>A great use:
+- Send a slow CV or manually ride Energy during a performance
+- Let the tom melody bloom during transitions</p>
+<h3>Evolve</h3>
+<p>Evolve is the most compositionally interesting parameter.</p>
+<p>It creates related rhythm variations that persist until changed. For melody, that means:</p>
+<ul>
+<li>the TOM trigger pattern changes in related ways</li>
+<li>the melodic contour can feel like variations on a theme</li>
+<li>you can move back to the root rhythm by reducing Evolve</li>
+</ul>
+<p>Musically, Evolve behaves like:
+- phrase mutation
+- controlled recomposition
+- branching variations</p>
+<p>Patch idea:
+- Keep TOM CV patched to an oscillator
+- Use Evolve manually or via CV
+- Generate new branches with the encoder press
+- Return to zero Evolve to come back to the “home phrase”</p>
+<p>That gives you a very playable melodic variation system without traditional step editing.</p>
+<h3>Swing</h3>
+<p>Swing affects every second clock pulse and can push hits late, even beyond following syncopated hits.</p>
+<p>For melodic material this is powerful because it can create:</p>
+<ul>
+<li>lazy or shuffled riffs</li>
+<li>displaced pentatonic motifs</li>
+<li>off-grid melodic fills</li>
+</ul>
+<p>If the tom lane is driving a melodic voice, swing can make it feel much more human and animated.</p>
+<h3>Length</h3>
+<p>Loop length ranges from <strong>2 to 32 clock pulses</strong>.</p>
+<p>For melody:</p>
+<ul>
+<li>short lengths create repeating motifs</li>
+<li>longer lengths create evolving phrases</li>
+</ul>
+<p>Especially useful trick:
+- Set one melodic voice from TOM CV with a long loop
+- Use shorter rhythmic phrases on other outputs
+- This creates polymetric-feeling interplay even though it all comes from one sequencer</p>
+<h2>Base patterns matter for melody</h2>
+<p>The manual explains that there are <strong>5 base patterns</strong>, and these determine the order in which hits appear as density increases.</p>
+<p>This is very important for melodic use because the base pattern is effectively a <strong>phrase skeleton</strong>.</p>
+<p>Changing base pattern changes:</p>
+<ul>
+<li>where notes first appear</li>
+<li>how the melody fills in as density rises</li>
+<li>whether the phrase feels backbeat-heavy, anticipatory, or more circular</li>
+</ul>
+<p>So for melodic patching, base patterns are not just drum feel—they are also <strong>note-order personality</strong>.</p>
+<p>Practical approach:
+1. Set Evolve and Energy low
+2. Dial in tom density/synco
+3. Change base pattern by long pressing encoder
+4. Listen for which one gives the most musical phrase shape
+5. Then add Evolve and Energy</p>
+<h2>Syncopation as melodic placement</h2>
+<p>Rhythmi’s <strong>Synco</strong> control for a piece sets the approximate ratio of on-grid vs off-grid hits.</p>
+<p>For the tom lane, this means the melody can be:</p>
+<ul>
+<li>more anchored</li>
+<li>more syncopated</li>
+<li>more conversational against the beat</li>
+</ul>
+<p>A melodic line with:
+- low synco = stable, grounded riff
+- high synco = offbeat hook or fill language</p>
+<p>This is especially effective when the melodic voice is plucky or percussive.</p>
+<h2>Strong melodic patch examples</h2>
+<h2>Patch 1: Pentatonic tom lead</h2>
+<ul>
+<li><strong>TOM CV out</strong> → oscillator 1V/oct</li>
+<li><strong>TOM out</strong> → envelope trigger</li>
+<li>Envelope → VCA</li>
+<li>Oscillator → filter → VCA</li>
+<li><strong>Clock out</strong> from Rhythmi → modulation reset or synced delay clock</li>
+</ul>
+<p>Use:
+- low tom density for sparse motifs
+- medium Evolve for phrase variation
+- higher Energy for fills</p>
+<p>Result:
+- an automatically varying minor pentatonic lead or riff</p>
+<h2>Patch 2: LPG melodic percussion</h2>
+<ul>
+<li><strong>TOM CV out</strong> → tuned oscillator or resonator pitch</li>
+<li><strong>TOM out</strong> → LPG strike</li>
+<li>Optional: mult <strong>SNARE</strong> or <strong>HI-HAT</strong> out to extra strikes</li>
+<li>Add reverb</li>
+</ul>
+<p>Result:
+- mallet-like melodic percussion
+- naturally fill-oriented phrasing
+- very good for ambient, dub techno, or generative grooves</p>
+<h2>Patch 3: Hi-hat articulation with tom pitch</h2>
+<ul>
+<li><strong>TOM CV out</strong> → oscillator pitch</li>
+<li><strong>HI-HAT out</strong> → envelope gate input</li>
+<li>Oscillator → VCA/LPG</li>
+</ul>
+<p>Result:
+- note lengths vary with open/closed hat behavior
+- more expressive melodic articulation
+- less obviously “tom-based”</p>
+<h2>Patch 4: Crash as melodic phrase reset marker</h2>
+<p>At high Energy, the <strong>CRASH output</strong> triggers at the beginning of each loop.</p>
+<p>Use it to:
+- reset an LFO modulating oscillator timbre
+- retrigger an envelope affecting filter cutoff
+- clock a sequential switch for phrase changes</p>
+<p>This lets the melody feel structured in larger phrases, not just note-by-note.</p>
+<h2>Patch 5: Rhythmic sequencer for sampled melodic slices</h2>
+<ul>
+<li><strong>TOM out</strong> or <strong>HI-HAT out</strong> → sample trigger</li>
+<li><strong>TOM CV out</strong> → sample pitch input or playback rate CV</li>
+<li>Use Evolve to mutate phrase rhythm</li>
+</ul>
+<p>Result:
+- chopped melodic fragments
+- pseudo-sequenced vocal/sample riffs
+- excellent for experimental or breakbeat-oriented music</p>
+<h2>Using Rhythmi with another melodic module</h2>
+<p>Even though Rhythmi is not a traditional note sequencer, it pairs well with:</p>
+<ul>
+<li>analog oscillator voices</li>
+<li>quantizers</li>
+<li>sample players</li>
+<li>resonator voices</li>
+<li>physical modeling percussion</li>
+<li>LPG-based west coast voices</li>
+</ul>
+<p>Especially good pairings would be modules that accept:</p>
+<ul>
+<li>trigger/gate</li>
+<li>1V/oct</li>
+<li>accent/timbre CV</li>
+</ul>
+<p>Then Rhythmi can provide:
+- timing
+- density
+- groove
+- phrase variation
+- some pitch data</p>
+<h2>Musical strengths of Rhythmi for melody</h2>
+<p>Rhythmi is best at melody when you want:</p>
+<ul>
+<li><strong>groove-first melodic writing</strong></li>
+<li><strong>generative fills</strong></li>
+<li><strong>variation without step programming</strong></li>
+<li><strong>pentatonic, percussive, phrase-based lines</strong></li>
+<li><strong>drum/melody hybrid behavior</strong></li>
+</ul>
+<p>It is not ideal if you need:
+- exact note entry
+- harmonic chord sequencing
+- precise scale selection beyond the built-in tom behavior</p>
+<p>But it is excellent for:
+- melodic percussion
+- auxiliary riffs
+- generative lead fragments
+- call-and-response lines with drums
+- evolving pentatonic hooks</p>
+<h2>Best performance strategy</h2>
+<p>A good live workflow for melodic use:</p>
+<ol>
+<li>Start with low <strong>Energy</strong> and low <strong>Evolve</strong></li>
+<li>Dial in tom <strong>Density</strong> and <strong>Synco</strong></li>
+<li>Choose a good <strong>base pattern</strong></li>
+<li>Patch <strong>TOM CV</strong> to a melodic voice</li>
+<li>Add <strong>Swing</strong> for feel</li>
+<li>Increase <strong>Evolve</strong> to explore phrase variations</li>
+<li>Raise <strong>Energy</strong> to generate fills and transitions</li>
+<li>Use <strong>Crash</strong> output as a macro phrase marker elsewhere in the patch</li>
+</ol>
+<p>This makes Rhythmi function like a <strong>groove-driven melodic variation instrument</strong>, not just a drum sequencer.</p>
+<h2>Bottom line</h2>
+<p>Rhythmi can create melodic components mainly through its <strong>TOM CV output</strong>, especially when paired with the <strong>TOM trigger</strong>, <strong>HI-HAT gate behavior</strong>, <strong>Energy</strong>, <strong>Evolve</strong>, and <strong>base pattern</strong> system. Its strength is in producing <strong>organic, groove-locked, pentatonic melodic phrases and fills</strong> rather than programmed note sequences.</p>
+<p>So if you use it as the rhythmic and phrase-generation center of a patch, it can drive:</p>
+<ul>
+<li>melodic tom lines</li>
+<li>pentatonic leads</li>
+<li>tuned percussion</li>
+<li>generative fills</li>
+<li>articulated riffs</li>
+<li>phrase-synced modulation for larger melodic structure</li>
+</ul>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

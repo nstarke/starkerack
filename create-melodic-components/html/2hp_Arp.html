@@ -1,0 +1,471 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Arp</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Arp</h1>
+<ul>
+<li><a href="../../manuals/2hp_Arp_Manual_2023.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://twohp.com/modules/arp">Manual PDF</a></p>
+<h1>2hp Arp — melodic use in a Eurorack system</h1>
+<p>The <strong>2hp Arp</strong> is a <strong>gate-driven arpeggiator</strong> that turns a selected chord into a stepped <strong>V/Oct melodic sequence</strong>. It’s very compact, but musically it can do a lot: chord-based riffs, repeating ostinatos, pseudo-basslines, harmonic motion, and generative melody when paired with clocks, gates, modulation, and quantized pitch destinations.</p>
+<h2>What the module does</h2>
+<p>At its core, <strong>Arp outputs pitch CV</strong> based on:</p>
+<ul>
+<li>a <strong>selected chord</strong></li>
+<li>a <strong>root note</strong></li>
+<li>an <strong>arpeggio mode</strong></li>
+<li>incoming <strong>trigger pulses</strong></li>
+<li>optional <strong>reset pulses</strong></li>
+<li>optional CV over <strong>root</strong> and <strong>chord</strong></li>
+</ul>
+<h3>Main controls and I/O</h3>
+<ul>
+<li><strong>Trig Input</strong></li>
+<li>Advances the arpeggio one step per gate/trigger</li>
+<li>
+<p>Threshold: <strong>0.4V</strong></p>
+</li>
+<li>
+<p><strong>Reset Input</strong></p>
+</li>
+<li>Restarts the pattern at the <strong>root note</strong></li>
+<li>
+<p>Threshold: <strong>0.4V</strong></p>
+</li>
+<li>
+<p><strong>Root Knob</strong></p>
+</li>
+<li>
+<p>Sets the base pitch / chord root</p>
+</li>
+<li>
+<p><strong>Root CV Input</strong></p>
+</li>
+<li>CV control over root</li>
+<li>
+<p>Range: <strong>0V to +5V</strong></p>
+</li>
+<li>
+<p><strong>Chord Knob</strong></p>
+</li>
+<li>
+<p>Selects chord type</p>
+</li>
+<li>
+<p><strong>Chord CV Input</strong></p>
+</li>
+<li>CV control over chord selection</li>
+<li>
+<p>Range: <strong>0V to +5V</strong></p>
+</li>
+<li>
+<p><strong>Mode Knob</strong></p>
+</li>
+<li>
+<p>Selects playback direction/order</p>
+</li>
+<li>
+<p><strong>Output</strong></p>
+</li>
+<li><strong>V/Oct pitch CV output</strong></li>
+<li>Range: <strong>0V to +5V</strong></li>
+</ul>
+<h2>Available chords</h2>
+<p>The module can arpeggiate these chord qualities:</p>
+<ul>
+<li>Major</li>
+<li>Major 7</li>
+<li>Dominant 7</li>
+<li>Minor</li>
+<li>Minor 7</li>
+<li>Diminished</li>
+<li>Half Diminished 7</li>
+<li>Full Diminished 7</li>
+<li>Augmented</li>
+<li>Augmented 7</li>
+<li>Sus 4</li>
+<li>Sus 4 Maj 7</li>
+<li>Sus 4 Min 7</li>
+</ul>
+<p>This makes it much more than a simple “up/down notes” utility — it’s really a <strong>harmony-to-melody converter</strong>.</p>
+<h2>Available arpeggio modes</h2>
+<p>Playback modes include:</p>
+<ul>
+<li>Ascending one octave</li>
+<li>Ascending two octaves</li>
+<li>Descending one octave</li>
+<li>Descending two octaves</li>
+<li>Pendulum one octave</li>
+<li>Pendulum two octaves</li>
+<li>Random one octave</li>
+<li>Random two octaves</li>
+</ul>
+<p>These modes strongly affect the melodic character:</p>
+<ul>
+<li><strong>Ascending/descending</strong> = orderly, classic arpeggios</li>
+<li><strong>Pendulum</strong> = more lyrical, looping shapes</li>
+<li><strong>Random</strong> = generative, less repetitive</li>
+<li><strong>Two-octave</strong> = more dramatic range and movement</li>
+</ul>
+<hr />
+<h1>How to use 2hp Arp for melody</h1>
+<h2>1. Basic chord-to-melody patch</h2>
+<p>This is the most direct use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send a <strong>clock or trigger sequence</strong> to <strong>Trig Input</strong></li>
+<li>Patch <strong>Arp Output</strong> to your oscillator’s <strong>V/Oct</strong></li>
+<li>Send the oscillator to a <strong>VCA/filter/voice path</strong></li>
+<li>Trigger an envelope from the same clock or from a related gate source</li>
+<li>Choose:</li>
+<li><strong>Root</strong></li>
+<li><strong>Chord</strong></li>
+<li><strong>Mode</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Each trigger advances to the next note in the chosen chord, creating a melodic line that stays harmonically coherent.</p>
+<h3>Musical use</h3>
+<ul>
+<li>bass arps</li>
+<li>plucks</li>
+<li>techno sequences</li>
+<li>synthwave ostinatos</li>
+<li>Berlin-school style step motion</li>
+</ul>
+<hr />
+<h2>2. Use reset for phrase structure</h2>
+<p>The <strong>Reset input</strong> is one of the most important features musically.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Fast clock to <strong>Trig</strong></li>
+<li>Slower pulse every 4, 8, or 16 steps to <strong>Reset</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The arp restarts on the root at regular intervals, producing a repeating phrase instead of endlessly drifting.</p>
+<h3>Why it matters</h3>
+<p>Without reset, the pattern may feel more circular or continuous.<br />
+With reset, it becomes more <strong>song-like</strong>:
+- downbeats land on root notes
+- phrases become easier to hear
+- basslines feel more intentional</p>
+<p>This is especially strong in:
+- techno
+- trance
+- arpeggiated pop lines
+- sequenced ambient</p>
+<hr />
+<h2>3. Animate harmony with Root CV</h2>
+<p>The <strong>Root CV input</strong> lets you transpose the entire arpeggio.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a slow sequencer, precision adder source, keyboard CV, or quantized CV to <strong>Root CV</strong></li>
+<li>Keep a steady trigger stream into <strong>Trig</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The arpeggio pattern stays structurally similar, but shifts to new tonal centers.</p>
+<h3>Musical applications</h3>
+<ul>
+<li>chord progressions</li>
+<li>key changes</li>
+<li>moving bass foundations</li>
+<li>verse/chorus transitions</li>
+</ul>
+<h3>Example progression idea</h3>
+<p>Send stepped voltages to Root CV corresponding to:
+- I
+- vi
+- IV
+- V</p>
+<p>Then set the chord quality manually or by CV.<br />
+This gives you a complete <strong>harmonic progression generator</strong> with only a few signals.</p>
+<hr />
+<h2>4. Modulate chord type for harmonic movement</h2>
+<p>The <strong>Chord CV Input</strong> is where things get especially interesting.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a stepped CV source to <strong>Chord CV</strong></li>
+<li>Clock that CV more slowly than the arpeggio triggers</li>
+</ul>
+<h3>Result</h3>
+<p>The chord quality changes while the note stepping continues.</p>
+<h3>Musical applications</h3>
+<ul>
+<li>alternating major/minor colors</li>
+<li>tension/release with 7ths</li>
+<li>unstable cinematic diminished motion</li>
+<li>suspended chords for modal textures</li>
+</ul>
+<h3>Tip</h3>
+<p>For musical results, clock chord changes at slower divisions:
+- note changes every 16th
+- chord changes every bar or half-bar</p>
+<p>This creates a strong hierarchy:
+- fast motion = melody
+- slow motion = harmony</p>
+<hr />
+<h2>5. Build full progressions with both Root CV and Chord CV</h2>
+<p>This is where Arp becomes a compact composition tool.</p>
+<h3>Patch concept</h3>
+<ul>
+<li><strong>Trig:</strong> steady clock</li>
+<li><strong>Reset:</strong> phrase reset every 8 or 16 steps</li>
+<li><strong>Root CV:</strong> progression source</li>
+<li><strong>Chord CV:</strong> chord-quality source</li>
+<li><strong>Output:</strong> oscillator V/Oct</li>
+</ul>
+<h3>Result</h3>
+<p>You get a melody that reflects:
+- harmonic root movement
+- chord quality changes
+- pattern direction
+- octave span</p>
+<p>This is enough to generate:
+- evolving arpeggiated hooks
+- soundtrack patterns
+- melodic techno motifs
+- generative tonal lines</p>
+<hr />
+<h1>Best pairings with other Eurorack modules</h1>
+<p>The manual only covers the Arp itself, but musically, here’s how it works with common module types.</p>
+<h2>With a clock source</h2>
+<p>A clock or trigger sequencer is essential because Arp is <strong>gate-driven</strong>.</p>
+<p>Use:
+- master clocks
+- trigger sequencers
+- Euclidean triggers
+- clock dividers/multipliers
+- manual gate buttons</p>
+<h3>Why</h3>
+<p>The timing source determines:
+- note density
+- groove
+- syncopation
+- phrasing</p>
+<p>A rigid clock gives machine-like precision.<br />
+Irregular trigger sources give broken, human, or generative melodies.</p>
+<hr />
+<h2>With an oscillator or full voice</h2>
+<p>Arp outputs <strong>pitch CV only</strong>, so it needs a sound source.</p>
+<p>Good destinations:
+- analog VCO
+- wavetable oscillator
+- FM voice
+- pluck voice
+- physical modeling voice
+- any full synth voice with V/Oct input</p>
+<h3>Why</h3>
+<p>Different voices change the role of the arp:
+- sine/triangle = bass or minimal melody
+- saw/pulse = classic synth arps
+- wavetable = modern animated sequences
+- FM = metallic/cinematic patterns</p>
+<hr />
+<h2>With envelopes and VCAs</h2>
+<p>To hear discrete notes, patch triggers to an envelope and VCA.</p>
+<h3>Typical patch</h3>
+<ul>
+<li>Clock mult:</li>
+<li>one copy to <strong>Arp Trig</strong></li>
+<li>one copy to <strong>Envelope Gate/Trig</strong></li>
+<li>Envelope to VCA CV</li>
+<li>Oscillator through VCA</li>
+<li>Arp output to oscillator pitch</li>
+</ul>
+<h3>Result</h3>
+<p>Each pitch step becomes an articulated note.</p>
+<h3>Variation</h3>
+<p>Use a different rhythmic trigger for the envelope than for the arp advance:
+- arp moves on every 16th
+- envelope opens only on selected steps</p>
+<p>This creates <strong>implied melodies</strong> and rhythmic variation.</p>
+<hr />
+<h2>With filters</h2>
+<p>If you patch the voice through a filter, you can make the melodic line feel more expressive.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>envelope to filter cutoff</li>
+<li>LFO to cutoff</li>
+<li>accent gate to cutoff CV</li>
+<li>reset pulse to a burst envelope affecting brightness</li>
+</ul>
+<h3>Result</h3>
+<p>The harmony may stay constant while timbre adds motion, making the arp more musical and less static.</p>
+<hr />
+<h2>With sequencers</h2>
+<p>Sequencers pair beautifully with Arp, especially if you use them not for direct pitch, but for <strong>meta-control</strong>.</p>
+<p>Use a sequencer to control:
+- <strong>Root CV</strong>
+- <strong>Chord CV</strong>
+- <strong>Mode changes</strong> via manual performance between takes
+- resets and phrase length</p>
+<h3>Why this is powerful</h3>
+<p>Instead of sequencing every note directly, you sequence the <strong>rules</strong> that generate the notes.</p>
+<p>That gives:
+- coherent tonal output
+- less programming
+- more happy accidents</p>
+<hr />
+<h2>With random / sample-and-hold / chaos sources</h2>
+<p>These are great for generative work.</p>
+<h3>Good uses</h3>
+<ul>
+<li>random stepped CV to <strong>Root CV</strong></li>
+<li>restrained random CV to <strong>Chord CV</strong></li>
+<li>irregular gates to <strong>Trig</strong></li>
+<li>slow random pulse to <strong>Reset</strong></li>
+</ul>
+<h3>Result</h3>
+<p>A self-moving melodic network that still sounds harmonically structured because Arp constrains note choices to chord tones.</p>
+<p>This is one of the best uses of the module:<br />
+<strong>randomness with harmonic containment</strong>.</p>
+<hr />
+<h2>With quantizers</h2>
+<p>You may not always need a quantizer after Arp, since it already outputs pitch in a structured harmonic system. But quantizers can still help upstream or downstream.</p>
+<h3>Useful placements</h3>
+<ul>
+<li>Quantize CV going into <strong>Root CV</strong></li>
+<li>Quantize external transposition sources</li>
+<li>Use a precision adder + quantizer combo for key control</li>
+</ul>
+<h3>Why</h3>
+<p>This helps keep chord roots aligned to a chosen scale or song key.</p>
+<hr />
+<h2>With precision adders / offsets</h2>
+<p>A precision adder is very useful if you want to transpose the arp while preserving interval relationships.</p>
+<h3>Use cases</h3>
+<ul>
+<li>add keyboard CV to Arp output</li>
+<li>add bass transposition</li>
+<li>layer multiple pitch influences</li>
+<li>create call-and-response by offsetting copies</li>
+</ul>
+<hr />
+<h1>Melodic patch recipes</h1>
+<h2>Patch 1: Classic synth arpeggio</h2>
+<ul>
+<li>Clock → Trig</li>
+<li>Reset every 8 steps → Reset</li>
+<li>Arp Out → VCO V/Oct</li>
+<li>Clock → Envelope trig</li>
+<li>VCO → VCF → VCA</li>
+<li>Set chord to <strong>Minor 7</strong></li>
+<li>Mode = <strong>Ascending one octave</strong></li>
+</ul>
+<p><strong>Sound:</strong> tight, classic, musical arp line</p>
+<hr />
+<h2>Patch 2: Bass ostinato with harmonic change</h2>
+<ul>
+<li>16th-note trigger → Trig</li>
+<li>Bar reset → Reset</li>
+<li>Slow sequencer → Root CV</li>
+<li>Chord fixed to <strong>Minor</strong> or <strong>Dominant 7</strong></li>
+<li>Arp Out → bass oscillator</li>
+</ul>
+<p><strong>Sound:</strong> repeating bass figure that follows a progression</p>
+<hr />
+<h2>Patch 3: Generative ambient melody</h2>
+<ul>
+<li>Irregular trigger source → Trig</li>
+<li>Slow random pulse → Reset</li>
+<li>Slow random stepped CV → Root CV</li>
+<li>Very slow stepped modulation → Chord CV</li>
+<li>Mode = <strong>Random two octaves</strong></li>
+<li>Arp Out → mellow voice or resonator</li>
+</ul>
+<p><strong>Sound:</strong> evolving melodic fragments with harmonic identity</p>
+<hr />
+<h2>Patch 4: Suspended tension pattern</h2>
+<ul>
+<li>Clock → Trig</li>
+<li>Reset every 16 steps</li>
+<li>Chord set to <strong>Sus 4</strong>, <strong>Sus 4 Maj 7</strong>, or <strong>Sus 4 Min 7</strong></li>
+<li>Mode = <strong>Pendulum one octave</strong></li>
+<li>Bright plucked voice</li>
+</ul>
+<p><strong>Sound:</strong> unresolved, floating melodic texture great for intros and breakdowns</p>
+<hr />
+<h2>Patch 5: Dark cinematic motion</h2>
+<ul>
+<li>Clocked triggers → Trig</li>
+<li>Root sequence moves slowly</li>
+<li>Chord CV alternates between:</li>
+<li>Diminished</li>
+<li>Half Diminished 7</li>
+<li>Full Diminished 7</li>
+<li>Mode = <strong>Descending two octaves</strong></li>
+</ul>
+<p><strong>Sound:</strong> ominous, unstable, tension-heavy melodic movement</p>
+<hr />
+<h1>Performance strategies</h1>
+<h2>Use reset as a musical downbeat</h2>
+<p>If you manually or rhythmically fire reset at section starts, the pattern feels intentional and anchored.</p>
+<h2>Perform chord changes live</h2>
+<p>The <strong>Chord knob</strong> is performance-friendly. Sweeping between major, minor, suspended, augmented, and 7th-based chords can dramatically change mood without repatching.</p>
+<h2>Switch modes for arrangement changes</h2>
+<p>Even with the same root and chord:
+- <strong>Ascending</strong> = verse energy
+- <strong>Pendulum</strong> = flowing bridge
+- <strong>Random</strong> = breakdown or ambient section
+- <strong>Two-octave</strong> = lift or climax</p>
+<h2>Use slower modulation for structure</h2>
+<p>Fast note triggers with slow root/chord modulation give a musically readable hierarchy.</p>
+<h2>Layer multiple voices</h2>
+<p>Mult the Arp output to:
+- a bass voice
+- a higher pluck voice
+- a delayed or reverb-heavy texture</p>
+<p>If transposed or timbrally separated, one arp stream can become a complete melodic stack.</p>
+<hr />
+<h1>Practical notes from the manual</h1>
+<h2>Voltage ranges</h2>
+<ul>
+<li><strong>Root CV:</strong> 0V to +5V</li>
+<li><strong>Chord CV:</strong> 0V to +5V</li>
+<li><strong>Output:</strong> 0V to +5V</li>
+</ul>
+<p>That means it plays in a fairly standard Eurorack pitch space and should work well with most V/Oct inputs.</p>
+<h2>Trigger/reset thresholds</h2>
+<ul>
+<li><strong>Trig threshold:</strong> 0.4V</li>
+<li><strong>Reset threshold:</strong> 0.4V</li>
+</ul>
+<p>So standard Eurorack triggers and gates should work fine.</p>
+<h2>Size and power</h2>
+<ul>
+<li><strong>Width:</strong> 2HP</li>
+<li><strong>Depth:</strong> 45mm</li>
+<li><strong>Power:</strong> +12V 40mA, -12V 3mA, +5V 0mA</li>
+</ul>
+<p>Very easy to fit into a small system, especially if you want a compact melodic utility.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>2hp Arp</strong> is best thought of as a <strong>melodic engine</strong> rather than just an effect or helper module. It works especially well when combined with:</p>
+<ul>
+<li>a <strong>clock/trigger source</strong></li>
+<li>a <strong>voice or oscillator</strong></li>
+<li><strong>envelopes + VCA</strong></li>
+<li>optionally a <strong>sequencer</strong> for root/chord movement</li>
+<li>optionally <strong>random/modulation</strong> sources for generative behavior</li>
+</ul>
+<p>Its strength is that it creates melodies that are:
+- rhythmically driven
+- harmonically constrained
+- easy to transpose
+- compact to patch
+- performable in real time</p>
+<p>So if you want <strong>musical melodic content quickly</strong>, this module is excellent for:
+- arpeggios
+- ostinatos
+- basslines
+- harmonic motifs
+- generative tonal melodies</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

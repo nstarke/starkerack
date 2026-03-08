@@ -1,0 +1,459 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Nautilus</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Nautilus</h1>
+<ul>
+<li><a href="../../manuals/Nautilus_v1.1.3.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="about:blank">Manual PDF: Qu-Bit Nautilus Manual v1.1.3</a></p>
+<h1>Using Qu-Bit Nautilus to Create Melodic Components</h1>
+<p>Based on the attached manual, the module here is:</p>
+<ul>
+<li><strong>Qu-Bit Nautilus</strong> — a stereo, clockable, multi-line delay network with CV/gate generation via <strong>Sonar</strong></li>
+</ul>
+<p>Even though Nautilus is “just” a delay on paper, it can absolutely become a <strong>melody-making module</strong> in a Eurorack system. Its combination of clock sync, multiple delay taps, pitch-shifted modes, reverse delays, filtering/distortion in the feedback path, freeze, and Sonar CV/gate output makes it useful for generating:</p>
+<ul>
+<li>melodic echoes</li>
+<li>harmonized lines</li>
+<li>pseudo-sequences</li>
+<li>canon/round-style counterpoint</li>
+<li>stepped CV modulation for pitch</li>
+<li>self-generating melodic textures</li>
+</ul>
+<hr />
+<h2>What Nautilus contributes melodically</h2>
+<p>Nautilus is strongest as a <strong>melodic elaboration processor</strong>, not as a traditional oscillator/sequencer. It turns simple input material into musical pitch/rhythm structures.</p>
+<p>Key features that matter for melody:</p>
+<ul>
+<li><strong>Clocked delay times</strong> via internal tap tempo or external clock</li>
+<li><strong>Resolution</strong> divisions/multiplications from long note values down to very fast clock rates</li>
+<li><strong>8 delay lines total</strong> via <strong>Sensors</strong></li>
+<li><strong>Delay spacing</strong> via <strong>Dispersal</strong></li>
+<li><strong>Reverse playback</strong> of selected delay lines via <strong>Reversal</strong></li>
+<li><strong>Pitch-shifting delay modes</strong>:</li>
+<li><strong>Shimmer</strong> = transposed up</li>
+<li><strong>De-Shimmer</strong> = transposed down</li>
+<li><strong>Feedback path coloration</strong> with filters, bit crushing, saturation, wavefolding, distortion</li>
+<li><strong>Freeze</strong> to lock a rhythmic/melodic fragment</li>
+<li><strong>Sonar output</strong> as stepped CV, clock, or ping/gate depending on configurator settings</li>
+</ul>
+<p>This means Nautilus can act as:</p>
+<ol>
+<li><strong>A harmonizer</strong></li>
+<li><strong>A rhythmic melody multiplier</strong></li>
+<li><strong>A source of melodic CV</strong></li>
+<li><strong>A frozen motif looper</strong></li>
+<li><strong>A self-patching generative melody engine</strong></li>
+</ol>
+<hr />
+<h1>Best ways to use Nautilus for melody</h1>
+<h2>1. Turn a simple sequence into layered melodic counterpoint</h2>
+<p>If you feed Nautilus a basic monophonic line—say, a short 3–5 note sequence—it can create a melodic “ensemble” around it.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a melodic voice into Nautilus</li>
+<li>Clock Nautilus from the same master clock as your sequencer</li>
+<li>Set:</li>
+<li><strong>Resolution</strong> to quarter, eighth, dotted eighth, or triplet values</li>
+<li><strong>Sensors</strong> to 2–4</li>
+<li><strong>Dispersal</strong> low to medium</li>
+<li><strong>Feedback</strong> around 9–11 o’clock</li>
+<li><strong>Mix</strong> to taste</li>
+</ul>
+<h3>What happens</h3>
+<p>Each delay line becomes a musically related repetition. With more Sensors active, Nautilus creates a cluster of timed repeats. With careful Resolution and Dispersal settings, those repeats become <strong>rhythmic melodic companions</strong> rather than mere echoes.</p>
+<h3>Musical result</h3>
+<ul>
+<li>canon-like phrases</li>
+<li>cascading arpeggio tails</li>
+<li>polyrhythmic melodic decorations</li>
+<li>stereo call-and-response</li>
+</ul>
+<p>This is especially effective if the source melody is sparse.</p>
+<hr />
+<h2>2. Use Shimmer and De-Shimmer as harmony generators</h2>
+<p>The manual makes clear that <strong>Shimmer</strong> shifts the delayed signal upward and <strong>De-Shimmer</strong> downward. By default these are octave shifts, but via USB configurator they can be changed to <strong>1–12 semitones</strong>.</p>
+<p>That makes Nautilus a strong <strong>harmonic melody builder</strong>.</p>
+<h3>Useful interval choices</h3>
+<p>If configurable:
+- <strong>+7 semitones</strong> for fifth-above harmony
+- <strong>+12</strong> for octave doubling
+- <strong>-5</strong> or <strong>-7</strong> for lower harmonic support
+- <strong>+3 / +4</strong> for minor/major third color</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Input: short plucked or melodic phrase</li>
+<li>Delay Mode: <strong>Shimmer</strong></li>
+<li>Feedback Mode: <strong>Ping Pong</strong>, <strong>Cascade</strong>, or <strong>Adrift</strong></li>
+<li>Resolution: slower values</li>
+<li>Feedback: moderate</li>
+</ul>
+<h3>Result</h3>
+<p>You get a delayed harmony line that evolves each repeat. In <strong>Cascade</strong> or <strong>Adrift</strong>, later delay lines can stack into increasingly transformed pitch material.</p>
+<h3>Why this is good for melody</h3>
+<p>Instead of static harmonization, Nautilus creates <strong>time-displaced harmony</strong>, which is often more musical in modular because it avoids muddy chord blocks.</p>
+<hr />
+<h2>3. Build arpeggio-like melodic structures with Sensors + Dispersal</h2>
+<p>The most important melodic architecture in Nautilus is the relationship between:</p>
+<ul>
+<li><strong>Sensors</strong> = how many delay lines are active</li>
+<li><strong>Dispersal</strong> = spacing between those lines</li>
+<li><strong>Resolution</strong> = base rhythmic division</li>
+</ul>
+<p>This is where the module starts behaving like a melodic phrase generator.</p>
+<h3>How to think about it</h3>
+<ul>
+<li><strong>1 Sensor</strong>: simple stereo dual-delay feel</li>
+<li><strong>More Sensors</strong>: more taps per side</li>
+<li><strong>More Dispersal</strong>: taps spread into patterns rather than landing together</li>
+</ul>
+<h3>Melodic use</h3>
+<p>Feed in:
+- a pluck
+- a short sequence
+- a quantized random melody
+- a single note from a keyboard</p>
+<p>Then:
+- set <strong>Sensors</strong> to 3 or 4
+- set <strong>Dispersal</strong> from low to medium-high
+- set <strong>Feedback</strong> just below self-oscillation</p>
+<p>Now the taps outline rhythmic constellations that can feel like:
+- broken chords
+- pseudo-arpeggios
+- strummed harmonies
+- interlocking melodic cells</p>
+<p>If the source itself changes pitch each note, the delay network smears that into <strong>melodic patterns with internal rhythm</strong>.</p>
+<hr />
+<h2>4. Use Freeze as a melodic phrase looper</h2>
+<p><strong>Freeze</strong> locks the current delay buffer. The manual notes that while frozen, changing <strong>Resolution</strong> turns the wet signal into a beat-repeat style transformation.</p>
+<p>For melody, this is extremely useful.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Play or sequence a short melodic fragment into Nautilus</li>
+<li>Hit <strong>Freeze</strong> at a good moment</li>
+<li>Then modulate or manually move:</li>
+<li><strong>Resolution</strong></li>
+<li><strong>Reversal</strong></li>
+<li><strong>Chroma/Depth</strong></li>
+<li>maybe <strong>Dispersal</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The frozen material becomes a looped motif. Since it is synchronized to the clock, it can act like a chopped melodic sample.</p>
+<h3>Musical uses</h3>
+<ul>
+<li>capture a phrase and turn it into a riff</li>
+<li>freeze a note tail and make a rhythmic ostinato</li>
+<li>create melodic fills between sequencer phrases</li>
+<li>perform live transitions by freezing the outgoing melody</li>
+</ul>
+<p>If <strong>Quantize Freeze</strong> is enabled in the configurator, the freeze occurs on the next clock pulse, which makes this much easier to use musically.</p>
+<hr />
+<h2>5. Generate melodic CV with Sonar</h2>
+<p>This is the biggest hidden melodic feature.</p>
+<p>The <strong>Sonar output</strong> can produce:
+- <strong>Stepped Voltage</strong>
+- <strong>Master Clock</strong>
+- <strong>Variable Clock</strong></p>
+<p>For melody, the important mode is <strong>Stepped Voltage</strong>.</p>
+<p>The manual says Sonar creates an additive stepped CV sequence by analyzing overlapping delay lines and delay phases.</p>
+<p>That means Nautilus can become a <strong>CV generator derived from the musical behavior of the delay network</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Set Sonar to <strong>Stepped Voltage</strong></li>
+<li>Patch <strong>Sonar out</strong> to:</li>
+<li>oscillator <strong>1V/oct</strong> through a quantizer</li>
+<li>sequencer transpose input</li>
+<li>wavetable/model/timbre parameter</li>
+<li>filter tracking input</li>
+<li>another voice’s pitch, with attenuation</li>
+</ul>
+<h3>Why quantizer helps</h3>
+<p>Sonar outputs 0 to +5V stepped CV, but not necessarily scale-constrained notes. Run it into a quantizer and you get a melody source tied directly to Nautilus’s delay behavior.</p>
+<h3>Result</h3>
+<p>The rhythm and density of the delay network become the cause of pitch movement. This is excellent for:
+- self-generating melodies
+- related countermelodies
+- “echoes that become notes elsewhere”
+- pseudo-fractal composition</p>
+<p>This is arguably Nautilus’s most powerful role in melodic systems.</p>
+<hr />
+<h2>6. Self-patch Nautilus into melodic motion</h2>
+<p>The manual’s “Octopus” patch suggests splitting <strong>Sonar</strong> to multiple Nautilus CV inputs. This is a classic modular move and very effective.</p>
+<h3>Good melodic self-patch targets</h3>
+<ul>
+<li><strong>Resolution CV</strong> — changes rhythmic note placement</li>
+<li><strong>Reversal CV</strong> — changes phrase orientation</li>
+<li><strong>Depth CV</strong> — evolves tonal color of repeats</li>
+<li><strong>Sensors CV</strong> — changes number of active melodic taps</li>
+<li><strong>Dispersal CV</strong> — changes spread of “notes” in time</li>
+</ul>
+<h3>Why this helps melody</h3>
+<p>As the Sonar CV changes the internal delay topology, the resulting echoes evolve in a causally linked way. It feels less random than feeding unrelated modulation into the module.</p>
+<h3>Best practice</h3>
+<p>If using pitch material elsewhere, mult Sonar:
+- one copy to a quantizer -&gt; oscillator pitch
+- another copy back into Nautilus CV</p>
+<p>This creates a feedback relationship between melody generation and melodic processing.</p>
+<hr />
+<h2>7. Make call-and-response lines with Ping Pong and Reversal</h2>
+<p>For melodic content, stereo placement matters. Nautilus has two especially useful feedback modes:</p>
+<ul>
+<li><strong>Ping Pong</strong></li>
+<li><strong>Adrift</strong></li>
+</ul>
+<p>and one special phrase-transform control:</p>
+<ul>
+<li><strong>Reversal</strong></li>
+</ul>
+<h3>Melodic effect</h3>
+<p>A melody entered on one side can bounce, answer itself, or return reversed.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Input a mono melodic voice only to the left input</li>
+<li>Break right-input normalization if needed, per manual</li>
+<li>Set feedback mode to <strong>Ping Pong</strong></li>
+<li>Add some <strong>Reversal</strong></li>
+<li>Moderate Sensors</li>
+<li>Low-medium Dispersal</li>
+</ul>
+<h3>Result</h3>
+<p>Your melody becomes a conversation:
+- phrase on left
+- echo answer on right
+- some taps reversed
+- some taps shifted if in shimmer mode</p>
+<p>This is a great way to make a single melody line feel orchestrated.</p>
+<hr />
+<h2>8. Use Cascade and Adrift to create long-form melodic development</h2>
+<p>The manual notes:
+- <strong>Cascade</strong> feeds delays serially within channel
+- <strong>Adrift</strong> feeds delay lines across channels
+- Cascade can reach very long total delays</p>
+<p>These modes are especially good for melody because serial processing creates <strong>evolution over repeats</strong>, not just repetition.</p>
+<h3>Melodic benefits</h3>
+<ul>
+<li>delayed notes transform before the next repetition</li>
+<li>shimmer/de-shimmer accumulates musically</li>
+<li>phrase fragments migrate in stereo</li>
+<li>later taps can feel like “secondary voices”</li>
+</ul>
+<h3>Great use case</h3>
+<p>Patch in a slow sequence or arpeggio:
+- Delay Mode: <strong>Shimmer</strong> or <strong>De-Shimmer</strong>
+- Feedback Mode: <strong>Cascade</strong> or <strong>Adrift</strong>
+- Sensors: 2–4
+- Feedback: moderate</p>
+<p>Now each subsequent delay line can act like a later stage of melodic mutation.</p>
+<p>This is especially good for:
+- ambient melodic music
+- Berlin-school style sequencing
+- evolving tonal drones
+- generative counterpoint</p>
+<hr />
+<h2>9. Clock at audio rates for pitched resonant melodic tones</h2>
+<p>The manual says clock can range up to <strong>1 kHz</strong>, and the patch example “Train Horn” uses very fast clocks for audio-like behavior.</p>
+<p>This opens a less obvious melodic use: <strong>pitched resonator-style behavior</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Feed a simple sound or transient</li>
+<li>Push clock very fast</li>
+<li>Set Sensors high</li>
+<li>Use filtering via Chroma</li>
+<li>Adjust Resolution and Dispersal</li>
+</ul>
+<h3>Result</h3>
+<p>Nautilus can enter territories that produce pitched resonances or comb-filter-like tones.</p>
+<p>This can be used melodically if the clock source is controlled or sequenced.</p>
+<h3>Good musical application</h3>
+<ul>
+<li>tune the clock source to notes or ratios</li>
+<li>strike Nautilus with short envelopes/sounds</li>
+<li>use it as a tuned resonant echo body</li>
+</ul>
+<p>This is not conventional 1V/oct melodic tracking, but it can absolutely generate playable pitched material.</p>
+<hr />
+<h1>How to pair Nautilus with other module types for melody</h1>
+<p>Since the attached manual only covers Nautilus, the best answer is in terms of <strong>what kinds of modules pair well with it</strong>.</p>
+<h2>1. With a sequencer</h2>
+<p>Use Nautilus to expand a simple sequence into a full melodic texture.</p>
+<p>Best pairings:
+- 8-step sequencer
+- generative sequencer
+- quantized random source</p>
+<p>Use case:
+- sequencer provides core pitch
+- Nautilus provides harmony, phrasing, and variation</p>
+<hr />
+<h2>2. With a quantizer</h2>
+<p>A quantizer is one of the best companions because of <strong>Sonar stepped CV</strong>.</p>
+<p>Use case:
+- Sonar -&gt; quantizer -&gt; oscillator 1V/oct
+- same master clock to sequencer + Nautilus</p>
+<p>Now Nautilus produces a related second melody.</p>
+<hr />
+<h2>3. With a voice module</h2>
+<p>Any voice with clear pitch articulation works well:
+- plucks
+- FM tones
+- wavetable leads
+- simple filtered saw/pulse</p>
+<p>Why:
+Nautilus performs best melodically when the input has distinct note onsets and enough space between them.</p>
+<hr />
+<h2>4. With envelopes and VCAs</h2>
+<p>Shorter note shapes yield clearer melodic delay structures.</p>
+<p>Use case:
+- use plucky envelopes into a VCA before Nautilus
+- keep source sparse
+- let the delay network fill in the rest</p>
+<p>This is one of the easiest ways to “compose with delay.”</p>
+<hr />
+<h2>5. With stereo voices or panning</h2>
+<p>Since Nautilus is true stereo and feedback modes respond to stereo image, sending stereo material creates more complex melodic spatial interplay.</p>
+<p>Use case:
+- two related voices into left/right
+- one melody, one drone
+- one dry voice and one transposed voice</p>
+<hr />
+<h2>6. With clock dividers/multipliers or logic</h2>
+<p>Because Nautilus is clock-centric, changing the clock source changes the musicality.</p>
+<p>Use case:
+- use variable clocks for expressive delay pitch movement
+- feed irregular trigger clocks for broken melodic timing
+- use logic-derived rhythms for unusual tap placement</p>
+<hr />
+<h1>Strong melodic patch recipes</h1>
+<h2>Patch 1: Harmonized echo lead</h2>
+<p><strong>Goal:</strong> make one melody sound like two or three voices</p>
+<ul>
+<li>Voice -&gt; Nautilus input</li>
+<li>External clock from master</li>
+<li>Delay Mode: <strong>Shimmer</strong></li>
+<li>Feedback Mode: <strong>Ping Pong</strong></li>
+<li>Resolution: dotted eighth or quarter</li>
+<li>Sensors: 2–3</li>
+<li>Dispersal: low</li>
+<li>Feedback: 9–10 o’clock</li>
+</ul>
+<p>If available in configurator:
+- set shimmer to <strong>+7 semitones</strong> instead of +12</p>
+<p><strong>Result:</strong> melodic echoes that function like harmonized lead lines.</p>
+<hr />
+<h2>Patch 2: Generative countermelody</h2>
+<p><strong>Goal:</strong> create a second melody derived from the delay network</p>
+<ul>
+<li>Main melody -&gt; Nautilus</li>
+<li>Sonar set to <strong>Stepped Voltage</strong></li>
+<li>Sonar -&gt; quantizer -&gt; second oscillator pitch</li>
+<li>Same clock into Nautilus and sequencer</li>
+<li>Resolution: medium</li>
+<li>Sensors: 3–4</li>
+<li>Dispersal: medium</li>
+<li>Feedback: medium</li>
+</ul>
+<p><strong>Result:</strong> a second melodic part that is rhythmically and structurally tied to the first.</p>
+<hr />
+<h2>Patch 3: Frozen riff machine</h2>
+<p><strong>Goal:</strong> capture and transform a melodic phrase</p>
+<ul>
+<li>Sequence a short phrase into Nautilus</li>
+<li>Hit <strong>Freeze</strong> on a musically strong moment</li>
+<li>Modulate <strong>Resolution</strong></li>
+<li>Add some <strong>Reversal</strong></li>
+<li>Try <strong>De-Shimmer</strong></li>
+</ul>
+<p><strong>Result:</strong> the phrase becomes a looped riff or rhythmic motif.</p>
+<hr />
+<h2>Patch 4: Serial melodic bloom</h2>
+<p><strong>Goal:</strong> evolving melody cloud</p>
+<ul>
+<li>Slow arpeggio into Nautilus</li>
+<li>Delay Mode: <strong>Shimmer</strong></li>
+<li>Feedback Mode: <strong>Cascade</strong></li>
+<li>Resolution: long</li>
+<li>Sensors: 3–4</li>
+<li>Dispersal: medium</li>
+<li>Feedback: medium-high</li>
+</ul>
+<p><strong>Result:</strong> each repeat blooms upward into layered melodic overtones.</p>
+<hr />
+<h2>Patch 5: Self-generating melody network</h2>
+<p><strong>Goal:</strong> Nautilus helps compose itself</p>
+<ul>
+<li>Sonar -&gt; mult</li>
+<li>One copy -&gt; quantizer -&gt; oscillator pitch</li>
+<li>One copy -&gt; Nautilus Resolution CV</li>
+<li>One copy -&gt; Nautilus Reversal or Depth CV</li>
+<li>Voice output -&gt; Nautilus input</li>
+</ul>
+<p><strong>Result:</strong> a closed ecosystem where delay structure and melody co-evolve.</p>
+<hr />
+<h1>Parameters that matter most for melody</h1>
+<p>If you only focus on a few controls, make it these:</p>
+<h2>Resolution</h2>
+<p>This determines whether the result feels like:
+- rhythmic accompaniment
+- strumming
+- ornamentation
+- dense fluttering melodic debris</p>
+<p>For melody, sync is crucial.</p>
+<h2>Sensors</h2>
+<p>More lines = more notes/events.</p>
+<h2>Dispersal</h2>
+<p>This is where echoes become phrases.</p>
+<h2>Delay Mode</h2>
+<ul>
+<li><strong>Fade</strong> for clean musical time changes</li>
+<li><strong>Doppler</strong> for pitch-bending transitions</li>
+<li><strong>Shimmer/De-Shimmer</strong> for harmony</li>
+</ul>
+<h2>Feedback</h2>
+<p>Too little = no phrase development<br />
+Too much = harmonic clutter<br />
+Sweet spot usually lives in the lower-middle range.</p>
+<h2>Reversal</h2>
+<p>Useful for making motifs feel answered or rephrased.</p>
+<h2>Sonar</h2>
+<p>This is the bridge from delay effect to melody generator.</p>
+<hr />
+<h1>Practical musical advice</h1>
+<h2>Use sparse input</h2>
+<p>Nautilus becomes most melodic when the source leaves space. Too many notes in, and the result can become textural instead of melodic.</p>
+<h2>Quantize Sonar</h2>
+<p>If using Sonar for pitch, a quantizer makes it instantly more usable.</p>
+<h2>Slow down shimmer</h2>
+<p>The manual’s own patch example recommends longer times for shimmer. That is correct musically: slower shimmer usually sounds more melodic and less smeared.</p>
+<h2>Use Cascade/Adrift for “composed” feeling</h2>
+<p>Normal and Ping Pong are great, but Cascade and Adrift feel more like melodic development.</p>
+<h2>Use filters in the feedback path</h2>
+<p>Chroma lowpass/highpass can help carve repeats so the melody remains intelligible.</p>
+<h2>Freeze intentionally</h2>
+<p>Freeze is best used like a live sampling gesture: capture a phrase ending, then rework it.</p>
+<hr />
+<h1>Bottom line</h1>
+<h2>Nautilus is best used for melodic work as:</h2>
+<ul>
+<li>a <strong>clocked harmonic delay</strong></li>
+<li>a <strong>countermelody generator</strong></li>
+<li>a <strong>phrase multiplier</strong></li>
+<li>a <strong>motif freezer/looper</strong></li>
+<li>a <strong>stepped CV source via Sonar</strong></li>
+<li>a <strong>self-generative melodic system</strong> when paired with quantizers and self-patching</li>
+</ul>
+<p>If you give it:
+- a clear melodic source
+- a shared clock
+- moderate feedback
+- deliberate use of Sensors, Dispersal, and Shimmer/De-Shimmer
+- Sonar routed into quantized pitch destinations</p>
+<p>then Nautilus can move far beyond ambience and become a genuine <strong>melodic composition tool</strong> in a Eurorack patch.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

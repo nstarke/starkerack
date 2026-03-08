@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_3_to_1</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — 3 to 1</h1>
+<ul>
+<li><a href="../../manuals/3_To_1_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1><a href="#">Manual PDF</a></h1>
+<p>This manual covers the <strong>2hp 3:1</strong>.</p>
+<h2>What this module does musically</h2>
+<p>The <strong>3:1</strong> is not a pitch generator by itself. It is a <strong>voltage-controlled gate/trigger router and combiner</strong>. That means its role in melodic patching is to decide:</p>
+<ul>
+<li><strong>which rhythmic source is allowed through</strong></li>
+<li><strong>when a melodic event happens</strong></li>
+<li><strong>how multiple rhythmic layers are combined</strong></li>
+<li><strong>how selection changes over time via CV</strong></li>
+</ul>
+<p>So in a melodic system, the 3:1 is best understood as a <strong>melody animator</strong>, not a melody source. It helps create melodic components by shaping <strong>when notes occur</strong>, <strong>which sequence is heard</strong>, and <strong>how phrasing evolves</strong>.</p>
+<h2>Key functions from the manual</h2>
+<ul>
+<li><strong>3 inputs</strong> for gates/triggers: <strong>IN 1, IN 2, IN 3</strong></li>
+<li><strong>1 output</strong>: <strong>OUT</strong></li>
+<li><strong>Voltage-controlled selection</strong> via:</li>
+<li><strong>SEL knob</strong></li>
+<li><strong>SEL CV</strong> input, 0–5V, added to the knob position</li>
+<li><strong>Two modes</strong></li>
+<li><strong>Switch mode</strong>: routes the currently selected input to the output</li>
+<li><strong>Sum mode</strong>: combines selected inputs and outputs <strong>5 ms triggers</strong> regardless of input gate length</li>
+</ul>
+<h2>Why that matters for melody</h2>
+<p>Melody in modular is usually a combination of:</p>
+<ol>
+<li><strong>Pitch CV</strong></li>
+<li><strong>Timing / gates</strong></li>
+<li><strong>Articulation</strong></li>
+<li><strong>Variation over time</strong></li>
+</ol>
+<p>The 3:1 directly affects items 2–4.</p>
+<p>If you pair it with:
+- a sequencer,
+- a quantizer,
+- a sample-and-hold,
+- an envelope/VCA/voice,
+- or multiple clock/gate sources,</p>
+<p>then the 3:1 becomes a very useful tool for building <strong>musical phrasing and note selection logic</strong>.</p>
+<hr />
+<h2>Best ways to use the 3:1 for melodic components</h2>
+<h2>1. Switching between different melodic rhythms</h2>
+<p>Patch:
+- <strong>IN 1</strong> = simple clock (quarter notes)
+- <strong>IN 2</strong> = divided clock (half notes or dotted rhythm)
+- <strong>IN 3</strong> = more active trigger pattern
+- <strong>OUT</strong> = sequencer advance, quantizer trigger, envelope gate, or voice trigger
+- <strong>SEL CV</strong> = slow LFO, stepped random, or another sequencer row</p>
+<h3>Result</h3>
+<p>Your pitch source stays the same, but <strong>the rhythm that triggers notes changes over time</strong>. This creates:
+- phrase variation
+- call-and-response structures
+- evolving melodic density</p>
+<h3>Musical use</h3>
+<p>A simple 8-step melody can feel much more alive if the trigger rhythm changes every bar or every few beats.</p>
+<hr />
+<h2>2. Switching between multiple sequencers or pitch-event lanes</h2>
+<p>Even though the 3:1 switches <strong>gates</strong>, that still helps when running several melodic sources in parallel.</p>
+<p>Patch:
+- Sequencer A pitch CV -&gt; oscillator pitch
+- Sequencer B pitch CV -&gt; precision adder/switch/mixer path
+- Sequencer C pitch CV -&gt; another melodic lane
+- Their corresponding gate outputs -&gt; <strong>IN 1, IN 2, IN 3</strong>
+- <strong>OUT</strong> -&gt; envelope or LPG trigger
+- Use the same selection logic elsewhere in the patch to decide which pitch lane is active</p>
+<h3>Result</h3>
+<p>The 3:1 can act as the <strong>rhythmic selector</strong> that determines which melodic lane is currently articulated.</p>
+<p>This is especially effective if:
+- only one pitch source is active at a time,
+- or each gate source corresponds to a different register, transposition, or voice.</p>
+<h3>Musical use</h3>
+<p>You can create the impression of one melody “changing personality” by switching among:
+- sparse bass notes
+- midrange motif
+- high accent notes</p>
+<hr />
+<h2>3. Creating melody from one pitch source plus three trigger logics</h2>
+<p>A common modular trick:
+- one pitch CV source generates note values
+- triggers determine <strong>which notes are actually heard</strong></p>
+<p>Patch:
+- Random stepped CV or sequencer pitch -&gt; quantizer -&gt; oscillator pitch
+- <strong>IN 1</strong> = regular clock
+- <strong>IN 2</strong> = Euclidean rhythm
+- <strong>IN 3</strong> = manual gate / burst / irregular trigger source
+- <strong>OUT</strong> = sample-and-hold clock, quantizer trigger, or envelope trigger</p>
+<h3>Result</h3>
+<p>The 3:1 chooses how the pitch stream is articulated. The same stored pitch material produces very different melodies depending on trigger selection.</p>
+<h3>Why this is strong</h3>
+<p>In modular, changing trigger structure often changes perceived melody as much as changing notes.</p>
+<hr />
+<h2>4. Voltage-controlled phrase morphing</h2>
+<p>Because <strong>SEL CV</strong> accepts 0–5V and is added to the knob position, you can automate which input is selected.</p>
+<p>Patch:
+- <strong>IN 1</strong> = rhythm for verse
+- <strong>IN 2</strong> = rhythm for variation
+- <strong>IN 3</strong> = dense fill pattern
+- Slow modulation into <strong>SEL CV</strong>
+- <strong>OUT</strong> -&gt; melodic voice envelope</p>
+<h3>Result</h3>
+<p>The patch slowly drifts between different melodic articulations.</p>
+<h3>Good modulation sources</h3>
+<ul>
+<li>slow triangle LFO</li>
+<li>stepped random</li>
+<li>sequencer CV row</li>
+<li>envelope from another voice</li>
+<li>keyboard/mod wheel CV</li>
+</ul>
+<h3>Musical use</h3>
+<p>This gives you:
+- phrasing changes
+- section transitions
+- fills and emphasis without repatching</p>
+<hr />
+<h2>5. Gate summing mode for richer melodic trigger generation</h2>
+<p>In <strong>sum mode</strong>, multiple selected channels are combined and the output becomes <strong>5 ms triggers</strong>.</p>
+<p>This is very useful for melodic patching because many pitch devices prefer short triggers:
+- sample &amp; hold
+- sequencers with step advance
+- quantizers with trigger input
+- envelope generators for plucky notes</p>
+<p>Patch:
+- <strong>IN 1</strong> = base clock
+- <strong>IN 2</strong> = off-beat syncopation
+- <strong>IN 3</strong> = ratchet or accent trigger
+- Set module to <strong>sum mode</strong>
+- Use <strong>SEL/SEL CV</strong> to determine how many sources are active
+- <strong>OUT</strong> -&gt; sample-and-hold clock, envelope trigger, or sequencer advance</p>
+<h3>Result</h3>
+<p>As selection increases, your melody becomes more active because additional trigger streams are included.</p>
+<h3>Manual behavior that matters</h3>
+<p>In sum mode:
+- far left = <strong>IN 1 selected</strong>
+- far right = <strong>IN 1 + IN 2 + IN 3 selected</strong></p>
+<p>So the knob/CV can act like a <strong>density control</strong> for note events.</p>
+<h3>Musical use</h3>
+<p>This is one of the strongest melodic applications of the module:
+- low selector setting = sparse melody
+- medium = more notes
+- high = energetic fills and ornamentation</p>
+<hr />
+<h2>6. Turning long gates into short melodic triggers</h2>
+<p>The manual notes that in <strong>sum mode</strong>, the output emits <strong>5 ms trigger signals regardless of input pulse width</strong>.</p>
+<p>That means you can feed it long gates from:
+- keyboard gate
+- sequencer gate
+- clock divisions with long pulse widths</p>
+<p>and get short, clean triggers out.</p>
+<h3>Why this helps melody</h3>
+<p>Short triggers are often better for:
+- plucked envelopes
+- precise sample-and-hold updates
+- advancing sequencers cleanly
+- clocking quantized random voltages</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Long gates from three phrase sources into IN 1–3</li>
+<li>Sum mode</li>
+<li>OUT clocks a sample-and-hold that samples a changing CV</li>
+<li>Quantizer after sample-and-hold</li>
+<li>Quantized output to oscillator</li>
+</ul>
+<h3>Result</h3>
+<p>The 3:1 becomes a <strong>melodic event conditioner</strong>, converting broad gate structures into crisp note triggers.</p>
+<hr />
+<h2>7. Building melodic fills and accents</h2>
+<p>Patch:
+- <strong>IN 1</strong> = main melody trigger stream
+- <strong>IN 2</strong> = occasional fill triggers
+- <strong>IN 3</strong> = manually tapped gate button or burst generator
+- <strong>OUT</strong> = envelope trigger for lead voice</p>
+<p>Use:
+- <strong>switch mode</strong> for hard switching between normal phrase and fill phrase
+- <strong>sum mode</strong> for layering fills on top of the main phrase</p>
+<h3>Result</h3>
+<p>You can generate:
+- temporary melodic embellishments
+- phrase endings
+- accent clusters
+- dynamic lead variations</p>
+<hr />
+<h2>8. Using the 3:1 to control when a sequencer advances</h2>
+<p>Instead of sending OUT directly to a voice, use it to <strong>clock a sequencer</strong> or <strong>advance a shift register</strong>.</p>
+<p>Patch:
+- <strong>OUT</strong> -&gt; sequencer clock in
+- Sequencer CV out -&gt; quantizer/oscillator
+- IN 1–3 fed by different clocks/rhythms</p>
+<h3>Result</h3>
+<p>The module determines not just when notes fire, but <strong>when the melody itself moves to the next pitch</strong>.</p>
+<p>This can create:
+- held notes
+- rushed notes
+- syncopated advancement
+- structural rhythmic variation in the melodic line</p>
+<h3>Especially useful with</h3>
+<ul>
+<li>8-step sequencers</li>
+<li>Turing machine style modules</li>
+<li>shift registers</li>
+<li>sample-and-hold melodic patches</li>
+</ul>
+<hr />
+<h2>9. Creating call-and-response melodic structures</h2>
+<p>Patch:
+- <strong>IN 1</strong> = sparse trigger pattern for phrase A
+- <strong>IN 2</strong> = contrasting trigger pattern for phrase B
+- <strong>IN 3</strong> = denser trigger pattern for answer/fill
+- <strong>OUT</strong> = melodic voice trigger
+- <strong>SEL CV</strong> driven by a slower sequence or manual performance gesture</p>
+<h3>Result</h3>
+<p>The same pitch source can sound like it’s speaking in alternating phrases.</p>
+<p>This is a very musical use because melody is often more about <strong>phrasing</strong> than raw note content.</p>
+<hr />
+<h2>10. Manual performance control over melody density and phrase choice</h2>
+<p>The <strong>SEL knob</strong> is performable.</p>
+<h3>In switch mode</h3>
+<p>You can manually choose which rhythmic pattern drives the melody.</p>
+<h3>In sum mode</h3>
+<p>You can manually increase the number of active trigger sources, effectively opening up note density.</p>
+<p>This makes the 3:1 a strong <strong>live performance utility</strong> for melodic sets:
+- select sparse rhythm for breakdown
+- switch to syncopated pattern for groove
+- add combined triggers for climax</p>
+<hr />
+<h2>Important constraints from the manual</h2>
+<p>A few practical points:</p>
+<ul>
+<li>Inputs are for <strong>gate/trigger signals</strong>, threshold <strong>2.5V</strong></li>
+<li><strong>SEL CV</strong> range is <strong>0–5V</strong></li>
+<li><strong>OUT</strong> range is <strong>0–5V</strong></li>
+<li>In <strong>switch mode</strong>, OUT mirrors the selected input</li>
+<li>In <strong>sum mode</strong>, OUT emits <strong>5 ms triggers</strong></li>
+<li>The module does <strong>not</strong> process pitch CV directly</li>
+</ul>
+<p>So if your goal is melodic content, you’ll want to pair the 3:1 with at least one of these:
+- sequencer
+- quantizer
+- random voltage source
+- sample-and-hold
+- oscillator + envelope/VCA
+- clock divider / logic / trigger sequencer</p>
+<hr />
+<h2>Three especially musical patch recipes</h2>
+<h2>Patch 1: Evolving quantized random melody</h2>
+<ul>
+<li>Noise/random CV -&gt; sample-and-hold input</li>
+<li><strong>3:1 OUT</strong> -&gt; sample-and-hold clock</li>
+<li>Sample-and-hold -&gt; quantizer -&gt; oscillator pitch</li>
+<li>IN 1 = steady clock</li>
+<li>IN 2 = swung or divided rhythm</li>
+<li>IN 3 = burst/irregular trigger</li>
+<li>SEL CV = slow random or LFO</li>
+</ul>
+<h3>What happens</h3>
+<p>The 3:1 changes when new notes are sampled, creating an evolving melody with shifting rhythmic character.</p>
+<hr />
+<h2>Patch 2: One sequencer, many phrases</h2>
+<ul>
+<li>Sequencer pitch out -&gt; oscillator</li>
+<li>IN 1 = basic step clock</li>
+<li>IN 2 = syncopated trigger pattern</li>
+<li>IN 3 = fill trigger pattern</li>
+<li>OUT = envelope trigger or sequencer advance</li>
+<li>MODE = switch mode</li>
+</ul>
+<h3>What happens</h3>
+<p>The same note sequence gets rephrased in multiple ways, which sounds like variations on a melodic theme.</p>
+<hr />
+<h2>Patch 3: Density-controlled arpeggio generator</h2>
+<ul>
+<li>Arpeggiator/sequencer pitch -&gt; oscillator</li>
+<li>IN 1 = quarter-note trigger</li>
+<li>IN 2 = eighth-note trigger</li>
+<li>IN 3 = ratchet/accent trigger</li>
+<li>MODE = sum mode</li>
+<li>SEL CV = envelope, slider, or sequencer row</li>
+<li>OUT = envelope trigger</li>
+</ul>
+<h3>What happens</h3>
+<p>As selection rises, the arpeggio becomes denser and more energetic, ideal for builds and transitions.</p>
+<hr />
+<h2>Bottom line</h2>
+<p>The <strong>2hp 3:1</strong> is best used for melody as a <strong>trigger architecture tool</strong>:</p>
+<ul>
+<li>it selects between rhythmic sources,</li>
+<li>combines them for note density,</li>
+<li>converts gates to short triggers in sum mode,</li>
+<li>and allows CV-controlled phrase changes.</li>
+</ul>
+<p>By itself it doesn’t generate notes, but in a melodic Eurorack patch it can be central to:
+- note timing,
+- phrase switching,
+- melodic density,
+- variation,
+- and live performance control.</p>
+<p>If you want, I can also turn this into:
+1. a <strong>beginner-friendly patch guide</strong>,<br />
+2. a <strong>generative melody patch recipe list</strong>, or<br />
+3. a <strong>“how to use with common module types” compatibility guide</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

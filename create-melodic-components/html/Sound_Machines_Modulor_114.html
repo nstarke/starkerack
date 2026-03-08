@@ -1,0 +1,716 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Sound_Machines_Modulor_114</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Sound Machines — Modulor 114</h1>
+<ul>
+<li><a href="../../manuals/MODULOR114-MANUAL-SEP16-V01.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://www.sound-machines.it/product/modulor114">MODULÖR114 Owner’s Manual (PDF/manual source)</a></p>
+<h1>Creating melodic components with the Soundmachines MODULÖR114</h1>
+<p>The MODULÖR114 is unusually strong as a <strong>self-contained melodic modular voice</strong> because it combines:</p>
+<ul>
+<li>pitch sources: <strong>USB MIDI/CV</strong>, <strong>Ribbon</strong>, <strong>Quantizer</strong>, <strong>S&amp;H</strong></li>
+<li>sound sources: <strong>VCO1</strong>, <strong>VCO2/LFO1</strong>, <strong>MIDI square/DCO</strong></li>
+<li>shaping: <strong>VCF</strong>, <strong>VCA</strong>, <strong>ENV</strong></li>
+<li>utilities for musical control: <strong>attenuators, mixers, slew, add/sub, multiples</strong></li>
+<li>time/rhythm tools: <strong>MIDI clock, clock divider, logic</strong></li>
+<li>finishing: <strong>FX unit</strong></li>
+</ul>
+<p>So instead of thinking of it as “just a synth voice,” think of it as a machine that can generate melody in several ways:</p>
+<ol>
+<li><strong>Played melody</strong> from MIDI keyboard  </li>
+<li><strong>Performed melody</strong> from the ribbon  </li>
+<li><strong>Quantized generative melody</strong> from LFO/noise/S&amp;H  </li>
+<li><strong>Layered melodic motion</strong> by mixing/transposing CV  </li>
+<li><strong>Rhythmic melodic patterns</strong> via gates, clock division, and logic</li>
+</ol>
+<hr />
+<h1>Core melodic building blocks in the MODULÖR114</h1>
+<h2>1. MIDI section</h2>
+<p>This is the most direct melodic entry point.</p>
+<p>Relevant outputs/functions from the manual:</p>
+<ul>
+<li><strong>PITCH</strong>: 1V/oct melodic pitch CV from MIDI notes</li>
+<li><strong>GATE</strong>: gate from note on/off</li>
+<li><strong>MOD/Q</strong>: either mod wheel CV or quantizer output</li>
+<li><strong>16TH</strong>: MIDI clock-derived rhythmic pulse</li>
+<li>additional <strong>CV#30–33</strong> analog outputs/functions from MIDI CCs</li>
+</ul>
+<h3>Melodic use</h3>
+<ul>
+<li>Patch <strong>PITCH</strong> to <strong>VCO1 V/OCT</strong> and/or <strong>VCO2 V/OCT</strong></li>
+<li>Patch <strong>GATE</strong> to <strong>ENV GATE</strong></li>
+<li>Use <strong>MOD/Q</strong> as an additional melodic line when the quantizer is active</li>
+<li>Use <strong>16TH</strong> to trigger sample-and-hold or clock divisions for sequenced note movement</li>
+</ul>
+<p>This gives you a classic keyboard-controlled monosynth, but it also acts as the central source for transposition and timing.</p>
+<hr />
+<h2>2. VCO1</h2>
+<p>VCO1 is the primary tone generator and one of the main melodic voices.</p>
+<p>Outputs include:
+- <strong>SAW</strong>
+- <strong>TRI</strong>
+- <strong>SQU</strong>
+- <strong>SUB</strong>
+- <strong>WHITE/PINK noise</strong>
+- <strong>MIDI</strong> square/DCO output nearby in the system section</p>
+<p>Inputs include:
+- <strong>V/OCT</strong>
+- <strong>CV</strong>
+- <strong>PWM</strong>
+- <strong>SYNC</strong></p>
+<h3>Melodic use</h3>
+<p>For melody, VCO1 is your “instrument.” Different outputs give different roles:</p>
+<ul>
+<li><strong>Saw</strong>: best for leads and basses through the VCF</li>
+<li><strong>Triangle</strong>: smoother melody, flute-like or softer tones</li>
+<li><strong>Square/PWM</strong>: excellent for animated lead lines</li>
+<li><strong>Sub</strong>: reinforces bass notes one octave down</li>
+</ul>
+<p>The key melodic patch is:
+- <strong>pitch CV into V/OCT</strong>
+- optionally another modulation into <strong>CV</strong> for vibrato or expressive movement</p>
+<p>You can also create more harmonically rich melodic tones by:
+- mixing <strong>SAW + SQU</strong>
+- using <strong>PWM</strong> with an LFO for evolving sustained notes
+- using <strong>SYNC</strong> from VCO2 for aggressive lead sounds</p>
+<hr />
+<h2>3. VCO2 / LFO1</h2>
+<p>This is dual-purpose: either a second oscillator or a modulation source.</p>
+<h3>As a melodic oscillator</h3>
+<p>Patch the same pitch CV to both VCOs:
+- <strong>PITCH -&gt; MULTI -&gt; VCO1 V/OCT + VCO2 V/OCT</strong></p>
+<p>Then use VCO2 as:
+- a unison detuned layer
+- an interval voice if offset by a mixer/add-sub
+- a sync master for VCO1
+- a drone root note against a moving melodic VCO1</p>
+<h3>As a melodic modulator</h3>
+<p>Switch it to LFO mode and use it to:
+- create vibrato on oscillator pitch
+- step or sweep filter cutoff during melodic lines
+- animate PWM for sustained melodic parts</p>
+<p>This module is crucial because melody in modular often comes from <strong>controlled pitch plus controlled variation</strong>.</p>
+<hr />
+<h2>4. Quantizer</h2>
+<p>This is one of the most important melody generators in the system.</p>
+<p>The quantizer takes an incoming CV and forces it to musical notes in a selected scale. The manual mentions multiple scales including chromatic and modal options.</p>
+<ul>
+<li><strong>Input</strong>: <strong>Q IN</strong></li>
+<li><strong>Output</strong>: <strong>MOD/Q</strong> when quantizer is active</li>
+</ul>
+<h3>Why this matters</h3>
+<p>Any changing voltage can become melody:
+- ribbon
+- LFO
+- S&amp;H
+- noise
+- manual voltage from GEN1/GEN2
+- mixed voltages from mixers or ADDSUB</p>
+<h3>Melodic use</h3>
+<p>Without a quantizer, most voltages produce glides or atonal pitch movement.<br />
+With the quantizer, they become note sequences.</p>
+<p>Examples:
+- <strong>LFO -&gt; ATT -&gt; Q IN -&gt; MOD/Q -&gt; VCO V/OCT</strong>
+- <strong>S&amp;H OUT -&gt; Q IN -&gt; MOD/Q -&gt; VCO V/OCT</strong>
+- <strong>Ribbon CV -&gt; Q IN -&gt; MOD/Q -&gt; VCO V/OCT</strong></p>
+<p>This is the bridge between “modulation” and “music.”</p>
+<hr />
+<h2>5. Ribbon controller</h2>
+<p>The ribbon is one of the best melodic performance tools on the panel.</p>
+<p>Outputs:
+- <strong>CV</strong>
+- <strong>CV HOLD</strong>
+- <strong>GATE</strong></p>
+<h3>Melodic use</h3>
+<p>You can use the ribbon in two main ways:</p>
+<h4>A. Continuous pitch performance</h4>
+<ul>
+<li><strong>Ribbon CV -&gt; VCO V/OCT</strong></li>
+<li><strong>Ribbon GATE -&gt; ENV GATE</strong></li>
+</ul>
+<p>This gives fretless/theremin-like expression.</p>
+<h4>B. Quantized playable melody</h4>
+<ul>
+<li><strong>Ribbon CV -&gt; Q IN</strong></li>
+<li><strong>MOD/Q -&gt; VCO V/OCT</strong></li>
+<li><strong>Ribbon GATE -&gt; ENV GATE</strong></li>
+</ul>
+<p>Now finger position becomes scale-constrained notes. This is great for improv melodies without worrying about wrong notes.</p>
+<h4>Why CV HOLD matters</h4>
+<p>CV HOLD preserves the last pitch after releasing, which is very useful if your amp envelope has release time. Otherwise notes would drop immediately in pitch at note end.</p>
+<hr />
+<h2>6. S&amp;H (Sample and Hold)</h2>
+<p>This is the system’s generative melody engine.</p>
+<p>Inputs:
+- <strong>IN</strong>
+- <strong>SAMPLE</strong>
+- <strong>TRACK</strong>
+- output: <strong>OUT</strong></p>
+<h3>Melodic use</h3>
+<p>S&amp;H samples a voltage whenever it gets a trigger. If you sample:
+- noise -&gt; random melody
+- LFO -&gt; stepped cyclic melody
+- ribbon/manual voltage -&gt; performed step notes
+- slow CV mixtures -&gt; evolving semi-predictable melody</p>
+<p>Best melodic patch:
+- <strong>Noise or LFO -&gt; S&amp;H IN</strong>
+- <strong>Clock trigger -&gt; S&amp;H SAMPLE</strong>
+- <strong>S&amp;H OUT -&gt; Q IN</strong>
+- <strong>MOD/Q -&gt; VCO V/OCT</strong></p>
+<p>Now you have a stepped sequence of notes in a selected scale.</p>
+<p>This is one of the strongest “modular melody” patches in the whole instrument.</p>
+<hr />
+<h2>7. SLEW</h2>
+<p>Slew is vital for melodic phrasing.</p>
+<h3>Melodic use</h3>
+<p>Insert it between pitch source and oscillator:</p>
+<ul>
+<li><strong>PITCH -&gt; SLEW -&gt; VCO V/OCT</strong></li>
+<li>or <strong>MOD/Q -&gt; SLEW -&gt; VCO V/OCT</strong></li>
+</ul>
+<p>This creates:
+- portamento/glide
+- acid-style note slides
+- smoother random melodies
+- legato-feeling generative lines</p>
+<p>It’s especially effective after the quantizer or S&amp;H:
+- quantizer gives stepped notes
+- slew turns those into expressive glides</p>
+<hr />
+<h2>8. ENV + VCA</h2>
+<p>These don’t create melody directly, but they make melody musical.</p>
+<h3>ENV</h3>
+<p>Shapes note articulation:
+- pluck
+- stab
+- pad
+- acid snap
+- held lead</p>
+<h3>Melodic use</h3>
+<ul>
+<li><strong>GATE -&gt; ENV GATE</strong></li>
+<li><strong>ENV OUT -&gt; VCA CV</strong></li>
+<li>optionally <strong>ENV OUT -&gt; ATT -&gt; VCF CV</strong></li>
+</ul>
+<p>This determines whether your melody sounds:
+- percussive
+- legato
+- punchy
+- swelling
+- expressive</p>
+<p>Short decay + low sustain = sequence/pluck<br />
+Long attack/release = ambient melodic lines<br />
+ENV to filter = classic melodic synth phrasing</p>
+<hr />
+<h2>9. VCF</h2>
+<p>The filter is essential for separating melody from raw oscillator tone.</p>
+<h3>Melodic use</h3>
+<p>A melody becomes expressive when cutoff tracks note articulation.</p>
+<p>Use:
+- oscillator mix into <strong>VCF IN</strong>
+- <strong>ENV OUT -&gt; ATT -&gt; VCF CV</strong>
+- optionally <strong>LFO</strong> or <strong>S&amp;H</strong> to VCF CV for evolving timbre</p>
+<p>For melodic parts:
+- low resonance for smoother leads
+- medium resonance for acid-ish basslines
+- bandpass for thinner melodic voices
+- self-oscillation can even become a sine-like pitched source if carefully controlled</p>
+<p>A strong melodic phrase often comes from <strong>static pitch + dynamic filter contour</strong> as much as from note choice.</p>
+<hr />
+<h2>10. Mixers, attenuators, ADDSUB, GEN1/GEN2, MULTI</h2>
+<p>These utilities are where melodic sophistication comes from.</p>
+<hr />
+<h1>How the utility modules help create melody</h1>
+<h2>MULTI</h2>
+<p>Duplicates pitch CV or gate.</p>
+<h3>Melodic use</h3>
+<ul>
+<li>Send one pitch line to both oscillators</li>
+<li>Send a gate to both ENV and another rhythmic destination</li>
+<li>Split quantizer output to several destinations</li>
+</ul>
+<p>Example:
+- <strong>PITCH -&gt; MULTI -&gt; VCO1 V/OCT + VCO2 V/OCT</strong></p>
+<hr />
+<h2>ATT1/2/3</h2>
+<p>Control modulation depth.</p>
+<h3>Melodic use</h3>
+<ul>
+<li>fine control vibrato amount</li>
+<li>control how much ENV affects filter</li>
+<li>scale LFO or random voltage before quantizing</li>
+<li>set subtle pitch drift into oscillator CV input</li>
+</ul>
+<p>These are critical for keeping melodic modulation musical rather than chaotic.</p>
+<hr />
+<h2>MIX1 / MIX2 / MIX3</h2>
+<p>Useful for audio mixing, but also CV combination.</p>
+<h3>Melodic use for CV</h3>
+<p>You can combine melodic sources:
+- base pitch + transposition voltage
+- pitch + vibrato
+- pitch + envelope pitch sweep
+- ribbon + offset
+- quantized melody + manual bias</p>
+<p>For example:
+- <strong>PITCH + GEN1</strong> in a mixer can transpose a played melody
+- <strong>PITCH + LFO</strong> can create vibrato before the oscillator
+- <strong>S&amp;H + offset</strong> can constrain random melody to a preferred register</p>
+<p>Because the system is DC-coupled in many places, these mixers are very useful for control voltages.</p>
+<hr />
+<h2>GEN1 / GEN2</h2>
+<p>Manual CV sources from 0–5V.</p>
+<h3>Melodic use</h3>
+<p>These are simple but powerful:
+- transposition offsets
+- fixed pedal/root note
+- manual pitch source into quantizer
+- source for S&amp;H to create repeated selectable note pools</p>
+<p>Example:
+- <strong>GEN1 -&gt; Q IN</strong>
+- <strong>MOD/Q -&gt; VCO V/OCT</strong></p>
+<p>This gives a manually tunable note source constrained to a scale.</p>
+<p>Or:
+- <strong>PITCH + GEN1 -&gt; mixer -&gt; VCO V/OCT</strong>
+to shift a keyboard melody up or down.</p>
+<hr />
+<h2>ADDSUB</h2>
+<p>A very musical utility for pitch arithmetic and waveshaping.</p>
+<p>The manual states:
+- output = <strong>IN+ - IN-</strong>
+- result saturated/clamped to 0–5V</p>
+<h3>Melodic use</h3>
+<p>This can do several melodic jobs:</p>
+<h4>A. Transposition</h4>
+<ul>
+<li>send melodic pitch CV to <strong>IN+</strong></li>
+<li>send a lower manual offset or modulation to <strong>IN-</strong> or another input arrangement</li>
+<li>use result as altered pitch</li>
+</ul>
+<h4>B. Inverted modulation</h4>
+<p>If you want filter movement opposite to envelope or opposite to note motion:
+- ENV or pitch CV into ADDSUB for inversion/subtraction</p>
+<h4>C. Pseudo-VCA on CV/audio</h4>
+<p>Can reshape melodic modulation behavior in unusual ways.</p>
+<p>Because it clamps to 0–5V, it also helps keep some melodic voltages in the module’s expected range.</p>
+<hr />
+<h1>Best melodic patch strategies</h1>
+<h2>1. Classic monosynth melody</h2>
+<p>This is the built-in <strong>SYNTH!</strong> idea.</p>
+<h3>Patch</h3>
+<ul>
+<li>Enable <strong>SYNTH!</strong></li>
+<li>USB keyboard into HOST, or MIDI from computer/device</li>
+<li><strong>PITCH</strong> internally drives VCOs</li>
+<li><strong>GATE</strong> drives ENV</li>
+<li>VCOs -&gt; MIX1 -&gt; VCF -&gt; VCA -&gt; FX -&gt; Output</li>
+<li>ENV controls VCA and VCF through ATT1/ATT2</li>
+</ul>
+<h3>Best for</h3>
+<ul>
+<li>leads</li>
+<li>basslines</li>
+<li>simple melodic hooks</li>
+</ul>
+<h3>Improve it by hand</h3>
+<ul>
+<li>detune VCO2 slightly for width</li>
+<li>use PWM on VCO1 square</li>
+<li>send LFO to PWM or VCF</li>
+<li>apply SLEW to pitch if not using only internal prepatch logic</li>
+</ul>
+<hr />
+<h2>2. Quantized ribbon melody</h2>
+<p>One of the most playable patches in the instrument.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>Ribbon CV -&gt; Q IN</strong></li>
+<li><strong>MOD/Q -&gt; VCO1 V/OCT</strong></li>
+<li><strong>Ribbon GATE -&gt; ENV GATE</strong></li>
+<li>VCO1 -&gt; VCF -&gt; VCA -&gt; Output</li>
+</ul>
+<p>Optional:
+- <strong>Ribbon CV HOLD</strong> instead of CV for more stable release behavior
+- Duplicate quantized output to VCO2 too</p>
+<h3>Result</h3>
+<p>You get scale-locked melodic performance with tactile control. Excellent for live improvisation.</p>
+<h3>Best for</h3>
+<ul>
+<li>solos</li>
+<li>modal improvisation</li>
+<li>ambient melody lines</li>
+<li>expressive slides when combined with SLEW</li>
+</ul>
+<hr />
+<h2>3. Generative random melody</h2>
+<p>A classic modular patch made easy on this unit.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>WHITE or PINK noise -&gt; S&amp;H IN</strong></li>
+<li><strong>16TH</strong> or <strong>CLKDIV output -&gt; S&amp;H SAMPLE</strong></li>
+<li><strong>S&amp;H OUT -&gt; Q IN</strong></li>
+<li><strong>MOD/Q -&gt; VCO1 V/OCT</strong></li>
+<li>rhythmic gate source -&gt; <strong>ENV GATE</strong></li>
+</ul>
+<p>Optional:
+- <strong>SLEW</strong> after quantizer for glides
+- use <strong>VCF ENV</strong> for articulation
+- send same quantized CV to both oscillators</p>
+<h3>Result</h3>
+<p>Random notes constrained to a scale, musically usable immediately.</p>
+<h3>Best for</h3>
+<ul>
+<li>Berlin-school style sequences</li>
+<li>ambient generative melody</li>
+<li>arpeggio-like motifs</li>
+<li>evolving ostinatos</li>
+</ul>
+<hr />
+<h2>4. Cyclic stepped melody from LFO</h2>
+<p>Less random, more repeatable.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>LFO2 TRI</strong> or <strong>VCO2/LFO SAW/TRI -&gt; ATT -&gt; S&amp;H IN</strong></li>
+<li>clock source -&gt; <strong>S&amp;H SAMPLE</strong></li>
+<li><strong>S&amp;H OUT -&gt; Q IN</strong></li>
+<li><strong>MOD/Q -&gt; VCO V/OCT</strong></li>
+</ul>
+<h3>Result</h3>
+<p>A repeating pattern of notes derived from the LFO phase at each clock pulse.</p>
+<h3>Best for</h3>
+<ul>
+<li>looping melodic motifs</li>
+<li>techno sequences</li>
+<li>repeating hooks</li>
+<li>tuneful generative patterns</li>
+</ul>
+<p>This is better than noise if you want recognizably recurring melody.</p>
+<hr />
+<h2>5. Two-oscillator melodic lead</h2>
+<p>For fuller melodic components.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>PITCH -&gt; MULTI</strong></li>
+<li><strong>MULTI -&gt; VCO1 V/OCT + VCO2 V/OCT</strong></li>
+<li><strong>VCO1 SAW + VCO2 TRI/SAW -&gt; MIX1</strong></li>
+<li>MIX1 -&gt; VCF -&gt; VCA</li>
+</ul>
+<p>Enhancements:
+- detune VCO2 slightly
+- tune VCO2 to a fifth/octave
+- use VCO2 as sync master for VCO1
+- modulate PWM or filter with LFO</p>
+<h3>Result</h3>
+<p>A bigger melodic voice for hooks or solos.</p>
+<h3>Best for</h3>
+<ul>
+<li>lead lines</li>
+<li>bass melody</li>
+<li>synth-pop/techno lines</li>
+<li>dramatic mono leads</li>
+</ul>
+<hr />
+<h2>6. Transposed melody with manual offset</h2>
+<p>Useful for changing key center or creating intervals.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>PITCH -&gt; MIX2 input 1</strong></li>
+<li><strong>GEN1 -&gt; MIX2 input 2</strong></li>
+<li><strong>MIX2 OUT -&gt; VCO1 V/OCT</strong></li>
+</ul>
+<p>Or:
+- <strong>Quantized sequence -&gt; MIX2</strong>
+- <strong>GEN1/GEN2</strong> adds offset before oscillator</p>
+<h3>Result</h3>
+<p>Your played or generated melody shifts register or transposes.</p>
+<h3>Best for</h3>
+<ul>
+<li>octave shifts</li>
+<li>drone + lead interval relations</li>
+<li>live performance transposition</li>
+<li>moving a sequence into different harmonic zones</li>
+</ul>
+<p>Be subtle: raw CV offsets can move by large intervals quickly.</p>
+<hr />
+<h2>7. Acid-style melodic lines</h2>
+<p>The manual strongly suggests this system can do this well.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>MIDI or quantized sequence -&gt; oscillator pitch</li>
+<li><strong>SLEW</strong> in pitch path for slides</li>
+<li><strong>ENV -&gt; VCF CV</strong></li>
+<li>resonance up</li>
+<li>shorter envelope</li>
+<li>accent-like feel via modulation depth or VCA initial</li>
+</ul>
+<h3>Core patch</h3>
+<ul>
+<li><strong>PITCH or MOD/Q -&gt; SLEW -&gt; VCO1 V/OCT</strong></li>
+<li><strong>GATE -&gt; ENV</strong></li>
+<li><strong>VCO1 SAW/SQU -&gt; VCF LP -&gt; VCA</strong></li>
+<li><strong>ENV OUT -&gt; ATT -&gt; VCF CV</strong></li>
+<li>resonance fairly high</li>
+</ul>
+<h3>Result</h3>
+<p>Sliding, squelchy, melodic bass patterns.</p>
+<hr />
+<h2>8. Counter-melody / drone support</h2>
+<p>The system is monophonic in the classic sense, but you can still create layered melodic roles.</p>
+<h3>Method</h3>
+<ul>
+<li>Use one oscillator for moving melody</li>
+<li>Tune the other oscillator to a fixed interval or drone</li>
+<li>Mix them before the filter</li>
+</ul>
+<p>Example:
+- <strong>VCO1</strong> follows main pitch CV
+- <strong>VCO2</strong> tuned to a fifth/octave/drone
+- mix both into VCF</p>
+<p>Alternative:
+- use <strong>MIDI square output</strong> as an additional locked pitch layer for reinforcement</p>
+<h3>Result</h3>
+<p>A more harmonically suggestive single-line melody.</p>
+<hr />
+<h1>How rhythm modules help melody</h1>
+<h2>MIDI clock / 16TH</h2>
+<p>If using external MIDI clock, this is your main rhythmic pulse.</p>
+<h3>Use for melody</h3>
+<ul>
+<li>trigger S&amp;H</li>
+<li>feed CLKDIV</li>
+<li>clock FX tempo</li>
+<li>structure repeating note changes</li>
+</ul>
+<hr />
+<h2>CLKDIV</h2>
+<p>Clock division turns one pulse stream into several slower related streams.</p>
+<h3>Melodic use</h3>
+<ul>
+<li>different divisions can trigger S&amp;H at different rates</li>
+<li>use one division for note changes, another for envelope triggers</li>
+<li>create phrase structures where pitch changes slower than articulation</li>
+</ul>
+<p>Example:
+- <strong>16TH -&gt; CLKDIV</strong>
+- one division -&gt; <strong>S&amp;H SAMPLE</strong>
+- another division -&gt; <strong>ENV GATE</strong></p>
+<p>This can create repeating melodic phrases with internal rhythmic variety.</p>
+<hr />
+<h2>Logic gates</h2>
+<p>These are very useful for melodic phrasing, even though they’re not pitch sources.</p>
+<h3>Melodic use</h3>
+<p>Use logic to create more interesting trigger patterns:
+- XOR two clocks for unusual note trigger patterns
+- AND a button with clock to manually allow melody movement
+- NAND or NOT for inverted rhythm structures</p>
+<p>These affect <strong>when notes happen</strong>, which is half of melody.</p>
+<hr />
+<h1>The best melodic workflows on this system</h1>
+<h2>Workflow 1: Traditional melodic synth player</h2>
+<p>Use:
+- MIDI keyboard
+- VCO1/VCO2
+- ENV
+- VCF
+- VCA
+- FX</p>
+<p>Best if you want:
+- basslines
+- leads
+- hooks
+- straightforward songwriting parts</p>
+<hr />
+<h2>Workflow 2: Performative melodic improviser</h2>
+<p>Use:
+- Ribbon
+- Quantizer
+- VCO
+- ENV
+- VCF
+- delay/reverb</p>
+<p>Best if you want:
+- expressive live melody
+- modal soloing
+- ambient lines
+- experimental but tuneful phrasing</p>
+<hr />
+<h2>Workflow 3: Generative composer</h2>
+<p>Use:
+- Noise/LFO
+- S&amp;H
+- Quantizer
+- clock divider
+- slew
+- filter and FX</p>
+<p>Best if you want:
+- self-running melodies
+- evolving motifs
+- ambient sequences
+- semi-random arpeggiation</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch recipe: warm lead</h2>
+<ul>
+<li><strong>PITCH -&gt; VCO1 + VCO2</strong></li>
+<li>VCO1 saw, VCO2 triangle</li>
+<li>slight detune on VCO2</li>
+<li>both -&gt; MIX1 -&gt; VCF LP -&gt; VCA</li>
+<li><strong>GATE -&gt; ENV</strong></li>
+<li><strong>ENV -&gt; VCA CV</strong></li>
+<li><strong>ENV -&gt; ATT -&gt; VCF CV</strong></li>
+<li>chorus or delay in FX</li>
+</ul>
+<p>Result: classic expressive lead.</p>
+<hr />
+<h2>Patch recipe: quantized ambient melody</h2>
+<ul>
+<li><strong>Ribbon CV -&gt; Q IN</strong></li>
+<li><strong>MOD/Q -&gt; SLEW -&gt; VCO1 V/OCT</strong></li>
+<li><strong>Ribbon GATE -&gt; ENV</strong></li>
+<li>VCO1 triangle -&gt; VCF BP -&gt; VCA</li>
+<li>long attack/release</li>
+<li>reverb FX</li>
+</ul>
+<p>Result: smooth, scale-safe ambient lead.</p>
+<hr />
+<h2>Patch recipe: generative sequence</h2>
+<ul>
+<li><strong>WHITE noise -&gt; S&amp;H IN</strong></li>
+<li><strong>16TH -&gt; CLKDIV -&gt; S&amp;H SAMPLE</strong></li>
+<li><strong>S&amp;H OUT -&gt; Q IN</strong></li>
+<li><strong>MOD/Q -&gt; VCO1 V/OCT</strong></li>
+<li>divided clock -&gt; ENV GATE</li>
+<li>VCO1 saw -&gt; VCF -&gt; VCA</li>
+<li>ENV to filter</li>
+<li>delay synced from clock</li>
+</ul>
+<p>Result: repeating but evolving melodic sequence.</p>
+<hr />
+<h2>Patch recipe: animated bass melody</h2>
+<ul>
+<li><strong>PITCH -&gt; SLEW -&gt; VCO1 V/OCT</strong></li>
+<li>VCO1 saw + sub -&gt; mix</li>
+<li>mix -&gt; VCF LP</li>
+<li>resonance medium-high</li>
+<li><strong>GATE -&gt; ENV</strong></li>
+<li><strong>ENV -&gt; VCF CV</strong></li>
+<li>short decay, low sustain</li>
+<li>VCA controlled by ENV</li>
+</ul>
+<p>Result: acid/bassline style melodic content.</p>
+<hr />
+<h2>Patch recipe: stepped repeating motif</h2>
+<ul>
+<li><strong>LFO TRI -&gt; ATT -&gt; S&amp;H IN</strong></li>
+<li><strong>clock -&gt; S&amp;H SAMPLE</strong></li>
+<li><strong>S&amp;H OUT -&gt; Q IN</strong></li>
+<li><strong>MOD/Q -&gt; VCO1</strong></li>
+<li><strong>MOD/Q -&gt; MULTI -&gt; VCO2</strong></li>
+<li>VCOs mixed and filtered</li>
+</ul>
+<p>Result: cyclical musical phrase rather than pure randomness.</p>
+<hr />
+<h1>Important musical insights from this module set</h1>
+<h2>Melody comes from both pitch and articulation</h2>
+<p>On the MODULÖR114, melodic identity is usually a combination of:
+- <strong>Pitch source</strong>: MIDI / ribbon / quantizer / S&amp;H
+- <strong>Timing source</strong>: gate / clock / divider / logic
+- <strong>Tone shaping</strong>: VCF and waveform selection
+- <strong>Phrasing</strong>: envelope and slew</p>
+<p>A plain scale sequence can become much more musical just by adjusting:
+- envelope attack/decay
+- filter envelope amount
+- glide amount
+- clock division
+- detuning of the second oscillator</p>
+<hr />
+<h2>The quantizer is the key to musical modular melody</h2>
+<p>The most important takeaway from the manual is that the quantizer allows almost any control voltage to become usable melodic material.</p>
+<p>That means:
+- LFOs become arpeggiators
+- noise becomes random note selection
+- ribbon becomes a playable scale controller
+- S&amp;H becomes a sequencer
+- manual voltages become transposable notes</p>
+<p>If your goal is melodic music, this is one of the most valuable modules on the instrument.</p>
+<hr />
+<h2>Utilities are what make melodies interesting</h2>
+<p>The melody-producing modules are obvious, but the memorable patches come from utilities:</p>
+<ul>
+<li><strong>SLEW</strong> = phrasing</li>
+<li><strong>ATT</strong> = musical modulation amounts</li>
+<li><strong>MIX</strong> = combining pitch influences</li>
+<li><strong>MULTI</strong> = layered voices</li>
+<li><strong>ADDSUB</strong> = inversion/offset/transposition tricks</li>
+<li><strong>CLKDIV/LOGIC</strong> = non-boring note timing</li>
+</ul>
+<hr />
+<h1>Best combinations specifically for melodic music</h1>
+<h2>For basslines</h2>
+<ul>
+<li>MIDI PITCH or quantized S&amp;H</li>
+<li>VCO1 saw or square + sub</li>
+<li>VCF LP with ENV modulation</li>
+<li>SLEW for slides</li>
+<li>optional VCO2 as detuned support</li>
+</ul>
+<h2>For leads</h2>
+<ul>
+<li>dual VCOs</li>
+<li>detune or sync</li>
+<li>ENV to VCA and VCF</li>
+<li>LFO to PWM or vibrato</li>
+<li>delay/reverb FX</li>
+</ul>
+<h2>For arpeggios / sequences</h2>
+<ul>
+<li>clock -&gt; S&amp;H</li>
+<li>S&amp;H -&gt; quantizer</li>
+<li>quantizer -&gt; oscillator pitch</li>
+<li>divided gates for phrasing</li>
+<li>synced delay</li>
+</ul>
+<h2>For ambient melodies</h2>
+<ul>
+<li>ribbon -&gt; quantizer -&gt; slew</li>
+<li>triangle wave</li>
+<li>bandpass or gentle lowpass</li>
+<li>long envelope</li>
+<li>reverb-heavy FX</li>
+</ul>
+<h2>For generative melodic textures</h2>
+<ul>
+<li>noise/LFO -&gt; S&amp;H -&gt; quantizer</li>
+<li>slow modulation of filter and FX</li>
+<li>logic-derived irregular triggers</li>
+<li>long release and delay</li>
+</ul>
+<hr />
+<h1>Final takeaway</h1>
+<p>The MODULÖR114 is very capable at making melody because it contains the full chain:</p>
+<ul>
+<li><strong>choose notes</strong>: MIDI, ribbon, quantizer, S&amp;H</li>
+<li><strong>organize notes in time</strong>: gate, MIDI clock, divider, logic</li>
+<li><strong>voice the notes</strong>: VCO1, VCO2, DCO square</li>
+<li><strong>shape the phrase</strong>: envelope, filter, VCA</li>
+<li><strong>humanize/animate</strong>: slew, LFO, PWM, modulation</li>
+<li><strong>finish musically</strong>: onboard FX</li>
+</ul>
+<p>If I were building melodic patches on it, I’d focus on these three “master combinations” first:</p>
+<ol>
+<li><strong>MIDI + dual VCO + ENV/VCF/VCA</strong> for solid musical parts  </li>
+<li><strong>Ribbon + Quantizer + Slew</strong> for expressive hands-on melodies  </li>
+<li><strong>S&amp;H + Quantizer + Clock Divider</strong> for generative melodic sequences  </li>
+</ol>
+<p>Those three approaches cover most melodic duties: composed, performed, and self-generated.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

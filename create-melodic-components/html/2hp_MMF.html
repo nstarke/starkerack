@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_MMF</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — MMF</h1>
+<ul>
+<li><a href="../../manuals/2hp_MMF.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Using the 2hp MMF to create melodic components</h1>
+<p>The attached manual is for the <strong>2hp MMF</strong>, a <strong>voltage-controlled analog multimode filter</strong>. On its own, this is not a sound source or pitch generator, but in a Eurorack system it is extremely useful for shaping harmonics into <strong>melodic voices, animated sequences, and resonant tuned lines</strong>.</p>
+<h2>What the module does</h2>
+<p>The MMF provides:</p>
+<ul>
+<li><strong>Audio input</strong></li>
+<li><strong>Cutoff frequency control</strong> with CV input</li>
+<li><strong>Resonance control</strong> with CV input</li>
+<li>Three simultaneous outputs:</li>
+<li><strong>LP</strong>: low-pass</li>
+<li><strong>HP</strong>: high-pass</li>
+<li><strong>BP</strong>: band-pass</li>
+</ul>
+<p>Key specs from the manual:</p>
+<ul>
+<li><strong>12 dB/octave</strong> slope</li>
+<li><strong>Analog multimode filter</strong></li>
+<li><strong>2HP</strong></li>
+<li><strong>Freq CV range:</strong> <code>-8V to +8V</code></li>
+<li><strong>Reso CV range:</strong> <code>-5V to +5V</code></li>
+</ul>
+<h2>What this means musically</h2>
+<p>A multimode filter like this is one of the main tools for turning simple raw oscillator signals into something that feels melodic and expressive.</p>
+<p>You can use it to:</p>
+<ul>
+<li>emphasize the fundamental for <strong>round basslines</strong></li>
+<li>carve harmonics into <strong>lead sounds</strong></li>
+<li>animate timbre rhythmically so a repeated note feels like a melody</li>
+<li>create <strong>acid-like movement</strong> with resonance</li>
+<li>isolate moving frequency bands for pseudo-melodic textures</li>
+<li>derive multiple related tonal layers from one source using the three outputs</li>
+</ul>
+<hr />
+<h2>Best melodic uses of the MMF</h2>
+<h2>1. Classic subtractive melodic voice</h2>
+<p>This is the most straightforward use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator saw or square output → <strong>MMF Input</strong></li>
+<li><strong>MMF LP output</strong> → VCA → mixer/output</li>
+<li>Sequencer CV → oscillator 1V/oct</li>
+<li>Envelope → VCA CV</li>
+<li>Another envelope or modulation source → <strong>Freq CV</strong></li>
+</ul>
+<h3>Result</h3>
+<p>This gives you a standard synth voice:
+- oscillator determines the pitch
+- MMF shapes brightness
+- modulation of cutoff adds articulation and contour</p>
+<h3>Why it works melodically</h3>
+<p>Even if the pitch sequence is simple, filter motion makes each note feel distinct. Short envelopes into cutoff create plucks; longer envelopes create expressive lead lines.</p>
+<hr />
+<h2>2. Acid-style bass and lead lines</h2>
+<p>The manual specifically suggests it can do <strong>“squelchy acid lines.”</strong></p>
+<h3>Patch</h3>
+<ul>
+<li>Saw or pulse oscillator → <strong>Input</strong></li>
+<li><strong>LP output</strong> → VCA</li>
+<li>Sequencer → oscillator pitch</li>
+<li>Envelope with fast decay → <strong>Freq CV</strong></li>
+<li>Manually raise <strong>Reso</strong></li>
+<li>Optionally modulate resonance slightly with CV</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- per-note cutoff sweeps
+- emphasized harmonics
+- pronounced resonant character</p>
+<h3>Musical tip</h3>
+<p>For acid-style phrasing:
+- use slides from your sequencer if available
+- accent certain notes by increasing cutoff CV amount
+- keep resonance high, but back off if the fundamental disappears too much</p>
+<hr />
+<h2>3. Tuned band-pass melodies from rich audio</h2>
+<p>The <strong>BP output</strong> is especially useful for melodic work.</p>
+<h3>Patch</h3>
+<ul>
+<li>Rich harmonic source (saw, supersaw, detuned oscillator, noise mixed with tone, chord source) → <strong>Input</strong></li>
+<li><strong>BP output</strong> → VCA</li>
+<li>Slow or sequenced CV → <strong>Freq CV</strong></li>
+<li>Moderate to high <strong>Reso</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The band-pass output isolates a narrower spectral region. Sweeping cutoff across harmonics can create the impression of changing pitches or formants, especially when the source is rich.</p>
+<h3>Musical applications</h3>
+<ul>
+<li>vocal-like leads</li>
+<li>narrow, reedy melodies</li>
+<li>moving harmonic lines from static drones</li>
+<li>pseudo-sequenced melodies even without changing oscillator pitch much</li>
+</ul>
+<p>This is a great trick if you want melodic motion from timbre rather than only from pitch CV.</p>
+<hr />
+<h2>4. Dual or triple melodic layers from one oscillator</h2>
+<p>Because the module outputs <strong>LP, HP, and BP simultaneously</strong>, you can create multiple related parts from one source.</p>
+<h3>Patch</h3>
+<ul>
+<li>One oscillator → <strong>MMF Input</strong></li>
+<li><strong>LP output</strong> → VCA/mixer channel 1</li>
+<li><strong>BP output</strong> → VCA/mixer channel 2</li>
+<li><strong>HP output</strong> → VCA/mixer channel 3</li>
+</ul>
+<h3>Result</h3>
+<p>You can treat the three outputs as separate voices:</p>
+<ul>
+<li><strong>LP</strong> = body / bass / warm lead</li>
+<li><strong>BP</strong> = focused melodic midrange line</li>
+<li><strong>HP</strong> = bright accent layer or percussive top line</li>
+</ul>
+<h3>Musical benefit</h3>
+<p>All three layers track the same filter movement, so they feel connected, but each occupies a different spectral role. This is excellent for creating a more complex melodic texture from minimal patching.</p>
+<hr />
+<h2>5. Resonant filter as a pitched voice</h2>
+<p>The manual doesn’t explicitly say the MMF self-oscillates, so this cannot be guaranteed from the documentation alone. However, many analog filters with resonance can approach sine-like ringing at high resonance.</p>
+<h3>Practical approach</h3>
+<ul>
+<li>Send a simple source into <strong>Input</strong></li>
+<li>Turn <strong>Reso</strong> up high</li>
+<li>Use <strong>BP</strong> or <strong>LP</strong> output</li>
+<li>Modulate <strong>Freq</strong> carefully with sequencer or keyboard CV</li>
+</ul>
+<h3>Possible result</h3>
+<p>At high resonance, cutoff becomes very prominent and can behave in a quasi-pitched way. Even if it does not fully self-oscillate, it can still produce tuned resonant tones when excited by incoming audio.</p>
+<h3>Musical use</h3>
+<ul>
+<li>tuned pings</li>
+<li>filtered percussion with melodic tuning</li>
+<li>sine-ish supporting lines if resonance is strong enough</li>
+</ul>
+<p>If your system includes trigger envelopes, you can ping the filter with very short transients from another module and tune the cutoff for melodic percussion.</p>
+<hr />
+<h2>6. Melodic articulation through cutoff tracking</h2>
+<p>The Freq CV range is wide: <strong>-8V to +8V added to knob position</strong>. That means the filter cutoff can be animated dramatically.</p>
+<h3>Patch idea</h3>
+<p>Mult the same pitch sequence:
+- one copy to oscillator 1V/oct
+- another copy, attenuated, to <strong>Freq CV</strong></p>
+<h3>Result</h3>
+<p>As notes go up, the filter opens too. This creates a natural brightening with pitch, similar to acoustic instruments and many classic synth patches.</p>
+<h3>Why this matters</h3>
+<p>A melodic line often sounds more alive when timbre loosely follows pitch. The MMF can do that very effectively with the right attenuation.</p>
+<hr />
+<h2>7. High-pass output for melodic definition</h2>
+<p>High-pass filters are often overlooked in melodic patching.</p>
+<h3>Patch</h3>
+<ul>
+<li>Rich oscillator or chord source → <strong>Input</strong></li>
+<li><strong>HP output</strong> → VCA</li>
+<li>Sequence pitch normally</li>
+<li>Modulate cutoff with envelope or LFO</li>
+</ul>
+<h3>Result</h3>
+<p>The HP output strips low fundamentals and emphasizes upper harmonics. This can create:
+- thin, cutting leads
+- airy arpeggios
+- supporting countermelodies that sit above a bass part</p>
+<h3>Good use case</h3>
+<p>If your patch is muddy, use HP for the melodic layer while another voice handles the low end.</p>
+<hr />
+<h2>8. Formant and vowel-like melodic lines</h2>
+<p>The MMF is only one filter, but the <strong>BP output</strong> with resonance can create vocal-like emphasis.</p>
+<h3>Patch</h3>
+<ul>
+<li>Saw oscillator → <strong>Input</strong></li>
+<li><strong>BP output</strong> → VCA</li>
+<li>Sequencer → oscillator pitch</li>
+<li>Slow LFO, stepped CV, or manual performance gestures → <strong>Freq CV</strong></li>
+<li>Moderate resonance</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of hearing only note changes, you hear timbral “mouth shapes” moving with the melody.</p>
+<h3>Musical roles</h3>
+<ul>
+<li>expressive solo lines</li>
+<li>organic hooks</li>
+<li>evolving mono leads</li>
+</ul>
+<hr />
+<h2>9. Sequenced timbre as melody</h2>
+<p>A melody does not always need to be purely pitch-based. You can make a repeated note feel melodic by sequencing the filter.</p>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator held on one note or simple drone → <strong>Input</strong></li>
+<li>Any output, usually LP or BP → VCA</li>
+<li>Stepped CV sequence → <strong>Freq CV</strong></li>
+<li>Optional second sequence or modulation → <strong>Reso CV</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Each step emphasizes different harmonics, creating the sensation of contour and phrase. This is especially effective with rich waveforms.</p>
+<h3>Why it works</h3>
+<p>Our ears often interpret changing spectral emphasis as a musical line, especially when resonance adds a distinct peak.</p>
+<hr />
+<h2>Good pairings with other module types</h2>
+<p>Since the MMF is a filter, it works best in a melodic patch when paired with:</p>
+<ul>
+<li><strong>Oscillator/VCO</strong>: provides pitch and harmonics</li>
+<li><strong>Sequencer</strong>: provides melodic CV</li>
+<li><strong>Envelope generator</strong>: shapes cutoff and amplitude</li>
+<li><strong>VCA</strong>: controls note articulation</li>
+<li><strong>LFO</strong>: creates movement in cutoff or resonance</li>
+<li><strong>Mixer or mult</strong>: lets you combine LP/BP/HP outputs</li>
+<li><strong>Attenuator/offset</strong>: very useful for controlling filter CV depth</li>
+</ul>
+<p>If you have only one oscillator, the MMF still greatly expands your melodic possibilities by creating multiple timbral variants of the same line.</p>
+<hr />
+<h2>Example melodic patch recipes</h2>
+<h2>Warm bassline</h2>
+<ul>
+<li>Saw VCO → MMF Input</li>
+<li>LP out → VCA</li>
+<li>Medium resonance</li>
+<li>Short envelope to cutoff</li>
+<li>Sequencer to VCO pitch</li>
+</ul>
+<p>Use this for solid mono bass with dynamic note articulation.</p>
+<h2>Nasal lead</h2>
+<ul>
+<li>Pulse or saw VCO → MMF Input</li>
+<li>BP out → VCA</li>
+<li>Higher resonance</li>
+<li>Moderate envelope to cutoff</li>
+<li>Slight vibrato from LFO to oscillator pitch</li>
+</ul>
+<p>Good for focused melodic leads that cut through a mix.</p>
+<h2>Bright arpeggio layer</h2>
+<ul>
+<li>Rich oscillator → MMF Input</li>
+<li>HP out → VCA</li>
+<li>Fast envelope to amplitude</li>
+<li>Clocked modulation to cutoff</li>
+</ul>
+<p>Useful for sparkly top-end melodic texture above a bass voice.</p>
+<h2>One-source three-layer melody</h2>
+<ul>
+<li>Oscillator → MMF Input</li>
+<li>LP, BP, and HP each to separate VCAs or mixer channels</li>
+<li>Different amplitude envelopes for each path</li>
+</ul>
+<p>Creates a complex, mix-ready layered voice from one oscillator.</p>
+<hr />
+<h2>Important practical notes from the manual</h2>
+<h3>Installation / power</h3>
+<ul>
+<li><strong>2HP</strong></li>
+<li><strong>42 mm depth</strong></li>
+<li><strong>+12V: 55 mA</strong></li>
+<li><strong>-12V: 55 mA</strong></li>
+<li>Ribbon cable red stripe goes to <strong>-12V</strong></li>
+<li>Manual notes that in most systems <strong>-12V is at the bottom</strong></li>
+<li>The power cable should connect to the module with the <strong>red band facing the front</strong></li>
+</ul>
+<h3>Control voltages</h3>
+<ul>
+<li><strong>Freq CV:</strong> <code>-8V to +8V</code></li>
+<li><strong>Reso CV:</strong> <code>-5V to +5V</code></li>
+</ul>
+<p>In practice, attenuating modulation into these inputs will help you keep melodic patches controllable and musical.</p>
+<hr />
+<h2>Bottom line</h2>
+<p>The <strong>2hp MMF</strong> is best thought of as a <strong>melodic tone-shaping module</strong> rather than a melody generator. It shines when used with an oscillator and sequencer to produce:</p>
+<ul>
+<li>classic subtractive basses and leads</li>
+<li>acid lines</li>
+<li>resonant band-pass melodies</li>
+<li>layered parts using simultaneous LP/HP/BP outs</li>
+<li>timbre-driven melodic motion from static or simple sources</li>
+</ul>
+<p>If you pair it with even a basic VCO + envelope + VCA + sequencer, it can become a central part of highly expressive melodic patching.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

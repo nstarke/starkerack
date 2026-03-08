@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Hexinverter_Orbitals</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Hexinverter — Orbitals</h1>
+<ul>
+<li><a href="../../manuals/hexinverter-orbitals.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Hexinverter Orbitals — using it for melodic components</h1>
+<p>Orbitals is a <strong>dual bipolar voltage-controlled step sequencer</strong> that can work as:</p>
+<ul>
+<li><strong>2 independent 8-step sequencers</strong></li>
+<li><strong>1 combined 16-step sequencer</strong></li>
+</ul>
+<p>For melody-making, that makes it especially useful as:</p>
+<ul>
+<li>a pitch sequencer</li>
+<li>a rhythm/gate pattern source</li>
+<li>a transposable melodic line generator</li>
+<li>a voltage-addressed note selector</li>
+<li>a two-lane melody/countermelody tool</li>
+</ul>
+<h2>What Orbitals contributes musically</h2>
+<p>From the manual, the key melody-oriented features are:</p>
+<ul>
+<li><strong>Per-step CV knobs</strong> for programming note values</li>
+<li><strong>Per-step gate switches</strong> for deciding which notes articulate</li>
+<li><strong>Bipolar or unipolar CV output</strong></li>
+<li><strong>Transpose input on Sequencer A</strong></li>
+<li><strong>Sequence length control</strong></li>
+<li><strong>Multiple playback modes</strong>:</li>
+<li>Forward</li>
+<li>Reverse</li>
+<li>Pendulum</li>
+<li>Random</li>
+<li>CV addressed</li>
+<li>Clocked CV addressed</li>
+<li><strong>Internal or external clocking</strong></li>
+<li><strong>Reset, run, reverse, and slave/sync options</strong></li>
+<li><strong>Selectable output ranges via rear jumpers</strong></li>
+</ul>
+<p>This is enough to build classic melodic sequencing, but also more experimental note selection and phrase variation.</p>
+<hr />
+<h2>Core melodic use cases</h2>
+<h2>1. Classic pitch sequencer</h2>
+<p>The most obvious use is to send:</p>
+<ul>
+<li><strong>CV OUT</strong> → oscillator <strong>1V/oct</strong></li>
+<li><strong>GATE OUT</strong> → envelope gate input</li>
+</ul>
+<p>Then tune each step knob by ear to a scale or motif.</p>
+<h3>Why it works well</h3>
+<ul>
+<li>The gate switches let you create rests.</li>
+<li>Length control can turn an 8-step line into 3, 5, 7, etc. steps for evolving loops.</li>
+<li>Bipolar mode lets you center pitches around 0V if your downstream patch likes positive and negative modulation.</li>
+</ul>
+<h3>Musical results</h3>
+<ul>
+<li>basslines</li>
+<li>lead sequences</li>
+<li>repeating ostinati</li>
+<li>Berlin-school/Tangerine Dream-style patterns</li>
+</ul>
+<p>The manual explicitly mentions the transpose input for keyboard-based transposition in this style.</p>
+<hr />
+<h2>2. 16-step melodic phrase builder</h2>
+<p>If <strong>Sequencer A length is set over 8</strong>, Orbitals automatically enters <strong>16-step mode</strong>.</p>
+<p>In this mode, the module becomes a longer melodic sequencer for:</p>
+<ul>
+<li>full-bar phrases</li>
+<li>call-and-response within one row</li>
+<li>verse-like repeated pitch structures</li>
+<li>longer melodic arcs than typical 8-step loops</li>
+</ul>
+<h3>Practical approach</h3>
+<ul>
+<li>Program steps 1–8 as motif A</li>
+<li>Program steps 9–16 as motif B or a variation</li>
+<li>Use gate switches to create rhythmic contour</li>
+<li>Clock externally from your master clock for tight timing</li>
+</ul>
+<p>This is great when 8 steps feel too short and repetitive.</p>
+<hr />
+<h2>3. Dual melody + countermelody patch</h2>
+<p>In <strong>dual 8-step mode</strong>, A and B can run independently.</p>
+<p>This allows:</p>
+<ul>
+<li><strong>A</strong> = bassline</li>
+<li><strong>B</strong> = lead line</li>
+</ul>
+<p>or</p>
+<ul>
+<li><strong>A</strong> = melodic pitch CV</li>
+<li><strong>B</strong> = second voice / harmony / counterline</li>
+</ul>
+<p>Because each sequencer has:
+- its own rate
+- its own mode
+- its own clock/reset/run inputs
+- its own gate length
+- its own sequence length</p>
+<p>you can create <strong>polymetric melodic relationships</strong> very easily.</p>
+<h3>Example</h3>
+<ul>
+<li>A length = 5</li>
+<li>B length = 7</li>
+<li>same clock source</li>
+<li>both quantized downstream</li>
+</ul>
+<p>Result: a constantly shifting melodic relationship that takes a long time to repeat.</p>
+<hr />
+<h2>4. Transposable melodic sequencing</h2>
+<p>One of Orbitals’ best musical features is:</p>
+<ul>
+<li><strong>TRANS A input</strong></li>
+</ul>
+<p>This input adds an external voltage to Sequencer A’s CV output.</p>
+<h3>Melodic uses</h3>
+<ul>
+<li>Play a keyboard into TRANS A to transpose a sequence live</li>
+<li>Use another sequencer, offset generator, or precision adder source to shift the melody by intervals</li>
+<li>Send a slow CV to transpose the whole line over time</li>
+</ul>
+<h3>Musical applications</h3>
+<ul>
+<li>verse/chorus key changes</li>
+<li>root-note movement under a repeating melodic pattern</li>
+<li>live performance transposition</li>
+<li>classic modular “play the sequencer from a keyboard” patches</li>
+</ul>
+<p>This is one of the most direct ways Orbitals creates richer melodic content instead of a static loop.</p>
+<hr />
+<h2>5. Voltage-addressed note selection</h2>
+<p>Orbitals has two special modes for step selection:</p>
+<ul>
+<li><strong>CV mode</strong></li>
+<li><strong>CLK mode</strong></li>
+</ul>
+<p>In these modes, the <strong>RST/CV input</strong> becomes a <strong>0–5V step address input</strong>.</p>
+<p>That means instead of advancing step-by-step, an incoming voltage chooses the current step.</p>
+<h3>CV mode</h3>
+<ul>
+<li>Incoming CV directly selects the step</li>
+<li>A new gate is generated whenever the step changes</li>
+</ul>
+<h3>CLK mode</h3>
+<ul>
+<li>CV selects the step</li>
+<li>A new gate only happens on clock events</li>
+</ul>
+<h3>Why this matters melodically</h3>
+<p>This turns Orbitals into something more like:
+- a note lookup table
+- a manually programmable quantized melody bank
+- a non-linear pitch source</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>Use an LFO, random voltage, joystick, or another sequencer to address steps</li>
+<li>Program each step as a note from a scale</li>
+<li>Let incoming CV “scan” the melody map</li>
+</ul>
+<p>This creates:
+- non-linear melodies
+- repeatable but less predictable pitch order
+- generative melodic structures</p>
+<p>CLK mode is especially useful when you want rhythmic stability but non-linear note choice.</p>
+<hr />
+<h2>6. Random melodic generator</h2>
+<p>In <strong>RND mode</strong>, every clock selects a random step.</p>
+<p>If the step knobs are tuned to notes of a scale, this becomes a playable random melody source.</p>
+<h3>Best practice</h3>
+<p>For more musical randomness:
+- tune all active steps to a limited note set
+- disable some gates for rests
+- use shorter sequence lengths to constrain choices
+- transpose the result with TRANS A</p>
+<h3>Result</h3>
+<p>You get melodies that feel:
+- unpredictable
+- bounded
+- stylistically coherent</p>
+<p>This is very effective for ambient, generative, and IDM-style patches.</p>
+<hr />
+<h2>7. Pendulum and reverse for phrase variation</h2>
+<p>Orbitals includes:
+- <strong>FW</strong>
+- <strong>REV</strong>
+- <strong>PND</strong></p>
+<p>These are simple, but extremely musical.</p>
+<h3>Reverse</h3>
+<p>Great for:
+- inversion-like phrase behavior
+- turning a lead into a response phrase
+- variation without repatching</p>
+<h3>Pendulum</h3>
+<p>Great for:
+- symmetrical melodies
+- arpeggio-like up/down movement
+- longer-feeling loops from fewer steps</p>
+<p>A short 4-step programmed phrase in pendulum mode can sound much more animated than plain forward playback.</p>
+<hr />
+<h2>8. Sequence length as a melodic tool</h2>
+<p>The <strong>LENGTH</strong> knobs do more than shorten loops — they reshape melody.</p>
+<h3>Useful musical tricks</h3>
+<ul>
+<li>Set a sequence to 3, 5, or 7 steps for looping against 4/4 rhythm</li>
+<li>Use A at 8 and B at 5 for evolving harmony</li>
+<li>Make a short motif repeat unevenly before resolving</li>
+</ul>
+<p>This is one of the easiest ways to get melodies that feel alive without needing additional modules.</p>
+<hr />
+<h2>9. Gate pattern as melodic phrasing</h2>
+<p>Because each step has a <strong>gate switch</strong>, Orbitals separates:</p>
+<ul>
+<li>pitch progression</li>
+<li>note articulation</li>
+</ul>
+<p>This is very important musically.</p>
+<p>Even if pitch steps continue internally, only selected steps create notes.</p>
+<h3>Melodic phrasing possibilities</h3>
+<ul>
+<li>create rests</li>
+<li>create syncopation</li>
+<li>emphasize certain notes</li>
+<li>thin out dense pitch patterns</li>
+</ul>
+<p>Combined with gate length control, this can move a sequence from:
+- plucky staccato
+to
+- sustained legato-like lines</p>
+<p>The manual notes that at fast speeds, longer gate settings can tie gates together, which can be musically useful for smoother phrasing.</p>
+<hr />
+<h2>10. Using Sequencer B as melodic support for A</h2>
+<p>Even if you only need one main melody, Sequencer B is still very useful.</p>
+<h3>Good companion roles for B</h3>
+<ul>
+<li>second melodic voice</li>
+<li>transposition source for other modules</li>
+<li>modulation for filter or wavefolder tied to the melody</li>
+<li>rhythmic gate pattern for another voice</li>
+<li>alternate phrase layer</li>
+</ul>
+<p>With the <strong>SLAVE B&gt;A</strong> switch, B can share A’s transport control inputs, making it easy to keep them synchronized without extra patching.</p>
+<p>This is ideal when building:
+- harmonized lines
+- bass + lead relationships
+- melody + ornament pairs</p>
+<hr />
+<h2>Practical patch recipes</h2>
+<h2>Patch 1: Simple melodic line</h2>
+<ul>
+<li>Orbitals A <strong>CV OUT</strong> → VCO 1V/oct</li>
+<li>Orbitals A <strong>GATE OUT</strong> → envelope gate</li>
+<li>Envelope → VCA CV</li>
+<li>VCO → VCA → mixer</li>
+<li>Set A to <strong>FW</strong></li>
+<li>Tune the 8 knobs to a scale</li>
+<li>Turn some gate switches off for rests</li>
+</ul>
+<p>Result: a straightforward sequenced melody.</p>
+<hr />
+<h2>Patch 2: Tangerine Dream style live-transposed sequence</h2>
+<ul>
+<li>Patch as above</li>
+<li>Keyboard CV or precision voltage source → <strong>TRANS A</strong></li>
+<li>Use external clock for tempo sync</li>
+<li>Use 8 or 16 steps</li>
+<li>Keep the programmed pattern intervallic rather than absolute</li>
+</ul>
+<p>Result: the same sequenced pattern can be moved harmonically in performance.</p>
+<hr />
+<h2>Patch 3: Bassline + lead</h2>
+<ul>
+<li>A CV/GATE → bass voice</li>
+<li>B CV/GATE → lead voice</li>
+<li>Same external clock to both, or use <strong>SLAVE B&gt;A</strong></li>
+<li>A length = 8, B length = 5 or 7</li>
+<li>A in FW, B in PND or RND</li>
+</ul>
+<p>Result: interlocking melodic layers with different repetition cycles.</p>
+<hr />
+<h2>Patch 4: Addressed melody map</h2>
+<ul>
+<li>Program each step to notes in a scale</li>
+<li>Set mode to <strong>CV</strong> or <strong>CLK</strong></li>
+<li>External modulation source → <strong>RST/CV input</strong></li>
+<li>CV OUT → oscillator pitch</li>
+<li>GATE OUT → envelope</li>
+</ul>
+<p>Result: incoming voltage selects notes from your programmed set instead of stepping linearly.</p>
+<p>This is excellent for controlled generative melody.</p>
+<hr />
+<h2>Patch 5: Random but musical notes</h2>
+<ul>
+<li>Set A to <strong>RND</strong></li>
+<li>Tune active steps to chord tones or scale tones</li>
+<li>Shorten sequence length to 4–6 steps</li>
+<li>Use gate switches to create sparse rhythms</li>
+<li>Add transpose on TRANS A</li>
+</ul>
+<p>Result: constrained random melodic movement.</p>
+<hr />
+<h2>Patch 6: Long-form 16-step phrase</h2>
+<ul>
+<li>Set Sequencer A length above 8 to enter <strong>16-step mode</strong></li>
+<li>Program first half as phrase</li>
+<li>Program second half as variation</li>
+<li>Clock externally</li>
+<li>Use reset to realign with your song structure</li>
+</ul>
+<p>Result: a longer, more song-like melodic sequence.</p>
+<hr />
+<h2>Important technical/musical considerations</h2>
+<h2>Output range matters</h2>
+<p>Orbitals has rear jumpers for output range selection.</p>
+<p>From the manual:</p>
+<ul>
+<li><strong>Bipolar ON, 5V jumper</strong>: -2.5V to +2.5V</li>
+<li><strong>Bipolar ON, 10V jumper</strong>: -5V to +5V</li>
+<li><strong>Bipolar OFF, 5V jumper</strong>: 0V to +5V</li>
+<li><strong>Bipolar OFF, 10V jumper</strong>: 0V to +10V</li>
+</ul>
+<h3>For melodic use</h3>
+<p>If you’re driving oscillator pitch directly:
+- the larger ranges can span many octaves
+- this makes precise tuning harder by ear</p>
+<p>So musically, a smaller range is often easier for tonal sequencing unless you want wide interval leaps.</p>
+<h2>Safety note</h2>
+<p>The manual is explicit:
+<strong>Never adjust the jumpers with the module powered on.</strong></p>
+<hr />
+<h2>Clocking considerations for melody</h2>
+<p>Orbitals can use:
+- its own internal clock
+- an external clock</p>
+<p>For music systems with drums, master clocks, or song structure, external clocking is usually the better choice.</p>
+<p>The module expects about:
+- <strong>1V logic high</strong> for clock/reset/run inputs</p>
+<p>It can also run quite fast — up to low audio range internally and about <strong>1kHz clock input</strong> reliably — which means it can blur into audio-rate or pseudo-oscillator behavior, though for melody the sweet spot is obviously much slower.</p>
+<hr />
+<h2>Best musical strengths of Orbitals</h2>
+<p>Orbitals is particularly strong when you want:</p>
+<ul>
+<li><strong>hands-on pitch programming</strong></li>
+<li><strong>classic analog sequencing</strong></li>
+<li><strong>easy melodic transposition</strong></li>
+<li><strong>two related melodic lanes</strong></li>
+<li><strong>non-linear voltage-addressed note selection</strong></li>
+<li><strong>simple but powerful performance variation</strong></li>
+</ul>
+<p>It is especially good for:
+- Berlin-school sequences
+- basslines
+- looping motifs
+- generative melodic patches
+- interlocking two-voice patterns</p>
+<hr />
+<h2>Limitations to keep in mind</h2>
+<p>Based on the manual, a few practical melodic limitations:</p>
+<ul>
+<li>No built-in quantizer is mentioned, so tuning notes to exact scales may need care or an external quantizer.</li>
+<li>Output range can be broad, which may make fine pitch dialing sensitive.</li>
+<li>Voltage-addressed modes are powerful, but they are not the same as a dedicated quantized note memory system.</li>
+</ul>
+<p>Still, the combination of <strong>manual step programming + transpose + addressable steps + dual lanes</strong> makes it very musically flexible.</p>
+<hr />
+<h2>Bottom line</h2>
+<p>Hexinverter Orbitals is a very capable melodic sequencer for eurorack because it can cover both:</p>
+<ul>
+<li><strong>traditional note sequencing</strong>
+and</li>
+<li><strong>more experimental CV-addressed melody generation</strong></li>
+</ul>
+<p>Its standout melodic features are:</p>
+<ul>
+<li>dual 8-step / single 16-step operation</li>
+<li>per-step pitch and gate programming</li>
+<li>transpose input</li>
+<li>random/reverse/pendulum modes</li>
+<li>CV-addressed step selection</li>
+<li>easy synchronization between the two sequencers</li>
+</ul>
+<p>In a patch, it can act as:
+- the main melody source
+- a bassline sequencer
+- a harmonized second voice
+- a transposable phrase generator
+- a programmable note bank for generative composition</p>
+<p>If you want, I can also turn this into:
+1. a <strong>patch cookbook</strong>
+2. a <strong>beginner-friendly quickstart</strong>
+3. a <strong>“best companion modules” guide</strong> for Orbitals</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

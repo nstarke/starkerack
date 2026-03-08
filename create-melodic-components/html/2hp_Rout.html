@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Rout</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Rout</h1>
+<ul>
+<li><a href="../../manuals/Rout_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1><a href="#">Manual PDF</a></h1>
+<p>Based on the attached manual, the module shown is <strong>Rout</strong>, a <strong>2hp voltage-controlled gate router/switch</strong>. It does <strong>not generate pitch directly</strong>, but it can be very useful in building <strong>melodic structures</strong> by routing rhythmic gate information to different destinations in a patch.</p>
+<h2>What Rout does</h2>
+<p>Rout takes <strong>one gate/trigger input</strong> and sends it to <strong>one of four outputs</strong>.</p>
+<h3>Key functions</h3>
+<ul>
+<li><strong>INPUT</strong>: incoming gate/trigger</li>
+<li><strong>SEL CV</strong>: voltage control for selecting which output is active</li>
+<li><strong>SEL knob</strong>: manual selection of output 1–4</li>
+<li><strong>OUT 1–4</strong>: the selected output passes the input gate</li>
+<li><strong>LEDs</strong>: show which output currently has voltage</li>
+</ul>
+<h3>Specs relevant to patching</h3>
+<ul>
+<li><strong>Input threshold</strong>: 2.5V</li>
+<li><strong>Output range</strong>: 0–5V gate/trigger</li>
+<li><strong>SEL CV range</strong>: 0–5V</li>
+</ul>
+<hr />
+<h2>How Rout can help create melodic components</h2>
+<p>Since Rout is a <strong>gate distributor under CV control</strong>, its melodic use comes from deciding <strong>which sequencer, envelope, voice, or modulation path gets triggered</strong> at a given moment.</p>
+<h2>1. One rhythm, multiple pitched voices</h2>
+<p>Patch:
+- Master clocked gate pattern → <strong>Rout INPUT</strong>
+- <strong>OUT 1–4</strong> → trigger inputs of <strong>four different voices</strong> or <strong>four different envelopes</strong> controlling four oscillators</p>
+<p>Result:
+- A single rhythm gets sent to different voices over time
+- If each voice is tuned to a different note, chord tone, or register, Rout turns one trigger pattern into a <strong>melodic line with timbral or harmonic movement</strong></p>
+<p>Example:
+- OUT 1 → bass voice
+- OUT 2 → root note lead
+- OUT 3 → fifth
+- OUT 4 → octave accent</p>
+<p>Use <strong>SEL CV</strong> from an LFO, stepped random, or sequencer row to choose which note/voice is active.</p>
+<hr />
+<h2>2. Route one trigger stream to different sequencers</h2>
+<p>Patch:
+- Gate pattern → <strong>Rout INPUT</strong>
+- Each <strong>Rout output</strong> → clock/advance input of a different pitch sequencer</p>
+<p>Result:
+- Only one sequencer advances at a time
+- You can effectively switch between different melodic phrases depending on the selected output</p>
+<p>This is a strong way to create:
+- verse / chorus variations
+- call-and-response melodies
+- fills and alternate note orders</p>
+<p>For instance:
+- OUT 1 → sequencer with bass motif
+- OUT 2 → sequencer with higher inversion
+- OUT 3 → sequencer with sparse phrase
+- OUT 4 → sequencer with dense ornamentation</p>
+<p>The melody changes because different pitch sources are being stepped.</p>
+<hr />
+<h2>3. Route triggers to different envelope shapes for one oscillator</h2>
+<p>Patch:
+- One VCO provides the audio pitch
+- Several envelopes or function generators shape the VCA/filter differently
+- Trigger source → <strong>Rout INPUT</strong>
+- <strong>OUT 1–4</strong> → different envelope generators</p>
+<p>Result:
+- Same oscillator pitch sequence, but each note articulation changes depending on routed gate destination
+- This creates perceived melodic phrasing:
+  - plucked notes
+  - long sustained notes
+  - accented filter pops
+  - ghost notes</p>
+<p>Even if pitch stays the same, articulation can make the line feel much more melodic.</p>
+<hr />
+<h2>4. Create melody by switching quantizer/sample-and-hold triggers</h2>
+<p>Patch:
+- Random or stepped CV → quantizer input
+- Gate stream → <strong>Rout INPUT</strong>
+- <strong>OUT 1–4</strong> → different sample-and-hold or quantizer trigger paths, or different track-and-hold stages</p>
+<p>Result:
+- Rout determines <strong>when</strong> and <strong>where</strong> new pitch values are captured
+- This can create alternating melodic behavior:
+  - one output grabs notes frequently
+  - another only occasionally
+  - another triggers transpositions
+  - another updates a harmony line</p>
+<p>This is especially useful for semi-generative melodic systems.</p>
+<hr />
+<h2>5. Use Rout as a phrase selector for transposition events</h2>
+<p>Patch:
+- Main melodic sequencer runs continuously
+- Trigger pattern into <strong>Rout INPUT</strong>
+- Each Rout output sends a trigger to a different transpose event, precision adder gate, sequential switch, or CV preset recall</p>
+<p>Result:
+- The same melody can jump between harmonic contexts
+- You can use outputs to trigger:
+  - root position
+  - minor third transpose
+  - fifth transpose
+  - octave jump</p>
+<p>That makes Rout a <strong>harmonic phrase router</strong>, even though it only routes gates.</p>
+<hr />
+<h2>6. Send one trigger stream to different percussion-like pitched voices</h2>
+<p>If your system includes tuned percussion modules or pinged filters:
+- INPUT = regular trigger pattern
+- OUT 1–4 = different tuned resonant voices</p>
+<p>Result:
+- One trigger source becomes a melody by striking different tuned modules
+- Great for:
+  - marimba-style lines
+  - West Coast bongo melodies
+  - pseudo-sequenced modal percussion</p>
+<p>Because the selection can be under CV control, the melodic order can be static or animated.</p>
+<hr />
+<h2>7. Controlled melodic variation with SEL CV</h2>
+<p>The biggest musical feature is <strong>voltage control over output selection</strong>.</p>
+<p>Feed <strong>SEL CV</strong> with:
+- <strong>Stepped random</strong> for generative melodic routing
+- <strong>Sequencer CV row</strong> for repeatable phrase switching
+- <strong>Slow triangle/sine LFO</strong> for cyclical movement across destinations
+- <strong>Manual CV controller</strong> for live performance fills and transitions</p>
+<p>Because SEL CV expects <strong>0–5V</strong>, it pairs well with many Eurorack modulation and sequencer sources.</p>
+<h3>Musical outcomes</h3>
+<ul>
+<li>Repeatable output order = structured melody</li>
+<li>Randomized output order = generative melody</li>
+<li>Slowly changing selector = evolving phrase orchestration</li>
+<li>Fast CV changes = glitchy ratcheting destination shifts</li>
+</ul>
+<hr />
+<h2>Practical melodic patch ideas</h2>
+<h2>Patch 1: Four-note melodic distributor</h2>
+<ul>
+<li>Clock divider or trigger sequencer → Rout INPUT</li>
+<li>OUT 1–4 → four envelope generators</li>
+<li>Each envelope controls a different VCA for four tuned oscillators</li>
+</ul>
+<p>Tune oscillators to:
+- C
+- E
+- G
+- B</p>
+<p>Now Rout turns one rhythm into an arpeggiated chord spread across four voices.</p>
+<p>Control:
+- SEL knob manually for fixed note choice
+- SEL CV from a sequence for melodic order</p>
+<hr />
+<h2>Patch 2: Phrase switching lead</h2>
+<ul>
+<li>Gate sequencer → Rout INPUT</li>
+<li>OUT 1–4 → clock inputs on four pitch sequencers</li>
+<li>Outputs of pitch sequencers mixed or switched into one voice path</li>
+</ul>
+<p>Each sequencer contains a different phrase.
+Rout determines which phrase advances, creating larger melodic form from small patterns.</p>
+<hr />
+<h2>Patch 3: Bassline with accents and octave jumps</h2>
+<ul>
+<li>Main gate pattern → Rout INPUT</li>
+<li>OUT 1 → standard bass envelope</li>
+<li>OUT 2 → same bass voice plus octave transpose trigger</li>
+<li>OUT 3 → accent envelope</li>
+<li>OUT 4 → fill/reset event</li>
+</ul>
+<p>This creates a bassline with evolving melodic contour from one simple gate stream.</p>
+<hr />
+<h2>Patch 4: Generative melody hub</h2>
+<ul>
+<li>Master trigger source → Rout INPUT</li>
+<li>SEL CV from stepped random</li>
+<li>OUT 1 → trigger main sequencer advance</li>
+<li>OUT 2 → trigger sample-and-hold for new pitch</li>
+<li>OUT 3 → trigger transpose event</li>
+<li>OUT 4 → trigger second voice harmony envelope</li>
+</ul>
+<p>This makes Rout the central decision-maker for melodic behavior.</p>
+<hr />
+<h2>Strengths of Rout in melodic patching</h2>
+<ul>
+<li>Very compact at <strong>2hp</strong></li>
+<li>Excellent for <strong>reusing one trigger source</strong> across many melodic destinations</li>
+<li>Adds <strong>variation and structure</strong> without needing a second trigger sequencer</li>
+<li>CV control makes it easy to fold into generative or performative systems</li>
+<li>Useful in both <strong>polyphonic</strong> and <strong>single-voice evolving</strong> patches</li>
+</ul>
+<hr />
+<h2>Limitation to keep in mind</h2>
+<p>Rout is a <strong>gate router</strong>, not a pitch router or CV switch for melodic voltages.<br />
+So by itself, it does not create notes. Its melodic value comes from routing <strong>events</strong> that affect:
+- when notes happen
+- which voice plays
+- which phrase advances
+- which articulation/transposition is triggered</p>
+<p>In other words, Rout is best thought of as a <strong>melody structure tool</strong>, not a melody source.</p>
+<hr />
+<h2>Summary</h2>
+<p><strong>Rout</strong> is ideal for creating melodic components by:
+- distributing one rhythm to different tuned voices
+- selecting which sequencer or phrase advances
+- varying articulation across notes
+- triggering transposition or harmony events
+- adding CV-controlled variation to otherwise static melodic material</p>
+<p>If you upload the other module manuals too, I can analyze <strong>how they work together as a complete melodic system</strong> and suggest specific multi-module patches.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

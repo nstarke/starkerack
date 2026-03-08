@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Free_Modular_Boost</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Free Modular — Boost</h1>
+<ul>
+<li><a href="../../manuals/boost_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Free Modular Boost — melodic use analysis</h1>
+<p>This manual shows <strong>one module: Boost</strong> by Free Modular. It is <strong>not a voice, oscillator, filter, envelope, sequencer, or VCA</strong>, so by itself it does <strong>not generate melody</strong>. Instead, it is a <strong>signal-conditioning / coloration module</strong> that can help melodic parts cut through, gain harmonic richness, and interface better with quieter sources.</p>
+<h2>What Boost does</h2>
+<p>Boost is an <strong>all-analog gain and soft-ish diode clipping stage</strong> with:</p>
+<ul>
+<li><strong>Drive</strong>: from roughly <strong>unity gain</strong> up to <strong>+26 dB</strong></li>
+<li><strong>Tone</strong>: tilts the high-frequency content after clipping</li>
+<li><strong>AC-coupled input</strong>: intended for <strong>line-level or Eurorack audio</strong></li>
+<li><strong>No CV control</strong></li>
+<li>Output typically limited to about <strong>13 Vpp</strong> with neutral tone, though high tone boost can push toward rails and cause <strong>severe distortion</strong></li>
+</ul>
+<h2>What that means musically</h2>
+<p>For melodic material, Boost is best thought of as:</p>
+<ul>
+<li>an <strong>overdrive</strong> for basslines, leads, plucks, and arps</li>
+<li>a <strong>harmonic enhancer</strong> to make simple waveforms sound richer</li>
+<li>a <strong>level booster</strong> for quieter external audio before further modular processing</li>
+<li>a way to make a melodic part feel more <strong>present</strong>, <strong>aggressive</strong>, or <strong>forward in the mix</strong></li>
+</ul>
+<p>Because it is <strong>input-level sensitive</strong>, you can indirectly “animate” the distortion by changing signal level before it.</p>
+<hr />
+<h2>Best ways to use Boost in melodic patches</h2>
+<h2>1. Add harmonics to a simple oscillator voice</h2>
+<p>A plain sine, triangle, or mellow saw can become more melodically expressive with Boost.</p>
+<h3>Patch idea</h3>
+<ul>
+<li><strong>VCO</strong> → <strong>Boost input</strong></li>
+<li><strong>Boost output</strong> → <strong>VCA / filter / mixer</strong></li>
+<li>Sequence pitch normally with your <strong>sequencer + quantizer</strong></li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>Low Drive: subtle thickening</li>
+<li>Medium Drive: more upper harmonics, more presence</li>
+<li>High Drive: overdriven lead or acid-like aggression</li>
+</ul>
+<h3>Why this helps melody</h3>
+<p>Extra harmonics make pitch content easier to hear in a mix, especially for:
+- mono leads
+- basslines
+- arpeggios
+- repetitive sequenced motifs</p>
+<hr />
+<h2>2. Use it after a filter for expressive lead tones</h2>
+<p>Putting Boost <strong>after</strong> a filter gives you a more performance-oriented melodic voice.</p>
+<h3>Patch idea</h3>
+<ul>
+<li><strong>VCO</strong> → <strong>VCF</strong></li>
+<li><strong>VCF</strong> → <strong>Boost</strong></li>
+<li><strong>Boost</strong> → <strong>VCA</strong></li>
+<li>Envelope to VCF and VCA as usual</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>The filter shapes the tone first</li>
+<li>Boost adds saturation to the already-shaped sound</li>
+<li>Resonant peaks can clip in a pleasing way</li>
+</ul>
+<h3>Musical use</h3>
+<p>Great for:
+- techno leads
+- electro bass
+- saturated plucks
+- expressive monosynth lines</p>
+<p>This placement often feels more controlled than driving the filter input.</p>
+<hr />
+<h2>3. Put it before a filter for dynamic timbral motion</h2>
+<p>Putting Boost before a filter gives a different character.</p>
+<h3>Patch idea</h3>
+<ul>
+<li><strong>VCO</strong> → <strong>Boost</strong></li>
+<li><strong>Boost</strong> → <strong>VCF</strong></li>
+<li><strong>VCF</strong> → <strong>VCA</strong></li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>Boost generates harmonics first</li>
+<li>Filter then sculpts those harmonics</li>
+<li>Sweeping the filter creates richer melodic movement</li>
+</ul>
+<h3>Musical use</h3>
+<p>Useful when a melody needs to evolve over time:
+- acid sequences
+- animated ostinatos
+- bright plucks with controllable harshness</p>
+<hr />
+<h2>4. Animate distortion by controlling level before Boost</h2>
+<p>The manual specifically suggests using a <strong>VCA before Boost</strong> if you want to automate distortion amount.</p>
+<h3>Patch idea</h3>
+<ul>
+<li><strong>VCO</strong> → <strong>VCA</strong></li>
+<li>Envelope / CV → <strong>that VCA</strong></li>
+<li><strong>VCA output</strong> → <strong>Boost</strong></li>
+<li><strong>Boost output</strong> → mixer</li>
+</ul>
+<h3>Why this is important</h3>
+<p>Since Boost has <strong>no CV over Drive</strong>, pre-level control becomes your “distortion CV.”</p>
+<h3>Musical result</h3>
+<p>You can make individual notes in a melody:
+- cleaner when quieter
+- dirtier when accented
+- more aggressive on strong beats</p>
+<p>This is extremely useful for:
+- accented step sequences
+- velocity-style dynamic phrasing
+- call-and-response lead articulation</p>
+<p>If you have a sequencer with accent outputs, patch accent CV to the pre-Boost VCA.</p>
+<hr />
+<h2>5. Preserve melody but add edge with parallel processing</h2>
+<p>For melodic clarity, parallel distortion works very well.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Mult your melodic voice</li>
+<li>Path A: dry signal to mixer</li>
+<li>Path B: signal → <strong>Boost</strong> → mixer</li>
+<li>Blend dry and boosted versions</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>Dry path keeps pitch and articulation clear</li>
+<li>Boosted path adds bite and harmonics</li>
+<li>Combined sound stays musical and intelligible</li>
+</ul>
+<h3>Best for</h3>
+<ul>
+<li>lead lines</li>
+<li>bass melodies</li>
+<li>arpeggios</li>
+<li>sampled melodic loops</li>
+</ul>
+<hr />
+<h2>6. Thicken external melodic sources</h2>
+<p>Since Boost can bring <strong>line-level or mic-level</strong> signals up, it is useful with non-modular melodic material.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>External synth / groovebox / sampler / voice → <strong>Boost</strong></li>
+<li>Boost output → modular effects / filter / VCA / mixer</li>
+</ul>
+<h3>Use cases</h3>
+<ul>
+<li>saturate a desktop synth melody</li>
+<li>push a vocal phrase into modular processing</li>
+<li>add grit to a sampled piano or loop</li>
+<li>integrate quiet melodic sources into Eurorack level</li>
+</ul>
+<p>For vocals or melodic samples, keep Drive moderate if you want intelligibility.</p>
+<hr />
+<h2>7. Make bass melodies more audible</h2>
+<p>Basslines often need upper harmonics to be heard on smaller speakers. Boost is very useful here.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Bass oscillator or sub-mixed voice → <strong>Boost</strong></li>
+<li>Optional filter after</li>
+<li>Then to final VCA/mix</li>
+</ul>
+<h3>Settings</h3>
+<ul>
+<li>Drive: low to medium</li>
+<li>Tone: slightly right of center if you need definition</li>
+<li>Avoid too much top end if the bass gets fizzy</li>
+</ul>
+<h3>Result</h3>
+<p>The root notes and rhythmic motion of a bass melody become easier to perceive.</p>
+<hr />
+<h2>8. Use Tone as a melodic placement control</h2>
+<p>The Tone knob is more than brightness; it changes how a melodic line occupies space.</p>
+<h3>Tone left of center</h3>
+<ul>
+<li>smoother</li>
+<li>less harsh</li>
+<li>better for warm basses and rounded leads</li>
+</ul>
+<h3>Tone right of center</h3>
+<ul>
+<li>more bite</li>
+<li>more attack presence</li>
+<li>better for cutting leads, plucks, and arps</li>
+</ul>
+<p>Because tone shaping happens <strong>after clipping</strong>, boosting highs can get extreme quickly. That can be excellent for aggressive leads, but it may also make pitch sound less stable if overdone.</p>
+<hr />
+<h2>Patch roles in a melodic system</h2>
+<h2>With an oscillator</h2>
+<p>Boost turns a basic oscillator into a more harmonically complex melodic voice.</p>
+<h2>With a sequencer</h2>
+<p>Boost won’t affect pitch sequencing directly, but it can make repeated sequences feel more alive through accent-driven pre-gain changes.</p>
+<h2>With a quantizer</h2>
+<p>No direct interaction, but once pitches are quantized, Boost helps those notes speak more clearly.</p>
+<h2>With envelopes</h2>
+<p>Use envelopes on a VCA placed <strong>before</strong> Boost to create note-dependent saturation.</p>
+<h2>With filters</h2>
+<ul>
+<li><strong>Before filter</strong>: richer harmonic source for subtractive shaping</li>
+<li><strong>After filter</strong>: polished, driven synth voice</li>
+</ul>
+<h2>With VCAs</h2>
+<p>This is the most important pairing from the manual’s perspective:
+- <strong>VCA before Boost</strong> = dynamic distortion control
+- <strong>VCA after Boost</strong> = control final loudness</p>
+<h2>With wavefolders / digital distortion</h2>
+<p>Boost can be the gentler first stage before more extreme processors.</p>
+<hr />
+<h2>Concrete melodic patch recipes</h2>
+<h2>A. Saturated mono lead</h2>
+<ul>
+<li>VCO saw → VCF → Boost → VCA → output</li>
+<li>Sequencer CV to VCO pitch</li>
+<li>Gate to envelope for VCA</li>
+<li>Envelope to filter cutoff</li>
+</ul>
+<p><strong>Why it works:</strong> filter gives shape, Boost adds bite and sustain-like presence.</p>
+<hr />
+<h2>B. Accent-sensitive acid line</h2>
+<ul>
+<li>VCO square/saw → VCA → Boost → VCF → VCA</li>
+<li>Sequencer pitch to VCO</li>
+<li>Gate to amp envelope</li>
+<li>Accent CV to pre-Boost VCA CV</li>
+</ul>
+<p><strong>Why it works:</strong> accented notes hit Boost harder and distort more, creating expressive variation across the sequence.</p>
+<hr />
+<h2>C. Warm bass melody</h2>
+<ul>
+<li>Triangle or sine+sub → Boost → low-pass filter → VCA</li>
+<li>Drive low to medium</li>
+<li>Tone slightly left of center</li>
+</ul>
+<p><strong>Why it works:</strong> adds enough harmonics for note definition while staying full and rounded.</p>
+<hr />
+<h2>D. Parallel lead enhancer</h2>
+<ul>
+<li>Main melodic voice multed</li>
+<li>Dry path to mixer</li>
+<li>Second path to Boost, then mixer</li>
+<li>Blend to taste</li>
+</ul>
+<p><strong>Why it works:</strong> preserves note clarity while adding aggression and mix presence.</p>
+<hr />
+<h2>E. External synth melody into modular</h2>
+<ul>
+<li>External synth output → Boost → modular filter/delay/reverb</li>
+<li>Keep Drive near low or medium at first</li>
+</ul>
+<p><strong>Why it works:</strong> level-matches and colors external melodic material for modular integration.</p>
+<hr />
+<h2>Practical cautions</h2>
+<ul>
+<li><strong>AC-coupled input</strong> means this is for <strong>audio</strong>, not for processing pitch CV or slow modulation in a meaningful way.</li>
+<li>At high <strong>Tone</strong> and high <strong>Drive</strong>, harsh upper harmonics can dominate and obscure melodic clarity.</li>
+<li>Since there is <strong>no CV</strong>, any rhythmic or note-by-note change in distortion needs to come from <strong>input amplitude changes</strong> before the module.</li>
+<li>If you want distortion without a large output jump, <strong>attenuate after Boost</strong> as the manual suggests.</li>
+</ul>
+<hr />
+<h2>Bottom line</h2>
+<p><strong>Boost is a supporting melodic utility, not a melody generator.</strong><br />
+Its strongest role in melodic music is to make existing pitched material more vivid by adding:</p>
+<ul>
+<li>gain</li>
+<li>saturation</li>
+<li>harmonic density</li>
+<li>presence</li>
+<li>accent-responsive overdrive when paired with a pre-VCA</li>
+</ul>
+<p>If you share the other module manuals too, I can analyze <strong>how the modules work together as a full melodic system</strong> and propose complete patches for leads, basslines, arps, and chordal textures.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

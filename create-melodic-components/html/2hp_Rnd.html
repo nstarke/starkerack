@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Rnd</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Rnd</h1>
+<ul>
+<li><a href="../../manuals/2hp_Rnd.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Using 2hp Rnd to Create Melodic Components</h1>
+<p>The attached manual is for the <strong>2hp Rnd</strong>, a compact random voltage and random gate generator. Even though it is a single module, it can contribute a lot to melodic patching when paired with common Eurorack building blocks like quantizers, VCOs, envelopes, VCAs, clock sources, and sequencers.</p>
+<h2>What Rnd does musically</h2>
+<p>Rnd provides three main outputs/functions:</p>
+<ul>
+<li><strong>Quant Output</strong>: stepped random voltage, changing on each clock pulse</li>
+<li><strong>Smooth Output</strong>: continuously moving random voltage</li>
+<li><strong>Gate Output</strong>:</li>
+<li>internal clock mode: steady clock output</li>
+<li>external clock mode: random gates</li>
+</ul>
+<p>This makes it useful for generating:</p>
+<ul>
+<li>random melodies</li>
+<li>evolving pitch modulation</li>
+<li>rhythmic note triggering</li>
+<li>probabilistic variation in phrases</li>
+</ul>
+<h2>Important behaviors from the manual</h2>
+<h3>1. Internal vs External clock</h3>
+<p>The <strong>INT/EXT switch</strong> changes the module’s behavior:</p>
+<ul>
+<li><strong>Internal</strong></li>
+<li>the module runs from its own clock</li>
+<li><strong>Rate knob</strong> sets internal clock speed</li>
+<li><strong>Clock jack</strong> becomes CV control for internal rate</li>
+<li>
+<p><strong>Gate out</strong> sends a steady 50% duty cycle clock</p>
+</li>
+<li>
+<p><strong>External</strong></p>
+</li>
+<li><strong>Clock jack</strong> becomes a clock input</li>
+<li><strong>Quant output</strong> updates on incoming clock pulses</li>
+<li><strong>Gate out</strong> emits random gates</li>
+<li><strong>Rate knob</strong> controls the probability / rate behavior of those random gates</li>
+<li><strong>Smooth output</strong> still changes at a speed determined by the Rate knob</li>
+</ul>
+<h3>2. Two independent random voltages</h3>
+<p>The manual states the <strong>quantized and smooth outputs are completely independent</strong>. That is very useful musically, because one can drive pitch while the other shapes timbre, transposition, or articulation.</p>
+<h3>3. Output range</h3>
+<p>Both random voltage paths have attenuators and can be adjusted from <strong>0V to 10V</strong>. That wide range is important, because for melodic use you will often want to reduce the range before sending it to a pitch input or quantizer.</p>
+<hr />
+<h1>Best melodic uses</h1>
+<h2>1. Random melody source into a quantizer</h2>
+<p>The most direct melodic patch:</p>
+<p><strong>Patch</strong>
+- Rnd <strong>Quant Output</strong> → external <strong>quantizer</strong> input
+- Quantizer output → VCO <strong>1V/oct</strong>
+- Rnd <strong>Gate Output</strong> or another clock/gate source → envelope → VCA</p>
+<p><strong>Why it works</strong>
+- The Quant Output generates a new stepped random voltage on each clock pulse
+- A quantizer forces those random voltages onto a scale
+- Result: random but musical notes</p>
+<p><strong>Tip</strong>
+Since Rnd can output up to 10V, use the <strong>Quant attenuator</strong> to limit melodic range before the quantizer. Lower settings give tighter, more phrase-like melodies.</p>
+<hr />
+<h2>2. Use internal clock for self-running melodies</h2>
+<p>Because Rnd has its own internal clock, it can act like a self-contained melodic idea generator.</p>
+<p><strong>Patch</strong>
+- Set switch to <strong>INT</strong>
+- Rnd <strong>Quant Output</strong> → quantizer → oscillator pitch
+- Rnd <strong>Gate Output</strong> → envelope trigger
+- Envelope → VCA / LPG</p>
+<p><strong>Musical result</strong>
+- The module clocks itself
+- Every internal pulse creates a new pitch
+- The gate output provides matching rhythmic triggers</p>
+<p>This is great for:
+- generative ambient lines
+- aleatoric sequences
+- quick self-playing patches</p>
+<hr />
+<h2>3. Use external clock to lock randomness to your track</h2>
+<p>For more musical control, clock it from your system master clock, trigger sequencer, or clock divider.</p>
+<p><strong>Patch</strong>
+- Master clock / sequencer clock → Rnd <strong>Clock Input</strong>
+- Set switch to <strong>EXT</strong>
+- Rnd <strong>Quant Output</strong> → quantizer → VCO pitch
+- Rnd <strong>Gate Output</strong> → envelope trigger or logic module</p>
+<p><strong>Why this is useful</strong>
+- Notes now change in sync with the rest of your patch
+- Random gates add variation without drifting out of time
+- Great for techno, IDM, generative pop, and modular rhythm structures</p>
+<hr />
+<h1>Melodic patch ideas</h1>
+<h2>Patch 1: Simple generative lead</h2>
+<p><strong>Modules needed</strong>
+- Rnd
+- quantizer
+- VCO
+- envelope
+- VCA
+- filter optional</p>
+<p><strong>Patch</strong>
+- Rnd Quant Out → quantizer in
+- Quantizer out → VCO 1V/oct
+- Rnd Gate Out → envelope gate in
+- Envelope out → VCA CV
+- VCO out → VCA in → mixer/output</p>
+<p><strong>How to play it</strong>
+- In <strong>INT mode</strong>, use the <strong>Rate knob</strong> to choose melody speed
+- Adjust <strong>Quant attenuator</strong> for note range
+- Select a quantizer scale like minor pentatonic for always-pleasant results</p>
+<p><strong>Result</strong>
+A fully autonomous random melody voice.</p>
+<hr />
+<h2>Patch 2: Evolving melody with drifting transposition</h2>
+<p>Use both outputs together.</p>
+<p><strong>Patch</strong>
+- Rnd <strong>Quant Out</strong> → quantizer → VCO pitch
+- Rnd <strong>Smooth Out</strong> → attenuator/offset module → add to quantizer transpose input or oscillator FM very lightly
+- Clock externally or internally</p>
+<p><strong>Musical result</strong>
+- Quant Out creates note changes
+- Smooth Out slowly bends or transposes the melodic center
+- Feels like the melody is wandering through different tonal zones</p>
+<p>This is one of the best uses of Rnd because the two random algorithms are independent.</p>
+<hr />
+<h2>Patch 3: Random melody plus probabilistic rhythm</h2>
+<p>In <strong>EXT mode</strong>, the Gate output becomes random.</p>
+<p><strong>Patch</strong>
+- Master clock → Rnd Clock In
+- Rnd Quant Out → quantizer → oscillator pitch
+- Rnd Gate Out → envelope trigger
+- Optional: mult the master clock to another voice for comparison</p>
+<p><strong>Musical result</strong>
+- Pitches update with the clock
+- Notes only sound when random gates fire
+- Creates rests and syncopation automatically</p>
+<p>This is excellent for making melodies less rigid.</p>
+<hr />
+<h2>Patch 4: Use Smooth output as a melodic source through a sample &amp; hold or quantizer</h2>
+<p>Although Smooth is continuous, you can still make it melodic.</p>
+<p><strong>Option A</strong>
+- Rnd Smooth Out → quantizer → oscillator pitch</p>
+<p>This gives constantly shifting pitch, but may glide unpredictably depending on the quantizer behavior.</p>
+<p><strong>Option B</strong>
+- Rnd Smooth Out → sample and hold input
+- Clock source → sample and hold trigger
+- Sample and hold out → quantizer → oscillator pitch</p>
+<p><strong>Result</strong>
+- Smooth becomes a slowly evolving source from which discrete notes are sampled
+- This often sounds more “composed” than pure stepped randomness</p>
+<hr />
+<h2>Patch 5: Call-and-response with two voices</h2>
+<p>If you have two oscillators or two voices:</p>
+<p><strong>Voice A</strong>
+- Rnd Quant Out → quantizer → VCO A pitch</p>
+<p><strong>Voice B</strong>
+- Rnd Smooth Out → another quantizer or sample/hold/quantizer chain → VCO B pitch</p>
+<p><strong>Rhythm</strong>
+- Use Rnd Gate Out for one voice
+- Use a regular clock or divided clock for the other</p>
+<p><strong>Result</strong>
+One voice sounds stepped and phrase-like, while the other sounds more fluid and unstable. Together they create a layered melodic texture.</p>
+<hr />
+<h1>Practical musical strategies</h1>
+<h2>Constrain the voltage range</h2>
+<p>Because Rnd outputs <strong>0–10V</strong>, raw output can span a huge pitch range. For melody, that often means too many octaves.</p>
+<p>Use the onboard attenuators to:
+- keep melodies within 1–2 octaves
+- reduce wild jumps
+- make phrases feel intentional</p>
+<p>This is probably the single most important technique when using Rnd melodically.</p>
+<h2>Add a quantizer if you want tonal results</h2>
+<p>The manual calls one output “Quant,” but from the description it means <strong>stepped random voltage</strong>, not necessarily scale-quantized to musical notes. If you want melodies in key, use an external quantizer.</p>
+<h2>Use external clock for arrangement-friendly melodies</h2>
+<p>If you want the random melody to sit inside a song structure:
+- drive Rnd from Pamela’s, a sequencer clock, Tempi, etc.
+- use clock divisions for slower pitch changes
+- reset other modules around it for repeatable larger structures</p>
+<h2>Pair smooth and stepped outputs</h2>
+<p>A very strong melodic workflow is:
+- <strong>Quant output</strong> = note selection
+- <strong>Smooth output</strong> = timbre, transpose, filter cutoff, wavefold amount, FM depth, or vibrato depth</p>
+<p>That keeps the melody coherent while giving it motion.</p>
+<hr />
+<h1>Example complete melodic system roles</h1>
+<h2>Rnd as a melody generator</h2>
+<ul>
+<li>Quant Out provides note CV</li>
+<li>Gate Out provides note triggers</li>
+<li>Internal clock makes it autonomous</li>
+</ul>
+<h2>Rnd as a variation generator for a sequencer</h2>
+<ul>
+<li>Main sequencer handles core melody</li>
+<li>Rnd Smooth or Quant modulates:</li>
+<li>transpose input</li>
+<li>sequence direction probability</li>
+<li>quantizer root note</li>
+<li>VCO timbre</li>
+</ul>
+<h2>Rnd as a probabilistic ornament source</h2>
+<ul>
+<li>Main melody comes from a sequencer</li>
+<li>Rnd Gate Out in <strong>EXT mode</strong> creates occasional extra triggers</li>
+<li>Rnd Quant Out feeds a second oscillator for fills or ornament notes</li>
+</ul>
+<hr />
+<h1>Strengths of Rnd for melodic patching</h1>
+<ul>
+<li>Very small footprint: <strong>2HP</strong></li>
+<li>Can operate as a self-running melody seed</li>
+<li>Can sync to external clocks</li>
+<li>Independent smooth and stepped random voltages</li>
+<li>Built-in gate output supports note articulation</li>
+<li>Wide voltage range allows both broad and tightly constrained melodic motion</li>
+</ul>
+<h1>Limitations to be aware of</h1>
+<ul>
+<li>It is not a full sequencer</li>
+<li>It does not store repeatable note patterns</li>
+<li>For tonal music, you will usually want an <strong>external quantizer</strong></li>
+<li>For refined melodic phrasing, additional utilities help a lot:</li>
+<li>attenuators</li>
+<li>offsets</li>
+<li>sample &amp; hold</li>
+<li>logic</li>
+<li>sequential switches</li>
+<li>clock dividers</li>
+</ul>
+<hr />
+<h1>Best pairings for melodic use</h1>
+<p>Rnd works especially well with:</p>
+<ul>
+<li><strong>Quantizer</strong>: turns random voltages into scales</li>
+<li><strong>VCO / voice module</strong>: receives pitch CV</li>
+<li><strong>Envelope + VCA/LPG</strong>: shapes notes from gate output</li>
+<li><strong>Clock divider/multiplier</strong>: changes melodic pacing</li>
+<li><strong>Sample &amp; hold</strong>: turns smooth motion into stepped notes</li>
+<li><strong>Sequential switch</strong>: alternate between random and programmed melodies</li>
+<li><strong>Mixer/offset utility</strong>: tame voltage ranges and transpose</li>
+</ul>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>2hp Rnd</strong> is best thought of as a compact melodic unpredictability source. Its <strong>Quant Output</strong> is ideal for stepped note generation, its <strong>Smooth Output</strong> is perfect for slow melodic drift or expressive modulation, and its <strong>Gate Output</strong> can provide either a regular pulse or random rhythmic articulation depending on clock mode.</p>
+<p>For melodic music, the most effective setup is:</p>
+<ol>
+<li><strong>Quant Out → quantizer → oscillator pitch</strong></li>
+<li><strong>Gate Out → envelope trigger</strong></li>
+<li><strong>Smooth Out → timbre or transpose modulation</strong></li>
+</ol>
+<p>That patch gives you an evolving, musical, and controllable generative voice.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,528 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Pitch</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Pitch</h1>
+<ul>
+<li><a href="../../manuals/2hp_Pitch.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.twohp.com/modules/pitch">Manual PDF</a></p>
+<h1>Using 2hp Pitch to create melodic components</h1>
+<p>From the attached manual, the module shown is:</p>
+<ul>
+<li><strong>2hp Pitch</strong> — a <strong>time-domain pitch shifter with wow &amp; flutter</strong></li>
+</ul>
+<p>It’s a compact utility/effect, but it can absolutely be used to generate or expand <strong>melodic material</strong> in a Eurorack patch. The manual also suggests pairings with:</p>
+<ul>
+<li><strong>2hp VCO</strong></li>
+<li><strong>2hp Loop</strong></li>
+<li><strong>2hp Play</strong></li>
+<li><strong>2hp Freez</strong></li>
+</ul>
+<p>Below is a musician-focused analysis of how these can work together for melody, harmony, and tuneful textures.</p>
+<hr />
+<h2>What 2hp Pitch does musically</h2>
+<p>2hp Pitch takes an incoming audio signal and shifts its pitch:</p>
+<ul>
+<li><strong>Pitch knob</strong>: transposes the signal <strong>up/down 2 octaves</strong></li>
+<li><strong>1V/OCT input</strong>: adds CV control over pitch shift, tracking <strong>1 octave further than the knob in either direction</strong></li>
+<li><strong>Mix knob / Mix CV</strong>: blends <strong>dry</strong> and <strong>wet</strong></li>
+<li><strong>W&amp;F knob / W&amp;F CV</strong>: adds <strong>wow and flutter</strong>, i.e. random tape/turntable-style pitch fluctuation</li>
+</ul>
+<h3>Key musical implication</h3>
+<p>This means Pitch is not just an “effect” — it can act like:</p>
+<ul>
+<li>a <strong>harmony generator</strong></li>
+<li>an <strong>octaver</strong></li>
+<li>a <strong>parallel voice maker</strong></li>
+<li>a <strong>lo-fi melody destabilizer</strong></li>
+<li>a way to derive <strong>new pitched layers from a single source</strong></li>
+</ul>
+<p>If you already have one melodic line, Pitch can turn it into two or more perceived melodic parts.</p>
+<hr />
+<h2>Important I/O and ranges</h2>
+<p>From the manual:</p>
+<ul>
+<li><strong>Audio In / Audio Out</strong>: <strong>10 Vpp</strong></li>
+<li><strong>1V/OCT CV input</strong>: <strong>+5 V</strong></li>
+<li><strong>Mix CV input</strong>: <strong>+5 V</strong></li>
+<li><strong>W&amp;F CV input</strong>: <strong>+5 V</strong></li>
+</ul>
+<h3>Practical patching note</h3>
+<p>The <strong>1V/OCT input</strong> here is for controlling the <strong>pitch shifting amount</strong>, not turning Pitch into a standalone oscillator. So you’ll usually want to feed it:</p>
+<ul>
+<li>an oscillator</li>
+<li>a sample player</li>
+<li>a looper</li>
+<li>a frozen audio texture</li>
+</ul>
+<p>Then use Pitch to derive musical intervals from that audio.</p>
+<hr />
+<h1>Best ways to use it melodically</h1>
+<h2>1. Turn one melody into harmony</h2>
+<p>This is the most immediate use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Patch a melodic source into <strong>Pitch IN</strong></li>
+<li>e.g. VCO, sampled vocal, plucked voice, looped phrase</li>
+<li>Set <strong>Mix</strong> somewhere between dry and wet</li>
+<li>Tune the <strong>Pitch</strong> knob to an interval:</li>
+<li><strong>+12 semitones</strong> for octave up</li>
+<li><strong>-12 semitones</strong> for octave down</li>
+<li>other positions by ear for fifths, fourths, etc.</li>
+</ul>
+<h3>Result</h3>
+<p>You get:</p>
+<ul>
+<li>original melody = dry</li>
+<li>shifted copy = wet</li>
+</ul>
+<p>This creates instant <strong>two-part harmony</strong> from a single monophonic source.</p>
+<h3>Good musical uses</h3>
+<ul>
+<li>octave doubling basslines</li>
+<li>fifth-above leads</li>
+<li>shimmer-like upper melodies</li>
+<li>thickened arpeggios</li>
+</ul>
+<hr />
+<h2>2. Use 1V/OCT to sequence interval changes</h2>
+<p>The manual states the <strong>1V/OCT input tracks one octave further than the knob in either direction</strong>. That means you can apply melodic or stepped CV to dynamically change the shift amount.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send your audio source into Pitch</li>
+<li>Send a sequencer, quantized CV, or keyboard CV into <strong>1V/OCT</strong></li>
+<li>Keep the dry/wet mixed</li>
+</ul>
+<h3>Result</h3>
+<p>The shifted copy moves in musically related steps, creating:</p>
+<ul>
+<li>counter-melodies</li>
+<li>moving harmonies</li>
+<li>pseudo-duophonic lines from one source</li>
+</ul>
+<h3>Why this is powerful</h3>
+<p>Instead of static transposition, the harmony itself can become animated. For example:</p>
+<ul>
+<li>root note dry</li>
+<li>wet signal follows a second sequencer lane of interval offsets</li>
+</ul>
+<p>This gives the impression of two coordinated melodic voices.</p>
+<hr />
+<h2>3. Create octave melodies from non-oscillator sources</h2>
+<p>Pitch doesn’t care whether the source is a VCO or recorded audio. So you can make melodic content from:</p>
+<ul>
+<li>drum loops</li>
+<li>vocal chops</li>
+<li>sampled instruments</li>
+<li>frozen ambient textures</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Feed <strong>Play</strong>, <strong>Loop</strong>, or <strong>Freez</strong> into Pitch</li>
+<li>Shift by octaves or intervals</li>
+<li>Blend dry/wet</li>
+<li>Optionally modulate <strong>Mix CV</strong> to bring in harmony only at certain moments</li>
+</ul>
+<h3>Result</h3>
+<p>Even simple or noisy source material can become a recognizable melodic layer.</p>
+<p>This is especially useful for:</p>
+<ul>
+<li>lofi hooks</li>
+<li>degraded leads</li>
+<li>ghost harmonies behind vocals</li>
+<li>tape-like chord fragments</li>
+</ul>
+<hr />
+<h1>How it pairs with the modules mentioned in the manual</h1>
+<hr />
+<h2>2hp VCO + 2hp Pitch</h2>
+<p>The manual explicitly says Pitch can turn one oscillator into two.</p>
+<h3>Musical role</h3>
+<p>This is the cleanest way to build melodic material.</p>
+<h3>Patch idea: single oscillator, dual melody</h3>
+<ul>
+<li><strong>VCO OUT</strong> → <strong>Pitch IN</strong></li>
+<li>Sequence the <strong>VCO</strong> normally with your pitch CV</li>
+<li>Set Pitch:</li>
+<li><strong>Mix</strong> around 50%</li>
+<li><strong>Pitch</strong> to octave, fifth, or another consonant interval</li>
+</ul>
+<h3>What you get</h3>
+<ul>
+<li>one oscillator melody</li>
+<li>one pitch-shifted parallel voice</li>
+</ul>
+<p>This can sound like:</p>
+<ul>
+<li>octave lead stack</li>
+<li>bass + upper melody</li>
+<li>faux interval duet</li>
+</ul>
+<h3>Better still</h3>
+<p>If the VCO has multiple outputs, as the manual suggests, you can do more:</p>
+<ul>
+<li>send one VCO output dry to your mixer/filter/VCA chain</li>
+<li>send another output to Pitch</li>
+<li>separately process the shifted signal</li>
+</ul>
+<p>Now the original and shifted voices can have different:</p>
+<ul>
+<li>filters</li>
+<li>envelopes</li>
+<li>effects</li>
+<li>stereo positions</li>
+</ul>
+<p>That turns one oscillator into a much richer melodic instrument.</p>
+<h3>Melodic applications</h3>
+<ul>
+<li><strong>Octave bass reinforcement</strong></li>
+<li><strong>Fifth-above acid line</strong></li>
+<li><strong>Detuned lead-like motion</strong> using subtle W&amp;F</li>
+<li><strong>Call-and-response phrasing</strong> by modulating Mix CV</li>
+</ul>
+<hr />
+<h2>2hp Loop + 2hp Pitch</h2>
+<p>The manual notes Pitch works well before or after Loop.</p>
+<p>This is very important, because <strong>order changes the musical behavior</strong>.</p>
+<hr />
+<h3>A. Pitch before Loop</h3>
+<h4>Patch</h4>
+<ul>
+<li>Source → <strong>Pitch</strong> → <strong>Loop</strong></li>
+</ul>
+<h4>What happens</h4>
+<p>You record the already-shifted material into Loop.</p>
+<h4>Musical use</h4>
+<p>This is great when you want to:</p>
+<ul>
+<li>build harmonized overdubs</li>
+<li>record lofi transposed phrases</li>
+<li>capture unstable wow/flutter melodies as part of the loop itself</li>
+</ul>
+<h4>Melodic outcome</h4>
+<p>You can perform with the Pitch controls while recording into Loop, then capture:</p>
+<ul>
+<li>rising pitch gestures</li>
+<li>harmonized phrases</li>
+<li>tape-warbled motifs</li>
+</ul>
+<p>This is good for evolving melodic ostinatos.</p>
+<hr />
+<h3>B. Pitch after Loop</h3>
+<h4>Patch</h4>
+<ul>
+<li>Source → <strong>Loop</strong> → <strong>Pitch</strong></li>
+</ul>
+<h4>What happens</h4>
+<p>Loop stores the original phrase, and Pitch transforms playback.</p>
+<h4>Musical use</h4>
+<p>This is better for:</p>
+<ul>
+<li>re-harmonizing the same loop in real time</li>
+<li>making one loop serve multiple harmonic roles</li>
+<li>changing octave placement live</li>
+</ul>
+<h4>Melodic outcome</h4>
+<p>A single recorded phrase can become:</p>
+<ul>
+<li>bassline</li>
+<li>countermelody</li>
+<li>octave shimmer</li>
+<li>degraded warped hook</li>
+</ul>
+<p>This is especially strong in live sets because one recorded line can be repurposed across sections.</p>
+<hr />
+<h3>Best melodic strategy with Loop + Pitch</h3>
+<p>Record a simple monophonic phrase into Loop, then use Pitch to create:</p>
+<ul>
+<li>octave-up choruses</li>
+<li>lower bass doubles</li>
+<li>unstable cassette-like repeats with W&amp;F</li>
+<li>interval changes via 1V/OCT for evolving harmonies</li>
+</ul>
+<hr />
+<h2>2hp Play + 2hp Pitch</h2>
+<p>The manual highlights sample processing as a major strength.</p>
+<h3>Musical role</h3>
+<p>This combo is excellent for creating melody from audio that wasn’t originally melodic.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>Play OUT</strong> → <strong>Pitch IN</strong></li>
+<li>Use Play for:</li>
+<li>vocal samples</li>
+<li>plucks</li>
+<li>synth notes</li>
+<li>drum fragments</li>
+<li>found sound snippets</li>
+</ul>
+<h3>Musical results</h3>
+<p>Pitch can transform sample playback into:</p>
+<ul>
+<li>pitched vocal hooks</li>
+<li>octave-stacked stabs</li>
+<li>eerie detuned melodies</li>
+<li>tuned glitch motifs</li>
+</ul>
+<h3>Strong melodic use cases</h3>
+<h4>1. Vocal lead creation</h4>
+<ul>
+<li>Put a short vocal phrase in Play</li>
+<li>Send it to Pitch</li>
+<li>Blend dry/wet</li>
+<li>Add a small amount of W&amp;F</li>
+</ul>
+<p>Result: a tape-like doubled vocal lead.</p>
+<h4>2. Tuned percussion melody</h4>
+<ul>
+<li>Use short percussive samples in Play</li>
+<li>Pitch shift them to different registers</li>
+<li>Sequence the shift amount through 1V/OCT</li>
+</ul>
+<p>Result: a strange but musical pseudo-melodic percussion line.</p>
+<h4>3. Harmonic sample layering</h4>
+<ul>
+<li>Trigger one sample from Play</li>
+<li>Use Pitch to make a transposed layer</li>
+<li>Modulate Mix CV so the harmony only appears on some notes</li>
+</ul>
+<p>Result: accents and hooks that feel composed, not static.</p>
+<hr />
+<h2>2hp Freez + 2hp Pitch</h2>
+<p>The manual describes this as an “ultimate lo-fi combo.”</p>
+<h3>Musical role</h3>
+<p>Freez likely provides held or frozen audio slices, while Pitch turns those static textures into playable melodic material.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>Freez OUT</strong> → <strong>Pitch IN</strong></li>
+<li>Freeze a harmonic or noisy moment</li>
+<li>Use Pitch to transpose it</li>
+</ul>
+<h3>Musical result</h3>
+<p>You can derive:</p>
+<ul>
+<li>drones with melodic movement</li>
+<li>pad-like intervals</li>
+<li>frozen grains that become tonal centers</li>
+<li>haunted lead tones</li>
+</ul>
+<h3>Why this works</h3>
+<p>Freez gives you a sustained sound bed; Pitch gives you register and interval control. Together they can create melody from otherwise static audio.</p>
+<h3>Patch approaches</h3>
+<h4>1. Frozen drone melody</h4>
+<ul>
+<li>Capture a frozen sound</li>
+<li>Send to Pitch</li>
+<li>Use 1V/OCT to step through melodic transpositions</li>
+</ul>
+<p>Result: a melody made from one sustained frozen timbre.</p>
+<h4>2. Lo-fi chord illusion</h4>
+<ul>
+<li>Use dry + wet mix</li>
+<li>Shift by octave or consonant interval</li>
+<li>Add some W&amp;F</li>
+</ul>
+<p>Result: a chorusy, degraded chord-like layer from one frozen source.</p>
+<h4>3. Unstable ambient lead</h4>
+<ul>
+<li>Freeze a bright source</li>
+<li>Shift upward</li>
+<li>Apply moderate wow/flutter</li>
+</ul>
+<p>Result: wavering melodic lines with strong cassette/tape character.</p>
+<hr />
+<h1>The role of Wow &amp; Flutter in melody</h1>
+<p>The manual defines wow and flutter as pitch wavering caused by irregular playback speed. On this module, W&amp;F introduces <strong>random fluctuation</strong> into the shifted signal.</p>
+<h2>Musically, this is not just “vintage flavor”</h2>
+<p>It changes how a melody behaves.</p>
+<h3>At low settings</h3>
+<p>You get:</p>
+<ul>
+<li>gentle detune</li>
+<li>chorusing feel</li>
+<li>tape softness</li>
+</ul>
+<p>This is useful for:
+- making doubled melodies wider
+- making octave layers less sterile
+- adding movement to sustained melodic notes</p>
+<h3>At medium settings</h3>
+<p>You get:</p>
+<ul>
+<li>drifting intonation</li>
+<li>unstable harmonies</li>
+<li>seasick cassette character</li>
+</ul>
+<p>Useful for:
+- ambient leads
+- Boards-of-Canada-style motifs
+- nostalgic sampled melodies</p>
+<h3>At high settings</h3>
+<p>You get:</p>
+<ul>
+<li>more random pitch instability</li>
+<li>less precise harmony</li>
+<li>expressive degradation</li>
+</ul>
+<p>Useful for:
+- broken tape melodies
+- haunted loops
+- unstable melodic textures rather than exact interval work</p>
+<h3>Best practice</h3>
+<p>If you want clearly tonal melodic parts:</p>
+<ul>
+<li>keep <strong>W&amp;F low</strong></li>
+<li>use it more as a “humanizing” or “aging” layer</li>
+</ul>
+<p>If you want more expressive lo-fi character:</p>
+<ul>
+<li>raise W&amp;F on sustained notes or loops</li>
+<li>modulate it with CV for transitions</li>
+</ul>
+<hr />
+<h1>Melodic patch recipes</h1>
+<h2>1. Simple octave lead</h2>
+<p><strong>Goal:</strong> make a lead line bigger</p>
+<ul>
+<li>VCO or sample source → Pitch</li>
+<li>Pitch knob: <strong>+1 octave</strong></li>
+<li>Mix: <strong>50–70% wet</strong></li>
+<li>W&amp;F: low</li>
+</ul>
+<p><strong>Result:</strong> clear octave doubling for lead melodies.</p>
+<hr />
+<h2>2. Bass + upper voice from one sequence</h2>
+<p><strong>Goal:</strong> derive two melodic registers from one line</p>
+<ul>
+<li>Oscillator sequence → split signal</li>
+<li>One copy dry to mixer</li>
+<li>One copy to Pitch</li>
+<li>Set Pitch to <strong>+1 octave</strong> or <strong>+5th</strong></li>
+<li>Pan dry and wet separately if possible</li>
+</ul>
+<p><strong>Result:</strong> one sequenced line becomes a layered melodic part.</p>
+<hr />
+<h2>3. Evolving harmonized loop</h2>
+<p><strong>Goal:</strong> create a melodic motif that changes over time</p>
+<ul>
+<li>Record phrase into Loop</li>
+<li>Loop out → Pitch</li>
+<li>Send stepped CV into Pitch <strong>1V/OCT</strong></li>
+<li>Modulate Mix CV slowly</li>
+</ul>
+<p><strong>Result:</strong> the same phrase continuously re-harmonizes.</p>
+<hr />
+<h2>4. Lo-fi sample hook</h2>
+<p><strong>Goal:</strong> create a memorable melodic motif from samples</p>
+<ul>
+<li>Play sample → Pitch</li>
+<li>Set Mix around halfway</li>
+<li>Add medium W&amp;F</li>
+<li>Trigger sample rhythmically</li>
+</ul>
+<p><strong>Result:</strong> warped doubled sample hooks with melodic identity.</p>
+<hr />
+<h2>5. Frozen ambient melody</h2>
+<p><strong>Goal:</strong> turn a drone into notes</p>
+<ul>
+<li>Freez captures sustained sound</li>
+<li>Freez out → Pitch</li>
+<li>Sequencer or keyboard CV → Pitch 1V/OCT</li>
+<li>Low-to-medium W&amp;F</li>
+</ul>
+<p><strong>Result:</strong> a playable melodic voice from frozen audio.</p>
+<hr />
+<h1>Performance strategies</h1>
+<h2>Use Mix CV for arrangement</h2>
+<p>The manual gives a dedicated <strong>Mix CV input</strong>. This is great for performance.</p>
+<p>You can use Mix CV to:</p>
+<ul>
+<li>bring harmony in only on choruses</li>
+<li>make every fourth note bloom into a double</li>
+<li>create transitions from monophonic to harmonized material</li>
+</ul>
+<p>This is one of the best ways to keep melodic patches dynamic.</p>
+<hr />
+<h2>Sequence Pitch intervals, not just notes</h2>
+<p>A powerful idea is:</p>
+<ul>
+<li>one sequencer controls the original melody</li>
+<li>another CV lane controls Pitch’s 1V/OCT interval movement</li>
+</ul>
+<p>This creates structured harmony motion without needing a second voice architecture.</p>
+<hr />
+<h2>Add W&amp;F only where emotion is needed</h2>
+<p>Use W&amp;F sparingly for:</p>
+<ul>
+<li>phrase endings</li>
+<li>sustained notes</li>
+<li>intros and breakdowns</li>
+</ul>
+<p>That keeps the melody intelligible while still giving you character.</p>
+<hr />
+<h1>Strengths and limitations for melodic use</h1>
+<h2>Strengths</h2>
+<ul>
+<li>Makes <strong>instant harmonies</strong> from any audio source</li>
+<li>Great for <strong>octaves, interval doubling, and lo-fi melodic coloration</strong></li>
+<li>Works with <strong>oscillators, loops, samples, and frozen textures</strong></li>
+<li>CV over <strong>pitch shift, mix, and wow/flutter</strong> adds movement</li>
+<li>Excellent in very small systems because it multiplies the usefulness of one sound source</li>
+</ul>
+<h2>Limitations</h2>
+<ul>
+<li>It is still fundamentally an <strong>audio processor</strong>, not a complete melodic voice by itself</li>
+<li>For clean tonal harmony, settings may need to be tuned by ear</li>
+<li>Heavy wow/flutter can reduce pitch precision</li>
+<li>Best results come when paired with a stable source and external sequencing</li>
+</ul>
+<hr />
+<h1>Best overall melodic use cases</h1>
+<p>If your goal is to create melodic components, the strongest combinations from the manual are:</p>
+<h2>Best for clean melodic harmony</h2>
+<ul>
+<li><strong>VCO + Pitch</strong></li>
+</ul>
+<h2>Best for evolving melodic phrases</h2>
+<ul>
+<li><strong>Loop + Pitch</strong></li>
+</ul>
+<h2>Best for hooks and sample melody</h2>
+<ul>
+<li><strong>Play + Pitch</strong></li>
+</ul>
+<h2>Best for ambient/lo-fi melodic textures</h2>
+<ul>
+<li><strong>Freez + Pitch</strong></li>
+</ul>
+<hr />
+<h1>Conclusion</h1>
+<p>Based on the manual, <strong>2hp Pitch</strong> is best thought of as a <strong>melodic multiplier</strong>. It takes one sound source and turns it into:</p>
+<ul>
+<li>harmony</li>
+<li>octave reinforcement</li>
+<li>counter-lines</li>
+<li>degraded tape-like melodic textures</li>
+</ul>
+<p>Used with the suggested pairings:</p>
+<ul>
+<li><strong>VCO</strong> gives you classic melodic doubling and interval harmony</li>
+<li><strong>Loop</strong> gives you repeatable phrases that can be re-harmonized</li>
+<li><strong>Play</strong> gives you pitched sample hooks and tuneful texture</li>
+<li><strong>Freez</strong> gives you frozen material that can be shaped into melodic drones and leads</li>
+</ul>
+<p>If you want the most musically useful results, start with:
+1. a simple melodic source,
+2. Pitch mixed 50/50,
+3. low wow/flutter,
+4. then add CV to <strong>1V/OCT</strong> and <strong>Mix</strong> for motion.</p>
+<p>That will get you from “effect module” territory into genuinely expressive melodic patching very quickly.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

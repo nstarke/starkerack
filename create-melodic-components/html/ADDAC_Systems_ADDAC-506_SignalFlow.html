@@ -1,0 +1,434 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-506_SignalFlow</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-506 SignalFlow</h1>
+<ul>
+<li><a href="../../manuals/ADDAC506_SignalFlow.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>ADDAC506 VC Stochastic Function Generator &amp; Expansion</h1>
+<p>How to use it for <strong>melodic</strong> patching</p>
+<p>The ADDAC506 is primarily a <strong>4-channel stochastic envelope / function generator</strong>, not a dedicated oscillator or sequencer. But in Eurorack, that still makes it very useful for melody because it can generate:</p>
+<ul>
+<li>evolving control voltages</li>
+<li>stepped or re-randomized timing relationships</li>
+<li>phrase contours</li>
+<li>trigger structures</li>
+<li>layered modulation for pitch, timbre, and articulation</li>
+</ul>
+<p>The attached pages describe the <strong>main module plus expansion</strong>, with these important functions:</p>
+<ul>
+<li><strong>4 independent envelope channels</strong></li>
+<li><strong>Randomized rise and fall times</strong> between user-set min/max ranges</li>
+<li><strong>CV control</strong> over all rise/fall min/max settings</li>
+<li><strong>Loop / One-shot</strong></li>
+<li><strong>Slew / Trigger</strong> behavior</li>
+<li><strong>Amplitude</strong> control: approximately <strong>-10V to +10V</strong></li>
+<li><strong>Offset</strong> control: approximately <strong>-10V to +10V</strong></li>
+<li><strong>Envelope curve</strong> from <strong>linear to logarithmic/exponential</strong></li>
+<li><strong>Gate out</strong> during rise</li>
+<li><strong>EOR</strong> (end of rise) and <strong>EOF</strong> (end of fall) outputs</li>
+<li><strong>Average Mix Out</strong></li>
+<li><strong>Summing Mix Out</strong></li>
+<li>Expansion:</li>
+<li><strong>Random trigger inputs</strong> to force new randomization mid-cycle</li>
+<li><strong>Random CV outputs</strong> reflecting the random value used for rise or fall time</li>
+</ul>
+<h2>What this means musically</h2>
+<p>This module does <strong>not directly output quantized pitch sequences</strong>. Instead, it creates <strong>animated control voltages</strong> that can become melodic when sent to:</p>
+<ul>
+<li>a <strong>VCO 1V/oct input</strong> through an attenuator/quantizer</li>
+<li>a <strong>quantizer</strong></li>
+<li>a <strong>sample &amp; hold</strong></li>
+<li>a <strong>sequential switch</strong></li>
+<li>a <strong>wavefolder/filter/resonator</strong> to create pitch-like timbral melodies</li>
+<li>logic or clocking utilities for phrase generation</li>
+</ul>
+<p>In practice, the ADDAC506 is best thought of as a <strong>melody-shaping source</strong>, not a conventional note sequencer.</p>
+<hr />
+<h1>Core melodic use cases</h1>
+<h2>1. Use one channel as a pitch contour source</h2>
+<p>Patch:</p>
+<ul>
+<li><strong>ADDAC506 channel output</strong> → <strong>quantizer input</strong></li>
+<li><strong>quantizer output</strong> → <strong>VCO 1V/oct</strong></li>
+<li>Trigger the channel with gates or put it in <strong>loop</strong></li>
+<li>Adjust:</li>
+<li><strong>Rise Min/Max</strong></li>
+<li><strong>Fall Min/Max</strong></li>
+<li><strong>Amplitude</strong></li>
+<li><strong>Offset</strong></li>
+<li><strong>Curve</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The envelope becomes a continuously changing melodic contour. Once quantized, the slopes turn into note motion.</p>
+<h3>Tips</h3>
+<ul>
+<li>Use <strong>small amplitude</strong> for narrow melodic ranges.</li>
+<li>Use <strong>offset</strong> to place the melody into a useful register.</li>
+<li>If <strong>Rise Min &gt; Rise Max</strong> or similarly for Fall, the manual says it behaves as a <strong>fixed</strong> time control. That’s useful when you want one side stable and the other stochastic.</li>
+<li><strong>Log/exp curves</strong> can bias the melody toward lingering around some notes and moving faster through others.</li>
+</ul>
+<hr />
+<h2>2. Create 4 interrelated melodic lanes</h2>
+<p>Since there are <strong>4 independent channels</strong>, you can build:</p>
+<ul>
+<li>4 voices</li>
+<li>4 modulation lanes for one voice</li>
+<li>3 voices plus one master phrase modulator</li>
+</ul>
+<p>Patch idea:</p>
+<ul>
+<li><strong>Output 1</strong> → quantizer → VCO A pitch</li>
+<li><strong>Output 2</strong> → quantizer → VCO B pitch</li>
+<li><strong>Output 3</strong> → filter cutoff or wavefolder depth</li>
+<li><strong>Output 4</strong> → VCA CV or FM amount</li>
+</ul>
+<h3>Why it works</h3>
+<p>Even if each channel is independent, they share the same panel logic and can be set to similar or contrasting timing regions. That gives a family resemblance between voices, which often feels more musical than fully unrelated random sources.</p>
+<hr />
+<h2>3. Use EOR and EOF to make melodic cascades</h2>
+<p>The manual states:</p>
+<ul>
+<li><strong>EOR</strong> outputs when rise ends</li>
+<li><strong>EOF</strong> outputs when fall ends</li>
+<li><strong>Gate out</strong> is high during rise</li>
+</ul>
+<p>This makes the 506 very strong for <strong>event chaining</strong>.</p>
+<p>Patch:</p>
+<ul>
+<li><strong>Channel 1 EOR</strong> → trigger <strong>Channel 2</strong></li>
+<li><strong>Channel 2 EOF</strong> → trigger <strong>Channel 3</strong></li>
+<li><strong>Channel 3 EOR</strong> → trigger a <strong>sample &amp; hold</strong></li>
+<li>S&amp;H output → quantizer → VCO pitch</li>
+</ul>
+<h3>Result</h3>
+<p>You get a phrase where melodic note changes happen at structurally meaningful points in the envelopes rather than on a strict clock.</p>
+<p>This is excellent for:
+- generative melodies
+- rubato phrases
+- pseudo-counterpoint
+- self-evolving note timing</p>
+<hr />
+<h2>4. Use the expansion Random CV outputs as melodic sources</h2>
+<p>The expansion provides:</p>
+<ul>
+<li><strong>Random trigger inputs</strong> for re-randomizing rise/fall values</li>
+<li><strong>Random CV outputs</strong> that expose the CV value used for rise/fall randomization</li>
+<li>jumper selection between <strong>rise random</strong> or <strong>fall random</strong></li>
+</ul>
+<p>This is one of the most immediately melodic features.</p>
+<p>Patch:</p>
+<ul>
+<li><strong>Random CV out</strong> → quantizer → VCO 1V/oct</li>
+<li><strong>Random Trigger In</strong> receives clocks, gates, or irregular triggers</li>
+</ul>
+<h3>Result</h3>
+<p>Every randomization event can generate a new pitch-related voltage. Because that voltage is tied to the envelope timing calculation, your <strong>note choices and note shape/timing become correlated</strong>.</p>
+<p>That correlation is musically powerful: notes and articulation evolve together.</p>
+<h3>Great use</h3>
+<ul>
+<li>Rise random CV controls <strong>pitch</strong></li>
+<li>Same channel envelope output controls <strong>VCA</strong></li>
+<li>The note and its articulation are linked</li>
+</ul>
+<p>This often sounds more intentional than using unrelated random sources.</p>
+<hr />
+<h2>5. Build melody from the Average Mix output</h2>
+<p>The manual describes:</p>
+<ul>
+<li><strong>Average Mix Out</strong> = average CV from all 4 channels</li>
+<li><strong>Summing Mix Out</strong> = sum of all 4 outputs</li>
+</ul>
+<p>Patch:</p>
+<ul>
+<li><strong>Average Mix Out</strong> → quantizer → oscillator pitch</li>
+</ul>
+<h3>Why use average instead of sum?</h3>
+<p>Average tends to be:
+- smoother
+- more centered
+- less likely to jump wildly</p>
+<p>This is useful for:
+- singable melodic lines
+- slowly evolving lead lines
+- modal drifting phrases</p>
+<p>If each channel has different rise/fall ranges, the average output becomes a composite phrase made from several interacting gestural layers.</p>
+<hr />
+<h2>6. Use the Summing Mix output for wider melodic leaps</h2>
+<p>Patch:</p>
+<ul>
+<li><strong>Summing Mix Out</strong> → attenuator → quantizer → VCO pitch</li>
+</ul>
+<h3>Result</h3>
+<p>The sum output is generally more energetic and volatile than the average. This is better for:
+- angular melodies
+- experimental atonal lines
+- dramatic interval jumps
+- chaotic arpeggio-like movement</p>
+<p>Because the module can output large voltages, attenuation before the quantizer is often very important.</p>
+<hr />
+<h2>7. Slew mode as melodic glide processor</h2>
+<p>The manual says:</p>
+<ul>
+<li><strong>Slew</strong> works for CVs, gates, and triggers</li>
+<li>It behaves somewhat like a <strong>CV envelope follower</strong></li>
+<li><strong>Trigger</strong> mode generates one cycle per trigger</li>
+</ul>
+<p>In melodic systems, <strong>Slew mode</strong> can reshape incoming pitch or modulation CV.</p>
+<p>Patch:</p>
+<ul>
+<li>external sequencer CV → <strong>channel signal input</strong></li>
+<li>channel set to <strong>Slew</strong></li>
+<li>channel output → quantizer or directly to VCO pitch</li>
+</ul>
+<h3>Uses</h3>
+<ul>
+<li>smooth glides between sequenced notes</li>
+<li>randomized portamento behavior if rise/fall min/max are spread</li>
+<li>expressive pitch lag</li>
+<li>converting stepped random into curved melodic movement</li>
+</ul>
+<p>A particularly nice patch:
+- sequencer CV → Slew channel
+- output → quantizer
+- quantizer → VCO</p>
+<p>This gives a melody that keeps the broad gesture of the original sequence but gains stochastic timing and contour.</p>
+<hr />
+<h2>8. Trigger mode for articulated note shapes</h2>
+<p>In <strong>Trigger</strong> mode, each incoming trigger fires one envelope cycle.</p>
+<p>Patch:</p>
+<ul>
+<li>clock or rhythm source → channel input</li>
+<li>channel output → quantizer → VCO pitch</li>
+<li>same trigger or gate out → envelope/VCA for audio articulation</li>
+</ul>
+<h3>Result</h3>
+<p>Each note can have a pitch trajectory over the duration of the triggered envelope. Depending on speed, this may sound like:
+- ornamentation
+- pitch bends
+- micro-phrases
+- plucked/struck melodic gestures</p>
+<p>This works especially well with:
+- LPGs
+- FM voices
+- resonators
+- pinged filters</p>
+<hr />
+<h1>Best ways to combine the main module and expansion for melody</h1>
+<h2>A. Correlated pitch + articulation patch</h2>
+<p>Patch:</p>
+<ul>
+<li><strong>Expansion Random Trigger In 1</strong> ← rhythmic trigger pattern</li>
+<li><strong>Random CV Out 1</strong> → quantizer → oscillator pitch</li>
+<li><strong>Envelope Out 1</strong> → VCA CV</li>
+<li><strong>Gate Out 1</strong> → envelope trigger or logic clock</li>
+</ul>
+<h3>Why it’s good</h3>
+<p>Pitch changes happen when the rise/fall randomization changes, while the envelope controls note articulation. This creates phrases where timing, note choice, and dynamics feel related.</p>
+<hr />
+<h2>B. One channel per melodic function</h2>
+<p>A very effective 4-channel allocation:</p>
+<ul>
+<li><strong>Channel 1</strong>: main pitch contour</li>
+<li><strong>Channel 2</strong>: transposition amount</li>
+<li><strong>Channel 3</strong>: timbre movement</li>
+<li><strong>Channel 4</strong>: phrase-level amplitude or density</li>
+</ul>
+<p>Patch example:</p>
+<ul>
+<li>Ch1 out → quantizer A input</li>
+<li>Ch2 out → attenuator → add to Ch1 before quantizer, or transpose quantizer reference</li>
+<li>Ch3 out → filter cutoff / fold / FM index</li>
+<li>Ch4 out → VCA CV or clock probability modulation</li>
+</ul>
+<p>This creates melodies that breathe and transform rather than just changing notes.</p>
+<hr />
+<h2>C. Self-generating canon / round</h2>
+<p>Patch:</p>
+<ul>
+<li>Ch1 <strong>EOF</strong> → trigger Ch2</li>
+<li>Ch2 <strong>EOF</strong> → trigger Ch3</li>
+<li>Ch3 <strong>EOF</strong> → trigger Ch4</li>
+<li>Ch4 <strong>EOF</strong> → trigger Ch1</li>
+</ul>
+<p>Then:
+- all 4 outputs → 4 quantizer channels → 4 oscillators<br />
+or
+- all 4 outputs mixed/selected into one pitch path</p>
+<h3>Result</h3>
+<p>A rotating network of envelopes, each with randomized rise/fall times, creates staggered melodic entries and evolving relationships. Very good for ambient, minimalism, and generative counterpoint.</p>
+<hr />
+<h2>D. Random CV outputs as hidden sequencer</h2>
+<p>The expansion’s Random CV outputs can function like a strange sequencer lane.</p>
+<p>Patch:</p>
+<ul>
+<li><strong>Random CV Out 1–4</strong> → precision adder mixer or sequential switch</li>
+<li>output → quantizer → VCO pitch</li>
+<li>trigger the random inputs with related but not identical clocks</li>
+</ul>
+<h3>Result</h3>
+<p>You effectively get four stochastic pitch sources whose update timing is independently controllable. This can produce:
+- non-repeating melodies
+- polymetric note changes
+- phrase memory-like behavior if clocks are slow</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Generative lead voice</h2>
+<p>You need:
+- ADDAC506 + expansion
+- quantizer
+- VCO
+- VCA
+- envelope or LPG
+- trigger source</p>
+<p>Patch:
+- Random trigger source → <strong>Expansion Random In 1</strong>
+- <strong>Random CV Out 1</strong> → quantizer → VCO 1V/oct
+- <strong>Output 1</strong> → VCA CV or filter CV
+- <strong>Gate Out 1</strong> → trigger envelope/LPG
+- Audio voice → VCA → output</p>
+<p>Set:
+- medium speed
+- trigger mode
+- moderate rise/fall ranges
+- small pitch range via quantizer/attenuation</p>
+<p>Result:
+A coherent generative melody where note selection and envelope behavior are connected.</p>
+<hr />
+<h2>Patch 2: Melodic drone with internal movement</h2>
+<p>Patch:
+- <strong>Average Mix Out</strong> → attenuator → quantizer → oscillator pitch
+- <strong>Output 1</strong> → filter cutoff
+- <strong>Output 2</strong> → wavefolder amount
+- <strong>Output 3</strong> → FM index
+- <strong>Output 4</strong> → stereo movement or reverb send CV</p>
+<p>Set channels to loop with different random ranges.</p>
+<p>Result:
+A slowly shifting drone with a pitch center that continuously evolves.</p>
+<hr />
+<h2>Patch 3: Pseudo-arpeggiator</h2>
+<p>Patch:
+- master clock → trigger Ch1
+- Ch1 EOR → trigger Ch2
+- Ch2 EOR → trigger Ch3
+- Ch3 EOR → trigger Ch4
+- Ch1–4 outputs → sequential switch CV inputs or mixer
+- switched/mixed result → quantizer → VCO</p>
+<p>Result:
+A chain of linked contour events that acts like an arpeggiator, but with variable note lengths and spacing.</p>
+<hr />
+<h2>Patch 4: Humanized melody processor</h2>
+<p>Patch:
+- external sequencer pitch CV → channel input in <strong>Slew</strong> mode
+- channel output → quantizer → VCO pitch
+- expansion random trigger input receives sparse accents</p>
+<p>Result:
+Your normal melody becomes organic and slightly unpredictable, with changing glide/response behavior.</p>
+<hr />
+<h1>Important musical behaviors from the manual</h1>
+<h2>Randomization happens at cycle start</h2>
+<p>The manual specifically says the rise/fall randomization occurs <strong>at the start of a cycle</strong>. If you move controls during the cycle, changes are not applied until the next trigger/loop.</p>
+<h3>Musical implication</h3>
+<p>This makes phrase behavior stable within each note/event, which is good for melody. You don’t get erratic mid-note parameter changes unless you use the <strong>expansion random trigger input</strong>.</p>
+<hr />
+<h2>Expansion random trigger can change timing mid-cycle</h2>
+<p>The expansion allows re-triggering the randomization <strong>at any point in time</strong>.</p>
+<h3>Musical implication</h3>
+<p>This is ideal for:
+- accents
+- fills
+- phrase mutations
+- occasional surprise notes or bends</p>
+<p>Use a separate rhythm source to inject this only on selected beats.</p>
+<hr />
+<h2>Lock / Unlock supports focused channel editing</h2>
+<p>The manual says lock holds each channel’s rise/fall settings and prevents changes, making it easier to treat channels independently.</p>
+<h3>Musical implication</h3>
+<p>You can tune one channel as a stable melodic voice while letting others remain volatile.</p>
+<hr />
+<h2>Amplitude and offset are crucial</h2>
+<p>Because the envelope amplitude can span approximately <strong>-10V to +10V</strong>, and offset also shifts overall voltage, the raw output range is too large for direct melodic use in many patches.</p>
+<h3>Recommendation</h3>
+<p>For pitch work, use:
+- attenuator
+- offset utility
+- quantizer
+- precision adder</p>
+<p>This module becomes much more musically controllable when scaled carefully.</p>
+<hr />
+<h1>Strengths for melodic composition</h1>
+<h2>What it excels at</h2>
+<ul>
+<li>generative melody</li>
+<li>correlated pitch and articulation</li>
+<li>phrase evolution</li>
+<li>non-grid timing</li>
+<li>expressive CV contours</li>
+<li>ensemble-like multi-voice motion</li>
+<li>slow shifting tonal structures</li>
+</ul>
+<h2>What it is not ideal for by itself</h2>
+<ul>
+<li>exact step sequencing</li>
+<li>repeatable tonal basslines</li>
+<li>strict 16-step melodies</li>
+<li>direct scale-locked pitch output without a quantizer</li>
+</ul>
+<hr />
+<h1>Best companion modules</h1>
+<p>To get the most melodic value from the ADDAC506, pair it with:</p>
+<ul>
+<li>
+<p><strong>Quantizer</strong><br />
+  Essential if you want tonal melodies.</p>
+</li>
+<li>
+<p><strong>Precision adder / CV mixer</strong><br />
+  For transposition and combining multiple channels.</p>
+</li>
+<li>
+<p><strong>Sequential switch</strong><br />
+  Great for turning the four channels into ordered melodic events.</p>
+</li>
+<li>
+<p><strong>Sample &amp; Hold / Track &amp; Hold</strong><br />
+  Useful for extracting stable note values from moving envelopes.</p>
+</li>
+<li>
+<p><strong>Clock divider / logic</strong><br />
+  To create interdependent phrase timing from EOR/EOF/Gate signals.</p>
+</li>
+<li>
+<p><strong>Oscillator with good FM/timbre response</strong><br />
+  The module is excellent not just for pitch but also for melodic timbral animation.</p>
+</li>
+<li>
+<p><strong>Attenuators / offsets</strong><br />
+  Very important due to the voltage range.</p>
+</li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>The ADDAC506 and its expansion are best used for melody as a <strong>stochastic phrase generator</strong> rather than a classic sequencer. The most powerful melodic strategies are:</p>
+<ol>
+<li><strong>Quantize the envelope outputs</strong></li>
+<li><strong>Use the expansion Random CV outputs for pitch</strong></li>
+<li><strong>Use EOR/EOF/Gate outputs to chain events</strong></li>
+<li><strong>Use Average and Summing outputs for higher-level phrase contours</strong></li>
+<li><strong>Correlate pitch, articulation, and timbre using the same channel</strong></li>
+</ol>
+<p>If you patch it with a quantizer and a few utility modules, it can produce melodies that feel:
+- organic
+- self-evolving
+- structurally coherent
+- less repetitive than ordinary step sequencing</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

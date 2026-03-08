@@ -1,0 +1,520 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Metropolix</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Metropolix</h1>
+<ul>
+<li><a href="../../manuals/metropolix_manual_v1.4_2022.04.04.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Metropolix Manual PDF</a></p>
+<h1>Using Intellijel Metropolix to Create Melodic Components in Eurorack</h1>
+<p>The <strong>Intellijel Metropolix</strong> is an unusually deep melodic sequencer. Even though it looks like an 8-stage pitch/gate sequencer, it’s really a <strong>performance-oriented melodic composition system</strong> with:</p>
+<ul>
+<li><strong>2 pitch/gate tracks</strong></li>
+<li><strong>8 modulation lanes</strong></li>
+<li><strong>2 assignable outputs</strong></li>
+<li><strong>3 assignable CV inputs</strong></li>
+<li><strong>scale quantization</strong></li>
+<li><strong>probability, ratchets, slide, accumulation</strong></li>
+<li><strong>preset recall and chaining</strong></li>
+</ul>
+<p>If your goal is to create <strong>melodic material</strong>—basslines, leads, counterpoint, arpeggios, evolving motifs, chord movement, and modulation-driven phrasing—Metropolix is extremely capable.</p>
+<hr />
+<h2>What this module does musically</h2>
+<p>At its core, Metropolix gives you:</p>
+<ul>
+<li>a set of <strong>8 pitch sliders</strong> for an initial melodic contour</li>
+<li>per-stage <strong>timing and gate behavior</strong></li>
+<li>two tracks that can reinterpret the same stage data differently</li>
+<li>modulation lanes that can animate pitch, scale, order, length, root, probability, slide, and more</li>
+</ul>
+<p>This means one programmed idea can become:</p>
+<ul>
+<li>a <strong>main melody</strong></li>
+<li>a <strong>harmonic partner</strong></li>
+<li>a <strong>bassline variant</strong></li>
+<li>an <strong>arpeggiated extension</strong></li>
+<li>a <strong>transposing phrase</strong></li>
+<li>a <strong>self-modulating generative line</strong></li>
+</ul>
+<hr />
+<h1>Core melodic building blocks</h1>
+<h2>1. Pitch sliders as melodic skeleton</h2>
+<p>The 8 pitch sliders define the basic note contour. With <strong>scale quantization</strong>, those slider positions become stable melodic intervals in a chosen scale.</p>
+<p>Useful global pitch tools:</p>
+<ul>
+<li><strong>Scale + Root</strong></li>
+<li><strong>Bottom Pitch = C or Root</strong></li>
+<li><strong>Slider Octaves</strong> per track (1–4 octaves)</li>
+<li><strong>Slider Direction</strong> per track (normal or inverted)</li>
+<li><strong>Transpose</strong> per track</li>
+</ul>
+<h3>Musical use</h3>
+<p>Program a simple contour with sliders:
+- up-step
+- leap
+- repeat
+- fall
+- resolve</p>
+<p>Then let each track reinterpret it differently.</p>
+<p>Example:
+- <strong>TRK 1</strong> = narrow 1-octave melody in C minor
+- <strong>TRK 2</strong> = same sliders, but transposed up a 5th, inverted, or spanning 3 octaves</p>
+<p>That immediately creates melodic relationships without reprogramming notes.</p>
+<hr />
+<h2>2. Two tracks for counterpoint and harmony</h2>
+<p>A big strength of Metropolix is that <strong>TRK 1 and TRK 2 share the main slider/switch structure</strong>, but each track can have different:</p>
+<ul>
+<li>order</li>
+<li>length</li>
+<li>clock division</li>
+<li>swing</li>
+<li>slide time</li>
+<li>gate length</li>
+<li>transpose</li>
+<li>slider range/direction</li>
+<li>per-stage pitch/gate/ratchet/probability/accumulation/CV</li>
+</ul>
+<h3>Musical use</h3>
+<p>This is ideal for melodic layering:</p>
+<h4>A. Melody + bassline</h4>
+<ul>
+<li><strong>TRK 1</strong> → lead voice</li>
+<li><strong>TRK 2</strong> → bass oscillator</li>
+</ul>
+<p>Use:
+- same slider pattern
+- TRK 2 lower transpose
+- slower division on TRK 2
+- shorter sequence length on one track for phrase cycling</p>
+<h4>B. Melody + counter-melody</h4>
+<ul>
+<li>TRK 1 = linear forward</li>
+<li>TRK 2 = pendulum or odd/even</li>
+<li>different stage skips and lengths</li>
+</ul>
+<p>This creates <strong>interlocking melodic motion</strong> from one shared source.</p>
+<h4>C. Unison variation</h4>
+<p>Send both tracks to similar voices:
+- one dry
+- one filtered/delayed/slid</p>
+<p>Use subtle differences in:
+- gate length
+- pitch pre/post
+- probability
+- order</p>
+<p>This gives “doubled lead” behavior without exact repetition.</p>
+<hr />
+<h1>Melodic timing and phrasing tools</h1>
+<h2>3. Pulse count creates rhythmic phrasing for notes</h2>
+<p>Each stage can last <strong>1 to 8 pulses</strong>. That changes how long a note occupies space.</p>
+<p>This matters melodically because note duration shapes phrase identity as much as pitch.</p>
+<h3>Musical use</h3>
+<p>Use long pulse counts on:
+- phrase starts
+- cadence tones
+- pedal notes</p>
+<p>Use short pulse counts on:
+- passing notes
+- ornaments
+- arpeggio-like movement</p>
+<p>For example:
+- Stage 1 = 3 pulses
+- Stage 2 = 1 pulse
+- Stage 3 = 1 pulse
+- Stage 4 = 4 pulses</p>
+<p>This turns a plain pitch pattern into a real phrase.</p>
+<hr />
+<h2>4. Gate type changes articulation</h2>
+<p>Per stage you get:</p>
+<ul>
+<li><strong>HOLD</strong></li>
+<li><strong>MULTIPLE</strong></li>
+<li><strong>SINGLE</strong></li>
+<li><strong>REST</strong></li>
+</ul>
+<h3>Melodic applications</h3>
+<ul>
+<li><strong>HOLD</strong> = legato tie across stages</li>
+<li><strong>SINGLE</strong> = one articulated note even if stage lasts several pulses</li>
+<li><strong>MULTIPLE</strong> = repeated articulation on the same pitch</li>
+<li><strong>REST</strong> = silence, space, phrasing</li>
+</ul>
+<p>This is excellent for making melodic patterns feel played rather than mechanical.</p>
+<p>Example:
+- HOLD on a note before a slide
+- REST before phrase restart
+- MULTIPLE for repeated tonic or dominant pulses</p>
+<hr />
+<h2>5. Slide for legato and acid phrasing</h2>
+<p>Per-stage <strong>SLIDE</strong> with global track slide settings gives expressive transitions.</p>
+<p>Slide types:
+- <strong>Analog</strong>
+- <strong>Tempo</strong>
+- <strong>Acid</strong></p>
+<h3>Musical use</h3>
+<ul>
+<li>Add slide only on selected approach notes</li>
+<li>Use acid mode for classic tied melodic sequences</li>
+<li>Use tempo slide for synchronized lead phrasing</li>
+<li>Use analog for freer portamento feel</li>
+</ul>
+<p>Great for:
+- basslines
+- legato leads
+- gliding modal melodies
+- synthetic vocal phrasing</p>
+<hr />
+<h1>Advanced melodic variation</h1>
+<h2>6. Per-stage pitch override</h2>
+<p>The sliders are only the default. Each stage can have a <strong>pitch override</strong>.</p>
+<h3>Musical use</h3>
+<p>This is powerful for:
+- forcing important harmonic tones
+- changing just one note in a looping phrase
+- creating call/response variants between tracks
+- making one track diverge from the common slider pattern</p>
+<p>A useful strategy:
+- use sliders for broad melodic shape
+- use pitch overrides for “composed” anchor notes</p>
+<hr />
+<h2>7. Skip for phrase reshaping</h2>
+<p>Skipping stages changes both rhythm and note order.</p>
+<h3>Musical use</h3>
+<p>A melodic phrase can become:
+- sparse
+- syncopated
+- asymmetrical
+- alternate-bar variation</p>
+<p>Very useful for:
+- verse vs chorus feel
+- switching between complete and reduced phrases
+- turning 8-stage material into 5- or 6-note motifs</p>
+<p>Also excellent when modulated with <strong>Skip Invert</strong> for phrase swapping.</p>
+<hr />
+<h2>8. Probability for melodic instability and life</h2>
+<p>Probability can apply at:
+- <strong>Stage</strong>
+- <strong>Pulse</strong></p>
+<h3>Musical use</h3>
+<p>Use probability to create:
+- ghost notes
+- variable ornaments
+- occasional melodic omissions
+- unstable motif repetition</p>
+<p>Examples:
+- 80% probability on passing tones
+- 50% probability on a decorative upper neighbor
+- 100% on structurally important notes</p>
+<p>This keeps melodies fresh without losing identity.</p>
+<hr />
+<h2>9. Ratchets for ornaments and repeated notes</h2>
+<p>Ratchets subdivide pulses into repeated gates.</p>
+<h3>Melodic use</h3>
+<p>Ratchets are not just rhythmic—they create melodic ornament when combined with:
+- accumulation
+- slide
+- CV lane modulation
+- gate stretching</p>
+<p>Good uses:
+- stuttered repeated note on a climax tone
+- flutter before resolution
+- pseudo-trill or mordent effect on one stage
+- repeated bass pulse under moving harmony</p>
+<hr />
+<h2>10. Accumulation is one of the best melodic tools here</h2>
+<p>The <strong>ACCUM</strong> function cumulatively transposes notes over time by scale degree. This is huge for melodic development.</p>
+<p>Per stage you can define:
+- transpose amount
+- trigger source (stage / pulse / ratchet)</p>
+<p>And with <strong>LIM</strong> options:
+- positive/negative limits
+- stage vs track mode
+- wrap / pendulum / random / hold
+- unipolar / bipolar
+- reset behavior</p>
+<h3>Musical use</h3>
+<h4>A. Sequence evolution</h4>
+<p>A simple 4-note melody can climb diatonically over repeats.</p>
+<h4>B. Arpeggiated chord motion</h4>
+<p>Use chord scales and accumulation to walk through chord tones over time.</p>
+<h4>C. Canon-like development</h4>
+<p>Track mode makes one stage’s accumulation affect the whole track, causing phrase-wide transposition.</p>
+<h4>D. Generative tonal movement</h4>
+<p>Random or pendulum accumulation creates melodic movement that stays musically constrained.</p>
+<p>This is one of the strongest features for writing <strong>evolving melodic material</strong>.</p>
+<hr />
+<h1>Scales, roots, and harmonic movement</h1>
+<h2>11. Scale quantization keeps melodies musical</h2>
+<p>Metropolix has many scales and chord shapes, plus 100 user scales.</p>
+<h3>Musical use</h3>
+<p>You can use scale quantization to make slider movement immediately usable for:</p>
+<ul>
+<li>tonal melodies</li>
+<li>modal melodies</li>
+<li>pentatonic riffs</li>
+<li>chord-tone constrained melodies</li>
+<li>non-Western scalar movement</li>
+</ul>
+<hr />
+<h2>12. User scales for chord progressions and melodic harmony</h2>
+<p>User scales store both:
+- scale pattern
+- root</p>
+<p>And can be sequenced via CV/modulation.</p>
+<h3>Musical use</h3>
+<p>Build a bank of custom scales representing chord tones, for example:
+- Cmaj triad
+- Amin triad
+- Fmaj triad
+- Gmaj triad</p>
+<p>Then modulate <strong>Scale (User)</strong> to move through harmonic centers while the same slider pattern keeps playing.</p>
+<p>This is an elegant way to create:
+- chord-following melodies
+- arpeggiated harmonic movement
+- phrase transposition with harmonic constraint</p>
+<p>This makes Metropolix unusually strong for <strong>harmonic melodic sequencing</strong> rather than just monophonic looping.</p>
+<hr />
+<h1>CV lanes and MOD lanes as melodic animators</h1>
+<h2>13. Track CV lanes add one more melodic control stream per track</h2>
+<p>Each note track includes a CV lane that can be:
+- continuous voltage
+- gate toggle</p>
+<p>You can route this out through OUT A or B.</p>
+<h3>Musical use for melodies</h3>
+<p>Use track CV lanes to animate the voice being sequenced:
+- filter cutoff per note
+- wavefold amount per note
+- FM amount per note
+- accent/velocity
+- envelope decay
+- oscillator timbre</p>
+<p>This turns a melody into a phrase with articulation and timbral contour.</p>
+<p>Examples:
+- brighter notes on high melodic peaks
+- accent every 4th note
+- longer envelope on cadence tones
+- timbral rise on phrase build</p>
+<hr />
+<h2>14. 8 MOD lanes can modulate melodic behavior internally</h2>
+<p>Each MOD lane has:
+- 8 stages
+- its own order
+- its own length
+- its own clock division
+- assignable destination</p>
+<p>Destinations include many melodic parameters:
+- pitch pre
+- pitch post
+- root
+- user scale
+- play order
+- pulse count
+- probability
+- ratchet
+- stages length
+- stage offset
+- slide amount
+- gate length
+- loopy settings
+- accumulation settings</p>
+<h3>Musical use</h3>
+<p>This is where Metropolix becomes a full melodic ecosystem.</p>
+<h4>A. Internal transposition</h4>
+<p>Assign MOD lane to <strong>Pitch Pre</strong> for in-scale melodic motion.</p>
+<h4>B. Chromatic destabilization</h4>
+<p>Assign MOD lane to <strong>Pitch Post</strong>.</p>
+<h4>C. Harmonic movement</h4>
+<p>Assign MOD lane to <strong>Root</strong> or <strong>Scale (User)</strong>.</p>
+<h4>D. Phrase restructuring</h4>
+<p>Assign MOD lane to <strong>Play Order</strong>, <strong>Stages Len</strong>, or <strong>Stage Offset</strong>.</p>
+<h4>E. Expressive articulation</h4>
+<p>Assign MOD lane to <strong>Probability</strong>, <strong>Gate Length</strong>, or <strong>Slide Amount</strong>.</p>
+<p>This allows melodies to morph over time without external modules.</p>
+<hr />
+<h1>Performance-oriented melodic techniques</h1>
+<h2>15. Loopy mode for live melodic improvisation</h2>
+<p>Loopy lets you temporarily loop sub-sections of the sequence or play stages manually.</p>
+<h3>Musical use</h3>
+<p>This is outstanding for live melodic performance:
+- repeat one note as a pedal
+- isolate a 2–4 note motif
+- create fills by looping a mid-phrase fragment
+- manually “play” stages as a mini keyboard when stopped</p>
+<p>1-finger and 2-finger loopy can create improvised melodic variation in real time.</p>
+<p>This is great for:
+- techno lead fills
+- live bassline mutation
+- breaking a phrase into hooks
+- performance transitions</p>
+<hr />
+<h2>16. CTRL knobs for expressive melodic macro control</h2>
+<p>The two CTRL knobs can be assigned to melodic parameters such as:
+- Pitch Pre/Post/Offset
+- Root
+- Scale (User)
+- Probability
+- Ratchet
+- Slide Amount
+- Swing
+- Stages Len
+- Clock Div
+- Trk Out Swap</p>
+<h3>Musical use</h3>
+<p>These make excellent melodic macro controls:</p>
+<ul>
+<li><strong>CTRL 1 → Gate Length</strong>: articulation macro</li>
+<li><strong>CTRL 2 → Slide Amount</strong>: expressive phrasing</li>
+<li><strong>CTRL → Root</strong>: harmonic movement</li>
+<li><strong>CTRL → Probability</strong>: stable to unstable melody</li>
+<li><strong>CTRL → Stages Len</strong>: phrase contraction/expansion</li>
+<li><strong>CTRL → Play Order</strong>: melody permutation control</li>
+</ul>
+<p>Very playable.</p>
+<hr />
+<h2>17. AUX inputs for external melodic interaction</h2>
+<p>Three AUX CV inputs can modulate internal melodic parameters.</p>
+<h3>Musical use</h3>
+<p>Patch external modulation into:
+- root
+- scale selection
+- pitch pre/post
+- play order
+- stages length
+- slide
+- probability
+- accumulation behavior</p>
+<p>That lets another sequencer, LFO, envelope, random source, keyboard, or pressure CV reshape melody in real time.</p>
+<p>Example:
+- slow random CV to <strong>Root</strong>
+- envelope to <strong>Slide Amount</strong>
+- gate pattern to <strong>Skip Invert</strong>
+- keyboard CV to <strong>Octave</strong></p>
+<p>Now Metropolix behaves less like a fixed sequencer and more like an interactive melodic instrument.</p>
+<hr />
+<h1>Presets and composition workflow</h1>
+<h2>18. Presets for melodic scenes</h2>
+<p>Metropolix stores 64 presets.</p>
+<p>A preset can store:
+- track settings
+- stage settings
+- scale settings
+- optionally slider/switch/CTRL/AUX states</p>
+<h3>Musical use</h3>
+<p>Treat presets as:
+- verse melody
+- chorus melody
+- breakdown variation
+- transposed harmonic section
+- sparse/dense alternate states</p>
+<hr />
+<h2>19. Preset chaining for song-form melody</h2>
+<p>Preset chains let you sequence preset changes over time.</p>
+<h3>Musical use</h3>
+<p>Create structured melodic arrangements:</p>
+<ul>
+<li>Preset 1 = intro motif</li>
+<li>Preset 2 = bass enters</li>
+<li>Preset 3 = full lead phrase</li>
+<li>Preset 4 = variation with different root/scale/order</li>
+<li>Preset 5 = reduced outro loop</li>
+</ul>
+<p>This turns Metropolix into a <strong>melodic song-form sequencer</strong>, not just a phrase generator.</p>
+<hr />
+<h1>Practical melodic patch ideas</h1>
+<h2>Patch 1: Bassline + lead from one idea</h2>
+<ul>
+<li><strong>TRK 1 PITCH/GATE</strong> → bass voice</li>
+<li><strong>TRK 2 PITCH/GATE</strong> → lead voice</li>
+<li>Same slider contour</li>
+<li>TRK 1: lower transpose, acid slide, shorter gate</li>
+<li>TRK 2: longer gate, different order, higher octave</li>
+</ul>
+<p>Result:
+A coherent melodic pair from one gesture.</p>
+<hr />
+<h2>Patch 2: Chord-following melody with user scales</h2>
+<ul>
+<li>Create user scales for progression chord tones</li>
+<li>Lock user scale bank</li>
+<li>Assign MOD lane or AUX to <strong>Scale (User)</strong></li>
+<li>Program lead phrase on sliders</li>
+</ul>
+<p>Result:
+One phrase follows chord changes without manually reprogramming notes.</p>
+<hr />
+<h2>Patch 3: Evolving modal melody</h2>
+<ul>
+<li>TRK 1 = melody</li>
+<li>MOD lane 1 → Root</li>
+<li>MOD lane 2 → Probability</li>
+<li>MOD lane 3 → Play Order</li>
+<li>CV lane → filter cutoff on voice</li>
+</ul>
+<p>Result:
+Melody stays recognizable but keeps shifting tonally and structurally.</p>
+<hr />
+<h2>Patch 4: Ornamented generative lead</h2>
+<ul>
+<li>Use a simple 4-stage motif</li>
+<li>Add ratchets on one or two stages</li>
+<li>Add stage probability to passing tones</li>
+<li>Add accumulation with pendulum order</li>
+<li>Use slide selectively</li>
+</ul>
+<p>Result:
+A melodic line that sounds composed but continues developing.</p>
+<hr />
+<h2>Patch 5: Performance hook machine</h2>
+<ul>
+<li>Build a strong 8-stage motif</li>
+<li>Use Loopy for live fragment looping</li>
+<li>Assign CTRL knobs to Slide Amount and Root</li>
+<li>Use AUX input for Skip Invert or Play Order</li>
+</ul>
+<p>Result:
+You can “perform” melody rather than merely start playback.</p>
+<hr />
+<h1>Best melodic strengths of Metropolix</h1>
+<h2>Especially strong for:</h2>
+<ul>
+<li>basslines</li>
+<li>acid sequences</li>
+<li>modal melodies</li>
+<li>counterpoint from one source</li>
+<li>evolving repeating motifs</li>
+<li>arpeggio-like melodic figures</li>
+<li>harmonically constrained generative phrases</li>
+<li>live melodic improvisation</li>
+</ul>
+<h2>Less about:</h2>
+<ul>
+<li>piano-roll style step entry</li>
+<li>explicit polyphonic chord sequencing from separate outputs alone</li>
+</ul>
+<p>It excels at <strong>musical variation from compact material</strong>.</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>Intellijel Metropolix</strong> can be used to create melodic components by combining:</p>
+<ul>
+<li><strong>pitch sliders</strong> for note contour</li>
+<li><strong>scales/root</strong> for tonal control</li>
+<li><strong>2 tracks</strong> for harmony/counterpoint</li>
+<li><strong>pulse counts and gate types</strong> for phrasing</li>
+<li><strong>slide, ratchets, probability, and skip</strong> for expression and variation</li>
+<li><strong>accumulation</strong> for evolving melodic transposition</li>
+<li><strong>CV lanes</strong> for note-by-note articulation</li>
+<li><strong>MOD lanes</strong> for self-modulating melodic change</li>
+<li><strong>Loopy</strong> for live performance manipulation</li>
+<li><strong>presets and chains</strong> for melodic arrangement over time</li>
+</ul>
+<p>In practice, Metropolix is best understood not as a simple step sequencer, but as a <strong>melodic performance and composition engine</strong> for Eurorack.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

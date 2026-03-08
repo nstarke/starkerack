@@ -1,0 +1,431 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_SD808</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — SD808</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_SD808_ns.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.tiptopaudio.com/manuals/SD808_user_guide.pdf">Manual PDF</a></p>
+<h1>Tiptop Audio SD808 — using it musically for melodic components</h1>
+<p>The <strong>SD808</strong> is a Eurorack adaptation of the <strong>TR-808 snare drum voice</strong>, but in a modular system it can do much more than just play snare hits. Based on the manual, this module is especially useful as a <strong>pitched percussive sound source</strong>, a <strong>dynamic modulation source via its audio output</strong>, and a <strong>tone/noise layer</strong> that can be processed into melodic material.</p>
+<h2>What the module gives you</h2>
+<h3>Controls</h3>
+<ul>
+<li><strong>LEVEL</strong> — output gain, with a very hot output stage</li>
+<li><strong>TONE</strong> — blends between two decaying sine oscillators:</li>
+<li>low-pitched sine at full CCW</li>
+<li>high-pitched sine at full CW</li>
+<li>mixtures in between</li>
+<li><strong>SNAPPY</strong> — controls the white noise envelope amount, with some effect on decay feel</li>
+<li><strong>ACCENT</strong> — sets accent intensity / effectively also a fine output gain control when Accent In is unused</li>
+</ul>
+<h3>Inputs / outputs</h3>
+<ul>
+<li><strong>GATE IN</strong> — triggers the sound</li>
+<li><strong>ACCENT IN</strong> — trigger/gate for independent accent articulation</li>
+<li><strong>SD OUT</strong> — audio output</li>
+</ul>
+<h3>Key musical behaviors from the manual</h3>
+<ol>
+<li><strong>The core drum sound contains two decaying sine generators</strong>, not just noise.</li>
+<li>This is the main reason it can contribute to melodic material.</li>
+<li><strong>TONE changes the balance between low and high resonant components.</strong></li>
+<li>This gives a pseudo-pitch contour or selectable body pitch.</li>
+<li><strong>The output can get extremely hot</strong> — up to about <strong>20 Vpp</strong> at extreme settings.</li>
+<li>This matters because you can intentionally drive filters, VCAs, wavefolders, DSP, and interfaces into saturation.</li>
+<li><strong>Accent changes more than loudness.</strong></li>
+<li>It also changes attack character and noise/body interaction.</li>
+<li><strong>Snappy strongly affects transient brightness and how “hard” accent feels.</strong></li>
+<li><strong>There is a white noise trimmer</strong> on the side.</li>
+<li>Lower noise = more tonal/pitched</li>
+<li>Higher noise = more noisy/percussive</li>
+</ol>
+<hr />
+<h1>Can an SD808 make melodic parts?</h1>
+<h2>Yes — in a modular sense</h2>
+<p>It is <strong>not a 1V/oct oscillator</strong> and won’t track pitch conventionally, but it <strong>can absolutely be used in melodic roles</strong>:</p>
+<ul>
+<li><strong>pitched tom-like lines</strong></li>
+<li><strong>electro bass blips</strong></li>
+<li><strong>plucky tuned percussion</strong></li>
+<li><strong>resonant strikes feeding external processors</strong></li>
+<li><strong>triggered tonal motifs</strong></li>
+<li><strong>audio-rate modulation source for other modules</strong></li>
+<li><strong>excitation source for resonators and filters</strong></li>
+</ul>
+<p>Think of it as a <strong>fixed-architecture percussive voice with a tunal center</strong>, rather than a fully tunable synth voice.</p>
+<hr />
+<h1>Best strategies for creating melodic components</h1>
+<h2>1. Use TONE as a coarse pitch selector</h2>
+<p>The manual says the SD808 uses <strong>two sine-wave T-network oscillators</strong> at different pitches, and <strong>TONE</strong> crossfades their contribution.</p>
+<p>That means:</p>
+<ul>
+<li><strong>CCW</strong>: lower body, more tom/bongo/bass-snare territory</li>
+<li><strong>CW</strong>: higher body, sharper and more cutting</li>
+<li><strong>middle</strong>: mixed resonances, more complex pitch impression</li>
+</ul>
+<h3>Musical use</h3>
+<p>Set <strong>SNAPPY very low</strong> and you’ll hear more of the pitched body. Then:
+- sequence rhythmic triggers into <strong>GATE IN</strong>
+- manually set <strong>TONE</strong> for the register you want
+- use <strong>ACCENT IN</strong> for phrasing</p>
+<p>This gives you:
+- tuned percussion lines
+- pseudo-melodic electro phrases
+- contrast between “low note” and “high note” gestures</p>
+<h3>Patch idea</h3>
+<p><strong>Two-note melodic percussion</strong>
+- Trigger source / sequencer gate → <strong>GATE IN</strong>
+- Separate rhythmic accent pattern → <strong>ACCENT IN</strong>
+- <strong>SNAPPY</strong> near minimum
+- <strong>TONE</strong> adjusted for one register
+- Record one pass, then repatch or mult the trigger clock and manually move <strong>TONE</strong> for another pass</p>
+<p>Because TONE isn’t CV-able, this is best for:
+- fixed-register parts
+- overdubs
+- performance gestures
+- sampled loops</p>
+<hr />
+<h2>2. Minimize noise to reveal the sine body</h2>
+<p>The manual makes clear that the SD808 is a mix of:
+- two decaying sine generators
+- one enveloped noise generator</p>
+<p>If your goal is melody, the pitched part matters most.</p>
+<h3>Settings for more tonal use</h3>
+<ul>
+<li><strong>SNAPPY</strong>: low</li>
+<li><strong>ACCENT</strong>: moderate to high for stronger excitation</li>
+<li><strong>LEVEL</strong>: moderate at first</li>
+<li><strong>TONE</strong>: choose low/high body emphasis</li>
+<li>Optional: reduce the internal white-noise trimmer slightly</li>
+</ul>
+<p>This produces a more <strong>pitched attack-decay sound</strong>, closer to:
+- synthetic tom
+- clave-like tuned click
+- low conga / electro percussion
+- short bass hit</p>
+<hr />
+<h2>3. Use accent patterns as melodic phrasing</h2>
+<p>The manual stresses that <strong>ACCENT</strong> affects:
+- loudness
+- attack
+- noise/body emphasis
+- overall strike intensity</p>
+<p>This is very useful musically because many melodic parts do not need distinct pitches on every note — they need <strong>phrasing</strong>.</p>
+<h3>What accent can do melodically</h3>
+<p>An accented hit can read like:
+- a “higher energy note”
+- a phrase beginning
+- a syncopated melodic stress
+- a ghost-note vs. lead-note contrast</p>
+<h3>Patch idea</h3>
+<p><strong>Call-and-response percussion melody</strong>
+- Main trigger sequence → <strong>GATE IN</strong>
+- Sparse accent pattern → <strong>ACCENT IN</strong>
+- <strong>SNAPPY</strong> slightly above minimum
+- <strong>TONE</strong> around lower-middle
+- <strong>LEVEL</strong> adjusted to taste</p>
+<p>Now you get:
+- unaccented notes = softer, more body-focused
+- accented notes = brighter, more aggressive, more articulated</p>
+<p>That creates the feel of a melodic phrase even if the absolute pitch doesn’t change much.</p>
+<hr />
+<h2>4. Send the SD808 into resonant filters to “tune” it externally</h2>
+<p>The manual explicitly encourages running these drums through:
+- resonant filters
+- VCAs
+- wavefolders
+- DSP
+- CV/audio inputs of other modules</p>
+<p>This is one of the strongest ways to make the SD808 melodic.</p>
+<h3>Why it works</h3>
+<p>A short percussive strike is an excellent <strong>excitation source</strong> for a resonant filter. If your filter self-oscillates or has strong resonance, the SD808 becomes the impulse that excites a tuned frequency.</p>
+<h3>Patch idea</h3>
+<p><strong>Tuned filter percussion</strong>
+- SD808 <strong>SD OUT</strong> → resonant low-pass or band-pass filter audio input
+- Set filter resonance high
+- Use sequenced CV into filter cutoff
+- Trigger SD808 rhythmically
+- Keep <strong>SNAPPY</strong> low-to-mid so the body is present</p>
+<p>Result:
+- the SD808 strike excites the filter
+- the <strong>filter cutoff sequence becomes the melody</strong>
+- the SD808 provides attack and character</p>
+<p>This can yield:
+- marimba-like lines
+- plucked synth motifs
+- acid-adjacent percussive melodies
+- tuned dub-techno pings</p>
+<p>This is probably the <strong>best patch category</strong> if your goal is clearly melodic output.</p>
+<hr />
+<h2>5. Use it as an exciter for resonators or physical-model modules</h2>
+<p>Even though the manual mentions filters specifically, the same principle extends to:
+- resonators
+- comb filters
+- Karplus-Strong systems
+- modal synth modules
+- physical modeling voices</p>
+<h3>Patch idea</h3>
+<p><strong>Resonator melody source</strong>
+- SD808 <strong>SD OUT</strong> → resonator input
+- Pitch CV sequence → resonator pitch input
+- <strong>SNAPPY</strong> low for clean excitation, or high for noisier string/metal excitation
+- Accent selected notes for dynamic phrase contour</p>
+<p>Results:
+- bell-like sequences
+- tuned plucks
+- metallic melodic percussion
+- hybrid acoustic-electronic lines</p>
+<p>The manual’s discussion of using drums as patch elements fits this perfectly.</p>
+<hr />
+<h2>6. Overdrive external modules for harmonically richer pitched voices</h2>
+<p>The manual emphasizes that the SD808 output can be <strong>much hotter than typical modular VCO levels</strong>, and that this can create:
+- distortion
+- clipping
+- additional harmonics
+- tighter attacks</p>
+<p>For melody, this is valuable because the stock SD808 is relatively simple spectrally when noise is low. Harmonic enrichment helps it read as a more substantial synth voice.</p>
+<h3>Patch idea</h3>
+<p><strong>Distorted tuned plucks</strong>
+- SD808 <strong>SD OUT</strong> → wavefolder / saturator / input drive stage
+- Then into VCF or LPG
+- Sequence filter cutoff or resonator pitch
+- Use <strong>ACCENT IN</strong> for note emphasis</p>
+<p>This can transform the sound into:
+- distorted bass plucks
+- industrial mallet lines
+- crunchy sequence accents
+- electro lead-percussion hybrids</p>
+<h3>Important practical note</h3>
+<p>Start with lower <strong>LEVEL</strong> settings. The manual warns the output can be hot enough to clip interfaces around <strong>10 Vpp</strong>, while SD808 can hit around <strong>20 Vpp</strong>.</p>
+<hr />
+<h2>7. Use the audio output as a modulation source</h2>
+<p>The manual explicitly says you can send the drum audio into <strong>CV inputs of just about any module</strong>.</p>
+<p>This is one of the more modular ways to derive melodic complexity.</p>
+<h3>Uses</h3>
+<ul>
+<li>SD808 audio → filter cutoff CV</li>
+<li>SD808 audio → VCA CV</li>
+<li>SD808 audio → oscillator FM input</li>
+<li>SD808 audio → waveshaper CV</li>
+<li>SD808 audio → effect parameter CV</li>
+</ul>
+<p>Because the SD808 contains a decaying dual-sine/noise transient, this creates <strong>audio-derived envelopes and transient FM</strong>.</p>
+<h3>Patch idea</h3>
+<p><strong>Percussion-driven melody animation</strong>
+- Main melodic oscillator provides drone or sequence
+- SD808 output multed:
+  - one copy to mixer/audio path
+  - second copy to filter FM or cutoff CV on another voice
+- Triggers on SD808 occur in complementary rhythm to melodic sequence</p>
+<p>Results:
+- each snare hit bends or excites the melodic voice
+- melody acquires rhythmic articulation
+- percussion and pitch become tightly interlocked</p>
+<p>This is a great way to make the SD808 part of the <strong>melodic ecosystem</strong>, even when it isn’t the main audible note source.</p>
+<hr />
+<h1>Specific melodic patch recipes</h1>
+<h2>A. Electro tom bassline</h2>
+<p>Goal: make the SD808 behave like a pitched bass percussion voice.</p>
+<p><strong>Settings</strong>
+- <strong>SNAPPY</strong>: near minimum
+- <strong>TONE</strong>: lower half
+- <strong>ACCENT</strong>: medium-high
+- <strong>LEVEL</strong>: moderate</p>
+<p><strong>Patch</strong>
+- Gate sequencer → <strong>GATE IN</strong>
+- Accent rhythm → <strong>ACCENT IN</strong>
+- SD OUT → low-pass filter
+- Optional envelope follower from SD808 to duck or shape another voice</p>
+<p><strong>Result</strong>
+- punchy low percussive notes
+- pseudo-bassline grooves
+- classic electro style</p>
+<hr />
+<h2>B. Tuned strike into resonant filter</h2>
+<p>Goal: turn the SD808 into a melodic trigger source.</p>
+<p><strong>Settings</strong>
+- <strong>SNAPPY</strong>: low to mid
+- <strong>TONE</strong>: wherever the strike is clearest
+- <strong>ACCENT</strong>: dynamic, with accented phrase peaks</p>
+<p><strong>Patch</strong>
+- SD OUT → resonant band-pass filter
+- Pitch sequencer CV → filter cutoff
+- Trigger sequencer → SD808 GATE IN</p>
+<p><strong>Result</strong>
+- filter determines note pitch
+- SD808 determines attack/body/transient
+- very playable melodic percussion voice</p>
+<hr />
+<h2>C. Metallic melody through wavefolder</h2>
+<p>Goal: derive harmonically richer tuned percussion.</p>
+<p><strong>Settings</strong>
+- <strong>SNAPPY</strong>: low
+- <strong>TONE</strong>: upper-middle for brighter body
+- <strong>LEVEL</strong>: enough to drive folder</p>
+<p><strong>Patch</strong>
+- SD OUT → wavefolder
+- Wavefolder → VCF or LPG
+- Optional sequenced CV to wavefolder symmetry/fold amount
+- Accent pattern into ACCENT IN</p>
+<p><strong>Result</strong>
+- complex overtones
+- more note-like presence
+- aggressive melodic sequences</p>
+<hr />
+<h2>D. Noise-excited pluck line</h2>
+<p>Goal: use the noise component as a melodic exciter.</p>
+<p><strong>Settings</strong>
+- <strong>SNAPPY</strong>: medium-high
+- <strong>TONE</strong>: to taste
+- <strong>ACCENT</strong>: moderate</p>
+<p><strong>Patch</strong>
+- SD OUT → resonator / comb filter / Karplus module
+- Sequenced pitch CV → resonator pitch
+- Sparse accents on important notes</p>
+<p><strong>Result</strong>
+- string/metal/pluck-like notes
+- noisy attack with tuned sustain
+- very expressive for IDM, electro, experimental music</p>
+<hr />
+<h2>E. Layer with a VCO for melodic transient design</h2>
+<p>Goal: use the SD808 to give a melodic synth note a realistic attack.</p>
+<p><strong>Patch</strong>
+- VCO → VCF/VCA → mixer
+- SD808 → same mixer channel or parallel bus
+- Trigger both from same sequencer
+- Use SD808 accent to define phrase accents
+- Tune VCO conventionally; use SD808 as transient/body reinforcement</p>
+<p><strong>Result</strong>
+- synth notes gain percussive front edge
+- works especially well for:
+  - plucks
+  - bass stabs
+  - FM percussion lines
+  - EBM / electro sequences</p>
+<p>This is one of the most musically useful applications: the SD808 does not need to carry the whole pitch identity to contribute melodically.</p>
+<hr />
+<h1>How to think about “melody” with this module</h1>
+<h2>The SD808 creates melody in three ways</h2>
+<h3>1. By supplying a pitched body</h3>
+<p>The two sine generators provide a tonal center. This is not precise keyboard pitch, but enough for:
+- low/high note contrast
+- tuned percussion roles
+- bass/percussion hybrids</p>
+<h3>2. By shaping phrase dynamics</h3>
+<p>Accent and Snappy create expressive note hierarchy:
+- ghost notes
+- strong notes
+- transitions
+- syncopated emphasis</p>
+<p>This often matters as much as pitch in melodic writing.</p>
+<h3>3. By exciting other tuned modules</h3>
+<p>This is where it becomes most powerful:
+- filters
+- resonators
+- feedback systems
+- combs
+- physical models</p>
+<p>These external modules provide exact pitch behavior; the SD808 provides the <strong>attack character</strong>.</p>
+<hr />
+<h1>Best settings for different musical roles</h1>
+<h2>For the most tonal / melodic behavior</h2>
+<ul>
+<li><strong>SNAPPY</strong>: low</li>
+<li><strong>TONE</strong>: choose low or high body emphasis</li>
+<li><strong>ACCENT</strong>: moderate-high</li>
+<li><strong>LEVEL</strong>: moderate unless intentionally saturating</li>
+<li>Optional white noise trimmer: slightly reduced</li>
+</ul>
+<h2>For expressive melodic percussion</h2>
+<ul>
+<li><strong>SNAPPY</strong>: just above minimum</li>
+<li><strong>ACCENT IN</strong>: active with selective triggers</li>
+<li><strong>TONE</strong>: mid or low-mid</li>
+<li>This is specifically supported by the manual, which notes strong dynamics when accented and unaccented notes are used with Snappy just above minimum.</li>
+</ul>
+<h2>For harmonic processing</h2>
+<ul>
+<li><strong>LEVEL</strong>: high</li>
+<li><strong>ACCENT</strong>: high</li>
+<li><strong>SNAPPY</strong>: mid</li>
+<li>Feed into distortion, folder, filter, DSP</li>
+</ul>
+<h2>For resonator excitation</h2>
+<ul>
+<li><strong>SNAPPY</strong>: low for clean strikes, higher for noisy texture</li>
+<li><strong>LEVEL</strong>: enough to excite but not overload</li>
+<li><strong>ACCENT</strong>: use for phrase peaks</li>
+</ul>
+<hr />
+<h1>Important limitations</h1>
+<h2>What it does not do well on its own</h2>
+<ul>
+<li>precise pitch sequencing</li>
+<li>1V/oct melodic lines</li>
+<li>sustained notes</li>
+<li>traditional keyboard-style melodies</li>
+</ul>
+<h2>What it does extremely well in melodic contexts</h2>
+<ul>
+<li>tuned percussive motifs</li>
+<li>phrase articulation</li>
+<li>transient design</li>
+<li>resonator/filter excitation</li>
+<li>aggressive harmonically processed strikes</li>
+<li>percussive-bass hybrids</li>
+</ul>
+<p>So the SD808 is best viewed as a <strong>melodic percussion building block</strong>, not a conventional voice oscillator.</p>
+<hr />
+<h1>Most effective “used together” modular roles</h1>
+<p>If you mean “used together” with the rest of a Eurorack system, the manual strongly points toward these combinations:</p>
+<ol>
+<li>
+<p><strong>SD808 + resonant filter</strong><br />
+   Best for tuned percussion melodies.</p>
+</li>
+<li>
+<p><strong>SD808 + wavefolder/distortion</strong><br />
+   Best for aggressive synthetic plucks and bass hits.</p>
+</li>
+<li>
+<p><strong>SD808 + resonator / physical model</strong><br />
+   Best for rich tuned lines.</p>
+</li>
+<li>
+<p><strong>SD808 + another drum voice through ring mod/VCA</strong><br />
+   Best for complex hybrid melodic/noise percussion.</p>
+</li>
+<li>
+<p><strong>SD808 + CV destination</strong><br />
+   Best for percussion-controlled animation of another melodic voice.</p>
+</li>
+<li>
+<p><strong>SD808 layered with VCO voice</strong><br />
+   Best for adding attack and dynamic realism to melodic synth lines.</p>
+</li>
+</ol>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Tiptop SD808</strong> is nominally a snare module, but the manual makes clear that its architecture — <strong>two decaying sine oscillators plus enveloped noise</strong>, with <strong>strong accent behavior</strong> and <strong>very hot output level</strong> — makes it highly useful for melodic composition in Eurorack.</p>
+<p>Its strongest melodic uses are:</p>
+<ul>
+<li><strong>pitched percussion voice</strong></li>
+<li><strong>bass/percussion hybrid</strong></li>
+<li><strong>exciter for tuned filters/resonators</strong></li>
+<li><strong>transient layer for melodic synths</strong></li>
+<li><strong>audio-rate modulation source</strong></li>
+<li><strong>harmonic source when overdriven</strong></li>
+</ul>
+<p>If you want, I can also turn this into:
+1. a <strong>patch cookbook</strong> with 10 concrete SD808 melodic patches, or<br />
+2. a <strong>module interaction matrix</strong> showing how SD808 pairs with filters, LPGs, wavefolders, sequencers, and resonators.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

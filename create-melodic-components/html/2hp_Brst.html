@@ -1,0 +1,379 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Brst</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Brst</h1>
+<ul>
+<li><a href="../../manuals/Brst_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Brst — using it for melodic components</h1>
+<p>Brst is <strong>not a pitch/CV sequencer by itself</strong>. It’s a <strong>burst generator / trigger delay</strong> that turns one trigger or gate into a fast series of triggers. That means its melodic usefulness comes from how it <strong>drives other modules</strong>:</p>
+<ul>
+<li>sequencers</li>
+<li>sample &amp; hold</li>
+<li>quantizers</li>
+<li>envelopes/LPGs</li>
+<li>clock dividers/multipliers</li>
+<li>switches</li>
+<li>logic</li>
+<li>trigger-to-gate or trigger-to-envelope utilities</li>
+</ul>
+<p>So for melody, think of Brst as a module that creates <strong>repeated note events, ratchets, grace notes, strums, arpeggio-like trigger clusters, and delayed re-articulations</strong>.</p>
+<h2>What Brst does</h2>
+<p>From the manual:</p>
+<ul>
+<li><strong>TRIG input</strong> starts a burst when it receives a trigger/gate</li>
+<li><strong>PULSES</strong> sets how many triggers are generated</li>
+<li>from <strong>1 to 32</strong></li>
+<li><strong>RATE</strong> sets the time between triggers</li>
+<li>about <strong>10 ms to 500 ms</strong></li>
+<li><strong>PULSES CV</strong> and <strong>RATE CV</strong> let you voltage-control those two parameters</li>
+<li><strong>TRIG toggle</strong>:</li>
+<li><strong>left</strong> = include the initial trigger</li>
+<li><strong>right</strong> = omit the initial trigger</li>
+<li><strong>OUT</strong> emits the burst as <strong>0–5 V triggers</strong></li>
+</ul>
+<p>This makes it especially good for:
+- ratcheting one note into many attacks
+- creating repeated sampling events
+- stepping a sequencer multiple times from one master clock
+- making a melody “flutter” or “bounce”
+- delayed note echoes in trigger form</p>
+<hr />
+<h1>Best ways to use Brst for melodic music</h1>
+<h2>1) Ratcheting a sequenced melody</h2>
+<h3>Patch</h3>
+<ul>
+<li>Send your main rhythm trigger or sequencer gate to <strong>Brst TRIG</strong></li>
+<li>Send <strong>Brst OUT</strong> to the envelope or LPG that opens your melodic voice</li>
+<li>Keep your pitch sequence going from another sequencer into the oscillator pitch input</li>
+<li>Adjust:</li>
+<li><strong>PULSES</strong> for number of ratchets</li>
+<li><strong>RATE</strong> for ratchet speed</li>
+</ul>
+<h3>Result</h3>
+<p>Each note in your melody can fire multiple times quickly, creating:
+- trance-style ratchets
+- IDM stutters
+- ornamented melodic phrases
+- repeated plucks on a single pitch</p>
+<h3>Musical use</h3>
+<p>This is the most direct melodic use:
+- same pitch, multiple articulations
+- great for plucks, FM bleeps, acid lines, and arpeggio voices</p>
+<h3>Tip</h3>
+<p>Use the <strong>TRIG toggle left</strong> to include the first hit immediately, then the extra repeats follow.</p>
+<hr />
+<h2>2) Burst-clocking a sequencer for fast melodic runs</h2>
+<h3>Patch</h3>
+<ul>
+<li>Main clock or manual trigger into <strong>Brst TRIG</strong></li>
+<li><strong>Brst OUT</strong> into the <strong>clock input of a sequencer</strong></li>
+<li>Sequencer pitch CV into oscillator 1V/oct</li>
+<li>Envelope/VCA triggered either:</li>
+<li>by the same <strong>Brst OUT</strong>, or</li>
+<li>by a separate gate source</li>
+</ul>
+<h3>Result</h3>
+<p>One incoming trigger can advance the sequencer several steps very quickly, producing:
+- mini arpeggios
+- melodic fills
+- fast ascending/descending runs
+- pseudo-strums if the sequencer has chord-related voltages</p>
+<h3>Why this works</h3>
+<p>Brst effectively turns one musical event into <strong>multiple sequencer advances</strong>.</p>
+<h3>Tip</h3>
+<p>If you modulate <strong>PULSES CV</strong>, some notes create short runs and some create long runs. That gives phrases more expression.</p>
+<hr />
+<h2>3) Quantized sample-and-hold melody generator</h2>
+<p>This is one of the strongest melodic pairings.</p>
+<h3>Patch</h3>
+<ul>
+<li>Noise, random CV, or slow modulation source into <strong>Sample &amp; Hold input</strong></li>
+<li><strong>Brst OUT</strong> into <strong>Sample &amp; Hold trigger</strong></li>
+<li>Sample &amp; Hold output into <strong>Quantizer</strong></li>
+<li>Quantizer output into oscillator 1V/oct</li>
+<li>Use the same <strong>Brst OUT</strong> or a derived gate to trigger your envelope</li>
+</ul>
+<h3>Result</h3>
+<p>Each burst creates several new quantized notes in quick succession:
+- random melodic flourishes
+- clustered ornamentation
+- “bouncing ball” melodies
+- generative lead lines</p>
+<h3>Tip</h3>
+<ul>
+<li>Slow <strong>RATE</strong> = clearly separated melodic notes</li>
+<li>Fast <strong>RATE</strong> = clustered trills or grace-note runs</li>
+<li>Low <strong>PULSES</strong> = subtle ornamentation</li>
+<li>High <strong>PULSES</strong> = long random cascades</li>
+</ul>
+<hr />
+<h2>4) Arpeggio-style phrases from sequential switching</h2>
+<p>If you have a switch or sequential switch, Brst gets very musical.</p>
+<h3>Patch</h3>
+<ul>
+<li>Feed several fixed voltages or pitch CVs into a sequential switch</li>
+<li>Clock the switch with <strong>Brst OUT</strong></li>
+<li>Switch output into a quantizer or directly to oscillator pitch if tuned</li>
+<li>Trigger your envelope from <strong>Brst OUT</strong></li>
+</ul>
+<h3>Result</h3>
+<p>A single trigger produces a rapid sequence of different pitches:
+- chord strums
+- arpeggiated bursts
+- broken chord ornaments
+- harp-like plucks</p>
+<h3>Great source material</h3>
+<p>Put into the switch:
+- root / third / fifth / octave
+- notes from a chord
+- different rows of a sequencer
+- transposition voltages</p>
+<p>This turns Brst into a <strong>melodic phrase generator</strong>.</p>
+<hr />
+<h2>5) Delayed melodic echoes</h2>
+<p>Because Brst can omit the initial trigger, it can act like a trigger delay with repeats.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send your main melody gate to <strong>Brst TRIG</strong></li>
+<li>Set <strong>TRIG toggle right</strong> to omit the initial hit</li>
+<li>Use <strong>OUT</strong> to trigger a second envelope/voice or re-trigger the same voice</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- delayed note repeats
+- ghost notes
+- call-and-response attacks
+- melodic shadows</p>
+<h3>Especially effective with</h3>
+<ul>
+<li>two oscillators tuned in intervals</li>
+<li>a second voice an octave up/down</li>
+<li>filtered echoes from a parallel voice</li>
+</ul>
+<p>Instead of audio delay, you get a <strong>compositional trigger delay</strong> that can generate new melodic articulations.</p>
+<hr />
+<h2>6) Ornament generation for sustained notes</h2>
+<h3>Patch</h3>
+<ul>
+<li>Main gate opens a long envelope on a voice</li>
+<li>Same gate also goes to <strong>Brst TRIG</strong></li>
+<li><strong>Brst OUT</strong> triggers:</li>
+<li>a second short envelope to FM index,</li>
+<li>a wavefolder CV accent,</li>
+<li>filter pings,</li>
+<li>or a VCA on a parallel voice</li>
+</ul>
+<h3>Result</h3>
+<p>The pitch may stay constant, but the burst adds melodic-style embellishment:
+- mordents
+- trills
+- flutter-tongue effects
+- repeated accenting on the note</p>
+<p>This is useful when “melodic component” means not only changing pitch, but adding <strong>expressive note structure</strong>.</p>
+<hr />
+<h2>7) Using Brst to create trills between two pitches</h2>
+<p>If you have a switch, logic-controlled transposition, or dual pitch source:</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Main pitch CV goes to oscillator</li>
+<li>A second interval voltage is available, such as +2 semitones or +7 semitones</li>
+<li>Use <strong>Brst OUT</strong> to toggle a switch between the base pitch and interval pitch</li>
+<li>Also use a related trigger to articulate the note</li>
+</ul>
+<h3>Result</h3>
+<p>One note becomes a fast alternation:
+- trill
+- mordent
+- alternating dyad gesture
+- baroque-style ornament</p>
+<p>Brst is excellent for this because the <strong>rate</strong> is controllable and can be CV-modulated.</p>
+<hr />
+<h2>8) Humanizing or varying melodic clocks</h2>
+<p>The manual specifically mentions humanizing a clock signal. For melody, that means:</p>
+<h3>Patch</h3>
+<ul>
+<li>Main clock/gate into <strong>Brst TRIG</strong></li>
+<li>Use low <strong>PULSES</strong> and moderate <strong>RATE</strong></li>
+<li>Feed <strong>OUT</strong> to a sequencer clock or auxiliary melodic event</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of every melodic step being equally plain, some steps have:
+- extra ticks
+- repeated notes
+- little rushes
+- phrase-ending fills</p>
+<p>This is great in generative patches where a melody feels too rigid.</p>
+<hr />
+<h1>Voltage control strategies for melodic use</h1>
+<h2>PULSES CV</h2>
+<p>Use this to vary how many notes/articulations a phrase produces.</p>
+<p>Good modulation sources:
+- slow random CV
+- sequencer row
+- envelope
+- keyboard velocity/mod wheel if interfaced
+- another rhythmic modulation source</p>
+<h3>Musical effect</h3>
+<ul>
+<li>some notes are single hits</li>
+<li>some are double/triple ratchets</li>
+<li>some become long flourishes</li>
+</ul>
+<p>This adds <strong>phrase hierarchy</strong>.</p>
+<h2>RATE CV</h2>
+<p>Use this to vary the spacing of repeated notes.</p>
+<p>Good modulation sources:
+- random stepped CV
+- LFO
+- envelope for accelerating/decelerating burst feel
+- sequencer accent row</p>
+<h3>Musical effect</h3>
+<ul>
+<li>fast grace notes on some steps</li>
+<li>slower echoed notes on others</li>
+<li>changing density across a phrase</li>
+</ul>
+<p>This is one of the easiest ways to make Brst feel alive.</p>
+<hr />
+<h1>Concrete melodic patch recipes</h1>
+<h2>Patch 1: Simple ratcheted lead</h2>
+<p><strong>Needs:</strong> pitch sequencer, oscillator, envelope, VCA</p>
+<ul>
+<li>Sequencer pitch CV → oscillator 1V/oct</li>
+<li>Main gate pattern → Brst TRIG</li>
+<li>Brst OUT → envelope trigger</li>
+<li>Envelope → VCA CV</li>
+<li>Oscillator → VCA → output</li>
+</ul>
+<p><strong>Settings</strong>
+- TRIG toggle left
+- PULSES: 2–5
+- RATE: fast</p>
+<p><strong>Sound</strong>
+A lead line where selected notes repeat rapidly.</p>
+<hr />
+<h2>Patch 2: Random burst melody</h2>
+<p><strong>Needs:</strong> noise/random source, sample &amp; hold, quantizer, oscillator, envelope</p>
+<ul>
+<li>Random CV/noise → S&amp;H input</li>
+<li>Brst OUT → S&amp;H trigger</li>
+<li>S&amp;H out → quantizer</li>
+<li>Quantizer out → oscillator 1V/oct</li>
+<li>Brst TRIG fed from a slow clock or manual gate</li>
+<li>Brst OUT → envelope trigger</li>
+</ul>
+<p><strong>Sound</strong>
+Each trigger creates a little cluster of quantized notes.</p>
+<hr />
+<h2>Patch 3: Chord strum</h2>
+<p><strong>Needs:</strong> sequential switch or multiple fixed pitch voltages, quantizer optional</p>
+<ul>
+<li>Several tuned voltages or chord tones → switch inputs</li>
+<li>Brst OUT → switch clock/advance</li>
+<li>Switch output → oscillator pitch</li>
+<li>Main gate → Brst TRIG</li>
+<li>Brst OUT → envelope trigger</li>
+</ul>
+<p><strong>Sound</strong>
+One trigger strums through chord tones like a harp or guitar rake.</p>
+<hr />
+<h2>Patch 4: Sequencer fill generator</h2>
+<p><strong>Needs:</strong> step sequencer, oscillator, envelope</p>
+<ul>
+<li>Master clock or fill trigger → Brst TRIG</li>
+<li>Brst OUT → sequencer clock</li>
+<li>Sequencer CV → oscillator pitch</li>
+<li>Brst OUT → envelope trigger</li>
+</ul>
+<p><strong>Sound</strong>
+Instead of one note, a single event makes the sequencer run through several notes quickly.</p>
+<p>Great for:
+- phrase endings
+- transitions
+- fills between bass notes</p>
+<hr />
+<h2>Patch 5: Delayed octave echo</h2>
+<p><strong>Needs:</strong> 2 voices or one voice with transposition path</p>
+<ul>
+<li>Main melody gate → voice 1 envelope</li>
+<li>Same gate → Brst TRIG</li>
+<li>TRIG toggle right</li>
+<li>Brst OUT → voice 2 envelope</li>
+<li>Voice 2 tuned one octave above or fifth above</li>
+</ul>
+<p><strong>Sound</strong>
+Each note gets a delayed answering note above it.</p>
+<hr />
+<h1>Performance ideas</h1>
+<h2>Manual triggering</h2>
+<p>Brst is very playable when fed from:
+- a manual gate button
+- keyboard gate
+- pressure pad gate
+- gate sequencer accents</p>
+<p>You can use it to inject:
+- trills
+- fills
+- grace-note bursts
+- sudden arpeggios</p>
+<h2>Accent-based use</h2>
+<p>Instead of sending every note to Brst, only send:
+- accented steps
+- every 4th bar trigger
+- end-of-sequence trigger
+- probability-generated gates</p>
+<p>That keeps the melodic bursts special.</p>
+<h2>Modulate only one parameter at a time</h2>
+<p>For musical clarity:
+- modulate <strong>PULSES</strong> if you want varying phrase length
+- modulate <strong>RATE</strong> if you want varying urgency
+- modulate both only if you want chaos</p>
+<hr />
+<h1>Important limitations</h1>
+<p>Brst does <strong>not</strong> itself produce pitch CV. So to make truly melodic material, pair it with at least one of these:</p>
+<ul>
+<li>quantizer</li>
+<li>sequencer</li>
+<li>sample &amp; hold</li>
+<li>precision adder/transposer</li>
+<li>sequential switch</li>
+<li>oscillator/envelope voice</li>
+</ul>
+<p>Without those, Brst only creates rhythmic trigger structures.</p>
+<p>But in a Eurorack system, that’s often exactly what turns static pitch material into something musical and expressive.</p>
+<hr />
+<h1>Best musical roles for Brst in a melody-focused rack</h1>
+<p>Brst is especially strong as a:</p>
+<ul>
+<li><strong>ratchet generator</strong> for sequenced notes</li>
+<li><strong>ornament generator</strong> for trills and grace notes</li>
+<li><strong>burst clock</strong> for fast sequencer runs</li>
+<li><strong>random melody trigger source</strong> for S&amp;H + quantizer patches</li>
+<li><strong>strum engine</strong> for chord tone switching</li>
+<li><strong>delayed re-trigger tool</strong> for echoes and call-response phrasing</li>
+</ul>
+<p>If your system already has pitch sources, Brst adds the <strong>articulation layer</strong> that makes melodies feel less static.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>Brst is best understood as a <strong>melodic event multiplier</strong> rather than a melody source. It takes one trigger and turns it into a cluster of note opportunities. When combined with sequencers, quantizers, switches, or sample-and-hold, it can produce:</p>
+<ul>
+<li>ratchets</li>
+<li>trills</li>
+<li>grace notes</li>
+<li>arpeggiated runs</li>
+<li>chord strums</li>
+<li>delayed melodic echoes</li>
+<li>generative note cascades</li>
+</ul>
+<p>In short: <strong>Brst adds phrasing, ornamentation, and motion to melodic patches</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

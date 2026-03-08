@@ -1,0 +1,425 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_Mimeophon</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — Mimeophon</h1>
+<ul>
+<li><a href="../../manuals/mimeophon-manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://www.makenoisemusic.com/wp-content/uploads/2019/09/Mimeophon-Manual-v2021.pdf">Make Noise soundhack Mimeophon Manual (PDF)</a></p>
+<h1>Using the Make Noise Mimeophon to create melodic components</h1>
+<p>The attached manual is for the <strong>Make Noise soundhack Mimeophon</strong>, a stereo multi-zone delay/repeater. Even though it is “just” an effect on paper, the manual makes it very clear that Mimeophon can become a <strong>melodic voice generator, harmonic processor, phrase looper, clock-derived pattern source, and pitch-shifting texture tool</strong> when patched in a Eurorack system.</p>
+<h2>What Mimeophon contributes melodically</h2>
+<p>From the manual, Mimeophon is especially useful for melody because it can:</p>
+<ul>
+<li>create <strong>Karplus-Strong pitched tones</strong> in <strong>Zone 0</strong></li>
+<li>generate <strong>pitched delay feedback</strong> with <strong>microRate</strong></li>
+<li>sync repeats to a master clock using <strong>TEMPO</strong></li>
+<li>turn one melody into <strong>polyrhythmic melodic canons</strong></li>
+<li>create <strong>stereo melodic divergence</strong> with <strong>Skew</strong></li>
+<li>reverse and recontextualize phrases with <strong>Flip</strong></li>
+<li>freeze loops with <strong>Hold</strong> and scan through them</li>
+<li>output a derived rhythmic clock from <strong>Rate Out</strong></li>
+</ul>
+<p>So rather than thinking of it only as a delay, think of it as a <strong>melody multiplier</strong>.</p>
+<hr />
+<h2>Core features that matter for melodic patching</h2>
+<h2>1. Zone determines musical scale of time</h2>
+<p>The manual describes 8 Zones:</p>
+<ul>
+<li><strong>Zones 0–1</strong>: microsound, flange, Karplus, distortion, resonant/pitched behavior</li>
+<li><strong>Zones 2–4</strong>: traditional delay/echo ranges</li>
+<li><strong>Zones 5–7</strong>: looping phrases and long repeating structures</li>
+</ul>
+<p>This means melodic use falls into 3 big categories:</p>
+<ul>
+<li><strong>Zone 0–1</strong>: generate notes/timbres</li>
+<li><strong>Zone 2–4</strong>: repeat notes rhythmically</li>
+<li><strong>Zone 5–7</strong>: capture and reshape phrases/melodies</li>
+</ul>
+<hr />
+<h2>2. microRate is the most important melodic input</h2>
+<p>The manual says:</p>
+<ul>
+<li><strong>microRate tracks 1V/oct in Zone 0</strong></li>
+<li>in Zone 0 it is useful for <strong>Karplus-Strong tone generation</strong></li>
+<li>in other zones it gives doppler modulation, chorus, vibrato, and flange</li>
+</ul>
+<p>So in a melodic system, <strong>microRate is effectively a pitch input when using Zone 0</strong>.</p>
+<p>That means:
+- you can send sequencer pitch CV to <strong>microRate</strong>
+- excite the input with a short transient/noise burst/envelope click
+- Mimeophon behaves like a <strong>plucked string oscillator</strong></p>
+<p>This is one of the most direct ways the module becomes a melodic source rather than a processor.</p>
+<hr />
+<h2>3. Tempo sync turns echoes into harmonic/rhythmic melody structures</h2>
+<p>When <strong>TEMPO</strong> is patched, Rate chooses <strong>divisions and multiplications</strong> of the incoming clock, and changing Rate becomes free of doppler pitch glide.</p>
+<p>That makes Mimeophon useful for:</p>
+<ul>
+<li>rhythmic melodic echoes</li>
+<li>canon-like note repetitions</li>
+<li>clock-locked arpeggio tails</li>
+<li>stereo subdivisions when <strong>Skew</strong> is enabled</li>
+</ul>
+<p>If your source is already melodic, Tempo sync lets Mimeophon turn it into <strong>structured repeating melodic patterns</strong> that stay musically aligned.</p>
+<hr />
+<h2>4. Skew creates two related melodic timelines</h2>
+<p>With <strong>Skew on</strong>, left and right repeat rates diverge in opposite directions.</p>
+<p>For melody, this is powerful because:
+- one note stream becomes <strong>two related melodic repeat grids</strong>
+- with stereo outputs, you get <strong>counterpoint-like echo motion</strong>
+- with two mono signals patched independently, Mimeophon can behave almost like a <strong>dual melodic repeater</strong></p>
+<p>When clocked, this becomes especially musical because each side can land on different divisions/multiples of the same clock.</p>
+<hr />
+<h2>5. Hold turns it into a playable phrase memory</h2>
+<p><strong>Hold</strong> freezes the buffer non-destructively:
+- no new sound enters the feedback path
+- all other controls remain active
+- <strong>Repeats</strong> becomes a way to set the <strong>start point</strong> of the repeat</p>
+<p>This makes long Zones very useful for melody:
+- record a phrase
+- press <strong>Hold</strong>
+- move through Zones / Rate / Color / Halo / Flip
+- scan different windows of the phrase
+- derive new melodic fragments from older material</p>
+<p>This is essentially <strong>phrase resynthesis by navigation</strong>.</p>
+<hr />
+<h2>Best melodic use cases</h2>
+<h2>A. Karplus-Strong voice from Mimeophon alone</h2>
+<p>This is explicitly supported by the manual’s <strong>Karplus String</strong> patch.</p>
+<h3>Patch concept</h3>
+<p>Use Mimeophon as a plucked string synth voice.</p>
+<h3>How</h3>
+<ul>
+<li>Go to <strong>Zone 0</strong></li>
+<li>Patch a short transient into <strong>Left input</strong></li>
+<li>envelope click</li>
+<li>noise burst</li>
+<li>trigger-shaped transient</li>
+<li>Send <strong>pitch CV</strong> from a sequencer or keyboard to <strong>microRate</strong></li>
+<li>Set:</li>
+<li><strong>Rate</strong> full CW</li>
+<li><strong>Repeats</strong> around 1:00</li>
+<li><strong>Halo</strong> fully CCW</li>
+<li><strong>Mix</strong> around 1:00</li>
+<li><strong>Color</strong> around noon</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>Each trigger excites a resonant pitch</li>
+<li><strong>microRate</strong> determines note pitch</li>
+<li><strong>Repeats</strong> controls decay</li>
+<li><strong>Color</strong> and <strong>Halo</strong> shape brightness/body</li>
+</ul>
+<h3>Why this is melodic</h3>
+<p>This makes Mimeophon function like:
+- a plucked string voice
+- a tuned percussion voice
+- a sequenceable resonator</p>
+<p>This is probably the most important melodic takeaway from the manual.</p>
+<hr />
+<h2>B. Turn a melody into a canon</h2>
+<h3>Patch concept</h3>
+<p>Feed a melodic voice through Mimeophon in <strong>Zones 3–5</strong>.</p>
+<h3>How</h3>
+<ul>
+<li>Patch oscillator/voice or full synth line into Mimeophon input</li>
+<li>Patch your master clock to <strong>TEMPO</strong></li>
+<li>Set:</li>
+<li><strong>Color</strong> around 3:00 for neutral repeats</li>
+<li><strong>Repeats</strong> around noon</li>
+<li><strong>Mix</strong> to taste</li>
+<li>choose <strong>Zone 4 or 5</strong></li>
+<li>Adjust <strong>Rate</strong> to choose clock divisions/multiples</li>
+</ul>
+<h3>Musical result</h3>
+<p>Your melody is repeated in time-locked patterns:
+- quarter-note echoes
+- dotted-feel echoes
+- multiplied subdivisions
+- phrase extensions</p>
+<h3>Why this is melodic</h3>
+<p>You are not just adding ambience; you are creating:
+- additional notes
+- rhythmic answer phrases
+- self-harmonizing melodic density</p>
+<p>With the right source, Mimeophon becomes a <strong>countermelody generator</strong>.</p>
+<hr />
+<h2>C. Stereo contrapuntal repeats with Skew</h2>
+<h3>Patch concept</h3>
+<p>Use <strong>Skew</strong> to split one melody into two related repeat rates.</p>
+<h3>How</h3>
+<ul>
+<li>Feed mono melody into <strong>L input</strong></li>
+<li>Monitor both <strong>L and R outputs</strong></li>
+<li>Patch clock to <strong>TEMPO</strong></li>
+<li>Enable <strong>Skew</strong></li>
+<li>Set Repeats moderately high</li>
+<li>Tune Rate for useful divisions</li>
+</ul>
+<h3>Musical result</h3>
+<p>Left and right channels create:
+- offset melodic responses
+- staggered rhythmic answers
+- widening stereo counterpoint</p>
+<h3>Why this is melodic</h3>
+<p>A single monophonic line becomes a <strong>two-voice spatial melody structure</strong>.</p>
+<p>This is great for:
+- lead lines
+- plucks
+- marimba-type sequences
+- vocal snippets</p>
+<hr />
+<h2>D. Sequence Zones for note-by-note variation</h2>
+<p>The manual’s “Repeater Eater” patch suggests sequencing <strong>Zone</strong> while also sequencing audio material.</p>
+<h3>Patch concept</h3>
+<p>Use stepped CV or a sequencer lane into <strong>Zone CV</strong>.</p>
+<h3>How</h3>
+<ul>
+<li>Feed a melodic or percussive melodic line into the input</li>
+<li>Sequence <strong>Zone CV</strong></li>
+<li>Keep <strong>Repeats</strong> up enough for carryover between zones</li>
+</ul>
+<h3>Musical result</h3>
+<p>Each note or step can jump between:
+- Karplus-ish resonance
+- flange-like short comb repeats
+- normal echoes
+- longer phrase repeats</p>
+<h3>Why this is melodic</h3>
+<p>The melody gains <strong>different repeat identities per note</strong>.<br />
+Short zones leave traces in longer zones, so earlier notes can bloom into later notes. This creates a <strong>rhythmic/melodic lattice</strong>.</p>
+<p>This is one of the most compositional uses in the manual.</p>
+<hr />
+<h2>E. Phrase looping and melodic excavation in Zones 6–7</h2>
+<p>The manual specifically notes that Zones 6 and 7 are long enough to retain material from earlier manipulations for minutes.</p>
+<h3>Patch concept</h3>
+<p>Improvise in short zones, then mine the long zones for melodic material.</p>
+<h3>How</h3>
+<ul>
+<li>Play into Mimeophon while moving through shorter Zones</li>
+<li>Build up feedback and modulation</li>
+<li>Press <strong>Hold</strong></li>
+<li>Remove modulation if desired</li>
+<li>Move to <strong>Zone 7</strong></li>
+<li>Use <strong>Repeats</strong> to change start point</li>
+<li>Try <strong>Skew</strong> for drift</li>
+<li>Try <strong>Flip</strong> for reverse phrases</li>
+</ul>
+<h3>Musical result</h3>
+<p>You can uncover:
+- fragments of older melodies
+- layered phrase memories
+- accidental counterlines
+- reversed motif variations</p>
+<h3>Why this is melodic</h3>
+<p>Mimeophon becomes a <strong>nonlinear phrase sampler</strong>.</p>
+<p>This is excellent for:
+- ambient music
+- generative melody
+- live techno transitions
+- evolving loop-based composition</p>
+<hr />
+<h2>F. Reverse melody generation with Flip</h2>
+<p>The manual notes that in medium and large zones, <strong>Flip</strong> reverses playback.</p>
+<h3>Patch concept</h3>
+<p>Send spoken, sung, or melodic material into Mimeophon and match Rate to phrasing.</p>
+<h3>Musical result</h3>
+<p>You get reversed phrases that can still preserve cadence/rhythm.</p>
+<h3>Why this is melodic</h3>
+<p>Reverse playback can create:
+- melodic pickups
+- swelling leads
+- backward vocal hooks
+- reversed answer phrases</p>
+<p>If synced with TEMPO, these reversals can sit tightly in a composition.</p>
+<hr />
+<h2>G. Harmonic enhancement with audio-rate microRate modulation</h2>
+<p>The manual’s <strong>Octaviocho</strong> and <strong>Echoes Made of Sand</strong> ideas show that feeding an oscillator into <strong>microRate</strong> creates harmonically related tones.</p>
+<h3>Patch concept</h3>
+<p>Use a VCO waveform into <strong>microRate</strong> while also processing a voice.</p>
+<h3>How</h3>
+<ul>
+<li>Take sine/triangle from the same VCO driving your voice</li>
+<li>Patch it to <strong>microRate</strong></li>
+<li>Choose Zones 1–5</li>
+<li>Adjust Repeats/Rate/Halo to taste</li>
+</ul>
+<h3>Musical result</h3>
+<p>You get:
+- octave-up fuzz
+- subharmonic/related harmonic emphasis
+- richer overtone structure
+- more pitched edge to repeats</p>
+<h3>Why this is melodic</h3>
+<p>This helps an existing melodic line produce <strong>related harmonic content</strong>, making it feel more like a second musical layer rather than plain delay.</p>
+<hr />
+<h2>H. Clock generation from melody timing using Rate Out</h2>
+<p>The manual states that <strong>Rate Out</strong> outputs the current repeat clock, and under Skew it ORs both sides.</p>
+<h3>Patch concept</h3>
+<p>Use Mimeophon’s Rate Out to drive other melodic events.</p>
+<h3>Example uses</h3>
+<ul>
+<li>clock a sequencer from <strong>Rate Out</strong></li>
+<li>trigger envelopes for a second voice</li>
+<li>drive sample-and-hold for stepped pitch changes</li>
+<li>clock a quantizer source indirectly through repeat timing</li>
+</ul>
+<h3>Why this is melodic</h3>
+<p>Now Mimeophon is not only processing melody—it is helping <strong>generate the timing structure for other melodic voices</strong>.</p>
+<p>This is especially useful when:
+- Tempo is externally clocked
+- Rate chooses a division/multiple
+- another sequencer follows that derived pulse</p>
+<p>That creates nested melodic relationships.</p>
+<hr />
+<h2>Practical melodic patch recipes</h2>
+<h2>1. Plucked melodic lead</h2>
+<p><strong>Goal:</strong> Use Mimeophon as the instrument.</p>
+<ul>
+<li>Triggered envelope or noise burst → <strong>L Input</strong></li>
+<li>Sequencer pitch CV → <strong>microRate</strong></li>
+<li>Trigger/gate sequence excites source</li>
+<li>Zone <strong>0</strong></li>
+<li>Repeats around <strong>1:00</strong></li>
+<li>Mix around <strong>1:00</strong></li>
+<li>Halo low</li>
+<li>Color to taste</li>
+</ul>
+<p><strong>Result:</strong> sequenceable plucked notes.</p>
+<hr />
+<h2>2. Echo harmonizer for a lead synth</h2>
+<p><strong>Goal:</strong> Turn one lead into multiple melodic events.</p>
+<ul>
+<li>Lead synth → <strong>L Input</strong></li>
+<li>Clock → <strong>TEMPO</strong></li>
+<li>Zone <strong>4</strong></li>
+<li>Repeats at <strong>12:00</strong></li>
+<li>Color around <strong>3:00</strong></li>
+<li>Mix around <strong>11:00 to 1:00</strong></li>
+<li>Adjust Rate to division/multiple</li>
+</ul>
+<p><strong>Result:</strong> synchronized repeating note patterns.</p>
+<hr />
+<h2>3. Stereo melodic canon</h2>
+<p><strong>Goal:</strong> One melody, two repeat voices.</p>
+<ul>
+<li>Mono melody → <strong>L Input</strong></li>
+<li>Clock → <strong>TEMPO</strong></li>
+<li>Outputs L/R to mixer</li>
+<li>Enable <strong>Skew</strong></li>
+<li>Moderate <strong>Halo</strong></li>
+<li>Repeats at or above noon</li>
+</ul>
+<p><strong>Result:</strong> left/right phrases answer each other.</p>
+<hr />
+<h2>4. Reverse phrase hook generator</h2>
+<p><strong>Goal:</strong> Create backward melodic motifs.</p>
+<ul>
+<li>Melody or vocal phrase → input</li>
+<li>Zone <strong>4–6</strong></li>
+<li>Set Rate to approximate phrase length</li>
+<li>Engage <strong>Flip</strong></li>
+<li>Use Hold if you want stable material</li>
+<li>Use Mix to blend</li>
+</ul>
+<p><strong>Result:</strong> reversed phrase layers for intros, breakdowns, and transitions.</p>
+<hr />
+<h2>5. Sequence-dependent melodic morphing</h2>
+<p><strong>Goal:</strong> Different repeat behavior per note.</p>
+<ul>
+<li>Melodic sequence audio → input</li>
+<li>Stepped CV/sequencer lane → <strong>Zone CV</strong></li>
+<li>Optional synced clock → <strong>TEMPO</strong></li>
+<li>Repeats moderately high</li>
+</ul>
+<p><strong>Result:</strong> every note can occupy a different time/pitch texture regime.</p>
+<hr />
+<h2>6. Melodic loop mining</h2>
+<p><strong>Goal:</strong> Build a phrase, then extract motifs.</p>
+<ul>
+<li>Play or sequence into Mimeophon</li>
+<li>Move around smaller zones while recording</li>
+<li>Raise Repeats</li>
+<li>Press <strong>Hold</strong></li>
+<li>Switch to Zone <strong>6 or 7</strong></li>
+<li>Use Repeats as start point selector</li>
+<li>Try Flip/Skew</li>
+</ul>
+<p><strong>Result:</strong> new melodies discovered inside older performance material.</p>
+<hr />
+<h2>How Mimeophon works best with other Eurorack modules</h2>
+<p>Even though only Mimeophon is shown here, the manual implies several strong partnerships in a Eurorack system.</p>
+<h2>Best companions for melodic use</h2>
+<h3>Sequencer</h3>
+<p>Use it for:
+- pitch CV to <strong>microRate</strong>
+- stepped modulation to <strong>Zone CV</strong>
+- synced modulation to <strong>Rate CV</strong></p>
+<h3>Envelope/function generator</h3>
+<p>Use it to:
+- create transient excitations for Karplus
+- shape incoming audio
+- dynamically modulate Color/Halo/Repeats</p>
+<h3>Oscillator</h3>
+<p>Use it to:
+- provide the melodic input signal
+- feed audio-rate modulation into <strong>microRate</strong>
+- create harmonic relation between source and repeater</p>
+<h3>Clock source</h3>
+<p>Use it for:
+- <strong>TEMPO</strong> sync
+- tight rhythmic melodic repeats
+- stable interlocking sequences</p>
+<h3>Quantized random / sample and hold</h3>
+<p>Use it to:
+- modulate Zone for structured variation
+- create semi-random pitch on microRate
+- derive generative melodies from Rate Out</p>
+<h3>Mixer / stereo output module</h3>
+<p>Important because Mimeophon’s melodic power increases dramatically in stereo:
+- Skew
+- Halo
+- Ping Pong
+- left/right offset repeats</p>
+<hr />
+<h2>Most musically important manual insights</h2>
+<p>These are the biggest takeaways for melody-making:</p>
+<ol>
+<li><strong>Zone 0 + microRate = playable pitched voice</strong></li>
+<li><strong>Tempo sync = repeat divisions/multiples without doppler</strong></li>
+<li><strong>Skew = stereo split of melodic timing</strong></li>
+<li><strong>Hold = frozen phrase for ongoing melodic modulation</strong></li>
+<li><strong>Flip = reverse melody and phrase inversion</strong></li>
+<li><strong>Long zones retain old musical information</strong>, making phrase archaeology possible</li>
+<li><strong>Rate Out</strong> can propagate Mimeophon’s timing to the rest of the patch</li>
+</ol>
+<hr />
+<h2>Best overall roles for Mimeophon in melodic music</h2>
+<p>Mimeophon can serve as:</p>
+<ul>
+<li><strong>Karplus synth voice</strong></li>
+<li><strong>tempo-synced melodic delay</strong></li>
+<li><strong>phrase looper</strong></li>
+<li><strong>reverse phrase processor</strong></li>
+<li><strong>stereo canon generator</strong></li>
+<li><strong>harmonic thickener</strong></li>
+<li><strong>clock-derived melodic hub</strong></li>
+<li><strong>generative phrase memory</strong></li>
+</ul>
+<p>If you want a concise summary:</p>
+<blockquote>
+<p>Mimeophon is best used melodically when you either treat it as a <strong>pitched resonator in Zone 0</strong>, or as a <strong>clocked phrase repeater/transformer in Zones 2–7</strong>.</p>
+</blockquote>
+<p>If you want, I can also turn this into:
+- a <strong>“5 best melodic patches” quick-reference sheet</strong>
+- a <strong>module-to-module patch guide</strong> if you upload more manuals
+- or a <strong>full system patch plan</strong> for ambient, techno, or generative melody.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

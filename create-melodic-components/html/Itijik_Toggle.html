@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Itijik_Toggle</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Itijik — Toggle</h1>
+<ul>
+<li><a href="../../manuals/toggle.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h2>itijik Toggle — melodic use in a Eurorack patch</h2>
+<p>The <strong>itijik Toggle</strong> is a <strong>quad flip-flop / logic inverter</strong> module. On its own, it does not generate pitch CV directly, but it is very useful for building <strong>melodic structures</strong> by creating:</p>
+<ul>
+<li>stepped rhythmic logic</li>
+<li>divided/toggled gate streams</li>
+<li>alternating note triggers</li>
+<li>simple binary patterns</li>
+<li>complementary gate lines for harmony and call/response</li>
+</ul>
+<p>Because there are <strong>4 identical sections</strong>, you can create several related gate patterns at once and use those to drive sequencers, quantizers, envelope generators, switches, or sample-and-holds that <em>do</em> produce melodic voltages.</p>
+<h2>What the module does musically</h2>
+<p>Each section has:</p>
+<ul>
+<li><strong>SET</strong>: forces OUT high</li>
+<li><strong>RST</strong>: forces OUT low</li>
+<li><strong>CLK</strong>: toggles OUT on each pulse</li>
+<li><strong>IN</strong>: external logic input to the inverter side</li>
+<li><strong>OUT</strong>: main flip-flop output</li>
+<li><strong>VERT</strong>: inverted logic output</li>
+</ul>
+<p>Important behavior:</p>
+<ul>
+<li>If <strong>IN is unpatched</strong>, <strong>VERT is the inverse of OUT</strong></li>
+<li>If <strong>IN is patched</strong>, that normalization breaks, and <strong>VERT becomes the inversion of the signal at IN</strong></li>
+</ul>
+<p>So each channel can act as:</p>
+<ol>
+<li>a <strong>toggle latch</strong></li>
+<li>a <strong>gate alternator</strong></li>
+<li>a <strong>binary pattern source</strong></li>
+<li>a <strong>logic inverter</strong></li>
+</ol>
+<h2>Best ways to use Toggle for melody</h2>
+<h3>1. Alternating notes from one clock</h3>
+<p>Patch a steady clock into <strong>CLK</strong> of one section.</p>
+<p>Result:</p>
+<ul>
+<li><strong>OUT</strong> goes high, low, high, low...</li>
+<li><strong>VERT</strong> does the opposite</li>
+</ul>
+<p>Use these two outputs to trigger two different melodic events:</p>
+<ul>
+<li><strong>OUT</strong> → envelope for voice A</li>
+<li><strong>VERT</strong> → envelope for voice B</li>
+</ul>
+<p>Then send different pitch CVs to the two voices, or use one voice with two different timbral states. This gives a simple <strong>back-and-forth melody</strong>.</p>
+<h3>2. Drive a sequential switch for pitch alternation</h3>
+<p>Use <strong>OUT</strong> from one Toggle section to advance or control a switch module.</p>
+<p>Patch idea:</p>
+<ul>
+<li>Clock → Toggle <strong>CLK</strong></li>
+<li>Toggle <strong>OUT</strong> / <strong>VERT</strong> → switch control or trigger</li>
+<li>Two different pitch CV sources → switch inputs</li>
+<li>Switch output → oscillator 1V/oct</li>
+</ul>
+<p>This creates a melody that alternates between two pitch sources every clock pulse.</p>
+<h3>3. Create binary melodic patterns</h3>
+<p>Since each section toggles state, multiple sections can be clocked at different rates or reset at different times to create longer patterns.</p>
+<p>Example:</p>
+<ul>
+<li>Master clock to section 1 <strong>CLK</strong></li>
+<li>Section 1 <strong>OUT</strong> clocks section 2</li>
+<li>Section 2 <strong>OUT</strong> clocks section 3</li>
+</ul>
+<p>Now you have chained logic states that behave like a simple binary counter. Use these gates to:</p>
+<ul>
+<li>open different VCAs for different pitch rows</li>
+<li>select between quantized voltages</li>
+<li>trigger sample-and-hold events at different moments</li>
+</ul>
+<p>This is great for <strong>pseudo-sequencing</strong> and <strong>algorithmic melodies</strong>.</p>
+<h3>4. Trigger sample-and-hold for stepped melodies</h3>
+<p>If you have a random or slowly changing CV source:</p>
+<ul>
+<li>random CV / LFO / noise → sample-and-hold input</li>
+<li>Toggle <strong>OUT</strong> or <strong>VERT</strong> → sample-and-hold trigger</li>
+<li>sample-and-hold output → quantizer → oscillator pitch</li>
+</ul>
+<p>Because Toggle produces alternating gates, you can control <strong>when notes are sampled</strong>, making melodies more structured than plain random.</p>
+<p>Use one section for the main trigger and another for occasional resets or alternate sampling moments.</p>
+<h3>5. Generate call-and-response phrases</h3>
+<p>Because <strong>OUT</strong> and <strong>VERT</strong> are complementary, they naturally split a rhythm into two opposite halves.</p>
+<p>Patch:</p>
+<ul>
+<li><strong>OUT</strong> → trigger melodic phrase A</li>
+<li><strong>VERT</strong> → trigger melodic phrase B</li>
+</ul>
+<p>Phrase A and B could be:</p>
+<ul>
+<li>two sequencers</li>
+<li>two rows of a sequencer</li>
+<li>two quantizer channels</li>
+<li>one voice transposed differently</li>
+</ul>
+<p>This creates a very musical <strong>question/answer</strong> structure.</p>
+<h3>6. Force phrase starts with SET and RST</h3>
+<p>The <strong>SET</strong> and <strong>RST</strong> inputs make the module useful for controlled musical form.</p>
+<p>For example:</p>
+<ul>
+<li>send a bar-reset pulse to <strong>RST</strong></li>
+<li>clock into <strong>CLK</strong></li>
+</ul>
+<p>Now the alternating pattern always starts in a known phase at the beginning of the bar. This is very useful when using Toggle to control melody switching, because it keeps phrases aligned.</p>
+<p>Use <strong>SET</strong> instead if you want the pattern to begin on the opposite state.</p>
+<h3>7. Invert gate logic for rests and accents</h3>
+<p>Patch a gate pattern into <strong>IN</strong> and use <strong>VERT</strong> as its inversion.</p>
+<p>This is useful for melody generation because you can derive:</p>
+<ul>
+<li>note triggers from the original gate</li>
+<li>rests, accents, or alternate note lanes from the inverse</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li>sequencer gate pattern → <strong>IN</strong></li>
+<li><strong>VERT</strong> → trigger a second envelope or another pitch event only when the first pattern is silent</li>
+</ul>
+<p>This can create interlocking melodies.</p>
+<h2>Practical melodic patch ideas</h2>
+<h2>Patch 1: Simple two-note alternating melody</h2>
+<p>You need:</p>
+<ul>
+<li>clock</li>
+<li>Toggle</li>
+<li>two pitch voltages or a sequencer with two rows</li>
+<li>VCO</li>
+<li>envelope/VCA</li>
+<li>optional quantizer</li>
+</ul>
+<p>Patch:</p>
+<ul>
+<li>Clock → Toggle channel 1 <strong>CLK</strong></li>
+<li>Toggle <strong>OUT</strong> → trigger envelope A</li>
+<li>Toggle <strong>VERT</strong> → trigger envelope B or switch trigger</li>
+<li>Pitch source A and B → switch or mixer logic</li>
+<li>Final pitch CV → oscillator 1V/oct</li>
+</ul>
+<p>Musical result:</p>
+<ul>
+<li>every other beat plays a different note source</li>
+<li>easy to make bassline + reply note patterns</li>
+</ul>
+<h2>Patch 2: Four-stage logic melody selector</h2>
+<p>Use all four sections to build a more complex gate network.</p>
+<p>Patch:</p>
+<ul>
+<li>Master clock → channel 1 <strong>CLK</strong></li>
+<li>Channel 1 <strong>OUT</strong> → channel 2 <strong>CLK</strong></li>
+<li>Channel 2 <strong>OUT</strong> → channel 3 <strong>CLK</strong></li>
+<li>Channel 3 <strong>OUT</strong> → channel 4 <strong>CLK</strong></li>
+</ul>
+<p>Then use the outputs to control:</p>
+<ul>
+<li>4 VCAs containing different fixed voltages</li>
+<li>or 4 switch inputs</li>
+<li>summed result → quantizer → oscillator pitch</li>
+</ul>
+<p>Musical result:</p>
+<ul>
+<li>an evolving stepped voltage pattern</li>
+<li>simple binary melody generation</li>
+<li>especially good for minimal, Berlin-school, and generative patches</li>
+</ul>
+<h2>Patch 3: Structured random melody</h2>
+<p>You need:</p>
+<ul>
+<li>random CV source</li>
+<li>sample and hold</li>
+<li>quantizer</li>
+<li>Toggle</li>
+<li>oscillator</li>
+</ul>
+<p>Patch:</p>
+<ul>
+<li>Random CV → sample-and-hold input</li>
+<li>Clock → Toggle <strong>CLK</strong></li>
+<li>Toggle <strong>OUT</strong> → sample-and-hold trigger</li>
+<li>Sample-and-hold out → quantizer → oscillator pitch</li>
+<li>Toggle <strong>VERT</strong> → envelope trigger for a second voice or accent lane</li>
+</ul>
+<p>Musical result:</p>
+<ul>
+<li>notes are sampled in a repeating alternating structure</li>
+<li>randomness sounds more intentional and phrase-based</li>
+</ul>
+<h2>Patch 4: Melody and harmony split</h2>
+<p>Patch one sequencer pitch line to two voices, but use Toggle to alternate which voice sounds.</p>
+<ul>
+<li>Clock → Toggle <strong>CLK</strong></li>
+<li><strong>OUT</strong> → envelope/VCA for voice 1</li>
+<li><strong>VERT</strong> → envelope/VCA for voice 2</li>
+<li>Same pitch CV to both oscillators</li>
+<li>Offset or transpose voice 2</li>
+</ul>
+<p>Musical result:</p>
+<ul>
+<li>one sequence becomes a <strong>melody + harmony answer</strong></li>
+<li>especially effective if voice 2 is a fifth or octave above</li>
+</ul>
+<h2>Patch 5: Resettable melodic phrases</h2>
+<p>Patch:</p>
+<ul>
+<li>Main clock → <strong>CLK</strong></li>
+<li>Bar reset pulse → <strong>RST</strong></li>
+<li><strong>OUT</strong> → trigger sequencer A advance</li>
+<li><strong>VERT</strong> → trigger sequencer B advance</li>
+</ul>
+<p>Musical result:</p>
+<ul>
+<li>alternating phrase structure that always starts correctly at the top of the bar</li>
+<li>useful live, since resets keep your melodic logic predictable</li>
+</ul>
+<h2>How Toggle works best with other modules</h2>
+<p>Toggle is most melodic when paired with:</p>
+<ul>
+<li><strong>quantizers</strong> — to turn stepped or sampled voltages into scales</li>
+<li><strong>sample-and-hold modules</strong> — to create notes from changing CV</li>
+<li><strong>sequential switches</strong> — to alternate between pitch sources</li>
+<li><strong>clock dividers/multipliers</strong> — for phrase timing</li>
+<li><strong>sequencers</strong> — to gate different rows or channels</li>
+<li><strong>logic modules</strong> — to combine Toggle states into more complex note patterns</li>
+<li><strong>fixed voltage sources / precision adders</strong> — to create interval-based pitch changes</li>
+</ul>
+<h2>Musical strengths of this module</h2>
+<p>For melody work, Toggle is especially good at:</p>
+<ul>
+<li>creating <strong>alternation</strong></li>
+<li>producing <strong>complementary gate streams</strong></li>
+<li>making <strong>resettable phrase logic</strong></li>
+<li>deriving <strong>binary and semi-generative structures</strong></li>
+<li>splitting one rhythm into two musical parts</li>
+</ul>
+<p>It is less about directly writing a melody, and more about creating the <strong>decision logic</strong> that makes melodies evolve.</p>
+<h2>Summary</h2>
+<p>The <strong>itijik Toggle</strong> is a logic utility that becomes a melodic tool when used to control:</p>
+<ul>
+<li>when notes happen</li>
+<li>which pitch source is heard</li>
+<li>which voice responds</li>
+<li>how phrases alternate and reset</li>
+</ul>
+<p>Its strongest musical application is building <strong>structured, rhythmic melody logic</strong> from simple clocks and gates. If you pair it with a quantizer, switch, sequencer, or sample-and-hold, it can become the backbone of very musical generative patches.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

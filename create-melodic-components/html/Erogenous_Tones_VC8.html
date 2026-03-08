@@ -1,0 +1,372 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erogenous_Tones_VC8</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erogenous Tones — VC8</h1>
+<ul>
+<li><a href="../../manuals/vc8-instructions.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://erogenous-tones.com/erogenous-tones-vc8.html">VC8 Manual / Product Page</a></p>
+<h1>Using the Erogenous Tones VC8 for melodic patching</h1>
+<p>From the attached pages, the module documented is:</p>
+<ul>
+<li><strong>Erogenous Tones VC8</strong></li>
+<li><strong>8-channel linear VCA</strong></li>
+<li><strong>DC-coupled</strong></li>
+<li>Per-channel:</li>
+<li><strong>CV Level attenuator</strong></li>
+<li><strong>CV Offset control</strong></li>
+<li>LED showing effective CV amount</li>
+<li>Two optional <strong>sub-mix buses</strong>:</li>
+<li><strong>Channels 1–3 summed into channel 4</strong>, with channel 4 acting as the VCA for that mix</li>
+<li><strong>Channels 5–7 summed into channel 8</strong>, with channel 8 acting as the VCA for that mix</li>
+<li>Based on <strong>LM13700 OTA</strong></li>
+<li><strong>18 HP</strong>, skiff friendly</li>
+<li>Power: <strong>+12/-12 V</strong>, current <strong>80 mA / 70 mA</strong></li>
+</ul>
+<h2>What this module does musically</h2>
+<p>VCAs are one of the core building blocks for making melodic music in Eurorack. Even though the VC8 does not generate pitch or sound by itself, it is extremely useful for shaping and organizing the things that <em>do</em> create melody:</p>
+<ul>
+<li>note loudness</li>
+<li>modulation depth</li>
+<li>accent patterns</li>
+<li>voice balancing</li>
+<li>layered timbres</li>
+<li>submixing several melodic voices into playable groups</li>
+<li>controlling CV as well as audio, because it is <strong>DC-coupled</strong></li>
+</ul>
+<p>That last point matters a lot: since the VC8 is DC-coupled, it can process both:</p>
+<ul>
+<li><strong>audio signals</strong> like oscillator outputs</li>
+<li><strong>control voltages</strong> like envelopes, LFOs, sequencer rows, random voltages, and pitch-related modulation</li>
+</ul>
+<p>This makes it very strong as a “melody support” module.</p>
+<hr />
+<h2>Best melodic uses for VC8</h2>
+<h2>1. Classic amplitude shaping for melodic voices</h2>
+<p>The most obvious use is one VCA per voice.</p>
+<h3>Patch idea</h3>
+<p>For a 4-voice melodic patch:</p>
+<ul>
+<li>Oscillator 1 → VC8 channel 1 input</li>
+<li>Oscillator 2 → VC8 channel 2 input</li>
+<li>Oscillator 3 → VC8 channel 3 input</li>
+<li>Oscillator 4 → VC8 channel 4 input</li>
+<li>Envelope generators → each channel’s CV input</li>
+<li>VC8 outputs → mixer / filter / output</li>
+</ul>
+<h3>Result</h3>
+<p>Each note gets proper articulation from its envelope. This is the standard use of VCAs, but with <strong>8 channels</strong>, you can support:</p>
+<ul>
+<li>several mono voices</li>
+<li>layered paraphonic patches</li>
+<li>oscillator + sub + noise + FM lane all independently controlled</li>
+</ul>
+<p>For melody writing, this means your lines can have:
+- accents
+- legato vs plucky articulation
+- dynamic phrasing
+- voice layering</p>
+<hr />
+<h2>2. Control melodic modulation depth with CV VCAs</h2>
+<p>Because VC8 is DC-coupled, you can use channels to scale modulation before it reaches pitch or timbre destinations.</p>
+<h3>Patch idea: vibrato under voltage control</h3>
+<ul>
+<li>LFO → VC8 ch. 1 input</li>
+<li>Envelope or performance CV → ch. 1 CV input</li>
+<li>ch. 1 output → oscillator 1V/oct FM input or dedicated vibrato input</li>
+</ul>
+<h3>Result</h3>
+<p>Vibrato appears only on selected notes or grows over time.</p>
+<p>This is great for:
+- expressive lead lines
+- delayed vibrato on sustained notes
+- more human-sounding melodic phrasing</p>
+<p>You can do the same for:
+- filter modulation
+- wavefold amount
+- FM index
+- pulse width
+- wavetable position</p>
+<p>So VC8 can turn a static melodic line into a highly animated one.</p>
+<hr />
+<h2>3. Build accents into sequences</h2>
+<p>A sequencer may provide gates for every note, but not all notes need the same intensity.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Main envelope → VC8 ch. 2 input</li>
+<li>Accent CV row / gate pattern → ch. 2 CV input</li>
+<li>ch. 2 output → another VCA or filter cutoff CV</li>
+</ul>
+<h3>Result</h3>
+<p>Only accented steps receive stronger envelope modulation.</p>
+<p>This can create:
+- stronger notes in a bassline
+- more pronounced melody peaks
+- pseudo-velocity in systems without dedicated velocity output</p>
+<p>Since each channel has a <strong>CV offset</strong>, you can dial in a baseline amount and then use CV to add accents on top.</p>
+<hr />
+<h2>4. Use offset to create drones or semi-open voices</h2>
+<p>The <strong>CV Offset</strong> is very useful musically.</p>
+<p>If no CV is patched, offset can open the VCA manually. That means you can:</p>
+<ul>
+<li>keep a voice partially open</li>
+<li>create a drone under a melody</li>
+<li>set a constant modulation amount</li>
+<li>blend in a layer without requiring another CV source</li>
+</ul>
+<h3>Patch idea</h3>
+<ul>
+<li>Oscillator drone → VC8 ch. 5 input</li>
+<li>No CV patched, or very slow CV patched</li>
+<li>Use CV Offset to set constant level</li>
+<li>Output mixed with your main melody voice</li>
+</ul>
+<h3>Result</h3>
+<p>You get a sustained harmonic bed under a melodic line.</p>
+<p>This is especially good for:
+- ambient melodies
+- modal patches
+- techno bass + drone combinations
+- generative melodic textures</p>
+<hr />
+<h2>5. Create layered melodic timbres</h2>
+<p>One melodic line can be made from several sound sources:
+- a main oscillator
+- a sub oscillator
+- noise/transient
+- FM sideband source</p>
+<p>With VC8, each layer can have independent level shaping.</p>
+<h3>Patch idea</h3>
+<p>For one melody voice:
+- Saw oscillator → ch. 1
+- Square sub → ch. 2
+- Noise click/transient → ch. 3
+- Use separate envelopes or shared envelopes with different CV Level settings
+- Sum with the channel 4 submix option</p>
+<h3>Result</h3>
+<p>Channel 4 can act as a grouped output for the first three channels, giving you a composite melodic voice.</p>
+<p>This is one of the most powerful features in the manual.</p>
+<hr />
+<h2>6. Use the 1–3→4 and 5–7→8 submixes as two playable voice groups</h2>
+<p>The submix architecture makes VC8 more than “just 8 VCAs.”</p>
+<p>According to the manual:</p>
+<ul>
+<li><strong>Channel 4 submix</strong> can receive <strong>channels 1–3</strong> and is controlled by <strong>VCA 4</strong></li>
+<li><strong>Channel 8 submix</strong> can receive <strong>channels 5–7</strong> and is controlled by <strong>VCA 8</strong></li>
+<li>Channels 1,2,3,5,6,7 still provide their regular individual outputs</li>
+</ul>
+<h3>Musical meaning</h3>
+<p>You can create two multi-layered melodic instruments:</p>
+<ul>
+<li><strong>Voice A</strong> = channels 1–3 mixed and shaped by channel 4</li>
+<li><strong>Voice B</strong> = channels 5–7 mixed and shaped by channel 8</li>
+</ul>
+<h3>Patch idea: two-voice melodic system</h3>
+<p><strong>Voice A</strong>
+- ch. 1 = oscillator A
+- ch. 2 = sub oscillator
+- ch. 3 = noise or second oscillator
+- ch. 4 = summed voice output with overall envelope</p>
+<p><strong>Voice B</strong>
+- ch. 5 = oscillator B
+- ch. 6 = FM layer or detuned osc
+- ch. 7 = extra harmonic source
+- ch. 8 = summed voice output with overall envelope</p>
+<h3>Result</h3>
+<p>You can build:
+- lead + bass
+- melody + counter-melody
+- two paraphonic stacks
+- call-and-response textures</p>
+<p>This is especially useful if your case is small and you want efficient voice architecture.</p>
+<hr />
+<h2>7. Use VCAs for melodic CV mixing</h2>
+<p>Since the outputs can be grouped, you can use the VC8 for control-voltage combinations too.</p>
+<h3>Patch idea: animated pitch modulation bus</h3>
+<ul>
+<li>Slow LFO → ch. 1</li>
+<li>Random stepped CV → ch. 2</li>
+<li>Envelope → ch. 3</li>
+<li>Submix to ch. 4</li>
+<li>ch. 4 output → oscillator pitch modulation input (attenuated carefully)</li>
+</ul>
+<h3>Result</h3>
+<p>You get a compound melodic modulation signal whose components can each be independently scaled.</p>
+<p>This can create:
+- drifting pitch ornamentation
+- occasional note bends
+- evolving melodic instability
+- generative melodic movement</p>
+<p>Be careful with pitch destinations, since even small voltages can produce large pitch shifts.</p>
+<hr />
+<h2>8. Dynamic transposition and phrase variation</h2>
+<p>A very practical melodic use of DC-coupled VCAs is controlled transposition or phrase variation.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequencer secondary CV row → VC8 input</li>
+<li>Gate pattern or envelope → VC8 CV input</li>
+<li>VC8 output mixed with main pitch CV elsewhere in your system</li>
+</ul>
+<h3>Result</h3>
+<p>Only certain notes or sections get transposed.</p>
+<p>This enables:
+- octave jumps on selected notes
+- phrase-end lifts
+- alternating motif variations
+- conditional harmony changes</p>
+<p>The VC8 is not itself a precision adder, so this works best for expressive pitch modulation or coarse musical movement unless the rest of the system is carefully calibrated.</p>
+<hr />
+<h2>9. Rhythmic melody masking</h2>
+<p>Melodies often become more interesting when only some layers appear on certain beats.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Main melodic oscillator → one channel</li>
+<li>Harmony oscillator → second channel</li>
+<li>Counterline oscillator → third channel</li>
+<li>Different gate/envelope patterns control each VCA</li>
+<li>Submix to a grouped output</li>
+</ul>
+<h3>Result</h3>
+<p>A single sequenced pitch source can sound like a much more complex arrangement because the audible layers appear and disappear rhythmically.</p>
+<p>This is excellent for:
+- Berlin-school patterns
+- arpeggiated techno lines
+- minimal melodic variation
+- pseudo-polyphonic textures</p>
+<hr />
+<h2>10. Performance mixing for melodic sets</h2>
+<p>The CV Offset knobs and many channels make this useful in performance.</p>
+<p>You can treat it like a compact voltage-controlled voice mixer:
+- bring in a harmony layer
+- suppress a sub oscillator
+- open a drone
+- alter modulation depth live
+- fade between lead textures</p>
+<p>The <strong>knob-per-channel layout</strong> suggests quick hands-on use, and the LEDs help you see activity.</p>
+<p>For melodic performance, that means easier control of:
+- balance
+- articulation
+- density
+- phrase energy</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Lead voice with expressive vibrato</h2>
+<ul>
+<li>VCO audio → VC8 ch. 1</li>
+<li>ADSR → ch. 1 CV</li>
+<li>ch. 1 out → filter / output</li>
+<li>LFO → VC8 ch. 2 input</li>
+<li>delayed envelope → ch. 2 CV</li>
+<li>ch. 2 out → VCO FM input</li>
+</ul>
+<p><strong>Why it works:</strong> one channel shapes loudness, another makes vibrato bloom only on held notes.</p>
+<hr />
+<h2>Patch 2: Bass voice with accent</h2>
+<ul>
+<li>Bass oscillator → ch. 1</li>
+<li>Main envelope → ch. 1 CV</li>
+<li>ch. 1 out → filter</li>
+<li>Accent envelope or trigger-derived CV → ch. 2 input</li>
+<li>Accent gate pattern → ch. 2 CV</li>
+<li>ch. 2 out → filter cutoff CV input</li>
+</ul>
+<p><strong>Why it works:</strong> accented notes hit harder without changing the core sequence.</p>
+<hr />
+<h2>Patch 3: Dual melodic voices using submixes</h2>
+<h3>Voice A</h3>
+<ul>
+<li>Osc A → ch. 1</li>
+<li>Sub A → ch. 2</li>
+<li>Noise/transient A → ch. 3</li>
+<li>Shared envelope → ch. 4 CV</li>
+<li>ch. 4 output = full voice A</li>
+</ul>
+<h3>Voice B</h3>
+<ul>
+<li>Osc B → ch. 5</li>
+<li>Detuned osc B → ch. 6</li>
+<li>FM texture B → ch. 7</li>
+<li>Shared envelope → ch. 8 CV</li>
+<li>ch. 8 output = full voice B</li>
+</ul>
+<p><strong>Why it works:</strong> you get two compact, layered instruments from one module.</p>
+<hr />
+<h2>Patch 4: Generative melodic movement</h2>
+<ul>
+<li>Random stepped CV → ch. 1</li>
+<li>Slow triangle LFO → ch. 2</li>
+<li>Envelope from note gates → ch. 3</li>
+<li>Use submix to ch. 4</li>
+<li>ch. 4 out → small pitch modulation amount on oscillator</li>
+</ul>
+<p><strong>Why it works:</strong> the melody gains subtle changing contour and ornaments.</p>
+<hr />
+<h1>Strengths of VC8 for melodic systems</h1>
+<h2>Excellent for:</h2>
+<ul>
+<li>multi-voice amplitude control</li>
+<li>layered melodic voices</li>
+<li>voltage-controlled modulation depth</li>
+<li>drone + melody hybrids</li>
+<li>accent programming</li>
+<li>compact voice submixing</li>
+<li>performance-oriented balancing</li>
+</ul>
+<h2>Especially valuable because:</h2>
+<ul>
+<li><strong>8 channels</strong> is a lot in 18 HP</li>
+<li><strong>DC coupling</strong> lets it work with both CV and audio</li>
+<li><strong>offset controls</strong> make it useful even without patched CV</li>
+<li><strong>submix pairs</strong> help build complete melodic voice structures</li>
+</ul>
+<hr />
+<h1>Limitations to keep in mind</h1>
+<p>Based on the manual excerpt, VC8 is a <strong>linear VCA</strong>. That usually means:</p>
+<ul>
+<li>very good for CV control</li>
+<li>clean utility behavior</li>
+<li>possibly less naturally “loudness-shaped” than an exponential VCA for audio amplitude</li>
+</ul>
+<p>That is not a problem at all, just something to know. Linear VCAs are often preferable for modulation duties and still very useful for audio, especially in layered or precise patches.</p>
+<p>Also, the module does <strong>not</strong> itself provide:
+- envelopes
+- oscillators
+- pitch sequencing
+- quantization
+- filtering</p>
+<p>So for actual melodic generation, it pairs best with:
+- a sequencer or quantizer
+- one or more oscillators
+- envelopes
+- filters
+- mixers or output modules</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>VC8</strong> is best thought of as a <strong>melodic infrastructure module</strong> rather than a melody source. It helps turn simple note sequences into finished musical parts by giving you:</p>
+<ul>
+<li>articulation</li>
+<li>accents</li>
+<li>modulation control</li>
+<li>timbral layering</li>
+<li>grouped voice mixing</li>
+<li>performance dynamics</li>
+</ul>
+<p>If you use it with oscillators, envelopes, sequencers, and filters, it can support everything from:</p>
+<ul>
+<li>tight basslines</li>
+<li>expressive leads</li>
+<li>layered pads</li>
+<li>generative melodies</li>
+<li>two-part counterpoint</li>
+<li>live-performed melodic texture changes</li>
+</ul>
+<p>In a melodic Eurorack system, a module like this often ends up doing more real musical work than flashier modules, because it controls <strong>how notes speak</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

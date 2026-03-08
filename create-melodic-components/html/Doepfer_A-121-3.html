@@ -1,0 +1,420 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-121-3</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-121-3</h1>
+<ul>
+<li><a href="../../manuals/A-121-3 12dB Multimode Filter (slim version).pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a1213.htm">Manual PDF / Source</a></p>
+<h1>Doepfer A-121-3 12dB Multimode Filter: using it for melodic patching</h1>
+<p>The attached manual page is for the <strong>Doepfer A-121-3 12dB Multimode Filter (Slim Line Series)</strong>. Since only this module is included here, I’ll explain how <strong>this filter can be used with other typical Eurorack building blocks</strong> to create melodic material, and how its internal features support pitch-like and musical behavior.</p>
+<h2>What this module gives you musically</h2>
+<p>The A-121-3 is a <strong>12 dB/oct multimode VCF</strong> with:</p>
+<ul>
+<li><strong>4 simultaneous outputs</strong></li>
+<li><strong>LP</strong> low-pass</li>
+<li><strong>HP</strong> high-pass</li>
+<li><strong>BP</strong> band-pass</li>
+<li><strong>N</strong> notch</li>
+<li><strong>Cutoff control</strong> (<code>Frequ.</code>)</li>
+<li><strong>Two frequency CV inputs</strong></li>
+<li><code>CV1</code> without attenuator, about <strong>1V/oct</strong></li>
+<li><code>CV2</code> with attenuator <code>FCV2</code></li>
+<li><strong>Resonance control</strong> (<code>Q</code>)</li>
+<li><strong>Resonance CV input</strong> (<code>CQ</code>)</li>
+<li><strong>Self-oscillation</strong>, meaning it can act like a <strong>sine oscillator</strong></li>
+<li><strong>Audio input with level control</strong>, including intentional overdrive/distortion at higher settings</li>
+</ul>
+<p>That means this filter is not just for tone shaping — it can be used as:</p>
+<ol>
+<li>a <strong>melody voice</strong> by self-oscillation  </li>
+<li>a <strong>timbre shaper</strong> for another oscillator’s melody  </li>
+<li>a <strong>multi-output tone splitter</strong> for layered melodic lines  </li>
+<li>a <strong>dynamic, playable resonant processor</strong> for sequenced patches</li>
+</ol>
+<hr />
+<h2>1. Use it as a sine-wave melodic oscillator</h2>
+<p>The most important melodic feature in the manual is:</p>
+<ul>
+<li><strong>resonance up to self-oscillation</strong></li>
+<li><strong>CV1 has about 1V/oct sensitivity</strong></li>
+</ul>
+<p>This means the A-121-3 can generate its own tone even <strong>without any audio input</strong>, and that tone can be played melodically.</p>
+<h3>Basic patch</h3>
+<ul>
+<li>Leave <strong>audio input In unpatched</strong></li>
+<li>Turn up <strong>Q</strong> until the filter starts <strong>self-oscillating</strong></li>
+<li>Send your sequencer or keyboard pitch CV to <strong>CV1</strong></li>
+<li>Take audio from <strong>LP</strong> or <strong>BP</strong> output</li>
+<li>Send that to a <strong>VCA</strong></li>
+<li>Use an <strong>envelope</strong> to control the VCA</li>
+<li>Clock your sequencer as normal</li>
+</ul>
+<h3>Result</h3>
+<p>You get a <strong>clean sine-like melodic voice</strong>, great for:</p>
+<ul>
+<li>basslines</li>
+<li>sub melodies</li>
+<li>FM sources</li>
+<li>minimal techno tones</li>
+<li>soft lead lines</li>
+</ul>
+<h3>Musical character</h3>
+<p>Because it’s a self-oscillating filter, the pitch tracking may be <strong>usable rather than precision-VCO perfect</strong>. That’s often musically excellent for:</p>
+<ul>
+<li>short melodic loops</li>
+<li>drones with tonal centers</li>
+<li>acid-adjacent bass tones</li>
+<li>percussion tuned to scale degrees</li>
+</ul>
+<hr />
+<h2>2. Filter another oscillator to create expressive melodies</h2>
+<p>A more common use is to run a VCO through the A-121-3 and sequence the oscillator normally, while using the filter to add movement.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>VCO saw or pulse → <strong>In</strong></li>
+<li>Sequencer pitch CV → VCO 1V/oct</li>
+<li>Gate → envelope</li>
+<li>Envelope → VCA CV</li>
+<li>Another envelope or the same envelope → <strong>CV2</strong></li>
+<li>Set <code>FCV2</code> to taste</li>
+<li>Output from <strong>LP</strong> or <strong>BP</strong></li>
+</ul>
+<h3>Why this is melodic</h3>
+<p>The melody comes from the oscillator pitch, but the A-121-3 adds:</p>
+<ul>
+<li>note articulation</li>
+<li>brightness contour</li>
+<li>vowel-like emphasis</li>
+<li>resonant emphasis at musical partials</li>
+</ul>
+<p>A 12 dB/oct filter tends to sound <strong>more open and less severe</strong> than a 24 dB ladder-style filter, which is very nice for:</p>
+<ul>
+<li>melodic sequences that need clarity</li>
+<li>chords or interval patches</li>
+<li>arpeggios that shouldn’t get too muffled</li>
+<li>animated leads</li>
+</ul>
+<hr />
+<h2>3. Exploit the four simultaneous outputs for layered melodic voices</h2>
+<p>One of the best features here is that <strong>LP, HP, BP, and Notch are all available at once</strong>.</p>
+<p>That means one source can become <strong>multiple melodic layers</strong>.</p>
+<h3>Patch idea: one sequence, three tones</h3>
+<ul>
+<li>VCO → <strong>In</strong></li>
+<li>Main sequence controls VCO pitch</li>
+<li>Send:</li>
+<li><strong>LP</strong> → one VCA/mixer channel</li>
+<li><strong>BP</strong> → second VCA/mixer channel</li>
+<li><strong>HP</strong> → third VCA/mixer channel</li>
+</ul>
+<p>Then:</p>
+<ul>
+<li>use separate envelopes on each VCA, or</li>
+<li>pan them differently, or</li>
+<li>add different effects to each output</li>
+</ul>
+<h3>Musical result</h3>
+<p>You can turn one monophonic melody into:</p>
+<ul>
+<li>a body layer (LP)</li>
+<li>a nasal/midrange layer (BP)</li>
+<li>a thin attack/air layer (HP)</li>
+</ul>
+<p>This is especially effective for:</p>
+<ul>
+<li>melodic techno</li>
+<li>Berlin school sequences</li>
+<li>IDM-style timbral counterpoint</li>
+<li>pseudo-polyphonic texture from one source</li>
+</ul>
+<h3>Bonus use: interval illusion</h3>
+<p>If resonance is high, different outputs can emphasize different harmonics. By balancing outputs separately, you can make a single melody feel harmonically richer and more “composed.”</p>
+<hr />
+<h2>4. Use band-pass mode for focused melodic lines</h2>
+<p>The <strong>BP output</strong> is especially strong for melodic work.</p>
+<p>Why:</p>
+<ul>
+<li>it removes excessive lows and highs</li>
+<li>it creates a very “voiced” center</li>
+<li>it sits in a mix well</li>
+<li>it can sound vocal or reed-like with resonance</li>
+</ul>
+<h3>Good uses</h3>
+<ul>
+<li>plucky sequences</li>
+<li>woody basslines</li>
+<li>tuned percussion</li>
+<li>expressive lead sounds</li>
+</ul>
+<h3>Patch tip</h3>
+<p>Send an envelope to <strong>CV2</strong> and keep resonance moderately high. This gives each note a defined center frequency sweep and helps melodies speak more clearly.</p>
+<hr />
+<h2>5. Sequence the filter cutoff itself as a melodic layer</h2>
+<p>Since <code>CV1</code> is approximately <strong>1V/oct</strong>, the filter cutoff can be treated as a <strong>pitched parameter</strong>, even when processing incoming sound.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Rich oscillator or noise source → <strong>In</strong></li>
+<li>Sequencer pitch CV or a second sequencer row → <strong>CV1</strong></li>
+<li>Moderate-to-high resonance</li>
+<li>Take <strong>BP</strong> output</li>
+</ul>
+<h3>Result</h3>
+<p>The filter “picks out” frequencies according to the sequenced CV, creating:</p>
+<ul>
+<li>tuned resonant lines</li>
+<li>pseudo-formant melodies</li>
+<li>spectral arpeggios</li>
+<li>tonal percussion from noise</li>
+</ul>
+<p>This is a classic way to make melodies from otherwise non-melodic material.</p>
+<h3>Especially useful sources</h3>
+<ul>
+<li>white or pink noise</li>
+<li>saw wave</li>
+<li>supersaw-ish mixed oscillators</li>
+<li>chord source</li>
+<li>external audio loops</li>
+</ul>
+<p>With noise into a resonant BP filter and sequenced cutoff, you can get <strong>flute-like or whistling melodic phrases</strong>.</p>
+<hr />
+<h2>6. Voltage-control the resonance for animated note behavior</h2>
+<p>The A-121-3 includes <strong>CV control over resonance (<code>CQ</code>)</strong>, which is a big musical advantage.</p>
+<p>The manual notes that unlike the A-121-2, the A-121-3 has <strong>no attenuator</strong> for this resonance CV input, so you’ll often want an external attenuator or a carefully sized modulation source.</p>
+<h3>Musical uses of resonance CV</h3>
+<h4>Per-note emphasis</h4>
+<ul>
+<li>Send an envelope to <code>CQ</code></li>
+<li>Each note becomes more resonant at the attack</li>
+<li>Great for plucks and accented melodies</li>
+</ul>
+<h4>Accent programming</h4>
+<ul>
+<li>Send an accent trigger/envelope to <code>CQ</code></li>
+<li>Some notes become sharper, more vocal, more “speaking”</li>
+<li>Excellent for acid-style sequencing</li>
+</ul>
+<h4>Slow macro-expression</h4>
+<ul>
+<li>Send an LFO or slow random CV to <code>CQ</code></li>
+<li>The melody stays the same, but the timbre becomes more or less focused over time</li>
+</ul>
+<h3>Why this matters melodically</h3>
+<p>Resonance determines how much the filter emphasizes the cutoff area. In melodic patches, that often acts like <strong>articulation</strong>, almost like changing embouchure or vowel shape on a wind instrument.</p>
+<hr />
+<h2>7. Drive the input for harmonically rich melodic distortion</h2>
+<p>The manual mentions that above about <strong>Level position 5</strong>, distortion/clipping can occur with normal A-100 levels.</p>
+<p>This is very useful for melodic parts because distortion before/inside filtering can add:</p>
+<ul>
+<li>more harmonics</li>
+<li>stronger resonance interaction</li>
+<li>greater note definition</li>
+<li>aggressive lead and bass character</li>
+</ul>
+<h3>Patch idea</h3>
+<ul>
+<li>VCO triangle/saw → <strong>In</strong></li>
+<li>Turn <strong>Level</strong> up into mild clipping</li>
+<li>Use <strong>LP</strong> or <strong>BP</strong></li>
+<li>Sequence normally</li>
+<li>Add envelope to <strong>CV2</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Compared with a clean input, you’ll hear:</p>
+<ul>
+<li>more bite</li>
+<li>stronger filter sweeps</li>
+<li>more audible resonance</li>
+<li>more attitude in bass or lead lines</li>
+</ul>
+<p>This is especially good for:</p>
+<ul>
+<li>EBM bass</li>
+<li>acid-like riffs</li>
+<li>industrial sequences</li>
+<li>synthwave leads</li>
+</ul>
+<hr />
+<h2>8. Use the notch output for moving melodic space</h2>
+<p>The <strong>Notch output</strong> is less commonly the “main voice” output, but it can be very musical.</p>
+<p>A notch filter removes a narrow band, creating a moving hollow character. In a melodic context this works well when:</p>
+<ul>
+<li>the source is harmonically rich</li>
+<li>the melody is already established by the oscillator</li>
+<li>you want motion without losing low and high content</li>
+</ul>
+<h3>Patch idea</h3>
+<ul>
+<li>Saw VCO → <strong>In</strong></li>
+<li>Pitch CV to VCO</li>
+<li>Envelope or LFO to <strong>CV2</strong></li>
+<li>Use <strong>N</strong> output</li>
+</ul>
+<h3>Musical effect</h3>
+<p>You get a timbre that shifts around the spectrum in a subtle but very alive way — ideal for:</p>
+<ul>
+<li>pads playing melodic phrases</li>
+<li>secondary lead layers</li>
+<li>dubby or psychedelic sequences</li>
+<li>stereo pairing with LP or BP</li>
+</ul>
+<hr />
+<h2>9. Build tuned percussion and struck melodies</h2>
+<p>Because the filter can self-oscillate and respond to CV, it can be used for <strong>tuned percussion</strong>.</p>
+<h3>Patch idea A: self-oscillating ping</h3>
+<ul>
+<li>No audio input</li>
+<li>Raise <code>Q</code> to self-oscillation edge</li>
+<li>Send short envelopes to <code>CV2</code></li>
+<li>Pitch sequence to <code>CV1</code></li>
+<li>Output from LP or BP</li>
+</ul>
+<h3>Patch idea B: resonant ping from impulse</h3>
+<ul>
+<li>Short trigger/click/noise burst → <strong>In</strong></li>
+<li>High <code>Q</code></li>
+<li>Pitch CV to <code>CV1</code></li>
+<li>Short modulation envelope to cutoff</li>
+</ul>
+<h3>Musical applications</h3>
+<ul>
+<li>marimba-like lines</li>
+<li>tom melodies</li>
+<li>tuned bleeps</li>
+<li>West Coast-ish plucked sequences</li>
+</ul>
+<p>This works especially well in minimal or percussive melodic composition.</p>
+<hr />
+<h2>10. Pair it with common module types for full melodic systems</h2>
+<p>Since the manual only covers the A-121-3, here’s how it fits into a larger melodic Eurorack patch.</p>
+<h3>With a VCO</h3>
+<p>Use the A-121-3 as the main subtractive voice shaper.</p>
+<p>Best for:
+- basslines
+- leads
+- arps
+- drones</p>
+<h3>With an envelope generator</h3>
+<p>Patch envelope to <code>CV2</code> for classic note contour.</p>
+<p>Best for:
+- plucks
+- swells
+- acid movement
+- expressive articulation</p>
+<h3>With a sequencer</h3>
+<ul>
+<li>pitch CV to VCO or directly to <code>CV1</code> in self-oscillation mode</li>
+<li>gate to envelope</li>
+<li>accent row to <code>CQ</code></li>
+</ul>
+<p>Best for:
+- evolving sequences
+- accented patterns
+- melodic repetition with variation</p>
+<h3>With an LFO</h3>
+<ul>
+<li>subtle LFO to <code>CV2</code> for vibrato-like timbre movement</li>
+<li>slow LFO to <code>CQ</code> for evolving resonance</li>
+</ul>
+<p>Best for:
+- animated sustained notes
+- ambient melodies
+- moving ostinatos</p>
+<h3>With a VCA</h3>
+<p>Essential if using the A-121-3 as a self-oscillating voice, since the filter itself does not provide amplitude shaping.</p>
+<h3>With a mixer</h3>
+<p>Because all four outputs are simultaneous, a mixer lets you create blended timbres:
+- LP + BP = focused but warm
+- HP + BP = thin, vocal, cutting
+- LP + N = rich but animated</p>
+<hr />
+<h2>Example melodic patch recipes</h2>
+<h2>Patch 1: Simple sine bass voice</h2>
+<ul>
+<li>No input to filter</li>
+<li><code>Q</code> up to self-oscillation</li>
+<li>Sequencer CV → <code>CV1</code></li>
+<li>LP output → VCA → mixer</li>
+<li>Gate → envelope → VCA</li>
+</ul>
+<p>Sound:
+- pure, rounded bassline
+- good for minimal techno or electro</p>
+<hr />
+<h2>Patch 2: Acid-adjacent lead</h2>
+<ul>
+<li>Saw VCO → <code>In</code></li>
+<li>Pitch CV → VCO</li>
+<li>Envelope → <code>CV2</code></li>
+<li>Accent envelope → <code>CQ</code></li>
+<li>BP or LP out to VCA/mixer</li>
+<li>Input <code>Level</code> pushed above 5 for drive</li>
+</ul>
+<p>Sound:
+- squelchy, articulate, dynamic
+- especially good with step sequencer accents</p>
+<hr />
+<h2>Patch 3: Noise-to-melody patch</h2>
+<ul>
+<li>Noise source → <code>In</code></li>
+<li>Sequencer CV → <code>CV1</code></li>
+<li>High resonance</li>
+<li>BP output → VCA</li>
+<li>Envelope to VCA and/or <code>CV2</code></li>
+</ul>
+<p>Sound:
+- whistling, breathy, tuned melodic figures
+- excellent for experimental melodies</p>
+<hr />
+<h2>Patch 4: One melody, three layers</h2>
+<ul>
+<li>Saw VCO → <code>In</code></li>
+<li>Pitch CV → VCO</li>
+<li>LP, BP, HP each to separate VCA or mixer channels</li>
+<li>Different envelopes or effects per output</li>
+</ul>
+<p>Sound:
+- one sequence becomes a complete melodic texture</p>
+<hr />
+<h2>Patch 5: Resonant tuned percussion</h2>
+<ul>
+<li>Short trigger pulse or click → <code>In</code></li>
+<li>High <code>Q</code></li>
+<li>Sequencer CV → <code>CV1</code></li>
+<li>BP output to mixer</li>
+<li>Optional envelope to <code>CV2</code></li>
+</ul>
+<p>Sound:
+- tuned hits, woodblock/tom-style melodic percussion</p>
+<hr />
+<h2>Performance notes</h2>
+<p>A few practical takeaways from the manual:</p>
+<ul>
+<li><strong>CV1 is the main pitch-relevant input</strong> because it has about <strong>1V/oct sensitivity</strong></li>
+<li><strong>CV2</strong> is best for controlled modulation because it includes the <strong>FCV2 attenuator</strong></li>
+<li><strong>CQ has no attenuator</strong>, so use care; external attenuation is helpful</li>
+<li>The module reaches <strong>self-oscillation</strong>, making it a valid sound source on its own</li>
+<li>The <strong>input level control</strong> can intentionally add musical distortion</li>
+<li>The <strong>12 dB/oct slope</strong> tends to sound musical and less overly closed-in than steeper filters</li>
+</ul>
+<hr />
+<h2>Bottom line</h2>
+<p>The Doepfer <strong>A-121-3</strong> is more than a compact filter. For melodic music, it can function as:</p>
+<ul>
+<li>a <strong>sine oscillator voice</strong></li>
+<li>a <strong>sequenced resonator</strong></li>
+<li>an <strong>expressive subtractive filter</strong></li>
+<li>a <strong>multi-output tone layer generator</strong></li>
+<li>a <strong>per-note articulation tool</strong> via resonance CV</li>
+<li>a <strong>distortion-plus-filter lead/bass processor</strong></li>
+</ul>
+<p>If you build around it with a <strong>sequencer, envelope, VCA, and one oscillator</strong>, it becomes a very capable melodic centerpiece. If you use <strong>self-oscillation</strong>, it can even become the oscillator itself for pure and focused melodic lines.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

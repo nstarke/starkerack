@@ -1,0 +1,416 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_MultiMod</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — MultiMod</h1>
+<ul>
+<li><a href="../../manuals/multimod-manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Make Noise MultiMod: using it for melodic patching</h1>
+<p>The attached manual is for the <strong>Make Noise MultiMod</strong>. It’s a CV-processing module, not a sound source by itself, but it is extremely useful for building <strong>melodic structure</strong> from a single pitch or modulation source.</p>
+<h2>What MultiMod does in musical terms</h2>
+<p>MultiMod takes <strong>one incoming control signal</strong> and creates <strong>8 related versions</strong> of it at outputs 1–8. Those 8 versions can differ by:</p>
+<ul>
+<li><strong>phase</strong></li>
+<li><strong>speed</strong></li>
+<li><strong>time offset / delay</strong></li>
+<li><strong>read shape</strong></li>
+<li><strong>clock relationship</strong> when synced to tempo</li>
+</ul>
+<p>If nothing is patched to the input, it generates its own internal LFO/random shapes, which also makes it useful as a melodic animation source.</p>
+<p>So for melody work, think of MultiMod as:</p>
+<ul>
+<li>an <strong>8-way melodic variation generator</strong></li>
+<li>a <strong>pitch canon / delay / phase tool</strong></li>
+<li>a <strong>clocked CV reframer</strong></li>
+<li>a way to derive <strong>counterpoint-like lines</strong> from one sequence</li>
+</ul>
+<hr />
+<h2>The key melodic idea</h2>
+<p>Patch a melodic CV into <strong>Signal In</strong>, then send different outputs to different destinations such as:</p>
+<ul>
+<li>multiple oscillators’ <strong>1V/Oct</strong></li>
+<li>a quantizer input</li>
+<li>wavefolder or filter cutoff CV</li>
+<li>FM index CV</li>
+<li>sequencer transpose input</li>
+<li>sample &amp; hold / track &amp; hold destinations</li>
+</ul>
+<p>Because each output is a related but altered version of the same source, you get melodies that feel <strong>coherent</strong>, not random.</p>
+<hr />
+<h2>Core controls and how they affect melody</h2>
+<h2>1. Signal In</h2>
+<p>This is where you patch the source CV.</p>
+<p>Best melodic sources:</p>
+<ul>
+<li>sequencer pitch row</li>
+<li>keyboard CV</li>
+<li>a slow envelope or function used as pitch material</li>
+<li>stepped random CV</li>
+<li>arpeggiator CV</li>
+<li>quantized modulation</li>
+</ul>
+<p>If you patch a pitch sequence here, outputs 1–8 become variations of that phrase.</p>
+<hr />
+<h2>2. Time</h2>
+<p>Time controls the write/read speed and effectively the <strong>length of the captured modulation phrase</strong>.</p>
+<p>For melody, this means:</p>
+<ul>
+<li><strong>short Time</strong>: outputs closely track the incoming melody</li>
+<li><strong>long Time</strong>: outputs become delayed, stretched, and more independent</li>
+</ul>
+<p>Musically useful results:</p>
+<ul>
+<li>at short settings, you get tight melodic parallels</li>
+<li>at long settings, you get <strong>melodic memory</strong>, delayed imitation, and canon-like phrases</li>
+<li>when tempo is patched, Time becomes rhythmic subdivisions, which is very good for repeatable melodic relationships</li>
+</ul>
+<p>A great use:
+- feed a sequencer into Signal In
+- clock MultiMod with the same master clock
+- use a longer Time setting
+- send outputs to multiple voices or transposition inputs</p>
+<p>This creates staggered melodic echoes that remain tied to tempo.</p>
+<hr />
+<h2>3. Spread</h2>
+<p>Spread changes playback speed differently across the 8 outputs.</p>
+<p>This is probably the most important control for melodic generation.</p>
+<p>At <strong>12:00</strong>, all outputs are effectively same-speed copies.
+Moving away from noon causes some channels to run faster and others slower.</p>
+<p>For melody, that gives:</p>
+<ul>
+<li>rhythmic displacement of notes</li>
+<li>pitch phrases arriving earlier/later</li>
+<li>different melodic contour rates from the same source</li>
+<li>evolving harmony if outputs drive several oscillators</li>
+</ul>
+<p>Practical melodic effect:
+- channels near the center stay closer to the original phrase
+- outer channels diverge more dramatically</p>
+<p>So if you patch outputs 3–6 to voices, you get subtler harmony.
+If you patch outputs 1 and 8, you get the wildest melodic deviations.</p>
+<hr />
+<h2>4. Phase</h2>
+<p>Phase offsets the copies relative to one another.</p>
+<p>Melodically, this works like:</p>
+<ul>
+<li><strong>staggering note onset relationships</strong></li>
+<li>creating <strong>rounds/canons</strong></li>
+<li>making one phrase feel like it chases another</li>
+<li>shifting identical pitch material into different harmonic moments</li>
+</ul>
+<p>At Spread = noon, Phase is especially useful because all channels stay at the same speed, so the difference is mostly timing/offset rather than tempo drift.</p>
+<p>This is ideal for:
+- multiple oscillators playing the same sequence with delayed entrances
+- one sequence feeding several quantizers or voices for phased harmony
+- generating “echoed” melodic entrances without using a delay effect</p>
+<hr />
+<h2>5. Shape</h2>
+<p>Shape determines how MultiMod reads the stored signal.</p>
+<p>For melodic patching, each shape has a distinct compositional flavor:</p>
+<ul>
+<li><strong>Ramp / Forward Read</strong>: most faithful melodic reproduction</li>
+<li><strong>Saw / Backward Read</strong>: reverse melody</li>
+<li><strong>Triangle / Ping Pong</strong>: melody moves forward then backward</li>
+<li><strong>Sine / Wow &amp; Flutter Ping-Pong</strong>: more elastic, less literal melodic motion</li>
+<li><strong>Square / Staircase</strong>: stepped behavior, can become more gate/sequence-like</li>
+<li><strong>Stepped Random / Random Access</strong>: reorders melodic values into controlled randomness</li>
+<li><strong>Smoothed Random Access</strong>: gliding or semi-unpredictable motion, useful before quantization</li>
+</ul>
+<p>For melodic clarity:
+- use <strong>Ramp</strong> first
+- then try <strong>Saw</strong> for reverse-countermelody
+- use <strong>Orange</strong> and <strong>Yellow</strong> with a <strong>quantizer</strong> after the outputs for generative pitch lines</p>
+<hr />
+<h2>6. Hold</h2>
+<p>Hold freezes current copies and loops them.</p>
+<p>For melody this is excellent because it lets you:</p>
+<ul>
+<li>capture a phrase fragment</li>
+<li>loop that fragment as an ostinato</li>
+<li>create a temporary melodic vamp while the rest of the patch changes</li>
+<li>“sample” a good moment and keep it repeating</li>
+</ul>
+<p>If your input melody is changing, Hold lets you grab a harmonic/melodic snapshot.</p>
+<hr />
+<h2>7. Reset</h2>
+<p>Reset re-aligns the channels.</p>
+<p>This matters a lot for melody because with Spread active, channels drift relative to one another. Reset gives you:</p>
+<ul>
+<li>repeatable phrase starts</li>
+<li>barline alignment</li>
+<li>predictable harmonic downbeats</li>
+<li>controlled re-synchronization after divergence</li>
+</ul>
+<p>In a musical patch, send a bar-reset or phrase-reset pulse to Reset.</p>
+<p>Example:
+- master clock into Tempo In
+- every 16 steps send a reset trigger to MultiMod Reset
+- now your melodic divergences recur in structured phrases</p>
+<p>That turns chaos into composition.</p>
+<hr />
+<h2>8. Tempo In</h2>
+<p>This is essential if you want melodic material to stay musically locked.</p>
+<p>With a clock patched here:</p>
+<ul>
+<li>Time becomes quantized to clock divisions</li>
+<li>Spread relationships become grid-based</li>
+<li>Phase becomes tempo-grid aware</li>
+<li>Channel Index updates on each tempo clock</li>
+</ul>
+<p>This makes MultiMod much more useful for <strong>intentional melodic writing</strong>, especially in techno, IDM, ambient sequence music, and polyrhythmic patches.</p>
+<hr />
+<h2>Best ways to use MultiMod for melody</h2>
+<h2>A. One sequence, many voices</h2>
+<p>Patch:</p>
+<ul>
+<li>sequencer pitch CV → <strong>Signal In</strong></li>
+<li>MultiMod outputs 1–4 → <strong>1V/Oct</strong> of four oscillators</li>
+<li>same gate pattern, or variations of it, to envelopes/VCAs</li>
+<li>master clock → <strong>Tempo In</strong></li>
+<li>periodic reset pulse → <strong>Reset</strong></li>
+</ul>
+<p>What happens:
+- all voices derive from one melodic source
+- Spread and Phase create related but offset pitch lines
+- the result feels like composed ensemble writing</p>
+<p>This is one of the strongest uses of the module.</p>
+<p>Tip:
+- keep Spread low for consonant voice-leading
+- increase Phase for canon-like entries
+- use Time to set phrase length</p>
+<hr />
+<h2>B. Sequence to quantizer for generative counterpoint</h2>
+<p>Patch:</p>
+<ul>
+<li>smooth or stepped CV source → <strong>Signal In</strong></li>
+<li>outputs 1–8 → multiple channels of quantizer, or one selected output to a quantizer</li>
+<li>quantizer outputs → oscillator pitch inputs</li>
+</ul>
+<p>Why this works:
+- MultiMod creates related CV contours
+- quantization turns them into scale-constrained melodies
+- different channels produce different scale-degree paths</p>
+<p>Best shapes:
+- Ramp for coherent variants
+- Saw for inversion-like reversal feeling
+- Orange/Yellow for more generative melodic behavior</p>
+<p>This is a very strong ambient/generative technique.</p>
+<hr />
+<h2>C. Canon / round machine</h2>
+<p>Patch:</p>
+<ul>
+<li>pitch sequencer → <strong>Signal In</strong></li>
+<li>Spread at <strong>12:00</strong></li>
+<li>Phase increased from minimum</li>
+<li>outputs to several oscillators or separate voices</li>
+<li>common clock to Tempo In</li>
+<li>reset every 8 or 16 steps</li>
+</ul>
+<p>At Spread noon, the channels are same-speed copies; Phase offsets them in time.
+This creates:
+- rounds
+- delayed entrances
+- melodic overlap
+- self-harmonizing lines</p>
+<p>This is probably the cleanest “melodic composition” use in the manual’s feature set.</p>
+<hr />
+<h2>D. Melodic transposition network</h2>
+<p>Instead of patching outputs directly to oscillator pitch, patch them to:</p>
+<ul>
+<li>transpose input of a sequencer</li>
+<li>quantizer root/shift input</li>
+<li>oscillator FM amount</li>
+<li>filter tracking CV</li>
+<li>wavefolder symmetry</li>
+<li>chord voicing CV</li>
+</ul>
+<p>Now the same melodic source produces higher-level changes:
+- phrase transposition
+- changing modal center
+- chord motion
+- timbral melody</p>
+<p>This is often more musical than sending all outputs directly to 1V/Oct.</p>
+<hr />
+<h2>E. Use internal LFO/random mode as pitch source</h2>
+<p>With nothing in Signal In, MultiMod generates internal shapes.</p>
+<p>For melody:
+- set Shape to <strong>Stepped Random</strong> or <strong>Smooth Random</strong>
+- patch outputs to a quantizer
+- quantizer to oscillator pitch
+- sync with Tempo In</p>
+<p>Now MultiMod becomes a multi-channel melodic generator.</p>
+<p>Great for:
+- generative lines
+- semi-related bass + lead + countermelody
+- evolving tonal clusters</p>
+<p>Shape suggestions:
+- <strong>Pink</strong> less for pitch, more for clocks/gates
+- <strong>Orange</strong> excellent for stepped melodic material
+- <strong>Yellow</strong> excellent for gliding pre-quantized movement
+- <strong>Sine/Triangle</strong> useful for arpeggio-like scalar motion once quantized</p>
+<hr />
+<h2>F. Triggered envelope as melodic source</h2>
+<p>A very musical trick from the manual’s logic:</p>
+<p>Patch:
+- function generator / envelope output → <strong>Signal In</strong>
+- the trigger that fires that envelope → <strong>Reset</strong>
+- MultiMod outputs → quantizer or oscillator pitch CV destinations</p>
+<p>Why this is good:
+- every triggered event starts from a known point
+- the contour of the envelope becomes pitch material
+- outputs become coordinated melodic gestures
+- repeatability is much better than free-running modulation</p>
+<p>This is a strong way to make “played” melodies from envelopes rather than note sequencers.</p>
+<hr />
+<h2>G. Shift-register-like pitch spreading</h2>
+<p>The manual explicitly suggests a “Shift Register” style patch.</p>
+<p>Patch:
+- pitch CV to Signal In
+- Spread at noon
+- Phase fully CCW then increase it
+- outputs to several oscillators’ 1V/Oct</p>
+<p>This creates spaced versions of the same melodic information across multiple voices.</p>
+<p>If the source is a clocked sequencer, also:
+- patch related tempo to Tempo In
+- keep Time short for more precision</p>
+<p>Result:
+- stacked melodic delay lines
+- pseudo shift-register harmony
+- clustered canon textures</p>
+<hr />
+<h2>H. Use Channel Index Out for melodic selection logic</h2>
+<p>Channel Index Out outputs 1–8V depending on which channel currently has highest amplitude.</p>
+<p>This is not directly a melody output, but it can drive:</p>
+<ul>
+<li>a sequential switch</li>
+<li>address input on a selector</li>
+<li>logic/comparator network</li>
+<li>quantizer preset selection if supported</li>
+<li>octave switching or register changes</li>
+</ul>
+<p>That means you can derive a second layer of structure from MultiMod:
+- one set of outputs creates melody
+- Channel Index chooses which melody/timbre/voice is active</p>
+<p>This can create evolving melodic form from a single source.</p>
+<hr />
+<h2>Specific melodic patch recipes</h2>
+<h2>1. Self-harmonizing lead</h2>
+<p>Patch:
+- 8-step pitch sequence → Signal In
+- master clock → Tempo In
+- outputs 2, 4, 6 → precision adders or oscillators
+- Shape = Ramp
+- Spread slightly off noon
+- Phase moderate
+- Reset every 8 steps</p>
+<p>Result:
+- three voices with related but offset pitch contours
+- good for Berlin-school and generative polyphony</p>
+<hr />
+<h2>2. Bassline plus countermelody</h2>
+<p>Patch:
+- sequencer CV → Signal In
+- out 4 → bass oscillator 1V/Oct
+- out 7 → lead oscillator 1V/Oct
+- out 2 → filter cutoff or wavefolder on lead
+- Tempo In clocked
+- Shape = Saw or Triangle</p>
+<p>Result:
+- bass follows source more closely
+- lead feels like a reversed or mirrored relative of the bassline
+- timbral CV stays compositionally linked</p>
+<hr />
+<h2>3. Quantized random ensemble</h2>
+<p>Patch:
+- no input to Signal In
+- Shape = Orange or Yellow
+- Tempo In from master clock
+- outputs 1–4 → quantizer inputs
+- quantizer outputs → four oscillators or one oscillator via switch</p>
+<p>Result:
+- related generative melodies
+- each voice has its own timing/speed/phase behavior
+- great for ambient, aleatoric, or modular minimalism</p>
+<hr />
+<h2>4. Canonic chord bloom</h2>
+<p>Patch:
+- keyboard CV or sequencer CV → Signal In
+- Spread at noon
+- Phase turned up
+- outputs to three oscillators tuned similarly
+- different envelope timings for each voice
+- common quantizer if needed</p>
+<p>Result:
+- one melody blooms into overlapping entries
+- rich suspended harmonies emerge from repeated scale tones</p>
+<hr />
+<h2>5. Melodic ratchet/transposition helper</h2>
+<p>Patch:
+- main sequence CV → oscillator directly
+- also mult that CV into MultiMod Signal In
+- one MultiMod output → quantizer → transpose input of sequencer or precision adder
+- another output → envelope decay or filter CV
+- reset each bar</p>
+<p>Result:
+- the “main melody” remains recognizable
+- MultiMod adds phrase-level transposition and ornamentation around it</p>
+<hr />
+<h2>Important limitations for pitch use</h2>
+<p>Because MultiMod is a DSP CV-copying/reshaping tool, it is not necessarily a strict precision pitch processor in the same way as a dedicated precision adder or buffered mult. So for best melodic results:</p>
+<ul>
+<li>use a <strong>quantizer after MultiMod</strong> if you want exact notes</li>
+<li>use <strong>Tempo In</strong> for repeatable relationships</li>
+<li>use <strong>Reset</strong> often for phrase structure</li>
+<li>keep <strong>Spread modest</strong> when you want tonal coherence</li>
+<li>use <strong>Ramp</strong> shape for the most faithful melodic copying</li>
+</ul>
+<p>If you want experimental pitch behavior, then loosen all of those rules.</p>
+<hr />
+<h2>Best companion modules for melodic use</h2>
+<p>MultiMod pairs especially well with:</p>
+<ul>
+<li><strong>sequencers</strong>: provide source pitch material</li>
+<li><strong>quantizers</strong>: make outputs scale-accurate</li>
+<li><strong>precision adders</strong>: combine outputs with fixed intervals</li>
+<li><strong>multiple oscillators</strong>: create harmony and canon</li>
+<li><strong>function generators</strong>: envelopes as pitch contours</li>
+<li><strong>clock dividers/multipliers</strong>: structured resets and tempo sync</li>
+<li><strong>sequential switches</strong>: select between output channels for phrase variation</li>
+<li><strong>sample &amp; hold / T&amp;H</strong>: capture moments from drifting outputs</li>
+</ul>
+<hr />
+<h2>Best overall melodic strategies</h2>
+<p>If your goal is melody rather than abstract modulation, the most reliable workflows are:</p>
+<ol>
+<li><strong>Input a sequenced or shaped CV</strong></li>
+<li><strong>Clock MultiMod with Tempo In</strong></li>
+<li><strong>Use Ramp shape first</strong></li>
+<li><strong>Quantize the outputs</strong></li>
+<li><strong>Reset on phrase boundaries</strong></li>
+<li><strong>Use Spread sparingly at first</strong></li>
+<li><strong>Use Phase for canon-like separation</strong></li>
+<li><strong>Increase Time to create delayed melodic memory</strong></li>
+</ol>
+<p>That turns MultiMod from “complex modulation gadget” into a very powerful melodic composition tool.</p>
+<h2>Summary</h2>
+<p>The Make Noise MultiMod is excellent for melodic work because it can derive <strong>8 musically related CV lines</strong> from a single source. Its strongest melodic uses are:</p>
+<ul>
+<li><strong>canon / round generation</strong></li>
+<li><strong>multi-voice harmonization</strong></li>
+<li><strong>clocked melodic delay</strong></li>
+<li><strong>related generative melodies through quantization</strong></li>
+<li><strong>phrase looping with Hold</strong></li>
+<li><strong>bar-structured resynchronization with Reset</strong></li>
+<li><strong>internal stepped/smooth random pitch generation</strong></li>
+</ul>
+<p>In short: if you feed MultiMod one good melodic idea, it can turn that into an entire family of lines for bass, lead, harmony, transposition, and timbral motion.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

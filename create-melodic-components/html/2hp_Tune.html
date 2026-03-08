@@ -1,0 +1,394 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Tune</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Tune</h1>
+<ul>
+<li><a href="../../manuals/Tune_Manual_2023.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.twohp.com/manuals/tune">Manual PDF</a></p>
+<h1>2hp Tune — using it for melodic patching</h1>
+<p>The <strong>2hp Tune</strong> is a <strong>voltage quantizer</strong>. Its job is simple but very musical: it takes an incoming CV and forces it onto notes from a chosen scale, then outputs a <strong>quantized 1V/oct melodic CV</strong>.</p>
+<p>Since this manual set only includes <strong>one module</strong>, the main question is not really “how do these modules work together,” but rather:</p>
+<ul>
+<li>how <strong>Tune</strong> works with the rest of a Eurorack system, and</li>
+<li>how to use it to generate <strong>melodic components</strong> like basslines, arps, leads, modal riffs, and constrained random melodies.</li>
+</ul>
+<hr />
+<h2>What the module does</h2>
+<h3>Inputs and controls</h3>
+<ul>
+<li><strong>Input</strong></li>
+<li>CV to be quantized</li>
+<li>Range: <strong>0V to +5V</strong></li>
+<li><strong>Scale knob</strong></li>
+<li>Selects the scale</li>
+<li><strong>Scale LEDs</strong></li>
+<li>Show the selected scale</li>
+<li><strong>Bias knob</strong></li>
+<li>Diatonically shifts the note range inside the selected scale</li>
+<li><strong>Bias CV input</strong></li>
+<li>Positive CV control for Bias</li>
+<li>Range: <strong>0V to +5V</strong></li>
+<li><strong>Output</strong></li>
+<li>Quantized <strong>V/Oct</strong> output</li>
+<li>Range: <strong>0V to +5V</strong></li>
+</ul>
+<h3>Available scales</h3>
+<p>The module provides these 11 scales/modes:</p>
+<ol>
+<li>Chromatic  </li>
+<li>Major  </li>
+<li>Major Pentatonic  </li>
+<li>Minor  </li>
+<li>Minor Pentatonic  </li>
+<li>Harmonic Minor  </li>
+<li>Egyptian Minor  </li>
+<li>Whole Tone  </li>
+<li>Octatonic (0, 2)  </li>
+<li>Diminished  </li>
+<li>Octatonic (0, 1)</li>
+</ol>
+<p>This is a very useful set for melody writing because it covers:
+- conventional tonal material
+- pentatonic “safe” note sets
+- darker harmonic minor colors
+- symmetric scales for abstract or cinematic lines</p>
+<hr />
+<h1>How Tune creates melody in a Eurorack patch</h1>
+<p>A quantizer becomes melodic when you feed it <strong>changing voltage</strong>.</p>
+<p>Typical CV sources:
+- sequencer row
+- random stepped voltage
+- sample &amp; hold
+- LFO
+- envelope
+- joystick/manual voltage
+- pressure or touch controller
+- a second melodic CV source you want constrained to a scale</p>
+<p>Then:
+1. Send that CV into <strong>Tune Input</strong>
+2. Select a <strong>scale</strong>
+3. Patch <strong>Tune Output</strong> to an oscillator’s <strong>1V/oct</strong>
+4. Gate/envelope/VCA handle articulation</p>
+<p>So Tune sits between <strong>raw CV generation</strong> and <strong>pitched sound generation</strong>.</p>
+<hr />
+<h1>Best musical uses</h1>
+<h2>1. Turn random voltages into usable melodies</h2>
+<p>One of the most common uses.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Random stepped CV → <strong>Tune Input</strong></li>
+<li><strong>Tune Output</strong> → oscillator 1V/oct</li>
+<li>Clocked gate → envelope → VCA</li>
+<li>Choose <strong>Major Pentatonic</strong>, <strong>Minor Pentatonic</strong>, or <strong>Major</strong></li>
+</ul>
+<h3>Result</h3>
+<p>You get melodies that feel intentional instead of totally atonal.</p>
+<h3>Why it works</h3>
+<p>Random voltage by itself often lands between semitones and in notes outside a tonal center. Tune snaps everything onto scale tones, so even chaotic CV becomes musically coherent.</p>
+<hr />
+<h2>2. Constrain a sequencer to a scale</h2>
+<p>If you have a CV sequencer without built-in quantization, Tune gives it harmonic structure.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Sequencer CV row → <strong>Tune Input</strong></li>
+<li><strong>Tune Output</strong> → oscillator 1V/oct</li>
+<li>Sequencer gate row → envelope/gate destination</li>
+</ul>
+<h3>Result</h3>
+<p>You can freely adjust sequence voltages by ear or by slider position, and Tune keeps pitches in key.</p>
+<h3>Good scale choices</h3>
+<ul>
+<li><strong>Major</strong> for bright pop/house/ambient</li>
+<li><strong>Minor</strong> for darker lines</li>
+<li><strong>Harmonic Minor</strong> for dramatic/eastern/classical tension</li>
+<li><strong>Pentatonic</strong> for very forgiving melodic movement</li>
+</ul>
+<hr />
+<h2>3. Create transposable melodic patterns with Bias</h2>
+<p>The <strong>Bias</strong> control is the most interesting performance feature on this module.</p>
+<p>The manual says Bias adjusts the base voltage level <strong>diatonically within the selected scale</strong>. That means it shifts the note set in musically relevant steps rather than arbitrary semitone offsets.</p>
+<h3>Musical use</h3>
+<p>Think of Bias like a <strong>scale-aware melodic offset</strong>.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Sequencer or random CV → <strong>Tune Input</strong></li>
+<li><strong>Tune Output</strong> → oscillator 1V/oct</li>
+<li>Slow CV or manual knob movement → <strong>Bias CV Input</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The same melodic contour can be shifted to different note centers within the scale.</p>
+<p>This is excellent for:
+- phrase variation
+- modal movement
+- chord-tone cycling
+- making one sequence feel like it’s evolving harmonically without rewriting the sequence</p>
+<h3>Performance trick</h3>
+<p>Use the <strong>Bias knob</strong> manually while the patch plays. This can “rotate” the available note range in a very musical way and produce evolving melodies from static source material.</p>
+<hr />
+<h2>4. Build basslines from simple modulation sources</h2>
+<p>You don’t need a dedicated sequencer.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Triangle or stepped LFO → <strong>Tune Input</strong></li>
+<li><strong>Tune Output</strong> → VCO 1V/oct</li>
+<li>Clock divider / trigger source → envelope/VCA</li>
+<li>Select <strong>Minor</strong>, <strong>Major</strong>, or <strong>Minor Pentatonic</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The LFO shape becomes a repeating melodic contour. Quantization makes it a proper riff.</p>
+<h3>Tip</h3>
+<ul>
+<li>Smooth LFO in gives rising/falling lines</li>
+<li>Stepped random in gives discrete note movement</li>
+<li>Slow envelope in gives contour-based phrase motion</li>
+</ul>
+<hr />
+<h2>5. Generate arpeggio-like lines</h2>
+<p>Tune doesn’t create arpeggios by itself, but it can convert repeating modulation into arpeggio-style note movement.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Ascending saw LFO or sequencer ramp → <strong>Tune Input</strong></li>
+<li><strong>Tune Output</strong> → oscillator 1V/oct</li>
+<li>Fast clocked gates → envelope/VCA</li>
+<li>Use <strong>Major</strong>, <strong>Minor</strong>, or <strong>Harmonic Minor</strong></li>
+</ul>
+<h3>Result</h3>
+<p>As the input voltage rises, Tune steps through notes in the chosen scale, often creating scalar or arpeggio-adjacent patterns.</p>
+<h3>Make it more arpeggio-like</h3>
+<p>Keep the incoming CV range narrow so it cycles through a compact note cluster instead of traversing many octaves.</p>
+<hr />
+<h2>6. Make lead melodies more stable and tonal</h2>
+<p>If you use a ribbon controller, joystick, pressure source, or another expressive CV source, Tune can preserve performance feel while keeping you in key.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Performance CV source → <strong>Tune Input</strong></li>
+<li><strong>Tune Output</strong> → lead oscillator 1V/oct</li>
+<li>Manual scale selection for song section changes</li>
+</ul>
+<h3>Result</h3>
+<p>You can improvise freely without falling outside the chosen harmonic language.</p>
+<p>This is especially useful live.</p>
+<hr />
+<h2>7. Use exotic and symmetric scales for cinematic or experimental melody</h2>
+<p>The scale list is unusually good for non-standard melodic material.</p>
+<h3>Interesting options</h3>
+<ul>
+<li><strong>Whole Tone</strong></li>
+<li>Dreamlike, floating, ambiguous</li>
+<li><strong>Diminished</strong></li>
+<li>Tense, angular, suspenseful</li>
+<li><strong>Octatonic</strong></li>
+<li>Great for horror, fusion, modern classical, techno weirdness</li>
+<li><strong>Egyptian Minor</strong></li>
+<li>Open, modal, pseudo-folk flavor</li>
+<li><strong>Harmonic Minor</strong></li>
+<li>Immediate dramatic pull</li>
+</ul>
+<h3>Patch concept</h3>
+<ul>
+<li>Random or sequenced CV → Tune</li>
+<li>Slow Bias modulation</li>
+<li>Long envelopes and delay/reverb after voice</li>
+</ul>
+<h3>Result</h3>
+<p>Strong melodic identity with minimal patch complexity.</p>
+<hr />
+<h1>How Bias affects melody</h1>
+<p>Bias deserves special attention because it is not just a coarse transpose in the usual sense.</p>
+<p>According to the manual:
+- fully left = no bias
+- fully right = the last note of the selected scale becomes the starting point where the scale begins</p>
+<p>Practically, this means:
+- the available quantization map is shifted <strong>within the scale</strong>
+- this changes which diatonic notes are emphasized by the same incoming voltage
+- the melodic contour can remain similar while the tonal gravity changes</p>
+<h2>Why this matters musically</h2>
+<p>If your source CV has a recognizable shape, Bias lets you keep that shape but hear it from a new scalar perspective.</p>
+<p>That is extremely useful for:
+- verse/chorus variation
+- bassline mutation
+- call-and-response
+- evolving ambient melody
+- pseudo-harmonic progression from one CV source</p>
+<h2>Best sources for Bias CV</h2>
+<ul>
+<li>slow LFO</li>
+<li>stepped random</li>
+<li>sequencer lane</li>
+<li>manual offset from another module</li>
+<li>envelope for phrase-based note shifts</li>
+</ul>
+<hr />
+<h1>Patch recipes</h1>
+<h2>Patch 1: Simple tonal melody</h2>
+<p><strong>Goal:</strong> easy in-key lead</p>
+<ul>
+<li>Stepped sequencer CV → <strong>Tune Input</strong></li>
+<li><strong>Tune Output</strong> → oscillator 1V/oct</li>
+<li>Gate sequencer → envelope → VCA</li>
+<li>Scale: <strong>Major</strong></li>
+<li>Bias: low or centered</li>
+</ul>
+<p><strong>Musical outcome:</strong> clear, stable melody in key</p>
+<hr />
+<h2>Patch 2: Generative ambient melody</h2>
+<p><strong>Goal:</strong> evolving ambient notes</p>
+<ul>
+<li>Sample &amp; hold random CV → <strong>Tune Input</strong></li>
+<li><strong>Tune Output</strong> → oscillator 1V/oct</li>
+<li>Sparse random gates → envelope/VCA</li>
+<li>Scale: <strong>Minor Pentatonic</strong> or <strong>Egyptian Minor</strong></li>
+<li>Slow LFO → <strong>Bias CV Input</strong></li>
+</ul>
+<p><strong>Musical outcome:</strong> drifting but coherent generative melodic line</p>
+<hr />
+<h2>Patch 3: Dark cinematic sequence</h2>
+<p><strong>Goal:</strong> tense melodic motion</p>
+<ul>
+<li>8-step sequencer CV → <strong>Tune Input</strong></li>
+<li><strong>Tune Output</strong> → oscillator 1V/oct</li>
+<li>Trigger sequencer → envelope/VCA</li>
+<li>Scale: <strong>Harmonic Minor</strong> or <strong>Diminished</strong></li>
+<li>Manual Bias changes at phrase boundaries</li>
+</ul>
+<p><strong>Musical outcome:</strong> dramatic line with controlled harmonic tension</p>
+<hr />
+<h2>Patch 4: Scalar bass riff from an LFO</h2>
+<p><strong>Goal:</strong> melody without a sequencer</p>
+<ul>
+<li>Ramp LFO → <strong>Tune Input</strong></li>
+<li><strong>Tune Output</strong> → bass oscillator 1V/oct</li>
+<li>Clocked trigger → short envelope → VCA</li>
+<li>Scale: <strong>Minor</strong></li>
+<li>Tune oscillator low</li>
+</ul>
+<p><strong>Musical outcome:</strong> repeating bass riff that sounds sequenced</p>
+<hr />
+<h2>Patch 5: Controlled chaos</h2>
+<p><strong>Goal:</strong> random melody that still works musically</p>
+<ul>
+<li>Chaos/random CV source → <strong>Tune Input</strong></li>
+<li><strong>Tune Output</strong> → oscillator 1V/oct</li>
+<li>Irregular gates → envelope/VCA</li>
+<li>Scale: <strong>Major Pentatonic</strong> for consonance or <strong>Octatonic</strong> for tension</li>
+<li>Stepped random → <strong>Bias CV Input</strong></li>
+</ul>
+<p><strong>Musical outcome:</strong> unpredictable but scale-locked melody</p>
+<hr />
+<h1>Scale selection advice for songwriting</h1>
+<h2>Safest scales for immediate musical results</h2>
+<ul>
+<li><strong>Major Pentatonic</strong></li>
+<li><strong>Minor Pentatonic</strong></li>
+<li><strong>Major</strong></li>
+<li><strong>Minor</strong></li>
+</ul>
+<p>These are best when:
+- you want melodic success quickly
+- your input CV is very wild
+- you’re improvising live</p>
+<h2>Most colorful scales</h2>
+<ul>
+<li><strong>Harmonic Minor</strong></li>
+<li><strong>Egyptian Minor</strong></li>
+</ul>
+<p>These are best when:
+- you want stronger character
+- the melody should feel modal or dramatic</p>
+<h2>Most abstract scales</h2>
+<ul>
+<li><strong>Whole Tone</strong></li>
+<li><strong>Diminished</strong></li>
+<li><strong>Octatonic</strong></li>
+</ul>
+<p>These are best when:
+- tonal ambiguity is desirable
+- you’re making experimental, soundtrack, IDM, or dark techno material</p>
+<hr />
+<h1>Practical patching notes from the manual</h1>
+<h2>Voltage ranges</h2>
+<ul>
+<li><strong>Input:</strong> 0V to +5V</li>
+<li><strong>Bias CV:</strong> 0V to +5V</li>
+<li><strong>Output:</strong> 0V to +5V</li>
+</ul>
+<p>So this module expects <strong>unipolar positive CV</strong>. That matters.</p>
+<h3>Practical implication</h3>
+<p>If your modulation source is bipolar, like:
+- -5V to +5V LFO
+- centered random
+- audio-rate bipolar signal</p>
+<p>you’ll usually want to:
+- offset it upward, or
+- attenuate and bias it into the <strong>0V to +5V</strong> range</p>
+<p>Otherwise, part of the source behavior may be outside the intended operating range.</p>
+<hr />
+<h1>Strengths of Tune in a melodic system</h1>
+<h2>1. It makes non-musical voltages musical</h2>
+<p>This is the core benefit.</p>
+<h2>2. It allows free-form sequencing</h2>
+<p>You can use crude control sources and still end up with organized pitch material.</p>
+<h2>3. Bias adds melodic development</h2>
+<p>Not just quantization, but controllable note-set shifting.</p>
+<h2>4. The scale set is performance-friendly</h2>
+<p>There are enough scales to cover:
+- traditional melodies
+- modal writing
+- pentatonic safety
+- experimental harmony</p>
+<h2>5. Great for small systems</h2>
+<p>Because one compact module can add melodic structure to:
+- random systems
+- utility-driven systems
+- minimalist techno rigs
+- portable skiffs</p>
+<hr />
+<h1>Limitations to keep in mind</h1>
+<h2>1. No explicit root-note control described</h2>
+<p>The manual describes scale selection and Bias, but not a dedicated root/key selector. So the module is best understood as quantizing around its internal scale mapping and incoming voltage range.</p>
+<h2>2. Positive CV ranges only</h2>
+<p>You may need external offset/attenuation utilities.</p>
+<h2>3. It is a quantizer, not a sequencer</h2>
+<p>It shapes pitch, but does not itself generate rhythm or gates.</p>
+<p>So for complete melody voices you still need:
+- CV source
+- gate/trigger source
+- oscillator
+- envelope
+- VCA
+- optional filter/effects</p>
+<hr />
+<h1>Best “used together” interpretation in a system context</h1>
+<p>Since only <strong>2hp Tune</strong> is included here, the best way to think about “used together” is:</p>
+<h3>Tune + CV source</h3>
+<p>creates note choices</p>
+<h3>Tune + gate source</h3>
+<p>creates rhythmic note articulation</p>
+<h3>Tune + oscillator</h3>
+<p>creates actual melody pitch</p>
+<h3>Tune + envelope/VCA</h3>
+<p>creates phrasing</p>
+<h3>Tune + Bias modulation</h3>
+<p>creates melodic evolution</p>
+<p>In other words, Tune is the <strong>harmonic intelligence layer</strong> in a melodic patch.</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>2hp Tune</strong> is ideal for building melodic content from almost any changing control voltage. Its strongest uses are:</p>
+<ul>
+<li>quantizing sequencers into scales</li>
+<li>turning random voltages into musical lines</li>
+<li>creating scalar basslines and leads</li>
+<li>generating evolving melodies via <strong>Bias</strong></li>
+<li>exploring tonal, modal, and symmetric scales in compact systems</li>
+</ul>
+<p>If you want melody in Eurorack without needing a full-featured pitch sequencer, this module is extremely effective. It is especially powerful in patches where the raw CV source is unpredictable or loosely controlled, because it turns that unpredictability into something compositionally useful.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

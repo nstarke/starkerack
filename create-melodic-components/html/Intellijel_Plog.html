@@ -1,0 +1,448 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Plog</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Plog</h1>
+<ul>
+<li><a href="../../manuals/plog_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF - Intellijel Plog rev 1.0</a></p>
+<h1>Using the Intellijel Plog to Create Melodic Components</h1>
+<p>The <strong>Intellijel Plog</strong> is a digital logic and flip-flop module, so it does not generate pitch CV by itself. But in a Eurorack system, it is extremely useful for creating <strong>melodic structure</strong> by manipulating clocks, gates, triggers, and binary states that drive sequencers, quantizers, sample-and-holds, switches, and envelopes.</p>
+<h2>What the Plog gives you musically</h2>
+<p>The module contains:</p>
+<ul>
+<li><strong>Two 3-input logic sections</strong>: A and B<br />
+  Logic types:</li>
+<li>AND</li>
+<li>OR</li>
+<li>NOR</li>
+<li>XOR</li>
+<li>NAND</li>
+<li>
+<p>XNOR</p>
+</li>
+<li>
+<p><strong>One toggle flip-flop (T)</strong></p>
+</li>
+<li><strong>One data flip-flop (D)</strong></li>
+<li><strong>CV over logic type</strong> for sections A and B</li>
+<li><strong>Tap tempo mode</strong> on the trigger button</li>
+</ul>
+<h2>Important internal normaling</h2>
+<p>These normals are what make the module especially useful as a melodic utility:</p>
+<ul>
+<li>
+<p><strong>Z is normalled to Y</strong><br />
+  So each 3-input logic block can behave like a 2-input logic block if only X and Y are patched.</p>
+</li>
+<li>
+<p><strong>X and Y of A are normalled to X and Y of B</strong><br />
+  So one pair of rhythm sources can feed both logic channels at once.</p>
+</li>
+<li>
+<p><strong>Logic B can be normalled to the toggle input via rear jumper</strong><br />
+  This lets logic B directly drive the T flip-flop.</p>
+</li>
+<li>
+<p><strong>OUT T is normalled to CLK of the D flip-flop</strong></p>
+</li>
+<li>Default flip-flop behavior effectively creates:</li>
+<li><strong>/2 at OUT T</strong></li>
+<li><strong>/4 at OUT D</strong>
+  from an incoming clock or logic rhythm</li>
+</ul>
+<p>This means Plog is very good at building <strong>derived rhythmic control signals</strong> from one or two master streams.</p>
+<hr />
+<h1>Best way to think about it for melody</h1>
+<p>Plog is not a melody source in the traditional sense. It is a <strong>melodic organizer</strong>.</p>
+<p>It helps create:</p>
+<ul>
+<li>note timing</li>
+<li>phrase resets</li>
+<li>octave jumps</li>
+<li>alternating note choices</li>
+<li>stepped binary patterns</li>
+<li>rhythmically gated pitch changes</li>
+<li>structured randomness</li>
+</ul>
+<p>If you pair it with modules like:</p>
+<ul>
+<li>sequencers</li>
+<li>quantizers</li>
+<li>sample &amp; hold</li>
+<li>switches</li>
+<li>clock dividers</li>
+<li>sequential switches</li>
+<li>precision adders</li>
+<li>envelope generators</li>
+<li>VCAs</li>
+</ul>
+<p>then it becomes very powerful for melody generation.</p>
+<hr />
+<h1>Core melodic use cases</h1>
+<h2>1. Create note trigger patterns for a sequencer voice</h2>
+<p>Use Plog to derive interesting gate streams from simple clocks.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Clock 1 -&gt; X of A</li>
+<li>Clock 2 or Euclidean rhythm -&gt; Y of A</li>
+<li>OUT A -&gt; trigger input of envelope or sequencer advance</li>
+</ul>
+<h3>Musical results by logic type</h3>
+<ul>
+<li><strong>AND</strong>: sparse, only coincident hits<br />
+  Great for reducing density and making selective note events.</li>
+<li><strong>OR</strong>: denser melodic rhythm</li>
+<li><strong>XOR</strong>: syncopated, “difference” rhythm</li>
+<li><strong>NOR/NAND/XNOR</strong>: inverted and more unusual gate behavior</li>
+</ul>
+<h3>Why this helps melody</h3>
+<p>If your sequencer only advances when OUT A fires, then the logic block becomes a <strong>melodic rhythm composer</strong>.</p>
+<hr />
+<h2>2. Use A and B to create two related trigger streams</h2>
+<p>Because A and B share normalled X and Y inputs, you can derive <strong>two different gate patterns</strong> from the same source material.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Master clock pattern -&gt; X of A</li>
+<li>Second rhythm or gate sequence -&gt; Y of A</li>
+<li>Set:</li>
+<li>A = XOR</li>
+<li>B = AND</li>
+<li>OUT A -&gt; sequencer clock</li>
+<li>OUT B -&gt; envelope reset, accent, or second sequencer clock</li>
+</ul>
+<h3>Musical use</h3>
+<p>This creates two musically related but different streams:
+- one drives pitch movement
+- the other drives accents, octave shifts, ratchets, resets, or a second voice</p>
+<p>This is excellent for making melody and accompaniment feel connected.</p>
+<hr />
+<h2>3. Use the T flip-flop as an alternating note selector</h2>
+<p>The <strong>toggle flip-flop</strong> changes state each time it receives a trigger.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Steady trigger stream -&gt; TOGGLE</li>
+<li>OUT T -&gt; sequential switch control / precision adder gate / VCA gate</li>
+<li>Two different pitch voltages -&gt; switch inputs</li>
+<li>Switch output -&gt; quantizer or oscillator 1V/oct</li>
+</ul>
+<h3>Result</h3>
+<p>Every trigger alternates between two pitch sources:
+- note A / note B / note A / note B...</p>
+<h3>Musical applications</h3>
+<ul>
+<li>alternating bass notes</li>
+<li>root/fifth patterns</li>
+<li>call-and-response between two melodic cells</li>
+<li>octave switching every other note</li>
+</ul>
+<p>This is one of the most directly melodic uses of Plog.</p>
+<hr />
+<h2>4. Use T and D together as binary phrase structure</h2>
+<p>By default:
+- <strong>OUT T = divide by 2</strong>
+- <strong>OUT D = divide by 4</strong></p>
+<p>So from one clock, you get slower square-wave states.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Clock -&gt; TOGGLE</li>
+<li>OUT T -&gt; switch between two pitch rows</li>
+<li>OUT D -&gt; transpose up an octave every 4 steps</li>
+</ul>
+<h3>Result</h3>
+<p>You get binary phrase architecture such as:
+- steps 1–2 one note set
+- steps 3–4 alternate set
+- every four steps add a transposition or change source</p>
+<p>This creates very stable melodic form with minimal patching.</p>
+<h3>Example uses</h3>
+<ul>
+<li>OUT T controls a sequential switch between 2 melodic CV sources</li>
+<li>OUT D opens a VCA that adds +1V through a precision adder</li>
+<li>or OUT D resets a sub-sequencer every 4 beats</li>
+</ul>
+<hr />
+<h2>5. Clock a sample-and-hold only on specific logic events</h2>
+<p>This is one of the strongest melodic patches with a logic module.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Random CV or noise -&gt; Sample &amp; Hold input</li>
+<li>Plog OUT A -&gt; Sample &amp; Hold clock</li>
+<li>Sample &amp; Hold out -&gt; quantizer -&gt; oscillator pitch</li>
+</ul>
+<h3>Set the inputs</h3>
+<ul>
+<li>X = steady pulse train</li>
+<li>Y = slower gate pattern</li>
+<li>A = AND, XOR, or XNOR</li>
+</ul>
+<h3>Result</h3>
+<p>The random pitch only updates when the logic condition is met.</p>
+<h3>Why it works musically</h3>
+<p>Instead of random notes on every beat, Plog gives you <strong>conditional note changes</strong>:
+- only when two rhythms coincide
+- only when one rhythm differs from another
+- only on alternating structural states</p>
+<p>That creates melodic phrases that feel intentional rather than chaotic.</p>
+<hr />
+<h2>6. Use logic outputs to control when pitch changes vs when notes repeat</h2>
+<p>A great melodic trick is separating:
+- <strong>when a note is heard</strong>
+from
+- <strong>when pitch is updated</strong></p>
+<h3>Patch idea</h3>
+<ul>
+<li>Main clock -&gt; envelope trigger</li>
+<li>Plog OUT A -&gt; sequencer advance or S&amp;H clock</li>
+<li>oscillator always plays from main clock</li>
+<li>pitch source only changes on OUT A events</li>
+</ul>
+<h3>Result</h3>
+<p>Some note triggers repeat the same pitch, while others advance to a new one.</p>
+<h3>Musical feel</h3>
+<p>This produces:
+- repeated notes
+- motifs
+- held tones
+- irregular phrase lengths</p>
+<p>Plog becomes a phrase engine rather than just a gate combiner.</p>
+<hr />
+<h2>7. CV-scan between logic types for evolving melodic rhythm</h2>
+<p>Each logic block has <strong>CV control over logic type</strong>.</p>
+<p>That means the relationship between X/Y/Z and the resulting rhythm can change over time.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Clock 1 -&gt; X</li>
+<li>Clock 2 -&gt; Y</li>
+<li>Slow LFO or stepped random voltage -&gt; TYPE A CV</li>
+<li>OUT A -&gt; sequencer clock or S&amp;H clock</li>
+</ul>
+<h3>Result</h3>
+<p>The generated trigger pattern evolves between AND / OR / NOR / XOR / NAND / XNOR.</p>
+<h3>Why this is good for melody</h3>
+<p>Instead of manually changing rhythm logic, you get:
+- evolving note density
+- phrase mutation
+- variation without losing sync
+- semi-generative melodic timing</p>
+<p>This is one of the most distinctive Plog features.</p>
+<hr />
+<h1>How the flip-flops help melody specifically</h1>
+<h2>Toggle flip-flop (T)</h2>
+<p>Receives triggers and flips state each time.</p>
+<p>Useful for:
+- alternating between two notes
+- alternating between two sequencers
+- creating even/odd step behavior
+- generating octave up/down every other note
+- creating slower phrase gates from faster clocks</p>
+<h2>Data flip-flop (D)</h2>
+<p>Latches incoming DATA value only when CLK rises.</p>
+<p>Useful for:
+- sampling gate states into phrase memory
+- holding binary decisions
+- locking in transposition states
+- creating structured, clocked variation</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Random gate or logic signal -&gt; DATA</li>
+<li>Clock -&gt; CLK</li>
+<li>OUT D -&gt; enable transposition / switch melody source / reset sequencer</li>
+</ul>
+<p>This lets you create a decision that only updates on a clock edge, which is very musical.</p>
+<hr />
+<h1>Melodic patch examples</h1>
+<h2>Patch 1: Quantized random melody with rhythmic intelligence</h2>
+<h3>Modules needed</h3>
+<ul>
+<li>Plog</li>
+<li>noise/random CV</li>
+<li>sample &amp; hold</li>
+<li>quantizer</li>
+<li>oscillator</li>
+<li>envelope/VCA</li>
+<li>two clock sources</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Clock 1 -&gt; X of A</li>
+<li>Clock 2 -&gt; Y of A</li>
+<li>Set A = AND</li>
+<li>OUT A -&gt; S&amp;H clock</li>
+<li>Random CV -&gt; S&amp;H input</li>
+<li>S&amp;H out -&gt; quantizer -&gt; oscillator pitch</li>
+<li>Main clock or OUT A -&gt; envelope trigger</li>
+</ul>
+<h3>Result</h3>
+<p>The melody changes only at rhythmic coincidences, producing a structured random line.</p>
+<hr />
+<h2>Patch 2: Two-note alternating bassline</h2>
+<h3>Patch</h3>
+<ul>
+<li>Master clock -&gt; TOGGLE</li>
+<li>Two fixed voltages or two sequencer rows -&gt; switch inputs</li>
+<li>OUT T -&gt; switch control</li>
+<li>Switch output -&gt; quantizer or oscillator pitch</li>
+<li>Master clock -&gt; envelope trigger</li>
+</ul>
+<h3>Result</h3>
+<p>Alternating bass intervals:
+- root / fifth
+- root / octave
+- low / high variation</p>
+<p>Very effective for Berlin-school or electro patterns.</p>
+<hr />
+<h2>Patch 3: Phrase transposition every 4 beats</h2>
+<h3>Patch</h3>
+<ul>
+<li>Clock -&gt; TOGGLE</li>
+<li>OUT D -&gt; gate a precision adder adding +1V or +0.583V etc.</li>
+<li>Main sequencer CV -&gt; precision adder -&gt; oscillator pitch</li>
+</ul>
+<h3>Result</h3>
+<p>The same melodic pattern transposes every fourth cycle or phrase segment.</p>
+<p>This makes a simple sequence sound composed.</p>
+<hr />
+<h2>Patch 4: Logic-driven sequencer advance and reset</h2>
+<h3>Patch</h3>
+<ul>
+<li>Clock -&gt; X</li>
+<li>Slow clock -&gt; Y</li>
+<li>A = XOR</li>
+<li>B = AND</li>
+<li>OUT A -&gt; sequencer advance</li>
+<li>OUT B -&gt; sequencer reset or stage select</li>
+</ul>
+<h3>Result</h3>
+<p>The sequence advances irregularly but resets at related moments, creating looping melodic cells.</p>
+<hr />
+<h2>Patch 5: Binary melody router</h2>
+<h3>Patch</h3>
+<ul>
+<li>Two melodic CV sources -&gt; switch inputs</li>
+<li>OUT T -&gt; switch control</li>
+<li>OUT D -&gt; second switch or transpose gate</li>
+<li>Clock into TOGGLE</li>
+<li>Optional logic B drives TOGGLE via rear jumper</li>
+</ul>
+<h3>Result</h3>
+<p>A compact two-bit phrase system:
+- T decides between source A/B
+- D decides whether phrase is transposed or not</p>
+<p>This gives simple but highly musical 4-step/8-step structural behavior.</p>
+<hr />
+<h1>Particularly strong pairings with other module types</h1>
+<h2>With a quantizer</h2>
+<p>Plog is excellent before a quantizer when used to decide:
+- when random CV is sampled
+- when transposition occurs
+- when sequencers advance</p>
+<h2>With sample &amp; hold</h2>
+<p>This is probably one of the best pairings.
+Plog makes random melodic generation feel clocked and intentional.</p>
+<h2>With sequential switches</h2>
+<p>Very strong.
+The flip-flops create binary control states that are ideal for switching between:
+- two note rows
+- two transpositions
+- two modulation sources</p>
+<h2>With precision adders</h2>
+<p>Use T or D outputs as gates that add interval offsets:
+- octave jumps
+- fifths
+- modal shifts</p>
+<h2>With sequencers</h2>
+<p>Use logic outputs to:
+- clock them
+- reset them
+- select rows
+- enable glide/accent/transposition</p>
+<hr />
+<h1>Musical character of each logic type for melody</h1>
+<h2>AND</h2>
+<ul>
+<li>sparse</li>
+<li>selective</li>
+<li>“only when both agree”</li>
+<li>great for controlled melodic changes</li>
+</ul>
+<h2>OR</h2>
+<ul>
+<li>active</li>
+<li>dense</li>
+<li>useful for busier melodic movement</li>
+</ul>
+<h2>XOR</h2>
+<ul>
+<li>syncopated</li>
+<li>surprising</li>
+<li>excellent for generative patterns</li>
+</ul>
+<h2>NOR</h2>
+<ul>
+<li>inverted silence logic</li>
+<li>useful for negative space and off-beat events</li>
+</ul>
+<h2>NAND</h2>
+<ul>
+<li>mostly active except on coincidences</li>
+<li>good for “dropout” phrasing</li>
+</ul>
+<h2>XNOR</h2>
+<ul>
+<li>high when inputs match</li>
+<li>useful for locked/paired rhythm behaviors</li>
+</ul>
+<hr />
+<h1>Practical voltage notes from the manual</h1>
+<p>Inputs expect:
+- <strong>Logic/triggers/clocks: 0–5V</strong>
+- <strong>CV for type: +/-5V</strong></p>
+<p>The logic/trigger inputs use comparators with about a <strong>3V threshold</strong>, so non-square signals can still work if they cross that threshold.</p>
+<p>That means:
+- square LFOs work well
+- many envelopes or triangles can work as logic sources
+- audio-rate signals may also produce interesting results if they exceed threshold</p>
+<hr />
+<h1>One especially useful built-in melodic trick</h1>
+<p>The manual notes that with no extra patching, the flip-flop section behaves as:
+- <strong>divide by two</strong>
+- <strong>divide by four</strong></p>
+<p>This is very useful musically because even a plain clock can immediately become:
+- every beat
+- every other beat
+- every fourth beat</p>
+<p>Those slower binary layers are perfect for:
+- phrase changes
+- octave toggling
+- note source switching
+- transposition timing</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Intellijel Plog</strong> is best used for melody as a <strong>control-logic brain</strong>, not a pitch generator.</p>
+<p>It excels at:</p>
+<ul>
+<li>generating note trigger patterns</li>
+<li>deciding when pitch changes occur</li>
+<li>alternating between pitch sources</li>
+<li>building phrase-level binary structure</li>
+<li>creating transpositions on fixed rhythmic divisions</li>
+<li>making random melodies feel intentional</li>
+<li>evolving melodic timing through CV-controlled logic selection</li>
+</ul>
+<p>If you combine it with:
+- a quantizer
+- sample &amp; hold
+- one or two sequencers
+- a switch or precision adder</p>
+<p>you can build very sophisticated melodic systems from very little material.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

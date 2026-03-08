@@ -1,0 +1,422 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Shakmat_Time_Wizard</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Shakmat — Time Wizard</h1>
+<ul>
+<li><a href="../../manuals/TW-User_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Shakmat Time Wizard — using it for melodic components</h1>
+<p>The <strong>Shakmat Time Wizard</strong> is not a pitch/CV source by itself, but it is extremely useful for creating the <strong>timing structure that makes melodies feel alive</strong>. Think of it as a <strong>multi-clock brain</strong> for sequencers, quantizers, sample &amp; holds, switch modules, and envelope-driven voices.</p>
+<h2>What the module does</h2>
+<p>The Time Wizard is a:</p>
+<ul>
+<li><strong>6-channel clock divider</strong></li>
+<li>with <strong>independent division settings</strong></li>
+<li>plus <strong>routing and logic options</strong></li>
+<li>plus <strong>reset relationships between groups of dividers</strong></li>
+</ul>
+<p>From the manual, it provides:</p>
+<ul>
+<li><strong>A column</strong>: A1, A2, A3</li>
+<li><strong>B column</strong>: B4, B5, B6</li>
+<li><strong>main clock input</strong></li>
+<li><strong>reset / alternate B clock input</strong></li>
+<li>switches for:</li>
+<li><strong>Multiply A</strong>: x1 / x3 / x4</li>
+<li><strong>Clock B</strong>: normal / B4 clocks B5+B6 / independent B clock input</li>
+<li><strong>Logic A2</strong>: off / <code>A2 AND B5</code> / <code>A2 OR A3</code></li>
+<li><strong>Reset B6</strong>: off / B6 resets A / B6 resets A+B</li>
+</ul>
+<p>Outputs are 0–5V triggers, with optional <strong>half-period gates on dividers 5 &amp; 6</strong> via rear jumper.</p>
+<hr />
+<h2>The musical role of Time Wizard in a melodic patch</h2>
+<p>For melody, this module excels at:</p>
+<ul>
+<li>creating <strong>different rhythmic layers</strong> that drive multiple sequencers</li>
+<li>generating <strong>phrase resets</strong></li>
+<li>making <strong>odd-length melodic cycles</strong></li>
+<li>producing <strong>polyrhythmic note changes</strong></li>
+<li>deriving <strong>accent, transposition, ratcheting, or note-hold events</strong></li>
+<li>adding <strong>structural evolution</strong> to otherwise repetitive sequences</li>
+</ul>
+<p>It is especially strong when paired with:</p>
+<ul>
+<li><strong>pitch sequencers</strong></li>
+<li><strong>quantizers</strong></li>
+<li><strong>sample &amp; hold</strong></li>
+<li><strong>sequential switches</strong></li>
+<li><strong>precision adders</strong></li>
+<li><strong>envelope generators</strong></li>
+<li><strong>logic modules</strong></li>
+<li><strong>Bernoulli gates / probability</strong></li>
+<li><strong>clocked LFOs</strong></li>
+</ul>
+<hr />
+<h1>How to use it melodically</h1>
+<h2>1. Clock multiple sequencers at different divisions</h2>
+<p>A classic melodic use is to send different Time Wizard outputs to different note-generating devices.</p>
+<p>Example:</p>
+<ul>
+<li><strong>A1</strong> → main pitch sequencer clock</li>
+<li><strong>A2</strong> → modulation sequencer clock for filter/pitch offset</li>
+<li><strong>B5</strong> → sample &amp; hold clock sampling noise or random CV</li>
+<li><strong>B6</strong> → reset input of pitch sequencer or switch sequencer</li>
+</ul>
+<p>This creates melody from the interaction of:</p>
+<ul>
+<li>one repeating note stream</li>
+<li>one slower contour stream</li>
+<li>one random or semi-random event stream</li>
+<li>one long-form phrase reset</li>
+</ul>
+<h3>Why this works</h3>
+<p>Even if your pitch sequencer is simple, the Time Wizard lets note changes, transpositions, and resets happen on <strong>different cycle lengths</strong>, which generates evolving melodic patterns.</p>
+<hr />
+<h2>2. Build odd-length phrases</h2>
+<p>The manual specifically mentions unusual time signatures and strange clock decompositions. This is one of the best melodic applications.</p>
+<p>Patch idea:</p>
+<ul>
+<li>master clock into <strong>CLK</strong></li>
+<li>set:</li>
+<li><strong>A1 = /5</strong></li>
+<li><strong>A2 = /7</strong></li>
+<li><strong>A3 = /8</strong></li>
+<li>use:</li>
+<li><strong>A1</strong> to clock a 5-step sequencer</li>
+<li><strong>A2</strong> to advance a sequential switch selecting between 2–3 CV sources</li>
+<li><strong>A3</strong> to trigger a transposition envelope or precision adder step</li>
+</ul>
+<p>Now your melody won’t loop in a short obvious way, because timing layers realign only after a long cycle.</p>
+<h3>Musical result</h3>
+<p>You get:</p>
+<ul>
+<li>asymmetrical motifs</li>
+<li>evolving phrase lengths</li>
+<li>less “16-step box” feel</li>
+<li>more generative, composed-sounding lines</li>
+</ul>
+<hr />
+<h2>3. Use Multiply A for triplets and alternate subdivisions</h2>
+<p>The <strong>Multiply A</strong> switch can multiply the clock feeding the A column by <strong>3 or 4</strong>.</p>
+<p>This is powerful for melody because it lets one part of the patch move at a different feel from the rest.</p>
+<h3>Example uses</h3>
+<h4>Triplet melody against straight rhythm</h4>
+<ul>
+<li>send a straight clock to Time Wizard</li>
+<li>set <strong>Multiply A = x3</strong></li>
+<li>use <strong>A1/A2/A3</strong> to clock melodic sequencers or S&amp;H</li>
+</ul>
+<p>Now melodic note changes can happen in <strong>triplet subdivisions</strong> while percussion or another sequencer remains straight.</p>
+<h4>Fast ornament layer</h4>
+<ul>
+<li>set <strong>Multiply A = x4</strong></li>
+<li>use one A output to trigger a second sequencer controlling:</li>
+<li>grace notes</li>
+<li>octave jumps</li>
+<li>wavefolder amount</li>
+<li>quantized ornament CV</li>
+</ul>
+<p>This can create melodic flutter, pseudo-ratchets, or fast counter-lines.</p>
+<hr />
+<h2>4. Use Clock B as a phrase hierarchy</h2>
+<p>The <strong>Clock B</strong> switch is one of the most interesting features.</p>
+<h3>Mode 1: normal</h3>
+<p>B column behaves as regular dividers from the main clock/reset structure.</p>
+<h3>Mode 2: B4 clocks B5 and B6</h3>
+<p>In the middle position, <strong>B4 becomes the clock source for B5 and B6</strong>.</p>
+<p>This creates a <strong>clock division inside a division</strong>, which is ideal for phrase-level melody control.</p>
+<h3>Melodic application</h3>
+<p>Use:</p>
+<ul>
+<li><strong>A column</strong> for note-to-note activity</li>
+<li><strong>B4</strong> for bar-level motion</li>
+<li><strong>B5/B6</strong> for phrase resets, transposition, or variation changes</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li><strong>A1</strong> → clock 8-step pitch sequencer</li>
+<li><strong>B4</strong> → clock a 4-step transposition sequencer</li>
+<li><strong>B5</strong> → advance a switch choosing one of several modulation CVs</li>
+<li><strong>B6</strong> → reset the transposition sequencer or entire melody phrase</li>
+</ul>
+<p>This feels like having:</p>
+<ul>
+<li>notes</li>
+<li>bars</li>
+<li>phrases</li>
+</ul>
+<p>all derived from one compact timing network.</p>
+<h3>Mode 3: independent B clock input</h3>
+<p>In the lower position, the reset input becomes an <strong>independent clock input for B column</strong>.</p>
+<p>This is huge for melody because you can run two interacting rhythmic worlds:</p>
+<ul>
+<li><strong>A column</strong> from one clock</li>
+<li><strong>B column</strong> from another</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li>A clock = steady 16th-note pulse</li>
+<li>B clock = swung clock, Euclidean rhythm, or manually tapped trigger pattern</li>
+</ul>
+<p>Then use B outputs to affect melody by:</p>
+<ul>
+<li>resetting the main sequencer</li>
+<li>opening a switch to a second pitch source</li>
+<li>transposing only on B events</li>
+<li>clocking an alternate random voltage source</li>
+</ul>
+<p>This creates very musical cross-rhythmic melodies.</p>
+<hr />
+<h2>5. Use Logic A2 to create note masks and alternate note timing</h2>
+<p>The <strong>Logic A2</strong> switch changes the <strong>A2 output</strong> into a logic function.</p>
+<p>Available functions:</p>
+<ul>
+<li>middle: <strong>A2 AND B5</strong></li>
+<li>lower: <strong>A2 OR A3</strong></li>
+</ul>
+<p>This is extremely useful for melodic articulation.</p>
+<h2>A2 AND B5</h2>
+<p>This gives a trigger only when both clocks are high together.</p>
+<h3>Use it for:</h3>
+<ul>
+<li>selective note advancement</li>
+<li>accent clocks</li>
+<li>occasional sample &amp; hold updates</li>
+<li>opening a VCA for only some notes</li>
+<li>triggering an envelope for “allowed” notes only</li>
+</ul>
+<h4>Patch example</h4>
+<ul>
+<li><strong>A1</strong> → clock sequencer every note</li>
+<li><strong>A2 AND B5</strong> → trigger a second envelope that adds FM or filter accent</li>
+<li>or use <strong>A2 AND B5</strong> to clock a quantized random source</li>
+</ul>
+<p>Result: the melody continues, but only certain notes receive ornamentation or pitch changes.</p>
+<h2>A2 OR A3</h2>
+<p>This creates a denser trigger stream from either A2 or A3.</p>
+<h3>Use it for:</h3>
+<ul>
+<li>more active melodic gates</li>
+<li>switching between sparse and dense note updates</li>
+<li>clocking a secondary sequencer that “fills in” around the main line</li>
+</ul>
+<h4>Patch example</h4>
+<ul>
+<li>main sequencer runs from <strong>A1</strong></li>
+<li><strong>A2 OR A3</strong> clocks a second CV source</li>
+<li>mix or switch between those CV sources before quantization</li>
+</ul>
+<p>Result: composite melodies with implied call-and-response or fills.</p>
+<hr />
+<h2>6. Use B6 reset for phrase closure</h2>
+<p>The <strong>Reset B6</strong> switch lets B6 reset:</p>
+<ul>
+<li><strong>A only</strong></li>
+<li>or <strong>A and B</strong></li>
+</ul>
+<p>This is one of the most compositionally useful features.</p>
+<h3>Why it matters</h3>
+<p>A long divider can act like a <strong>phrase-ending marker</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>use A outputs to drive main melodic motion</li>
+<li>use B outputs for slower structural changes</li>
+<li>set B6 to a long division</li>
+<li>enable <strong>B6 resets A</strong> or <strong>A+B</strong></li>
+</ul>
+<p>Now the whole melodic system periodically comes back to the top.</p>
+<p>This gives you:</p>
+<ul>
+<li>long-form cycles</li>
+<li>recurring hooks</li>
+<li>controlled generative behavior</li>
+<li>melodies that wander but eventually resolve</li>
+</ul>
+<p>That “eventual resolution” is often the difference between random clocks and musical phrasing.</p>
+<hr />
+<h1>Practical melodic patch ideas</h1>
+<h2>Patch 1: Polymetric lead line</h2>
+<p><strong>Goal:</strong> evolving lead melody with repeating macro-structure.</p>
+<h3>Connections</h3>
+<ul>
+<li>master clock → <strong>CLK</strong></li>
+<li><strong>A1</strong> → clock main pitch sequencer</li>
+<li>sequencer pitch CV → quantizer → oscillator V/oct</li>
+<li><strong>A2</strong> → clock modulation sequencer for octave offset</li>
+<li>modulation sequencer → precision adder with main pitch CV</li>
+<li><strong>B6</strong> → reset main pitch sequencer</li>
+<li>set <strong>Reset B6 = A</strong></li>
+</ul>
+<h3>Suggested divisions</h3>
+<ul>
+<li>A1 = /5</li>
+<li>A2 = /7</li>
+<li>B6 = /16 or /32 depending on tempo context</li>
+</ul>
+<h3>Result</h3>
+<p>The lead changes notes and octave contour at different rates, then periodically restarts into a recognizable phrase.</p>
+<hr />
+<h2>Patch 2: Triplet ornament melody</h2>
+<p><strong>Goal:</strong> straight melody with triplet embellishments.</p>
+<h3>Connections</h3>
+<ul>
+<li>master clock → <strong>CLK</strong></li>
+<li><strong>Multiply A = x3</strong></li>
+<li><strong>A1</strong> → clock a small sequencer generating ornament notes</li>
+<li>normal external clock → another sequencer for main melody</li>
+<li>both pitch CVs into a sequential switch or CV mixer</li>
+<li><strong>B5</strong> → switch control or VCA envelope trigger</li>
+<li>quantizer after mixing/switching</li>
+</ul>
+<h3>Result</h3>
+<p>The main melody stays grounded, while triplet-timed notes appear as flourishes or alternate inserts.</p>
+<hr />
+<h2>Patch 3: Two-clock melodic conversation</h2>
+<p><strong>Goal:</strong> create a melody that responds to another rhythm source.</p>
+<h3>Connections</h3>
+<ul>
+<li>steady clock → <strong>CLK</strong></li>
+<li>irregular trigger pattern or Euclidean clock → <strong>RST/IN B</strong></li>
+<li>set <strong>Clock B = IN B</strong></li>
+<li><strong>A1</strong> → main sequencer clock</li>
+<li><strong>B4</strong> → transposition sequencer clock</li>
+<li><strong>B5</strong> → reset sample &amp; hold</li>
+<li><strong>B6</strong> → switch between two pitch rows or two quantizer scales</li>
+</ul>
+<h3>Result</h3>
+<p>The main melody runs steadily, while another rhythm injects phrase changes, harmonic shifts, and alternate note selections.</p>
+<hr />
+<h2>Patch 4: Melodic gate masking with logic</h2>
+<p><strong>Goal:</strong> same pitch sequence, but changing articulation creates the melody.</p>
+<h3>Connections</h3>
+<ul>
+<li><strong>A1</strong> → clock sequencer</li>
+<li>sequencer CV → quantizer → oscillator</li>
+<li><strong>A2 AND B5</strong> → envelope trigger for VCA</li>
+<li>or use <strong>A2 OR A3</strong> for denser gate pattern</li>
+<li>keep sequencer running continuously, but only audible when the logic output fires</li>
+</ul>
+<h3>Result</h3>
+<p>Pitch may be stable underneath, but audible note rhythm changes in a structured way. This can sound like a completely new melody from the same CV source.</p>
+<hr />
+<h2>Patch 5: Sample-and-hold melody generator</h2>
+<p><strong>Goal:</strong> create generative quantized melodies.</p>
+<h3>Connections</h3>
+<ul>
+<li>noise / slow random / chaotic CV → sample &amp; hold input</li>
+<li><strong>A1</strong> → S&amp;H clock</li>
+<li>S&amp;H output → quantizer → oscillator pitch</li>
+<li><strong>A2</strong> → trigger envelope for notes</li>
+<li><strong>B5</strong> → clock a second S&amp;H for transposition or timbre</li>
+<li><strong>B6</strong> → reset a switch or sequencer that changes scales/root notes</li>
+</ul>
+<h3>Result</h3>
+<p>The Time Wizard turns simple random voltage into a multi-layered melodic system with phrase structure.</p>
+<hr />
+<h1>Best companions for melodic use</h1>
+<p>The Time Wizard works especially well with these module types:</p>
+<h2>Sequencers</h2>
+<p>Use Time Wizard outputs to clock:</p>
+<ul>
+<li>a main pitch sequencer</li>
+<li>a transposition sequencer</li>
+<li>a modulation sequencer</li>
+<li>a gate sequencer</li>
+</ul>
+<p>This is the most direct melodic use.</p>
+<h2>Quantizers</h2>
+<p>Since Time Wizard produces timing rather than pitch, quantizers are crucial when using it with random voltages, switches, or CV mixers.</p>
+<h2>Sample &amp; Hold</h2>
+<p>A perfect pairing. Different divider outputs can determine:</p>
+<ul>
+<li>when a new note is sampled</li>
+<li>when a transposition is sampled</li>
+<li>when timbre changes are sampled</li>
+</ul>
+<h2>Sequential switches</h2>
+<p>Clock the switch with one divider and feed it multiple pitch sources:
+- sequencer row 1
+- sequencer row 2
+- random voltage
+- fixed interval voltage</p>
+<p>This creates melodic form from routing.</p>
+<h2>Precision adders</h2>
+<p>Use slower Time Wizard outputs to add:
+- octave jumps
+- chord-tone transpositions
+- modal root changes</p>
+<h2>Envelope generators / VCAs</h2>
+<p>Even if the pitch source is unchanged, Time Wizard can define when notes are heard, accented, or doubled.</p>
+<hr />
+<h1>Tips for musical results</h1>
+<h2>Use one output for notes, another for changes to the note system</h2>
+<p>A very effective strategy is:</p>
+<ul>
+<li>one divider clocks the note sequencer</li>
+<li>another divider changes:</li>
+<li>transposition</li>
+<li>switch state</li>
+<li>scale</li>
+<li>reset point</li>
+</ul>
+<p>That gives motion on two timescales.</p>
+<h2>Let B6 define phrase length</h2>
+<p>A long B6 division resetting A or A+B creates musical form.</p>
+<h2>Use odd divisions</h2>
+<p>Set values like:
+- 5
+- 7
+- 3 against 8
+- 7 against 16</p>
+<p>These make melodies feel less grid-locked.</p>
+<h2>Use logic for accents, not only note clocks</h2>
+<p><code>A2 AND B5</code> is especially good for:
+- occasional accent envelopes
+- clocking a second oscillator layer
+- triggering glide only on selected notes</p>
+<h2>Try the rear jumper option</h2>
+<p>Setting dividers 5 &amp; 6 to <strong>half-period gates</strong> instead of triggers can help with:
+- longer note holds
+- tied notes
+- drone openings
+- switching sustained harmonic layers</p>
+<p>That can turn short trigger-based sequencing into more legato melodic material.</p>
+<hr />
+<h1>Limitations to understand</h1>
+<p>The Time Wizard does <strong>not</strong> generate pitch CV directly. So by itself it won’t create melody in the traditional “notes out” sense.</p>
+<p>Instead, it creates melody by controlling:</p>
+<ul>
+<li><strong>when notes happen</strong></li>
+<li><strong>when sequences advance</strong></li>
+<li><strong>when phrases reset</strong></li>
+<li><strong>when transpositions occur</strong></li>
+<li><strong>when alternate pitch sources are chosen</strong></li>
+<li><strong>when random voltages are sampled</strong></li>
+</ul>
+<p>In modular, that is often just as important as the pitch source itself.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Shakmat Time Wizard</strong> is best understood as a <strong>melodic structure module</strong> rather than a note module.</p>
+<p>Used with sequencers, quantizers, switches, and S&amp;H, it can produce:</p>
+<ul>
+<li>polymetric melodies</li>
+<li>evolving generative lines</li>
+<li>triplet or multiplied subdivisions</li>
+<li>phrase resets</li>
+<li>melodic masks and accents</li>
+<li>two-clock interactions</li>
+<li>long non-repeating forms that still resolve musically</li>
+</ul>
+<p>If you want, I can also turn this into:
+1. a <strong>set of concrete patch recipes with knob settings</strong>, or<br />
+2. a <strong>“best pairings” guide for your other specific modules</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

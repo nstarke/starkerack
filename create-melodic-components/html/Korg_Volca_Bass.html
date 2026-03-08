@@ -1,0 +1,528 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Korg_Volca_Bass</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Korg — Volca Bass</h1>
+<ul>
+<li><a href="../../manuals/Korg-Volca-Bass_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Using the Korg volca bass to create melodic parts</h1>
+<p>From the attached manual, this is <strong>not a Eurorack module</strong> but a <strong>Korg volca bass</strong> desktop analog sequencer/synth. Still, thinking like a Eurorack musician, it can absolutely be used <strong>alongside modular gear</strong> as a compact melodic voice, sequencer, clock source, or synchronized bass/lead generator.</p>
+<h2>What’s in the instrument</h2>
+<p>The volca bass gives you a compact melodic system built from:</p>
+<ul>
+<li><strong>3 analog VCOs</strong></li>
+<li>selectable <strong>saw</strong> or <strong>square</strong> wave per oscillator</li>
+<li>independent <strong>pitch</strong> control for each VCO over about <strong>±1 octave</strong></li>
+<li><strong>1 shared low-pass filter</strong></li>
+<li><strong>12 dB/oct LPF</strong></li>
+<li><strong>CUTOFF</strong> and <strong>PEAK</strong> controls</li>
+<li><strong>1 envelope generator</strong></li>
+<li><strong>ATTACK</strong></li>
+<li><strong>DECAY/RELEASE</strong></li>
+<li><strong>CUTOFF EG INT</strong></li>
+<li>optional <strong>SUSTAIN</strong></li>
+<li>optional EG-to-amp behavior</li>
+<li><strong>1 LFO</strong></li>
+<li>triangle or square</li>
+<li>routable to:<ul>
+<li>amp</li>
+<li>pitch</li>
+<li>cutoff</li>
+</ul>
+</li>
+<li><strong>16-step sequencer</strong></li>
+<li><strong>3-way oscillator grouping logic</strong></li>
+<li><strong>slide</strong></li>
+<li><strong>active step</strong></li>
+<li><strong>memory presets</strong></li>
+<li><strong>MIDI in</strong></li>
+<li><strong>analog sync in/out</strong></li>
+</ul>
+<p>So in Eurorack terms, think of it as a <strong>3-osc monosynth voice with an internal sequencer and clock utilities</strong>.</p>
+<hr />
+<h2>The core melodic architecture</h2>
+<h2>1. Three oscillators are the heart of melodic writing</h2>
+<p>The most important musical feature in this manual is that the volca bass has <strong>three VCOs</strong> and they can be used in different grouping modes:</p>
+<ul>
+<li><strong>FUNC + STEP 1</strong><br />
+  Each VCO is separate and operated by separate sequences.</li>
+<li><strong>FUNC + STEP 2</strong><br />
+  VCO1 and VCO2 are grouped together; VCO3 is separate.</li>
+<li><strong>FUNC + STEP 3</strong><br />
+  All VCOs are grouped together.</li>
+</ul>
+<p>This is the key to turning the unit from “just bass” into a <strong>melodic composition tool</strong>.</p>
+<h3>Practical melodic uses of the grouping modes</h3>
+<h3>A. All VCOs grouped together = big mono lead or bass</h3>
+<p>Use <strong>FUNC + STEP 3</strong>.</p>
+<p>This is the classic “modular unison” use:
+- tune all 3 VCOs to the same pitch for a thick lead
+- slightly detune them for width and analog motion
+- tune them to intervals for harmonic color:
+  - VCO1 = root
+  - VCO2 = octave
+  - VCO3 = fifth</p>
+<p>Because they track from the same sequence, you get:
+- strong basslines
+- acid leads
+- octave riffs
+- pseudo-chord stabs from one sequenced line</p>
+<p>This is the easiest way to get a <strong>melodic centerpiece</strong>.</p>
+<h3>B. Each VCO separate = layered counterpoint</h3>
+<p>Use <strong>FUNC + STEP 1</strong>.</p>
+<p>This is where it gets interesting for a Eurorack mindset. Each oscillator can effectively behave like its own sequenced melodic lane.</p>
+<p>That lets you build:
+- a <strong>bass ostinato</strong> on VCO1
+- a <strong>midrange answer phrase</strong> on VCO2
+- a <strong>high accent or drone sequence</strong> on VCO3</p>
+<p>Since all three pass through the same filter/VCA architecture, they feel musically unified, even though the pitch content differs.</p>
+<p>This is especially useful for:
+- minimal techno motifs
+- Berlin-school style repeating lines
+- acid phrases with implied harmony
+- call-and-response melodic motion</p>
+<h3>C. VCO1+VCO2 grouped, VCO3 independent</h3>
+<p>Use <strong>FUNC + STEP 2</strong>.</p>
+<p>This is the sweet spot for many melodic arrangements:
+- VCO1 + VCO2 create a thicker main voice
+- VCO3 acts as a separate melodic accent</p>
+<p>For example:
+- VCO1/VCO2: root + octave bass pattern
+- VCO3: offbeat upper-register motif</p>
+<p>Or:
+- VCO1/VCO2: detuned lead
+- VCO3: repeating pedal tone</p>
+<p>This creates the impression of <strong>multiple melodic layers</strong> from one compact synth.</p>
+<hr />
+<h2>2. Per-oscillator waveform choice shapes melodic role</h2>
+<p>The manual states:</p>
+<ul>
+<li><strong>FUNC + STEP 8 to STEP 10</strong> set waveform per oscillator</li>
+<li>LED off = <strong>saw</strong></li>
+<li>LED on = <strong>square</strong></li>
+</ul>
+<p>That means each oscillator can take a different tonal role.</p>
+<h3>Suggested setups</h3>
+<h3>Saw + saw + saw</h3>
+<ul>
+<li>richest harmonic content</li>
+<li>best for filter sweeps</li>
+<li>ideal for acid leads and expressive bass melodies</li>
+</ul>
+<h3>Square + square + square</h3>
+<ul>
+<li>hollower, more reed-like</li>
+<li>better for retro/game-like melodic lines</li>
+<li>good when you want melody to sit above dense drums</li>
+</ul>
+<h3>Mixed waveforms</h3>
+<p>Very modular in spirit.</p>
+<p>Examples:
+- <strong>VCO1 saw</strong> = foundational body
+- <strong>VCO2 square</strong> = edge and definition
+- <strong>VCO3 square up an octave</strong> = melodic articulation</p>
+<p>Or:
+- <strong>VCO1 square root</strong>
+- <strong>VCO2 saw fifth</strong>
+- <strong>VCO3 saw octave</strong></p>
+<p>This makes the line read more like a composed synth arrangement than a simple mono bass patch.</p>
+<hr />
+<h2>3. Pitch knobs let you build intervals and harmony</h2>
+<p>The <strong>PITCH 1–3</strong> knobs set each oscillator’s pitch relative to the played/sequenced note.</p>
+<p>This enables melodic construction through interval tuning:</p>
+<ul>
+<li>unison for thickness</li>
+<li>octave doubling</li>
+<li>fifth-based power harmony</li>
+<li>clustered intervals for tension</li>
+</ul>
+<h3>Useful musical tunings</h3>
+<ul>
+<li><strong>0 / 0 / slight detune</strong><br />
+  fat mono lead</li>
+<li><strong>0 / +12 / +7</strong><br />
+  root, octave, fifth feel</li>
+<li><strong>0 / +7 / +12</strong><br />
+  wide open harmonic shape</li>
+<li><strong>0 / small sharp / small flat</strong><br />
+  animated chorused melody</li>
+<li><strong>0 / +12 / +24-ish feel if reachable by octave mode + tuning approach</strong><br />
+  stacked octave emphasis</li>
+</ul>
+<p>Because this is analog and performance-oriented, these interval relationships are great for:
+- sequenced riffs
+- melodic hooks
+- drones with moving roots
+- implied chord motion</p>
+<p>It is not true polyphony, but it creates <strong>harmonic melody</strong>.</p>
+<hr />
+<h2>4. The shared filter turns raw intervals into expressive melody</h2>
+<p>The <strong>VCF</strong> section is central for making melodic material feel alive.</p>
+<p>Controls:
+- <strong>CUTOFF</strong>
+- <strong>PEAK</strong></p>
+<h3>Musical function</h3>
+<p>The filter can make the same sequence behave as:
+- muted bass
+- nasal lead
+- resonant acid line
+- soft supporting line</p>
+<h3>Melodic strategies</h3>
+<h3>Low cutoff, low peak</h3>
+<ul>
+<li>warm, rounded melodic bass</li>
+<li>good for root-note patterns</li>
+</ul>
+<h3>Mid cutoff, medium peak</h3>
+<ul>
+<li>articulate lead sequence</li>
+<li>notes separate clearly in a mix</li>
+</ul>
+<h3>High peak, moving cutoff</h3>
+<ul>
+<li>acid phrasing</li>
+<li>melody becomes speech-like and animated</li>
+</ul>
+<p>Because all oscillators feed the same filter, interval stacks stay coherent. This is like sending multiple oscillators in Eurorack into a single filter to create one “played voice.”</p>
+<hr />
+<h2>5. The envelope generator creates phrasing</h2>
+<p>The EG modulates:
+- <strong>VCA level</strong>
+- <strong>VCF cutoff frequency</strong></p>
+<p>Controls:
+- <strong>ATTACK</strong>
+- <strong>DECAY/RELEASE</strong>
+- <strong>CUTOFF EG INT</strong></p>
+<p>Function options:
+- <strong>FUNC + STEP 11</strong> = SUSTAIN on/off
+- <strong>FUNC + STEP 12</strong> = EG affects amp on/off</p>
+<h3>Melodic uses</h3>
+<h3>Plucky melodic sequences</h3>
+<ul>
+<li>low attack</li>
+<li>short decay/release</li>
+<li>moderate cutoff EG</li>
+<li>sustain off</li>
+</ul>
+<p>Great for:
+- sequenced bass arps
+- plucked techno motifs
+- percussive hooks</p>
+<h3>Legato lead phrases</h3>
+<ul>
+<li>slightly longer attack</li>
+<li>longer decay/release</li>
+<li>sustain on</li>
+<li>moderate EG amount</li>
+</ul>
+<p>Great for:
+- singing synth leads
+- smoother phrase connections
+- more lyrical top lines</p>
+<h3>Acid articulation</h3>
+<ul>
+<li>fast attack</li>
+<li>medium-short decay</li>
+<li>strong cutoff EG intensity</li>
+<li>resonance up</li>
+</ul>
+<p>This makes note changes feel vocal and per-step accents feel more pronounced.</p>
+<p>In melodic music, envelope shape is often more important than note choice. The manual gives enough control here to move from staccato to flowing lines.</p>
+<hr />
+<h2>6. Slide is crucial for melodic expression</h2>
+<p>The manual’s <strong>slide editing</strong> is one of the strongest features for melody.</p>
+<ul>
+<li>Hold <strong>FUNC</strong> and press <strong>STEP MODE</strong> to enter slide edit mode.</li>
+<li>Slide can be enabled per step.</li>
+<li>On the step after a slide, <strong>EG and LFO are not retriggered</strong>.</li>
+<li>This creates smooth pitch connection between steps.</li>
+</ul>
+<p>That is classic acid/legato behavior and very relevant for melodic writing.</p>
+<h3>Use slide for:</h3>
+<ul>
+<li>portamento runs</li>
+<li>tied notes</li>
+<li>phrase emphasis</li>
+<li>making a simple sequence feel performed rather than programmed</li>
+</ul>
+<h3>Best melodic applications</h3>
+<ul>
+<li>slide into phrase-ending notes</li>
+<li>slide across repeated root notes to create motion</li>
+<li>slide only on selective offbeats</li>
+<li>use independent VCO groupings and slide to make one layer feel legato while others remain rhythmic</li>
+</ul>
+<p>This is especially effective in:
+- acid
+- electro
+- melodic techno
+- synthwave bass/lead hybrids</p>
+<p>For modular users: think of this like <strong>sequencer glide tied to note trigger suppression</strong>.</p>
+<hr />
+<h2>7. Active Step lets you reshape melody without reprogramming pitches</h2>
+<p>The manual describes <strong>ACTIVE STEP</strong>:</p>
+<ul>
+<li>Hold <strong>FUNC</strong> and press <strong>PLAY</strong></li>
+<li>individual steps can be turned on/off</li>
+<li>off steps are skipped in playback and recording</li>
+</ul>
+<p>This is a deceptively powerful melodic tool.</p>
+<h3>Why it matters</h3>
+<p>A fixed 16-note pitch sequence can become multiple phrases by changing which steps are active.</p>
+<p>You can derive:
+- 16-step phrase
+- 12-step phrase
+- asymmetrical looping melody
+- syncopated motif
+- polymetric-feeling top line against drums</p>
+<h3>Musical applications</h3>
+<ul>
+<li>remove one step to create forward pull</li>
+<li>disable several steps to create sparse melodic punctuation</li>
+<li>use different active-step layouts across stored memories for arrangement variations</li>
+</ul>
+<p>This is very close to modular step-skipping techniques.</p>
+<hr />
+<h2>8. Step recording and live recording support phrase creation</h2>
+<p>The unit supports:
+- <strong>real-time recording</strong>
+- <strong>step recording</strong></p>
+<h3>Real-time recording</h3>
+<p>Useful for:
+- improvising hooks
+- human-feel note placement
+- jamming in sync with external gear</p>
+<h3>Step recording</h3>
+<p>Useful for:
+- precise pitch entry
+- interval-based composition
+- crafting repeating motifs one note at a time</p>
+<p>For melodic work:
+- step recording builds exact riffs
+- real-time recording captures gesture
+- slide and active step refine the result afterward</p>
+<p>That workflow is very familiar to anyone who patches sequencers in Eurorack.</p>
+<hr />
+<h2>9. LFO brings movement to melodic lines</h2>
+<p>The manual allows LFO routing to:</p>
+<ul>
+<li><strong>FUNC + STEP 4</strong> amp modulation</li>
+<li><strong>FUNC + STEP 5</strong> pitch modulation</li>
+<li><strong>FUNC + STEP 6</strong> cutoff modulation</li>
+<li><strong>FUNC + STEP 7</strong> waveform select</li>
+<li>LED off = triangle</li>
+<li>LED on = square</li>
+</ul>
+<p>Controls:
+- <strong>RATE</strong>
+- <strong>INT</strong></p>
+<h3>Melodic applications</h3>
+<h3>Pitch modulation</h3>
+<ul>
+<li>subtle vibrato for leads</li>
+<li>unstable analog character</li>
+<li>exaggerated wobble effects</li>
+</ul>
+<h3>Cutoff modulation</h3>
+<ul>
+<li>automatic phrase animation</li>
+<li>repeating tonal motion over static notes</li>
+<li>evolving melodic ostinati</li>
+</ul>
+<h3>Amp modulation</h3>
+<ul>
+<li>tremolo</li>
+<li>rhythmic pulsing</li>
+<li>can help turn held notes into patterns</li>
+</ul>
+<h3>Waveform implications</h3>
+<ul>
+<li><strong>triangle</strong> = smooth modulation</li>
+<li><strong>square</strong> = abrupt switching</li>
+</ul>
+<p>Per manual note, triangle LFO does <strong>not retrigger on note-on</strong>, which can create a freer, drifting motion over melodic passages.</p>
+<p>This is useful for:
+- long-form evolving lead lines
+- unstable sustained tones
+- making repeated notes feel less repetitive</p>
+<hr />
+<h2>10. Sync and MIDI make it easy to integrate with modular workflows</h2>
+<p>Even though it’s not Eurorack, the volca bass connects well conceptually and practically.</p>
+<h3>MIDI IN</h3>
+<p>The manual says an external MIDI device can control the volca bass sound source.</p>
+<p>So you can use:
+- a MIDI sequencer
+- DAW
+- MIDI-CV setup with MIDI output
+- keyboard controller</p>
+<p>This means the volca bass can be:
+- a dedicated analog melodic voice
+- a layered bass/lead source
+- a sequenced harmonic support instrument</p>
+<h3>SYNC IN / OUT</h3>
+<p>The sync system uses:
+- <strong>SYNC OUT</strong> = 5 V pulse, 15 ms, at each step start
+- <strong>SYNC IN</strong> accepts incoming pulses and advances steps accordingly</p>
+<p>For a modular musician, this is the really attractive part.</p>
+<p>You can use it:
+- as a <strong>clocked melodic box</strong> beside modular
+- as a <strong>clock source</strong> for other gear
+- as a <strong>clock follower</strong> from external pulse gear
+- to synchronize with analog sequencers or DAW pulse tracks</p>
+<h3>With Eurorack-style thinking</h3>
+<ul>
+<li>send external pulse/clock behavior into <strong>SYNC IN</strong> to drive melodic steps</li>
+<li>use <strong>SYNC OUT</strong> to keep another sequencer, clock divider, or pulse-based device moving with the volca pattern</li>
+<li>build one melodic line on the volca bass and another in Eurorack, both phase-locked</li>
+</ul>
+<p>It’s not 1V/oct CV control, but it is very usable in hybrid performance systems.</p>
+<hr />
+<h1>Best ways to use the volca bass for melodic components</h1>
+<h2>1. Bass + lead from one machine</h2>
+<p>Set:
+- <strong>FUNC + STEP 2</strong>
+- VCO1 + VCO2 grouped
+- VCO3 separate</p>
+<p>Program:
+- VCO1/2 = root-driven bass sequence
+- VCO3 = higher repeating melody</p>
+<p>Result:
+- one coherent low-end part
+- one upper melodic accent
+- both locked to the same clock and sonic character</p>
+<hr />
+<h2>2. Pseudo-chords and harmonic hooks</h2>
+<p>Set:
+- <strong>FUNC + STEP 3</strong>
+- all oscillators grouped</p>
+<p>Tune:
+- VCO1 root
+- VCO2 fifth
+- VCO3 octave or detuned unison</p>
+<p>Use:
+- short decay
+- moderate filter resonance
+- selective slide</p>
+<p>Result:
+- single-note sequence sounds harmonically rich
+- excellent for hooks, intros, and repeating melodic motifs</p>
+<hr />
+<h2>3. Independent contrapuntal lines</h2>
+<p>Set:
+- <strong>FUNC + STEP 1</strong></p>
+<p>Program:
+- VCO1 simple bass ostinato
+- VCO2 syncopated response
+- VCO3 sparse high-register notes</p>
+<p>Use active step to vary density.</p>
+<p>Result:
+- surprisingly complex melodic structure from a small sequencer
+- feels like three related voices sharing one synth architecture</p>
+<hr />
+<h2>4. Acid melody voice</h2>
+<p>Set:
+- saw waves
+- grouped oscillators or single oscillator emphasis
+- medium/high peak
+- moderate/high cutoff EG
+- short decay
+- strategic slide</p>
+<p>Result:
+- expressive, vocal melodic patterns
+- great for lead riffs as much as basslines</p>
+<hr />
+<h2>5. Clock-synced modular companion</h2>
+<p>Use SYNC:
+- modular or external pulse source into <strong>SYNC IN</strong>
+- or volca <strong>SYNC OUT</strong> to another sequenced device</p>
+<p>Then use the volca bass as:
+- a fixed analog melody source
+- a transposed repeating hook
+- a layered bass below modular lead voices</p>
+<p>This is ideal if your modular patch is doing texture and rhythm while the volca handles a reliable note pattern.</p>
+<hr />
+<h1>Practical patch-style workflows</h1>
+<h2>Workflow 1: Thick lead</h2>
+<ul>
+<li>Group all VCOs</li>
+<li>Set two saws and one square</li>
+<li>Slightly detune one oscillator</li>
+<li>Open cutoff moderately</li>
+<li>Add mild pitch LFO</li>
+<li>Record a 16-step melody</li>
+<li>Add slide to transitions into strong notes</li>
+</ul>
+<p>This gives a solid melodic lead line that feels played rather than static.</p>
+<h2>Workflow 2: Bassline with implied harmony</h2>
+<ul>
+<li>Group all VCOs</li>
+<li>Tune VCO2 up a fifth</li>
+<li>Tune VCO3 up an octave</li>
+<li>Short decay, sustain off</li>
+<li>Strong cutoff envelope</li>
+<li>Use active step to create syncopation</li>
+</ul>
+<p>This yields a bassline that already contains harmonic information, reducing the need for chords elsewhere.</p>
+<h2>Workflow 3: Two-layer sequence</h2>
+<ul>
+<li>Group VCO1 and VCO2 together</li>
+<li>Leave VCO3 independent</li>
+<li>VCO1/2 play root-driven pattern</li>
+<li>VCO3 plays a sparse upper phrase</li>
+<li>Use square wave on VCO3 for contrast</li>
+<li>Use active step on VCO3 to keep it intermittent</li>
+</ul>
+<p>This is a great “small system, big arrangement” approach.</p>
+<h2>Workflow 4: Modular clock hybrid</h2>
+<ul>
+<li>Clock the volca bass from external pulses via SYNC IN</li>
+<li>Program a melody with step recording</li>
+<li>Use volca bass as the stable tonal center</li>
+<li>Let modular provide percussion, modulation, and texture around it</li>
+</ul>
+<p>This works especially well for live jam setups.</p>
+<hr />
+<h1>Limitations to keep in mind</h1>
+<p>From a Eurorack perspective, the main limitations are:</p>
+<ul>
+<li>no native <strong>1V/oct CV input</strong></li>
+<li>no direct patchable modulation I/O like a modular voice</li>
+<li>shared filter/envelope for all three VCOs</li>
+<li>MIDI is input only, not a full modular control environment</li>
+<li>sync is pulse-based transport/step sync, not pitch CV</li>
+</ul>
+<p>So this is best thought of as:
+- a <strong>self-contained melodic subsystem</strong>
+- not a fully patch-programmable module</p>
+<p>Still, the sequencer, grouping system, slide, and sync make it very useful in a hybrid rig.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The manual shows that the volca bass is strongest melodically when you treat it not just as a bass synth, but as a <strong>3-oscillator sequenced melodic engine</strong>.</p>
+<p>Its best melodic strengths are:</p>
+<ul>
+<li><strong>stacked interval sequencing</strong></li>
+<li><strong>independent oscillator grouping</strong></li>
+<li><strong>slide-based phrasing</strong></li>
+<li><strong>active-step phrase reshaping</strong></li>
+<li><strong>filter-envelope articulation</strong></li>
+<li><strong>clock sync with external gear</strong></li>
+</ul>
+<p>If I were using it in a Eurorack-adjacent setup, I’d use it for:</p>
+<ul>
+<li>bass hooks</li>
+<li>acid leads</li>
+<li>octave/fifth harmonic riffs</li>
+<li>dual-layer melodic sequences</li>
+<li>synchronized analog counterpoint beside a modular system</li>
+</ul>
+<p>In other words: it’s a compact external voice that can contribute a lot of the <strong>melodic backbone</strong> in an electronic music setup.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

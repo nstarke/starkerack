@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_BD808</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — BD808</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_BD808_ns.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.tiptopaudio.com/808-2">Manual PDF</a></p>
+<h1>Tiptop Audio BD808 — using it for melodic components</h1>
+<p>Even though the <strong>BD808</strong> is a bass drum module, the manual makes it clear that it is very usable as a <strong>pitched, resonant analog sound source</strong> inside a Eurorack patch. In a modular context, that means it can contribute much more than just kick drums: it can become a <strong>bass voice, tuned percussion layer, transient oscillator, modulation source, or audio-rate excitation source</strong> for melodic patches.</p>
+<h2>What the manual tells us musically</h2>
+<p>From the manual, the important behaviors are:</p>
+<ul>
+<li><strong>The core sound is a resonating low-frequency sine-based circuit</strong></li>
+<li>This means the BD808 naturally produces a pitched low-frequency body.</li>
+<li>
+<p>With the right decay and processing, that body can read as a <strong>note</strong>, not only a kick.</p>
+</li>
+<li>
+<p><strong>DECAY can be extended very far</strong></p>
+</li>
+<li>Long decay makes the resonant pitch more audible.</li>
+<li>
+<p>At the extreme, some units may <strong>self-oscillate</strong>, which effectively turns the module into a continuous tone source.</p>
+</li>
+<li>
+<p><strong>TONE is a low-pass filter control</strong></p>
+</li>
+<li>Higher TONE passes more attack harmonics and gives the recognizable “basketball” / techno 808 click.</li>
+<li>
+<p>Lower TONE softens the attack and emphasizes the rounded body, which is often better for melodic bass use.</p>
+</li>
+<li>
+<p><strong>ACCENT changes more than loudness</strong></p>
+</li>
+<li>The manual notes that accent “hits” the resonating circuit harder, changing both <strong>level and attack character</strong>.</li>
+<li>
+<p>This makes accent useful as a <strong>performance articulation control</strong> for melodic lines.</p>
+</li>
+<li>
+<p><strong>LEVEL can get very hot</strong></p>
+</li>
+<li>The output can overdrive downstream modules, interfaces, filters, VCAs, pedals, and effects.</li>
+<li>
+<p>That makes the BD808 especially good as a source for <strong>harmonic enhancement</strong>, which is useful when turning a drum voice into something more melodic and present in a mix.</p>
+</li>
+<li>
+<p><strong>The sound becomes inconsistent when decay overlaps the next trigger</strong></p>
+</li>
+<li>This is not a defect; it is part of the analog resonant behavior.</li>
+<li>
+<p>Musically, this can be used intentionally to create <strong>legato bass movement, pitch-smearing, or evolving tonal phrases</strong>.</p>
+</li>
+<li>
+<p><strong>Tiptop explicitly encourages patching drum modules through other modules</strong></p>
+</li>
+<li>The manual suggests ring modulation, filters, VCAs, bit crushers, DSP, CV destinations, and cross-modulation with other drum voices.</li>
+<li>That strongly supports using the BD808 as a building block in larger melodic systems.</li>
+</ul>
+<hr />
+<h2>How the BD808 can create melodic material</h2>
+<h2>1. 808 bassline voice</h2>
+<p>This is the most direct melodic use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send a trigger sequence into <strong>GATE IN</strong></li>
+<li>Take <strong>BD OUT</strong> into:</li>
+<li>a VCA/envelope chain, or</li>
+<li>directly into a mixer/filter</li>
+<li>Set:</li>
+<li><strong>DECAY</strong> fairly long</li>
+<li><strong>TONE</strong> lower to medium</li>
+<li><strong>LEVEL</strong> to taste</li>
+<li><strong>ACCENT</strong> moderate</li>
+</ul>
+<h3>Result</h3>
+<p>The resonant sine body becomes a <strong>sub-bass note event</strong>. If the sequence is rhythmic and sparse enough, the ear hears each hit as a bass tone. This works especially well for:</p>
+<ul>
+<li>electro basslines</li>
+<li>Miami bass style patterns</li>
+<li>techno low-end riffs</li>
+<li>minimal dub pulses</li>
+</ul>
+<h3>Musical trick</h3>
+<p>Use two trigger streams:
+- one to <strong>GATE IN</strong>
+- one to <strong>ACCENT IN</strong></p>
+<p>Now you can articulate some “notes” more strongly than others. Even though the BD808 is not pitch-tracking from CV, the difference in attack and loudness creates the perception of phrasing, almost like a melodic accent pattern.</p>
+<hr />
+<h2>2. Tuned percussion / pseudo-melody through filtering</h2>
+<p>The module itself does not offer pitch CV input, but you can still extract melodic behavior by using external modules.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>BD OUT → resonant filter</strong></li>
+<li>Sequence the filter cutoff with a CV sequencer</li>
+<li>Optionally modulate resonance with another rhythmic CV</li>
+<li>Trigger the BD808 from a pattern source</li>
+</ul>
+<h3>Why this works</h3>
+<p>The BD808 provides:
+- a strong low-frequency fundamental
+- a transient click
+- harmonics controlled by TONE and output saturation</p>
+<p>A resonant filter can emphasize different spectral regions per step, making a repeated BD808 line feel like it is moving through different notes or vowel-like tones.</p>
+<h3>Best settings</h3>
+<ul>
+<li><strong>TONE</strong> medium-high if you want the filter to have harmonics to grab</li>
+<li><strong>DECAY</strong> medium-long</li>
+<li><strong>LEVEL</strong> high if you want filter drive</li>
+</ul>
+<p>This is one of the strongest ways to derive melodic content from a non-pitched drum module.</p>
+<hr />
+<h2>3. Self-oscillation as a drone or pitch source</h2>
+<p>The manual notes that with maximum decay, some BD808 units may begin <strong>self-oscillating</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Turn <strong>DECAY</strong> to maximum</li>
+<li>Back it off slightly if needed to stabilize the tone</li>
+<li>Use <strong>BD OUT</strong> as a drone source</li>
+<li>Run it through:</li>
+<li>a VCA for note gating</li>
+<li>a filter for timbral movement</li>
+<li>wavefolder/distortion for upper harmonics</li>
+</ul>
+<h3>Result</h3>
+<p>If your unit self-oscillates, the BD808 can act as a <strong>raw analog sine-ish oscillator</strong>. It will not be a precision 1V/oct voice, but it can still be used for:</p>
+<ul>
+<li>drones</li>
+<li>bass pedals</li>
+<li>tuned ambient layers by ear</li>
+<li>FM/modulation source for other oscillators or filters</li>
+</ul>
+<h3>Musical use together with other modules</h3>
+<p>Pair the BD808 drone with a melodic oscillator:
+- Use BD808 as the sub layer
+- Use a conventional VCO for the clearly tuned upper melody
+- Gate and accent the BD808 rhythmically underneath</p>
+<p>This gives a very classic modular hybrid: <strong>pitched melody above, resonant analog body below</strong>.</p>
+<hr />
+<h2>4. Use the BD808 as an exciter for resonators</h2>
+<p>Because the BD808 has a strong transient plus a resonant body, it is excellent for exciting external resonant processors.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>BD OUT → resonator / physical modeling module / tuned delay / comb filter</strong></li>
+<li>Sequence trigger input to BD808</li>
+<li>Tune the resonator chromatically</li>
+</ul>
+<h3>Result</h3>
+<p>The BD808 becomes the <strong>strike mechanism</strong>, while the resonator supplies the actual pitch. This can create:</p>
+<ul>
+<li>tuned tom-like melodies</li>
+<li>marimba or plucked-bass illusions</li>
+<li>metallic melodic sequences</li>
+<li>dubby tuned percussive lines</li>
+</ul>
+<h3>Why this is effective</h3>
+<p>A plain click can excite a resonator, but the BD808 is richer than a click:
+- it has body
+- it has controllable attack
+- it can be overdriven
+- it responds dynamically to accent</p>
+<p>That gives the resonator a more expressive input signal.</p>
+<hr />
+<h2>5. Accent as articulation in melodic rhythm</h2>
+<p>The manual explains that accent is internally normalized from the gate input unless a cable is inserted into <strong>ACCENT IN</strong>. Once patched separately, accented and unaccented hits diverge in gain and attack.</p>
+<h3>Melodic application</h3>
+<p>Think of accent as similar to:
+- note velocity
+- phrasing
+- emphasis
+- dynamic contour</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Clock divider or trigger sequencer to <strong>GATE IN</strong></li>
+<li>A separate sparse accent pattern to <strong>ACCENT IN</strong></li>
+</ul>
+<p>Use this for:
+- call-and-response bass phrases
+- syncopated low-end motifs
+- pseudo-melodic movement where dynamics imply line shape</p>
+<p>In groove-based music, this can be more important than literal pitch movement.</p>
+<hr />
+<h2>6. Overdrive for harmonically richer melodic bass</h2>
+<p>The manual emphasizes that <strong>LEVEL</strong> can go up to around <strong>20 Vp-p</strong>, which is extremely hot and enough to clip many downstream devices.</p>
+<h3>Patch</h3>
+<ul>
+<li>Set <strong>LEVEL</strong> high</li>
+<li>Set <strong>ACCENT</strong> high</li>
+<li>Set <strong>DECAY</strong> medium</li>
+<li>Run <strong>BD OUT</strong> into:</li>
+<li>wavefolder</li>
+<li>saturating filter</li>
+<li>VCA with gain</li>
+<li>distortion</li>
+<li>analog delay</li>
+<li>bit crusher</li>
+</ul>
+<h3>Result</h3>
+<p>The BD808 develops more harmonic complexity, making it easier to hear as a <strong>bass voice with note identity</strong> in a musical arrangement.</p>
+<p>Pure sub-heavy 808 sounds can disappear melodically because they are too sine-like. Overdriving them creates upper harmonics, which makes rhythmic bass phrases read more clearly on smaller speakers and in dense mixes.</p>
+<hr />
+<h2>7. Audio-rate modulation source for melodic systems</h2>
+<p>The manual explicitly says drum outputs can be sent into CV inputs, FM inputs, sync inputs, and other unusual destinations.</p>
+<p>That means the BD808 can be used not only as audio, but as a <strong>contoured modulation source</strong>.</p>
+<h3>Patch ideas</h3>
+<h3>A. Filter FM</h3>
+<ul>
+<li><strong>BD OUT → filter FM/CV input</strong></li>
+<li>Another oscillator provides the pitched melody</li>
+</ul>
+<p>The BD808 imposes a per-hit pitch/timbre contour onto the melodic voice.</p>
+<h3>B. Oscillator FM</h3>
+<ul>
+<li><strong>BD OUT → linear or exponential FM input of a VCO</strong></li>
+<li>Sequence the VCO melodically</li>
+</ul>
+<p>Now each kick hit adds a transient pitch bend or grit to the melodic oscillator.</p>
+<h3>C. Waveshaper modulation</h3>
+<ul>
+<li><strong>BD OUT → fold/symmetry CV</strong></li>
+<li>Another oscillator or chord source through the shaper</li>
+</ul>
+<p>The BD808 rhythmically animates harmonic color, creating melodic movement without changing pitch.</p>
+<p>This is one of the most “modular” ways to use the BD808 melodically: not by making the drum itself play notes, but by letting it animate notes elsewhere.</p>
+<hr />
+<h2>8. Ring modulation with other voices</h2>
+<p>The manual specifically suggests running two drum sounds into a <strong>ring modulator</strong> or <strong>VCA</strong> for amplitude modulation.</p>
+<p>Even if you only have the BD808, the same principle works with any melodic oscillator.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>BD808 → ring mod input A</strong></li>
+<li><strong>VCO or other pitched voice → ring mod input B</strong></li>
+</ul>
+<h3>Result</h3>
+<p>You get sidebands and bell-like or growling tones shaped by the BD808’s transient and body. This can generate:</p>
+<ul>
+<li>metallic bass tones</li>
+<li>tuned industrial percussion</li>
+<li>unstable melodic textures</li>
+<li>hybrid kick/bass voices</li>
+</ul>
+<p>If the pitched oscillator is sequenced, the resulting output can function as a genuine melodic layer with strong rhythmic identity.</p>
+<hr />
+<h2>9. Layered kick + bass note from one source</h2>
+<p>One very practical approach is to split the BD808 into parallel paths.</p>
+<h3>Patch</h3>
+<ul>
+<li>Mult <strong>BD OUT</strong> to two chains</li>
+</ul>
+<h4>Path 1: Kick body</h4>
+<ul>
+<li>direct to mixer</li>
+<li>shorter decay setting on the module itself</li>
+<li>moderate level</li>
+</ul>
+<h4>Path 2: Melodic enhancement</h4>
+<ul>
+<li>through filter/distortion/resonator/delay</li>
+<li>EQ or high-pass as needed</li>
+<li>maybe VCA-gated separately</li>
+</ul>
+<h3>Result</h3>
+<p>You can make one BD808 behave like:
+- a normal kick in the low end
+- plus a tonal or melodic layer in the mids</p>
+<p>This is especially effective in techno, electro, and experimental styles where the kick itself participates in the harmonic language of the track.</p>
+<hr />
+<h2>10. Controlled instability as melodic variation</h2>
+<p>The manual notes that if the <strong>DECAY</strong> exceeds the interval between hits, the sound can become inconsistent because the resonant circuit has not fully settled.</p>
+<p>Normally this is treated as a warning, but musically it is a feature.</p>
+<h3>Use it for:</h3>
+<ul>
+<li>sliding-feel bass ostinatos</li>
+<li>evolving repeated phrases</li>
+<li>acid-adjacent low-end instability</li>
+<li>humanized analog variation</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Program repeating 8th or 16th note triggers</li>
+<li>Raise <strong>DECAY</strong> until hits begin interacting</li>
+<li>Adjust <strong>ACCENT</strong> pattern for contour</li>
+<li>Run through a filter or saturation stage</li>
+</ul>
+<p>This produces bass movement that is not conventionally quantized in pitch, but still feels melodic because the resonant state of one note influences the next.</p>
+<hr />
+<h1>Best musical roles for the BD808 in a melodic patch</h1>
+<h2>1. Sub-bass punctuation</h2>
+<p>Use it as the low fundamental under a separate pitched synth line.</p>
+<h2>2. Pitched percussion</h2>
+<p>Use long decay and resonators/filters to turn it into tuned strikes.</p>
+<h2>3. Articulated bass rhythm</h2>
+<p>Use separate accent sequencing to create phrase shape.</p>
+<h2>4. Drone oscillator</h2>
+<p>If your unit self-oscillates, exploit it as a primitive analog tone source.</p>
+<h2>5. Modulation source</h2>
+<p>Patch the audio into FM/CV/filter inputs to animate melodic voices.</p>
+<h2>6. Harmonic exciter</h2>
+<p>Drive downstream processors so the drum contributes note-like harmonics.</p>
+<hr />
+<h1>Practical patch recipes</h1>
+<h2>Patch 1: 808 bass melody illusion</h2>
+<ul>
+<li>Trigger sequencer → <strong>GATE IN</strong></li>
+<li>Accent sequencer → <strong>ACCENT IN</strong></li>
+<li><strong>BD OUT → low-pass filter → VCA → mixer</strong></li>
+<li>Set:</li>
+<li>DECAY: 1–3 o’clock</li>
+<li>TONE: 9–11 o’clock</li>
+<li>LEVEL: 11–1 o’clock</li>
+<li>ACCENT: to taste</li>
+</ul>
+<p>The filter cutoff sequence supplies “note movement,” while BD808 supplies body and articulation.</p>
+<hr />
+<h2>Patch 2: Resonator bassline</h2>
+<ul>
+<li>Trigger pattern → <strong>GATE IN</strong></li>
+<li><strong>BD OUT → resonator tuned to scale → mixer</strong></li>
+<li>Optional accent pattern → <strong>ACCENT IN</strong></li>
+</ul>
+<p>This gives tuned percussive notes using the BD808 as the strike source.</p>
+<hr />
+<h2>Patch 3: Kick-controlled melody animation</h2>
+<ul>
+<li>Main melodic VCO sequence → voice chain</li>
+<li><strong>BD OUT → VCO FM input</strong> or <strong>filter CV input</strong></li>
+<li>Trigger BD808 rhythmically</li>
+</ul>
+<p>The melody remains pitched by the VCO, but the BD808 injects rhythmic movement and transient aggression.</p>
+<hr />
+<h2>Patch 4: Self-oscillating sub drone</h2>
+<ul>
+<li>Set DECAY near max</li>
+<li>Find self-oscillation point if your unit supports it</li>
+<li><strong>BD OUT → VCA</strong></li>
+<li>Use external envelope or gate to shape notes</li>
+<li>Add saturation/filtering</li>
+</ul>
+<p>Useful for dark drones, bass pedals, and semi-tuned low-end beds.</p>
+<hr />
+<h2>Patch 5: Split-path kick/bass hybrid</h2>
+<ul>
+<li>Mult <strong>BD OUT</strong></li>
+<li>Path A → dry kick mix</li>
+<li>Path B → distortion + filter + delay/resonator</li>
+<li>Mix both together</li>
+</ul>
+<p>You get a functional kick plus a tonal/melodic aura around it.</p>
+<hr />
+<h1>Important limitations</h1>
+<p>The BD808 is <strong>not a conventional melodic oscillator</strong>. Based on the manual:</p>
+<ul>
+<li>there is <strong>no pitch CV input</strong></li>
+<li>melodic use relies on:</li>
+<li>resonance</li>
+<li>filtering</li>
+<li>excitation of other modules</li>
+<li>overtones from distortion</li>
+<li>articulation from accent</li>
+<li>self-oscillation if available</li>
+<li>interaction with external resonators or processors</li>
+</ul>
+<p>So if your goal is precise scales and keyboard tracking, the BD808 is not the primary voice. But if your goal is <strong>musically useful low-end melody, tuned percussion, phrase articulation, and modular cross-patching</strong>, it is very strong.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The manual presents the <strong>BD808</strong> as more than a drum sound: it is a <strong>resonant analog sound generator</strong> that becomes especially powerful in a modular system. For melodic components, its best uses are:</p>
+<ul>
+<li><strong>808-style bassline pulses</strong></li>
+<li><strong>tuned percussion through resonators and filters</strong></li>
+<li><strong>drone or sine-like source near self-oscillation</strong></li>
+<li><strong>dynamic articulation via separate accent sequencing</strong></li>
+<li><strong>audio-rate modulation for melodic voices</strong></li>
+<li><strong>harmonic bass generation through saturation and processing</strong></li>
+</ul>
+<p>In short: the BD808 won’t replace a 1V/oct oscillator, but it can absolutely become part of the <strong>melodic architecture</strong> of a Eurorack patch—especially for bass, tuned percussion, and rhythmic tonal movement.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

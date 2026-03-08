@@ -1,0 +1,419 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Euclid</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Euclid</h1>
+<ul>
+<li><a href="../../manuals/2hp_Euclid.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Using 2hp Euclid to Create Melodic Components</h1>
+<p>The attached manual is for the <strong>2hp Euclid</strong>, a <strong>Euclidean trigger pattern generator</strong>. By itself, Euclid does <strong>not generate pitch CV</strong> or audio, but it is extremely useful for creating <strong>melodic structure</strong> when paired with other Eurorack modules such as:</p>
+<ul>
+<li>sequencers</li>
+<li>quantizers</li>
+<li>sample &amp; hold</li>
+<li>shift registers</li>
+<li>clock dividers</li>
+<li>switches</li>
+<li>envelopes</li>
+<li>oscillators</li>
+<li>sequential switches</li>
+<li>logic modules</li>
+</ul>
+<h2>What Euclid Does</h2>
+<p>Euclid creates a rhythm by distributing a chosen number of active steps across a pattern length.</p>
+<p>Core controls:</p>
+<ul>
+<li><strong>Trig Input</strong>: advances the pattern one step</li>
+<li><strong>Reset Input</strong>: resets the pattern to step 1</li>
+<li><strong>Length</strong>: pattern length from 1–16 steps</li>
+<li><strong>Steps</strong>: number of active hits distributed across the length</li>
+<li><strong>Offset</strong>: rotates the pattern</li>
+<li><strong>Output</strong>: sends a <strong>+5V, 6ms trigger</strong> on active steps</li>
+</ul>
+<p>So musically, Euclid is best thought of as a <strong>musical trigger mask</strong> or <strong>rhythmic phrase generator</strong>.</p>
+<hr />
+<h1>How Euclid Contributes to Melody</h1>
+<p>Since melody is usually a combination of:</p>
+<ul>
+<li><strong>pitch selection</strong></li>
+<li><strong>note timing</strong></li>
+<li><strong>phrase structure</strong></li>
+<li><strong>accent and repetition</strong></li>
+</ul>
+<p>Euclid mainly helps with:</p>
+<ol>
+<li><strong>when notes happen</strong></li>
+<li><strong>which notes are allowed through</strong></li>
+<li><strong>how a phrase repeats and rotates</strong></li>
+<li><strong>creating asymmetry and cyclical melodic motion</strong></li>
+</ol>
+<p>That makes it excellent for melodic work, even though it is not itself a pitch sequencer.</p>
+<hr />
+<h1>Patch Ideas for Melodic Use</h1>
+<h2>1. Triggering a Pitch Source Rhythmicly</h2>
+<h3>Patch</h3>
+<ul>
+<li>Clock → <strong>Euclid TRIG</strong></li>
+<li>Euclid <strong>OUT</strong> → envelope generator trigger input</li>
+<li>Pitch sequencer or quantized CV → oscillator 1V/oct</li>
+<li>Envelope → VCA → oscillator audio</li>
+</ul>
+<h3>Result</h3>
+<p>Euclid determines <strong>which steps produce notes</strong>. Your pitch source can be a traditional sequencer, and Euclid adds a Euclidean rhythm on top.</p>
+<h3>Why it works</h3>
+<p>A plain 8-step pitch sequence can sound much more musical when only selected notes are articulated.<br />
+For example:</p>
+<ul>
+<li>Length = 8</li>
+<li>Steps = 3</li>
+</ul>
+<p>This creates a sparse 3-note articulation pattern over your 8-note pitch loop, often resulting in phrases that feel more alive than straight 8ths.</p>
+<hr />
+<h2>2. Advancing a Sequencer Only on Euclidean Pulses</h2>
+<h3>Patch</h3>
+<ul>
+<li>Master clock → Euclid TRIG</li>
+<li>Euclid OUT → clock/advance input of a pitch sequencer</li>
+<li>Sequencer CV out → quantizer or oscillator</li>
+<li>Euclid OUT or master clock → envelope trigger depending on desired behavior</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of every clock pulse advancing the melody, the sequencer only moves on Euclidean hits.</p>
+<h3>Musical effect</h3>
+<p>This creates melodies with:
+- irregular spacing
+- repeated notes between advances
+- cyclic phrase lengths</p>
+<p>If the sound is gated every master step but the sequencer advances only on Euclidean triggers, the same pitch may repeat before moving on. This is great for <strong>hook-like motifs</strong>.</p>
+<hr />
+<h2>3. Sampling Random Voltage Into Melodic Notes</h2>
+<h3>Patch</h3>
+<ul>
+<li>Random CV source → sample and hold input</li>
+<li>Euclid OUT → sample and hold trigger</li>
+<li>Sample and hold output → quantizer</li>
+<li>Quantizer → oscillator 1V/oct</li>
+<li>Euclid OUT → envelope trigger</li>
+</ul>
+<h3>Result</h3>
+<p>Euclid determines when a new pitch is chosen.</p>
+<h3>Why it is melodic</h3>
+<p>Because the random voltage is only sampled on Euclidean hits, the melody becomes rhythmically coherent instead of constantly changing. The quantizer turns it into usable notes.</p>
+<h3>Tip</h3>
+<p>Use:
+- <strong>Length = 5, Steps = 2</strong> for sparse motifs
+- <strong>Length = 8, Steps = 5</strong> for denser melodic movement
+- adjust <strong>Offset</strong> to shift where the phrase starts without changing the note pool</p>
+<hr />
+<h2>4. Euclid as a Gatekeeper for a Quantized Sequence</h2>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer CV → quantizer → oscillator</li>
+<li>Clock → sequencer clock input</li>
+<li>Same clock → Euclid TRIG</li>
+<li>Euclid OUT → VCA envelope trigger</li>
+</ul>
+<h3>Result</h3>
+<p>The pitch sequence runs continuously, but only some notes are heard.</p>
+<h3>Why this is useful</h3>
+<p>This is one of the easiest ways to turn a basic sequence into a more sophisticated melodic phrase.<br />
+Euclid acts like a <strong>compositional editor</strong>, deciding which notes are spoken and which are implied.</p>
+<p>This can create:
+- syncopation
+- recurring motifs
+- phrase holes
+- pseudo-polyrhythms</p>
+<hr />
+<h2>5. Using Offset as Melodic Phrase Rotation</h2>
+<p>The <strong>Offset</strong> control rotates the Euclidean pattern.</p>
+<h3>Melodic use</h3>
+<p>If Euclid is triggering:
+- envelopes,
+- sample and hold,
+- sequencer advances,
+- or note changes,</p>
+<p>then Offset changes <strong>where the accents or note events fall</strong> in relation to the pitch material.</p>
+<h3>Example</h3>
+<p>Suppose your pitch sequencer loops through:
+C - D - E - G - A - G - E - D</p>
+<p>If Euclid is set to:
+- Length = 8
+- Steps = 3</p>
+<p>Then changing Offset may articulate:
+- C, G, E
+or
+- D, A, D
+or
+- E, G, C</p>
+<p>So Offset becomes a very playable <strong>phrase rotation tool</strong>.</p>
+<hr />
+<h2>6. Creating Polymetric Melodies</h2>
+<p>Euclid supports pattern lengths from <strong>1 to 16</strong> steps.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Main pitch sequencer running 8 steps</li>
+<li>Euclid set to 5, 7, or 9 steps</li>
+<li>Euclid OUT triggers envelope or sequencer advance</li>
+</ul>
+<h3>Result</h3>
+<p>Because the rhythmic cycle and pitch cycle are different lengths, the melodic phrasing shifts over time.</p>
+<h3>Musical outcome</h3>
+<p>This is excellent for:
+- generative melodies
+- minimalist patterns
+- evolving arpeggios
+- IDM-style shifting phrases</p>
+<p>For example:
+- pitch sequence = 8 steps
+- Euclid rhythm = 5 steps with 2 or 3 hits</p>
+<p>The note emphasis will drift against the pitch loop, producing long non-repeating structures.</p>
+<hr />
+<h2>7. Driving a Sequential Switch for Melodic Variation</h2>
+<h3>Patch</h3>
+<ul>
+<li>Several CV sources into a sequential switch:</li>
+<li>sequencer row A</li>
+<li>sequencer row B</li>
+<li>random voltage</li>
+<li>fixed interval voltage</li>
+<li>Euclid OUT → switch advance</li>
+<li>Switch output → quantizer → oscillator</li>
+</ul>
+<h3>Result</h3>
+<p>Euclid controls when the melodic source changes.</p>
+<h3>Why this is powerful</h3>
+<p>Now Euclid is not just timing notes, but structuring <strong>which melodic generator is active</strong>. This can create:
+- phrase A / phrase B alternation
+- fills
+- motivic changes
+- controlled randomness</p>
+<hr />
+<h2>8. Triggering Envelope Shapes for Melodic Expression</h2>
+<p>Melody is not only pitch. It is also articulation.</p>
+<h3>Patch</h3>
+<ul>
+<li>Euclid OUT → envelope trigger</li>
+<li>Envelope controls:</li>
+<li>VCA amplitude</li>
+<li>filter cutoff</li>
+<li>wavefolder depth</li>
+<li>FM index</li>
+</ul>
+<h3>Result</h3>
+<p>Each Euclidean hit becomes a melodic articulation event.</p>
+<h3>Use case</h3>
+<p>Even with a static pitch drone or slow CV movement, Euclid can create the perception of melody through repeated dynamic accents and timbral shaping.</p>
+<p>This is especially effective with:
+- low-pass gates
+- plucky envelopes
+- resonant filters
+- per-step timbre modulation</p>
+<hr />
+<h2>9. Using CV Over Length and Steps for Evolving Melodies</h2>
+<p>Euclid has CV inputs for:</p>
+<ul>
+<li><strong>Length CV</strong>: 0V to +5V</li>
+<li><strong>Steps CV</strong>: 0V to +5V</li>
+</ul>
+<p>The incoming CV is added to the knob position.</p>
+<h3>Melodic application</h3>
+<p>If you patch slow modulation into these inputs:
+- LFO
+- random stepped voltage
+- another sequencer row
+- pressure or joystick CV</p>
+<p>the melodic rhythm will evolve over time.</p>
+<h3>Example</h3>
+<ul>
+<li>Slow triangle LFO → Steps CV</li>
+<li>Length manually set to 8</li>
+<li>Steps moving between 2 and 6</li>
+</ul>
+<p>This causes the density of note events to breathe over time, making melodies feel less loop-bound.</p>
+<h3>Important musical effect</h3>
+<p>As note density changes, the same pitch source can feel like:
+- sparse motif
+- arpeggio
+- burst
+- ostinato</p>
+<hr />
+<h2>10. Using Reset for Predictable Phrase Starts</h2>
+<p>The <strong>Reset input</strong> forces the pattern back to its first step.</p>
+<h3>Why this matters for melody</h3>
+<p>If you want melodic phrases to align with bar lines or section changes, send a reset pulse every:
+- 4 bars
+- 8 beats
+- phrase boundary
+- transport start</p>
+<h3>Benefit</h3>
+<p>Without reset, long Euclidean interactions can drift freely. That is great for generative music, but reset gives you:
+- repeatable hooks
+- song-form alignment
+- stable downbeats</p>
+<p>A useful compromise is to let Euclid drift for a while, then periodically reset it for structural clarity.</p>
+<hr />
+<h1>Best Melodic Pairings for Euclid</h1>
+<h2>Euclid + Quantizer</h2>
+<p>A classic pairing for making random or semi-random CV melodic.</p>
+<p>Euclid decides:
+- when a new note happens</p>
+<p>Quantizer decides:
+- what scale note it becomes</p>
+<hr />
+<h2>Euclid + Pitch Sequencer</h2>
+<p>Excellent for phrase masking, syncopation, and note selection.</p>
+<p>Euclid decides:
+- which sequencer notes are articulated
+- when the sequencer advances</p>
+<hr />
+<h2>Euclid + Sample &amp; Hold</h2>
+<p>Great for generative melody.</p>
+<p>Euclid decides:
+- when a voltage is captured
+- how often pitch changes</p>
+<hr />
+<h2>Euclid + Sequential Switch</h2>
+<p>Great for melodic arrangement and variation.</p>
+<p>Euclid decides:
+- when to move between phrase sources</p>
+<hr />
+<h2>Euclid + Logic / Clock Divider</h2>
+<p>Useful for more advanced melodic rhythms.</p>
+<p>You can combine Euclid with:
+- AND logic for note coincidence
+- OR logic for denser note generation
+- XOR logic for unexpected phrase shapes
+- divided clocks for slower melodic layers</p>
+<hr />
+<h1>Practical Melodic Patch Recipes</h1>
+<h2>Recipe 1: Euclidean Arpeggio</h2>
+<ul>
+<li>Clock → Euclid TRIG</li>
+<li>Euclid OUT → arpeggiator advance or sequencer advance</li>
+<li>Arp/sequencer CV → quantizer → oscillator</li>
+<li>Euclid OUT → envelope</li>
+</ul>
+<p>Try:
+- Length = 8
+- Steps = 5
+- Offset adjusted by hand during performance</p>
+<p>This gives a flowing but asymmetrical arpeggio.</p>
+<hr />
+<h2>Recipe 2: Generative Lead Line</h2>
+<ul>
+<li>Noise/random source → sample &amp; hold input</li>
+<li>Euclid OUT → sample &amp; hold trigger</li>
+<li>Sample &amp; hold → quantizer in minor scale</li>
+<li>Quantizer out → oscillator 1V/oct</li>
+<li>Euclid OUT → envelope → VCA</li>
+</ul>
+<p>Try:
+- Length = 7
+- Steps = 3</p>
+<p>This produces a sparse, musical lead line with repeating cyclic logic.</p>
+<hr />
+<h2>Recipe 3: Syncopated Bassline</h2>
+<ul>
+<li>8-step sequencer CV → oscillator</li>
+<li>Main clock → sequencer</li>
+<li>Same clock → Euclid TRIG</li>
+<li>Euclid OUT → VCA envelope trigger</li>
+</ul>
+<p>Try:
+- Length = 8
+- Steps = 3 or 5</p>
+<p>The bass pitches stay familiar, but Euclid creates syncopation and groove.</p>
+<hr />
+<h2>Recipe 4: Rotating Motif</h2>
+<ul>
+<li>Pitch sequencer running a fixed melody</li>
+<li>Euclid OUT → envelope trigger</li>
+<li>Manually turn <strong>Offset</strong> during playback</li>
+</ul>
+<p>This creates phrase rotation without changing pitch order.</p>
+<p>A very performance-friendly technique.</p>
+<hr />
+<h2>Recipe 5: Evolving Melodic Density</h2>
+<ul>
+<li>Slow CV source → Steps CV</li>
+<li>Another slow CV source or manual setting → Length CV</li>
+<li>Euclid OUT → sample and hold trigger and envelope trigger</li>
+</ul>
+<p>This makes a melody generator that gradually changes how busy it is.</p>
+<hr />
+<h1>Performance Suggestions</h1>
+<h2>Use Offset as your main live control</h2>
+<p>Offset is especially musical because it preserves the core pattern but shifts emphasis. It is ideal for:
+- fills
+- transitions
+- melodic call-and-response
+- variation without chaos</p>
+<h2>Modulate Steps for tension</h2>
+<p>Lower Steps:
+- sparse
+- minimal
+- more space</p>
+<p>Higher Steps:
+- active
+- urgent
+- more notes</p>
+<h2>Change Length for phrase feel</h2>
+<p>Short lengths:
+- repetitive
+- hook-like
+- dance-friendly</p>
+<p>Longer lengths:
+- evolving
+- less predictable
+- generative</p>
+<h2>Reset on section changes</h2>
+<p>Use reset when moving from verse to chorus or when bringing in a new harmonic sequence.</p>
+<hr />
+<h1>Limitations to Keep in Mind</h1>
+<p>Based on the manual:</p>
+<ul>
+<li>Euclid outputs <strong>triggers only</strong>, not gates of variable length</li>
+<li>Output trigger is <strong>+5V, 6ms pulse</strong></li>
+<li>It does <strong>not produce pitch CV</strong></li>
+<li>It does <strong>not store note values</strong></li>
+<li>It does <strong>not quantize</strong></li>
+</ul>
+<p>So for melody, it must be paired with other modules that generate or process pitch.</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>2hp Euclid</strong> is not a melodic source by itself, but it is a very effective <strong>melodic rhythm engine</strong>. It helps create melody by controlling:</p>
+<ul>
+<li>when notes happen</li>
+<li>when pitch changes happen</li>
+<li>how phrases rotate</li>
+<li>how rhythmic density evolves</li>
+<li>how melodic cycles interact with pitch cycles</li>
+</ul>
+<p>It works especially well with:</p>
+<ul>
+<li>pitch sequencers</li>
+<li>quantizers</li>
+<li>sample &amp; hold</li>
+<li>random voltage</li>
+<li>switches</li>
+<li>envelopes</li>
+</ul>
+<p>If you want melodies that feel:
+- cyclical
+- organic
+- syncopated
+- generative
+- minimalist
+- polymetric</p>
+<p>then Euclid is an excellent utility for building them.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

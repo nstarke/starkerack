@@ -1,0 +1,469 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Acid_Rain_Constellation</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Acid Rain — Constellation</h1>
+<ul>
+<li><a href="../../manuals/Constellation_Manual_Firmware_1.1_4.7.2025.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://acidraintechnology.com/support">Constellation Firmware V1.1 Manual (PDF)</a></p>
+<h1>Using Acid Rain Constellation to Create Melodic Components</h1>
+<p>Constellation is not a pitch sequencer in the traditional sense, but as a eurorack musician I’d absolutely use it as a <strong>melodic rhythm engine</strong>. Its real strength is generating highly structured trigger/gate relationships that can drive pitch, articulation, transposition, variation, and phrase switching across other melodic modules.</p>
+<h2>What Constellation contributes musically</h2>
+<p>From the manual, Constellation gives you:</p>
+<ul>
+<li><strong>8 trigger/gate channels</strong></li>
+<li><strong>8 Euclidean patterns per channel</strong></li>
+<li>Per-pattern:</li>
+<li>divide</li>
+<li>length</li>
+<li>events</li>
+<li>rotate</li>
+<li>burst</li>
+<li>ratchet</li>
+<li>chance</li>
+<li>Per-channel:</li>
+<li>logic combining patterns: <strong>AND / OR / XOR</strong></li>
+<li><strong>width</strong></li>
+<li><strong>flop</strong></li>
+<li>Per-channel clock scaling for <strong>true polyrhythms</strong></li>
+<li>CV control over many pattern parameters</li>
+<li>Save/load/live performance switching</li>
+</ul>
+<p>That means Constellation is ideal for generating the <strong>time structure</strong> behind melody, even if another module supplies the actual voltages for pitch.</p>
+<hr />
+<h1>Best melodic use cases</h1>
+<h2>1. Drive a CV sequencer with better rhythm than the sequencer alone</h2>
+<p>The most obvious melodic patch:</p>
+<ul>
+<li>Constellation channel output -&gt; <strong>clock input</strong> of a pitch sequencer</li>
+<li>Pitch sequencer CV out -&gt; oscillator 1V/oct</li>
+<li>Pitch sequencer gate out or Constellation gate -&gt; envelope -&gt; VCA/filter</li>
+</ul>
+<h3>Why this works</h3>
+<p>Most pitch sequencers become much more musical when their advance clock is not just straight 16ths. Constellation can create:</p>
+<ul>
+<li>uneven phrase lengths</li>
+<li>fills via burst</li>
+<li>ornamental repeats via ratchet</li>
+<li>probabilistic note omissions via chance</li>
+<li>polyrhythmic note movement with channel clock scaling</li>
+</ul>
+<h3>Musical result</h3>
+<p>A basic 8-step pitch sequence suddenly behaves like:</p>
+<ul>
+<li>syncopated bassline</li>
+<li>evolving arpeggio</li>
+<li>generative pluck line</li>
+<li>shifting ostinato</li>
+</ul>
+<h3>Good strategies</h3>
+<ul>
+<li>Use one channel as the <strong>main note advance</strong></li>
+<li>Use another as <strong>accent or envelope retrigger</strong></li>
+<li>Use a third to <strong>transpose</strong> another sequencer or switch quantizer input</li>
+<li>Keep pitch sequence simple; let Constellation create the phrasing complexity</li>
+</ul>
+<hr />
+<h2>2. Separate pitch rhythm from articulation rhythm</h2>
+<p>This is one of the best ways to get expressive melody.</p>
+<p>Patch like this:</p>
+<ul>
+<li><strong>Channel 1</strong> -&gt; advance a pitch sequencer</li>
+<li><strong>Channel 2</strong> -&gt; trigger envelope/VCA</li>
+<li>Sequencer CV -&gt; quantizer -&gt; oscillator pitch</li>
+<li>Envelope -&gt; VCA controlling oscillator</li>
+</ul>
+<p>Now pitch changes and audible notes are no longer identical events.</p>
+<h3>What this gives you</h3>
+<ul>
+<li>some pitch steps happen silently</li>
+<li>some notes repeat without changing pitch</li>
+<li>some new pitches sustain across multiple articulations</li>
+<li>some notes become staccato while others become legato</li>
+</ul>
+<h3>How to shape it</h3>
+<ul>
+<li>Use <strong>narrow width</strong> for short articulated notes</li>
+<li>Use <strong>high width</strong> for longer gate-like phrasing</li>
+<li>Use <strong>flop</strong> on a channel to create alternating gate states and longer held phrases</li>
+<li>Use <strong>chance</strong> on articulation separately from pitch advancement</li>
+</ul>
+<p>This is one of the easiest paths from “sequenced notes” to “actual melody.”</p>
+<hr />
+<h2>3. Use channels as phrase layers for one melodic voice</h2>
+<p>Each Constellation channel combines up to 8 patterns. That makes each output more like a compositional layer than just a trigger stream.</p>
+<p>For one melodic voice, you can assign:</p>
+<ul>
+<li><strong>Channel 1</strong> = main melody trigger</li>
+<li><strong>Channel 2</strong> = octave jumps / transposition trigger</li>
+<li><strong>Channel 3</strong> = ornament trigger</li>
+<li><strong>Channel 4</strong> = phrase reset or sequence direction change</li>
+<li><strong>Channel 5</strong> = envelope accent</li>
+<li><strong>Channel 6</strong> = filter envelope trigger</li>
+<li><strong>Channel 7</strong> = sample &amp; hold for pitch variation</li>
+<li><strong>Channel 8</strong> = save-slot performance switching or mutes</li>
+</ul>
+<h3>Why this is powerful</h3>
+<p>You can build a complete melodic ecosystem where:
+- one rhythm determines when the melody advances
+- another determines when it speaks
+- another changes register
+- another introduces random movement
+- another switches to a different phrase</p>
+<p>That’s much more musical than using a single gate source everywhere.</p>
+<hr />
+<h1>Melodic patch ideas</h1>
+<h2>A. Euclidean bassline generator</h2>
+<h3>Patch</h3>
+<ul>
+<li>Channel 1 -&gt; clock input of pitch sequencer</li>
+<li>Sequencer CV -&gt; quantizer -&gt; oscillator</li>
+<li>Channel 1 or 2 -&gt; envelope -&gt; VCA</li>
+<li>Channel 3 -&gt; filter envelope trigger</li>
+<li>Channel 4 -&gt; reset input of sequencer every longer phrase</li>
+</ul>
+<h3>Constellation setup</h3>
+<ul>
+<li>Channel 1:</li>
+<li>OR logic</li>
+<li>pattern 1: length 8, events 3</li>
+<li>pattern 2: length 5, events 1</li>
+<li>pattern 3: chance around 70%</li>
+<li>Channel 2:</li>
+<li>lower density articulation pulses</li>
+<li>Channel 4:</li>
+<li>longer cycle, maybe length 15 or 16, sparse events</li>
+</ul>
+<h3>Result</h3>
+<p>A bassline with recurring structure but enough asymmetry to feel written rather than looped.</p>
+<hr />
+<h2>B. Generative lead melody with quantized sample-and-hold</h2>
+<p>If you don’t have a pitch sequencer, Constellation can still help generate melody indirectly.</p>
+<h3>Patch</h3>
+<ul>
+<li>Noise or slow CV source -&gt; sample &amp; hold input</li>
+<li>Constellation Channel 1 -&gt; sample &amp; hold trigger</li>
+<li>Sample &amp; hold output -&gt; quantizer -&gt; oscillator 1V/oct</li>
+<li>Channel 2 -&gt; envelope trigger</li>
+<li>Channel 3 -&gt; second envelope or accent</li>
+<li>Optional: Channel 4 -&gt; transpose quantizer root or switch scales</li>
+</ul>
+<h3>Why it works</h3>
+<p>Constellation determines <strong>when new pitches are sampled</strong>, which is effectively melodic phrasing. Because the rhythm is structured and not random-clutter, the sampled melody feels intentional.</p>
+<h3>Tips</h3>
+<ul>
+<li>Use sparse Euclidean patterns for melody triggers</li>
+<li>Add ratchets sparingly for trills and grace-note-like clusters</li>
+<li>Use chance to occasionally skip new pitch sampling so notes repeat</li>
+</ul>
+<hr />
+<h2>C. Arpeggiator with irregular gate architecture</h2>
+<h3>Patch</h3>
+<ul>
+<li>Arpeggiator or sequential voltage source -&gt; oscillator pitch</li>
+<li>Constellation Channel 1 -&gt; arp clock</li>
+<li>Channel 2 -&gt; envelope trigger</li>
+<li>Channel 3 -&gt; switch arpeggiator mode / reset / octave shift</li>
+</ul>
+<h3>Constellation advantage</h3>
+<p>Instead of a static up/down arp, you get:
+- asymmetrical note timing
+- recurring phrase variation
+- occasional burst clusters
+- phrase-length drift via different pattern lengths and channel clock ratios</p>
+<p>This is especially strong for techno, ambient, and Berlin-school style sequences.</p>
+<hr />
+<h2>D. Counterpoint from multiple melodic voices</h2>
+<p>Because there are 8 channels, Constellation can drive multiple melodic systems at once.</p>
+<h3>Example</h3>
+<ul>
+<li>Channel 1 -&gt; bass sequencer clock</li>
+<li>Channel 2 -&gt; lead sequencer clock</li>
+<li>Channel 3 -&gt; pluck voice envelope</li>
+<li>Channel 4 -&gt; chord voice re-articulation</li>
+<li>Channel 5 -&gt; sequence reset</li>
+<li>Channel 6 -&gt; transposition trigger</li>
+<li>Channel 7 -&gt; melodic mute logic</li>
+<li>Channel 8 -&gt; phrase switch/load control</li>
+</ul>
+<h3>Why this matters</h3>
+<p>Per-channel clock multiplication/division means each melodic voice can exist in a different rhythmic grid.</p>
+<p>For example:
+- bass on straight quarter/8th-note logic
+- lead in triplet-derived movement
+- pluck voice on a longer polymetric cycle</p>
+<p>That creates the illusion that the melodic lines are independently composed.</p>
+<hr />
+<h1>Features especially useful for melody</h1>
+<h2>1. Channel clock scaling = melodic polyrhythm</h2>
+<p>The manual explains each channel can run at its own multiplier/divider relative to the main clock.</p>
+<p>This is huge for melody because you can make:
+- one voice move in straight time
+- another voice move in triplets
+- another move more slowly as a phrase voice</p>
+<h3>Musical use</h3>
+<ul>
+<li>Bass: channel scaler 1/1</li>
+<li>Lead: channel scaler 3/2</li>
+<li>Harmony stabs: channel scaler 1/4</li>
+</ul>
+<p>This creates layered melodic interplay without needing multiple clock processors.</p>
+<hr />
+<h2>2. Pattern divide = phrase spacing</h2>
+<p>Pattern divide slows individual patterns relative to the channel clock.</p>
+<p>For melody this is great for:
+- accents that only happen every few notes
+- octave changes that recur over long cycles
+- occasional phrase resets
+- cadential events</p>
+<p>Think of divide as a tool for large-scale melodic architecture.</p>
+<hr />
+<h2>3. Burst = repeated notes or ornaments</h2>
+<p>Burst repeats events on subsequent clocks.</p>
+<p>Melodically, this can become:
+- repeated notes
+- stuttered pitch advance
+- decorative figures
+- rhythmic insistence before a phrase turn</p>
+<p>If burst clocks a sequencer, you may get repeated step advances or repeated gate clusters depending on the destination.</p>
+<p>If burst triggers articulation while pitch holds, it creates repeated-note ornaments.</p>
+<hr />
+<h2>4. Ratchet = trills, rolls, fast embellishment</h2>
+<p>Ratchet repeats events between clock edges.</p>
+<p>This is fantastic for:
+- lead flourishes
+- fast reiterations
+- pseudo-trills
+- note pressure/intensity effects if patched to envelopes</p>
+<p>A good melodic trick:
+- Channel 1 advances pitch normally
+- Channel 2 ratchets the envelope only
+- Result: one pitch with rapid repeated articulation</p>
+<p>That sounds much more intentional than ratcheting the whole sequencer.</p>
+<hr />
+<h2>5. Chance = selective melodic variation</h2>
+<p>Chance applies probability to pattern events.</p>
+<p>For melodic work, this is best used to control:
+- occasional note skips
+- rare accents
+- phrase fills
+- occasional transposition events
+- non-repeating articulation</p>
+<p>A powerful move is using chance not on the main melody clock, but on a <strong>secondary modulation function</strong>:
+- transposition trigger
+- accent trigger
+- filter articulation
+- note repeat layer</p>
+<p>That keeps the melody intelligible while adding life.</p>
+<hr />
+<h2>6. Logic modes = compositional filtering</h2>
+<p>The logic section is easy to overlook, but for melodic patches it’s one of the most compositional features.</p>
+<h3>OR</h3>
+<p>Best for:
+- dense composite trigger streams
+- melodic activity
+- lively advancing sequences</p>
+<h3>AND</h3>
+<p>Best for:
+- rare, significant melodic events
+- phrase boundaries
+- transposition moments
+- accent conditions</p>
+<p>Use AND when you want something to happen only when multiple cycles align.</p>
+<h3>XOR</h3>
+<p>Best for:
+- syncopated alternation
+- unstable lead rhythms
+- call-and-response style trigger behavior</p>
+<p>XOR is especially interesting for melodic articulation because it removes overlaps and emphasizes contrast.</p>
+<hr />
+<h2>7. Width = note length shaping</h2>
+<p>Width controls pulse width per channel.</p>
+<p>For melody:
+- low width = plucky, percussive, articulated
+- high width = connected, legato-ish, gate-like
+- very high width can blend events into held gates</p>
+<p>This can dramatically affect perceived melodic style even when pitch content stays the same.</p>
+<hr />
+<h2>8. Flop = phrase-level gate toggling</h2>
+<p>Flop turns combined pulses into alternating high/low gate states.</p>
+<p>Melodically, this is useful for:
+- opening/closing sustained drones
+- alternating between held and silent states
+- creating slow phrase masks over faster rhythmic events
+- turning rhythmic event streams into structure gates for sequential switches or VCAs</p>
+<p>One great use:
+- Use a normal channel for note triggers
+- Use a flop-enabled channel to open a VCA or sequential switch only during alternating phrase blocks</p>
+<p>Now the same melody appears in sections, like arranged composition.</p>
+<hr />
+<h1>CV modulation for evolving melody</h1>
+<p>Constellation’s CV inputs can modulate many pattern parameters, sampled on the channel clock.</p>
+<p>This is excellent for slow melodic evolution.</p>
+<h2>Best parameters to modulate for melody</h2>
+<h3>Length</h3>
+<p>Changes phrase size over time.<br />
+Great for evolving ostinati.</p>
+<h3>Events</h3>
+<p>Changes density.<br />
+Excellent for moving between sparse and busy phrases.</p>
+<h3>Rotate</h3>
+<p>Shifts accents and note placement without destroying the basic pattern.</p>
+<h3>Chance</h3>
+<p>Lets a melody become more or less assertive over time.</p>
+<h3>Width</h3>
+<p>Changes articulation from tight to legato.</p>
+<h3>Mute</h3>
+<p>Can drop whole melodic functions in and out.</p>
+<h3>Load</h3>
+<p>The manual notes CV can momentarily load a save slot. This is huge.</p>
+<p>You can use a gate source to:
+- switch between melodic scenes
+- alternate verse/chorus-like phrase sets
+- momentarily recall fills
+- create call-and-response between saved pattern states</p>
+<p>That turns Constellation into a performance-arrangement brain for melody.</p>
+<hr />
+<h1>Advanced melodic strategies</h1>
+<h2>1. Use save slots as harmonic scenes</h2>
+<p>Even though Constellation doesn’t store pitch directly, save slots can store totally different rhythmic structures for melodic control.</p>
+<p>Create slots like:
+- Slot 1 = verse rhythm
+- Slot 2 = chorus rhythm
+- Slot 3 = break / sparse
+- Slot 4 = fill / ratchets
+- Slot 5 = long-note ambient mode</p>
+<p>Then use:
+- live mode
+- manual loading
+- CV load assignment</p>
+<p>to “perform” the melody structure.</p>
+<p>If your external sequencer keeps the same pitch material while Constellation changes timing, the musical result feels like arrangement-level composition.</p>
+<hr />
+<h2>2. Drive transposition events</h2>
+<p>A very musical trick is to dedicate one channel to transposition rather than note generation.</p>
+<h3>Patch</h3>
+<ul>
+<li>Base pitch sequencer -&gt; quantizer transpose-capable input or precision adder</li>
+<li>Constellation channel -&gt; trigger sample-and-hold, sequential switch, or transpose gate</li>
+</ul>
+<p>Uses:
+- occasional octave jumps
+- switching between root notes
+- enabling alternate quantizer offsets
+- chord tone shifts</p>
+<p>Because Constellation can create long, sparse, logic-derived events, transposition changes can happen at meaningful phrase points rather than every bar.</p>
+<hr />
+<h2>3. Create melody from logic intersections</h2>
+<p>Use logic modes to distinguish:
+- normal notes
+- emphasized notes
+- rare phrase markers</p>
+<p>For example:
+- Channel 1 OR logic -&gt; main note stream
+- Channel 2 AND logic -&gt; only when multiple patterns align, trigger octave accent
+- Channel 3 XOR logic -&gt; trigger alternate timbre or second oscillator</p>
+<p>Now the melody has internal hierarchy:
+- common notes
+- accented notes
+- special notes</p>
+<p>That’s a very compositional way to patch.</p>
+<hr />
+<h2>4. Build call-and-response with two sequencers</h2>
+<h3>Patch</h3>
+<ul>
+<li>Channel 1 -&gt; sequencer A clock</li>
+<li>Channel 2 -&gt; sequencer B clock</li>
+<li>Channel 3 flop gate -&gt; switch/VCA enabling one voice at a time</li>
+<li>Both sequencers to different oscillators or timbres</li>
+</ul>
+<h3>Result</h3>
+<p>Two melodic identities can alternate, overlap, or answer each other.</p>
+<p>Constellation’s long polymetric cycles make this feel organic rather than repetitive.</p>
+<hr />
+<h1>Practical patch templates</h1>
+<h2>Template 1: Melodic techno line</h2>
+<ul>
+<li>Ch1 -&gt; main sequencer advance</li>
+<li>Ch2 -&gt; amp envelope trigger</li>
+<li>Ch3 -&gt; filter accent trigger</li>
+<li>Ch4 -&gt; occasional reset</li>
+<li>Ch5 -&gt; transpose event</li>
+<li>Ch6 -&gt; ratcheted ornament trigger</li>
+</ul>
+<p>Use:
+- OR on Ch1
+- chance on Ch5
+- ratchet on Ch6
+- width medium on Ch2
+- long cycle lengths on Ch4 and Ch5</p>
+<p>Result: driving but evolving melodic pattern.</p>
+<hr />
+<h2>Template 2: Ambient generative melody</h2>
+<ul>
+<li>Ch1 -&gt; sample &amp; hold trigger</li>
+<li>S&amp;H -&gt; quantizer -&gt; oscillator</li>
+<li>Ch2 -&gt; VCA envelope</li>
+<li>Ch3 -&gt; LPG ping</li>
+<li>Ch4 -&gt; reverb duck/envelope</li>
+<li>Ch5 flop -&gt; drone gate</li>
+<li>Slow LFO into CV input modulating length or rotate</li>
+</ul>
+<p>Use:
+- sparse Euclidean events
+- long lengths
+- low event counts
+- moderate chance
+- slow channel clocks</p>
+<p>Result: drifting melodic fragments with recurring structure.</p>
+<hr />
+<h2>Template 3: Polyrhythmic dual melody</h2>
+<ul>
+<li>Ch1 -&gt; bass sequencer clock</li>
+<li>Ch2 -&gt; lead sequencer clock</li>
+<li>Ch3 -&gt; bass articulation</li>
+<li>Ch4 -&gt; lead articulation</li>
+<li>Ch5 -&gt; bass transposition</li>
+<li>Ch6 -&gt; lead ornament</li>
+<li>Different channel clock scalers for bass and lead</li>
+</ul>
+<p>Result: interlocking melodic voices sharing one master rhythm source but living in different metric worlds.</p>
+<hr />
+<h1>What Constellation is best paired with</h1>
+<p>To make actual melody, Constellation pairs especially well with:</p>
+<ul>
+<li><strong>pitch sequencers</strong></li>
+<li><strong>quantizers</strong></li>
+<li><strong>sample &amp; hold modules</strong></li>
+<li><strong>precision adders</strong></li>
+<li><strong>sequential switches</strong></li>
+<li><strong>switchable voltage memories</strong></li>
+<li><strong>envelopes / LPGs / VCAs</strong></li>
+<li><strong>clockable arpeggiators</strong></li>
+<li><strong>logic-addressed or gate-addressed switch modules</strong></li>
+</ul>
+<p>In other words: Constellation excels when another module handles <strong>what pitch</strong>, while it handles <strong>when, how often, how long, and under what condition</strong>.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>Constellation is best understood as a <strong>melodic structure generator</strong>, not just a drum trigger source.</p>
+<p>It can create melodic components by controlling:</p>
+<ul>
+<li><strong>note timing</strong></li>
+<li><strong>articulation</strong></li>
+<li><strong>repetition</strong></li>
+<li><strong>ornamentation</strong></li>
+<li><strong>phrase length</strong></li>
+<li><strong>transposition events</strong></li>
+<li><strong>voice alternation</strong></li>
+<li><strong>scene switching</strong></li>
+</ul>
+<p>If you pair it with a quantizer, pitch sequencer, sample &amp; hold, or switch-based pitch system, it becomes an extremely powerful tool for writing melodies that feel alive, polyrhythmic, and performable.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

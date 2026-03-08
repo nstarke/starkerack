@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Div</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Div</h1>
+<ul>
+<li><a href="../../manuals/Div_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h2>Using the 2hp Div to Create Melodic Components</h2>
+<p>The <strong>2hp Div</strong> is a <strong>dual clock divider/multiplier</strong>. On its own, it does <strong>not generate pitch CV</strong>, quantized notes, or melodies directly. What it <em>does</em> do extremely well is create the <strong>timing structure</strong> that melodic material can ride on. In a Eurorack patch, that makes it a powerful <strong>melody rhythm engine</strong>.</p>
+<p>Because both channels derive from the same input clock but can run at different multiplied/divided rates, Div is especially useful for:</p>
+<ul>
+<li>creating <strong>independent rhythmic streams</strong></li>
+<li>generating <strong>polyrhythmic note triggers</strong></li>
+<li>driving <strong>sequencers, quantizers, sample-and-holds, and envelopes</strong></li>
+<li>making one melodic line feel related to another while still being rhythmically distinct</li>
+</ul>
+<hr />
+<h2>What the module does</h2>
+<p>From the manual:</p>
+<ul>
+<li><strong>1 clock input</strong></li>
+<li><strong>2 independent outputs</strong></li>
+<li>Each output can be set to:</li>
+<li>divide the clock by: <strong>/16, /8, /7, /6, /5, /4, /3, /2</strong></li>
+<li>pass the original clock</li>
+<li>multiply by: <strong>×2, ×3, ×4, ×5, ×6, ×7, ×8, ×16</strong></li>
+<li>Each channel has:</li>
+<li>a <strong>RATE knob</strong></li>
+<li>a <strong>RATE CV input</strong> (0–5V)</li>
+<li>an LED showing output activity</li>
+</ul>
+<p>This means a single master pulse can become two related but different pulse streams.</p>
+<hr />
+<h2>Best role in a melodic patch</h2>
+<p>Think of <strong>Div</strong> as the module that determines <strong>when notes happen</strong>, not <strong>what notes happen</strong>.</p>
+<p>To create melody, pair Div with modules such as:</p>
+<ul>
+<li><strong>step sequencers</strong></li>
+<li><strong>quantizers</strong></li>
+<li><strong>sample &amp; hold</strong></li>
+<li><strong>Turing machine / random CV source</strong></li>
+<li><strong>envelope generators</strong></li>
+<li><strong>logic modules</strong></li>
+<li><strong>switches</strong></li>
+<li><strong>sequential switches</strong></li>
+<li><strong>oscillators and VCAs</strong></li>
+</ul>
+<hr />
+<h2>How it contributes to melody</h2>
+<h3>1. Clocking a pitch sequencer at different rates</h3>
+<p>Patch:
+- master clock → <strong>Div IN</strong>
+- <strong>OUT 1</strong> → sequencer clock
+- sequencer CV → quantizer → oscillator 1V/oct</p>
+<p>Result:
+- The RATE 1 setting determines how quickly the sequence advances.
+- At slower divisions, you get sparse, deliberate melodic movement.
+- At multiplications, the sequence becomes more active and ornamented.</p>
+<p>This is one of the simplest ways to reshape a melody without changing its notes.</p>
+<hr />
+<h3>2. Creating two related melodic voices</h3>
+<p>Patch:
+- master clock → <strong>Div IN</strong>
+- <strong>OUT 1</strong> → sequencer A clock
+- <strong>OUT 2</strong> → sequencer B clock
+- sequencer A CV → oscillator A
+- sequencer B CV → oscillator B</p>
+<p>Result:
+- Both voices are locked to the same source clock, so they feel connected.
+- But because each output can have a different divide/multiply ratio, the two melodies unfold at different rhythmic densities.</p>
+<p>Example:
+- OUT 1 = <strong>/2</strong>
+- OUT 2 = <strong>×3</strong></p>
+<p>This gives one slower, grounding phrase and one busy, animated counter-line.</p>
+<hr />
+<h3>3. Driving a sample &amp; hold for generative melodies</h3>
+<p>Patch:
+- random CV source → sample &amp; hold input
+- master clock → <strong>Div IN</strong>
+- <strong>OUT 1</strong> → sample &amp; hold trigger
+- sample &amp; hold output → quantizer → oscillator</p>
+<p>Result:
+- Div controls how often a new note is sampled.
+- Change RATE 1 to make the melody update slowly or rapidly.
+- CV over RATE 1 can make the melodic rhythm evolve over time.</p>
+<p>This is especially effective for generative or ambient patches.</p>
+<hr />
+<h3>4. Creating melodic accents and variation</h3>
+<p>Patch:
+- master clock → <strong>Div IN</strong>
+- <strong>OUT 1</strong> → sequencer clock
+- <strong>OUT 2</strong> → envelope trigger or VCA accent trigger</p>
+<p>Result:
+- One output advances notes.
+- The other adds accents at a different rhythmic interval.</p>
+<p>Example:
+- OUT 1 = original clock
+- OUT 2 = /4</p>
+<p>Now every fourth note may be louder, brighter, or longer, which gives the melody phrasing and structure.</p>
+<hr />
+<h3>5. Using multiplication for ratchets and fast ornamentation</h3>
+<p>Clock multiplication is especially useful melodically.</p>
+<p>Patch:
+- main sequence clock → <strong>Div IN</strong>
+- <strong>OUT 1</strong> = normal or slower sequencer advance
+- <strong>OUT 2</strong> = multiplied trigger stream to envelope/VCA, burst input, or switch</p>
+<p>Result:
+- The melody can have fast repeated notes or subdivisions while the underlying harmonic movement remains slower.
+- This creates:
+  - ratchets
+  - trills
+  - repeated note fills
+  - arpeggiated embellishments</p>
+<p>Example:
+- sequencer advances at <strong>/2</strong>
+- envelope retriggers at <strong>×4</strong></p>
+<p>This can turn one step of pitch into a cluster of repeated articulated notes.</p>
+<hr />
+<h3>6. Dynamic melodic rhythm via CV control</h3>
+<p>Each channel has a <strong>0–5V CV input</strong> for rate control.</p>
+<p>Patch:
+- slow LFO / random stepped CV / sequencer row → <strong>RATE 1 CV</strong>
+- master clock → <strong>IN</strong>
+- <strong>OUT 1</strong> → melodic sequencer or sample &amp; hold trigger</p>
+<p>Result:
+- The rhythm controlling your melody changes over time.
+- This can create:
+  - phrase expansion/contraction
+  - unpredictable note density
+  - evolving generative structures</p>
+<p>Important musical effect:
+- The <em>pitch source</em> can remain stable while the <em>rhythmic trigger pattern</em> becomes animated.</p>
+<p>This often sounds more musical than randomizing pitch alone.</p>
+<hr />
+<h2>Practical melodic patch ideas</h2>
+<h2>Patch 1: Slow melody + fast ornament voice</h2>
+<p><strong>Goal:</strong> one main melodic line and one decorative high voice</p>
+<p>Patch:
+- master clock → Div IN
+- OUT 1 set to <strong>/2</strong> → sequencer clock
+- sequencer CV → quantizer → VCO 1
+- OUT 2 set to <strong>×4</strong> → trigger input of envelope for VCO 2
+- same pitch CV multed to VCO 2, or use a second sequencer</p>
+<p>What happens:
+- Voice 1 plays a measured melody
+- Voice 2 plays rapid subdivisions, making the patch feel alive
+- If VCO 2 is tuned an octave up, it becomes a nice melodic shimmer</p>
+<hr />
+<h2>Patch 2: Polymetric counterpoint</h2>
+<p><strong>Goal:</strong> two melodies that phase against each other</p>
+<p>Patch:
+- master clock → Div IN
+- OUT 1 = <strong>/5</strong> → sequencer A
+- OUT 2 = <strong>/7</strong> → sequencer B
+- both sequencers → separate quantizers/oscillators or a shared scale</p>
+<p>What happens:
+- Because 5 and 7 cycle differently, the melodies interlock in a long repeating pattern
+- Great for minimalist, generative, or Berlin-school style music</p>
+<hr />
+<h2>Patch 3: Quantized random melody with evolving note density</h2>
+<p><strong>Goal:</strong> controlled random melodic line</p>
+<p>Patch:
+- noise/random stepped CV → sample &amp; hold input
+- Div IN ← master clock
+- OUT 1 → sample &amp; hold trigger
+- sample &amp; hold output → quantizer → oscillator
+- slow LFO → RATE 1 CV</p>
+<p>What happens:
+- New pitches are sampled at changing rhythmic intervals
+- The melody remains tonal if quantized
+- Very strong for ambient, experimental, and generative patches</p>
+<hr />
+<h2>Patch 4: Phrase and accent separation</h2>
+<p><strong>Goal:</strong> make a sequence feel musical and phrased</p>
+<p>Patch:
+- OUT 1 = original clock → sequencer clock
+- OUT 2 = <strong>/4</strong> or <strong>/8</strong> → envelope controlling filter cutoff or VCA boost</p>
+<p>What happens:
+- The main melody proceeds steadily
+- Every 4th or 8th trigger adds emphasis
+- This creates bar-like structure from a simple repeating line</p>
+<hr />
+<h2>Patch 5: Clocked switch for melodic rearrangement</h2>
+<p>If you have a sequential switch:</p>
+<p>Patch:
+- master clock → Div IN
+- OUT 1 → main sequencer clock
+- OUT 2 → sequential switch advance
+- multiple pitch CV sources into switch
+- switch output → quantizer → oscillator</p>
+<p>What happens:
+- One rhythm advances notes
+- The other rhythm chooses which melodic source is active
+- Very effective for creating evolving phrases from simple material</p>
+<hr />
+<h2>Musical strengths of this module</h2>
+<h3>Tight related timing</h3>
+<p>Since both outputs come from one input clock, they stay musically related. This is ideal for layered melodic systems where you want complexity without total chaos.</p>
+<h3>Easy creation of rhythmic contrast</h3>
+<p>The divide/multiply options let you move between:
+- sparse notes
+- normal pulse
+- rapid subdivisions</p>
+<p>That’s exactly the kind of contrast that makes melodies feel expressive.</p>
+<h3>Excellent for generative patches</h3>
+<p>A lot of generative melody comes from combining:
+- one pitch source
+- one trigger source
+- variation in timing</p>
+<p>Div gives you that timing variation in a compact format.</p>
+<hr />
+<h2>Limitations to keep in mind</h2>
+<p>Based on the manual, Div is <strong>not</strong>:</p>
+<ul>
+<li>a pitch sequencer</li>
+<li>a quantizer</li>
+<li>a melodic CV generator</li>
+<li>a logic module</li>
+<li>a probability trigger source</li>
+<li>a reset-based phrase manager</li>
+</ul>
+<p>So by itself it won’t produce “notes.” It needs companion modules for that.</p>
+<p>Its melodic usefulness comes from controlling the <strong>rhythmic architecture</strong> around note generation.</p>
+<hr />
+<h2>Best pairings for melodic use</h2>
+<p>Div works especially well with:</p>
+<ul>
+<li><strong>quantizers</strong> for tonal melodic output</li>
+<li><strong>sample &amp; hold</strong> for random note generation</li>
+<li><strong>sequencers</strong> for defined melodic phrases</li>
+<li><strong>switches</strong> for phrase variation</li>
+<li><strong>envelopes and VCAs</strong> for articulation</li>
+<li><strong>logic</strong> for more complex trigger combinations</li>
+<li><strong>LFOs/random CV</strong> into RATE CV for evolving rhythms</li>
+</ul>
+<hr />
+<h2>Summary</h2>
+<p>The <strong>2hp Div</strong> is best thought of as a <strong>melodic timing processor</strong>. It helps create melody by:</p>
+<ul>
+<li>clocking sequencers at different speeds</li>
+<li>triggering sample &amp; hold for note generation</li>
+<li>creating counter-rhythmic melodic voices</li>
+<li>producing accents and phrasing</li>
+<li>generating fast subdivisions for ratchets and ornamentation</li>
+<li>modulating note density through RATE CV</li>
+</ul>
+<p>If you combine it with even a basic sequencer or quantized random source, it becomes a very strong tool for building melodies that feel <strong>alive, structured, and rhythmically rich</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

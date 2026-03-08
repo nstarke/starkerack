@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>worng_Electronics_Vertex</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>worng Electronics — Vertex</h1>
+<ul>
+<li><a href="../../manuals/Vertex manual v1.00.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Vertex Manual PDF</a></p>
+<h2>WORNG Electronics Vertex: using it for melodic components</h2>
+<p>The attached manual is for the <strong>WORNG Electronics Vertex</strong>, a <strong>stereo VCA / stereo animation / CV-shaping module</strong>. On its own, Vertex is <strong>not a pitch source, sequencer, quantizer, or oscillator</strong>, so it does not directly generate melodies. But in a Eurorack system, it can be extremely useful for making melodic parts feel more alive, more playable, and more spatial.</p>
+<h2>What Vertex does musically</h2>
+<p>Vertex gives you:</p>
+<ul>
+<li><strong>Stereo amplitude control</strong> for left and right signals</li>
+<li><strong>Voltage-controlled panning / balance</strong></li>
+<li><strong>Envelope shaping through CV clipping at unity</strong></li>
+<li><strong>DC coupling</strong>, so it can process <strong>CV as well as audio</strong></li>
+<li>The ability to turn <strong>one mono source into stereo movement</strong></li>
+<li>The ability to control <strong>two related modulation signals at once</strong></li>
+</ul>
+<p>That means Vertex is best understood as a <strong>melody enhancer and articulator</strong>, not a melody generator.</p>
+<hr />
+<h2>Core melodic use cases</h2>
+<h2>1. Turn a mono melodic voice into a stereo melodic voice</h2>
+<p>If you already have:</p>
+<ul>
+<li>oscillator</li>
+<li>filter</li>
+<li>envelope</li>
+<li>VCA</li>
+<li>sequencer / keyboard / quantizer</li>
+</ul>
+<p>you can patch the <strong>final mono voice</strong> into the <strong>Left input</strong> of Vertex. Since <strong>L is normalled to R</strong>, the same signal appears on both sides if R is unpatched.</p>
+<p>Then:</p>
+<ul>
+<li>set <strong>Gain</strong> up</li>
+<li>use <strong>Skew</strong> as a manual pan control</li>
+<li>patch an <strong>LFO</strong>, envelope, random voltage, or another modulation source into <strong>Skew CV</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Your melody stays the same pitch-wise, but becomes:</p>
+<ul>
+<li>animated in stereo</li>
+<li>rhythmically wider/narrower</li>
+<li>more expressive</li>
+<li>easier to separate in a mix</li>
+</ul>
+<p>This is especially effective for:</p>
+<ul>
+<li>arpeggios</li>
+<li>plucked sequences</li>
+<li>repeating basslines</li>
+<li>lead melodies</li>
+</ul>
+<hr />
+<h2>2. Create dynamic panning tied to note articulation</h2>
+<p>A very musical trick from the manual is to use:</p>
+<ul>
+<li>your melodic <strong>audio</strong> into Vertex input</li>
+<li>the same <strong>envelope</strong> that shapes the note into <strong>Gain CV</strong></li>
+<li>another modulation source into <strong>Skew CV</strong></li>
+</ul>
+<p>Because Vertex clips CV at approximately <strong>unity gain</strong>, stronger envelopes can change shape when skewed left or right. This means the stereo image is not just getting louder on one side — one side can feel like it has a slightly longer <strong>hold</strong> or stronger <strong>presence</strong>.</p>
+<h3>Musical effect</h3>
+<p>For a melodic line, this can create:</p>
+<ul>
+<li>notes that bloom left then settle center</li>
+<li>accented notes that lean right</li>
+<li>motion that follows articulation rather than simple pan law</li>
+<li>a more psychoacoustic “apparent loudness” shift</li>
+</ul>
+<p>This is more interesting than ordinary autopan because it can make each note feel differently shaped in space.</p>
+<hr />
+<h2>3. Use Vertex as a dual CV VCA for melodic modulation</h2>
+<p>Since Vertex is <strong>DC coupled</strong>, it can process modulation voltages. This opens up a lot of melodic applications.</p>
+<p>For example, suppose you have:</p>
+<ul>
+<li>one envelope controlling <strong>filter cutoff</strong></li>
+<li>one LFO or sequence controlling <strong>wavefold amount</strong></li>
+<li>a melodic voice receiving both modulations</li>
+</ul>
+<p>You can route two CVs through Vertex and use <strong>Gain / Gain CV / Skew</strong> to scale both simultaneously.</p>
+<h3>Why this matters for melody</h3>
+<p>Melody is often shaped less by pitch alone and more by:</p>
+<ul>
+<li>brightness contour</li>
+<li>vibrato depth</li>
+<li>FM amount</li>
+<li>filter motion</li>
+<li>accent level</li>
+</ul>
+<p>Vertex can control two related modulation paths at once, so a single gesture can make a melodic phrase become:</p>
+<ul>
+<li>brighter on one side</li>
+<li>more animated on accented notes</li>
+<li>more open during choruses</li>
+<li>narrower and calmer during verses</li>
+</ul>
+<hr />
+<h2>4. Control two parallel melodic timbre lanes</h2>
+<p>You can use Left and Right as <strong>two different CV destinations</strong> related to a melodic patch.</p>
+<p>Example:</p>
+<ul>
+<li><strong>Left output</strong> goes to filter cutoff modulation depth</li>
+<li><strong>Right output</strong> goes to wavefolder or resonance modulation depth</li>
+<li><strong>Gain CV</strong> receives your note envelope</li>
+<li><strong>Skew</strong> sets the balance between those two modulation intensities</li>
+</ul>
+<h3>Result</h3>
+<p>Each note can have a coordinated timbral profile:
+- one side of the control gesture emphasizes brightness
+- the other emphasizes texture or harmonic complexity</p>
+<p>This is powerful for melodic phrasing because it makes a sequence speak with more nuance.</p>
+<hr />
+<h2>5. Animate counterpoint or paired melodic voices</h2>
+<p>If you have <strong>two separate mono melodic lines</strong>:</p>
+<ul>
+<li>voice A into Left</li>
+<li>voice B into Right</li>
+</ul>
+<p>Vertex can act as a stereo performance VCA for the pair.</p>
+<p>Then you can:</p>
+<ul>
+<li>open both together with <strong>Gain</strong></li>
+<li>bias attention between them with <strong>Skew</strong></li>
+<li>animate the relationship with <strong>Skew CV</strong></li>
+</ul>
+<h3>Musical uses</h3>
+<ul>
+<li>move call-and-response lines across the stereo field</li>
+<li>emphasize one counter-melody over another</li>
+<li>make one voice feel foreground while the other recedes</li>
+<li>create living stereo interplay between two sequenced lines</li>
+</ul>
+<p>This is especially nice when two voices share a clock but have different rhythmic densities.</p>
+<hr />
+<h2>6. Make envelopes themselves part of melodic expression</h2>
+<p>One of the most interesting parts of the manual is the explanation that pushing the <strong>Gain CV Amount</strong> beyond the point of unity doesn’t keep increasing gain; instead it effectively <strong>clips the control signal</strong>. With envelopes, this can transform a shape more like:</p>
+<ul>
+<li><strong>AD</strong> into something closer to <strong>AHD</strong></li>
+</ul>
+<p>When combined with <strong>Skew</strong>, left and right can get differently clipped envelope responses.</p>
+<h3>For melodic patches this means:</h3>
+<ul>
+<li>staccato notes can become more legato on one side</li>
+<li>one side can feel more accented without higher peak level</li>
+<li>repeated notes can gain width and contour</li>
+<li>plucks can become spatially asymmetric in a very musical way</li>
+</ul>
+<p>This is ideal for:
+- mallet sounds
+- acid-style lines
+- plucky FM
+- Buchla-style percussive melodic phrases
+- evolving ambient melodies</p>
+<hr />
+<h2>Patch recipes for melodic music</h2>
+<h2>Patch 1: Stereo lead with animated panning</h2>
+<p><strong>Needs</strong>
+- oscillator
+- filter
+- envelope
+- sequencer / quantizer
+- Vertex
+- output mixer</p>
+<p><strong>Patch</strong>
+1. Build a normal mono melodic voice.
+2. Send the final audio output of the voice to <strong>Vertex Left input</strong>.
+3. Leave <strong>Right input unpatched</strong> so Left normals to Right.
+4. Set <strong>Gain</strong> high enough for full signal.
+5. Start with <strong>Skew</strong> at noon.
+6. Patch a slow triangle or sine <strong>LFO</strong> into <strong>Skew CV</strong>.
+7. Raise <strong>Skew CV Amount</strong> slightly clockwise.</p>
+<p><strong>What you get</strong>
+- centered mono melody becomes stereo
+- notes drift in the stereo field
+- excellent for leads and arpeggios</p>
+<hr />
+<h2>Patch 2: Envelope-shaped stereo plucks</h2>
+<p><strong>Needs</strong>
+- mono melodic voice
+- envelope
+- Vertex</p>
+<p><strong>Patch</strong>
+1. Audio from the melodic voice to <strong>Vertex Left input</strong>.
+2. Same envelope used for note articulation to <strong>Gain CV input</strong>.
+3. Set <strong>Gain</strong> low or off.
+4. Set <strong>Gain CV Amount</strong> so the envelope opens the VCA fully.
+5. Push <strong>Gain CV Amount</strong> a bit beyond the “normal” point if your envelope is strong enough.
+6. Move <strong>Skew</strong> away from center a little, or modulate it.</p>
+<p><strong>What you get</strong>
+- note shape becomes part of stereo imaging
+- one side may feel like it has a longer sustain/hold
+- very expressive melodic articulation</p>
+<hr />
+<h2>Patch 3: Voltage-controlled panning for a bassline or sequence</h2>
+<p><strong>Patch</strong>
+1. Bassline audio into <strong>Left input</strong> only.
+2. Set <strong>Gain</strong> fully clockwise.
+3. Use <strong>Skew</strong> as manual pan.
+4. Patch stepped CV, random CV, or a synced envelope into <strong>Skew CV</strong>.
+5. Adjust <strong>Skew CV Amount</strong> for subtle or wide movement.</p>
+<p><strong>What you get</strong>
+- a mono bass or riff gains life
+- useful for keeping repeated melodic patterns interesting
+- can be tempo-synced to musical phrases</p>
+<hr />
+<h2>Patch 4: Dual modulation control for one melodic voice</h2>
+<p><strong>Needs</strong>
+- two modulation sources
+- one melodic voice with at least two CV destinations</p>
+<p><strong>Patch</strong>
+1. Modulation source A into <strong>Left input</strong>
+2. Modulation source B into <strong>Right input</strong>
+3. Vertex Left and Right outputs to two destinations on the melodic voice:
+   - filter FM / cutoff depth
+   - pulse width / wavefold / FM index / vibrato depth
+4. Patch an envelope, keyboard pressure, fader CV, or sequencer accent to <strong>Gain CV</strong>
+5. Use <strong>Skew</strong> to bias modulation emphasis between the two destinations</p>
+<p><strong>What you get</strong>
+- one macro gesture controls melodic timbre in two dimensions
+- expressive accents
+- per-note timbral choreography</p>
+<p>This is one of the best “melodic component” uses of Vertex even though it is not directly processing pitch.</p>
+<hr />
+<h2>Patch 5: Two melodic voices, one stereo performance layer</h2>
+<p><strong>Patch</strong>
+1. Voice A audio to <strong>Left input</strong>
+2. Voice B audio to <strong>Right input</strong>
+3. Use <strong>Gain</strong> to control both together
+4. Use <strong>Skew</strong> to feature one voice over the other
+5. Modulate <strong>Skew CV</strong> with an LFO, envelope, or manual controller</p>
+<p><strong>What you get</strong>
+- stereo conversation between voices
+- performance-friendly balancing
+- animated duet textures</p>
+<p>Good for:
+- canon lines
+- harmonized sequences
+- question/answer motifs</p>
+<hr />
+<h2>Best companions for Vertex in melodic systems</h2>
+<p>Vertex works especially well with:</p>
+<ul>
+<li><strong>Sequencers</strong>: to provide pitch and accent structure</li>
+<li><strong>Quantizers</strong>: to ensure melodic CV is tonal</li>
+<li><strong>Oscillators / complex oscillators</strong>: as the sound source</li>
+<li><strong>Envelope generators</strong>: very important, because Vertex’s CV behavior is a big part of its character</li>
+<li><strong>LFOs</strong>: for stereo motion and slow phrase animation</li>
+<li><strong>Function generators</strong>: for more unusual envelope shapes</li>
+<li><strong>Filters / wavefolders / FM inputs</strong>: because Vertex can shape dual CV paths going to them</li>
+<li><strong>Stereo effects</strong> after Vertex: delay, reverb, chorus, resonator</li>
+</ul>
+<p>A particularly strong chain is:</p>
+<p><strong>sequencer → oscillator/filter/voice → envelope → Vertex → stereo delay/reverb</strong></p>
+<p>That gives you a melodic line with built-in spatial articulation before it hits effects.</p>
+<hr />
+<h2>What Vertex does not do</h2>
+<p>Based on the manual, Vertex does <strong>not</strong> provide:</p>
+<ul>
+<li>pitch sequencing</li>
+<li>quantization</li>
+<li>note generation</li>
+<li>sample &amp; hold melody creation</li>
+<li>transposition memory</li>
+<li>tuning utilities</li>
+<li>oscillation or sound generation</li>
+</ul>
+<p>So if your goal is specifically “create melodies,” Vertex needs to be paired with at least one of:</p>
+<ul>
+<li>sequencer</li>
+<li>keyboard/controller</li>
+<li>random source + quantizer</li>
+<li>oscillator/voice module</li>
+</ul>
+<hr />
+<h2>Summary</h2>
+<p>The Vertex is best used in melodic music as a:</p>
+<ul>
+<li><strong>stereo animator</strong> for mono melodic voices</li>
+<li><strong>voltage-controlled panner</strong></li>
+<li><strong>dual CV VCA</strong> for shaping modulation tied to melodic phrasing</li>
+<li><strong>envelope sculptor</strong> that can create apparent loudness and articulation differences between left and right</li>
+<li><strong>performance tool</strong> for balancing two melodic voices or two modulation streams</li>
+</ul>
+<p>Its most musically distinctive trick is that <strong>overdriving the gain CV clips the control shape rather than boosting above unity</strong>, which lets you create <strong>different apparent envelope shapes</strong> across a stereo image. That makes melodies feel wider, more dimensional, and more expressive without just turning one side up.</p>
+<p>If you want, I can also turn this into a <strong>“patch cookbook”</strong> with:
+1. <strong>beginner melodic patches</strong>,<br />
+2. <strong>ambient melodic patches</strong>, and<br />
+3. <strong>techno / sequenced melodic patches</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

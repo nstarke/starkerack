@@ -1,0 +1,376 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Nervous_Squirrel_Conway&#x27;s_Game</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Nervous Squirrel — Conway's Game</h1>
+<ul>
+<li><a href="../../manuals/Nervous Squirrel - Conway's Game.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://nervoussquirrel.com/conways_game">Manual PDF / source</a></p>
+<h1>Nervous Squirrel — Conway’s Game</h1>
+<h2>How it can be used for melodic components in a Eurorack system</h2>
+<p>This module is unusual: it is <strong>not a pitch CV sequencer</strong>, but a <strong>64-output trigger/gate matrix</strong> driven either by:</p>
+<ul>
+<li><strong>Conway’s Game of Life</strong> on an 8×8 grid, or</li>
+<li><strong>MIDI note input</strong> mapped to 64 outputs</li>
+</ul>
+<p>That means its strongest melodic role is as a <strong>rhythmic and structural brain</strong> for melody generation rather than as the direct source of note voltages.</p>
+<h2>What the manual shows</h2>
+<h3>Core functions</h3>
+<ul>
+<li>8×8 LED matrix displays Conway’s Game of Life</li>
+<li>64 outputs correspond to the 64 cells</li>
+<li>Outputs can operate as:</li>
+<li><strong>Triggers</strong>: 20ms pulses</li>
+<li><strong>Gates</strong>: held high while a cell is alive</li>
+<li>Internal clock defaults to <strong>10 Hz</strong></li>
+<li>External <strong>CLOCK IN</strong> can drive it up to about <strong>270 Hz</strong></li>
+<li><strong>RESET</strong> starts a new random cell population</li>
+<li><strong>MIDI mode</strong> responds to notes <strong>C2 (36) to E7 (100)</strong> across the 64 outputs</li>
+<li>Output level: <strong>8V</strong></li>
+</ul>
+<h3>Musical implication</h3>
+<p>This is essentially a <strong>large parallel event generator</strong>. It excels at:
+- distributing timing events,
+- creating conditional note changes,
+- generating layered phrase structures,
+- animating quantizers, switch networks, sequential switches, sample &amp; holds, and envelopes.</p>
+<hr />
+<h1>Best ways to use Conway’s Game for melody</h1>
+<h2>1. Use it as a trigger source for a pitch-generating voice</h2>
+<p>The simplest melodic use:</p>
+<p><strong>Patch concept</strong>
+- One Conway output → envelope trigger
+- Same output or another related output → sample &amp; hold clock
+- Random or structured CV source → quantizer → oscillator pitch</p>
+<p><strong>Result</strong>
+- Conway determines <strong>when notes happen</strong>
+- The quantizer determines <strong>what notes happen</strong></p>
+<p>This works well because Conway produces patterns that feel more organic than a regular step sequencer.</p>
+<h3>Example patch</h3>
+<ul>
+<li>Noise / random CV → S&amp;H input</li>
+<li>Conway output 1 → S&amp;H clock</li>
+<li>S&amp;H out → quantizer</li>
+<li>Quantizer out → VCO 1V/oct</li>
+<li>Conway output 1 → envelope → VCA</li>
+</ul>
+<p>This gives you a melodic line whose rhythm is derived from one cell’s activity.</p>
+<hr />
+<h2>2. Use multiple outputs to build phrase hierarchy</h2>
+<p>Because there are 64 outputs, you can treat different cells as different musical layers.</p>
+<h3>Suggested layer roles</h3>
+<ul>
+<li><strong>Fast cell outputs</strong> → note triggers</li>
+<li><strong>Slower/looping cells</strong> → phrase reset or transposition</li>
+<li><strong>Sparse cells</strong> → accent or ratchet triggers</li>
+<li><strong>Long-lived gates</strong> → drone enable / sustained note hold</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Output A → main melodic trigger</li>
+<li>Output B → transpose quantizer by +5th when high</li>
+<li>Output C → switch quantizer scale</li>
+<li>Output D → reset a sequential switch</li>
+<li>Output E → open a secondary VCA for harmony voice</li>
+</ul>
+<p>This is where the module becomes powerful melodically: one automaton creates <strong>correlated control structure</strong> across many parameters.</p>
+<hr />
+<h2>3. Use gate mode to create sustained melodic states</h2>
+<p>The <strong>TRIGGERS / GATES</strong> switch matters a lot for melody.</p>
+<h3>In trigger mode</h3>
+<p>Good for:
+- plucks
+- short envelopes
+- clocking S&amp;H
+- advancing sequencers</p>
+<h3>In gate mode</h3>
+<p>Good for:
+- sustained notes
+- holding switches in one state
+- enabling quantizer transpose inputs
+- keeping a voice active while a cell remains alive</p>
+<h3>Melodic application</h3>
+<p>A gate from one cell can:
+- hold a note open,
+- keep a sub-oscillator harmony active,
+- maintain a transposition offset,
+- keep a sequencer direction or range altered.</p>
+<p>That lets the Game of Life behave like a <strong>phrase-state generator</strong> rather than only a trigger source.</p>
+<hr />
+<h2>4. Turn 64 outputs into note selection logic</h2>
+<p>If you have utility modules such as:
+- logic,
+- OR combiners,
+- trigger combiners,
+- matrix mixers,
+- sequential switches,
+- addressed switches,</p>
+<p>then Conway’s 64 outputs can become a <strong>decision field</strong> for melody selection.</p>
+<h3>Patch idea: note pool selector</h3>
+<ul>
+<li>Prepare 4–8 fixed voltages representing scale degrees</li>
+<li>Use Conway outputs to clock/select a sequential switch</li>
+<li>Other Conway outputs enable or mute certain note lanes</li>
+<li>Quantizer or precision adder organizes the final pitch</li>
+</ul>
+<p><strong>Result:</strong> the melody evolves according to automaton behavior, not just random voltage.</p>
+<hr />
+<h2>5. Use Conway to animate a sequencer instead of replacing it</h2>
+<p>This is probably the most practical musical use.</p>
+<h3>Patch concept</h3>
+<p>Traditional sequencer + Conway modulation</p>
+<ul>
+<li>Pitch sequencer provides stable tonal material</li>
+<li>Conway outputs affect:</li>
+<li>clock skips</li>
+<li>stage advance</li>
+<li>reset</li>
+<li>transpose</li>
+<li>rests</li>
+<li>octave jumps</li>
+<li>envelope variation</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>8-step CV sequencer → quantizer → VCO</li>
+<li>Conway output 1 → master trigger to envelope</li>
+<li>Conway output 2 → sequencer reset</li>
+<li>Conway output 3 → precision adder +1 octave</li>
+<li>Conway output 4 → switch between two sequencer rows</li>
+<li>Conway output 5 → disable trigger path for rests</li>
+</ul>
+<p>This preserves musical intention while adding evolving melodic variation.</p>
+<hr />
+<h2>6. Use the MIDI mode as a 64-way note-to-trigger decoder</h2>
+<p>The manual states that MIDI input can control <strong>64 separate trigger outputs</strong> across notes 36–100.</p>
+<p>This is very useful if you compose from a DAW, hardware sequencer, or MIDI keyboard.</p>
+<h3>Melodic uses of MIDI mode</h3>
+<ul>
+<li>Convert specific MIDI notes into individual modular events</li>
+<li>Use MIDI clips to “draw” melodic activation patterns across the 64 outputs</li>
+<li>Trigger different melodic functions from different incoming notes</li>
+</ul>
+<h3>Example hybrid patch</h3>
+<p>From DAW MIDI:
+- C2 → trigger note event
+- D2 → transpose +2 semitones
+- E2 → switch to a different scale
+- F2 → trigger harmony voice
+- G2 → reset sequencer
+- A2 → clock burst generator
+- B2 → accent</p>
+<p>So instead of using MIDI to directly play pitch, you use it to <strong>orchestrate modular melodic logic</strong>.</p>
+<p>This is especially strong for:
+- generative composition with controlled form,
+- live performance cueing,
+- complex melodic state changes from a single MIDI track.</p>
+<hr />
+<h1>Musical strategies for actual melody creation</h1>
+<p>Since Conway’s Game does not generate pitch CV directly, you’ll want one or more of these companion module types in your rack:</p>
+<h2>A. Quantizer</h2>
+<p>Essential if you want tonal melodies.</p>
+<p><strong>Why</strong>
+Conway gives timing and logic, not note voltages.</p>
+<p><strong>How to use together</strong>
+- Random CV or stepped CV → quantizer
+- Conway output clocks the note changes
+- Additional Conway outputs transpose or switch scales</p>
+<p>This produces coherent melodies from otherwise abstract activity.</p>
+<hr />
+<h2>B. Sample &amp; Hold / Track &amp; Hold</h2>
+<p>Very strong pairing.</p>
+<p><strong>How</strong>
+- Source CV: noise, chaotic CV, sequencer row, LFO, Wogglebug-like source
+- Conway trigger → sample clock
+- Quantize sampled voltage</p>
+<p>Different Conway cells will sample at different moments, creating multiple interrelated melodic lines.</p>
+<hr />
+<h2>C. Sequential switch / addressed switch</h2>
+<p>Excellent for melody.</p>
+<p><strong>How</strong>
+Use Conway outputs to:
+- advance the switch,
+- reset the switch,
+- choose between several pitch sources.</p>
+<p>Pitch sources could be:
+- fixed voltages,
+- sequencer rows,
+- quantizer outputs,
+- intervals from a precision adder.</p>
+<p>This creates melodies with recurring but non-linear form.</p>
+<hr />
+<h2>D. Precision adder / transposer</h2>
+<p>One of the best pairings.</p>
+<p><strong>How</strong>
+- Main melody from sequencer or quantizer
+- Conway gates add interval offsets:
+  - +octave
+  - +fifth
+  - +third
+  - modal shifts</p>
+<p>Because Conway cells often form loops, these transpositions can feel motif-like rather than random.</p>
+<hr />
+<h2>E. Clock divider / multiplier</h2>
+<p>Useful for extracting musically different time scales.</p>
+<p><strong>How</strong>
+- Master clock → divider/multiplier → Conway CLOCK IN or downstream modules
+- Conway outputs then interact with divided clocks for:
+  - slower transposition
+  - faster ornaments
+  - phrase resets on long cycles</p>
+<p>This gives structure to the melodic motion.</p>
+<hr />
+<h2>F. Envelope generators and VCAs</h2>
+<p>Needed to hear the triggers as notes.</p>
+<p><strong>How</strong>
+- Conway trigger output → envelope
+- Envelope → VCA
+- Quantized pitch CV → oscillator</p>
+<p>Different cells can trigger:
+- main voice,
+- harmony,
+- accent voice,
+- bass punctuations.</p>
+<hr />
+<h1>Strong patch recipes</h1>
+<h2>Patch 1: Organic mono melody</h2>
+<p><strong>Modules needed</strong>
+- Conway’s Game
+- random CV source
+- sample &amp; hold
+- quantizer
+- VCO
+- envelope
+- VCA</p>
+<p><strong>Patch</strong>
+- Random CV → S&amp;H in
+- Conway output 1 (trigger mode) → S&amp;H clock
+- S&amp;H → quantizer → VCO 1V/oct
+- Conway output 1 → envelope → VCA
+- VCO → VCA → mixer</p>
+<p><strong>What happens</strong>
+A single Conway cell becomes a melodic trigger stream with nontrivial phrasing.</p>
+<hr />
+<h2>Patch 2: Melodic line with evolving transposition</h2>
+<p><strong>Add</strong>
+- precision adder</p>
+<p><strong>Patch</strong>
+- Main melody as above
+- Conway output 2 in gate mode → precision adder transpose input (+7 semitones)
+- Conway output 3 in gate mode → another transpose input (+12 semitones)
+- Sum into oscillator pitch</p>
+<p><strong>What happens</strong>
+The melody shifts between root, fifth, and octave regions according to cell life states.</p>
+<hr />
+<h2>Patch 3: Two-voice canon from neighboring cells</h2>
+<p><strong>Modules</strong>
+- two S&amp;H paths or two oscillators
+- one quantizer with multiple channels, or two quantizers</p>
+<p><strong>Patch</strong>
+- Random / slow CV source shared by both voices
+- Conway output 10 → voice A S&amp;H clock + envelope
+- Conway output 11 → voice B S&amp;H clock + envelope
+- Each S&amp;H → quantized pitch for separate oscillator</p>
+<p><strong>What happens</strong>
+Because nearby cells in Game of Life are related, the two melodic voices often feel connected but not identical.</p>
+<hr />
+<h2>Patch 4: Sequencer mutation engine</h2>
+<p><strong>Modules</strong>
+- CV sequencer
+- quantizer
+- precision adder
+- resettable switch or sequencer controls</p>
+<p><strong>Patch</strong>
+- Sequencer CV → quantizer → VCO
+- Conway output 1 → note gate
+- Conway output 2 → sequencer reset
+- Conway output 3 → transpose +12
+- Conway output 4 → switch between 2 sequencer rows
+- Conway output 5 → trigger extra ornament envelope</p>
+<p><strong>What happens</strong>
+Your composed sequence becomes a living melody machine.</p>
+<hr />
+<h2>Patch 5: MIDI-directed melodic architecture</h2>
+<p><strong>Use MIDI mode</strong>
+- Feed MIDI notes from DAW or keyboard
+- Assign selected notes to structural events via specific outputs</p>
+<p><strong>Patch</strong>
+- Certain MIDI notes trigger melody
+- Others transpose
+- Others switch scale or route voices
+- Others trigger harmony or bass</p>
+<p><strong>What happens</strong>
+You can “play” the modular’s melodic behavior with MIDI notes instead of only playing pitches directly.</p>
+<hr />
+<h1>Performance ideas</h1>
+<h2>1. Use RESET as a phrase refresh</h2>
+<p>The manual says RESET starts a new set of cells and also clears stuck MIDI notes.</p>
+<p>Musically, this means RESET is a <strong>form control</strong>:
+- hit it at section changes,
+- trigger it every 8 or 16 bars,
+- let the patch evolve within a bounded phrase length.</p>
+<p>This is one of the best ways to keep the melody interesting but manageable.</p>
+<h2>2. Modulate the clock source</h2>
+<p>Because CLOCK IN can be driven externally up to around 270 Hz, you can:
+- use a steady clock for structured phrases,
+- use a divided clock for slow melodic evolution,
+- use audio-rate or irregular clocks for glitch ornamentation.</p>
+<p>For melody, modest clock variation can create:
+- denser note clusters,
+- rubato-like irregularity,
+- sudden fills and embellishments.</p>
+<h2>3. Use trigger mode for articulation, gate mode for harmony states</h2>
+<p>A good live strategy:
+- one group of outputs in trigger role via selected patches
+- another group in gate role for longer state changes</p>
+<p>This creates a melody that has:
+- note events,
+- phrase-level modulation,
+- harmonic motion.</p>
+<hr />
+<h1>Limitations to understand</h1>
+<h2>It does not output pitch CV by itself</h2>
+<p>This is the main thing. To make melody, you need companion modules:
+- quantizer
+- sequencer
+- random source
+- fixed voltage source
+- precision adder
+- switch</p>
+<h2>64 outputs can become patch-dense very quickly</h2>
+<p>You likely won’t use all 64 directly for melody. More practical is:
+- select 4–10 musically interesting outputs,
+- route them to utilities,
+- create a smaller controllable melodic ecosystem.</p>
+<h2>Internal behavior may settle into loops</h2>
+<p>The manual notes it resets when patterns die out or become stationary; loops can persist in forms like blinkers or gliders.
+That’s actually musically useful: loops create recurring motifs. But if you want more variety, patch RESET periodically.</p>
+<hr />
+<h1>Best overall role in a melodic rack</h1>
+<p>Conway’s Game is best thought of as:</p>
+<ul>
+<li>a <strong>melodic event ecosystem generator</strong></li>
+<li>a <strong>phrase and articulation controller</strong></li>
+<li>a <strong>multi-lane trigger source for quantized pitch systems</strong></li>
+<li>a <strong>MIDI-to-64 trigger decoder for compositional control</strong></li>
+</ul>
+<p>It is <strong>not</strong> the voice of melody by itself, but it can become the <strong>behavioral engine</strong> that makes melodies feel alive.</p>
+<h2>Most effective pairings</h2>
+<p>If your goal is melody, pair it with:
+1. <strong>Quantizer</strong>
+2. <strong>Sample &amp; hold</strong>
+3. <strong>Precision adder</strong>
+4. <strong>Sequential switch</strong>
+5. <strong>Traditional CV sequencer</strong>
+6. <strong>Envelope/VCA voice chain</strong></p>
+<p>That combination turns Conway’s Game from a trigger novelty into a deep melodic composition tool.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

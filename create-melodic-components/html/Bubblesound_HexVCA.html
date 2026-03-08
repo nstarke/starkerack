@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bubblesound_HexVCA</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Bubblesound — HexVCA</h1>
+<ul>
+<li><a href="../../manuals/bubblesound.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.bubblesound-instruments.com">Manual PDF</a></p>
+<h1>Using the Bubblesound HEXvca for Melodic Eurorack Patching</h1>
+<p>The attached manual page is for the <strong>Bubblesound HEXvca</strong>, a <strong>6-channel VCA and mixer</strong> designed for both <strong>audio and CV</strong>. While it is not itself a sound source or sequencer, it is extremely useful for building <strong>melodic structures</strong> when paired with oscillators, envelopes, sequencers, LFOs, and trigger sources.</p>
+<h2>What the HEXvca does</h2>
+<p>Key features from the manual:</p>
+<ul>
+<li><strong>6 independent VCAs</strong></li>
+<li><strong>3 mix outputs</strong></li>
+<li>channels <strong>1–3</strong></li>
+<li>channels <strong>4–6</strong></li>
+<li>channels <strong>1–6</strong></li>
+<li>Each VCA has switchable <strong>linear or exponential CV response</strong></li>
+<li><strong>DC-coupled</strong>, so it works for:</li>
+<li><strong>audio</strong></li>
+<li><strong>CV</strong></li>
+<li><strong>Normalized CV inputs</strong> via jumpers on the back, allowing one or two envelopes/gates to affect multiple VCAs</li>
+<li>Can connect to a <strong>HEXar</strong> via ribbon cable for trigger/control integration</li>
+<li>Uses <strong>SSM2164</strong> VCA chips</li>
+<li>Compact: <strong>7HP</strong>, <strong>30mm deep</strong></li>
+</ul>
+<h2>Why this matters for melodic patching</h2>
+<p>A VCA is one of the most important modules in a melodic system because it shapes:</p>
+<ul>
+<li><strong>note articulation</strong></li>
+<li><strong>dynamic phrasing</strong></li>
+<li><strong>accent patterns</strong></li>
+<li><strong>modulation depth</strong></li>
+<li><strong>layered voices</strong></li>
+<li><strong>CV animation</strong></li>
+</ul>
+<p>Since the HEXvca has <strong>six channels</strong> and is <strong>DC-coupled</strong>, it can control not only the loudness of oscillator voices, but also the amount of pitch modulation, filter modulation, vibrato, envelope depth, or even sequencer-derived CV.</p>
+<hr />
+<h1>Musical ways to use the HEXvca</h1>
+<h2>1. Build a standard melodic voice with better articulation</h2>
+<p>A basic melodic patch:</p>
+<ul>
+<li><strong>VCO</strong> → <strong>filter</strong> → <strong>HEXvca input</strong></li>
+<li><strong>Envelope generator</strong> → <strong>HEXvca CV input</strong></li>
+<li><strong>Keyboard/sequencer pitch CV</strong> → <strong>VCO 1V/oct</strong></li>
+<li><strong>Gate/trigger</strong> → <strong>envelope trigger</strong></li>
+</ul>
+<p>This gives you the normal “note opens and closes” function of a synth voice.</p>
+<h3>Tip</h3>
+<ul>
+<li>Use <strong>exponential response</strong> for more natural loudness shaping on audio.</li>
+<li>Use <strong>linear response</strong> if you want cleaner, more precise control, especially for CV.</li>
+</ul>
+<hr />
+<h2>2. Create multiple melodic voices from one sequencer</h2>
+<p>With six VCAs, you can run multiple sound sources in parallel:</p>
+<ul>
+<li>VCO A → VCA 1</li>
+<li>VCO B → VCA 2</li>
+<li>Noise/sub/secondary oscillator → VCA 3</li>
+</ul>
+<p>Then mix them at the <strong>1–3 mix output</strong>.</p>
+<p>This lets you make:</p>
+<ul>
+<li><strong>layered mono leads</strong></li>
+<li><strong>thicker basslines</strong></li>
+<li><strong>stacked intervals</strong></li>
+<li><strong>dual-oscillator melodies with controlled blend</strong></li>
+</ul>
+<p>You can give each oscillator its own envelope amount or use the normalized CV setup so one envelope shapes several channels at once.</p>
+<h3>Musical result</h3>
+<p>One melody line can become a rich, orchestrated patch with dynamic control over each component.</p>
+<hr />
+<h2>3. Voltage-control your melodic mix</h2>
+<p>Because the HEXvca has submix outputs, it can act like a <strong>voltage-controlled mixer</strong>.</p>
+<p>Example:</p>
+<ul>
+<li>Oscillator 1 = root tone</li>
+<li>Oscillator 2 = fifth above</li>
+<li>Oscillator 3 = octave layer</li>
+</ul>
+<p>Patch them into channels 1–3, then use separate CVs to animate each level.</p>
+<p>This allows:</p>
+<ul>
+<li>intervals fading in and out over time</li>
+<li>evolving chord-like single-note lines</li>
+<li>changing harmonic emphasis per note</li>
+<li>accents that bring in extra upper harmonics</li>
+</ul>
+<p>This is great for <strong>melodic techno</strong>, <strong>ambient arpeggios</strong>, and <strong>Berlin-school style sequencing</strong>.</p>
+<hr />
+<h2>4. Use VCAs on modulation sources to shape pitch movement</h2>
+<p>Since the HEXvca is <strong>DC-coupled</strong>, you can use it on CV signals.</p>
+<p>Example patch:</p>
+<ul>
+<li>LFO or envelope → HEXvca input</li>
+<li>Sequencer accent or envelope → HEXvca CV input</li>
+<li>HEXvca output → oscillator FM input or pitch modulation destination</li>
+</ul>
+<p>Now the modulation amount changes over time.</p>
+<h3>Musical uses</h3>
+<ul>
+<li>vibrato only on certain notes</li>
+<li>pitch envelope only on accented steps</li>
+<li>controlled glide-like movement</li>
+<li>animated melodic instability</li>
+</ul>
+<p>This is one of the best ways to make repetitive melodic lines feel alive.</p>
+<hr />
+<h2>5. Control transposition and melodic variation</h2>
+<p>You can also VCA-control <strong>sequencer CV</strong> before it reaches another destination.</p>
+<p>Example:</p>
+<ul>
+<li>Secondary CV source (offset sequence, random voltage, slow envelope) → HEXvca input</li>
+<li>Gate pattern or envelope → HEXvca CV input</li>
+<li>HEXvca output mixed with main pitch CV</li>
+</ul>
+<p>This can create:</p>
+<ul>
+<li>occasional melodic jumps</li>
+<li>accent-dependent transposition</li>
+<li>phrase-end rises</li>
+<li>selective addition of ornamentation</li>
+</ul>
+<p>This is especially useful when you want a melody to feel composed rather than mechanically looped.</p>
+<hr />
+<h2>6. Make accents more musical</h2>
+<p>Classic accents are not just louder notes—they often also affect timbre and modulation depth.</p>
+<p>With multiple HEXvca channels, one accent signal can control several things at once:</p>
+<ul>
+<li>VCA 1 = amplitude of the voice</li>
+<li>VCA 2 = filter envelope amount</li>
+<li>VCA 3 = FM amount</li>
+<li>VCA 4 = sub oscillator level</li>
+</ul>
+<p>If the same accent envelope is normalized across channels, accented notes can become:</p>
+<ul>
+<li>louder</li>
+<li>brighter</li>
+<li>more harmonically complex</li>
+<li>more animated</li>
+</ul>
+<p>This is a very effective way to add expression to melodic sequences.</p>
+<hr />
+<h2>7. Animate parallel melodic lines</h2>
+<p>If you have several melodic sources:</p>
+<ul>
+<li>main sequence</li>
+<li>transposed copy</li>
+<li>oscillator drone tuned to scale degree</li>
+<li>counter-line from another sequencer</li>
+</ul>
+<p>you can run each through a different VCA and dynamically blend them.</p>
+<p>The mix outputs make it easy to create:</p>
+<ul>
+<li>one submix for the lead</li>
+<li>another for accompaniment</li>
+<li>one combined output for recording or final processing</li>
+</ul>
+<p>This supports more structured melodic composition inside the rack.</p>
+<hr />
+<h2>8. Pairing with the HEXar</h2>
+<p>The manual mentions ribbon-cable integration with the <strong>HEXar</strong>. Even without the HEXar manual page here, the implication is that the two are designed to work together efficiently, reducing front-panel patching.</p>
+<p>If the HEXar is providing gates/triggers for multiple channels, then together they can form a very performance-friendly rhythmic/melodic control system:</p>
+<ul>
+<li>HEXar triggers multiple envelopes</li>
+<li>envelopes open HEXvca channels</li>
+<li>different oscillators or CV sources are mixed and articulated</li>
+<li>grouped outputs create melodic layers or voices</li>
+</ul>
+<p>This could be especially powerful for:</p>
+<ul>
+<li>trigger-based melodic percussion</li>
+<li>arpeggiated voice switching</li>
+<li>multi-lane note articulation</li>
+<li>pseudo-polyphonic patches</li>
+</ul>
+<hr />
+<h1>Practical melodic patch examples</h1>
+<h2>Patch 1: Dynamic mono lead</h2>
+<p><strong>Goal:</strong> a more expressive single-note melody</p>
+<ul>
+<li>Sequencer pitch CV → VCO 1V/oct</li>
+<li>VCO saw output → filter → HEXvca ch. 1 input</li>
+<li>Gate → envelope</li>
+<li>Envelope → HEXvca ch. 1 CV</li>
+<li>HEXvca output → mixer/output</li>
+</ul>
+<p>Add:
+- LFO → HEXvca ch. 2 input
+- Accent gate/envelope → HEXvca ch. 2 CV
+- HEXvca ch. 2 output → VCO FM or filter CV</p>
+<p>Result:
+- the melody has normal articulation on ch. 1
+- ch. 2 adds modulation only on selected notes</p>
+<hr />
+<h2>Patch 2: Interval melody mixer</h2>
+<p><strong>Goal:</strong> one melody that blooms into harmonized notes</p>
+<ul>
+<li>Main pitch CV → VCO 1</li>
+<li>Main pitch CV + precision adder offset → VCO 2</li>
+<li>Main pitch CV + octave offset → VCO 3</li>
+<li>VCOs into HEXvca channels 1, 2, 3</li>
+<li>Separate envelopes or modulation CVs into each VCA CV input</li>
+<li>Use mix output 1–3</li>
+</ul>
+<p>Result:
+- a melody that shifts between unison, fifths, and octaves
+- harmonic density can change note by note</p>
+<hr />
+<h2>Patch 3: Accent-driven melodic timbre</h2>
+<p><strong>Goal:</strong> accents that reshape the whole note</p>
+<ul>
+<li>Oscillator → filter → HEXvca ch. 1</li>
+<li>Filter envelope CV source → HEXvca ch. 2</li>
+<li>FM source or wavefolder CV source → HEXvca ch. 3</li>
+<li>Accent envelope multed or normalized to control channels 1–3</li>
+<li>Outputs sent to their destinations, or audio mixed from the submix</li>
+</ul>
+<p>Result:
+- accented notes are louder and also brighter or more aggressive
+- repeated melodic phrases feel much more intentional</p>
+<hr />
+<h2>Patch 4: Controlled random ornamentation</h2>
+<p><strong>Goal:</strong> melody with occasional variations</p>
+<ul>
+<li>Random stepped CV → HEXvca ch. 4 input</li>
+<li>Trigger pattern for selected notes → HEXvca ch. 4 CV</li>
+<li>HEXvca ch. 4 output mixed with pitch CV path via utility mixer</li>
+</ul>
+<p>Result:
+- only some notes receive random pitch decoration
+- useful for generative melodic lines that still feel constrained</p>
+<hr />
+<h1>Best roles for the HEXvca in a melodic system</h1>
+<p>The HEXvca is especially strong as:</p>
+<ul>
+<li><strong>voice amplitude control</strong></li>
+<li><strong>CV depth control</strong></li>
+<li><strong>submixer for layered oscillators</strong></li>
+<li><strong>accent distributor</strong></li>
+<li><strong>modulation animator</strong></li>
+<li><strong>performance mixer for melodic layers</strong></li>
+</ul>
+<p>It is less about generating melody directly, and more about making melodic material feel:</p>
+<ul>
+<li>expressive</li>
+<li>dynamic</li>
+<li>layered</li>
+<li>articulated</li>
+<li>evolving</li>
+</ul>
+<p>In practice, this means the HEXvca is a <strong>core support module</strong> for melodic composition in Eurorack.</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>Bubblesound HEXvca</strong> helps create melodic components by giving you six channels of control over both <strong>audio and CV</strong>, plus mix buses for combining related signals. In a melodic patch, it can:</p>
+<ul>
+<li>shape note loudness</li>
+<li>blend layered oscillators</li>
+<li>add harmonized intervals</li>
+<li>control modulation depth</li>
+<li>distribute accents across several parameters</li>
+<li>create evolving melodic phrasing</li>
+</ul>
+<p>If you combine it with oscillators, envelopes, a sequencer, and possibly the <strong>HEXar</strong>, it becomes a very powerful module for turning simple note patterns into rich, musical phrases.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

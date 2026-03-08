@@ -1,0 +1,480 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erica_Synths_Graphic_VCO</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erica Synths — Graphic VCO</h1>
+<ul>
+<li><a href="../../manuals/graphic_vco_manual_web.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.ericasynths.lv/media/Graphic_VCO_manual_v2.pdf">Erica Synths Graphic VCO Manual (PDF)</a></p>
+<h1>Erica Synths Graphic VCO: using it for melodic parts</h1>
+<p>This manual is for a single module: <strong>Erica Synths Graphic VCO</strong>.<br />
+So rather than explaining how <em>multiple modules in the PDF</em> work together, I’ll explain how this <strong>VCO can work with the rest of a Eurorack system</strong> to build strong melodic components: leads, basses, arps, plucks, evolving hooks, and harmonic layers.</p>
+<h2>What this module is, musically</h2>
+<p>The Graphic VCO is not just a basic oscillator. It gives you:</p>
+<ul>
+<li>custom waveform drawing</li>
+<li>morphing between two waves</li>
+<li>wavetable playback</li>
+<li>wavetable matrix scanning</li>
+<li>onboard wave shaping FX:</li>
+<li>FM</li>
+<li>ring modulation</li>
+<li>phase distortion</li>
+<li>wavefold</li>
+<li>wavewrap</li>
+<li>bitcrush / sample-rate reduction</li>
+<li>overdrive</li>
+<li>a configurable <strong>suboscillator output</strong> on <strong>OUT2</strong></li>
+<li>snapshot recall for fast sound changes</li>
+</ul>
+<p>That means it can be the <strong>main voice source</strong> for melodic material, especially if you pair it with:</p>
+<ul>
+<li>a sequencer</li>
+<li>envelope generator</li>
+<li>VCA</li>
+<li>filter</li>
+<li>modulation source(s)</li>
+<li>quantized CV or keyboard controller</li>
+</ul>
+<h2>Main patch role in a melodic voice</h2>
+<p>A standard melodic chain would be:</p>
+<p><strong>Pitch sequencer/keyboard → 1V/OCT input</strong><br />
+<strong>Graphic VCO OUT1 → filter or VCA → mixer/output</strong><br />
+<strong>Envelope → VCA CV</strong><br />
+Optional:
+- LFO or envelope → MORPH CV
+- modulation source → FX CV
+- CV source → FX AMT CV</p>
+<p>The module accepts:</p>
+<ul>
+<li><strong>1V/OCT:</strong> 0V to +8V</li>
+<li><strong>FX AMT CV:</strong> unipolar 0 to +10V</li>
+<li><strong>FX CV:</strong> bipolar -10V to +10V</li>
+<li><strong>MORPH CV:</strong> bipolar -10V to +10V</li>
+</ul>
+<p>This is important because it tells you what kinds of modulation are best:
+- envelopes are great for <strong>FX AMT</strong>
+- LFOs, random, and bipolar envelopes are great for <strong>MORPH CV</strong> and <strong>FX CV</strong></p>
+<hr />
+<h1>Best melodic uses</h1>
+<h2>1. Expressive lead voice</h2>
+<p>Use <strong>Wave Design mode</strong> with two contrasting waves, A and B.</p>
+<p>For example:
+- Wave A = smoother sine/triangle-derived custom shape
+- Wave B = brighter saw/pulse-like custom shape</p>
+<p>Then:
+- sequence pitch into <strong>1V/OCT</strong>
+- use <strong>MORPH knob</strong> or <strong>MORPH CV</strong> to move between the two waves
+- send <strong>OUT1</strong> through a VCA and maybe a lowpass filter</p>
+<h3>Why it works</h3>
+<p>Morphing creates a lead sound that breathes with the melody. You can keep the pitch sequence simple and get movement from timbre instead of note density.</p>
+<h3>Great modulation ideas</h3>
+<ul>
+<li>slow LFO → MORPH CV for evolving sustained lines</li>
+<li>envelope → MORPH CV for pluck attacks that brighten then settle</li>
+<li>velocity CV or accent CV → FX AMT CV for more expressive phrasing</li>
+</ul>
+<hr />
+<h2>2. Bassline oscillator with sub reinforcement</h2>
+<p>The module has two outputs:</p>
+<ul>
+<li><strong>OUT1</strong> = main output</li>
+<li><strong>OUT2</strong> = configurable suboscillator/mix output</li>
+</ul>
+<p>In the <strong>Suboscillator Configuration menu</strong>, you can set:</p>
+<ul>
+<li>pitch offset up to <strong>24 semitones down</strong></li>
+<li>detune ±50 cents</li>
+<li>wave for the sub</li>
+<li>dry/wet mix between main and sub at OUT2</li>
+</ul>
+<h3>Bass patch</h3>
+<ul>
+<li>pitch sequencer → 1V/OCT</li>
+<li><strong>OUT2</strong> → VCA/filter chain</li>
+<li>set sub offset to <strong>-12 semitones</strong> or <strong>-24 semitones</strong></li>
+<li>set a square-ish or simple sub waveform</li>
+<li>keep main wave moderately bright, sub solid and stable</li>
+</ul>
+<h3>Why it works</h3>
+<p>This gives you a bass voice with:
+- harmonic articulation from the main oscillator
+- fundamental weight from the sub</p>
+<p>It’s especially useful for:
+- monosynth bass
+- acid-adjacent lines
+- electro sequences
+- techno hooks</p>
+<p>If you want extra presence, use <strong>OUT1 and OUT2 as separate layers</strong>:
+- OUT1 → brighter filtered path
+- OUT2 → cleaner low-passed path</p>
+<p>That effectively turns one oscillator into a layered melodic bass instrument.</p>
+<hr />
+<h2>3. Wavetable melody scanning</h2>
+<p>In <strong>Wavetable mode</strong>, you load a bank of <strong>16 waves</strong> and scan through them with:
+- the <strong>MORPH knob</strong>
+- or <strong>MORPH CV</strong></p>
+<h3>Musical use</h3>
+<p>Instead of treating morphing as subtle animation, treat it as a compositional parameter:
+- one note pattern
+- changing wave position across each step or phrase</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>sequence pitch normally</li>
+<li>stepped CV from a sequencer row → MORPH CV</li>
+<li>envelope or accent → FX AMT CV</li>
+<li>OUT1 → LPG or VCA for plucky lines</li>
+</ul>
+<h3>Result</h3>
+<p>Each note can have a different harmonic identity while staying in tune.<br />
+That’s excellent for:
+- melodic techno riffs
+- chiptune-ish sequences
+- evolving arpeggios
+- “single oscillator but sounds like many notes are articulated differently” lines</p>
+<hr />
+<h2>4. Matrix scanning for animated melodies</h2>
+<p>The <strong>Wavetable Matrix mode</strong> is one of the most powerful melodic features.</p>
+<p>You get a 2D field:
+- one axis = wavetable selection
+- one axis = wave selection within those tables</p>
+<p>On the panel in this mode:
+- <strong>FX knob / FX CV input</strong> scan one direction
+- <strong>MORPH knob / MORPH CV input</strong> scan the other direction</p>
+<h3>Musical advantage</h3>
+<p>This lets you move through a large organized timbral map while pitch remains stable.</p>
+<h3>Best use cases</h3>
+<ul>
+<li>long evolving melodies</li>
+<li>generative melodic patches</li>
+<li>note repeats where the timbre changes per step</li>
+<li>phrase-based modulation, where one CV controls “brightness family” and another controls “internal wave position”</li>
+</ul>
+<h3>Patch example</h3>
+<ul>
+<li>quantized melody sequencer → 1V/OCT</li>
+<li>slow random or sequencer row → MORPH CV</li>
+<li>another CV lane or LFO → FX CV</li>
+<li>gate envelope → VCA</li>
+</ul>
+<p>Now the melody has:
+- note content from pitch CV
+- timbral phrasing from X/Y scanning</p>
+<p>This is one of the best ways to make a simple 8-step melody sound like a composed line.</p>
+<hr />
+<h1>Using the onboard FX for melody</h1>
+<p>The FX are applied to the main resulting wave before output.<br />
+Per the manual, <strong>FXes except FM are not applied to the suboscillator</strong>.</p>
+<p>That means you can keep the sub stable while making the main tone animated.</p>
+<h2>5. FM for tuned melodic brightness</h2>
+<p>The FM section uses:
+- selectable modulation waveform
+- sync on/off
+- ratio or free frequency
+- depth control</p>
+<h3>Best melodic use</h3>
+<p>Use <strong>small to medium FM depth</strong> with a synced ratio.</p>
+<p>Good starting points:
+- sine modulator
+- sync ON
+- simple ratios
+- low/moderate depth</p>
+<h3>Result</h3>
+<ul>
+<li>bell-like leads</li>
+<li>glassy plucks</li>
+<li>metallic but still tonal basses</li>
+<li>expressive sequence accents</li>
+</ul>
+<p>If the ratio is synced, melodic intervals remain musically coherent.</p>
+<h3>Great patching</h3>
+<ul>
+<li>sequencer accent row or envelope → FX AMT CV</li>
+<li>keep base timbre clean, add FM only on accented notes</li>
+</ul>
+<p>That gives you articulate melodic phrasing without changing pitch sequence.</p>
+<hr />
+<h2>6. Phase distortion for sharper plucks and digital leads</h2>
+<p>This is especially useful for melodic content because phase distortion often keeps the pitch center clear while changing the edge and attack character.</p>
+<h3>Musical use</h3>
+<ul>
+<li>manual POT mode for live tweaking</li>
+<li>envelope to FX CV for per-note transient shaping</li>
+<li>subtle amount for animated leads</li>
+<li>stronger amount for aggressive bass sequences</li>
+</ul>
+<p>This is excellent when you want:
+- Casio-like digital edge
+- sharper attacks
+- more note definition in busy arrangements</p>
+<hr />
+<h2>7. Ring mod for tuned dissonant melodies</h2>
+<p>Ring modulation can get wild, but for melodic use:
+- keep modulation amount low
+- use synced internal oscillator
+- try sine or triangle modulators</p>
+<h3>Best application</h3>
+<p>Use it sparingly as:
+- an accent layer
+- a transition sound
+- a second phrase variation recalled via snapshots</p>
+<p>It’s less “main bassline all night” and more “special color” in melodic composition.</p>
+<hr />
+<h2>8. Wavefold / wrap for dynamic articulation</h2>
+<p>Wavefolding is great for melodic lines because it responds well to envelopes.</p>
+<h3>Patch</h3>
+<ul>
+<li>choose FOLD or WRAP</li>
+<li>use <strong>POT</strong> or external CV</li>
+<li>envelope → FX CV or FX AMT</li>
+<li>sequence into 1V/OCT</li>
+</ul>
+<h3>Result</h3>
+<p>Each note opens with harmonic intensity, almost like a filter envelope but at the oscillator level.</p>
+<p>This is one of the best ways to make:
+- West-coast flavored plucks
+- animated sequences
+- aggressive modern lead lines</p>
+<hr />
+<h2>9. Bitcrush / sample-rate reduction for melodic texture</h2>
+<p>For melody, bitcrush works best when controlled, not maxed out.</p>
+<h3>Good uses</h3>
+<ul>
+<li>lo-fi arps</li>
+<li>video-game style hooks</li>
+<li>broken-digital melodic layers</li>
+<li>occasional phrase variation</li>
+</ul>
+<p>Try:
+- fixed melody
+- slight morph movement
+- moderate crush amount
+- high resonance filter after the oscillator</p>
+<p>This gives a very characterful line without losing note identity.</p>
+<hr />
+<h2>10. Overdrive for lead presence</h2>
+<p>Overdrive is simple but useful:
+- makes a lead sit forward
+- adds harmonics to bass
+- can make simple custom waves more musically dense</p>
+<p>It works especially well if your wave design starts smooth and you use drive to introduce harmonic urgency.</p>
+<hr />
+<h1>Strong system pairings for melodic patches</h1>
+<h2>With a sequencer</h2>
+<p>This is the most obvious pairing.</p>
+<p>Use a sequencer to send:
+- pitch to <strong>1V/OCT</strong>
+- gates to envelope/VCA
+- extra CV lane to <strong>MORPH CV</strong>
+- accent lane to <strong>FX AMT CV</strong></p>
+<p>This turns a basic sequencer into a much more expressive melodic engine.</p>
+<h3>Great strategy</h3>
+<p>One lane controls note pitch, another lane controls <strong>timbre per step</strong>.<br />
+That’s where the Graphic VCO really shines.</p>
+<hr />
+<h2>With a quantizer</h2>
+<p>If you feed random CV or a slow function generator into a quantizer and then to <strong>1V/OCT</strong>, the Graphic VCO becomes a very strong generative melody voice.</p>
+<p>Then use different slow CVs for:
+- MORPH CV
+- FX CV
+- FX AMT CV</p>
+<p>Now:
+- pitch evolves in scale
+- timbre evolves independently</p>
+<p>That creates musical ambient lines, generative hooks, and self-moving motifs.</p>
+<hr />
+<h2>With an envelope and VCA</h2>
+<p>This is essential if you want discrete notes rather than a drone.</p>
+<p>Use:
+- gate sequencer → envelope
+- envelope → VCA CV
+- Graphic VCO → VCA audio in</p>
+<p>For more expression:
+- mult the envelope to <strong>MORPH CV</strong> or <strong>FX AMT CV</strong></p>
+<p>That makes every note change shape, not just amplitude.</p>
+<hr />
+<h2>With a filter</h2>
+<p>Even though the VCO can do lots of internal shaping, a filter still adds huge value.</p>
+<h3>Why</h3>
+<p>The oscillator can provide very complex harmonic movement, while the filter:
+- controls spectral focus
+- adds contour
+- turns static timbral changes into more “synth-voice” phrasing</p>
+<h3>Great combinations</h3>
+<ul>
+<li>bright wavetable scan → lowpass filter for classic subtractive melody</li>
+<li>wavefolded tone → bandpass filter for nasal lead</li>
+<li>FM tone → lowpass gate or VCA for plucky digital percussion-melody hybrids</li>
+</ul>
+<hr />
+<h2>With LFOs and function generators</h2>
+<p>This is where the module becomes truly alive.</p>
+<p>Use modulation for:
+- slow morphing between waves
+- rhythmic FX parameter shifts
+- phrase-level timbral modulation
+- subtle vibrato via pitch source upstream if desired</p>
+<p>Since the module has dedicated CV control over morph and FX, it rewards having <strong>at least two modulation sources</strong> available.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Evolving lead</h2>
+<ul>
+<li>Sequencer pitch → 1V/OCT</li>
+<li>Gate → envelope → VCA</li>
+<li>OUT1 → VCA → delay/reverb</li>
+<li>Slow triangle LFO → MORPH CV</li>
+<li>Envelope attenuated → FX AMT CV</li>
+<li>FX = phase distortion or mild FM</li>
+</ul>
+<p><strong>Sound:</strong> expressive, singing lead with evolving harmonic shape.</p>
+<hr />
+<h2>Patch 2: Solid techno bass</h2>
+<ul>
+<li>Sequencer pitch → 1V/OCT</li>
+<li>OUT2 → lowpass filter → VCA</li>
+<li>Sub offset = -1 or -2 octaves</li>
+<li>Mix% favors sub, with some main tone</li>
+<li>FX on main voice = overdrive or mild wavefold</li>
+<li>Short decay envelope to VCA/filter</li>
+</ul>
+<p><strong>Sound:</strong> punchy, harmonically rich bass with strong low end.</p>
+<hr />
+<h2>Patch 3: Animated arp</h2>
+<ul>
+<li>Arp/sequencer → 1V/OCT</li>
+<li>Clocked stepped CV → MORPH CV</li>
+<li>Slow LFO → FX CV</li>
+<li>FX = bitcrush lightly or phase distortion</li>
+<li>OUT1 → stereo effects</li>
+</ul>
+<p><strong>Sound:</strong> each note has a different timbral edge, making the arp feel composed and lively.</p>
+<hr />
+<h2>Patch 4: Generative melodic texture</h2>
+<ul>
+<li>Random CV → quantizer → 1V/OCT</li>
+<li>Random gates → envelope → VCA</li>
+<li>Slow random CV → MORPH CV</li>
+<li>Another slow random CV → FX CV</li>
+<li>Wavetable Matrix mode active</li>
+<li>OUT1 → filter → reverb</li>
+</ul>
+<p><strong>Sound:</strong> evolving tonal textures with melodic coherence.</p>
+<hr />
+<h2>Patch 5: Dual-layer mono voice from one oscillator</h2>
+<ul>
+<li>OUT1 → brighter filter/VCA path</li>
+<li>OUT2 → lowpassed support path</li>
+<li>Same pitch source to 1V/OCT</li>
+<li>Main output carries animated wave/FX</li>
+<li>Sub output provides body</li>
+</ul>
+<p><strong>Sound:</strong> one VCO behaving like a layered synth voice, ideal for hooks and lead-bass hybrids.</p>
+<hr />
+<h1>Best workflow features for songwriting</h1>
+<h2>Snapshots</h2>
+<p>You can save a snapshot of:
+- wave settings
+- wavetable state
+- suboscillator config
+- FX settings
+- related sound design choices</p>
+<p>This is very useful for melodic composition because you can build:
+- verse lead
+- chorus lead
+- breakdown texture
+- alternate bass tone</p>
+<p>…and switch quickly between them.</p>
+<h3>Performance benefit</h3>
+<p>You can write several related melodic timbres and recall them during arrangement or live play.</p>
+<hr />
+<h2>Custom wave drawing</h2>
+<p>This matters musically because you can design waves with a specific melodic role:
+- smoother waves for foreground melody
+- hollow waves for counter-melody
+- nasal waves for cutting through a mix
+- asymmetric waves for punchy bass</p>
+<p>Rather than picking from generic oscillator shapes, you can build a wave that supports the exact line you want.</p>
+<hr />
+<h2>Harmonic editing</h2>
+<p>The spectral/harmonic editing mode is especially useful if you think in arrangement terms.</p>
+<p>For example:
+- strong fundamental + low harmonics = bass
+- richer upper harmonics = lead
+- odd harmonic emphasis = hollow/reedy line
+- sparse harmonics = cleaner melody that leaves room for pads/drums</p>
+<hr />
+<h1>Most useful melodic strategies</h1>
+<h2>Keep pitch simple, vary timbre</h2>
+<p>This module excels when the melody is not overly complex but the timbre is changing.</p>
+<p>A 4-step or 8-step sequence can feel very rich if:
+- morph shifts per note
+- FX amount changes with accents
+- wavetable position evolves over time</p>
+<h2>Use suboscillator for weight, not complexity</h2>
+<p>For melodic lines, the sub is best used to support pitch perception and groove.<br />
+Let the main output carry the interesting motion.</p>
+<h2>Use FM and ring mod carefully</h2>
+<p>They’re powerful, but for melodic writing:
+- start subtle
+- prefer synced ratios
+- use them as articulation, not constant chaos</p>
+<h2>Save snapshots as arranged sections</h2>
+<p>Treat snapshots like:
+- intro
+- verse
+- chorus
+- fill
+- bridge variants</p>
+<p>That makes the module very effective in live melodic performance.</p>
+<hr />
+<h1>Limitations to keep in mind</h1>
+<p>From the manual, this is fundamentally an <strong>oscillator</strong>, not a full voice.<br />
+To make complete melodic parts, you typically still want:</p>
+<ul>
+<li>a sequencer or keyboard</li>
+<li>an envelope</li>
+<li>a VCA</li>
+<li>often a filter</li>
+<li>possibly effects downstream</li>
+</ul>
+<p>Also note:
+- non-FM FX do <strong>not</strong> affect the suboscillator
+- in snapshot recall, knobs won’t affect parameters until they reach the saved position
+- the most musical results usually come from intentional CV attenuation rather than full-range modulation</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Graphic VCO</strong> is excellent for melodic work because it combines:</p>
+<ul>
+<li>stable pitch tracking</li>
+<li>custom waveform design</li>
+<li>wavetable scanning</li>
+<li>2D matrix morphing</li>
+<li>internal digital waveshaping</li>
+<li>a useful sub layer</li>
+<li>snapshot recall</li>
+</ul>
+<p>In a Eurorack system, it works best as the <strong>core tone generator</strong> for:</p>
+<ul>
+<li>expressive leads</li>
+<li>animated arps</li>
+<li>rich mono basses</li>
+<li>generative melodies</li>
+<li>layered digital/analog hybrid hooks</li>
+</ul>
+<p>If I were building melodic patches around it, I’d prioritize pairing it with:</p>
+<ol>
+<li>a strong pitch sequencer  </li>
+<li>at least one envelope + VCA  </li>
+<li>a filter  </li>
+<li>one or two CV sources for morph and FX control  </li>
+</ol>
+<p>That combination turns the Graphic VCO from “interesting oscillator” into a <strong>full melodic instrument</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

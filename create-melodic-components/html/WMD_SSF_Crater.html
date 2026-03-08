@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>WMD_SSF_Crater</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>WMD SSF — Crater</h1>
+<ul>
+<li><a href="../../manuals/Kick_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>WMD Crater — using it for melodic components</h1>
+<p>Based on the attached manual, <strong>Crater</strong> is primarily a <strong>hybrid kick drum voice</strong>, but it can absolutely contribute to <strong>melodic material</strong> in a Eurorack patch when treated as a <strong>pitched oscillator/percussive bass voice</strong> rather than only a drum.</p>
+<h2>What in the manual suggests melodic use</h2>
+<p>A few features make Crater useful beyond simple kick duties:</p>
+<ul>
+<li><strong>PITCH</strong> ranges from <strong>5 Hz to 100 Hz</strong></li>
+<li><strong>1V/OCT input</strong> is present</li>
+<li><strong>SUSTAIN</strong> allows the sound to hold while the <strong>TRIGGER remains high</strong></li>
+<li>The manual explicitly says:  <blockquote>
+<p>“Hit those dirty deep kick drum basslines by setting the sustain level and sending a gate to the TRIGGER input. Make it even hotter by sending a sequence to the 1V/OCT input.”</p>
+</blockquote>
+</li>
+<li><strong>Pitch envelope amount and decay</strong> can be controlled, which lets you move from a stable bass note to more tom-like, expressive transients</li>
+<li><strong>Saturation</strong> and <strong>clipping</strong> can turn a plain low sine-like body into something harmonically richer and easier to hear as a note in a mix</li>
+</ul>
+<p>So while this is not a conventional full-range melodic oscillator, it is very usable for:</p>
+<ul>
+<li><strong>basslines</strong></li>
+<li><strong>tuned kick melodies</strong></li>
+<li><strong>acid-adjacent low-end riffs</strong></li>
+<li><strong>tom-like tuned percussion</strong></li>
+<li><strong>drone/sub notes with attack</strong></li>
+<li><strong>accented rhythmic melodic motifs</strong></li>
+</ul>
+<hr />
+<h2>Core melodic behaviors of Crater</h2>
+<h2>1. Tuned bass voice</h2>
+<p>The clearest melodic use is as a <strong>monophonic bass synth voice</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a <strong>pitch sequencer</strong> to <strong>1V/OCT</strong></li>
+<li>Send a <strong>gate sequence</strong> to <strong>TRIGGER</strong></li>
+<li>Raise <strong>SUSTAIN</strong></li>
+<li>Adjust <strong>DECAY</strong> so notes either pluck or hold</li>
+<li>Set <strong>PITCH DECAY AMOUNT</strong> low for more stable pitch</li>
+<li>Use <strong>PITCH DECAY</strong> short if you want punch without obvious pitch dive</li>
+</ul>
+<h3>Result</h3>
+<p>This gives you a bass voice with:
+- strong transient
+- deep fundamental
+- built-in drive options
+- expressive gate-length response</p>
+<p>Because the oscillator sustains while the trigger is high, <strong>gate length matters</strong>, which is very useful for actual note phrasing.</p>
+<hr />
+<h2>2. Tuned toms / melodic percussion</h2>
+<p>The pitch envelope section is ideal for making <strong>pitched percussion lines</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequence <strong>1V/OCT</strong></li>
+<li>Use shorter <strong>DECAY</strong></li>
+<li>Set <strong>SUSTAIN</strong> low or off</li>
+<li>Increase <strong>PITCH ENVELOPE AMOUNT</strong></li>
+<li>Tune <strong>PITCH DECAY</strong> to taste</li>
+</ul>
+<h3>Result</h3>
+<p>You can get:
+- disco toms
+- electro tuned drum riffs
+- tribal melodic percussion
+- short “doof” notes that still carry pitch</p>
+<p>This is especially effective if the sequence repeats a tonal center, because the ear hears the drum hits as melodic events.</p>
+<hr />
+<h2>3. Distorted sub-leads</h2>
+<p>Crater includes both <strong>SATURATION CV</strong> and a <strong>3-position clipping section</strong>:
+- left: clipping off
+- middle: restricted clipping that fades to cleaner as amplitude decays
+- right: full clipping</p>
+<h3>Why this matters melodically</h3>
+<p>A pure low kick fundamental can be hard to perceive as a note on small speakers. Distortion adds upper harmonics, which makes the pitch more audible.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequence <strong>1V/OCT</strong></li>
+<li>Open <strong>SUSTAIN</strong></li>
+<li>Use medium <strong>DECAY</strong></li>
+<li>Apply some <strong>SATURATION</strong></li>
+<li>Set <strong>CLIPPING</strong> to middle or full</li>
+<li>Keep <strong>CLICK LEVEL</strong> lower if you want a more synth-like note</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- gritty basslines
+- gabber-style tuned low-end riffs
+- distorted one-note drones with rhythmic articulation</p>
+<p>The middle clipping mode is especially musical because the attack is more distorted and the tail cleans up.</p>
+<hr />
+<h2>4. Click-based pseudo-melodic articulations</h2>
+<p>Crater has:
+- <strong>14 sampled clicks</strong>
+- <strong>CLICK TIMBRE</strong>
+- <strong>CLICK DECAY</strong>
+- <strong>CLICK LEVEL</strong></p>
+<p>The click is not “pitched” in the same sense as the body oscillator, but it changes note articulation a lot. Different click choices can make repeated notes sound like separate melodic phrases.</p>
+<h3>Patch idea</h3>
+<p>Use the kick body for the actual pitch, and shape melody perception by:
+- changing <strong>CLICK TIMBRE</strong>
+- changing <strong>CLICK DECAY</strong>
+- using accents on selected notes</p>
+<h3>Result</h3>
+<p>Even a simple two-note bassline can sound more musical because each note has a distinct front edge.</p>
+<p>This is great for:
+- techno bass hooks
+- syncopated low-end motifs
+- call-and-response between accented and unaccented notes</p>
+<hr />
+<h2>5. Accent as melodic emphasis</h2>
+<p>The module has separate <strong>TRIGGER</strong> and <strong>ACCENT</strong> behavior:
+- normal trigger for standard hit
+- accent to “beef up” the hit
+- plugging into <strong>ACCENT only</strong> always triggers accented kick</p>
+<h3>Melodic use</h3>
+<p>Accent is not pitch, but it is a major part of phrasing. In melodic sequencing, emphasis often matters as much as note choice.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Main gate stream to <strong>TRIGGER</strong></li>
+<li>A second rhythmic lane to <strong>ACCENT</strong></li>
+<li>Pitch CV to <strong>1V/OCT</strong></li>
+</ul>
+<h3>Result</h3>
+<p>This creates:
+- emphasized notes in a bassline
+- pseudo-acid phrasing
+- rhythmic variation inside repetitive tonal patterns</p>
+<hr />
+<h1>Best melodic patch strategies</h1>
+<h2>A. Simple bassline patch</h2>
+<p><strong>Connections</strong>
+- Sequencer pitch CV → <strong>1V/OCT</strong>
+- Sequencer gate → <strong>TRIGGER</strong>
+- Crater <strong>OUTPUT</strong> → mixer / filter / VCA / effects</p>
+<p><strong>Settings</strong>
+- <strong>PITCH</strong> around low-mid region
+- <strong>SUSTAIN</strong> at 10–2 o’clock
+- <strong>DECAY</strong> medium
+- <strong>PITCH ENV AMOUNT</strong> low
+- <strong>PITCH DECAY</strong> short
+- <strong>CLICK LEVEL</strong> low-medium
+- <strong>CLIPPING</strong> off or middle</p>
+<p><strong>Use</strong>
+- Deep techno bass
+- EBM bass sequence
+- industrial low-end line</p>
+<hr />
+<h2>B. Tuned kick melody patch</h2>
+<p><strong>Connections</strong>
+- Pitch sequence → <strong>1V/OCT</strong>
+- Trigger pattern → <strong>TRIGGER</strong>
+- Occasional accents → <strong>ACCENT</strong></p>
+<p><strong>Settings</strong>
+- <strong>SUSTAIN</strong> low
+- <strong>DECAY</strong> short-medium
+- <strong>PITCH ENV AMOUNT</strong> medium-high
+- <strong>PITCH DECAY</strong> medium
+- <strong>CLICK LEVEL</strong> medium
+- <strong>CLICK TIMBRE</strong> chosen for attack character</p>
+<p><strong>Use</strong>
+- melodic tom runs
+- percussive riffs
+- classic drum-synth tuned fills</p>
+<hr />
+<h2>C. Sustained drone/sub patch</h2>
+<p><strong>Connections</strong>
+- Quantized CV source → <strong>1V/OCT</strong>
+- Long gate or manual gate → <strong>TRIGGER</strong>
+- Slow CV → <strong>SATURATION</strong> if available</p>
+<p><strong>Settings</strong>
+- <strong>SUSTAIN</strong> high
+- <strong>DECAY</strong> medium-long
+- <strong>CLICK LEVEL</strong> very low
+- <strong>PITCH ENV AMOUNT</strong> very low
+- <strong>CLIPPING</strong> middle or off</p>
+<p><strong>Use</strong>
+- held root notes
+- sub drones under melodies
+- dark ambient low fundamentals</p>
+<hr />
+<h2>D. Aggressive gabber bass sequence</h2>
+<p><strong>Connections</strong>
+- Sequencer → <strong>1V/OCT</strong>
+- Trigger pattern → <strong>ACCENT</strong> or <strong>TRIGGER</strong>
+- Optional modulation → <strong>SATURATION</strong></p>
+<p><strong>Settings</strong>
+- <strong>SUSTAIN</strong> medium
+- <strong>DECAY</strong> medium
+- <strong>PITCH ENV AMOUNT</strong> medium
+- <strong>PITCH DECAY</strong> short
+- <strong>SATURATION</strong> up
+- <strong>CLIPPING</strong> full/right position</p>
+<p><strong>Use</strong>
+- hardcore/gabber riffs
+- distorted industrial bass
+- overdriven mono hooks</p>
+<hr />
+<h1>How it combines with other modules in a Eurorack system</h1>
+<p>Since only this manual is attached, I can’t describe specific interactions with additional modules from other manuals. But in a typical system, Crater pairs especially well with the following categories to create melodic components:</p>
+<h2>1. Sequencers and quantizers</h2>
+<p>Crater becomes melodic as soon as you feed its <strong>1V/OCT</strong> from:
+- step sequencers
+- keyboard controllers
+- quantized random voltages
+- arpeggiators</p>
+<p>A quantizer is especially helpful because Crater is naturally a drum voice; quantized pitch CV pushes it into clearer tonal use.</p>
+<h2>2. Filters</h2>
+<p>Even though Crater already has tone-shaping via saturation, clipping, and click controls, a <strong>low-pass or band-pass filter</strong> can help transform it from “kick” into “bass synth.”</p>
+<p>Use a filter to:
+- tame click brightness
+- emphasize a note’s fundamental
+- create movement with envelope or LFO modulation</p>
+<h2>3. VCAs and envelopes</h2>
+<p>If you want more standard synth-note articulation than the built-in drum envelope provides, send Crater through an external VCA.</p>
+<p>This helps with:
+- tighter note lengths
+- dynamic shaping
+- sidechain-like arrangements
+- better integration with melodic voices</p>
+<h2>4. Distortion / wavefolding / saturation</h2>
+<p>Crater already distorts internally, but external processing can make it read more like a lead or bass synth.</p>
+<p>Useful for:
+- bringing out harmonics
+- making pitch more audible
+- fitting into dense arrangements</p>
+<h2>5. Delay and reverb</h2>
+<p>Short delay or reverb can turn tuned percussion into a melodic texture.</p>
+<p>Best for:
+- dubby tom phrases
+- atmospheric kick melodies
+- sparse low-end motifs in ambient or experimental work</p>
+<hr />
+<h1>Musical roles Crater can fill</h1>
+<h2>Bassline voice</h2>
+<p>Probably the most straightforward non-drum use.</p>
+<h2>Root-note anchor</h2>
+<p>It can reinforce the tonic or root beneath more complex melodic voices.</p>
+<h2>Melodic percussion</h2>
+<p>Excellent for tuned toms and note-like drum phrases.</p>
+<h2>Riff generator</h2>
+<p>With sequencing and accenting, it can create memorable low-register hooks.</p>
+<h2>Transitional fills</h2>
+<p>Pitch-sequenced fills between phrases are a strong use case.</p>
+<hr />
+<h1>Practical tips</h1>
+<ul>
+<li><strong>Lower click level</strong> if you want the ear to hear “note” instead of “drum.”</li>
+<li>Use <strong>some sustain</strong> and <strong>longer gates</strong> for actual bassline phrasing.</li>
+<li>Keep <strong>pitch envelope amount modest</strong> when tracking melodies; too much can obscure note center.</li>
+<li>Use <strong>middle clipping</strong> for a more musical distorted contour.</li>
+<li>Use <strong>accent rhythmically</strong>, not constantly, to create phrase structure.</li>
+<li>If tracking across a wider range, test pitch response practically; as a kick voice, it may be most convincing over a focused low register rather than as a full melodic lead.</li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p><strong>Crater is not a traditional melodic oscillator, but it is definitely capable of melodic work</strong>—especially in the roles of:</p>
+<ul>
+<li><strong>tuned kick bass</strong></li>
+<li><strong>sustained sub bass</strong></li>
+<li><strong>melodic tom percussion</strong></li>
+<li><strong>distorted low-end riffs</strong></li>
+</ul>
+<p>Its most important melodic features are the <strong>1V/OCT input</strong>, <strong>sustain behavior</strong>, <strong>pitch envelope controls</strong>, and <strong>harmonic enhancement via saturation/clipping</strong>. In a Eurorack system, that makes it a strong choice for <strong>bass-driven melodic content</strong>, especially in techno, electro, industrial, EBM, hardcore, and experimental patches.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

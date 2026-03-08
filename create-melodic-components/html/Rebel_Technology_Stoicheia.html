@@ -1,0 +1,388 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Rebel_Technology_Stoicheia</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Rebel Technology — Stoicheia</h1>
+<ul>
+<li><a href="../../manuals/Stoicheia – Rebel Technology.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.rebeltech.org/product/stoicheia/">Manual PDF / Source</a></p>
+<h1>Rebel Technology Stoicheia: using it for melodic components</h1>
+<p>Stoicheia is <strong>not a pitch sequencer</strong>. It’s a <strong>dual Euclidean trigger/gate sequencer</strong>. So its role in melody-making is to create the <strong>rhythmic structure</strong> that drives melodic events: when notes happen, how often they happen, how two lines interlock, and how phrase lengths evolve.</p>
+<h2>What the module does</h2>
+<p>From the manual:</p>
+<ul>
+<li><strong>Dual Euclidean sequencer</strong></li>
+<li>Two independent sequences</li>
+<li>Each side has:</li>
+<li><strong>Length</strong>: 1–16 steps</li>
+<li><strong>Fills</strong>: how many active beats</li>
+<li><strong>Rotation</strong>: shifts the pattern start point</li>
+<li><strong>Mode switch</strong>:<ul>
+<li>Off</li>
+<li><strong>Trigger mode</strong></li>
+<li><strong>Alternating mode</strong></li>
+</ul>
+</li>
+<li>Shared functions:</li>
+<li><strong>Reset input</strong></li>
+<li><strong>Manual reset</strong></li>
+<li><strong>Chained mode</strong> to play seq A then seq B as one longer pattern</li>
+</ul>
+<p>Outputs are gates around <strong>0V / 5.1V</strong>, so they’re ideal for triggering envelopes, clocks, sample &amp; holds, logic, switches, and many quantizer/sample functions.</p>
+<hr />
+<h1>How Stoicheia contributes to melody</h1>
+<p>To make melody in Eurorack, you usually need these building blocks:</p>
+<ol>
+<li>
+<p><strong>Pitch source</strong><br />
+   quantizer, sequencer, random voltage, joystick, keyboard, S&amp;H, etc.</p>
+</li>
+<li>
+<p><strong>Rhythm / note timing</strong><br />
+   this is where <strong>Stoicheia</strong> shines</p>
+</li>
+<li>
+<p><strong>Articulation</strong><br />
+   envelopes, VCAs, accents, legato/tied gates</p>
+</li>
+<li>
+<p><strong>Phrase structure</strong><br />
+   resets, polymeter, pattern chaining, variation</p>
+</li>
+</ol>
+<p>Stoicheia mainly handles <strong>2, 3, and 4</strong>.</p>
+<hr />
+<h1>Best melodic uses</h1>
+<h2>1. Triggering notes from a pitch source</h2>
+<p>Patch idea:</p>
+<ul>
+<li>Clock/LFO → Stoicheia clock input</li>
+<li>Stoicheia output A → envelope gate input</li>
+<li>Envelope → VCA CV</li>
+<li>Oscillator → VCA → filter/output</li>
+<li>Separate CV sequencer or quantized random voltage → oscillator 1V/oct</li>
+</ul>
+<p>Result:
+- Pitch source determines <strong>what note</strong>
+- Stoicheia determines <strong>when the note speaks</strong></p>
+<p>This is the most direct melodic use. Even a simple 8-note pitch loop becomes musical when Euclidean spacing changes the note onsets.</p>
+<h3>Why it works</h3>
+<p>Euclidean rhythms distribute pulses evenly, so note timing often feels balanced and musical:
+- sparse fills = airy melodic fragments
+- dense fills = active arpeggio-like lines
+- rotation = syncopation without rewriting pitches</p>
+<hr />
+<h2>2. Using the two channels for melody + accent</h2>
+<p>Since Stoicheia has two sequences, one can drive notes and the other can shape emphasis.</p>
+<p>Patch idea:</p>
+<ul>
+<li>Seq A output → main envelope trigger</li>
+<li>Seq B output → accent envelope or filter envelope trigger</li>
+<li>Pitch sequencer → oscillator pitch</li>
+<li>Seq B also to a second VCA/CV input for louder accented notes</li>
+</ul>
+<p>Result:
+- A note line plays on Seq A
+- Seq B adds accents on selected steps
+- The same pitch pattern feels far more melodic because phrasing emerges</p>
+<p>Good settings:
+- A = E(5,8) type density
+- B = E(3,8) or E(2,5)-like accent rhythm
+- Rotate B relative to A for evolving accents</p>
+<hr />
+<h2>3. Triggering sample-and-hold for stepped melodies</h2>
+<p>One of the strongest pairings:</p>
+<ul>
+<li>Noise / random CV / smooth CV / LFO → Sample &amp; Hold input</li>
+<li>Stoicheia output A → S&amp;H trigger</li>
+<li>S&amp;H output → quantizer → oscillator pitch</li>
+<li>Same Stoicheia output or another gate → envelope</li>
+</ul>
+<p>Result:
+- Stoicheia creates the rhythm of pitch changes
+- Quantizer turns random voltages into scales
+- You get Euclidean melodies instantly</p>
+<h3>Variations</h3>
+<ul>
+<li>Use <strong>Seq A</strong> to sample new pitches</li>
+<li>Use <strong>Seq B</strong> to trigger the envelope</li>
+</ul>
+<p>This creates:
+- some pitches change without sounding immediately
+- some notes repeat the same pitch before a new one is sampled</p>
+<p>That’s a classic trick for more intentional-sounding melodic lines.</p>
+<hr />
+<h2>4. Creating call-and-response melodies</h2>
+<p>Because Stoicheia is dual, you can patch two voices:</p>
+<ul>
+<li>Seq A → envelope/VCA for voice 1</li>
+<li>Seq B → envelope/VCA for voice 2</li>
+<li>Different pitch sources or related quantized voltages to each oscillator</li>
+</ul>
+<p>Result:
+- two interlocking melodic lines
+- one can answer the other
+- differing lengths/fills create evolving counterpoint</p>
+<p>Example:
+- Voice 1: length 8, fills 3
+- Voice 2: length 5, fills 2
+- Same master clock to both</p>
+<p>This yields polymetric melodic interplay that cycles over a long phrase.</p>
+<hr />
+<h2>5. Driving a sequential switch for melodic order changes</h2>
+<p>Patch idea:</p>
+<ul>
+<li>Several fixed voltages, row outputs, or interval sources → sequential switch inputs</li>
+<li>Stoicheia output A → switch advance</li>
+<li>Switch output → quantizer → oscillator pitch</li>
+<li>Stoicheia output B → envelope gate</li>
+</ul>
+<p>Result:
+- Seq A determines when the next pitch source is selected
+- Seq B determines when notes are articulated</p>
+<p>This separates:
+- <strong>pitch movement</strong>
+- <strong>note articulation</strong></p>
+<p>That separation is extremely useful for building melodies that feel composed rather than merely random.</p>
+<hr />
+<h2>6. Alternating mode as melodic gate/tie generator</h2>
+<p>The manual says <strong>Alternating Mode</strong> toggles output high on each “on” beat and stays high until the next “on” beat.</p>
+<p>Musically, this is excellent for:</p>
+<ul>
+<li><strong>tied notes</strong></li>
+<li><strong>legato phrasing</strong></li>
+<li><strong>phrase masks</strong></li>
+<li><strong>sub-octave or harmonic switching</strong></li>
+<li><strong>opening/closing a VCA or wavefolder over longer spans</strong></li>
+</ul>
+<p>Patch idea:
+- Seq A in Trigger mode → main note triggers
+- Seq B in Alternating mode → controls:
+  - VCA level for drone layer
+  - filter mode switch via logic/comparator
+  - slew enable / glide gate
+  - sequential switch between two pitch rows</p>
+<p>Result:
+- the melody has sections of connected phrasing or changing harmonic color</p>
+<p>A very useful melodic application:
+- Trigger mode handles note attacks
+- Alternating mode defines <strong>longer melodic gestures</strong></p>
+<hr />
+<h2>7. Chained mode for longer melodic phrases</h2>
+<p>In <strong>Chained mode</strong>, sequence A plays, then sequence B plays, one after another, available at both outputs.</p>
+<p>This is powerful for melody because it creates phrase lengths beyond a single short loop.</p>
+<p>Example:
+- Seq A length 12 fills 5
+- Seq B length 4 fills 2</p>
+<p>Now you have a 16-step composite rhythm with uneven internal structure.</p>
+<p>Use this to:
+- trigger a quantized CV source
+- advance a pitch sequencer at non-uniform points
+- make verse-like / response-like melodic phrasing</p>
+<p>Especially effective if the pitch material is also 16 steps or longer.</p>
+<hr />
+<h2>8. Rotating patterns to reshape a melody without changing pitch</h2>
+<p>The <strong>rotation</strong> control changes where the Euclidean pattern begins.</p>
+<p>If your pitch sequence stays fixed and only rhythm rotates:
+- the melody becomes newly syncopated
+- downbeats shift
+- the same notes feel reharmonized against the bar</p>
+<p>This is one of the easiest live-performance tools on Stoicheia.</p>
+<p>Try:
+- fixed 8-step pitch sequence
+- Seq A length 8 fills 5
+- move rotation slowly</p>
+<p>The pitch order remains unchanged, but perceived melodic contour changes because note emphasis moves.</p>
+<hr />
+<h2>9. Different sequence lengths for melodic polymeter</h2>
+<p>Each channel can have independent lengths. This is gold for melody.</p>
+<p>Example:
+- Seq A: length 7, fills 3
+- Seq B: length 11, fills 4</p>
+<p>Use cases:
+- A triggers pitch changes
+- B triggers envelopes
+- or A/B trigger two related voices</p>
+<p>This creates long non-repeating melodic structures from simple material.</p>
+<p>A favorite patch:
+- A → S&amp;H trigger for new note selection
+- B → envelope trigger for audible note events</p>
+<p>Because pitch-update rhythm and note-output rhythm differ, the line develops a semi-generative melodic identity.</p>
+<hr />
+<h1>Practical patch recipes</h1>
+<h2>Patch 1: Euclidean arpeggio</h2>
+<p><strong>Goal:</strong> rhythmic melodic ostinato</p>
+<ul>
+<li>Master clock → Stoicheia clock A</li>
+<li>Stoicheia output A → envelope trigger</li>
+<li>Quantized CV sequence/arpeggiator → oscillator 1V/oct</li>
+<li>Envelope → VCA</li>
+<li>Oscillator → VCA → mixer</li>
+</ul>
+<p>Suggested settings:
+- Length 8
+- Fills 5
+- Rotate to taste
+- Trigger mode</p>
+<p>This gives a classic syncopated arp line.</p>
+<hr />
+<h2>Patch 2: Generative melody with controlled repetition</h2>
+<p><strong>Goal:</strong> melodic randomness with coherent rhythm</p>
+<ul>
+<li>Slow random CV → S&amp;H input</li>
+<li>Stoicheia output A → S&amp;H trigger</li>
+<li>S&amp;H out → quantizer → oscillator 1V/oct</li>
+<li>Stoicheia output B → envelope trigger</li>
+<li>Envelope → VCA</li>
+</ul>
+<p>Suggested settings:
+- A: length 5, fills 2
+- B: length 8, fills 5</p>
+<p>Why it works:
+- pitch changes and audible notes happen on different schedules
+- repeated notes emerge naturally
+- melody feels intentional instead of purely random</p>
+<hr />
+<h2>Patch 3: Two-voice counterpoint</h2>
+<p><strong>Goal:</strong> interlocking melodic lines</p>
+<ul>
+<li>Same clock to Stoicheia</li>
+<li>Seq A → envelope 1</li>
+<li>Seq B → envelope 2</li>
+<li>Pitch source 1 → osc 1</li>
+<li>Pitch source 2 → osc 2</li>
+<li>Both voices mixed together</li>
+</ul>
+<p>Suggested relationships:
+- Voice 1 brighter / higher register
+- Voice 2 lower / slower attack
+- Rotate B off from A</p>
+<p>Good settings:
+- A = 8 steps / 3 fills
+- B = 5 steps / 2 fills</p>
+<p>You get compact polymelodic interplay.</p>
+<hr />
+<h2>Patch 4: Accent + melody line</h2>
+<p><strong>Goal:</strong> one melodic voice with dynamic phrasing</p>
+<ul>
+<li>Seq A → main envelope gate</li>
+<li>Seq B → filter envelope trigger or accent VCA CV</li>
+<li>Pitch sequencer → oscillator</li>
+<li>Main envelope → VCA</li>
+<li>Accent envelope → filter cutoff or VCA CV depth</li>
+</ul>
+<p>Settings:
+- A denser than B
+- B rotated to avoid obvious downbeat accents</p>
+<p>This makes a simple melody breathe.</p>
+<hr />
+<h2>Patch 5: Euclidean note selection</h2>
+<p><strong>Goal:</strong> switch between pitch sources rhythmically</p>
+<ul>
+<li>Fixed voltages / sequencer rows / intervals → sequential switch inputs</li>
+<li>Seq A → switch advance</li>
+<li>Switch output → quantizer → oscillator pitch</li>
+<li>Seq B → envelope trigger</li>
+</ul>
+<p>This creates melodies from source selection rather than from one continuous pitch sequencer.</p>
+<hr />
+<h1>Performance strategies</h1>
+<h2>Use one channel for structure, one for surprise</h2>
+<p>A very musical setup is:
+- <strong>Seq A:</strong> stable, medium density, main notes
+- <strong>Seq B:</strong> sparse, rotated, for accents / secondary voice / pitch refresh</p>
+<p>That gives you both familiarity and movement.</p>
+<h2>Change fills before changing length</h2>
+<p>For live melodic evolution:
+1. keep length fixed
+2. vary fills
+3. then rotate
+4. then change length</p>
+<p>This tends to preserve groove while evolving the melody.</p>
+<h2>Use reset musically</h2>
+<p>The reset input/manual reset is useful when:
+- syncing phrase starts to a bar
+- re-aligning two melodic voices
+- forcing a generative patch to “come home”</p>
+<h2>Chained mode for section changes</h2>
+<p>Use chained mode to move from:
+- phrase A
+- into phrase B
+- then repeat</p>
+<p>Great for melodic hooks that need asymmetry.</p>
+<hr />
+<h1>Limits to understand</h1>
+<p>Stoicheia does <strong>not</strong> generate pitch CV on its own. To build full melodic content, pair it with at least one of these:</p>
+<ul>
+<li>quantizer</li>
+<li>CV sequencer</li>
+<li>random voltage source</li>
+<li>sample &amp; hold</li>
+<li>keyboard/controller</li>
+<li>precision adder</li>
+<li>sequential switch</li>
+</ul>
+<p>Think of Stoicheia as the <strong>rhythmic brain</strong> of a melody patch.</p>
+<hr />
+<h1>Most effective module pairings for melodic work</h1>
+<p>Stoicheia works especially well with:</p>
+<ul>
+<li>
+<p><strong>Quantizer</strong><br />
+  turns triggered/random voltages into scale-based melodies</p>
+</li>
+<li>
+<p><strong>Sample &amp; Hold</strong><br />
+  generates stepped pitch events at Euclidean timings</p>
+</li>
+<li>
+<p><strong>Sequential switch</strong><br />
+  creates melodic routing and note-order variation</p>
+</li>
+<li>
+<p><strong>Envelope + VCA</strong><br />
+  articulates each note</p>
+</li>
+<li>
+<p><strong>Precision adder / offset source</strong><br />
+  transposes repeating patterns</p>
+</li>
+<li>
+<p><strong>Clock divider / multiplier</strong><br />
+  creates different melodic timescales</p>
+</li>
+<li>
+<p><strong>Logic modules</strong><br />
+  combine Seq A and B into more complex note masks</p>
+</li>
+</ul>
+<hr />
+<h1>Summary</h1>
+<p>Stoicheia is best used for melody by controlling:</p>
+<ul>
+<li><strong>when notes happen</strong></li>
+<li><strong>when pitch changes</strong></li>
+<li><strong>when accents happen</strong></li>
+<li><strong>how two melodic layers interlock</strong></li>
+<li><strong>how a phrase resets or extends</strong></li>
+</ul>
+<p>Its strongest melodic applications are:</p>
+<ol>
+<li>triggering envelopes for a pitched voice  </li>
+<li>clocking sample-and-hold into a quantizer  </li>
+<li>separating pitch-change rhythm from note-trigger rhythm  </li>
+<li>generating accent patterns  </li>
+<li>creating two-voice interlocking melodic lines  </li>
+<li>using alternating mode for tied/legato phrase behavior  </li>
+<li>using chained mode for longer melodic forms</li>
+</ol>
+<p>In practice, Stoicheia turns plain pitch material into <strong>musical phrasing</strong>. If you already have any CV source that can produce notes, Stoicheia can make it feel alive.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

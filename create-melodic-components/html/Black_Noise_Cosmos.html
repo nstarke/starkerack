@@ -1,0 +1,524 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Black_Noise_Cosmos</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Black Noise — Cosmos</h1>
+<ul>
+<li><a href="../../manuals/BLACK-NOISE_COSMOS_User-Manual_V1.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="contact@blacknoisemodular.com">Cosmos User Manual (PDF)</a></p>
+<h1>Black Noise Cosmos: using it to create melodic components</h1>
+<p>Cosmos is unusually good at <strong>turning simple voltages and waveforms into pitch-related musical material</strong>. It is not just a logic module: it can behave like a <strong>comparator, rectifier, octave doubler, oscillator, wave shaper, PLL, envelope utility, random gate source, and clock processor</strong>. That makes it very useful for building melodic systems out of a small Eurorack setup.</p>
+<p>Below is a musician-focused guide to using Cosmos to create <strong>melodies, tuned voices, pitch motion, rhythmic melody triggers, and harmonic variation</strong>.</p>
+<hr />
+<h2>What Cosmos does best for melody</h2>
+<p>At a high level, Cosmos helps melodic patching in 5 main ways:</p>
+<ol>
+<li><strong>Generate or derive oscillators</strong></li>
+<li>Self-patched oscillator</li>
+<li>Triangle-to-+1 octave voice</li>
+<li>PLL-based tracking oscillator</li>
+<li>
+<p>Looping envelope as oscillator</p>
+</li>
+<li>
+<p><strong>Shape timbre while preserving pitch relationships</strong></p>
+</li>
+<li>Saw to triangle</li>
+<li>Variable pulse width from triangle/saw</li>
+<li>Harmonic wave shaping</li>
+<li>
+<p>Clamping ring modulation / AM-RM hybrids</p>
+</li>
+<li>
+<p><strong>Extract gates and triggers from CV/audio</strong></p>
+</li>
+<li>Comparators and window comparators</li>
+<li>Rising/falling edge trigger extraction</li>
+<li>
+<p>Clock doubling and trigger multiplying</p>
+</li>
+<li>
+<p><strong>Combine modulation sources into pitch-useful control</strong></p>
+</li>
+<li>Min / Max analog logic for envelope combining</li>
+<li>Offset-controlled thresholds for note articulation</li>
+<li>
+<p>Envelope following for pitch-adjacent response</p>
+</li>
+<li>
+<p><strong>Create musically useful probabilistic phrasing</strong></p>
+</li>
+<li>Random gate routing</li>
+<li>Swinged doubled clocks</li>
+<li>Delayed trigger multiplication</li>
+</ol>
+<hr />
+<h2>Core melodic building blocks from the manual</h2>
+<h2>1. Use Cosmos as a pitch-related oscillator</h2>
+<p>The manual shows that Cosmos can become a <strong>self-oscillating square source</strong> by feeding the <strong>XNOR gate back to an input</strong>.</p>
+<h3>Why this matters musically</h3>
+<p>This gives you a raw pitched tone source. If you place a <strong>slew or filter in the feedback path</strong>, you gain control over frequency, and with CV over the slew time, you get a kind of <strong>VCO-like voice</strong>.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Patch <strong>XNOR gate output</strong> back to one input</li>
+<li>Insert a <strong>slew limiter or LPF</strong> in the loop</li>
+<li>Modulate slew time from:</li>
+<li>sequencer CV</li>
+<li>keyboard CV</li>
+<li>envelope</li>
+<li>another LFO</li>
+</ul>
+<h3>Musical use</h3>
+<ul>
+<li>Add as a <strong>second oscillator</strong> for a lead or bass</li>
+<li>Use as a <strong>substitution voice</strong> when your system is small</li>
+<li>Sequence the slew for stepped melodic lines</li>
+<li>Mix with a more stable VCO for grit and edge</li>
+</ul>
+<h3>Character</h3>
+<p>This is not a precision VCO first; it is an <strong>analog-computer-style oscillator</strong>. Best for:
+- raw melodic lines
+- dirty basses
+- unstable harmonics
+- pseudo-digital square sequences</p>
+<hr />
+<h2>2. Create a melody-supporting octave layer</h2>
+<p>One of the strongest melodic tricks in the manual is:</p>
+<h2>Triangle wave to +1 octave VCO</h2>
+<p>Patch a <strong>bipolar triangle</strong> into Cosmos, then patch the <strong>corresponding inverted output</strong> back into the second input. The <strong>MAX output</strong> becomes a signal <strong>one octave higher</strong>. The <strong>OR gate output</strong> becomes a square-wave version.</p>
+<h3>Why this matters musically</h3>
+<p>This is excellent for making a single oscillator feel like a composed melodic voice:
+- root + octave
+- mellow + bright layer
+- triangle + pulse hybrid</p>
+<h3>Musical applications</h3>
+<ul>
+<li>Add the octave-up output quietly under a bassline</li>
+<li>Use the OR gate output as a pulse layer for articulation</li>
+<li>Process the octave-up separately through a VCA/filter</li>
+<li>Create a two-register lead from one VCO</li>
+</ul>
+<h3>Nice performance trick</h3>
+<p>The manual notes that adding <strong>offset</strong> creates a <strong>sync-like sweep</strong>. That means you can animate the octave relation with:
+- an envelope for attack brightness
+- an LFO for animated lead lines
+- sequencer CV for phrase-dependent harmonic changes</p>
+<p>This is one of the best ways in the manual to get a <strong>melodically useful harmonically rich voice from a single VCO</strong>.</p>
+<hr />
+<h2>3. Convert triangle or saw to pulse for melodic articulation</h2>
+<h2>Triangle or saw to variable pulse width</h2>
+<p>Using Cosmos as a comparator:
+- send triangle or saw through an <strong>offset</strong>
+- patch into a Cosmos input
+- use the <strong>OR gate output</strong> as the resulting pulse wave</p>
+<h3>Why this matters musically</h3>
+<p>Pulse width is one of the most classic melodic timbre tools. With this patch you can:
+- derive a pulse voice from a non-pulse oscillator
+- animate the harmonic content without losing pitch tracking
+- create PWM-like leads and basses</p>
+<h3>Good melodic uses</h3>
+<ul>
+<li>Slow LFO to offset input = evolving pulse width</li>
+<li>Envelope to offset input = brighter attack</li>
+<li>Sequencer CV to offset input = different timbre per note</li>
+<li>Mix original triangle with pulse for richer melody tone</li>
+</ul>
+<h3>Best in a patch with</h3>
+<ul>
+<li>VCF after mixing</li>
+<li>VCA under envelope</li>
+<li>sequenced V/oct source into the original VCO</li>
+</ul>
+<p>This turns Cosmos into a <strong>melody timbre animator</strong>.</p>
+<hr />
+<h2>4. Turn saw into triangle or “shark tooth” for melodic tone design</h2>
+<h2>Saw wave to triangle wave</h2>
+<p>Using full-wave rectification:
+- patch bipolar saw into X
+- patch inverted version to Y
+- use <strong>MAX output</strong> as triangle-like output</p>
+<p>With offset, the manual says you can get in-between shapes like <strong>“shark tooth”</strong>, similar to classic Minimoog-style timbral territory.</p>
+<h3>Musical use</h3>
+<p>This is useful when you want:
+- smoother lead tones from a brighter oscillator
+- a more rounded melodic waveform
+- filter-like movement from CV-controlled offset</p>
+<h3>Why it’s melodic</h3>
+<p>Because the pitch source stays the same, the harmonic shape changes while <strong>the note identity remains stable</strong>. That’s ideal for:
+- expressive monophonic leads
+- basses that need controlled brightness
+- melodic phrases with timbral contour</p>
+<hr />
+<h2>5. Use harmonic wave shaping for animated lead lines</h2>
+<h2>Harmonic wave shaper</h2>
+<p>This patch combines:
+- oscillator into X
+- TZ clipper gate through slew
+- negative offset
+- result patched to Y
+- output from TZ clipper</p>
+<h3>Why this matters</h3>
+<p>This is effectively a <strong>harmonic enrichment engine</strong>. The manual describes results close to:
+- wavefolding
+- sync-like tones
+- asymmetric shaping</p>
+<h3>Musical role</h3>
+<p>Perfect for:
+- lead lines that need motion
+- acid-adjacent melodic voices
+- harmonically evolving arps
+- aggressive counter-melodies</p>
+<h3>Controls that matter musically</h3>
+<ul>
+<li><strong>Rise</strong>: smoothness of added harmonics</li>
+<li><strong>Fall</strong>: number of harmonics</li>
+<li><strong>Negative offset</strong>: intensity of shaping</li>
+</ul>
+<h3>Melodic strategy</h3>
+<p>Use this after you already have a stable pitch source. Then:
+- modulate Fall slowly for phrase movement
+- use envelope on offset for attack harmonics
+- use sequencer row or random CV to change harmonic density per note</p>
+<p>This is one of the most useful “make melody more alive” patches in the manual.</p>
+<hr />
+<h2>6. Build tracked doubled voices with the PLL patches</h2>
+<p>The manual includes three especially melodic PLL applications.</p>
+<h2>Phase locked loop: VCO tracking</h2>
+<p>Patch:
+- main sequenced VCO into Cosmos
+- second VCO into Cosmos
+- Inv. TZ clip out through slew/filter
+- back into FM or V/oct of second VCO</p>
+<h3>Musical result</h3>
+<p>A second oscillator <strong>locks and tracks</strong> the main one over a few octaves. The result is described as close to <strong>PWM-like</strong> tonal behavior.</p>
+<h3>Why this is excellent for melody</h3>
+<p>This gives you a melodic voice with:
+- stable note relationship
+- moving phase interaction
+- sync-like complexity
+- richer harmonics than simple detune</p>
+<h3>Best use cases</h3>
+<ul>
+<li>dual-osc lead</li>
+<li>thicker melody line</li>
+<li>animated bass doubling</li>
+<li>pseudo-sync solo timbre</li>
+</ul>
+<hr />
+<h2>Phase locked loop: looping envelope</h2>
+<p>This is one of the coolest melodic tricks in the manual.</p>
+<p>A <strong>looping envelope</strong> becomes an audio-rate oscillator and is made to <strong>track a VCO</strong> through the same PLL idea.</p>
+<h3>Musical use</h3>
+<p>This lets you create a second voice with a very different shape than a normal VCO:
+- buzzy
+- snappy
+- envelope-shaped
+- sync-sweep capable</p>
+<p>This is especially good for:
+- expressive melodic leads
+- unusual paired voices
+- bright top layer above a root oscillator</p>
+<hr />
+<h2>Phase locked loop: external tracking</h2>
+<p>An external audio source can drive the tracking behavior:
+- guitar
+- synth
+- voice</p>
+<h3>Melodic implications</h3>
+<p>If you feed a simple pitched source, Cosmos can help create <strong>resynthesized melodic doubling</strong>. This is useful if you want:
+- voice-controlled synth melody
+- guitar-doubled melodic line
+- pitched external sound converted into modular melody material</p>
+<hr />
+<h2>7. Use comparators to derive melodic structure from pitch CV</h2>
+<p>Cosmos is great at creating gates from voltages.</p>
+<h2>Comparator</h2>
+<p>The <strong>OR gate</strong> acts as an <strong>over-zero comparator</strong>. Offset the source first, and you can define a threshold.</p>
+<h3>Melodic uses</h3>
+<p>Feed in:
+- sequencer CV
+- quantized pitch CV
+- LFO
+- envelope</p>
+<p>Then generate a gate when the signal exceeds a chosen level.</p>
+<h3>Why this is musically useful</h3>
+<p>You can create:
+- note accents only on higher notes
+- transposition-dependent triggers
+- phrase changes when pitch passes a threshold
+- melody-conditioned gate routing</p>
+<p>Example:
+- Sequencer pitch CV to comparator
+- Threshold set so only upper half of melody opens a second VCA
+- Result: higher notes gain a second oscillator or more brightness</p>
+<p>That is a very musical patch.</p>
+<hr />
+<h2>Window comparator</h2>
+<p>The window comparator gives a gate when a signal lies <strong>within a range</strong>.</p>
+<h3>Melodic uses</h3>
+<p>Apply it to pitch CV or sequencer output:
+- only notes near a selected register trigger an event
+- create a gate when melody hits a chosen pitch zone
+- use very narrow width as an approximate “equal note” detector</p>
+<h3>Great musical applications</h3>
+<ul>
+<li>Add vibrato only for notes in a chosen range</li>
+<li>Trigger a secondary envelope only on certain notes</li>
+<li>Send a harmony layer only when melody lands near target voltage</li>
+<li>Create a repeating motif emphasis from continuous CV</li>
+</ul>
+<p>This is one of the most composition-friendly features in the manual.</p>
+<hr />
+<h2>8. Build melodic rhythms with random gates</h2>
+<h2>Random Gates</h2>
+<p>This patch uses:
+- a clock into X
+- buffered clock to trigger random sample &amp; hold
+- S&amp;H voltage into Y through offset
+- XOR and AND outputs become randomly alternating rhythms</p>
+<h3>Why this helps melody</h3>
+<p>Melody is not just pitch; it is also <strong>when notes happen</strong>. This patch gives you:
+- probabilistic note triggers
+- A/B trigger routing
+- dynamic phrase generation</p>
+<h3>How to use melodically</h3>
+<p>Route the different outputs to:
+- different envelopes on the same voice
+- two different VCAs
+- separate quantizers or sequential switches
+- different transposition events</p>
+<p>Example:
+- XOR triggers bass notes
+- AND triggers higher accent notes
+- OR trigger clocks a transposition or ornament</p>
+<p>Now Cosmos is creating <strong>melodic phrasing logic</strong>, not just rhythm.</p>
+<hr />
+<h2>9. Double clocks and triggers for ornamented melodies</h2>
+<h2>Clock multiplier with swing</h2>
+<p>Mix <strong>OR and NOR triggers</strong> from a pulse source to get doubled timing with adjustable swing.</p>
+<h2>Trigger multiplier with delay</h2>
+<p>Send a trigger through slew, then mix edge-derived triggers for a doubled trigger stream with controllable delay.</p>
+<h3>Melodic uses</h3>
+<p>These are very good for:
+- ratchets
+- grace notes
+- repeated note ornaments
+- off-beat melodic echoes
+- arpeggio enrichment</p>
+<h3>Example patch</h3>
+<ul>
+<li>Main sequencer clock to Cosmos</li>
+<li>Doubled/swinged triggers clock an envelope or strike a LPG</li>
+<li>Pitch stays steady while trigger density increases</li>
+</ul>
+<p>Or:
+- Use original clock for pitch advance
+- Use doubled trigger stream to retrigger envelope between steps
+- Result: repeated notes from one pitch step</p>
+<p>That is a classic way to make melodies feel more alive.</p>
+<hr />
+<h2>10. Use envelope utilities to shape melodic phrasing</h2>
+<h2>Envelope to LFO</h2>
+<p>An envelope can self-loop by retriggering from the <strong>NOR gate</strong>.</p>
+<h3>Melodic use</h3>
+<p>Create a tempo-related modulation source for:
+- vibrato
+- PWM
+- wave-shaping animation
+- pitch wobble
+- filter movement tied to phrase behavior</p>
+<hr />
+<h2>Envelope combiner</h2>
+<p>Patch two envelopes into Cosmos and use <strong>MIN</strong> and <strong>MAX</strong> outputs as combined envelopes.</p>
+<h3>Why this matters for melody</h3>
+<p>Better melodic articulation often comes from more interesting amplitude/filter contours than from pitch alone.</p>
+<h3>Musical uses</h3>
+<ul>
+<li>Short attack envelope + longer slewed gate = ADSR-like contour</li>
+<li>Two different attacks = double-hit or “clap-like” articulation</li>
+<li>Decay envelope + fast LFO = burst-like ornament envelope</li>
+</ul>
+<p>Use these envelopes to control:
+- VCA
+- filter cutoff
+- wave-shaping depth
+- PWM amount
+- FM depth</p>
+<p>This is a strong way to make a melody feel “played” rather than just sequenced.</p>
+<hr />
+<h2>11. Use envelope follower for audio-driven melody behavior</h2>
+<h2>Envelope follower</h2>
+<p>Audio into X, inverted version into Y, MAX to slew = a CV following audio dynamics.</p>
+<h3>Melodic applications</h3>
+<p>If another performer or sound source exists, you can derive expressive control to influence melody:
+- vocalist amplitude opens VCA on a melodic synth
+- guitar dynamics increase harmonic shaping
+- drum loop envelope transposes or accents melody</p>
+<p>This is indirect melody generation, but very musical.</p>
+<hr />
+<h1>Best ways to use Cosmos with other modules for melodic music</h1>
+<p>The manual repeatedly points to two especially important companion module types:</p>
+<h2>1. Slew limiter</h2>
+<p>Essential with Cosmos for:
+- oscillator frequency control
+- feedback loop timing
+- trigger delay
+- smoothing extracted CV
+- PLL tuning
+- envelope following</p>
+<p>For melody, a slew becomes:
+- glide
+- oscillator core control
+- rhythm ornament timing
+- phrase smoothing</p>
+<h2>2. Offset / attenuator / attenuverter</h2>
+<p>Essential for:
+- setting comparator thresholds
+- pulse width position
+- harmonic shaper depth
+- window comparator range
+- manual melodic bias
+- CV scaling</p>
+<p>For melody, offset is what makes Cosmos behave compositionally instead of just reactively.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: One-VCO melodic lead with octave shimmer</h2>
+<p>Use:
+- VCO triangle out
+- Cosmos triangle-to-+1 octave patch
+- Mix original + octave-up
+- Envelope to VCA
+- Optional offset modulation for sync-like brightness</p>
+<p>Result:
+- a compact lead voice with natural top-end lift</p>
+<hr />
+<h2>Patch 2: PWM bass voice from a triangle oscillator</h2>
+<p>Use:
+- sequenced VCO triangle into offset into Cosmos
+- OR gate output as pulse voice
+- slow LFO or envelope to offset CV
+- lowpass filter + VCA</p>
+<p>Result:
+- animated bass with stable pitch and moving harmonics</p>
+<hr />
+<h2>Patch 3: Melody-conditioned accent layer</h2>
+<p>Use:
+- quantized pitch CV into comparator
+- threshold set so only high notes produce gate
+- gate opens second VCA or extra oscillator layer</p>
+<p>Result:
+- automatic accents only on high notes of the melody</p>
+<hr />
+<h2>Patch 4: Note-zone triggered harmony</h2>
+<p>Use:
+- sequencer CV into window comparator
+- when melody enters chosen voltage range, trigger:
+  - transposition
+  - second envelope
+  - second oscillator VCA
+  - wave-shaper depth</p>
+<p>Result:
+- specific notes or ranges in the melody get harmonic decoration</p>
+<hr />
+<h2>Patch 5: PLL dual-oscillator solo voice</h2>
+<p>Use:
+- master VCO from sequencer
+- second VCO through PLL tracking patch
+- slight slew tuning
+- mix the two voices</p>
+<p>Result:
+- thick, animated lead with sync/PWM-like behavior</p>
+<hr />
+<h2>Patch 6: Random melodic phrasing engine</h2>
+<p>Use:
+- master clock into random gates patch
+- XOR triggers main envelope
+- AND triggers accent envelope
+- OR trigger clocks a transposition event or ornament</p>
+<p>Result:
+- repeating but non-static melody phrasing</p>
+<hr />
+<h2>Patch 7: Ornament generator</h2>
+<p>Use:
+- trigger multiplier with delay
+- original sequencer trigger advances pitch
+- multiplied trigger retriggers same pitch before next step</p>
+<p>Result:
+- grace notes, ratchets, repeated-note ornaments</p>
+<hr />
+<h2>Patch 8: Audio-reactive melodic voice</h2>
+<p>Use:
+- external audio to envelope follower
+- follower controls:
+  - harmonic shaper amount
+  - VCA level
+  - filter cutoff
+  - comparator threshold</p>
+<p>Result:
+- melody line dynamically follows another performer or sound source</p>
+<hr />
+<h1>Strongest melodic features in Cosmos</h1>
+<p>If your goal is specifically melodic music, the most valuable features from the manual are:</p>
+<ol>
+<li><strong>Triangle to +1 octave VCO</strong></li>
+<li><strong>Triangle/saw to variable pulse width</strong></li>
+<li><strong>PLL VCO tracking</strong></li>
+<li><strong>Harmonic wave shaper</strong></li>
+<li><strong>Comparator / window comparator</strong></li>
+<li><strong>Random gates</strong></li>
+<li><strong>Clock multiplier with swing</strong></li>
+<li><strong>Trigger multiplier with delay</strong></li>
+<li><strong>Envelope combiner</strong></li>
+</ol>
+<p>Together, these cover:
+- pitch generation
+- harmonic layering
+- note-dependent events
+- melodic ornamentation
+- phrase variation</p>
+<hr />
+<h1>Suggested small-system melodic setup around Cosmos</h1>
+<p>If building a compact melodic rig with Cosmos, pair it with:</p>
+<ul>
+<li><strong>1 stable VCO</strong></li>
+<li><strong>1 slew limiter</strong></li>
+<li><strong>1 offset/attenuverter</strong></li>
+<li><strong>1 envelope</strong></li>
+<li><strong>1 VCA</strong></li>
+<li><strong>1 filter</strong></li>
+<li><strong>1 mixer</strong></li>
+<li><strong>1 random source / S&amp;H</strong></li>
+<li><strong>1 sequencer or quantized CV source</strong></li>
+</ul>
+<p>With just that, Cosmos can supply:
+- extra oscillator behavior
+- octave doubling
+- PWM derivation
+- comparators
+- rhythmic phrase logic
+- harmonic animation
+- melodic trigger processing</p>
+<hr />
+<h1>Summary</h1>
+<p>Cosmos is best thought of as a <strong>melodic analog processor and patch-programmable music logic core</strong>.</p>
+<p>It helps create melodic components by letting you:</p>
+<ul>
+<li>derive <strong>new pitched voices</strong> from existing ones</li>
+<li>add <strong>octaves, pulse versions, and sync-like harmonics</strong></li>
+<li>make <strong>dual-oscillator tracked textures</strong></li>
+<li>create <strong>note-conditioned gates</strong> with comparators</li>
+<li>generate <strong>probabilistic note rhythms</strong></li>
+<li>add <strong>swing, retriggers, ratchets, and delayed ornaments</strong></li>
+<li>shape phrasing with <strong>combined envelopes and audio-following control</strong></li>
+</ul>
+<p>In a melodic Eurorack patch, Cosmos is not usually the “main sequencer,” but it can absolutely become the <strong>main intelligence that turns simple pitch and timing into expressive musical structure</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

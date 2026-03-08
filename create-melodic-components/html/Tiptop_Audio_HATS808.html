@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_HATS808</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — HATS808</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_HATS808_ns.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.tiptopaudio.com/808-2">Manual PDF</a></p>
+<h1>Tiptop Audio HATS808 — melodic use analysis</h1>
+<p>Although the <strong>HATS808</strong> is fundamentally a drum/hi-hat voice, the manual reveals several ways it can be pushed into <strong>pitched, quasi-pitched, and melodic territory</strong> inside a Eurorack patch.</p>
+<h2>What the module gives you</h2>
+<p>From the manual, the key features relevant to melodic use are:</p>
+<ul>
+<li><strong>Open Hat (OH) and Closed Hat (CH)</strong> voices with separate outputs</li>
+<li><strong>Accent inputs</strong> for dynamic articulation</li>
+<li><strong>Open Hat decay control</strong></li>
+<li><strong>Q / VC-Q</strong> control over the main internal band-pass filter resonance</li>
+<li><strong>Band-Pass OUT</strong> tapping the raw filtered source</li>
+<li>A <strong>choke interaction</strong> between CH and OH</li>
+<li>Very <strong>hot output levels</strong>, useful for driving other modules</li>
+</ul>
+<p>These are important because melody in modular does not always mean “1V/oct oscillator into VCF/VCA.” It can also mean:
+- tuned percussive lines,
+- resonant pings,
+- accent-shaped motifs,
+- filter self-oscillation,
+- and extracting raw spectral material for further pitch processing.</p>
+<hr />
+<h2>The most important melodic takeaway: the Q circuit</h2>
+<p>The manual’s biggest clue is the <strong>Q / VC-Q</strong> section:</p>
+<ul>
+<li>At minimum Q, the module is closest to the original 808 sound.</li>
+<li>Increasing Q makes the hats more <strong>metallic</strong> and <strong>retuned</strong>.</li>
+<li>At high settings, the filter saturates into a crushed sound.</li>
+<li>At maximum, the filter can <strong>become an oscillator and generate a constant tone</strong>.</li>
+<li><strong>VC-Q accepts 0–5V CV</strong>, and the Q knob offsets that CV.</li>
+</ul>
+<p>This means the HATS808 is not just a cymbal voice — it can behave like a <strong>resonant sound source</strong> whose timbre and apparent pitch are voltage-variable.</p>
+<h3>Melodic implications</h3>
+<p>You can use <strong>VC-Q</strong> with:
+- sequencer CV
+- envelopes
+- stepped random voltages
+- audio-rate modulation</p>
+<p>to create:
+- repeating tuned metallic motifs
+- pseudo-melodic percussion
+- shifting harmonic textures
+- droning tones when pushed into self-oscillation</p>
+<p>It is unlikely to behave as a precise <strong>1V/oct oscillator</strong>, so think:
+- <strong>expressive tuned percussion</strong>
+- <strong>atonal or scale-constrained metallic melody</strong>
+- <strong>industrial lines</strong>
+- <strong>FM-like animated tones</strong></p>
+<p>rather than traditional keyboard tracking.</p>
+<hr />
+<h2>Best melodic strategies</h2>
+<h2>1) Use self-oscillation as a tone source</h2>
+<p>When Q is maxed, the filter may oscillate continuously. That gives you a pitched tone source.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Turn <strong>Q</strong> high until oscillation begins.</li>
+<li>Monitor <strong>Band-Pass OUT</strong>.</li>
+<li>Send a stepped CV sequence to <strong>VC-Q</strong>.</li>
+<li>Use an external VCA and envelope to shape notes.</li>
+<li>Optionally trigger OH or CH alongside it for transient attack.</li>
+</ul>
+<h3>Result</h3>
+<p>A <strong>metallic sine-ish / resonant tone</strong> with unstable analog character.<br />
+This can become:
+- a lead line,
+- drone bass,
+- background harmonic layer,
+- or a noisy bell sequence.</p>
+<h3>Best use</h3>
+<ul>
+<li>experimental melody</li>
+<li>dark techno hooks</li>
+<li>industrial arps</li>
+<li>tuned drones</li>
+</ul>
+<hr />
+<h2>2) Sequence VC-Q for quasi-pitched percussion</h2>
+<p>Because increasing Q alters the tuning/metallicity of the hat sound, you can use CV to create a sequence that reads as melodic even though it is still a drum.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Trigger <strong>OH GATE IN</strong> from a clocked rhythm.</li>
+<li>Patch a sequencer row or sample &amp; hold into <strong>VC-Q</strong>.</li>
+<li>Keep Q in the mid-to-high range.</li>
+<li>Use <strong>DECAY</strong> to lengthen the OH so pitch character is more audible.</li>
+<li>Use <strong>ACCENT IN</strong> to emphasize selected notes.</li>
+</ul>
+<h3>Result</h3>
+<p>The open hat becomes a <strong>pitched metallic percussion voice</strong>.<br />
+With the right sequence, it can function like:
+- tuned cymbal melody,
+- bell line,
+- top-line hook,
+- percussive ostinato.</p>
+<h3>Why it works</h3>
+<p>Longer decay gives the ear more time to perceive the resonant center of the sound. Accent gives contour, which helps the pattern feel melodic rather than purely percussive.</p>
+<hr />
+<h2>3) Use the Band-Pass OUT as a raw oscillator bank texture</h2>
+<p>The manual explains that the HATS808 sound source begins as a mix of <strong>six analog square oscillators</strong>, then goes into the main band-pass filter. The <strong>Band-Pass OUT</strong> gives access to this filtered harmonic material.</p>
+<p>This is especially useful for melodic patching because it separates the timbral core from the normal hat envelope behavior.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Take <strong>Band-Pass OUT</strong> into:</li>
+<li>an external VCA,</li>
+<li>another band-pass filter,</li>
+<li>a low-pass gate,</li>
+<li>wavefolder,</li>
+<li>resonator,</li>
+<li>pitch shifter,</li>
+<li>or delay.</li>
+<li>Shape amplitude with your own envelopes.</li>
+<li>Modulate <strong>VC-Q</strong> slowly or with sequences.</li>
+</ul>
+<h3>Result</h3>
+<p>You get a <strong>metallic harmonic source</strong> that can be turned into:
+- synthetic bells
+- tuned noise leads
+- chord-like drones through resonators
+- melodic textures after external filtering</p>
+<h3>Why this is powerful</h3>
+<p>The Band-Pass OUT is effectively the module’s <strong>raw spectral material</strong>, which means you can build your own melodic voice around it using standard modular tools.</p>
+<hr />
+<h2>4) Create melodic articulation with accents</h2>
+<p>The manual makes clear that <strong>accent</strong> is not just volume; in this analog circuit it also changes <strong>attack character</strong>. That makes accent highly useful for phrasing melodic lines.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send one trigger pattern to <strong>GATE IN</strong>.</li>
+<li>Send a sparser trigger pattern to <strong>ACCENT IN</strong>.</li>
+<li>Sequence <strong>VC-Q</strong> in tandem.</li>
+<li>Use accent on key notes of the phrase.</li>
+</ul>
+<h3>Result</h3>
+<p>Even if pitch is only approximate, the pattern reads as musical because:
+- louder notes feel important,
+- stronger attack marks phrase boundaries,
+- repetition plus selective emphasis creates motif.</p>
+<h3>Good musical role</h3>
+<ul>
+<li>melodic percussion</li>
+<li>syncopated hooks</li>
+<li>call-and-response top lines</li>
+</ul>
+<hr />
+<h2>5) Use choke as note-length control</h2>
+<p>The <strong>choke</strong> function is extremely musical. The CH envelope can cut off the OH, effectively shortening the OH note.</p>
+<p>That means you can think of:
+- <strong>OH = sustained note</strong>
+- <strong>CH = note terminator / articulator</strong></p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send OH triggers on the melodic phrase.</li>
+<li>Send CH triggers where you want shorter note lengths.</li>
+<li>Modulate OH decay for variation.</li>
+<li>Sequence VC-Q so each OH hit has a different “pitch color.”</li>
+</ul>
+<h3>Result</h3>
+<p>The choke acts like a primitive <strong>gate length editor</strong> for a percussive melodic voice.</p>
+<h3>Musical uses</h3>
+<ul>
+<li>staccato vs sustained pattern shaping</li>
+<li>syncopated phrasing</li>
+<li>dynamic hi-hat melodies</li>
+<li>pseudo-legato interruption effects</li>
+</ul>
+<p>If desired, the manual says the choke can be disabled via an internal PCB header, but for melodic patching it is often more interesting left on.</p>
+<hr />
+<h2>6) Drive other modules with its hot outputs</h2>
+<p>The manual emphasizes that the outputs can be <strong>very hot</strong> and useful for overdriving downstream modules.</p>
+<p>This matters melodically because a hot, bright source into external processing can become much richer.</p>
+<h3>Patch idea</h3>
+<p>Send <strong>OH OUT</strong>, <strong>CH OUT</strong>, or <strong>Band-Pass OUT</strong> into:
+- resonant filters
+- LPGs
+- wavefolders
+- distortion
+- resonators
+- frequency shifters
+- granular samplers
+- delays with feedback
+- phasers/flangers</p>
+<h3>Result</h3>
+<p>The HATS808 becomes an excitation source for:
+- Karplus-like plucks
+- metallic basses
+- resonator melodies
+- tuned feedback systems</p>
+<p>A very effective trick is to feed the Band-Pass OUT into a resonator tuned to a scale, then sequence accents and VC-Q.</p>
+<hr />
+<h2>Concrete melodic patch recipes</h2>
+<h2>Patch 1: Metallic lead voice</h2>
+<p><strong>Goal:</strong> turn the HATS808 into a playable lead-ish voice.</p>
+<ul>
+<li>Monitor <strong>Band-Pass OUT</strong></li>
+<li>Turn <strong>Q</strong> high, near oscillation</li>
+<li>Patch stepped CV from sequencer to <strong>VC-Q</strong></li>
+<li>Send Band-Pass OUT to external <strong>VCA</strong></li>
+<li>Trigger external envelope from same rhythm source</li>
+<li>Use VCA output to mixer/effects</li>
+</ul>
+<p><strong>Enhancements</strong>
+- Add slow modulation to Q offset
+- Use CH accents to mark phrase endings
+- Add delay/reverb for pitch illusion</p>
+<hr />
+<h2>Patch 2: Tuned hat ostinato</h2>
+<p><strong>Goal:</strong> melodic top-line from hat triggers.</p>
+<ul>
+<li>Trigger <strong>OH GATE IN</strong> with 8th or 16th note rhythm</li>
+<li>Set <strong>DECAY</strong> medium-long</li>
+<li>Sequence <strong>VC-Q</strong> with 4–8 step pattern</li>
+<li>Use <strong>OH ACCENT IN</strong> for selected notes</li>
+<li>Mix <strong>OH OUT</strong> with moderate level</li>
+</ul>
+<p><strong>Result</strong>
+A repetitive metallic motif that sits between percussion and melody.</p>
+<hr />
+<h2>Patch 3: Choked melodic phrasing</h2>
+<p><strong>Goal:</strong> use CH to articulate OH like note lengths.</p>
+<ul>
+<li>Send sparse sequence to <strong>OH GATE IN</strong></li>
+<li>Send syncopated shorter rhythm to <strong>CH GATE IN</strong></li>
+<li>Keep choke enabled</li>
+<li>Sequence <strong>VC-Q</strong></li>
+<li>Use OH for “long notes,” CH to truncate them</li>
+</ul>
+<p><strong>Result</strong>
+Complex note-length interplay without a traditional envelope/gate setup.</p>
+<hr />
+<h2>Patch 4: Raw source into resonator</h2>
+<p><strong>Goal:</strong> extract harmonic material and impose pitch externally.</p>
+<ul>
+<li>Patch <strong>Band-Pass OUT</strong> into a resonator or tuned filter bank</li>
+<li>Trigger OH or CH separately for transient energy</li>
+<li>Modulate <strong>VC-Q</strong> slowly</li>
+<li>Use resonator tuning for actual melodic scale</li>
+</ul>
+<p><strong>Result</strong>
+The HATS808 becomes the excitation source while the resonator supplies the stable pitch center.</p>
+<p>This is one of the best ways to make the module contribute to clearly melodic material.</p>
+<hr />
+<h2>Patch 5: Self-oscillating drone melody</h2>
+<p><strong>Goal:</strong> drone/ambient harmonic layer.</p>
+<ul>
+<li>Turn <strong>Q</strong> to self-oscillation</li>
+<li>Patch slow sequencer or random stepped CV to <strong>VC-Q</strong></li>
+<li>Feed Band-Pass OUT into delay/reverb</li>
+<li>Use external VCA for fade-ins</li>
+<li>Optionally add OH/CH triggers occasionally for attacks</li>
+</ul>
+<p><strong>Result</strong>
+A drifting metallic drone with melodic movement.</p>
+<hr />
+<h2>What kind of melody is this module best at?</h2>
+<p>The HATS808 is best for:</p>
+<ul>
+<li><strong>metallic melodies</strong></li>
+<li><strong>atonal or semi-pitched lines</strong></li>
+<li><strong>industrial hooks</strong></li>
+<li><strong>percussive motifs</strong></li>
+<li><strong>bell-like sequences</strong></li>
+<li><strong>resonant drones</strong></li>
+<li><strong>accented top-line rhythmic melody</strong></li>
+</ul>
+<p>It is less suitable as:
+- a precision tonal oscillator,
+- a calibrated bass/lead voice,
+- or a conventional subtractive synth VCO.</p>
+<p>Think of it as a <strong>spectral percussion source that can be pushed into pitch-adjacent behavior</strong>.</p>
+<hr />
+<h2>Performance suggestions</h2>
+<h2>Use OH and CH as two “voices”</h2>
+<p>Since OH and CH have separate outputs and accents, you can create:
+- one brighter, longer “melodic” voice from OH
+- one shorter answering voice from CH</p>
+<p>This can create call-and-response patterns that feel melodic even if both are percussion-derived.</p>
+<h2>Sequence accent separately from pitch</h2>
+<p>This is especially effective with the HATS808 because accent also affects attack, not only volume. A simple 4-step VC-Q sequence can sound far more musical if the accent pattern is different from the gate pattern.</p>
+<h2>Exploit analog instability</h2>
+<p>The manual notes oscillator tolerances and slight variation between units. For melodic use, that is not a flaw — it is the charm. It gives:
+- natural drift
+- organic high-end motion
+- less static repetition</p>
+<hr />
+<h2>Summary</h2>
+<p>The <strong>Tiptop Audio HATS808</strong> can contribute melodic material in several strong ways:</p>
+<ol>
+<li><strong>VC-Q sequencing</strong> creates quasi-pitched metallic note changes.</li>
+<li><strong>High Q / self-oscillation</strong> turns the filter into a tone source.</li>
+<li><strong>Band-Pass OUT</strong> provides raw harmonic material for external melodic shaping.</li>
+<li><strong>Accent</strong> adds phrase definition and dynamic contour.</li>
+<li><strong>Choke</strong> acts like note-length articulation for OH phrases.</li>
+<li><strong>Hot outputs</strong> make it excellent for driving resonators, filters, distortion, and other modules that can impose stronger pitch identity.</li>
+</ol>
+<p>So while it begins as a hi-hat module, in a Eurorack context it can absolutely serve as a source for <strong>melodic percussion, resonant leads, metallic drones, and tuned textures</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

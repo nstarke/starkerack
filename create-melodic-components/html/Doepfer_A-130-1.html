@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-130-1</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-130-1</h1>
+<ul>
+<li><a href="../../manuals/A1301_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Doepfer A-130 / A-131 VCA: using them for melodic patching</h1>
+<p>The manual covers two closely related VCAs:</p>
+<ul>
+<li><strong>A-130</strong> = <strong>linear VCA</strong></li>
+<li><strong>A-131</strong> = <strong>exponential VCA</strong></li>
+</ul>
+<p>They are otherwise functionally the same:
+- 2 audio inputs, each with its own level control
+- 2 CV inputs, one with an attenuator
+- gain control
+- output level control</p>
+<p>For melodic music, these modules are not pitch sources by themselves, but they are extremely important for shaping <strong>notes, articulation, dynamics, timbre motion, and keyboard tracking</strong>. In practice, they help turn oscillators, envelopes, LFOs, and sequencer CV into playable melodic voices.</p>
+<hr />
+<h2>What each module is best at musically</h2>
+<h2>A-131 (exponential VCA): best for note loudness</h2>
+<p>The manual explicitly says this is the one you’d <strong>normally use for audio signals</strong>. That makes it the more natural choice for:</p>
+<ul>
+<li>final amplitude shaping of a melodic voice</li>
+<li>plucky or expressive envelope-controlled notes</li>
+<li>natural-feeling loudness response</li>
+<li>dynamic accents from envelopes or velocity-like CV</li>
+</ul>
+<h3>Typical melodic role</h3>
+<p>Patch:
+- <strong>VCO audio</strong> → <strong>A-131 Audio In</strong>
+- <strong>ADSR envelope</strong> → <strong>A-131 CV</strong>
+- <strong>A-131 Out</strong> → mixer / filter / output</p>
+<p>This gives you the classic synthesizer note shape:
+- keyboard or sequencer determines pitch
+- gate triggers ADSR
+- ADSR opens the VCA
+- each note gets a distinct contour</p>
+<p>That is the foundation of most melodic patches.</p>
+<hr />
+<h2>A-130 (linear VCA): best for control voltages and modulation depth</h2>
+<p>The manual says this is the one you’d <strong>normally use for control voltages</strong>. For melodic work, that makes it especially useful for controlling things like:</p>
+<ul>
+<li>vibrato depth</li>
+<li>filter envelope amount</li>
+<li>tremolo amount</li>
+<li>keyboard tracking amount</li>
+<li>modulation scaling from sequencers or random sources</li>
+</ul>
+<p>Because it is linear, it behaves more predictably when scaling CV.</p>
+<h3>Typical melodic role</h3>
+<p>Use it to control how much modulation reaches another module:
+- <strong>LFO</strong> → <strong>A-130 Audio/CV In</strong>
+- <strong>envelope or macro control CV</strong> → <strong>A-130 CV input</strong>
+- <strong>A-130 Out</strong> → VCO FM input, filter CV input, or another VCA’s CV input</p>
+<p>This lets modulation appear only on certain notes or only at certain strengths.</p>
+<hr />
+<h1>Important features from the manual and what they mean musically</h1>
+<h2>1. Two audio inputs per VCA</h2>
+<p>Each VCA has:
+- <strong>Audio In 1</strong>
+- <strong>Audio In 2</strong></p>
+<p>Both are mixed and then amplified together.</p>
+<h3>Musical uses</h3>
+<p>This is useful for melodic patches because you can combine:
+- two oscillators in an interval
+- oscillator + noise for attack transient
+- sub oscillator + main oscillator
+- two different waveforms for richer note tone</p>
+<p>Example:
+- VCO 1 saw → In 1
+- VCO 2 pulse tuned a fifth up → In 2
+- envelope to CV
+- output gives one articulated melodic sound with both oscillators under the same amplitude contour</p>
+<p>This is a very efficient way to make harmonically richer melodic voices.</p>
+<hr />
+<h2>2. Gain control acts like an offset</h2>
+<p>The <strong>Gain</strong> knob sets overall gain. The manual notes that if gain is above zero, amplification can happen even with no CV present.</p>
+<h3>Musical implications</h3>
+<p>This matters a lot in melodic patches:</p>
+<ul>
+<li>With <strong>Gain at 0</strong>, notes only sound when CV opens the VCA</li>
+<li>With <strong>Gain above 0</strong>, some sound may pass all the time, or negative/bi-polar modulation can still be heard</li>
+</ul>
+<h3>Good uses</h3>
+<ul>
+<li>create drones beneath melodies</li>
+<li>let tremolo continue smoothly with a bipolar LFO</li>
+<li>add a constant bed under a sequenced line</li>
+<li>make modulation audible even when the modulating CV swings below 0 V</li>
+</ul>
+<p>This is especially useful if you want a melodic part that is partly percussive and partly sustained.</p>
+<hr />
+<h2>3. CV response: linear vs exponential</h2>
+<p>The manual emphasizes the difference:</p>
+<ul>
+<li><strong>A-130 linear</strong>: amplification changes directly with control voltage</li>
+<li><strong>A-131 exponential</strong>: more natural loudness behavior for audio</li>
+</ul>
+<h3>Musical interpretation</h3>
+<p>For melodic lines:
+- use <strong>A-131</strong> when you care about how loudness feels to the ear
+- use <strong>A-130</strong> when you care about accurate scaling of modulation/control signals</p>
+<p>A strong patching strategy is:
+- <strong>A-130</strong> for shaping modulation
+- <strong>A-131</strong> for shaping the audible voice</p>
+<hr />
+<h2>4. VCA control range</h2>
+<p>The manual states the effective CV range is:
+- <strong>0 V = no amplification</strong>
+- <strong>+5 V = maximum amplification</strong></p>
+<h3>Why that matters</h3>
+<p>Many envelopes, sequencers, and modulation sources in Eurorack exceed 5 V. So in melodic patches:
+- use the <strong>CV2 attenuator</strong> to tame hot modulation
+- use the <strong>input attenuators</strong> to avoid distortion
+- use the <strong>Out</strong> knob for final level balancing</p>
+<p>This helps keep your melodic voice clean and controlled.</p>
+<hr />
+<h1>Melodic patch ideas using these modules</h1>
+<h2>1. Basic subtractive melodic voice</h2>
+<p>This is the most direct use.</p>
+<h3>Patch</h3>
+<ul>
+<li>VCO pitch controlled by keyboard/sequencer</li>
+<li>VCO audio → A-131 In 1</li>
+<li>ADSR → A-131 CV1 or CV2</li>
+<li>A-131 Out → mixer/output</li>
+<li>Gate from keyboard/sequencer → ADSR gate</li>
+</ul>
+<h3>Result</h3>
+<p>A standard melodic synth line with proper note articulation.</p>
+<h3>Why A-131 here</h3>
+<p>Its exponential response gives a more musically natural volume contour.</p>
+<hr />
+<h2>2. Two-oscillator lead voice</h2>
+<p>Use the VCA’s two inputs to combine oscillators before amplitude shaping.</p>
+<h3>Patch</h3>
+<ul>
+<li>VCO 1 saw → A-131 In 1</li>
+<li>VCO 2 pulse → A-131 In 2</li>
+<li>tune VCO 2:</li>
+<li>unison for thickness</li>
+<li>octave for body</li>
+<li>fifth for harmonic brightness</li>
+<li>ADSR → A-131 CV</li>
+<li>A-131 Out → output</li>
+</ul>
+<h3>Result</h3>
+<p>A richer melodic line with one envelope controlling both oscillators.</p>
+<h3>Musical advantage</h3>
+<p>The two input attenuators let you balance the interval and waveform mix.</p>
+<hr />
+<h2>3. Add attack transient to notes</h2>
+<p>The second input can also add percussive brightness.</p>
+<h3>Patch</h3>
+<ul>
+<li>VCO → A-131 In 1</li>
+<li>Noise source → A-131 In 2</li>
+<li>ADSR to VCA CV</li>
+<li>set noise input low</li>
+</ul>
+<h3>Result</h3>
+<p>Each melodic note gets a sharper attack, useful for:
+- plucks
+- brass-like patches
+- pseudo-piano attacks
+- more defined sequence articulation</p>
+<hr />
+<h2>4. Tremolo on melodic lines</h2>
+<p>The manual specifically describes amplitude modulation using an LFO.</p>
+<h3>Patch</h3>
+<ul>
+<li>VCO → A-130 In 1 or A-131 In 1</li>
+<li>LFO → CV input</li>
+<li>set <strong>Gain above 0</strong></li>
+<li>output to mixer</li>
+</ul>
+<h3>Result</h3>
+<p>At low LFO rates, you get <strong>tremolo</strong>.</p>
+<h3>Melodic application</h3>
+<p>Excellent for:
+- sustained lead lines
+- animated pads playing chords/arpeggios
+- expressive pulsing on held notes</p>
+<h3>Best choice</h3>
+<ul>
+<li><strong>A-130</strong> is ideal if you want precise amplitude modulation behavior</li>
+<li><strong>A-131</strong> can sound more ear-natural as final loudness control</li>
+</ul>
+<hr />
+<h2>5. Audio-rate AM for metallic melodic tones</h2>
+<p>The manual notes that with audio-rate modulation, sidebands appear and interesting timbres emerge.</p>
+<h3>Patch</h3>
+<ul>
+<li>carrier VCO → A-130 In 1</li>
+<li>second VCO or audio-rate LFO → CV input</li>
+<li>set Gain above 0</li>
+<li>output to mixer</li>
+<li>pitch the carrier from your sequence</li>
+<li>optionally pitch the modulator musically too</li>
+</ul>
+<h3>Result</h3>
+<p>Complex, clangorous, or bell-like melodic tones.</p>
+<h3>Musical use</h3>
+<p>This is great for:
+- metallic leads
+- tuned percussion
+- experimental melodic motifs
+- evolving harmonics in repeated sequences</p>
+<p>The A-130 is especially suitable here because linear response tends to be more predictable for modulation duties.</p>
+<hr />
+<h2>6. Voltage-controlled vibrato depth</h2>
+<p>This is where the A-130 really shines.</p>
+<h3>Patch</h3>
+<ul>
+<li>LFO → A-130 In 1</li>
+<li>envelope or performance CV → A-130 CV input</li>
+<li>A-130 Out → VCO FM input (lightly)</li>
+<li>VCO audio → A-131 for final amplitude shaping</li>
+</ul>
+<h3>Result</h3>
+<p>Vibrato amount changes over the life of each note.</p>
+<h3>Musical examples</h3>
+<ul>
+<li>no vibrato at attack, more at sustain</li>
+<li>stronger vibrato on accented notes</li>
+<li>modulation wheel-like expressiveness if a controller provides the CV</li>
+</ul>
+<p>This makes melodic lines feel much more alive.</p>
+<hr />
+<h2>7. Voltage-controlled filter envelope amount</h2>
+<p>You can also use the A-130 to scale an envelope before it reaches a filter.</p>
+<h3>Patch</h3>
+<ul>
+<li>ADSR → A-130 In 1</li>
+<li>sequencer accent CV / controller / second envelope → A-130 CV</li>
+<li>A-130 Out → filter cutoff CV input</li>
+<li>VCO audio → filter → A-131 → output</li>
+</ul>
+<h3>Result</h3>
+<p>Some notes open the filter more than others.</p>
+<h3>Musical benefit</h3>
+<p>This creates:
+- accents
+- phrase dynamics
+- stronger articulation on selected notes
+- expressive melodic contour beyond simple pitch changes</p>
+<hr />
+<h2>8. Keyboard tracking for brighter/louder high notes</h2>
+<p>The manual specifically includes <strong>keyboard tracking</strong> patches.</p>
+<h3>Patch concept from the manual</h3>
+<p>Use keyboard CV to control a VCA so pitch affects amplification.</p>
+<h3>Example</h3>
+<ul>
+<li>VCO audio → VCA 1 → VCA 2</li>
+<li>ADSR controls VCA 1 for normal note articulation</li>
+<li>keyboard pitch CV goes to VCA 2 CV</li>
+<li>adjust VCA 2 gain/CV amount to determine how much louder higher notes become</li>
+</ul>
+<h3>Result</h3>
+<p>Higher notes are louder than lower notes.</p>
+<h3>Musical use</h3>
+<p>This is useful when:
+- you want leads to “speak” more in the upper range
+- you want a keyboard-like dynamic contour across pitch
+- you want patches that cut through more at the top</p>
+<p>The manual also shows the inverse version using a voltage inverter:
+- lower notes louder than higher notes</p>
+<p>That can be great for:
+- bass-focused sequences
+- mellow top-end behavior
+- psychoacoustic balancing of melodic runs</p>
+<hr />
+<h2>9. Controlled modulation depth for evolving phrases</h2>
+<p>The manual’s three-VCA example is especially good for melodic development.</p>
+<h3>Structure</h3>
+<ul>
+<li><strong>VCA 1</strong>: applies AM to the sound</li>
+<li><strong>VCA 2</strong>: final volume control</li>
+<li><strong>VCA 3</strong>: controls modulation depth</li>
+</ul>
+<h3>Melodic interpretation</h3>
+<p>You can adapt this concept to any modulation:
+- vibrato depth
+- tremolo depth
+- filter modulation amount
+- wavetable position movement
+- FM amount</p>
+<h3>Result</h3>
+<p>A phrase can evolve over time:
+- first notes dry
+- later notes more animated
+- chorus stronger than verse
+- accents push modulation deeper</p>
+<p>This is one of the most musically powerful uses of VCAs in a melodic system.</p>
+<hr />
+<h1>Practical “voice architecture” ideas</h1>
+<h2>Voice architecture 1: classic mono lead</h2>
+<ul>
+<li>VCO → filter → A-131</li>
+<li>ADSR → A-131 CV</li>
+<li>sequencer/keyboard pitch → VCO</li>
+<li>gate → ADSR</li>
+</ul>
+<p>Use the A-130 to scale:
+- vibrato depth
+- filter envelope amount
+- accent CV</p>
+<hr />
+<h2>Voice architecture 2: expressive dual-oscillator voice</h2>
+<ul>
+<li>VCO 1 → A-131 In 1</li>
+<li>VCO 2 → A-131 In 2</li>
+<li>ADSR → A-131 CV</li>
+<li>keyboard CV also routed through A-130 for keyboard tracking of filter or amplitude</li>
+</ul>
+<p>This gives a solid melodic lead with dynamic response across the keyboard.</p>
+<hr />
+<h2>Voice architecture 3: animated sequence voice</h2>
+<ul>
+<li>sequenced VCO → A-131</li>
+<li>ADSR → A-131 CV</li>
+<li>LFO → A-130</li>
+<li>envelope or accent CV → A-130 CV</li>
+<li>A-130 Out → filter cutoff or vibrato FM</li>
+</ul>
+<p>This creates repeated melodic patterns that subtly evolve note by note.</p>
+<hr />
+<h1>Best practices from the manual</h1>
+<h2>Keep levels under control</h2>
+<p>The manual warns that if the output distorts undesirably:
+- reduce <strong>In 1</strong>
+- reduce <strong>In 2</strong></p>
+<p>This is especially important when combining two oscillators or strong modulation signals.</p>
+<hr />
+<h2>Use Gain carefully with bipolar modulation</h2>
+<p>If using an LFO that swings negative and positive:
+- set <strong>Gain &gt; 0</strong></p>
+<p>Otherwise, only the positive half of the modulation may open the VCA, producing chopped or asymmetric behavior.</p>
+<p>That can be useful creatively, but if you want smooth tremolo or AM, a little gain offset helps.</p>
+<hr />
+<h2>Use A-130 and A-131 together, not as alternatives</h2>
+<p>The most musical takeaway from this manual is that these modules complement each other:</p>
+<ul>
+<li><strong>A-131</strong> shapes the audible note</li>
+<li><strong>A-130</strong> shapes the behavior of modulation that makes the note expressive</li>
+</ul>
+<p>That combination is ideal for melodic music.</p>
+<hr />
+<h1>Summary</h1>
+<p>These Doepfer VCAs are core melodic utility modules.</p>
+<h2>Use the <strong>A-131</strong> for:</h2>
+<ul>
+<li>final loudness shaping of notes</li>
+<li>envelope-controlled articulation</li>
+<li>dual-oscillator melodic voices</li>
+<li>plucks, leads, basses, pads</li>
+</ul>
+<h2>Use the <strong>A-130</strong> for:</h2>
+<ul>
+<li>scaling CV</li>
+<li>vibrato depth control</li>
+<li>filter modulation amount</li>
+<li>tremolo and AM</li>
+<li>keyboard tracking</li>
+<li>dynamic modulation of melodic phrases</li>
+</ul>
+<h2>Most musical combined use</h2>
+<p>A very effective setup is:</p>
+<ol>
+<li><strong>VCO(s)</strong> provide pitch and harmonic content  </li>
+<li><strong>A-130</strong> controls expressive modulation depth  </li>
+<li><strong>A-131</strong> controls final note loudness  </li>
+</ol>
+<p>That gives you melodic patches that are not just pitched, but also <strong>phrased, articulated, and dynamically shaped</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

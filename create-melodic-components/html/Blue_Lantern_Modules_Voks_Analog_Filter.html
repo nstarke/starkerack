@@ -1,0 +1,317 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Blue_Lantern_Modules_Voks_Analog_Filter</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Blue Lantern Modules — Voks Analog Filter</h1>
+<ul>
+<li><a href="../../manuals/BLM Voks Analog Filter.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.bluelanternstore.com/store/p133/BLM_Voks_Analog_Filter.html#/">Manual PDF / Source</a></p>
+<h1>Using These Modules Together for Melodic Eurorack Patches</h1>
+<p>From the provided manual pages, the module shown is:</p>
+<ul>
+<li><strong>Blue Lantern Modules BLM Voks VCF</strong></li>
+<li>6hp</li>
+<li>Analog filter based on the <strong>Polivoks</strong> filter</li>
+<li>Modes:<ul>
+<li><strong>Normal</strong></li>
+<li><strong>Unstable Brite</strong></li>
+</ul>
+</li>
+<li>Switchable <strong>internal limiter diode</strong></li>
+<li>Outputs:<ul>
+<li><strong>12 dB Low Pass</strong></li>
+<li><strong>6 dB Band Pass</strong></li>
+</ul>
+</li>
+<li>Inputs:<ul>
+<li><strong>Attenuated audio input</strong></li>
+<li><strong>Direct audio input</strong></li>
+<li><strong>CV direct input</strong></li>
+<li><strong>Bi-polar FM input</strong></li>
+</ul>
+</li>
+</ul>
+<p>This is a <strong>filter</strong>, not a complete melodic voice by itself, so its role in melodic patching is to shape harmonics, emphasize note articulation, and create animated timbral movement that makes melodies feel alive.</p>
+<h2>What this module contributes to melody</h2>
+<p>A melodic Eurorack patch usually needs:</p>
+<ul>
+<li>a <strong>pitch source</strong>: sequencer, keyboard, quantizer, random voltage</li>
+<li>a <strong>sound source</strong>: VCO, wavetable oscillator, noise into resonant filter, etc.</li>
+<li>a <strong>contour source</strong>: envelope/LFO</li>
+<li>a <strong>VCA</strong></li>
+<li>and often a <strong>filter</strong> for tone shaping</li>
+</ul>
+<p>The <strong>Voks VCF</strong> is most useful in the melodic chain as the <strong>timbre shaper</strong>. Because it has both LPF and BPF outputs, plus normal vs unstable/bright behavior, it can make a simple oscillator line become:</p>
+<ul>
+<li>smooth and rounded</li>
+<li>nasal and vocal</li>
+<li>aggressive and unstable</li>
+<li>expressive under CV control</li>
+</ul>
+<p>That is especially valuable for leads, basslines, arpeggios, and pseudo-formant melodies.</p>
+<hr />
+<h2>Core melodic patch roles</h2>
+<h2>1. Basic subtractive melodic voice</h2>
+<p><strong>Patch idea:</strong>
+- VCO saw or pulse output -&gt; <strong>Voks audio input</strong>
+- <strong>LPF output</strong> -&gt; VCA -&gt; mixer/output
+- Pitch CV from sequencer/keyboard -&gt; VCO 1V/oct
+- Gate from sequencer -&gt; envelope
+- Envelope -&gt; VCA CV
+- Optional second envelope or modulation source -&gt; <strong>Voks CV input</strong></p>
+<p><strong>What happens:</strong>
+- The oscillator provides the note pitch
+- The VCA envelope gives note articulation
+- The Voks shapes brightness over time</p>
+<p><strong>Musical result:</strong>
+- Basslines
+- Leads
+- Arpeggios
+- Classic synth phrases with more character than a clean modern filter</p>
+<p>The <strong>12 dB low-pass</strong> response should preserve some edge while still taming harmonics, which is often great for melodic parts that need presence without becoming dull.</p>
+<hr />
+<h2>2. Use the filter as the “expression” layer for melodies</h2>
+<p>A melody becomes expressive when its tone changes from note to note, not just its pitch.</p>
+<p><strong>Patch idea:</strong>
+- Sequence pitch to oscillator normally
+- Send a second CV lane from your sequencer to the <strong>Voks CV input</strong> or <strong>bi-polar FM input</strong>
+- Use that lane to open/close the filter differently per step</p>
+<p><strong>Why it works:</strong>
+- Notes can have different timbral emphasis
+- Repeated notes no longer sound static
+- Accent patterns become much more musical</p>
+<p><strong>Good uses:</strong>
+- Acid-style phrasing
+- Evolving techno sequences
+- Melodies where every step has a different emotional weight</p>
+<p>If your sequencer offers <strong>accent</strong>, route accent voltage to the filter CV so accented notes get brighter or more aggressive.</p>
+<hr />
+<h2>3. Band-pass melodies for vocal or reed-like lead tones</h2>
+<p>The <strong>6 dB band-pass output</strong> is especially interesting for melody.</p>
+<p><strong>Patch idea:</strong>
+- VCO triangle, saw, or rich digital oscillator -&gt; Voks input
+- <strong>BPF output</strong> -&gt; VCA
+- Moderate resonance
+- Slow or envelope-based filter motion</p>
+<p><strong>What it sounds like:</strong>
+- More focused mids
+- Thinner but characterful lead tones
+- Vocal, nasal, or “speaking” textures</p>
+<p>This is excellent for:
+- solo lead lines
+- counter-melodies
+- folk-ish or experimental melodic parts
+- melodies that must cut through a dense mix</p>
+<p>Compared with the LPF output, the BPF can sit in a mix with less low-frequency clutter.</p>
+<hr />
+<h2>4. Parallel melodic timbres from both outputs</h2>
+<p>Since the module has separate <strong>LPF</strong> and <strong>BPF</strong> outputs, you can use both at once.</p>
+<p><strong>Patch idea:</strong>
+- Oscillator -&gt; Voks input
+- <strong>LPF output</strong> -&gt; VCA 1 -&gt; mixer left
+- <strong>BPF output</strong> -&gt; VCA 2 -&gt; mixer right or second mixer channel
+- Modulate the two VCAs differently</p>
+<p><strong>Musical benefit:</strong>
+- One oscillator becomes two complementary melodic layers
+- LPF provides body
+- BPF provides edge and presence</p>
+<p>This can create:
+- stereo melodic voices
+- layered unison leads
+- dynamic morphing tones
+- “main note + ghost note” style textural doubling</p>
+<p>If you envelope the two paths differently, one note can have a warm body with a sharper midrange transient.</p>
+<hr />
+<h2>5. Resonant filter as a near-voice source</h2>
+<p>Polivoks-inspired filters often excel at strong resonance and unstable behavior.</p>
+<p>Even though the manual does not explicitly say it tracks 1V/oct, you can still use the Voks in a <strong>quasi-oscillating or resonant melodic</strong> role.</p>
+<p><strong>Patch idea:</strong>
+- Feed a harmonically rich source or even a click/impulse into the filter
+- Raise resonance
+- Tune cutoff carefully
+- Send sequenced CV to the filter cutoff</p>
+<p><strong>Result:</strong>
+- The perceived pitch center can follow the cutoff
+- You get whistle-like, vocal, or unstable melodic tones</p>
+<p>This is not guaranteed to be precise tonal tracking, but it can be musically excellent for:
+- industrial melodies
+- unstable leads
+- strange bells
+- eerie counterpoint</p>
+<p>Use a quantizer before the filter CV if you want more stable melodic intervals.</p>
+<hr />
+<h2>6. “Unstable Brite” mode for animated melodic lines</h2>
+<p>The manual mentions <strong>Normal Mode and Unstable Brite Mode</strong>.</p>
+<p>That strongly suggests you can switch between:
+- a more expected filter response
+- a brighter, less stable, more characterful one</p>
+<p><strong>Melodic application:</strong>
+- Use <strong>Normal</strong> for foundational bass or lead phrases
+- Use <strong>Unstable Brite</strong> for chorus sections, fills, or higher-register hooks</p>
+<p>This can function almost like a performance macro:
+- verse = normal
+- chorus = unstable brite
+- breakdown = band-pass unstable modulation</p>
+<p>On repeated melodies, this helps create arrangement contrast without changing notes.</p>
+<hr />
+<h2>7. Internal limiter diode for soft clipping and tone shaping</h2>
+<p>The module includes an <strong>internal limiter diode selected by switch</strong>.</p>
+<p>That likely alters how the filter saturates or limits internally, which is very useful musically.</p>
+<p><strong>For melody:</strong>
+- Use the limiter to make peaks feel more compressed and aggressive
+- Push oscillator level into the filter for harmonically richer lines
+- Use it on bass melodies to add growl
+- Use it on lead sequences to add edge without external distortion</p>
+<p>This is especially effective if you:
+- send a hot saw wave into the <strong>direct audio input</strong>
+- use moderate resonance
+- animate the cutoff with an envelope or step CV</p>
+<p>The melody will feel more “spoken” and forward in the mix.</p>
+<hr />
+<h2>8. Attenuated input vs direct input as performance tools</h2>
+<p>The module provides both:
+- <strong>attenuated audio input</strong>
+- <strong>direct audio input</strong></p>
+<p>That means you can change how hard the signal drives the filter.</p>
+<h3>Practical use:</h3>
+<ul>
+<li><strong>Attenuated input</strong>: cleaner, more controlled melodic shaping</li>
+<li><strong>Direct input</strong>: stronger drive, more saturation, more aggression</li>
+</ul>
+<p>For melodic composition:
+- route a delicate waveform or high melody through the attenuated input
+- route basslines or acid lines through the direct input</p>
+<p>This gives you two distinct tonal personalities from the same oscillator/sequence concept.</p>
+<hr />
+<h2>9. Bi-polar FM for melodic motion</h2>
+<p>The <strong>bi-polar FM input</strong> is one of the most interesting features for melody.</p>
+<p>Because it is bipolar, modulation can move the cutoff above and below the set point, making the filter movement more animated and centered.</p>
+<p><strong>Patch ideas:</strong>
+- Slow triangle LFO -&gt; bi-polar FM for gentle melodic timbre drift
+- Envelope -&gt; bi-polar FM for plucky articulation
+- Second sequencer row -&gt; bi-polar FM for per-note harmonic animation
+- Audio-rate oscillator -&gt; bi-polar FM for metallic or vocalized lead tones</p>
+<p><strong>Melodic uses:</strong>
+- animated arpeggios
+- growling basslines
+- pseudo-formant leads
+- expressive phrase shaping</p>
+<p>If you use audio-rate FM lightly, you can make the melody sound more alive without fully destroying pitch clarity.</p>
+<hr />
+<h1>Musical patch recipes</h1>
+<h2>1. Acid-adjacent bassline</h2>
+<p><strong>Patch:</strong>
+- Saw VCO -&gt; direct input
+- LPF output -&gt; VCA
+- Step sequencer pitch -&gt; VCO
+- Gate -&gt; snappy envelope -&gt; VCA
+- Accent or second CV row -&gt; filter CV input
+- Moderate resonance
+- Try limiter diode engaged
+- Try unstable brite mode for more edge</p>
+<p><strong>Result:</strong>
+- Aggressive, rubbery melodic bassline
+- Best for EBM, techno, electro, industrial</p>
+<hr />
+<h2>2. Vocal lead</h2>
+<p><strong>Patch:</strong>
+- Rich oscillator -&gt; attenuated input
+- BPF output -&gt; VCA
+- Sequencer pitch -&gt; oscillator
+- Envelope -&gt; VCA
+- Slow LFO + subtle envelope mixed into filter FM</p>
+<p><strong>Result:</strong>
+- Nasal, singing lead tone
+- Great for melodic hooks that must stand out</p>
+<hr />
+<h2>3. Dual-output melody layering</h2>
+<p><strong>Patch:</strong>
+- Oscillator -&gt; filter
+- LPF output -&gt; main voice path
+- BPF output -&gt; second VCA with longer envelope
+- Both mixed together</p>
+<p><strong>Result:</strong>
+- One note generates a core body plus a spectral halo
+- Excellent for ambient, soundtrack, and melodic techno</p>
+<hr />
+<h2>4. Percussive tuned sequence</h2>
+<p><strong>Patch:</strong>
+- Short pulse or click source -&gt; filter
+- Resonance up
+- Sequenced CV -&gt; filter CV
+- BPF output preferred
+- Fast decay envelope to VCA</p>
+<p><strong>Result:</strong>
+- Bongos, zaps, tuned percussion
+- Can become a melodic ostinato line</p>
+<hr />
+<h2>5. Melodic drone with evolving harmonics</h2>
+<p><strong>Patch:</strong>
+- Drone oscillator -&gt; Voks
+- LPF and BPF both used
+- Very slow LFO to bi-polar FM
+- Manual switching between normal/unstable brite
+- Quantized stepped modulation to filter CV</p>
+<p><strong>Result:</strong>
+- The pitch source stays stable while harmonics imply shifting melodic contours
+- Very useful for ambient and experimental music</p>
+<hr />
+<h1>Best module pairings for creating melody</h1>
+<p>Since this module is a filter, it works best when paired with:</p>
+<ul>
+<li><strong>VCOs</strong>: for the actual pitched source</li>
+<li><strong>sequencers/quantizers</strong>: for melody notes</li>
+<li><strong>envelopes</strong>: for articulating brightness</li>
+<li><strong>VCAs</strong>: for note dynamics</li>
+<li><strong>LFOs/random CV</strong>: for variation</li>
+<li><strong>mixers/attenuators</strong>: to control how much CV hits the filter</li>
+</ul>
+<p>If you have multiple oscillators, the Voks can also be used after a small oscillator mix to create richer melodic voices with interval stacking.</p>
+<hr />
+<h1>Performance advice</h1>
+<h2>For bass melodies</h2>
+<ul>
+<li>Use <strong>LPF</strong></li>
+<li>Use <strong>direct input</strong></li>
+<li>Add envelope to cutoff</li>
+<li>Use limiter if you want growl</li>
+</ul>
+<h2>For leads</h2>
+<ul>
+<li>Use <strong>BPF</strong> or mix LPF+BPF</li>
+<li>Modulate with a gentle bipolar source</li>
+<li>Try unstable brite mode for expressive peaks</li>
+</ul>
+<h2>For arpeggios</h2>
+<ul>
+<li>Use sequencer accent into filter CV</li>
+<li>Keep resonance moderate</li>
+<li>Add subtle FM for movement</li>
+</ul>
+<h2>For experimental melody</h2>
+<ul>
+<li>Push resonance</li>
+<li>Use unstable brite mode</li>
+<li>Send stepped random CV through a quantizer into filter CV</li>
+<li>Treat the filter cutoff as a secondary melodic dimension</li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>BLM Voks VCF</strong> is best used in a melodic system as a <strong>character filter</strong> that adds articulation, aggression, and vocal-like spectral movement to otherwise simple pitched material. Its strongest melodic advantages are:</p>
+<ul>
+<li><strong>distinct low-pass and band-pass outputs</strong></li>
+<li><strong>Polivoks-style character</strong></li>
+<li><strong>normal vs unstable bright behavior</strong></li>
+<li><strong>switchable internal limiting</strong></li>
+<li><strong>CV and bipolar FM control for animated note timbre</strong></li>
+</ul>
+<p>It will not generate a full melodic line by itself, but in combination with any oscillator, sequencer, envelope, and VCA, it can make melodies feel much more vivid, expressive, and alive.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

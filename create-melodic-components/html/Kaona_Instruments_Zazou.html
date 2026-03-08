@@ -1,0 +1,610 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kaona_Instruments_Zazou</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Kaona Instruments — Zazou</h1>
+<ul>
+<li><a href="../../manuals/Zazou_manual_ENG_V1-0.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Using Kaona Zazou Together With Gate/Trigger Sources To Create Melodic Parts</h1>
+<p>Zazou is a <strong>4-track generative melody module</strong>. It does <strong>not make sound on its own</strong>; instead, it outputs:</p>
+<ul>
+<li><strong>1V/oct pitch CV</strong> for 4 tracks</li>
+<li><strong>Gate outputs</strong> for 4 tracks</li>
+<li><strong>Velocity CV outputs</strong> for 4 tracks</li>
+<li><strong>TRS MIDI output</strong></li>
+</ul>
+<p>Its key musical idea is:</p>
+<ul>
+<li><strong>external gates define rhythm</strong></li>
+<li><strong>Zazou defines pitch, phrasing, harmony, and melodic behavior</strong></li>
+</ul>
+<p>The manual repeatedly points to <strong>Skippy</strong> as a natural partner, so the clearest “used together” interpretation is:</p>
+<ul>
+<li><strong>Skippy or another trigger/gate sequencer = rhythm source</strong></li>
+<li><strong>Zazou = melodic/generative pitch engine</strong></li>
+</ul>
+<hr />
+<h1>What Zazou Does in a Patch</h1>
+<p>Zazou generates notes on <strong>4 independent channels</strong>. Each track can have its own:</p>
+<ul>
+<li>root note</li>
+<li>scale</li>
+<li>sequence/chord progression</li>
+<li>algorithm</li>
+<li>note duration</li>
+<li>velocity behavior</li>
+<li>ornamentation</li>
+</ul>
+<p>That makes it useful as:</p>
+<ul>
+<li>a <strong>bassline generator</strong></li>
+<li>a <strong>lead generator</strong></li>
+<li>a <strong>countermelody generator</strong></li>
+<li>a <strong>4-voice polyphonic harmonic source</strong></li>
+<li>a <strong>multitimbral MIDI composer</strong></li>
+</ul>
+<hr />
+<h1>The Core Relationship Between Modules</h1>
+<h2>1. Rhythm module / trigger sequencer</h2>
+<p>A module like <strong>Skippy</strong> sends gate signals into Zazou’s four gate inputs.</p>
+<p>These gate inputs tell Zazou <strong>when</strong> to play a note.</p>
+<h2>2. Zazou</h2>
+<p>Zazou uses its algorithm, scale, sequence, and track settings to decide <strong>which note</strong> to output.</p>
+<p>It then sends:</p>
+<ul>
+<li>pitch via <strong>note CV out</strong></li>
+<li>gate via <strong>gate out</strong></li>
+<li>dynamics via <strong>velocity CV</strong></li>
+<li>optionally MIDI notes out via TRS MIDI</li>
+</ul>
+<h2>3. Voice modules</h2>
+<p>Those CV/gate outputs then drive:</p>
+<ul>
+<li>analog oscillators + envelopes + VCAs</li>
+<li>full synth voices</li>
+<li>quantizer-free melodic patches</li>
+<li>MIDI synths / desktop synths / multitimbral synth modules</li>
+</ul>
+<p>So the full musical chain is:</p>
+<p><strong>Trigger source → Zazou → synth voices</strong></p>
+<hr />
+<h1>Why Zazou and Skippy Pair Well</h1>
+<p>The manual explicitly says Zazou is a good companion to <strong>Skippy</strong>, Kaona’s rhythm generator.</p>
+<p>That pairing is strong because:</p>
+<ul>
+<li><strong>Skippy creates evolving rhythmic gates</strong></li>
+<li><strong>Zazou turns those gates into scale-aware notes</strong></li>
+<li>each of the 4 trigger lanes can drive 1 of Zazou’s 4 melodic tracks</li>
+<li>gate length can matter musically if Zazou note duration is set to <strong>GATE</strong></li>
+<li>live rhythmic changes on the gate source instantly reshape Zazou’s phrasing</li>
+</ul>
+<p>This means you can separate composition into two layers:</p>
+<ul>
+<li><strong>rhythmic composition</strong> on the trigger/gate module</li>
+<li><strong>pitch/harmonic composition</strong> on Zazou</li>
+</ul>
+<p>That is a very Eurorack-friendly division of labor.</p>
+<hr />
+<h1>Best Ways To Use Them Together</h1>
+<h2>1. Four independent melodic lines</h2>
+<p>Patch four gate lanes from a rhythm source into Zazou’s four gate inputs.</p>
+<p>Then patch each Zazou track to a separate voice:</p>
+<ul>
+<li>Track 1 → bass voice</li>
+<li>Track 2 → chord/pluck voice</li>
+<li>Track 3 → lead voice</li>
+<li>Track 4 → texture/percussion-tuned voice</li>
+</ul>
+<p>This is the most direct use.</p>
+<h3>Good setup</h3>
+<ul>
+<li>same scale on all tracks</li>
+<li>same sequence on all tracks</li>
+<li>different algorithms per track</li>
+</ul>
+<p>Example:
+- Track 1: <strong>WalkingBass</strong>
+- Track 2: <strong>Arpeggio</strong>
+- Track 3: <strong>Random</strong>
+- Track 4: <strong>Cantor</strong> or <strong>Sierpinski</strong></p>
+<p>This yields a coherent harmonic center, but each track behaves differently.</p>
+<hr />
+<h2>2. Polyphonic chord generation</h2>
+<p>Use all 4 tracks with:</p>
+<ul>
+<li>same root</li>
+<li>same scale</li>
+<li>same sequence</li>
+<li>same or complementary algorithms</li>
+<li>different octave ranges or chord settings</li>
+</ul>
+<p>Patch the 4 pitch CV outputs into 4 oscillators or 4 voices.</p>
+<p>This can create:</p>
+<ul>
+<li>chord stacks</li>
+<li>contrapuntal harmony</li>
+<li>clustered generative harmony</li>
+<li>pseudo-polyphonic keyboard-like behavior</li>
+</ul>
+<p>A particularly effective method is:
+- set all tracks to the same progression
+- vary root/octave/chord voicing behavior
+- let each track trigger at slightly different rhythms</p>
+<p>That gives “moving harmony” rather than block chords.</p>
+<hr />
+<h2>3. Bass + accompaniment + lead structure</h2>
+<p>One of the strongest musical uses of Zazou is assigning roles:</p>
+<h3>Track 1: bass</h3>
+<p>Use:
+- <strong>WalkingBass</strong>
+- lower octave
+- simple sequence like <strong>I-IV-V</strong> or <strong>II-V-I</strong>
+- moderate velocity
+- quarter-note style gate source</p>
+<h3>Track 2: accompaniment</h3>
+<p>Use:
+- <strong>Arpeggio</strong>
+- chord-restricted notes
+- mid register
+- regular trigger pattern</p>
+<h3>Track 3: lead</h3>
+<p>Use:
+- <strong>Random</strong>, <strong>Fibonacci</strong>, <strong>Mandelbrot</strong>, or <strong>Julia</strong>
+- longer durations
+- ornamentation
+- wider octave range</p>
+<h3>Track 4: counterline or drone accent</h3>
+<p>Use:
+- <strong>Interval</strong>
+- <strong>Cantor</strong>
+- sparse rhythm
+- fixed lower or upper range</p>
+<p>This is an easy way to create a full arrangement from one module pair.</p>
+<hr />
+<h1>How Sequences Help the Modules Work Musically Together</h1>
+<p>Zazou’s <strong>Sequences</strong> are not step sequencer melodies. They are more like <strong>harmonic progression rules</strong>.</p>
+<p>Examples include:</p>
+<ul>
+<li>ROOT</li>
+<li>RANDOM</li>
+<li>II-V-I</li>
+<li>CIRCLE OF 5</li>
+<li>CIRCLE OF 4</li>
+<li>ANATOLE</li>
+<li>I-IV-V</li>
+<li>BLUES 12</li>
+<li>SCALE UP</li>
+<li>SCALE DOWN</li>
+<li>TIERCE UP / DOWN</li>
+</ul>
+<p>These sequences transpose or reinterpret the active harmonic center over time.</p>
+<p>That means even if the trigger source is static, the music can still evolve harmonically.</p>
+<h2>Practical result</h2>
+<p>If Skippy sends a repeating rhythm loop, Zazou can make that loop feel like a developing song because:</p>
+<ul>
+<li>the same rhythm repeats</li>
+<li>but the harmonic target changes</li>
+<li>and algorithms react to that changing target</li>
+</ul>
+<p>This is ideal for:
+- jazz-like progression
+- modal looping
+- ambient harmonic drift
+- generative tonal movement</p>
+<hr />
+<h1>How the Gate Source Changes the Melody</h1>
+<p>A big point in the manual: <strong>Zazou requires gate signals to trigger each note.</strong></p>
+<p>So the external rhythm source has huge influence over the resulting melody.</p>
+<h2>Short gates</h2>
+<p>With short trigger pulses:
+- notes are articulated more like plucks
+- if duration = GATE, notes stay short
+- rhythmic detail becomes prominent</p>
+<h2>Long gates</h2>
+<p>With longer gate lengths:
+- notes sustain longer
+- phrasing becomes legato-like
+- good for drones, pads, slow melodic movement</p>
+<h2>Dense rhythms</h2>
+<p>If the gate module generates dense patterns:
+- Zazou can become animated and busy
+- great for arpeggios and fractal algorithms</p>
+<h2>Sparse rhythms</h2>
+<p>If the gate module is sparse:
+- melodies become more spacious
+- fractal/random algorithms become easier to hear
+- good for ambient or soundtrack composition</p>
+<p>So the partner rhythm module is not just a clock source—it is really a <strong>phrase shaper</strong>.</p>
+<hr />
+<h1>Important Duration Behavior</h1>
+<p>Zazou has two main note timing behaviors:</p>
+<h2>GATE duration</h2>
+<p>If duration is set to <strong>GATE</strong>:
+- note length follows incoming gate length exactly</p>
+<p>This is excellent with live-playable rhythm modules because changing gate width changes articulation immediately.</p>
+<h2>Fixed duration</h2>
+<p>If a duration is set numerically:
+- Zazou plays the full note value
+- incoming gates during that note are ignored</p>
+<p>This makes Zazou feel more like a phrase generator than a direct gate follower.</p>
+<h3>Musical implication</h3>
+<p>Use:
+- <strong>GATE mode</strong> for expressive rhythmic interaction with Skippy or another trigger sequencer
+- <strong>fixed durations</strong> for more composed, stable melodic phrasing</p>
+<hr />
+<h1>Useful Algorithm Pairings for Multi-Track Melodic Patches</h1>
+<h2>Random</h2>
+<p>Best for:
+- melodic variation
+- generative motifs
+- subtle line changes</p>
+<p>Works well when:
+- scale is constrained
+- octave range is limited
+- repeat is disabled for more motion</p>
+<p>Use it for:
+- leads
+- auxiliary melodies
+- soft background lines</p>
+<hr />
+<h2>Arpeggio</h2>
+<p>Best for:
+- harmonic accompaniment
+- sequenced synth lines
+- classic modular melodic motion</p>
+<p>Works especially well with:
+- shared sequence progression
+- regular gates from an external trigger source</p>
+<p>Use it for:
+- plucks
+- polysynth-style patterns
+- ostinatos</p>
+<hr />
+<h2>WalkingBass</h2>
+<p>Best for:
+- bass foundations
+- tonal grounding
+- jazz/blues/pop movement</p>
+<p>Use it on one track while other tracks do freer motion.
+That creates an anchored composition.</p>
+<hr />
+<h2>Serial</h2>
+<p>Best for:
+- experimental / atonal material
+- academic or modernist composition
+- tension lines</p>
+<p>Important:
+- only really meaningful with the <strong>chromatic scale</strong>
+- less suited if you want strong tonal consonance</p>
+<p>Use sparingly or on one voice only if the rest of the patch is tonal.</p>
+<hr />
+<h2>Cantor / Sierpinski / Mandelbrot / Julia</h2>
+<p>Best for:
+- self-similar melodic patterns
+- evolving ambient lines
+- generative experimentation</p>
+<p>These are ideal if you want:
+- repetition with mutation
+- mathematically flavored phrasing
+- a sense of emergence rather than explicit composition</p>
+<p>They work best when paired with:
+- limited octave range
+- slower note durations
+- restrained sequences</p>
+<p>Otherwise things can become too chaotic.</p>
+<hr />
+<h2>Fibonacci</h2>
+<p>Best for:
+- natural-feeling expansion
+- melodic growth
+- pattern-based lines that feel ordered but not obvious</p>
+<p>Very good for:
+- leads
+- secondary phrases
+- semi-predictable melodic development</p>
+<hr />
+<h2>Interval</h2>
+<p>Best for:
+- strict intervallic hooks
+- sequenced motifs
+- pattern-based melodic riffs</p>
+<p>Because it does not ensure scale membership of resulting notes, it can be:
+- consonant
+- modal
+- dissonant</p>
+<p>depending on interval and context.</p>
+<p>Great for:
+- techno patterns
+- minimalist ostinatos
+- experimental counterpoint</p>
+<hr />
+<h1>How To Build Strong Melodic Components</h1>
+<h2>A. Tonal generative patch</h2>
+<p>For music that stays musical and coherent:</p>
+<ul>
+<li>choose one scale for all tracks</li>
+<li>use one sequence for all tracks</li>
+<li>vary algorithms</li>
+<li>keep octave ranges moderate</li>
+<li>use passing notes and ornaments sparingly</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Scale: D Dorian</li>
+<li>Sequence: II-V-I or ROOT</li>
+<li>Track 1: WalkingBass</li>
+<li>Track 2: Arpeggio</li>
+<li>Track 3: Fibonacci</li>
+<li>Track 4: Random</li>
+</ul>
+<p>Result:
+- bass anchors harmony
+- arpeggio defines chord feel
+- Fibonacci creates melody
+- random adds variation</p>
+<hr />
+<h2>B. Evolving ambient patch</h2>
+<p>For slowly shifting melodic atmospheres:</p>
+<ul>
+<li>sparse external gates</li>
+<li>longer note durations</li>
+<li>fractal algorithms</li>
+<li>shared scale, different roots or octaves</li>
+<li>low to medium velocity</li>
+<li>ornamentation minimal</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Scale: Lydian or Pentatonic Minor</li>
+<li>Sequence: Circle of 5 or Scale Up</li>
+<li>Track 1: Cantor</li>
+<li>Track 2: Sierpinski</li>
+<li>Track 3: Mandelbrot</li>
+<li>Track 4: Julia</li>
+</ul>
+<p>Result:
+- drifting harmonic motion
+- repeating but evolving phrases
+- wide ambient melodic field</p>
+<hr />
+<h2>C. Groove-based patch</h2>
+<p>For rhythmic electronic music:</p>
+<ul>
+<li>use Skippy or another rhythm generator with active patterns</li>
+<li>duration = GATE on some tracks</li>
+<li>one track for bass, one for arp, one for stab, one for lead</li>
+<li>use velocity CV to animate timbre or VCA level</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Track 1: WalkingBass</li>
+<li>Track 2: Arpeggio</li>
+<li>Track 3: Interval</li>
+<li>Track 4: Random</li>
+</ul>
+<p>Patch velocity CV not only to amplitude but also to:
+- filter cutoff
+- wavetable position
+- FM depth
+- envelope decay</p>
+<p>This makes the melodies more expressive.</p>
+<hr />
+<h1>Velocity CV Is Very Useful</h1>
+<p>A strong feature of Zazou is that it outputs <strong>velocity as CV</strong> per track.</p>
+<p>That means dynamics are not limited to MIDI.
+In Eurorack, that velocity CV can control:</p>
+<ul>
+<li>VCA level</li>
+<li>filter cutoff</li>
+<li>wavefolder amount</li>
+<li>envelope depth</li>
+<li>FM index</li>
+<li>effect send amount</li>
+</ul>
+<p>So one melody line can have pitch, gate, and expressive modulation all coming from Zazou.</p>
+<p>This is one of the best ways to make generative lines feel alive.</p>
+<hr />
+<h1>Sequence Change Tricks</h1>
+<p>Zazou also has <strong>Change</strong> and <strong>Reset</strong> controls, by button or CV.</p>
+<p>This lets you coordinate form with other modules.</p>
+<h2>Change input/button</h2>
+<p>Advances sequence by one step.</p>
+<p>Use this to:
+- manually push chord changes
+- trigger formal changes from another module
+- make a pattern progress only at chosen moments</p>
+<h2>Reset input/button</h2>
+<p>Resets playback to the start.</p>
+<p>Use this to:
+- resync all tracks to bar 1
+- restart harmonic structure
+- recover from intentional chaos during performance</p>
+<h2>Sequence setting: CHANGE GATE = EXT</h2>
+<p>This is especially powerful.
+In this mode, sequence changes happen only from the external change gate/button.</p>
+<p>That allows a separate module or performer gesture to control <strong>when harmony moves</strong>.</p>
+<p>So rhythm can continue constantly while harmony only changes when you decide.</p>
+<hr />
+<h1>Manual Performance Ideas</h1>
+<p>Zazou is not just a set-and-forget generator.</p>
+<h2>In Algorithms and Sequences screens</h2>
+<p>The colored buttons can manually play notes.</p>
+<p>That means you can:
+- audition per-track behavior
+- tap notes manually
+- test parameter changes live</p>
+<h2>In Live mode</h2>
+<p>The colored buttons become <strong>mute</strong> for each track.</p>
+<p>This is excellent for arrangement:
+- mute bass
+- bring in lead
+- strip back accompaniment
+- drop to one fractal line</p>
+<h2>Play/Stop</h2>
+<p>Stops all tracks together.</p>
+<h2>Reset</h2>
+<p>Restarts and also sends MIDI all-notes-off if needed.</p>
+<p>So even with generative material, Zazou can be performed like a structured instrument.</p>
+<hr />
+<h1>MIDI and CV Hybrid Use</h1>
+<p>Zazou can drive both:</p>
+<ul>
+<li><strong>modular voices via CV/gate</strong></li>
+<li><strong>external synths via MIDI</strong></li>
+</ul>
+<p>This opens useful combined setups.</p>
+<h2>Example hybrid setup</h2>
+<ul>
+<li>Track 1 CV/gate → analog bass voice</li>
+<li>Track 2 CV/gate → pluck voice</li>
+<li>Track 3 MIDI → polysynth pad</li>
+<li>Track 4 MIDI → FM desktop synth lead</li>
+</ul>
+<p>Or:
+- all 4 tracks on different MIDI channels into one multitimbral synth
+- while velocity CV outputs modulate modular effects or envelopes</p>
+<p>This makes Zazou a strong center for a mixed hardware setup.</p>
+<hr />
+<h1>Good “Used Together” Patch Recipes</h1>
+<h2>Patch 1: Simple song starter</h2>
+<ul>
+<li>4 rhythm outputs from Skippy to Zazou gate inputs</li>
+<li>Zazou Track 1 note/gate → bass synth</li>
+<li>Zazou Track 2 note/gate → pluck synth</li>
+<li>Zazou Track 3 note/gate → lead synth</li>
+<li>Zazou Track 4 note/gate → pad or bell synth</li>
+</ul>
+<p>Settings:
+- same root and scale on all tracks
+- same sequence on all tracks
+- different algorithms on each track</p>
+<p>This immediately creates a layered melodic arrangement.</p>
+<hr />
+<h2>Patch 2: One rhythm source, many harmonic voices</h2>
+<p>If your gate source is less complex, you can still:
+- feed similar rhythmic material to multiple tracks
+- let Zazou create differentiated pitch content by algorithm</p>
+<p>Use:
+- same trigger density
+- different octave ranges
+- different chord settings
+- different ornaments</p>
+<p>This yields tightly related but non-identical lines.</p>
+<hr />
+<h2>Patch 3: Controlled generative improviser</h2>
+<ul>
+<li>Set sequence progression to <strong>II-V-I</strong>, <strong>Anatole</strong>, or <strong>Circle of 5</strong></li>
+<li>Keep one track as WalkingBass</li>
+<li>Use Random/Arpeggio/Fibonacci on other tracks</li>
+<li>Advance harmony using the <strong>Change</strong> input manually or from another trigger stream</li>
+</ul>
+<p>This acts like a generative accompanist that can follow song form.</p>
+<hr />
+<h2>Patch 4: Fractal texture over tonal bass</h2>
+<ul>
+<li>Track 1 = WalkingBass in a simple scale</li>
+<li>Tracks 2–4 = Cantor/Sierpinski/Mandelbrot</li>
+<li>sparse trigger inputs for fractal voices</li>
+<li>longer durations</li>
+<li>same root/scale shared</li>
+</ul>
+<p>This keeps the overall patch musical while allowing abstract upper motion.</p>
+<hr />
+<h1>Recommended Practical Approaches</h1>
+<h2>For tonal music</h2>
+<p>Start with:
+- Major, Minor, Dorian, Mixolydian, Pentatonic
+- WalkingBass + Arpeggio + Random/Fibonacci
+- simple sequences like ROOT, I-IV-V, II-V-I</p>
+<h2>For jazzier results</h2>
+<p>Start with:
+- Bebop Major / Bebop Minor / Blues / Dorian
+- WalkingBass
+- Anatole or II-V-I
+- voicing enabled where available</p>
+<h2>For experimental music</h2>
+<p>Start with:
+- Chromatic scale
+- Serial / Interval / Julia / Mandelbrot
+- independent sequences per track
+- random chord and duration behavior</p>
+<h2>For ambient</h2>
+<p>Start with:
+- sparse gates
+- long durations
+- fractal algorithms
+- muted sequence motion
+- velocity CV to timbre rather than volume</p>
+<hr />
+<h1>Limitations To Keep In Mind</h1>
+<h2>Zazou is not a sound source</h2>
+<p>You still need:
+- oscillators or voices
+- envelopes / VCAs if using raw CV
+- or MIDI synths</p>
+<h2>It is gate-driven, not clock-driven</h2>
+<p>The manual is clear:
+- Zazou does not use a normal clock input
+- it depends on incoming gates to trigger notes</p>
+<p>So if you want more notes, more rests, or different phrasing, the gate generator matters a lot.</p>
+<h2>Some settings can get chaotic</h2>
+<p>Because Zazou can combine:
+- randomization
+- ornaments
+- fractal logic
+- sequence transposition
+- wide octave range</p>
+<p>it can quickly go from musical to wild.
+Usually the most usable patches come from <strong>limiting a few parameters</strong>.</p>
+<hr />
+<h1>Best Overall Strategy</h1>
+<p>The best way to use these modules together for melodic creation is:</p>
+<ol>
+<li>Use the rhythm/gate module to generate <strong>when</strong> notes happen.</li>
+<li>Use Zazou to generate <strong>what</strong> notes happen.</li>
+<li>Send Zazou’s outputs to several voices for bass, harmony, lead, and texture.</li>
+<li>Keep all tracks in one scale/sequence at first.</li>
+<li>Differentiate tracks by algorithm, octave, duration, and velocity.</li>
+<li>Use Live mutes and Change/Reset for performance structure.</li>
+</ol>
+<p>In short:</p>
+<ul>
+<li><strong>Skippy or another gate source gives the groove</strong></li>
+<li><strong>Zazou gives the melody and harmony</strong></li>
+<li><strong>your voices and modulation turn that into a complete musical arrangement</strong></li>
+</ul>
+<hr />
+<h1>Quick Starter Patch</h1>
+<p>If you want one immediate patch from the manual:</p>
+<h2>Connections</h2>
+<ul>
+<li>4 gate outs from Skippy → 4 Zazou gate ins</li>
+<li>Zazou Track 1 note/gate → bass voice</li>
+<li>Zazou Track 2 note/gate → pluck voice</li>
+<li>Zazou Track 3 note/gate → lead voice</li>
+<li>Zazou Track 4 note/gate → pad voice</li>
+<li>velocity CVs → filter cutoff or VCA CV on each voice</li>
+</ul>
+<h2>Zazou settings</h2>
+<ul>
+<li>Root: C or D</li>
+<li>Scale: Minor or Dorian</li>
+<li>Sequence: I-IV-V or II-V-I</li>
+<li>Track 1: WalkingBass</li>
+<li>Track 2: Arpeggio</li>
+<li>Track 3: Fibonacci</li>
+<li>Track 4: Random</li>
+<li>Duration: GATE on bass/arp, longer fixed values on lead/pad</li>
+</ul>
+<p>This should produce a playable, coherent, multi-part generative composition quickly.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

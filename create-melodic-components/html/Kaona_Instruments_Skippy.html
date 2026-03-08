@@ -1,0 +1,517 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kaona_Instruments_Skippy</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Kaona Instruments — Skippy</h1>
+<ul>
+<li><a href="../../manuals/Skippy_2-2_ENG.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.kaona.fr">Skippy Manual PDF (Kaona)</a></p>
+<h1>Kaona Skippy — creating melodic components in a Eurorack system</h1>
+<p>Skippy is fundamentally a <strong>4-track gate/CV trigger sequencer</strong> with unusual timing behavior: Euclidean rhythms, logarithmic/Gaussian spacing, matrix and non-matrix timing, per-track independence, and synchronized global behavior. On its own, it does <strong>not appear to generate pitch CV</strong> from the outputs described in this manual; it outputs <strong>5V gates</strong> on four channels, plus uses internal timing and external clock/reset behavior.</p>
+<p>So, as a Eurorack musician, I’d treat Skippy as a <strong>melodic structure generator</strong>, not a pitch sequencer by itself. It excels at generating the rhythmic logic that makes melodies feel alive.</p>
+<hr />
+<h2>What Skippy contributes to melody</h2>
+<p>Skippy can create melodic components by controlling:</p>
+<ul>
+<li><strong>when notes happen</strong></li>
+<li><strong>which notes are accented</strong></li>
+<li><strong>how often a voice changes pitch</strong></li>
+<li><strong>when multiple melodic layers interlock</strong></li>
+<li><strong>when a melody is regular vs humanized vs unstable</strong></li>
+<li><strong>how phrases realign over time</strong></li>
+</ul>
+<p>That means Skippy is best paired with modules such as:</p>
+<ul>
+<li><strong>quantizers</strong></li>
+<li><strong>sample &amp; hold / track &amp; hold</strong></li>
+<li><strong>sequential switches</strong></li>
+<li><strong>CV sequencers</strong></li>
+<li><strong>precision adders</strong></li>
+<li><strong>envelope generators</strong></li>
+<li><strong>clockable random sources</strong></li>
+<li><strong>oscillators / voices</strong></li>
+</ul>
+<hr />
+<h2>Important operational idea</h2>
+<p>Each of Skippy’s 4 tracks can be set independently with:</p>
+<ul>
+<li>BPM</li>
+<li>step count</li>
+<li>begin/end arc</li>
+<li>gate length</li>
+<li>probability</li>
+<li>chaos</li>
+<li>direction</li>
+<li>swing</li>
+<li>timing algorithm (Gauss, Euclid, Tiles, Polyr, Jazzy, etc.)</li>
+<li>spin</li>
+<li>pause/reset behavior</li>
+</ul>
+<p>This means each track can act like a separate <strong>phrase engine</strong> for one aspect of melody.</p>
+<p>For example:</p>
+<ul>
+<li>Track 1 = main note trigger</li>
+<li>Track 2 = pitch-change trigger</li>
+<li>Track 3 = accent trigger</li>
+<li>Track 4 = phrase reset / ornament trigger</li>
+</ul>
+<p>That’s where Skippy becomes musically powerful.</p>
+<hr />
+<h1>Best ways to use Skippy for melody</h1>
+<h2>1. Triggering a pitch source</h2>
+<p>The most direct melodic use:</p>
+<ul>
+<li>Send one Skippy output to an <strong>envelope + VCA/voice</strong></li>
+<li>Send another Skippy output to a <strong>sample &amp; hold</strong></li>
+<li>Feed the sample &amp; hold from random CV, a slow sequencer, or a modulation source</li>
+<li>Quantize the sampled CV</li>
+<li>Send quantized CV to oscillator pitch</li>
+</ul>
+<h3>Result</h3>
+<p>One Skippy track decides <strong>when a note is heard</strong>, and another decides <strong>when the pitch changes</strong>.</p>
+<h3>Why this is musical</h3>
+<p>Because note articulation and pitch updates don’t have to happen at the same time. This creates:</p>
+<ul>
+<li>repeated notes</li>
+<li>held tones</li>
+<li>syncopation</li>
+<li>melodic motifs</li>
+<li>evolving ostinati</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Track 1: Euclidean 5/16 → triggers envelope</li>
+<li>Track 2: Tiles alternating sparse pattern → clocks sample &amp; hold</li>
+<li>Random CV → quantizer → oscillator 1V/oct</li>
+</ul>
+<p>This gives a melody where some notes repeat while others change.</p>
+<hr />
+<h2>2. Building a 4-part melodic architecture</h2>
+<p>Because Skippy has four synchronized but independent tracks, it naturally maps to four melodic jobs.</p>
+<h3>Suggested assignment</h3>
+<ul>
+<li><strong>Track 1:</strong> main melody triggers</li>
+<li><strong>Track 2:</strong> pitch change clock</li>
+<li><strong>Track 3:</strong> transposition or accent events</li>
+<li><strong>Track 4:</strong> phrase reset, ratchet substitute, or secondary voice</li>
+</ul>
+<h3>Patch idea</h3>
+<ul>
+<li>Track 1 → envelope for lead voice</li>
+<li>Track 2 → clock a sample &amp; hold grabbing CV from a sequencer/random source</li>
+<li>Track 3 → trigger another S&amp;H that samples a slower transposition voltage, then add via precision adder</li>
+<li>Track 4 → trigger second oscillator or harmonic layer</li>
+</ul>
+<h3>Result</h3>
+<p>A melody with:
+- changing note density
+- changing pitches
+- occasional transpositions
+- layered countermelody</p>
+<p>Skippy is especially good here because different step lengths and timing modes drift and re-align in long cycles.</p>
+<hr />
+<h2>3. Euclidean melody generation</h2>
+<p>Skippy’s <strong>EUCLID</strong> is ideal for melodic rhythm.</p>
+<p>The manual says Euclidean distribution is calculated in real time and can be used with any chosen step count from 1 to 64, with the active pulses selected independently.</p>
+<h3>Melodic use</h3>
+<p>Pair Euclid with pitch generation modules.</p>
+<h3>Patch</h3>
+<ul>
+<li>Track 1: Euclid 7/16 → note trigger</li>
+<li>Track 2: Euclid 3/16, spun a few steps → pitch update trigger</li>
+<li>Track 3: Euclid 2/16 → accent envelope or filter ping</li>
+<li>Track 4: Euclid 1/16 or 1/32 equivalent phrase marker → reset or transposition</li>
+</ul>
+<h3>Musical effect</h3>
+<p>This gives you melodies where:
+- some notes repeat
+- some pitches update off the main beat
+- accents appear in a separate Euclidean layer
+- phrasing emerges from the overlap</p>
+<p>This is excellent for:
+- Berlin-school patterns
+- minimalism
+- polyrhythmic techno leads
+- generative melodic percussion</p>
+<hr />
+<h2>4. Using GAUSS for non-linear melodic phrasing</h2>
+<p>Skippy’s <strong>GAUSS</strong> function is one of the most interesting for melody because it changes the spacing between steps logarithmically.</p>
+<p>The manual notes that high values can create very long final intervals, even seconds or minutes.</p>
+<h3>Melodic use</h3>
+<p>Use GAUSS not for drum timing, but for <strong>phrase timing</strong>:
+- when pitch changes happen
+- when transpositions occur
+- when a sequence opens/closes
+- when a second voice enters</p>
+<h3>Patch</h3>
+<ul>
+<li>Track 1: regular main trigger pattern</li>
+<li>Track 2: GAUSS → clocks a sample &amp; hold for pitch changes</li>
+<li>Track 3: slow GAUSS → triggers transposition changes</li>
+<li>Track 4: regular accent or reset</li>
+</ul>
+<h3>Result</h3>
+<p>Your melody has a stable pulse, but the pitch decisions feel organic and stretched.</p>
+<h3>Best application</h3>
+<ul>
+<li>ambient</li>
+<li>electroacoustic</li>
+<li>generative composition</li>
+<li>evolving arpeggios</li>
+</ul>
+<p>Also, the manual specifically suggests <strong>WAY ping-pong</strong> can work well with GAUSS. For melody, that means the phrase can "breathe" forward and backward in time.</p>
+<hr />
+<h2>5. Using TILES to make repeating note/rest structures</h2>
+<p><strong>TILES</strong> is a matrix function where a number of played steps alternates with silent steps.</p>
+<p>This is very useful for melody because it creates predictable note/rest architectures.</p>
+<h3>Patch</h3>
+<ul>
+<li>Track 1: TILES → main envelope trigger</li>
+<li>Pitch source: quantized CV sequencer or S&amp;H</li>
+<li>Track 2: regular trigger to advance pitch every step</li>
+<li>Track 3: accent trigger</li>
+<li>Track 4: occasional reset</li>
+</ul>
+<h3>Result</h3>
+<p>The melody can advance continuously in pitch, but only some steps are articulated.</p>
+<p>This creates:
+- implied melodic syncopation
+- rests
+- off-beat motifs
+- broken arpeggios</p>
+<p>If Track 2 advances pitch more often than Track 1 articulates notes, you get "skipped" melody notes. If Track 1 fires more often than Track 2, you get repeated tones.</p>
+<p>Both are musically useful.</p>
+<hr />
+<h2>6. Using POLYR for alternating melodic subdivisions</h2>
+<p>The manual describes <strong>POLYR</strong> as a non-matrix function where two tempos alternate, like 4/3, and Skippy recalculates total steps to maintain the alternation consistently.</p>
+<h3>Melodic use</h3>
+<p>This is excellent for:
+- alternating long/short phrase movement
+- uneven melodic gait
+- "breathing" sequences
+- non-straight arpeggios</p>
+<h3>Patch</h3>
+<ul>
+<li>Track 1: POLYR for note triggers</li>
+<li>Track 2: steady pitch-change clock</li>
+<li>Track 3: slower Euclid for accents</li>
+<li>Track 4: occasional phrase transposition</li>
+</ul>
+<h3>Result</h3>
+<p>The melody feels as if it is moving through alternating metrical spaces, even if the pitch source is simple.</p>
+<p>This works great when the pitch source is:
+- a 4- or 8-step CV sequencer
+- a quantized random source
+- a shift register melody
+- a chord CV source sampled into single notes</p>
+<hr />
+<h2>7. Using JAZZY as a melodic gate slicer</h2>
+<p><strong>JAZZY</strong> slices 32 steps into predefined groove patterns across styles like bossa, folk, funk, jazz.</p>
+<p>This is extremely valuable for melody because groove often matters more than note choice.</p>
+<h3>Patch</h3>
+<ul>
+<li>Track 1: JAZZY pattern → note trigger</li>
+<li>Track 2: regular or sparse trigger → pitch updates</li>
+<li>Track 3: additional JAZZY or Euclid trigger → accent</li>
+<li>Track 4: secondary voice or call-and-response trigger</li>
+</ul>
+<h3>Result</h3>
+<p>Even with a simple pitch source, the melody sounds stylized and intentional because the articulation pattern carries genre character.</p>
+<h3>Best use</h3>
+<ul>
+<li>jazzy lines</li>
+<li>broken chords</li>
+<li>syncopated bass melodies</li>
+<li>groovebox-style sequencing</li>
+<li>humanized hooks</li>
+</ul>
+<p>Because JAZZY forces 32 steps, it also works well as a master phrasing layer against other shorter or longer cyclic events.</p>
+<hr />
+<h2>8. Probability and chaos for melodic variation</h2>
+<p>Skippy provides two strong variation tools:</p>
+<ul>
+<li><strong>PROBA</strong>: probability of not triggering an otherwise scheduled step</li>
+<li><strong>CHAOS</strong>: temporal random acceleration between steps</li>
+</ul>
+<p>These are gold for melody.</p>
+<h3>PROBA use</h3>
+<p>Use on:
+- trigger stream for the main voice
+- pitch update triggers
+- accent triggers</p>
+<h3>Effect</h3>
+<ul>
+<li>missing notes</li>
+<li>variation in repeated motifs</li>
+<li>ghosted phrases</li>
+<li>less mechanical repetition</li>
+</ul>
+<h3>CHAOS use</h3>
+<p>Use more carefully, especially on pitch update clocks.</p>
+<h3>Effect</h3>
+<ul>
+<li>rushed ornaments</li>
+<li>unstable melodic timing</li>
+<li>flams against steady percussion</li>
+<li>elastic phrase movement</li>
+</ul>
+<h3>Great patch concept</h3>
+<ul>
+<li>Main note trigger mostly stable</li>
+<li>Pitch-change trigger with probability</li>
+<li>Accent trigger with chaos</li>
+<li>Reset every few bars</li>
+</ul>
+<p>This gives melodies that stay coherent but never loop exactly.</p>
+<hr />
+<h2>9. Swing and gate length as melodic articulation tools</h2>
+<p>Skippy’s <strong>SWING</strong> and <strong>GATES</strong> parameters are not just rhythmic—they strongly affect melodic feel.</p>
+<h3>Swing</h3>
+<p>Apply to trigger tracks controlling:
+- note articulation
+- pitch updates
+- accent layers</p>
+<p>A swung pitch update track against a straight trigger track can create subtle delayed note changes.</p>
+<h3>Gates</h3>
+<p>Longer gates can create:
+- legato feeling
+- tied notes
+- sustained envelopes
+- overlap effects in LPGs or VCAs</p>
+<p>Short gates create:
+- plucked notes
+- staccato melodies
+- sharper articulation</p>
+<h3>Example</h3>
+<ul>
+<li>Track 1: short gates for plucked melody</li>
+<li>Track 2: sparse long gates to open a secondary VCA or drone layer</li>
+<li>Track 3: accent triggers</li>
+<li>Track 4: transposition changes</li>
+</ul>
+<hr />
+<h2>10. Begin/End arcs for partial phrases</h2>
+<p>The <strong>BEGIN</strong> and <strong>END</strong> functions let you use only an arc of the circle instead of a full 0-to-0 traversal.</p>
+<h3>Melodic implication</h3>
+<p>You can create:
+- partial phrase windows
+- clipped rhythmic loops
+- phrase fragments
+- asymmetrical entry/exit behavior</p>
+<h3>Patch idea</h3>
+<p>Use one track with a shortened arc to trigger pitch changes only during part of the phrase while another track runs full-length note triggers.</p>
+<h3>Result</h3>
+<p>The melody becomes sectional:
+- one portion evolves
+- another remains static
+- then they loop together in long-form recombination</p>
+<p>This is excellent for generative melodic form.</p>
+<hr />
+<h2>11. WAY and SPIN for melodic contour behavior</h2>
+<h3>WAY</h3>
+<p>Skippy supports:
+- left
+- right
+- ping-pong
+- stop</p>
+<p>For melodic systems, <strong>ping-pong</strong> is especially useful if Skippy is clocking:
+- a sequential switch
+- a sample source
+- transposition triggers
+- multiple voice entrances</p>
+<p>It can create a feeling of phrase reflection.</p>
+<h3>SPIN</h3>
+<p>SPIN rotates matrix and Euclidean functions left/right and is not saved.</p>
+<p>This is ideal for performance:
+- nudging a melody off the beat
+- rotating accent positions
+- shifting when pitch-change triggers occur
+- instantly generating call/response variations</p>
+<p>A great live move is to keep pitch material unchanged and only rotate the trigger logic.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Quantized random melody</h2>
+<p><strong>Goal:</strong> evolving melodic line</p>
+<ul>
+<li>Random CV source → quantizer → oscillator pitch</li>
+<li>Track 1 → envelope trigger for voice</li>
+<li>Track 2 → sample &amp; hold clock sampling the random CV</li>
+<li>Track 3 → filter accent envelope</li>
+<li>Track 4 → reset a related sequencer every few bars</li>
+</ul>
+<p>Suggested settings:
+- T1 Euclid 5/16
+- T2 Tiles or Euclid 3/16
+- T3 Proba-enabled sparse pattern
+- T4 very slow pulse</p>
+<p>This yields a coherent but shifting melody.</p>
+<hr />
+<h2>Patch 2: Broken arpeggiator</h2>
+<p><strong>Goal:</strong> chord-based melodic fragments</p>
+<ul>
+<li>Chord or static CV row into sequential switch / addressable switch</li>
+<li>Quantizer after switch if needed</li>
+<li>Track 1 → trigger voice</li>
+<li>Track 2 → advance switch</li>
+<li>Track 3 → octave transposition trigger</li>
+<li>Track 4 → accent or second voice</li>
+</ul>
+<p>Suggested settings:
+- T1 JAZZY or TILES
+- T2 steady matrix pulse
+- T3 sparse Euclid
+- T4 swing-enabled complementary rhythm</p>
+<p>Result: a broken chord line with groove and variation.</p>
+<hr />
+<h2>Patch 3: Two-voice canon / call-and-response</h2>
+<p><strong>Goal:</strong> interlocking melodies</p>
+<ul>
+<li>One pitch source to two voices</li>
+<li>Track 1 → voice A trigger</li>
+<li>Track 2 → voice B trigger</li>
+<li>Track 3 → S&amp;H clock for pitch updates</li>
+<li>Track 4 → transposition or reset</li>
+</ul>
+<p>Suggested settings:
+- T1 Euclid 7/16
+- T2 same Euclid but SPIN shifted
+- T3 slower regular or Gaussian trigger
+- T4 long-cycle phrase control</p>
+<p>Result: two voices share pitch material but articulate it differently.</p>
+<hr />
+<h2>Patch 4: Generative ambient melody</h2>
+<p><strong>Goal:</strong> slow, evolving line</p>
+<ul>
+<li>Smooth random or chaotic CV → quantizer</li>
+<li>Track 1 → sparse main trigger</li>
+<li>Track 2 → GAUSS pitch update</li>
+<li>Track 3 → very slow transposition sample</li>
+<li>Track 4 → occasional harmonic accent / drone swell</li>
+</ul>
+<p>Suggested settings:
+- T1 sparse Euclid or Tiles
+- T2 high GAUSS with ping-pong WAY
+- T3 low-probability long-cycle pattern
+- T4 long gates</p>
+<p>Result: very organic melodic unfolding.</p>
+<hr />
+<h2>Patch 5: Melodic bassline with groove</h2>
+<p><strong>Goal:</strong> syncopated bass sequence</p>
+<ul>
+<li>8-step CV sequencer → quantizer → bass oscillator</li>
+<li>Track 1 → bass envelope trigger</li>
+<li>Track 2 → sequencer advance</li>
+<li>Track 3 → accent envelope to filter/VCA</li>
+<li>Track 4 → reset sequencer phrase</li>
+</ul>
+<p>Suggested settings:
+- T1 JAZZY or swung Tiles
+- T2 steady pulse
+- T3 sparse Euclid with spin
+- T4 phrase-end reset</p>
+<p>This gives tight groove with controlled note repetition.</p>
+<hr />
+<h1>Best companion modules for Skippy in melodic use</h1>
+<p>Skippy pairs especially well with:</p>
+<h2>Quantizers</h2>
+<p>To turn random, sequenced, or sampled voltages into scales.</p>
+<h2>Sample &amp; Hold / Track &amp; Hold</h2>
+<p>One of the best companions. Skippy decides when pitch changes happen.</p>
+<h2>CV sequencers</h2>
+<p>Skippy can clock them irregularly, partially, or in parallel.</p>
+<h2>Sequential switches</h2>
+<p>Excellent for creating melodic selection logic from Skippy’s four outputs.</p>
+<h2>Precision adders</h2>
+<p>Useful for transposition layers triggered by separate tracks.</p>
+<h2>Envelope generators / function generators</h2>
+<p>For articulation, accents, and note shaping.</p>
+<h2>Logic modules</h2>
+<p>Combine Skippy outputs for composite melody conditions:
+- AND for rare notes
+- OR for denser lines
+- XOR for unexpected interplay</p>
+<h2>Clock dividers / multipliers</h2>
+<p>Especially when using external clock modes.</p>
+<hr />
+<h1>External clock and melodic synchronization</h1>
+<p>The manual’s <strong>CLK IN</strong> options matter a lot.</p>
+<h2>RESET mode</h2>
+<p>Useful if you want Skippy to restart phrases from external transport or bar resets.</p>
+<h2>POLY mode</h2>
+<p>Best if you want Skippy to retain its own fluid/non-metric character while still following an external pulse average.</p>
+<p>Great for:
+- semi-free melodies
+- generative patches
+- drifting but related phrasing</p>
+<h2>MATRIX mode</h2>
+<p>Best if you want exact step-following from an external clock, including irregular/swing/random clocks.</p>
+<p>Great for:
+- strict synchronization with another sequencer
+- manually stepped melodic progressions
+- clocking from unusual external pulse trains</p>
+<p>This is very powerful if another module is your pitch sequencer and Skippy is your articulation brain.</p>
+<hr />
+<h1>Performance strategies</h1>
+<h2>Use RESET often</h2>
+<p>The manual notes Skippy can lose track of step alignment or tracks can drift unsynchronized depending on manipulations. For melodic use, RESET is important when:
+- changing direction
+- changing step counts
+- using stop/pause-like states
+- moving between phrases live</p>
+<h2>Use Sync mode for bar-level phrase lock</h2>
+<p>Double-click RESET to force all tracks back to 0 on each rotation.</p>
+<p>This is useful if you want:
+- predictable recurring melodic phrases
+- consistent downbeat alignment
+- long-cycle ratios without complete free drift</p>
+<p>Turn it off if you want more natural phase movement.</p>
+<h2>Use PAUSE for performance muting</h2>
+<p>PAUSE mutes individual tracks with blinking buttons. This is useful for:
+- dropping pitch updates while notes continue
+- dropping accents
+- muting the second melodic voice
+- creating temporary ostinatos</p>
+<hr />
+<h1>What Skippy is best at melodically</h1>
+<p>Skippy is especially strong for:</p>
+<ul>
+<li><strong>generative melody timing</strong></li>
+<li><strong>interlocking trigger networks</strong></li>
+<li><strong>polyrhythmic articulation</strong></li>
+<li><strong>phrase drift and realignment</strong></li>
+<li><strong>groove-oriented melodic gating</strong></li>
+<li><strong>irregular pitch-update logic</strong></li>
+<li><strong>humanized or mathematically structured phrasing</strong></li>
+</ul>
+<p>It is less a “play notes 1–8 in order” module and more a <strong>melodic behavior engine</strong>.</p>
+<hr />
+<h1>Best musical roles for Skippy</h1>
+<p>In a larger system, Skippy works best as:</p>
+<ul>
+<li><strong>melodic trigger brain</strong></li>
+<li><strong>phrase shaper</strong></li>
+<li><strong>pitch-change clock source</strong></li>
+<li><strong>accent and ornament sequencer</strong></li>
+<li><strong>countermelody trigger generator</strong></li>
+<li><strong>reset/conducting hub for melodic subsystems</strong></li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>If you want to make melodies with Skippy, think in layers:</p>
+<ol>
+<li><strong>one track triggers notes</strong></li>
+<li><strong>one track decides when pitch changes</strong></li>
+<li><strong>one track adds accents or transposition</strong></li>
+<li><strong>one track defines phrase-level behavior</strong></li>
+</ol>
+<p>Paired with a quantizer, sample &amp; hold, CV sequencer, or switch, Skippy becomes a highly expressive melodic engine capable of everything from tight syncopated basslines to drifting generative ambient lines.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

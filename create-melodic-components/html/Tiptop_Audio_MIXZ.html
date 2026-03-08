@@ -1,0 +1,341 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_MIXZ</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — MIXZ</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_mixz.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.tiptopaudio.com/manuals/mixz_manual.pdf">Manual PDF</a></p>
+<h1>Tiptop Audio MIXZ — using it for melodic components</h1>
+<p>The attached manual is for the <strong>Tiptop Audio MIXZ</strong>, a <strong>dual 4-channel analog mixer</strong> with optional <strong>Tiptop Bus Mix</strong> integration. By itself, MIXZ is not a sound source, oscillator, filter, envelope, or sequencer. So it does <strong>not generate melody directly</strong>. Its role in a melodic patch is to <strong>combine, scale, layer, and route melodic signals</strong>: audio, CV, and gates.</p>
+<p>That said, it can be extremely useful in building melodic voices and arrangements when paired with oscillators, filters, envelopes, sequencers, and effects.</p>
+<hr />
+<h2>What the module does</h2>
+<p>From the manual, MIXZ has three related mixing functions:</p>
+<ul>
+<li><strong>Mixer A</strong></li>
+<li>4 input channels</li>
+<li>individual gain control per channel</li>
+<li>output is <strong>internally routed into Mixer B</strong></li>
+<li>
+<p>inserting a cable into <strong>Out A</strong> breaks that internal connection</p>
+</li>
+<li>
+<p><strong>Mixer B</strong></p>
+</li>
+<li>4 input channels</li>
+<li>master gain control</li>
+<li>
+<p>sums:</p>
+<ul>
+<li>its 4 front-panel inputs</li>
+<li><strong>Mixer A output</strong> if Out A is unpatched</li>
+<li><strong>Tiptop Bus Mix</strong> if enabled</li>
+</ul>
+</li>
+<li>
+<p><strong>Bus Mix</strong></p>
+</li>
+<li>takes signals from Tiptop modules that support Bus Mix via the busboard</li>
+<li>switched on/off with the BUS MIX toggle</li>
+<li>internally feeds Mixer B</li>
+</ul>
+<p>The manual also notes MIXZ is designed to mix <strong>audio, CV, and gate signals</strong>, which is important for melodic patching.</p>
+<hr />
+<h1>How MIXZ helps create melodic material</h1>
+<h2>1. Layer multiple oscillators into one melodic voice</h2>
+<p>A classic melodic use is to combine multiple VCOs into a richer lead, bass, or drone.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>VCO 1 saw → <strong>Mixer A In 1</strong></li>
+<li>VCO 2 pulse → <strong>Mixer A In 2</strong></li>
+<li>Sub oscillator or noise texture → <strong>Mixer A In 3</strong></li>
+<li>Another harmonic source / FM tone → <strong>Mixer A In 4</strong></li>
+<li><strong>Mixer A Out</strong> → filter → VCA → effects</li>
+</ul>
+<h3>Why this is useful</h3>
+<p>Mixer A has per-channel gain, so you can:
+- set oscillator balance
+- bring in detuned layers
+- create thicker unison leads
+- blend different waveforms for timbral motion</p>
+<p>This is probably the most straightforward way MIXZ supports melody: it helps make a single melodic line sound bigger and more expressive.</p>
+<hr />
+<h2>2. Use Mixer A as a pre-filter voice combiner, Mixer B as a final melodic submix</h2>
+<p>Because <strong>Mixer A can feed Mixer B internally</strong>, you can structure a patch in stages.</p>
+<h3>Example melodic structure</h3>
+<ul>
+<li><strong>Mixer A</strong> = raw oscillator blend for one voice</li>
+<li>Send <strong>Mixer A Out</strong> into a filter/VCA chain</li>
+<li>Filter/VCA output → <strong>Mixer B In 1</strong></li>
+<li>Second melodic voice → <strong>Mixer B In 2</strong></li>
+<li>Delay/reverb return or texture layer → <strong>Mixer B In 3</strong></li>
+<li>Accent/gate-derived click/percussion tone → <strong>Mixer B In 4</strong></li>
+<li><strong>Mixer B Out</strong> → output or stereo processor</li>
+</ul>
+<p>This lets you build:
+- a main melody voice
+- a counterline or drone
+- a supporting harmonic texture
+- all in one compact mixer workflow</p>
+<hr />
+<h2>3. Mix pitch CV sources for transposition and melodic variation</h2>
+<p>Since the manual explicitly says MIXZ can mix <strong>CV</strong>, one powerful use is <strong>combining control voltages</strong> before they reach an oscillator’s 1V/oct or FM input.</p>
+<h3>Example uses</h3>
+<ul>
+<li>sequencer pitch CV + keyboard transpose CV</li>
+<li>sequencer pitch CV + slow offset/automation</li>
+<li>quantized melody + subtle vibrato CV</li>
+<li>envelope + LFO into FM amount control</li>
+</ul>
+<h3>Important note</h3>
+<p>MIXZ is a plain mixer, not a precision adder. So:
+- it is great for <strong>creative CV blending</strong>
+- it may be less ideal for highly accurate pitch addition over wide ranges</p>
+<p>Still, for:
+- transposition by ear
+- controlled drift
+- vibrato depth blending
+- modulation sums</p>
+<p>…it can be very musical.</p>
+<h3>Example patch</h3>
+<ul>
+<li>Main sequencer CV → <strong>Mixer A In 1</strong></li>
+<li>Manual offset voltage → <strong>Mixer A In 2</strong></li>
+<li>Slow LFO (very low level) → <strong>Mixer A In 3</strong></li>
+<li><strong>Mixer A Out</strong> → oscillator pitch input</li>
+</ul>
+<p>This creates a melody that can be:
+- transposed
+- gently animated
+- made less static</p>
+<hr />
+<h2>4. Blend modulation sources to shape melodic timbre</h2>
+<p>Melodic interest often comes more from <strong>motion</strong> than from pitch alone. MIXZ can combine several modulation sources before sending them to:
+- filter cutoff
+- wavefolder amount
+- FM index
+- pulse width
+- VCA CV</p>
+<h3>Patch idea</h3>
+<ul>
+<li>envelope → <strong>Mixer A In 1</strong></li>
+<li>slow LFO → <strong>Mixer A In 2</strong></li>
+<li>random stepped CV → <strong>Mixer A In 3</strong></li>
+<li>performance controller / pressure / mod wheel CV → <strong>Mixer A In 4</strong></li>
+<li><strong>Mixer A Out</strong> → filter cutoff CV input</li>
+</ul>
+<p>This gives a melodic line:
+- attack contour from the envelope
+- cyclic movement from the LFO
+- variation from random CV
+- live expressiveness from the controller</p>
+<p>That is one of the most musically powerful uses of MIXZ.</p>
+<hr />
+<h2>5. Create parallel melodic voices and combine them</h2>
+<p>Because MIXZ has <strong>two 4-channel mixers</strong>, you can dedicate one section to each role.</p>
+<h3>Suggested setup</h3>
+<h4>Mixer A</h4>
+<p>Use for one voice’s source blend:
+- VCO A
+- VCO B
+- sub
+- noise or wavefolder return</p>
+<h4>Mixer B</h4>
+<p>Use for final melodic summing:
+- processed output of Voice 1
+- processed output of Voice 2
+- drone / pad layer
+- external effect return</p>
+<p>This is especially effective for:
+- bass + lead
+- lead + harmony
+- mono melody + drone
+- arpeggio + sustained tonal bed</p>
+<hr />
+<h2>6. Use it to combine gate or trigger patterns into rhythmic melody control</h2>
+<p>The manual states MIXZ can mix <strong>gate signals</strong> too. That means you can use it experimentally for rhythmic melodic behavior.</p>
+<h3>Examples</h3>
+<ul>
+<li>combine trigger streams to create denser gate patterns</li>
+<li>mix clock divisions into a logic-like rhythmic control</li>
+<li>send mixed gates to envelopes or pinged filters</li>
+</ul>
+<p>This is not the same as logic processing, but in practice it can create:
+- more active plucks
+- layered accents
+- pseudo-melodic rhythmic structures</p>
+<p>For example:
+- Trigger pattern A → Mixer input
+- Sparse accent gate → Mixer input
+- Mixed output → envelope gate input</p>
+<p>Now your melodic voice gets a more complex articulation pattern.</p>
+<hr />
+<h1>Best ways this module works with other modules for melody</h1>
+<p>Since the manual’s example patch references Tiptop modules like <strong>Z3000</strong>, <strong>Z2040</strong>, and <strong>Z-DSP</strong>, here’s how MIXZ fits into a melodic system.</p>
+<h2>With oscillators</h2>
+<p>Use MIXZ to:
+- layer waveforms
+- blend detuned oscillators
+- combine primary tone and sub
+- mix FM sidebands or secondary oscillators</p>
+<h2>With filters</h2>
+<p>Use MIXZ to:
+- feed a filter with richer harmonic material
+- combine several modulation sources into the filter cutoff
+- create pre-filter gain balance for tone shaping</p>
+<h2>With VCAs/envelopes</h2>
+<p>Use MIXZ to:
+- create a mixed voice before the VCA
+- combine envelopes and modulation CV for dynamic articulation</p>
+<h2>With sequencers/quantizers</h2>
+<p>Use MIXZ to:
+- combine melodic CVs
+- add transpose offsets
+- blend sequence lanes
+- create subtle pitch variation</p>
+<h2>With effects</h2>
+<p>Use MIXZ to:
+- combine melody voices before delay/reverb
+- mix dry and effected layers
+- group several melodic sources into one spatial processor</p>
+<hr />
+<h1>Bus Mix: useful, but mostly not for melodic patching</h1>
+<p>The manual makes clear that <strong>Bus Mix</strong> is primarily intended for Tiptop modules with Bus Mix capability, especially their drum modules and ONE. It routes signals over the busboard into Mixer B without patch cables.</p>
+<p>For melodic work, Bus Mix is usually <strong>less central</strong> than the front-panel inputs, unless:
+- you have Bus Mix-capable melodic sample playback from Tiptop ONE
+- you want certain supporting sounds permanently available in Mixer B
+- you want a simple no-cable submix of compatible modules</p>
+<h3>Important limitations from the manual</h3>
+<ul>
+<li>If you have <strong>more than one MIXZ in a row</strong>, only <strong>one Bus Mix switch</strong> should be on at a time</li>
+<li>MIXZ should <strong>not</strong> be used on a row using <strong>Doepfer CV/GATE bus</strong> unless Bus Mix is off</li>
+<li>Bus Mix is <strong>not as low-noise</strong> as the front-panel mixers</li>
+<li>If Bus Mix is unused, keep it <strong>off</strong> to reduce noise</li>
+</ul>
+<p>So for melodic patching, my advice is:
+- use <strong>Mixer A and B</strong> as your primary creative tools
+- use <strong>Bus Mix</strong> mainly as convenience routing for compatible modules</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>1. Thick mono bass</h2>
+<ul>
+<li>VCO saw → Mixer A In 1</li>
+<li>VCO pulse → Mixer A In 2</li>
+<li>Sub osc → Mixer A In 3</li>
+<li>Mixer A Out → lowpass filter → VCA</li>
+<li>VCA Out → Mixer B In 1</li>
+<li>Delay/reverb return → Mixer B In 2</li>
+<li>Mixer B Out → system output</li>
+</ul>
+<p>Result:
+- one powerful bass voice with controlled harmonic balance</p>
+<hr />
+<h2>2. Lead plus harmony</h2>
+<ul>
+<li>Lead oscillator pair → Mixer A inputs</li>
+<li>Mixer A Out → lead filter/VCA chain</li>
+<li>Harmony voice output → Mixer B In 1</li>
+<li>Lead chain output → Mixer B In 2</li>
+<li>Drone/pad → Mixer B In 3</li>
+<li>Mixer B Out → effects</li>
+</ul>
+<p>Result:
+- a compact melodic submix with layered voices</p>
+<hr />
+<h2>3. Animated filter melody</h2>
+<ul>
+<li>Envelope → Mixer A In 1</li>
+<li>LFO → Mixer A In 2</li>
+<li>Stepped random CV → Mixer A In 3</li>
+<li>Mixer A Out → filter cutoff CV input</li>
+<li>Oscillator audio → Mixer B or separate voice path</li>
+</ul>
+<p>Result:
+- a melody whose tone evolves over time, not just pitch</p>
+<hr />
+<h2>4. Semi-generative pitch movement</h2>
+<ul>
+<li>Sequencer pitch CV → Mixer A In 1</li>
+<li>Slow random offset → Mixer A In 2</li>
+<li>Manual offset source → Mixer A In 3</li>
+<li>Mixer A Out → quantizer or oscillator pitch input</li>
+</ul>
+<p>Best practice:
+- if pitch accuracy matters, send the mixed CV to a <strong>quantizer</strong> before the oscillator</p>
+<p>Result:
+- more organic melodic variation</p>
+<hr />
+<h2>5. Melodic voice plus percussion support</h2>
+<p>This follows the spirit of the manual example.
+- Oscillators mixed on Mixer A for a bass/lead line
+- Voice goes through filter/VCA
+- Voice output enters Mixer B
+- Bus Mix adds compatible Tiptop percussion
+- Mixer B Out goes to delay/reverb or main output</p>
+<p>Result:
+- a complete musical phrase where melody and groove are mixed together</p>
+<hr />
+<h1>Strengths of MIXZ in melodic systems</h1>
+<h2>Excellent for</h2>
+<ul>
+<li>blending oscillators</li>
+<li>creating submixes of melodic voices</li>
+<li>combining modulation sources</li>
+<li>routing processed and unprocessed melodic signals</li>
+<li>compact performance mixing in small systems</li>
+</ul>
+<h2>Less ideal for</h2>
+<ul>
+<li>precise pitch summing over large ranges</li>
+<li>stereo mixing</li>
+<li>voltage-controlled level changes</li>
+<li>muting/soloing with switches</li>
+<li>precision utility work better handled by dedicated precision adders/VC mixers</li>
+</ul>
+<hr />
+<h1>Musical workflow suggestions</h1>
+<h2>In a small system</h2>
+<p>MIXZ can be your:
+- oscillator layer mixer
+- modulation combiner
+- final mono melodic submix</p>
+<h2>In a larger system</h2>
+<p>Use it as:
+- dedicated voice builder for bass or lead
+- drum + melody submixer
+- effects send return combiner
+- performance mixer for a specific section of the patch</p>
+<h2>For live use</h2>
+<p>You can use the channel gains to:
+- fade harmonic layers in and out
+- rebalance melody and harmony
+- bring in extra oscillator content at transitions
+- reduce modulation intensity at key moments</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Tiptop Audio MIXZ</strong> is best understood as a <strong>melodic support and shaping module</strong>, not a melody generator. It helps you create melodic components by:</p>
+<ul>
+<li><strong>layering oscillators into richer voices</strong></li>
+<li><strong>combining modulation sources for expressive movement</strong></li>
+<li><strong>submixing multiple melodic chains</strong></li>
+<li><strong>mixing CV and gates for more variation</strong></li>
+<li><strong>integrating compatible Tiptop Bus Mix sources into a broader musical patch</strong></li>
+</ul>
+<p>If you pair it with oscillators, filters, VCAs, envelopes, and a sequencer, MIXZ becomes a very practical tool for building:
+- bass voices
+- leads
+- drones
+- harmonized lines
+- animated timbral melodies</p>
+<p>In short: <strong>MIXZ is the glue that helps melodic modules work together musically.</strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Omnitone_7Path</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Omnitone — 7Path</h1>
+<ul>
+<li><a href="../../manuals/7Path - Ethernet Patch Cable Bridge - Omnitone.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1><a href="https://omnitone.ca/products/7path-connect-eurorack-cases-in-synth-jams-eurorack-module-to-connect-cases-no-long-patch-cables">Manual PDF / Product Page</a></h1>
+<h2>Module identified</h2>
+<p>From the attached PDF, the module is:</p>
+<ul>
+<li><strong>Omnitone 7Path – Ethernet Patch Cable Bridge</strong></li>
+</ul>
+<p>This PDF appears to be a product page rather than a full manual, but it includes enough information to understand the module’s function.</p>
+<h2>What the module does</h2>
+<p><strong>7Path</strong> is a <strong>pair of passive Eurorack bridge modules</strong> that lets you send <strong>7 independent patch signals</strong> between:</p>
+<ul>
+<li>two different Eurorack cases, or</li>
+<li>two distant points in a large system</li>
+</ul>
+<p>using a single <strong>ethernet cable</strong>.</p>
+<h3>Key details from the PDF</h3>
+<ul>
+<li><strong>4HP</strong></li>
+<li><strong>3U</strong></li>
+<li><strong>20mm deep</strong></li>
+<li><strong>Passive</strong></li>
+<li><strong>No power required</strong></li>
+<li><strong>7 signal paths</strong></li>
+<li><strong>Jack mapping is direct:</strong> jack <strong>1→1</strong>, <strong>2→2</strong>, etc.</li>
+<li>Supports <strong>any type of Eurorack signal</strong></li>
+<li>Claimed support up to <strong>10 ft with unshielded ethernet cable</strong>, more with shielded cable</li>
+<li>Box includes:</li>
+<li><strong>2x 7Path modules</strong></li>
+<li><strong>4x mounting screws</strong></li>
+<li><strong>Ethernet cable not included</strong></li>
+</ul>
+<h2>Important musical reality check</h2>
+<p>Because <strong>7Path does not generate, process, quantize, sequence, or shape pitch on its own</strong>, it is <strong>not a melodic voice module</strong> by itself.</p>
+<p>Instead, it is a <strong>signal transport utility</strong>. Its role in melodic patching is to let your <strong>melody-related signals</strong> travel neatly across cases without a mess of long patch cables.</p>
+<p>So the best answer to “how these modules can be used together to create melodic components” is:</p>
+<ul>
+<li>the two included <strong>7Path modules</strong> work together as a <strong>7-channel bridge</strong></li>
+<li>they enable <strong>melodic systems spread across multiple cases</strong></li>
+<li>they let you separate:</li>
+<li>sequencers</li>
+<li>quantizers</li>
+<li>controllers</li>
+<li>oscillators</li>
+<li>envelopes</li>
+<li>VCAs</li>
+<li>effects</li>
+</ul>
+<p>while still patching them as one instrument</p>
+<hr />
+<h2>How the two 7Path modules work together melodically</h2>
+<p>Think of the pair as a <strong>remote 7-channel patchbay</strong>.<br />
+Whatever melodic control or audio signal enters one side appears at the matching jack on the other side.</p>
+<h3>Typical signal types you can send</h3>
+<p>For melodic work, the most useful signals are:</p>
+<ul>
+<li><strong>1V/oct pitch CV</strong></li>
+<li><strong>gate</strong></li>
+<li><strong>trigger</strong></li>
+<li><strong>clock</strong></li>
+<li><strong>modulation CV</strong> (LFO, random, envelope, pressure, velocity-like CV)</li>
+<li><strong>audio</strong> (oscillator output, submix, voice return)</li>
+<li><strong>transpose CV</strong></li>
+</ul>
+<hr />
+<h2>Best melodic use cases</h2>
+<h2>1. Remote sequencer to voice connection</h2>
+<p>If your sequencer lives in one case and your oscillators/voices live in another, 7Path is ideal.</p>
+<h3>Example patch</h3>
+<p><strong>Case A:</strong>
+- Pitch sequencer out → 7Path jack 1
+- Gate sequencer out → 7Path jack 2
+- Mod lane / accent CV → 7Path jack 3
+- Clock out → 7Path jack 4</p>
+<p><strong>Case B:</strong>
+- 7Path jack 1 → oscillator <strong>1V/oct</strong>
+- 7Path jack 2 → envelope gate in
+- 7Path jack 3 → filter cutoff CV or wavefold amount
+- 7Path jack 4 → clock input on a local modulation source or sequencer</p>
+<h3>Result</h3>
+<p>You get a complete melodic voice controlled remotely:
+- stable pitch stream
+- note articulation via gate
+- expressive timbral modulation
+- synchronized movement</p>
+<p>This is probably the most straightforward use.</p>
+<hr />
+<h2>2. Build a distributed melodic voice across two cases</h2>
+<p>A melodic voice often uses multiple modules:
+- pitch source
+- quantizer
+- oscillator
+- envelope
+- VCA
+- filter
+- effects</p>
+<p>7Path lets these pieces live in different cases without chaos.</p>
+<h3>Example</h3>
+<p><strong>Case A</strong>
+- keyboard or random CV source
+- quantizer
+- clocked sequencer</p>
+<p><strong>Case B</strong>
+- VCO
+- filter
+- LPG/VCA
+- envelope
+- delay/reverb</p>
+<h3>Patch</h3>
+<ul>
+<li>Quantizer out → 7Path 1 → VCO 1V/oct</li>
+<li>Gate source → 7Path 2 → envelope gate</li>
+<li>Secondary CV → 7Path 3 → filter FM / cutoff</li>
+<li>Accent CV → 7Path 4 → VCA CV</li>
+<li>Audio return from VCO or final voice → 7Path 5 back to Case A mixer</li>
+</ul>
+<h3>Result</h3>
+<p>You can keep control modules in one case and sound-generation modules in another while treating them like one melodic instrument.</p>
+<hr />
+<h2>3. Send multiple pitch-related signals for harmonies</h2>
+<p>Since there are <strong>7 channels</strong>, you can transmit several melodic lines at once.</p>
+<h3>Example harmonic allocation</h3>
+<ul>
+<li><strong>1:</strong> Voice 1 pitch CV</li>
+<li><strong>2:</strong> Voice 1 gate</li>
+<li><strong>3:</strong> Voice 2 pitch CV</li>
+<li><strong>4:</strong> Voice 2 gate</li>
+<li><strong>5:</strong> Shared clock</li>
+<li><strong>6:</strong> Transposition CV</li>
+<li><strong>7:</strong> Audio return or modulation</li>
+</ul>
+<h3>Result</h3>
+<p>One 7Path pair can support:
+- two independent mono melodic voices, or
+- one voice plus lots of expressive control, or
+- a lead plus bassline setup across cases</p>
+<p>This is especially useful in live systems where one skiff holds sequencing and another holds voices.</p>
+<hr />
+<h2>4. Transport quantized pitch to avoid moving the whole pitch engine</h2>
+<p>A common modular melody workflow is:</p>
+<ol>
+<li>Create raw CV from:</li>
+<li>sequencer</li>
+<li>random source</li>
+<li>sample &amp; hold</li>
+<li>pressure controller</li>
+<li>Quantize it</li>
+<li>Send it to a VCO</li>
+</ol>
+<p>If the quantizer is in a separate case from the oscillator, 7Path makes that simple.</p>
+<h3>Example</h3>
+<p><strong>Case A</strong>
+- Random stepped CV → quantizer
+- Quantizer out → 7Path 1
+- Trigger pattern → 7Path 2</p>
+<p><strong>Case B</strong>
+- 7Path 1 → oscillator 1V/oct
+- 7Path 2 → envelope trigger/gate</p>
+<h3>Result</h3>
+<p>You get musically constrained melodies in one case and synth voice generation in another.</p>
+<p>This is one of the strongest musical uses because <strong>pitch CV integrity and clean physical routing matter</strong>.</p>
+<hr />
+<h2>5. Use one case as a control skiff and the other as a sound case</h2>
+<p>Many performers keep:
+- sequencers
+- touch controllers
+- clocks
+- utilities</p>
+<p>in a shallow portable skiff, while keeping:
+- oscillators
+- filters
+- VCAs
+- effects</p>
+<p>in a larger main case.</p>
+<p>7Path is almost purpose-built for this.</p>
+<h3>Good 7-channel assignment for melodic performance</h3>
+<ul>
+<li><strong>1:</strong> main pitch CV</li>
+<li><strong>2:</strong> main gate</li>
+<li><strong>3:</strong> modulation wheel / fader CV</li>
+<li><strong>4:</strong> transpose CV</li>
+<li><strong>5:</strong> clock/reset</li>
+<li><strong>6:</strong> accent or velocity-style CV</li>
+<li><strong>7:</strong> audio return from the voice</li>
+</ul>
+<h3>Why this works musically</h3>
+<p>This gives you a playable remote mono synth architecture:
+- note selection
+- articulation
+- expressive control
+- synced timing
+- returned audio to the performance mixer</p>
+<hr />
+<h2>6. Create call-and-response or multi-zone melodic systems</h2>
+<p>If your modular is physically spread out, 7Path lets one melodic subsystem “talk” to another.</p>
+<h3>Example</h3>
+<ul>
+<li>Sequencer in case 1 drives bass voice in case 2</li>
+<li>A second CV lane in case 1 transposes a lead in case 2</li>
+<li>Audio from case 2 returns via another path to a mixer in case 1</li>
+</ul>
+<h3>Result</h3>
+<p>You can design:
+- bass/lead separation
+- control/sound separation
+- voice clusters in separate cases</p>
+<p>This is very useful for complex melodic arrangements.</p>
+<hr />
+<h2>7. Carry both control and audio for a complete melodic signal chain</h2>
+<p>Because the module can pass <strong>any Eurorack signal</strong>, you don’t have to use all channels for CV/gates.</p>
+<p>You can use some for <strong>audio returns</strong>.</p>
+<h3>Example full voice over 7 lines</h3>
+<ul>
+<li><strong>1:</strong> pitch CV</li>
+<li><strong>2:</strong> gate</li>
+<li><strong>3:</strong> envelope/mod CV</li>
+<li><strong>4:</strong> accent CV</li>
+<li><strong>5:</strong> oscillator audio</li>
+<li><strong>6:</strong> post-filter audio</li>
+<li><strong>7:</strong> final voice output or effect send/return</li>
+</ul>
+<p>This makes 7Path function like a compact multicore snake for your modular.</p>
+<p>For melody building, that means you can:
+- send note control to a remote voice
+- bring the resulting sound back to where your mixer or performance interface lives</p>
+<hr />
+<h2>Concrete melodic patch ideas</h2>
+<h2>Patch idea 1: Remote mono lead</h2>
+<p><strong>Case A</strong>
+- Step sequencer pitch out → 7Path 1
+- Step sequencer gate out → 7Path 2
+- Accent row → 7Path 3</p>
+<p><strong>Case B</strong>
+- 7Path 1 → VCO 1V/oct
+- 7Path 2 → envelope gate in
+- Envelope out → VCA CV
+- VCO → filter → VCA
+- 7Path 3 → filter cutoff CV
+- Final audio → local mixer or 7Path 4 back to Case A</p>
+<p><strong>Musical result:</strong><br />
+A classic sequenced lead voice with dynamic accents.</p>
+<hr />
+<h2>Patch idea 2: Bassline plus lead over one ethernet cable</h2>
+<p><strong>Channel layout</strong>
+- 1: bass pitch
+- 2: bass gate
+- 3: lead pitch
+- 4: lead gate
+- 5: shared clock
+- 6: transpose CV
+- 7: summed audio return</p>
+<p><strong>Musical result:</strong><br />
+Two coordinated melodic parts between cases with minimal cable clutter.</p>
+<hr />
+<h2>Patch idea 3: Generative melody control bridge</h2>
+<p><strong>Case A</strong>
+- Random stepped CV → quantizer → 7Path 1
+- Trigger sequencer → 7Path 2
+- Slow LFO → 7Path 3
+- Clock → 7Path 4</p>
+<p><strong>Case B</strong>
+- 7Path 1 → oscillator pitch
+- 7Path 2 → envelope trigger
+- 7Path 3 → timbre/fold/filter modulation
+- 7Path 4 → clock divider or synced delay modulation</p>
+<p><strong>Musical result:</strong><br />
+A generative melodic line with synchronized movement and evolving tone.</p>
+<hr />
+<h2>Patch idea 4: Playable keyboard-to-voice bridge</h2>
+<p><strong>Case A</strong>
+- MIDI-to-CV or keyboard controller:
+  - pitch CV → 7Path 1
+  - gate → 7Path 2
+  - mod wheel CV → 7Path 3
+  - aftertouch/aux CV → 7Path 4</p>
+<p><strong>Case B</strong>
+- 7Path 1 → 1V/oct
+- 7Path 2 → envelope
+- 7Path 3 → vibrato depth / FM amount
+- 7Path 4 → filter or wavefolder</p>
+<p><strong>Musical result:</strong><br />
+A physically separated but expressive performance voice.</p>
+<hr />
+<h2>Strengths for melodic use</h2>
+<h3>1. Cleaner live setup</h3>
+<p>Instead of multiple long patch cables between cases, you use one ethernet cable.</p>
+<h3>2. Easier system organization</h3>
+<p>You can group modules by function:
+- controllers together
+- sound sources together
+- effects together</p>
+<h3>3. Better ergonomics</h3>
+<p>You can keep performance-critical melodic tools close at hand while your larger voice architecture lives elsewhere.</p>
+<h3>4. Multi-signal efficiency</h3>
+<p>Seven simultaneous lines is enough for a surprisingly complete melodic ecosystem.</p>
+<hr />
+<h2>Limitations</h2>
+<h2>1. Not a sound source</h2>
+<p>7Path does <strong>not</strong> create melodies by itself.</p>
+<p>You still need other modules such as:
+- sequencers
+- quantizers
+- oscillators
+- envelopes
+- filters
+- VCAs</p>
+<h2>2. No normalization or processing</h2>
+<p>It simply passes signals straight through. There’s:
+- no buffering
+- no attenuation
+- no mixing
+- no multing
+- no pitch correction
+- no active amplification</p>
+<h2>3. Cable-length considerations</h2>
+<p>The product page states:
+- up to <strong>10 ft</strong> with <strong>unshielded ethernet</strong>
+- more with <strong>shielded cable</strong></p>
+<p>For precise melodic work, especially <strong>1V/oct pitch CV</strong>, practical testing is wise. Passive transmission can be sensitive depending on:
+- cable quality
+- length
+- destination module input behavior
+- the source driving the signal</p>
+<p>If pitch precision matters, test your exact setup.</p>
+<h2>4. No ethernet data/networking</h2>
+<p>This is important: it uses an <strong>ethernet cable as physical wiring</strong>, not computer networking.<br />
+Do <strong>not</strong> treat it like a network device.</p>
+<hr />
+<h2>Best ways to use 7Path in a melodic system</h2>
+<p>If I were building around this as a musician, I’d use it in one of these three ways:</p>
+<h3>Option A: Sequencer case → voice case</h3>
+<p>Best for live use and large systems.</p>
+<h3>Option B: Controller skiff → performance voice</h3>
+<p>Best for expressive melodic playing.</p>
+<h3>Option C: Voice send/return bridge</h3>
+<p>Best when your melody generator and final mixer are in different cases.</p>
+<hr />
+<h2>Bottom line</h2>
+<p><strong>Omnitone 7Path</strong> is not a melody generator, but it is very useful for <strong>making multi-case melodic patches practical</strong>.</p>
+<p>It shines when you want to send:
+- <strong>pitch CV</strong>
+- <strong>gates</strong>
+- <strong>clocks</strong>
+- <strong>modulation</strong>
+- and even <strong>audio returns</strong></p>
+<p>between cases in a clean, organized way.</p>
+<p>So in a melodic workflow, the two 7Path modules are best thought of as a <strong>7-lane highway</strong> connecting your melody brain in one case to your voice architecture in another.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

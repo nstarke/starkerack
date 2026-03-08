@@ -1,0 +1,537 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Cascade</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Cascade</h1>
+<ul>
+<li><a href="../../manuals/Getting_Started_Cascade.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.qubitelectronix.com/shop/cascade">Manual PDF / Product Page</a></p>
+<h1>Qubit Cascade: using it to create melodic components</h1>
+<p>Cascade is only one module in the attached manual, but it can absolutely become a <strong>melodic utility voice</strong> when combined with the rest of a Eurorack system. From the manual, it is:</p>
+<ul>
+<li>a <strong>ratcheting envelope generator</strong></li>
+<li>an <strong>analog VCA</strong></li>
+<li>a <strong>sound source</strong></li>
+<li>an <strong>envelope follower</strong></li>
+<li>a <strong>compressor / virtual sidechain</strong></li>
+</ul>
+<p>That means it can contribute to melody in three main ways:</p>
+<ol>
+<li><strong>shape notes</strong> with envelopes and VCA control  </li>
+<li><strong>generate pitched material</strong> using its internal sine source  </li>
+<li><strong>create rhythmic articulation</strong> that makes melodic lines feel alive</li>
+</ol>
+<hr />
+<h2>What Cascade contributes to melodic patching</h2>
+<p>From the manual, the key melody-relevant features are:</p>
+<ul>
+<li><strong>Internal sound sources</strong>:</li>
+<li>White Noise</li>
+<li>Hi-Hat</li>
+<li>Kick</li>
+<li><strong>HiFreq Sine</strong></li>
+<li><strong>Envelope out</strong></li>
+<li><strong>VCA out</strong></li>
+<li><strong>Gate out</strong></li>
+<li><strong>Trigger input</strong></li>
+<li><strong>VCA CV input</strong> that can override the normal envelope-to-VCA path</li>
+<li>Modes:</li>
+<li>Ratcheting AD</li>
+<li>AD</li>
+<li>ASR</li>
+<li>ADSR</li>
+<li>Envelope Follower</li>
+<li>Compressor</li>
+</ul>
+<p>Even though Cascade is not a full oscillator with 1V/oct tracking, it can still be used melodically in a few practical ways.</p>
+<hr />
+<h1>1. Use Cascade as the articulation engine for a melodic voice</h1>
+<p>This is the most obvious and most powerful role.</p>
+<h2>Patch concept</h2>
+<p>Use another module as the <strong>pitched oscillator</strong> and let Cascade handle:</p>
+<ul>
+<li>note contour</li>
+<li>note length</li>
+<li>dynamic phrasing</li>
+<li>ratchets</li>
+<li>gate logic</li>
+</ul>
+<h2>Basic patch</h2>
+<ul>
+<li>Sequencer pitch CV → oscillator 1V/oct</li>
+<li>Sequencer gate → Cascade <strong>trigger</strong></li>
+<li>Oscillator audio → Cascade <strong>VCA in</strong></li>
+<li>Cascade <strong>VCA out</strong> → mixer / filter / effects</li>
+</ul>
+<p>Now Cascade becomes the envelope/VCA voice controller.</p>
+<h2>Best melodic modes</h2>
+<h3>AD mode</h3>
+<p>Good for:
+- plucks
+- basslines
+- marimba-like sequences
+- short synth notes</p>
+<p>Use:
+- short attack
+- short/medium decay
+- exponential curve for punch
+- level to set modulation depth / loudness
+- offset if you want the envelope to sit above 0V</p>
+<h3>ADSR mode</h3>
+<p>Good for:
+- lead lines
+- sustained melodies
+- keyboard-style phrasing</p>
+<p>Use:
+- attack for softness
+- decay and sustain for body
+- release for tail
+- gate length from your sequencer determines note hold behavior</p>
+<h3>ASR mode</h3>
+<p>Good for:
+- simple sustained lines
+- drone melodies
+- legato-ish phrase shapes</p>
+<p>The manual notes that the <strong>gate length sets sustain</strong>, so this works well with sequencers outputting variable gate lengths.</p>
+<hr />
+<h1>2. Create melodic rhythm with ratcheting AD</h1>
+<p>This is where Cascade gets special.</p>
+<p>In <strong>Ratcheting AD</strong>, the repeats control acts as:
+- repeat count
+- clock multiplier:
+  - 1x, 2x, 3x, 4x, 6x, 8x, 12x, 16x</p>
+<h2>Why this matters melodically</h2>
+<p>Even if pitch is static, repeated sub-triggers create:
+- trills
+- mandolin-like note reiteration
+- Berlin-school pulse animation
+- fast ornamentation
+- pseudo-arpeggiation when paired with pitch changes</p>
+<h2>Patch</h2>
+<ul>
+<li>Pitch sequencer → oscillator 1V/oct</li>
+<li>Main rhythm gate → Cascade <strong>trigger</strong></li>
+<li>Oscillator → Cascade <strong>VCA in</strong></li>
+<li>Cascade <strong>VCA out</strong> → mixer</li>
+<li>Set mode to <strong>Ratcheting AD</strong></li>
+</ul>
+<p>Now one incoming note can become a burst of repeated note articulations.</p>
+<h2>Good musical uses</h2>
+<ul>
+<li>ratcheting acid bass</li>
+<li>repeated lead note accents</li>
+<li>trap-style fast subdivisions</li>
+<li>Euclidean melody embellishments</li>
+<li>probabilistic melody flourishes when fed irregular gates</li>
+</ul>
+<h2>Performance trick</h2>
+<p>Keep the pitch sequence relatively sparse, then manually move:
+- <strong>repeats</strong>
+- <strong>attack</strong>
+- <strong>decay</strong>
+- <strong>curve</strong></p>
+<p>This can turn a simple 8-step melody into something highly expressive.</p>
+<hr />
+<h1>3. Use the internal HiFreq Sine as a melodic element</h1>
+<p>The manual lists <strong>HiFreq Sine</strong> as one of the internal sound sources, normalled to the VCA output when nothing is patched into <strong>VCA in</strong>.</p>
+<p>So if no external audio is connected:
+- choose <strong>HiFreq Sine</strong>
+- trigger Cascade
+- take audio from <strong>VCA out</strong></p>
+<h2>Result</h2>
+<p>You get a built-in struck or gated sine-based voice.</p>
+<h2>Best uses</h2>
+<p>Because the manual does not indicate pitch CV tracking for this internal sine, think of it less as a traditional tuned oscillator and more as:
+- a fixed-pitch percussion tone
+- a tonal ping
+- a high-register melodic accent
+- a layer for motifs</p>
+<h2>Musical applications</h2>
+<ul>
+<li>tuned ostinato accent</li>
+<li>sine blips over a bassline</li>
+<li>minimal melodic pulses</li>
+<li>bell-like transients when using short AD settings</li>
+</ul>
+<h2>Patch idea</h2>
+<ul>
+<li>Clock / trigger pattern → Cascade <strong>trigger</strong></li>
+<li>Select <strong>HiFreq Sine</strong></li>
+<li>Cascade <strong>VCA out</strong> → delay / reverb</li>
+<li>Use <strong>AD</strong> or <strong>Ratcheting AD</strong></li>
+</ul>
+<p>This can create a musically pitched top layer, especially in ambient, IDM, or minimal techno contexts.</p>
+<hr />
+<h1>4. Use Envelope Out to shape melodic timbre elsewhere</h1>
+<p>Cascade’s <strong>Envelope Output</strong> is not only for internal VCA duties. It can animate melodic timbre across your system.</p>
+<h2>Typical melodic destinations</h2>
+<p>Patch <strong>Env out</strong> to:
+- filter cutoff
+- wavefolder CV
+- FM amount
+- oscillator shape
+- LPG CV
+- effect parameter CV</p>
+<p>Meanwhile:
+- audio still goes through Cascade’s VCA, or not
+- same trigger drives both amplitude and timbre movement</p>
+<h2>Why this is musical</h2>
+<p>Melody is not only pitch; it is also:
+- brightness
+- attack character
+- accent strength
+- contour</p>
+<p>Cascade can create note-by-note timbral phrases.</p>
+<h2>Patch example: expressive mono lead</h2>
+<ul>
+<li>Sequencer pitch CV → VCO 1V/oct</li>
+<li>Sequencer gate → Cascade <strong>trigger</strong></li>
+<li>VCO audio → Cascade <strong>VCA in</strong></li>
+<li>Cascade <strong>VCA out</strong> → filter → mixer</li>
+<li>Cascade <strong>Env out</strong> → filter cutoff CV</li>
+</ul>
+<p>Now every note gets synchronized amplitude + filter articulation.</p>
+<h2>Better still</h2>
+<p>Use:
+- <strong>ADSR</strong> for synth-lead behavior
+- <strong>AD</strong> for plucks
+- <strong>invert</strong> if you want the opposite motion, like darker attacks opening into duller sustain or ducking effects</p>
+<hr />
+<h1>5. Use VCA CV input for external melodic control</h1>
+<p>The manual says <strong>VCA CV</strong> overrides Env Out for direct control over the VCA.</p>
+<p>That means Cascade can act as a clean analog VCA for whatever melodic CV source you want.</p>
+<h2>Why useful</h2>
+<p>You can use a different modulation source for melodic amplitude, such as:
+- another envelope
+- LFO
+- random voltage
+- sequenced CV
+- quantized stepped CV</p>
+<h2>Melodic applications</h2>
+<ul>
+<li>velocity-style accent patterns</li>
+<li>tremolo on sustained notes</li>
+<li>step-based amplitude melodies</li>
+<li>cross-rhythmic volume animation</li>
+</ul>
+<h2>Example</h2>
+<ul>
+<li>Pitched oscillator → Cascade <strong>VCA in</strong></li>
+<li>Slow sequenced CV or modulation source → <strong>VCA CV</strong></li>
+<li>Cascade <strong>VCA out</strong> → mixer</li>
+</ul>
+<p>Now amplitude itself becomes a compositional parameter, separate from note pitch.</p>
+<hr />
+<h1>6. Use Gate Out as a melodic timing generator</h1>
+<p>Cascade’s <strong>Gate Output</strong> can be configured in Edit Functions. From the manual:</p>
+<p>Gate modes:
+- <strong>6ms trigger at start of every envelope</strong>
+- <strong>EOD</strong>: gate high when envelope is not in decay stage
+- <strong>EOA</strong>: gate high when envelope is not in attack stage</p>
+<p>This is extremely useful for melodic patching.</p>
+<h2>Practical uses</h2>
+<h3>A. Trigger a second voice in sync</h3>
+<p>Use Gate Out to trigger:
+- another envelope
+- another sequencer advance
+- a percussive accent voice
+- a sample &amp; hold for melodic variation</p>
+<p>This lets Cascade become the timing brain for layered melodies.</p>
+<h3>B. Create delayed or phase-shifted melodic events</h3>
+<p>EOA / EOD logic can offset events relative to the contour of the envelope.</p>
+<p>Example:
+- Main trigger starts note 1
+- Gate out triggers note ornament after attack or after decay phase</p>
+<p>That can generate:
+- grace-note effects
+- call-and-response accents
+- filter pings after note onset
+- companion voice motion</p>
+<h3>C. Advance a pitch source during ratchets</h3>
+<p>If Gate Out emits triggers with each envelope event, you can patch it into another module that steps a sequencer or sample-and-hold. This can make one incoming note blossom into a melodic subdivision structure.</p>
+<hr />
+<h1>7. Use repeats/looping as a melodic modulation source</h1>
+<p>In AD and ASR, the manual says repeats can go from:
+- <strong>1 to 16</strong>
+- <strong>infinite looping at knob end</strong></p>
+<p>This means Cascade can become a <strong>cycling contour generator</strong>.</p>
+<h2>Melodic uses of looping envelope</h2>
+<p>Patch <strong>Env out</strong> to:
+- oscillator FM
+- wavefolder
+- filter cutoff
+- VCA CV of another voice</p>
+<p>This creates repeating contour-based motion that can read as melody-adjacent phrasing, especially when the contour is synced to triggers.</p>
+<h2>Patch idea: pseudo-sequence from timbre</h2>
+<ul>
+<li>Drone oscillator at one pitch</li>
+<li>Cascade in looping AD</li>
+<li>Env out → filter cutoff and FM attenuator</li>
+<li>VCA out controls amplitude or a second layer</li>
+</ul>
+<p>Result: even with static pitch, the ear hears evolving “melodic” motion through harmonics and dynamics.</p>
+<hr />
+<h1>8. Gravity modes for decaying melodic ratchets</h1>
+<p>The edit page shows three <strong>Gravity Modes</strong>:
+- No Gravity
+- Amplitude Gravity
+- Amplitude and Time Gravity</p>
+<p>This is great for musicality.</p>
+<h2>What it implies</h2>
+<p>As repeats happen:
+- they may get quieter
+- and possibly faster/slower in a bouncy-ball style</p>
+<h2>Melodic benefit</h2>
+<p>This creates natural-feeling note reiteration:
+- like drumstick bounce
+- string retrigger decay
+- flam into tremolo
+- diminishing trill</p>
+<h2>Strong use cases</h2>
+<ul>
+<li>ornamented melodic lines</li>
+<li>“bouncing ball” plucks</li>
+<li>decaying repeated accents over arpeggios</li>
+<li>humanized repetition</li>
+</ul>
+<p>With a quantized oscillator pitch, these ratchets feel like intentional melodic decorations rather than rigid machine-gun retriggers.</p>
+<hr />
+<h1>9. Envelope Follower mode for melody extracted from audio</h1>
+<p>Cascade’s <strong>Envelope Follower</strong> mode takes audio input and derives an envelope from it. The gate goes high when the signal exceeds threshold.</p>
+<h2>Melodic uses</h2>
+<p>This is not direct pitch extraction, but it is excellent for:
+- deriving articulation from another melodic source
+- making one voice control another voice’s dynamics
+- synchronized melodic modulation</p>
+<h2>Patch idea: mirror articulation</h2>
+<ul>
+<li>External melodic synth line/audio → Cascade <strong>VCA in</strong></li>
+<li>Cascade in <strong>Envelope Follower</strong></li>
+<li><strong>Env out</strong> → filter CV on another oscillator voice</li>
+<li><strong>Gate out</strong> → trigger another envelope or sequencer</li>
+</ul>
+<p>Now one melodic line can animate another.</p>
+<h2>Example result</h2>
+<p>A vocal sample, lead synth, or plucked sequence can impose its phrasing onto:
+- a drone
+- a bassline
+- another oscillator tuned a fifth above</p>
+<p>That creates melodic coupling between voices.</p>
+<hr />
+<h1>10. Compressor mode for pumping melodic voices</h1>
+<p>The compressor may seem less “melodic,” but in modern patching it definitely is.</p>
+<p>From the manual:
+- audio input is compressed
+- trigger can inject a <strong>virtual sound source</strong> into the compressor
+- gate out goes high when compression is engaged</p>
+<h2>Melodic applications</h2>
+<h3>A. Sidechain a pad or lead</h3>
+<ul>
+<li>Melodic pad audio → Cascade <strong>VCA in</strong></li>
+<li>Trigger pattern → Cascade <strong>trigger</strong></li>
+<li>Compressor mode engaged</li>
+<li>VCA out → mixer</li>
+</ul>
+<p>Now the pad or sustained melody ducks rhythmically, creating groove.</p>
+<h3>B. Use pumping as melodic emphasis</h3>
+<p>A bass melody can breathe around a rhythmic trigger pattern, making the phrase feel more musical.</p>
+<h3>C. Gate Out as a compression activity signal</h3>
+<p>Use Gate Out to trigger another event whenever the compressor engages:
+- accent oscillator
+- transients
+- secondary melody voice</p>
+<p>This turns dynamics processing into compositional timing.</p>
+<hr />
+<h1>11. Build melodic voices from Cascade plus common companion modules</h1>
+<p>Since your prompt asks how modules can be used together, here are practical pairings.</p>
+<h2>A. Cascade + sequencer + oscillator</h2>
+<p>Best for:
+- classic lead/bass voice</p>
+<p>Patch:
+- Sequencer pitch → oscillator
+- Sequencer gate → Cascade trigger
+- Oscillator → Cascade VCA in
+- Cascade VCA out → mixer/filter</p>
+<p>Cascade provides articulation and ratchets.</p>
+<hr />
+<h2>B. Cascade + quantizer + random source</h2>
+<p>Best for:
+- generative melodies</p>
+<p>Patch:
+- Random stepped CV → quantizer → oscillator pitch
+- Clock or burst trigger → Cascade trigger
+- Oscillator → Cascade VCA in
+- Cascade Env or Gate out → influence random sampling or sequence advance</p>
+<p>Why it works:
+Cascade turns random pitches into phrased notes instead of static CV wandering.</p>
+<hr />
+<h2>C. Cascade + filter</h2>
+<p>Best for:
+- expressive melodic patches</p>
+<p>Patch:
+- Oscillator → Cascade VCA in → filter → mixer
+- Cascade Env out → filter cutoff</p>
+<p>This is the classic subtractive voice, but ratcheting and gravity modes make it more animated than a standard envelope.</p>
+<hr />
+<h2>D. Cascade + delay/reverb</h2>
+<p>Best for:
+- ambient melody
+- pointillistic motifs</p>
+<p>Patch:
+- Internal HiFreq Sine or external oscillator → Cascade VCA
+- Use short AD or ratchets
+- Send VCA out to delay/reverb</p>
+<p>This creates sparse but memorable melodic figures.</p>
+<hr />
+<h2>E. Cascade + second envelope / second VCA</h2>
+<p>Best for:
+- layered melodic articulation</p>
+<p>Use Cascade’s Gate Out to trigger a second contour on another voice or harmonic layer.</p>
+<p>Example:
+- Main melody through Cascade
+- Gate Out triggers a second voice one octave above
+- Ratchets become harmonized ornaments</p>
+<hr />
+<h1>12. Specific melodic patch recipes</h1>
+<h2>Patch 1: Ratcheting acid melody</h2>
+<ul>
+<li>Pitch sequencer → VCO 1V/oct</li>
+<li>Gate sequencer → Cascade trigger</li>
+<li>VCO saw/square → Cascade VCA in</li>
+<li>Cascade VCA out → filter → mixer</li>
+<li>Cascade Env out → filter cutoff</li>
+<li>Mode: Ratcheting AD</li>
+<li>Short attack, short decay, 2x–8x repeats</li>
+</ul>
+<p>Result:
+A melody with repeating accents and animated filter plucks.</p>
+<hr />
+<h2>Patch 2: Minimal sine motif</h2>
+<ul>
+<li>No cable in VCA in</li>
+<li>Select <strong>HiFreq Sine</strong></li>
+<li>Trigger pattern → Cascade trigger</li>
+<li>Cascade VCA out → delay/reverb</li>
+<li>Mode: AD or Ratcheting AD</li>
+</ul>
+<p>Result:
+Tonal pings that function as a melodic top line or counter-rhythm.</p>
+<hr />
+<h2>Patch 3: Generative plucked melody</h2>
+<ul>
+<li>Random CV → quantizer → oscillator pitch</li>
+<li>Clock divisions / Euclidean trigger → Cascade trigger</li>
+<li>Oscillator → Cascade VCA in</li>
+<li>Cascade VCA out → LPG or filter</li>
+<li>Cascade Env out → timbre CV</li>
+<li>Mode: AD</li>
+<li>Optional repeats set low or occasional ratchets</li>
+</ul>
+<p>Result:
+Organic, plucked melodic fragments.</p>
+<hr />
+<h2>Patch 4: Call-and-response lead</h2>
+<ul>
+<li>Main sequencer → oscillator pitch</li>
+<li>Main gate → Cascade trigger</li>
+<li>Oscillator → Cascade VCA in</li>
+<li>Cascade VCA out → mixer</li>
+<li>Cascade Gate out → trigger second envelope / second oscillator voice</li>
+</ul>
+<p>Choose EOA or EOD gate behavior to place the second event after the main attack or during non-decay portions.</p>
+<p>Result:
+One melodic source generates a second answering phrase or accent.</p>
+<hr />
+<h2>Patch 5: Audio-followed harmony</h2>
+<ul>
+<li>Existing melodic audio → Cascade VCA in</li>
+<li>Mode: Envelope Follower</li>
+<li>Cascade Env out → VCA CV or filter on second voice</li>
+<li>Gate out → trigger a harmonized voice</li>
+</ul>
+<p>Result:
+A second melodic layer tracks the dynamics of the first.</p>
+<hr />
+<h2>Patch 6: Pumped pad around melody</h2>
+<ul>
+<li>Sustained melodic pad audio → Cascade VCA in</li>
+<li>Rhythmic trigger → Cascade trigger</li>
+<li>Mode: Compressor</li>
+<li>Cascade VCA out → mixer</li>
+</ul>
+<p>Result:
+The melody breathes rhythmically, fitting tightly around drums or sequenced accents.</p>
+<hr />
+<h1>13. Best musical roles for each mode</h1>
+<h2>Ratcheting AD</h2>
+<p>Best for:
+- ornamented melodies
+- trills
+- repeated note bursts
+- rhythmic lead articulation</p>
+<h2>AD</h2>
+<p>Best for:
+- plucks
+- basslines
+- sequenced motifs
+- percussion-toned melody</p>
+<h2>ASR</h2>
+<p>Best for:
+- gate-length-controlled phrases
+- simple sustained lines
+- legato-ish melodic control</p>
+<h2>ADSR</h2>
+<p>Best for:
+- traditional keyboard-style melodic playing
+- leads and pads
+- expressive manual performance</p>
+<h2>Envelope Follower</h2>
+<p>Best for:
+- deriving melodic articulation from existing audio
+- making one melodic part animate another</p>
+<h2>Compressor</h2>
+<p>Best for:
+- dynamic shaping of melodic stems
+- sidechain-style groove on pads, leads, basses</p>
+<hr />
+<h1>14. Realistic limitations</h1>
+<p>To keep expectations accurate:</p>
+<ul>
+<li>Cascade is <strong>not primarily a pitch voice module</strong></li>
+<li>the internal sine is useful, but the manual does <strong>not describe 1V/oct pitch control</strong></li>
+<li>its strongest melodic role is <strong>articulation, rhythmic subdivision, amplitude shaping, and phrase generation</strong></li>
+</ul>
+<p>So the best way to think about it is:</p>
+<blockquote>
+<p>Cascade does not usually <em>create pitch sequences by itself</em>; it makes pitch sequences far more musical.</p>
+</blockquote>
+<p>That is hugely important in Eurorack, because a plain oscillator + sequencer can sound static, while Cascade adds:
+- note contour
+- repeated triggers
+- dynamic accents
+- gate logic
+- pumping
+- timbral movement</p>
+<hr />
+<h1>Conclusion</h1>
+<p>Cascade is a strong melodic support module and, in some patches, a compact melodic accent voice. Its most effective musical uses are:</p>
+<ul>
+<li><strong>turning external oscillators into expressive voices</strong></li>
+<li><strong>adding ratcheted subdivisions to melodies</strong></li>
+<li><strong>using envelope out for timbral phrasing</strong></li>
+<li><strong>using gate out to synchronize secondary melodic events</strong></li>
+<li><strong>using the internal HiFreq Sine for tonal blips and accents</strong></li>
+<li><strong>using follower/compressor modes to transfer phrasing and groove between melodic layers</strong></li>
+</ul>
+<p>If you want, I can also turn this into:
+1. a <strong>set of concrete patch diagrams</strong>, or<br />
+2. a <strong>“melodic patch cookbook”</strong> for ambient, techno, and generative styles.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

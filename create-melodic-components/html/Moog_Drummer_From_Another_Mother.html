@@ -1,0 +1,503 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Drummer_From_Another_Mother</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Drummer From Another Mother</h1>
+<ul>
+<li><a href="../../manuals/DFAM_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://api.moogmusic.com/sites/default/files/2018-01/DFAM_Manual.pdf">Moog DFAM Manual (PDF)</a></p>
+<h1>Using the Moog DFAM to Create Melodic Components in Eurorack</h1>
+<p>The attached manual is for the <strong>Moog DFAM (Drummer From Another Mother)</strong>. Although it is marketed as a percussion synthesizer, the manual makes clear that DFAM is fully capable of producing <strong>pitched, melodic material</strong> when used intentionally. In a Eurorack context, it can function as:</p>
+<ul>
+<li>a <strong>dual-oscillator melodic voice</strong></li>
+<li>a <strong>sequenced bass/lead source</strong></li>
+<li>a <strong>CV sequencer/modulation source</strong></li>
+<li>a <strong>filter sine oscillator</strong></li>
+<li>a <strong>clock/audio-rate modulation source</strong></li>
+<li>a <strong>companion sequencer/voice for other Eurorack modules</strong></li>
+</ul>
+<h2>What DFAM gives you musically</h2>
+<p>From the manual, DFAM includes:</p>
+<ul>
+<li><strong>2 VCOs</strong> with triangle/square waveforms</li>
+<li><strong>White noise generator</strong></li>
+<li><strong>Mixer</strong></li>
+<li><strong>24 dB ladder filter</strong> with LP/HP modes</li>
+<li><strong>3 envelope generators</strong>:</li>
+<li>VCO EG</li>
+<li>VCF EG</li>
+<li>VCA EG</li>
+<li><strong>8-step analog sequencer</strong></li>
+<li>per-step <strong>Pitch</strong></li>
+<li>per-step <strong>Velocity</strong></li>
+<li><strong>24-point patchbay</strong></li>
+<li><strong>Eurorack compatibility</strong></li>
+<li>60HP</li>
+<li>+12V only, max 230mA</li>
+</ul>
+<p>That means DFAM is not just a drum box. It is basically a <strong>semi-modular analog synth voice with a built-in sequencer</strong>.</p>
+<hr />
+<h1>The main melodic strategies</h1>
+<h2>1. Use DFAM as a self-contained bass or lead synth</h2>
+<p>The manual explicitly notes that the oscillators track pitch accurately over multiple octaves, and that the center positions of the frequency knobs are a good neutral point.</p>
+<h3>Best setup for melodic use</h3>
+<p>To turn DFAM into a more conventional melodic voice:</p>
+<ul>
+<li>Set <strong>VCO 1 FREQUENCY</strong> and <strong>VCO 2 FREQUENCY</strong> near center</li>
+<li>Set <strong>VCO 1 EG AMOUNT</strong> and <strong>VCO 2 EG AMOUNT</strong> near center or low</li>
+<li>Set <strong>SEQ PITCH MOD</strong> to:</li>
+<li><strong>VCO 1&amp;2</strong> for unison melodic sequencing</li>
+<li><strong>VCO 2</strong> if you want one oscillator static and the other moving</li>
+<li><strong>OFF</strong> if external pitch CV will drive the voice</li>
+<li>Use <strong>VCA DECAY</strong> longer than typical drum settings</li>
+<li>Use <strong>VCF DECAY</strong> moderately so notes bloom more musically</li>
+<li>Keep <strong>velocity</strong> relatively even if you want stable note articulation</li>
+</ul>
+<h3>Why it works</h3>
+<p>The manual specifically says:
+- DFAM oscillators can track pitch accurately over multiple octaves
+- if <strong>VCO EG AMOUNT</strong> is centered, pitch stays steady
+- the sequencer pitch row has a roughly <strong>10-octave range</strong>
+- longer VCA settings allow “more musical resonances” and even drone-like behavior</p>
+<h3>Practical melodic result</h3>
+<p>This gives you:
+- basslines
+- simple acid-like phrases
+- unison leads
+- stepped melodic ostinatos</p>
+<p>The preset <strong>“Sequenced Bass”</strong> in the manual is the clearest example of this use.</p>
+<hr />
+<h2>2. Use the 8-step sequencer as a melodic CV source for DFAM or other modules</h2>
+<p>DFAM’s sequencer is one of its most powerful melodic tools because the patchbay exposes:</p>
+<ul>
+<li><strong>PITCH output</strong>: -5V to +5V</li>
+<li><strong>VELOCITY output</strong>: 0V to +5V</li>
+<li><strong>TRIGGER output</strong>: 0V to +5V pulse</li>
+</ul>
+<p>This means DFAM is not only a voice, but also a <strong>CV sequencer for the rest of your system</strong>.</p>
+<h2>How to use it with other modules</h2>
+<p>You can patch:</p>
+<ul>
+<li><strong>PITCH OUT</strong> -&gt; another oscillator’s 1V/oct input</li>
+<li><strong>VELOCITY OUT</strong> -&gt; VCA CV, filter cutoff CV attenuator, envelope amount, etc.</li>
+<li><strong>TRIGGER OUT</strong> -&gt; envelope trigger, clock input, drum module trigger</li>
+</ul>
+<h3>Melodic uses</h3>
+<p>This lets DFAM sequence:
+- another VCO for a second melody line
+- a quantizer, turning the raw analog pitch row into musical scales
+- a filter cutoff on another module for tuned timbral movement
+- wavefolder depth, FM amount, or LPG response</p>
+<h3>Important caveat</h3>
+<p>The manual says DFAM’s pitch row is very wide range and bipolar. Without quantization or careful tuning, it can be wild. In musical patches, this is often best handled by:</p>
+<ul>
+<li>keeping pitch knob movements very small</li>
+<li>running pitch output into a <strong>quantizer</strong></li>
+<li>using only a subset of steps for stable tonal patterns</li>
+</ul>
+<hr />
+<h2>3. Drive DFAM from external pitch CV for more precise melodic control</h2>
+<p>If you have other Eurorack sequencing tools, DFAM can become a proper external-controlled synth voice.</p>
+<h3>Relevant patch points</h3>
+<ul>
+<li><strong>VCO 1 CV input</strong>: 1V/oct</li>
+<li><strong>VCO 2 CV input</strong>: 1V/oct</li>
+</ul>
+<p>The manual recommends for accurate pitch tracking:</p>
+<ul>
+<li>set <strong>VCO FREQUENCY</strong> to center</li>
+<li>set <strong>VCO EG AMOUNT</strong> to center</li>
+<li>set <strong>SEQ PITCH MOD</strong> to <strong>OFF</strong> (or for VCO1, use VCO2-only mode as appropriate)</li>
+</ul>
+<h3>Useful melodic configurations</h3>
+<h4>Unison mono synth</h4>
+<ul>
+<li>external sequencer pitch CV multed to:</li>
+<li><strong>VCO 1 CV</strong></li>
+<li><strong>VCO 2 CV</strong></li>
+<li>tune VCO 2 slightly detuned or at interval</li>
+<li>use DFAM trigger/clock system or external triggers</li>
+</ul>
+<p>Result:
+- thick bass/lead voice</p>
+<h4>Interval voice</h4>
+<ul>
+<li>external pitch CV to <strong>VCO 1 CV</strong></li>
+<li>tune <strong>VCO 2 FREQUENCY</strong> manually to 5th/octave/etc.</li>
+<li>optional hard sync or FM</li>
+</ul>
+<p>Result:
+- harmonically rich melodic voice with fixed interval layering</p>
+<h4>Drone + moving voice</h4>
+<ul>
+<li>pitch CV only to <strong>VCO 2 CV</strong></li>
+<li>keep VCO 1 static</li>
+<li>SEQ PITCH MOD off</li>
+<li>use FM or filter movement</li>
+</ul>
+<p>Result:
+- evolving melodic percussion / Berlin-school textures</p>
+<hr />
+<h2>4. Use the filter as a sine oscillator for melodic lines</h2>
+<p>The manual states that in <strong>Low Pass mode</strong>, resonance above about 3 o’clock causes the filter to <strong>self-oscillate</strong>, producing a <strong>sine wave</strong>.</p>
+<p>That is huge for melody.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Set filter to <strong>LP</strong></li>
+<li>Turn <strong>RESONANCE</strong> high enough to self-oscillate</li>
+<li>Reduce oscillator levels if you want mostly filter tone</li>
+<li>Patch <strong>PITCH OUT</strong> -&gt; <strong>VCF MOD</strong>? No — not directly for 1V/oct tracking</li>
+<li>Instead use the manual’s preset approach: sequencer pitch can effectively shape filter cutoff through patching/modulation</li>
+</ul>
+<p>The preset <strong>“Filter As An Oscillator”</strong> shows this concept.</p>
+<h3>Musical result</h3>
+<p>This turns DFAM into:
+- a cleaner sine-like melodic source
+- a sub-bass line generator
+- a tuned ping/resonance voice</p>
+<h3>Limitation</h3>
+<p>The filter does <strong>not</strong> have dedicated calibrated 1V/oct input in the way the VCOs do, so it is less ideal for exact tonal playing than the oscillators. But it is very useful for:
+- tuned drones
+- tonal percussion
+- resonant bass pulses
+- pseudo-west-coast sine sequences</p>
+<hr />
+<h2>5. Use one oscillator as audio, the other as melodic modulation</h2>
+<p>DFAM’s strongest melodic textures often come from <strong>partial pitch stability plus internal modulation</strong>.</p>
+<p>The manual emphasizes two interactions:</p>
+<ul>
+<li><strong>Hard Sync</strong></li>
+<li><strong>1→2 FM</strong></li>
+</ul>
+<p>These are excellent for tuned melodic timbres.</p>
+<h2>Hard Sync for melodic use</h2>
+<p>With <strong>Hard Sync ON</strong>, oscillator 2 stays phase-locked to oscillator 1, so changing oscillator 2 affects timbre more than perceived pitch.</p>
+<h3>Good patch use</h3>
+<ul>
+<li>Sequence VCO 1 melodically</li>
+<li>Use VCO 2 frequency as timbral offset</li>
+<li>Turn VCO 2 level up</li>
+<li>Sweep VCO 2 freq for vowelish/metallic harmonics</li>
+</ul>
+<p>Result:
+- stable-pitch leads with moving harmonics
+- sync bass tones
+- cutting mono lines</p>
+<h2>FM for melodic use</h2>
+<p>The manual notes FM is especially noticeable with hard sync off.</p>
+<h3>Good patch use</h3>
+<ul>
+<li>Keep both VCOs tuned musically</li>
+<li>Use modest <strong>1→2 FM Amount</strong></li>
+<li>Sequence one or both oscillators</li>
+<li>Use triangle waves for smoother results</li>
+</ul>
+<p>Result:
+- bell-like tuned tones
+- metallic melodic percussion
+- electric piano-ish or gamelan-like patterns</p>
+<p>This is one of the best ways to get <strong>pitched but not plain</strong> melodic content from DFAM.</p>
+<hr />
+<h2>6. Use velocity row as melodic articulation, not just loudness</h2>
+<p>The manual is very clear that <strong>Velocity</strong> affects:
+- amplitude
+- impact
+- and to some extent envelope behavior/decay feel</p>
+<p>That means the second sequencer row can function like a primitive <strong>accent/articulation lane</strong>.</p>
+<h3>Musical uses</h3>
+<p>For melodic patterns:
+- high velocity on chord-tone steps
+- low velocity on passing tones
+- accents on downbeats
+- softer offbeats for groove</p>
+<p>This makes 8-step sequences feel less robotic.</p>
+<h3>Patch extensions</h3>
+<p>Since <strong>VELOCITY OUT</strong> is available at the patchbay, you can also send it to:
+- another module’s filter CV
+- wavefolder CV
+- external VCA
+- external LPG
+- FM amount attenuator
+- effect depth CV</p>
+<p>So DFAM can create melodic phrasing across your rack, not just inside itself.</p>
+<hr />
+<h1>Best ways DFAM can work together with other Eurorack modules</h1>
+<p>Since only DFAM is represented in the manual, “used together” here means <strong>DFAM with the rest of a Eurorack system</strong> or with compatible semi-modular gear like the Mother-32 mentioned in the manual.</p>
+<h2>1. DFAM + quantizer</h2>
+<p>This is probably the single best upgrade for melody.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>PITCH OUT</strong> -&gt; quantizer input</li>
+<li>quantizer output -&gt; DFAM <strong>VCO 1 CV</strong>, <strong>VCO 2 CV</strong>, or another oscillator</li>
+</ul>
+<h3>Why</h3>
+<p>DFAM’s pitch row is wide and continuous. A quantizer turns it into:
+- scales
+- modes
+- arpeggios
+- tonal basslines</p>
+<h3>Result</h3>
+<p>DFAM becomes a genuinely musical 8-step sequencer for tonal composition.</p>
+<hr />
+<h2>2. DFAM + external VCO</h2>
+<p>DFAM can sequence and articulate a separate oscillator.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>PITCH OUT</strong> -&gt; external VCO 1V/oct</li>
+<li><strong>TRIGGER OUT</strong> -&gt; external envelope gate/trigger</li>
+<li><strong>VELOCITY OUT</strong> -&gt; external VCA CV or envelope amount</li>
+</ul>
+<h3>Result</h3>
+<p>A second melodic voice that mirrors DFAM’s sequence but can sound totally different.</p>
+<p>This is especially useful for:
+- octave doubling
+- counterpoint via transposition
+- layering analog and digital tones</p>
+<hr />
+<h2>3. DFAM + external envelope/VCA/filter chain</h2>
+<p>If you want DFAM more as a sequencer than a sound source:</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>PITCH OUT</strong> -&gt; external oscillator pitch</li>
+<li><strong>TRIGGER OUT</strong> -&gt; external envelope</li>
+<li><strong>VELOCITY OUT</strong> -&gt; external VCA CV or filter CV</li>
+</ul>
+<p>Now DFAM effectively becomes a <strong>3-lane sequencer</strong>:
+- pitch
+- gate/trigger
+- dynamics</p>
+<p>That is enough to build a full melodic voice elsewhere in the system.</p>
+<hr />
+<h2>4. DFAM + Mother-32</h2>
+<p>The manual explicitly describes clock sync with Mother-32 via:</p>
+<ul>
+<li>Mother-32 <strong>ASSIGN output</strong> -&gt; DFAM <strong>ADV/CLOCK</strong></li>
+</ul>
+<p>This is useful melodically because Mother-32 can supply:
+- clock
+- pitch sequencing
+- more conventional note structure</p>
+<h3>Musical pairing ideas</h3>
+<h4>Mother-32 as pitch brain, DFAM as timbral bass/percussion synth</h4>
+<ul>
+<li>Sync DFAM clock to Mother-32</li>
+<li>Run Mother-32 sequence as main melody</li>
+<li>Use DFAM as synced bass ostinato or tuned percussion</li>
+</ul>
+<h4>DFAM as modulation sequencer for Mother-32</h4>
+<ul>
+<li>DFAM <strong>PITCH OUT</strong> or <strong>VELOCITY OUT</strong> into Mother-32 CV destinations</li>
+<li>sync clocks</li>
+<li>use DFAM row as rhythmic modulation source</li>
+</ul>
+<h4>Layered analog melody</h4>
+<ul>
+<li>both units clocked together</li>
+<li>Mother-32 handles precise tonal line</li>
+<li>DFAM handles interval/timbre/accent line</li>
+</ul>
+<p>Because DFAM’s sequencer is analog and immediate, it complements the more note-centric Mother-32 style very well.</p>
+<hr />
+<h2>5. DFAM + clock divider / logic / switch modules</h2>
+<p>The manual shows DFAM responds well to:
+- <strong>ADV/CLOCK input</strong>
+- <strong>RUN/STOP input</strong>
+- <strong>TRIGGER input</strong></p>
+<p>This means rhythmic logic modules can reshape its melodic sequencing.</p>
+<h3>Uses</h3>
+<ul>
+<li>clock divider into ADV/CLOCK for slower note motion</li>
+<li>irregular trigger source into ADV/CLOCK for generative melodies</li>
+<li>switch module to alternate pitch destinations</li>
+<li>logic module to create semi-random step advancement</li>
+</ul>
+<h3>Result</h3>
+<p>DFAM becomes a source of:
+- generative basslines
+- shifting ostinatos
+- asymmetrical melodic loops</p>
+<hr />
+<h2>6. DFAM + sample &amp; hold / random sources</h2>
+<p>The manual emphasizes CV control over:
+- VCO decay
+- VCF decay
+- VCA decay
+- FM amount
+- tempo
+- filter modulation
+- noise level</p>
+<p>These can all add melodic complexity without changing the base note sequence.</p>
+<h3>Great targets for melodic variation</h3>
+<ul>
+<li>random CV -&gt; <strong>VCF DECAY</strong></li>
+<li>random CV -&gt; <strong>1→2 FM AMT</strong></li>
+<li>random CV -&gt; <strong>VCO DECAY</strong></li>
+<li>velocity row -&gt; <strong>TEMPO CV</strong></li>
+<li>pitch row -&gt; <strong>VCA DECAY</strong></li>
+</ul>
+<p>This creates melodies with evolving articulation and timbre rather than just note changes.</p>
+<hr />
+<h1>The most useful melodic patch ideas from the manual</h1>
+<p>The presets and patch notes in the manual point toward several especially musical uses.</p>
+<h2>Sequenced Bass</h2>
+<p>This is the most direct melodic patch in the manual.</p>
+<h3>Why it matters</h3>
+<p>It confirms DFAM is intended to be used as:
+- tuned
+- sequenced
+- bass-capable</p>
+<h3>What to take from it</h3>
+<ul>
+<li>tune VCO 1 and VCO 2 carefully</li>
+<li>use small pitch changes</li>
+<li>shape tone with filter cutoff</li>
+</ul>
+<p>This is the starting point for melodic use.</p>
+<hr />
+<h2>Music Box</h2>
+<p>This patch suggests more delicate, tonal, bell-like melodic sequencing.</p>
+<h3>Why it matters</h3>
+<p>It shows DFAM can do:
+- tonal plucked sequences
+- chiming patterns
+- less aggressive percussive sounds</p>
+<p>This is useful for:
+- ambient ostinatos
+- toy-piano style sequences
+- upper-register motifs</p>
+<hr />
+<h2>Filter As An Oscillator</h2>
+<p>A strong hint that DFAM can be used as a resonant melodic source, not just VCO-driven.</p>
+<h3>Why it matters</h3>
+<p>This expands DFAM beyond “two oscillator mono synth” behavior into:
+- sine-ish tuned textures
+- self-oscillating filter tones
+- more minimal melodic timbres</p>
+<hr />
+<h2>Sequencer As An Oscillator</h2>
+<p>This patch is more experimental, but musically valuable.</p>
+<h3>Why it matters</h3>
+<p>The sequencer can run into audio rates. The manual says tempo spans roughly .7Hz to 700Hz, and the tempo CV can go into audio range.</p>
+<p>That means the sequencer/clock network itself can become part of the sound, enabling:
+- digital-ish wave shaping
+- harsh melodic drones
+- pseudo-oscillator textures</p>
+<p>This is less traditional melody, more experimental tonal material.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Simple analog bassline</h2>
+<ul>
+<li>Set <strong>SEQ PITCH MOD</strong> to <strong>VCO 1&amp;2</strong></li>
+<li>Tune VCO 1 and VCO 2 in unison</li>
+<li>Set both EG AMOUNT knobs near center or slightly positive</li>
+<li>VCA decay around 10–12 o’clock</li>
+<li>Filter LP, moderate cutoff, low-medium resonance</li>
+<li>Use small pitch row adjustments</li>
+<li>Set velocity for groove accents</li>
+</ul>
+<p><strong>Result:</strong> classic mono bassline</p>
+<hr />
+<h2>Patch 2: Sync lead</h2>
+<ul>
+<li>VCO 1 square</li>
+<li>VCO 2 square</li>
+<li><strong>Hard Sync ON</strong></li>
+<li>Sequence both oscillators or just VCO 1</li>
+<li>Raise VCO 2 level</li>
+<li>Sweep VCO 2 frequency until timbre is expressive</li>
+<li>Moderate filter envelope</li>
+</ul>
+<p><strong>Result:</strong> sharp, cutting melodic lead</p>
+<hr />
+<h2>Patch 3: Bell melody</h2>
+<ul>
+<li>Both oscillators triangle</li>
+<li>Hard sync OFF</li>
+<li>Tune VCO 2 to an interval above VCO 1</li>
+<li>Add modest <strong>1→2 FM</strong></li>
+<li>Longer VCA decay</li>
+<li>Moderate-high filter resonance</li>
+<li>Higher pitch sequence</li>
+</ul>
+<p><strong>Result:</strong> metallic melodic sequence, mallet/bell-like</p>
+<hr />
+<h2>Patch 4: Quantized external voice sequencer</h2>
+<ul>
+<li><strong>PITCH OUT</strong> -&gt; quantizer</li>
+<li>quantizer -&gt; external oscillator 1V/oct</li>
+<li><strong>TRIGGER OUT</strong> -&gt; external envelope trigger</li>
+<li><strong>VELOCITY OUT</strong> -&gt; external VCA CV</li>
+</ul>
+<p><strong>Result:</strong> DFAM becomes a melodic sequencer for another voice</p>
+<hr />
+<h2>Patch 5: Interval bass with external CV</h2>
+<ul>
+<li>external sequencer CV -&gt; <strong>VCO 1 CV</strong> and <strong>VCO 2 CV</strong></li>
+<li>SEQ PITCH MOD OFF</li>
+<li>tune VCO 2 to fifth or octave</li>
+<li>use DFAM envelopes and filter as the voice architecture</li>
+</ul>
+<p><strong>Result:</strong> stable, playable Eurorack mono synth with interval richness</p>
+<hr />
+<h2>Patch 6: Filter-sine melody</h2>
+<ul>
+<li>LP mode</li>
+<li>Resonance high enough to self-oscillate</li>
+<li>reduce oscillator levels</li>
+<li>patch sequencer-derived modulation to shape cutoff</li>
+<li>long VCA decay</li>
+</ul>
+<p><strong>Result:</strong> minimal sine-ish melodic pulse line</p>
+<hr />
+<h1>Important limitations for melodic use</h1>
+<h2>1. No built-in quantization</h2>
+<p>DFAM’s pitch row is continuous analog voltage, so exact melodies require:
+- careful tuning
+- external quantizer
+- patience</p>
+<h2>2. Only 8 steps</h2>
+<p>Great for ostinatos and riffs, less ideal for long harmonic progressions without external routing or repatching.</p>
+<h2>3. Envelope behavior is tied strongly to percussion design</h2>
+<p>Velocity affects more than just loudness, so highly even melodic phrasing may need careful balancing.</p>
+<h2>4. Filter is not a precision melodic CV destination</h2>
+<p>Excellent for timbre and resonance-based pitch, but not the same as dedicated oscillator tracking.</p>
+<hr />
+<h1>Best roles for DFAM in melodic music</h1>
+<p>DFAM works best melodically as one or more of these:</p>
+<h2>Melodic bass voice</h2>
+<p>Probably its strongest tonal role.</p>
+<h2>Acid-adjacent mono synth</h2>
+<p>Especially with square waves, resonance, and careful envelope use.</p>
+<h2>Bell/percussion melody generator</h2>
+<p>Excellent with FM and tuned envelopes.</p>
+<h2>CV sequencer for another voice</h2>
+<p>A very underrated role.</p>
+<h2>Counter-rhythm tonal layer</h2>
+<p>Sync it to a master clock and let it provide repeating melodic punctuation.</p>
+<h2>Experimental tonal texture source</h2>
+<p>Using audio-rate tempo, filter oscillation, FM, and sync.</p>
+<hr />
+<h1>Conclusion</h1>
+<p>Based on the manual, the Moog DFAM is much more than a percussion synth. In a Eurorack system it can contribute melodic material in at least three major ways:</p>
+<ol>
+<li><strong>As a complete analog melodic voice</strong> using its two VCOs, ladder filter, VCA, and sequencer  </li>
+<li><strong>As a modulation and sequencing hub</strong> via Pitch, Velocity, and Trigger outputs  </li>
+<li><strong>As an experimental tonal generator</strong> using filter self-oscillation, FM, hard sync, and audio-rate clocking  </li>
+</ol>
+<p>If your goal is melodic music, the most effective pairings are:</p>
+<ul>
+<li><strong>DFAM + quantizer</strong></li>
+<li><strong>DFAM + external oscillator/voice</strong></li>
+<li><strong>DFAM + Mother-32 or other clock/pitch sequencer</strong></li>
+<li><strong>DFAM + utilities for clocking, logic, switching, and CV routing</strong></li>
+</ul>
+<p>The key mindset is: <strong>treat DFAM as a semi-modular synth voice with percussion-friendly envelopes, not just a drum machine</strong>. Once you do that, it becomes a powerful source of basslines, riffs, tuned percussive melodies, and animated control voltages for the rest of your system.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

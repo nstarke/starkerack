@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Numeric_Repetitor</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Numeric Repetitor</h1>
+<ul>
+<li><a href="../../manuals/NR_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Noise Engineering Numeric Repetitor — melodic use analysis</h1>
+<p>Numeric Repetitor is <strong>not a pitch sequencer</strong>. It is a <strong>4-channel rhythmic gate generator</strong> built from binary-derived 16-step patterns and related variations. On its own, it does not output CV melodies, but in a Eurorack system it can be very effective at creating <strong>melodic structure indirectly</strong> by driving envelopes, quantized sample-and-hold, sequential switches, logic, clocked modulation, and transposition events.</p>
+<h2>What the module does well</h2>
+<p>From the manual:</p>
+<ul>
+<li>Generates a <strong>PRIME rhythm</strong> plus <strong>3 PRODUCT rhythm variations</strong></li>
+<li>Uses a <strong>BEAT clock</strong> and optional <strong>MEASURE reset</strong></li>
+<li>Offers <strong>32 selected 16-step prime rhythms</strong></li>
+<li>PRODUCT outputs are related transformations of the PRIME pattern</li>
+<li>FACTOR controls can be changed by <strong>knob or CV</strong>, so rhythmic relationships can evolve over time</li>
+</ul>
+<p>That means the module is ideal as a <strong>melodic timing brain</strong> rather than a note source.</p>
+<hr />
+<h2>Core idea for melodic patches</h2>
+<p>To make melody, you need two things:</p>
+<ol>
+<li><strong>When notes happen</strong>  </li>
+<li><strong>What pitch those notes are</strong></li>
+</ol>
+<p>Numeric Repetitor handles the first part extremely well. Use its outputs to determine when notes are sampled, articulated, transposed, accented, or switched.</p>
+<hr />
+<h2>Best ways to use Numeric Repetitor for melodic components</h2>
+<h2>1. Trigger a quantized sample-and-hold melody</h2>
+<p>A classic use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Master clock → <strong>BEAT</strong></li>
+<li>Numeric Repetitor <strong>PRODUCT 1</strong> → trigger input of <strong>sample &amp; hold</strong></li>
+<li>Slow random CV / sequencer CV / modulation source → sample &amp; hold input</li>
+<li>Sample &amp; hold output → <strong>quantizer</strong></li>
+<li>Quantizer output → oscillator 1V/oct</li>
+<li>Numeric Repetitor <strong>PRIME</strong> → envelope gate for VCA</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>PRODUCT 1 decides <strong>when a new note is chosen</strong></li>
+<li>PRIME decides <strong>when the voice is actually articulated</strong></li>
+<li>Because the rhythms are related but not identical, the melody feels coherent rather than random</li>
+</ul>
+<h3>Why it works</h3>
+<p>The module’s binary-derived rhythmic relationships create repeating but non-obvious phrase structures, which is great for generative melody.</p>
+<hr />
+<h2>2. Use different outputs for pitch changes vs note articulation</h2>
+<p>Since there are 4 outputs, you can separate melodic functions.</p>
+<h3>Patch concept</h3>
+<ul>
+<li><strong>PRIME</strong> → envelope gate</li>
+<li><strong>PRODUCT 1</strong> → advance a CV sequencer</li>
+<li><strong>PRODUCT 2</strong> → transpose an oscillator or quantizer</li>
+<li><strong>PRODUCT 3</strong> → trigger accent envelope, wavefolder envelope, or filter ping</li>
+</ul>
+<h3>Result</h3>
+<p>A single voice becomes musically richer:
+- one rhythm decides when notes sound
+- another decides when pitch changes
+- another decides when timbre or accent changes</p>
+<p>This is one of the strongest melodic uses of the module.</p>
+<hr />
+<h2>3. Create counterpoint by clocking multiple melodic voices</h2>
+<p>Each output can drive a different melodic voice or melodic layer.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>PRIME</strong> → bass voice envelope</li>
+<li><strong>PRODUCT 1</strong> → pluck voice envelope</li>
+<li><strong>PRODUCT 2</strong> → sample-and-hold trigger for lead pitch</li>
+<li><strong>PRODUCT 3</strong> → sequencer advance or arpeggiator trigger</li>
+</ul>
+<h3>Result</h3>
+<p>You get <strong>related but distinct melodic rhythms</strong> across voices. Since all outputs derive from the same prime pattern, the parts feel connected.</p>
+<p>This is excellent for:
+- bass + lead interplay
+- ostinato + accent melody
+- pseudo-polyrhythmic tonal layers</p>
+<hr />
+<h2>4. Use FACTOR CV to create evolving melodic phrasing</h2>
+<p>The manual specifically suggests patching CV or gates into PRIME or FACTOR inputs.</p>
+<h3>Melodic application</h3>
+<p>Patch a slow sequencer row, random stepped voltage, or infrequent gate divider into:
+- <strong>FACTOR CV</strong> to alter variation relationships over time
+- <strong>PRIME CV</strong> to switch between base pattern families</p>
+<h3>Result</h3>
+<p>Your melody timing changes in structured ways:
+- phrase rotation
+- denser/sparser note timing
+- variation without losing the groove</p>
+<p>This is especially useful if pitch material stays fixed in a scale while rhythm evolves.</p>
+<hr />
+<h2>5. Drive a sequential switch for note selection</h2>
+<p>Numeric Repetitor can select among preset pitches.</p>
+<h3>Patch</h3>
+<ul>
+<li>Several fixed voltages or sequencer rows → sequential switch inputs</li>
+<li><strong>PRODUCT 1</strong> or <strong>PRODUCT 2</strong> → switch advance</li>
+<li>Switch output → quantizer → oscillator pitch</li>
+<li><strong>PRIME</strong> → envelope gate</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of stepping through notes evenly, note selection happens on the module’s generated rhythm. This creates more human, syncopated melodic lines.</p>
+<hr />
+<h2>6. Use it as a transposition engine</h2>
+<p>The outputs are gates, so use them to apply pitch offsets.</p>
+<h3>Patch</h3>
+<ul>
+<li>Main melody CV from sequencer → precision adder</li>
+<li>Different fixed voltages into switched transpose paths</li>
+<li>Numeric Repetitor outputs trigger:</li>
+<li>sequential switch</li>
+<li>addressable switch</li>
+<li>gate-combiner</li>
+<li>octave-shift logic</li>
+</ul>
+<h3>Result</h3>
+<p>Melody remains recognizable, but certain beats become transposed or reharmonized.</p>
+<p>For example:
+- PRIME = base note events
+- PRODUCT 1 = +7 semitone transpose
+- PRODUCT 2 = +12 octave jump
+- PRODUCT 3 = occasional modal color tone</p>
+<hr />
+<h2>7. Build melodic ratchets and re-articulation</h2>
+<p>Because the outputs are related but independent, you can use one gate for note selection and another for retriggers.</p>
+<h3>Patch</h3>
+<ul>
+<li>PRODUCT 1 → trigger sample-and-hold for pitch</li>
+<li>PRIME + PRODUCT 2 mixed in logic OR → envelope trigger</li>
+<li>PRODUCT 3 → second envelope to LPG or VCA accent</li>
+</ul>
+<h3>Result</h3>
+<p>Some notes repeat with the same pitch, while others change pitch. This creates convincing melodic motifs and ratchets.</p>
+<hr />
+<h2>8. Make arpeggios less rigid</h2>
+<p>If you already have an arpeggiator or pitch sequencer, Numeric Repetitor can break it out of straight-grid predictability.</p>
+<h3>Patch</h3>
+<ul>
+<li>Steady clock drives pitch source</li>
+<li>Numeric Repetitor output gates the VCA/envelope instead of every step sounding</li>
+<li>Another output clocks occasional octave shifts or direction changes</li>
+</ul>
+<h3>Result</h3>
+<p>The pitch order stays stable, but the heard melody becomes syncopated and dynamically phrased.</p>
+<hr />
+<h2>9. Use MEASURE reset for phrase-level tonal structure</h2>
+<p>The <strong>MEASURE</strong> input resets the pattern to the start of the measure.</p>
+<h3>Melodic significance</h3>
+<p>If you send a bar reset or phrase reset into MEASURE:
+- melodic timing re-aligns with harmonic changes
+- transpositions happen in predictable phrase blocks
+- generative patches stay musical over longer durations</p>
+<p>This is very useful if you’re pairing Numeric Repetitor with:
+- chord progression sequencers
+- bar-based transposition
+- DAW-synced clock/reset systems</p>
+<hr />
+<h2>10. Pair with quantizers and logic for pseudo-composition</h2>
+<p>Numeric Repetitor becomes much more melodic when paired with:</p>
+<ul>
+<li><strong>Quantizer</strong>: to turn sampled/random voltages into scale notes</li>
+<li><strong>Sample &amp; Hold / T&amp;H</strong>: to choose new pitches rhythmically</li>
+<li><strong>Sequential switch</strong>: to select among note sources</li>
+<li><strong>Precision adder</strong>: for transposition</li>
+<li><strong>Clock divider/multiplier</strong>: to create phrase changes</li>
+<li><strong>Logic module</strong>: combine PRIME and PRODUCT gates into more complex note events</li>
+<li><strong>Envelope/LPG</strong>: shape note articulation</li>
+</ul>
+<p>In practice, this module shines in a system with at least one pitch source and one pitch processor.</p>
+<hr />
+<h2>What the 4 outputs can mean in a melodic patch</h2>
+<p>A practical interpretation:</p>
+<ul>
+<li><strong>PRIME</strong>: main note articulation</li>
+<li><strong>PRODUCT 1</strong>: choose next pitch</li>
+<li><strong>PRODUCT 2</strong>: accent/transposition/timbre change</li>
+<li><strong>PRODUCT 3</strong>: secondary melodic voice or phrase interruption</li>
+</ul>
+<p>This division tends to yield musically useful results quickly.</p>
+<hr />
+<h2>Important character of the module for melody</h2>
+<p>The manual’s design notes are key: the rhythm variations come from treating a 16-step rhythm as a binary number and multiplying it by another number. Musically, this means:</p>
+<ul>
+<li>variations are <strong>related</strong>, not arbitrary</li>
+<li>powers of two behave like <strong>time offsets/rotations</strong></li>
+<li>odd-number factors tend to preserve the <strong>downbeat</strong></li>
+<li>the selected prime rhythms were filtered to avoid many awkward/unmusical cases</li>
+</ul>
+<p>So for melody, Numeric Repetitor is especially good at producing:
+- coherent syncopation
+- recurring motifs
+- phrase mutation
+- related multi-voice timing</p>
+<p>It is less about writing exact melodies and more about generating <strong>melodic phrasing and structure</strong>.</p>
+<hr />
+<h2>Example melodic patch recipes</h2>
+<h2>Patch 1: Generative lead</h2>
+<ul>
+<li>Clock → BEAT</li>
+<li>Bar reset → MEASURE</li>
+<li>Slow random → S&amp;H input</li>
+<li>PRODUCT 1 → S&amp;H trigger</li>
+<li>S&amp;H → quantizer → oscillator pitch</li>
+<li>PRIME → envelope → VCA</li>
+<li>PRODUCT 2 → filter envelope</li>
+<li>PRODUCT 3 → octave transpose gate</li>
+</ul>
+<h3>Sound</h3>
+<p>A coherent generative lead with evolving accents and pitch rhythm.</p>
+<hr />
+<h2>Patch 2: Bass + melody duet</h2>
+<ul>
+<li>PRIME → bass envelope</li>
+<li>PRODUCT 1 → bass sequencer advance</li>
+<li>PRODUCT 2 → lead envelope</li>
+<li>PRODUCT 3 → lead S&amp;H trigger</li>
+<li>Shared quantizer or related scales</li>
+</ul>
+<h3>Sound</h3>
+<p>Two melodic lines that feel connected because their timing comes from the same rhythmic family.</p>
+<hr />
+<h2>Patch 3: Chord tone selector</h2>
+<ul>
+<li>Fixed voltages for chord tones into sequential switch</li>
+<li>PRODUCT 1 → switch advance</li>
+<li>Switch output → quantizer → oscillator</li>
+<li>PRIME → VCA envelope</li>
+<li>Slow CV into PRIME CV or FACTOR CV</li>
+</ul>
+<h3>Sound</h3>
+<p>A melody assembled from chord tones with evolving rhythmic emphasis.</p>
+<hr />
+<h2>Patch 4: Transposing ostinato</h2>
+<ul>
+<li>8-step pitch sequencer → quantizer → oscillator</li>
+<li>PRIME → envelope gate</li>
+<li>PRODUCT 1 → +5 semitone transpose gate</li>
+<li>PRODUCT 2 → +12 semitone transpose gate</li>
+<li>PRODUCT 3 → timbre accent or second oscillator sync trigger</li>
+</ul>
+<h3>Sound</h3>
+<p>A stable repeating pitch pattern that becomes musically alive through rhythmic transpositions.</p>
+<hr />
+<h2>Limitations</h2>
+<p>Numeric Repetitor does <strong>not</strong> provide:</p>
+<ul>
+<li>pitch CV</li>
+<li>note memory</li>
+<li>scale selection</li>
+<li>melodic interval programming</li>
+</ul>
+<p>So if your goal is direct melody composition, you’ll need companion modules. Think of Numeric Repetitor as a <strong>rhythmic composer for melodic systems</strong>.</p>
+<hr />
+<h2>Best companion modules for melodic use</h2>
+<p>To get the most melodic value from it, pair it with:</p>
+<ul>
+<li>quantizer</li>
+<li>sample &amp; hold</li>
+<li>random CV source</li>
+<li>CV sequencer</li>
+<li>precision adder</li>
+<li>sequential switch</li>
+<li>envelope/VCA or LPG</li>
+<li>clock divider/reset source</li>
+</ul>
+<hr />
+<h2>Bottom line</h2>
+<p>Numeric Repetitor contributes to melody by controlling:</p>
+<ul>
+<li><strong>when notes happen</strong></li>
+<li><strong>when pitches change</strong></li>
+<li><strong>when phrases reset</strong></li>
+<li><strong>when accents/transpositions occur</strong></li>
+<li><strong>how multiple melodic voices interlock</strong></li>
+</ul>
+<p>So while it is fundamentally a rhythm module, it can be a very strong tool for creating <strong>melodic phrasing, generative note timing, counterpoint, and transposition structure</strong> in a Eurorack patch.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Omnitone_Rosci</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Omnitone — Rosci</h1>
+<ul>
+<li><a href="../../manuals/Rosci-Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#rosci-user-manual-analysis">Rosci User Manual (parsed pages)</a></p>
+<h1>Rosci User Manual Analysis</h1>
+<p>Rosci appears to be a <strong>digital oscillator / waveform generator</strong> for Eurorack that can operate as either:</p>
+<ul>
+<li>a <strong>VCO</strong>: 20 Hz–20 kHz</li>
+<li>an <strong>LFO</strong>: 0.016 Hz–20 Hz</li>
+</ul>
+<p>For building <strong>melodic components</strong>, the important takeaway is that Rosci is primarily a <strong>sound source</strong> in VCO mode, with strong timbral shaping built directly into the module.</p>
+<h2>What the module does musically</h2>
+<p>Rosci generates a waveform and lets you shape it with these parameters:</p>
+<ul>
+<li><strong>Complexity</strong>: changes the number of points used to generate the waveform, from 2 to 20</li>
+<li><strong>Roundness</strong>: sets the interpolation method between waveform points</li>
+<li><strong>Harmonics</strong>: adds up to 6 harmonics</li>
+<li><strong>Formants</strong>: compresses waveform sections and adds empty space to mimic vowel-like sounds</li>
+<li><strong>Detune</strong>: offsets pitch up to a perfect fifth</li>
+<li><strong>Coarse / Fine tune</strong>: pitch adjustment</li>
+<li><strong>V/Oct input</strong>: pitch tracking</li>
+<li><strong>Generate button/input</strong>: creates a new waveform</li>
+</ul>
+<p>This means Rosci is not just a plain oscillator. It is especially useful for <strong>melodic voices that need motion and character</strong> without requiring multiple separate utility modules.</p>
+<hr />
+<h2>Core melodic use cases</h2>
+<h2>1. Basic mono synth voice</h2>
+<p>The simplest melodic patch is:</p>
+<ul>
+<li><strong>Pitch sequencer CV</strong> → <strong>Rosci V/OCT</strong></li>
+<li><strong>Rosci OUT</strong> → <strong>filter or VCA/audio path</strong></li>
+<li><strong>gate/trigger source</strong> → envelope → VCA</li>
+</ul>
+<p>Rosci then acts as the pitched sound source for a bassline, lead, or arpeggio.</p>
+<p>Why it works well:
+- It tracks <strong>1V/oct</strong>
+- It covers the full audio range
+- Its waveform controls let you sculpt the harmonic content for expressive melodies</p>
+<h3>Musical results</h3>
+<ul>
+<li>Low complexity + low harmonics = cleaner, simpler melodic tones</li>
+<li>Higher complexity + roundness changes = more unusual digital timbres</li>
+<li>Added formants = vocal or reed-like lead sounds</li>
+<li>Detune = thicker melodic lines or pseudo-interval layering</li>
+</ul>
+<hr />
+<h2>2. Evolving lead voice</h2>
+<p>Because Rosci mixes <strong>knobs and CV inputs together</strong>, you can animate the tone while the pitch sequence stays constant.</p>
+<p>Patch idea:
+- Sequencer pitch CV → <strong>V/OCT</strong>
+- Slow modulation source → <strong>Complexity CV</strong>
+- Another slow modulation source → <strong>Roundness CV</strong>
+- Rosci OUT → VCA / filter
+- Envelope from trigger sequence → VCA</p>
+<p>This creates a lead line where:
+- the notes remain melodic and tonal
+- the waveform morphs over time
+- repeated notes feel alive instead of static</p>
+<p>This is especially effective for:
+- ambient melodies
+- generative lines
+- expressive solos
+- videogame-like or speech-like synth phrases</p>
+<hr />
+<h2>3. Harmonic thickening without a second oscillator</h2>
+<p>The <strong>Detune</strong> parameter goes up to a perfect fifth, which is musically very useful.</p>
+<p>That means Rosci can help create interval-rich melodic content such as:
+- unison thickening
+- fifth-based power-lead sounds
+- pseudo-duophonic harmonies</p>
+<p>Patch idea:
+- Sequencer → <strong>V/OCT</strong>
+- Rosci detune set subtly for width, or pushed toward a fifth
+- Moderate harmonics
+- Optional filter to tame brightness</p>
+<h3>Musical results</h3>
+<ul>
+<li>Slight detune: chorused mono lead or bass</li>
+<li>Stronger detune: “root + fifth” feel</li>
+<li>With formants: choir-like or vocalized melodic gestures</li>
+</ul>
+<p>This is one of the fastest ways to get a fuller melodic voice from a single oscillator.</p>
+<hr />
+<h2>4. Generative melody timbre changes using the Generate input</h2>
+<p>Rosci has a <strong>Generate</strong> control that creates a new waveform, and it can be triggered by a <strong>rising edge</strong> with an expected <strong>0V to +10V</strong> input.</p>
+<p>This is a big compositional feature.</p>
+<p>Patch idea:
+- Sequencer pitch CV → <strong>V/OCT</strong>
+- Clock divider / trigger pattern → <strong>GENERATE</strong>
+- Rosci OUT → VCA/filter/audio chain</p>
+<p>Every trigger to Generate can create a newly derived waveform while the melodic sequence continues.</p>
+<h3>Musical results</h3>
+<ul>
+<li>each note can have a different timbre</li>
+<li>phrase boundaries can introduce a new sound</li>
+<li>repeated melodic loops stay fresh</li>
+<li>generative systems can sound composed rather than repetitive</li>
+</ul>
+<p>A good strategy:
+- trigger Generate only every 4, 8, or 16 steps
+- let the melody repeat while timbre mutates at phrase changes</p>
+<p>That gives the listener continuity in pitch but variation in tone.</p>
+<hr />
+<h2>5. Vocal-like melodic phrases</h2>
+<p>The <strong>Formants</strong> parameter is especially notable. The manual says it:
+- compresses the waveform
+- adds empty space
+- mimics vowel sounds</p>
+<p>That makes Rosci useful for:
+- singing leads
+- talking basses
+- woodwind/reed-like melodies
+- animated counter-melodies</p>
+<p>Patch idea:
+- Sequencer → <strong>V/OCT</strong>
+- Manual or CV modulation of <strong>Formants</strong>
+- Moderate <strong>Harmonics</strong>
+- Small changes in <strong>Roundness</strong>
+- Optional envelope-controlled filter after Rosci</p>
+<h3>Musical results</h3>
+<p>You can move between “ah,” “ee,” and “oh”-like tone zones while the pitch sequence plays, producing very distinctive melodic lines.</p>
+<p>This is especially effective for:
+- techno hooks
+- electro leads
+- cinematic motif lines
+- experimental pop melodies</p>
+<hr />
+<h2>6. Percussive tuned melodic lines</h2>
+<p>Rosci can also be used for plucky or struck melodic material when paired with short envelopes.</p>
+<p>Patch idea:
+- Trigger sequencer → envelope → VCA
+- Quantized pitch CV → <strong>V/OCT</strong>
+- Rosci OUT → VCA
+- Higher harmonics / complexity for brighter attacks</p>
+<p>This gives:
+- mallet-like tones
+- synthetic plucks
+- tuned percussion
+- sequenced ostinatos</p>
+<p>Because Rosci’s waveform generation is already rich, you may not need much filtering to make these melodic parts stand out.</p>
+<hr />
+<h2>7. Bassline generation</h2>
+<p>Rosci should work well as a bass oscillator in VCO mode.</p>
+<p>Good bass settings:
+- lower complexity
+- restrained harmonics
+- modest roundness
+- little or no detune for a focused fundamental</p>
+<p>Or for aggressive bass:
+- higher harmonics
+- more complex waveform
+- subtle formant movement
+- slight detune for mass</p>
+<p>Patch idea:
+- Bass sequencer or keyboard CV → <strong>V/OCT</strong>
+- Rosci OUT → low-pass filter → VCA
+- Envelope on filter and/or VCA</p>
+<p>This can produce:
+- solid mono basses
+- growling digital bass
+- acid-adjacent melodic bass figures
+- evolving low-end motifs</p>
+<hr />
+<h2>8. Use in LFO mode to support melodic patches</h2>
+<p>Rosci can also be converted into <strong>LFO mode</strong> by moving a rear jumper while powered off.</p>
+<p>In LFO mode, Rosci is no longer your main audible oscillator, but it becomes a <strong>modulation source</strong> that can drive melodic changes elsewhere.</p>
+<p>Potential melodic support roles:
+- modulating filter cutoff on another voice
+- modulating wavefolder depth
+- modulating VCA level for tremolo
+- modulating pitch gently for vibrato
+- modulating a sequencer parameter if your system allows CV control</p>
+<p>This means if you had more than one Rosci, or if you temporarily dedicate one to modulation, it can help create:
+- pulsing lead articulation
+- evolving phrasing
+- pitch drift/vibrato
+- rhythmic dynamic movement</p>
+<p>However, based on this manual alone, Rosci’s strongest melodic role is clearly <strong>as a VCO voice</strong>.</p>
+<hr />
+<h2>Practical patch strategies for melodic music</h2>
+<h2>A. Lead patch</h2>
+<ul>
+<li>Keyboard/sequencer CV → V/OCT</li>
+<li>Gate → envelope → VCA</li>
+<li>Rosci OUT → VCA → effects</li>
+<li>Moderate harmonics</li>
+<li>Subtle formants</li>
+<li>Slight detune</li>
+</ul>
+<p>Result:
+- expressive mono lead with a thick, vocal character</p>
+<h2>B. Bass patch</h2>
+<ul>
+<li>Sequencer → V/OCT</li>
+<li>Rosci OUT → low-pass filter → VCA</li>
+<li>Short decay envelope</li>
+<li>Low complexity, low detune</li>
+</ul>
+<p>Result:
+- focused, punchy bassline</p>
+<h2>C. Generative melodic phrase patch</h2>
+<ul>
+<li>Quantized random CV → V/OCT</li>
+<li>Sparse trigger pattern → Generate</li>
+<li>Slow LFOs/envelopes → Complexity and Roundness CVs</li>
+<li>Rosci OUT → reverb/delay chain</li>
+</ul>
+<p>Result:
+- evolving melodic motifs with changing timbre</p>
+<h2>D. Fifth-harmony hook patch</h2>
+<ul>
+<li>Sequencer → V/OCT</li>
+<li>Rosci detune set near a fifth</li>
+<li>Some harmonics and formants</li>
+<li>OUT → VCA/filter</li>
+</ul>
+<p>Result:
+- strong interval-based hook line with one oscillator</p>
+<hr />
+<h2>Important technical considerations</h2>
+<h2>CV behavior</h2>
+<p>The manual says:
+- CV input range for parameter inputs: <strong>-10V to +10V</strong>
+- knobs and CV are <strong>summed</strong>
+- the full parameter range is <strong>10V</strong>
+- outside that range, the parameter <strong>saturates</strong></p>
+<p>Musically, this means:
+- attenuating modulation is important
+- you can easily overdrive a parameter to its limit
+- subtle modulation will often sound better for melodic clarity</p>
+<h2>Generate trigger behavior</h2>
+<ul>
+<li>Generate triggers on the <strong>rising edge</strong></li>
+<li>expected trigger input: <strong>0V to +10V</strong></li>
+</ul>
+<p>So standard Eurorack trigger/gate sources should generally work well.</p>
+<h2>Tuning</h2>
+<p>The manual specifies:
+- <strong>V/OCT tolerance: +/- 3 cents typical</strong>
+- tuning calibration process uses two voltages 2V apart
+- recommended not to use <strong>0V</strong> or <strong>10V</strong> for tuning</p>
+<p>This is important if you want Rosci to serve as a reliable melodic oscillator in a tonal patch.</p>
+<hr />
+<h2>How Rosci fits into a larger melodic system</h2>
+<p>Rosci pairs especially well with:</p>
+<ul>
+<li><strong>sequencers</strong> for pitch control</li>
+<li><strong>quantizers</strong> for tonal melodic generation</li>
+<li><strong>VCAs and envelopes</strong> for articulation</li>
+<li><strong>filters</strong> for subtractive shaping</li>
+<li><strong>delay/reverb</strong> for melodic ambience</li>
+<li><strong>clock dividers / trigger sequencers</strong> for controlled waveform regeneration</li>
+</ul>
+<p>In a complete Eurorack melodic voice, Rosci is best understood as:</p>
+<ul>
+<li>the <strong>primary tone generator</strong></li>
+<li>with <strong>built-in waveform mutation</strong></li>
+<li>capable of both <strong>stable pitch tracking</strong> and <strong>animated timbral variation</strong></li>
+</ul>
+<p>That makes it particularly strong for melodic parts that need to sound:
+- alive
+- digital but musical
+- speech-like
+- harmonically rich
+- varied over repeated phrases</p>
+<hr />
+<h2>Summary</h2>
+<p>From the manual, Rosci is a <strong>highly characterful digital oscillator</strong> that excels at melodic duties when patched as a standard Eurorack voice.</p>
+<p>Its most useful features for melody are:</p>
+<ul>
+<li>accurate <strong>V/Oct</strong> pitch input</li>
+<li>broad frequency range in <strong>VCO mode</strong></li>
+<li>internal timbre controls for <strong>complexity, roundness, harmonics, formants, and detune</strong></li>
+<li><strong>Generate</strong> input for refreshing the waveform during performance or sequencing</li>
+<li>optional <strong>LFO mode</strong> for modulation duties</li>
+</ul>
+<h3>Best melodic applications</h3>
+<ul>
+<li>mono leads</li>
+<li>basslines</li>
+<li>evolving arpeggios</li>
+<li>generative melodies</li>
+<li>vocal-like hooks</li>
+<li>interval-rich “root + fifth” lines</li>
+<li>plucky tuned percussion</li>
+</ul>
+<p>The standout compositional trick is to keep the <strong>pitch sequence stable</strong> while using <strong>Generate and parameter CV</strong> to vary the waveform over time. That gives you melody with timbral development, which is often where Eurorack patches become most musically compelling.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

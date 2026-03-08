@@ -1,0 +1,288 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Micro_VCF</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Micro VCF</h1>
+<ul>
+<li><a href="../../manuals/uvcf_manual_2021.08.15.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Intellijel µVCF — using it for melodic musical parts</h1>
+<p>The attached manual is for the <strong>Intellijel µVCF</strong>, a compact <strong>state variable filter</strong>. Even though it’s “just a filter,” it can contribute a lot to <strong>melodic content</strong> because it can work in two main roles:</p>
+<ol>
+<li><strong>As a tone-shaping filter</strong> for an oscillator or other sound source  </li>
+<li><strong>As a self-oscillating sine-wave voice</strong> that can track pitch melodically</li>
+</ol>
+<h2>What the module does</h2>
+<p>The µVCF provides:</p>
+<ul>
+<li><strong>LPF output</strong>: 2-pole low-pass, 12 dB/oct</li>
+<li><strong>HPF output</strong>: 2-pole high-pass, 12 dB/oct</li>
+<li><strong>BPF output</strong>: band-pass output</li>
+<li><strong>FREQ</strong> control for cutoff</li>
+<li><strong>Q</strong> control for resonance</li>
+<li><strong>FM1</strong> CV input with attenuator, which can act as <strong>1V/oct</strong></li>
+<li><strong>FM2</strong> CV input with <strong>bipolar attenuator</strong>, so modulation can be positive or inverted</li>
+<li>Self-resonance that can produce a <strong>low-distortion sine wave</strong> over a wide range</li>
+</ul>
+<h2>Best melodic uses</h2>
+<h2>1. Use µVCF as a sine-wave oscillator</h2>
+<p>This is the most directly melodic use.</p>
+<p>The manual says the module:</p>
+<ul>
+<li>tracks <strong>1V/oct over 4+ octaves</strong></li>
+<li>can be used as a <strong>low-distortion sine VCO when self-resonating</strong></li>
+</ul>
+<h3>Basic patch</h3>
+<ul>
+<li>Patch your sequencer or keyboard <strong>pitch CV</strong> into <strong>FM1</strong></li>
+<li>Turn the <strong>FM1 attenuator fully clockwise</strong> so it tracks <strong>1V/oct</strong></li>
+<li>Turn <strong>Q</strong> up to maximum so the filter self-oscillates</li>
+<li>Take audio from <strong>LPF</strong>, <strong>BPF</strong>, or <strong>HPF</strong> output</li>
+<li>Send that output to a <strong>VCA</strong>, then to your mixer/output</li>
+<li>Use an envelope to open the VCA</li>
+</ul>
+<h3>What this gives you</h3>
+<p>A clean, stable <strong>sine voice</strong> for:</p>
+<ul>
+<li>basslines</li>
+<li>simple leads</li>
+<li>sub-bass</li>
+<li>FM-style melodic layers</li>
+<li>doubled lines under another oscillator</li>
+</ul>
+<p>Because it’s a sine, it sits very well in a mix and is especially useful for <strong>foundation melodies</strong> or <strong>countermelodies</strong>.</p>
+<h2>2. Use it as a melodic filter on another oscillator</h2>
+<p>Patch any pitched source into <strong>IN</strong>:</p>
+<ul>
+<li>VCO saw</li>
+<li>pulse</li>
+<li>triangle</li>
+<li>wavetable source</li>
+<li>noise for more experimental pitched sounds</li>
+</ul>
+<p>Then:</p>
+<ul>
+<li>take one of the filter outputs</li>
+<li>modulate <strong>FREQ</strong> with envelopes, LFOs, or pitch-related CV</li>
+<li>use <strong>Q</strong> to emphasize harmonics near the cutoff</li>
+</ul>
+<h3>Why this is melodic</h3>
+<p>A filter becomes melodic when the cutoff movement is tied to the note being played.</p>
+<p>For example:</p>
+<ul>
+<li>Send the same sequence pitch CV to the oscillator and to <strong>FM1</strong></li>
+<li>Tune the filter cutoff so it follows the note</li>
+<li>Add some resonance</li>
+</ul>
+<p>This creates:</p>
+<ul>
+<li>vowel-like lead sounds</li>
+<li>plucky basses</li>
+<li>acid-like melodic phrasing</li>
+<li>harmonically animated arpeggios</li>
+</ul>
+<h2>3. Parallel melodic voicing from the three outputs</h2>
+<p>A big strength here is the <strong>simultaneous outputs</strong>.</p>
+<p>You can patch:</p>
+<ul>
+<li><strong>LPF</strong> to one VCA/channel</li>
+<li><strong>BPF</strong> to another</li>
+<li><strong>HPF</strong> to a third</li>
+</ul>
+<p>Then mix them in different proportions.</p>
+<h3>Musical uses</h3>
+<ul>
+<li><strong>LPF</strong> for body and warmth</li>
+<li><strong>BPF</strong> for nasal, focused melodic midrange</li>
+<li><strong>HPF</strong> for thin, bright articulation</li>
+</ul>
+<p>This lets one source become a more complex melodic instrument.</p>
+<p>For example:</p>
+<ul>
+<li>LPF as the main bass tone</li>
+<li>BPF as a midrange layer</li>
+<li>HPF mixed quietly for attack detail</li>
+</ul>
+<p>If you have separate VCAs, you can even envelope each output differently for animated melodic phrasing.</p>
+<h2>4. FM-based melodic animation</h2>
+<p>The module “responds very well to frequency modulation.”</p>
+<p>That matters musically because you can patch:</p>
+<ul>
+<li><strong>sequencer pitch CV</strong> to <strong>FM1</strong></li>
+<li><strong>envelope</strong>, <strong>LFO</strong>, or another oscillator to <strong>FM2</strong></li>
+</ul>
+<p>Use <strong>FM2</strong> for expressive movement while <strong>FM1</strong> holds the note pitch relationship.</p>
+<h3>Good musical examples</h3>
+<h4>Vibrato lead</h4>
+<ul>
+<li>Pitch CV into <strong>FM1</strong></li>
+<li>Slow LFO into <strong>FM2</strong></li>
+<li>Small positive FM2 amount</li>
+<li>Self-oscillating sine out to VCA</li>
+</ul>
+<p>Result: expressive sine lead.</p>
+<h4>Pitch envelope pluck</h4>
+<ul>
+<li>Pitch CV into <strong>FM1</strong></li>
+<li>Fast decay envelope into <strong>FM2</strong></li>
+<li>Slight FM2 amount</li>
+<li>High Q or self-oscillation</li>
+</ul>
+<p>Result: percussive, struck melodic tones.</p>
+<h4>Audio-rate FM color</h4>
+<ul>
+<li>Pitch CV into <strong>FM1</strong></li>
+<li>Another oscillator into <strong>FM2</strong></li>
+<li>Moderate FM2 amount</li>
+</ul>
+<p>Result: more complex sidebands and metallic melodic timbres.</p>
+<p>Because <strong>FM2</strong> is bipolar, you can invert the modulation for different contour shapes.</p>
+<h2>5. Tracking filter for harmonic emphasis</h2>
+<p>If you’re using µVCF after a normal oscillator, one powerful patch is to make the filter partially track pitch.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Oscillator audio into <strong>IN</strong></li>
+<li>Sequencer pitch CV multed to:</li>
+<li>oscillator 1V/oct</li>
+<li>µVCF <strong>FM1</strong></li>
+<li>Set <strong>FM1 attenuator</strong> somewhere below full</li>
+<li>Use <strong>LPF</strong> or <strong>BPF</strong> out</li>
+</ul>
+<p>Now the cutoff rises as notes rise.</p>
+<h3>Why this helps melodically</h3>
+<p>Without tracking, the timbre may feel inconsistent across the keyboard range.<br />
+With tracking, each note keeps a more similar harmonic character.</p>
+<p>That is especially useful for:</p>
+<ul>
+<li>basslines that stay punchy across octaves</li>
+<li>leads with stable brightness</li>
+<li>melodic sequences that sound “played,” not static</li>
+</ul>
+<h2>6. Resonant band-pass melodies</h2>
+<p>The <strong>BPF</strong> output can be especially musical.</p>
+<p>Feed it with a harmonically rich oscillator like a saw wave, then:</p>
+<ul>
+<li>increase <strong>Q</strong></li>
+<li>tune <strong>FREQ</strong> to the musical range</li>
+<li>optionally patch pitch CV into <strong>FM1</strong></li>
+</ul>
+<p>This creates:</p>
+<ul>
+<li>reed-like tones</li>
+<li>vocal-ish lines</li>
+<li>focused melodic hooks</li>
+<li>pseudo formant sweeps</li>
+</ul>
+<p>Band-pass is great when you want a melody that cuts through a dense arrangement.</p>
+<h2>7. Self-oscillation plus external audio</h2>
+<p>Another nice melodic technique is layering the self-oscillating sine with filtered source audio.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>External oscillator into <strong>IN</strong></li>
+<li>Turn <strong>Q</strong> high enough to ring or self-oscillate</li>
+<li>Pitch CV into <strong>FM1</strong></li>
+<li>Take one filter output</li>
+</ul>
+<p>Now the output contains:</p>
+<ul>
+<li>the incoming source being filtered</li>
+<li>the resonant sine component near cutoff</li>
+</ul>
+<p>This can make a note feel like it has an internal tuned resonance, almost like:</p>
+<ul>
+<li>a second oscillator</li>
+<li>a tuned resonator</li>
+<li>a vocal/acoustic body resonance</li>
+</ul>
+<p>Very useful for melodic leads and basses.</p>
+<h2>Practical melodic patch recipes</h2>
+<h2>Patch 1: Simple sine bass voice</h2>
+<ul>
+<li>Sequencer pitch CV → <strong>FM1</strong></li>
+<li>FM1 attenuator → fully clockwise</li>
+<li><strong>Q</strong> → high / self-oscillating</li>
+<li><strong>LPF out</strong> → VCA → mixer</li>
+<li>Gate → envelope → VCA CV</li>
+</ul>
+<p>Use <strong>FREQ</strong> to tune the base pitch range.</p>
+<p>Sound: pure, round bass.</p>
+<h2>Patch 2: Clean lead voice</h2>
+<ul>
+<li>Keyboard/sequencer CV → <strong>FM1</strong></li>
+<li>Q at self-oscillation</li>
+<li><strong>BPF</strong> or <strong>LPF</strong> out → VCA</li>
+<li>Envelope on VCA</li>
+<li>Slow LFO → <strong>FM2</strong> for vibrato</li>
+</ul>
+<p>Sound: pure lead with expressive movement.</p>
+<h2>Patch 3: Acid-ish melodic line from another oscillator</h2>
+<ul>
+<li>Saw oscillator → <strong>IN</strong></li>
+<li>Sequencer CV multed to oscillator and <strong>FM1</strong></li>
+<li>Envelope or accent CV → <strong>FM2</strong></li>
+<li><strong>LPF out</strong> → VCA/mixer</li>
+<li>Increase <strong>Q</strong></li>
+</ul>
+<p>Sound: resonant, animated sequence.</p>
+<h2>Patch 4: Formant-style melody</h2>
+<ul>
+<li>Saw or pulse oscillator → <strong>IN</strong></li>
+<li><strong>BPF out</strong> → VCA/mixer</li>
+<li>Pitch CV → oscillator and a bit to <strong>FM1</strong></li>
+<li>Envelope → <strong>FM2</strong></li>
+<li>Moderate to high <strong>Q</strong></li>
+</ul>
+<p>Sound: vocal, nasal, cutting melodic timbre.</p>
+<h2>Patch 5: Three-layer melodic split</h2>
+<ul>
+<li>Oscillator → <strong>IN</strong></li>
+<li><strong>LPF</strong>, <strong>BPF</strong>, <strong>HPF</strong> all patched to separate VCAs or mixer channels</li>
+<li>Use different envelope depths or levels on each path</li>
+</ul>
+<p>Sound: one melody with low/body, mid/focus, and bright/attack layers.</p>
+<h2>Important note on the manual’s instructions</h2>
+<p>The manual text on the last page appears to contain a likely typo/inconsistency about knob directions for self-oscillation and 1V/oct behavior. Earlier sections are clearer:</p>
+<ul>
+<li><strong>FM1 attenuator fully clockwise</strong> = unattenuated, tracks <strong>1V/oct</strong></li>
+<li><strong>Full Q</strong> = self-resonance and sine generation</li>
+</ul>
+<p>Those are the settings to trust for melodic oscillator use.</p>
+<h2>Strengths of the µVCF in melodic systems</h2>
+<p>This module is especially good if you want:</p>
+<ul>
+<li>a compact filter that can also become a <strong>spare oscillator</strong></li>
+<li><strong>clean sine tones</strong></li>
+<li>pitch-tracked resonance</li>
+<li>flexible multi-output filtering for layered melodic voices</li>
+<li>FM-capable, compact utility in a small rack</li>
+</ul>
+<h2>Limitations to keep in mind</h2>
+<p>On its own, the µVCF is not a complete melodic voice. For typical musical use, you’ll still usually want:</p>
+<ul>
+<li>a <strong>sequencer or keyboard CV source</strong></li>
+<li>a <strong>VCA</strong></li>
+<li>an <strong>envelope generator</strong></li>
+<li>optionally another <strong>oscillator</strong></li>
+<li>mixer/output module</li>
+</ul>
+<p>But if your system already has those, the µVCF can become either:</p>
+<ul>
+<li>the <strong>main pitched source</strong></li>
+<li>or the <strong>timbre-defining melodic shaper</strong></li>
+</ul>
+<h2>Bottom line</h2>
+<p>The µVCF works well for melodic music in two especially useful ways:</p>
+<ol>
+<li><strong>Self-oscillating sine oscillator with 1V/oct tracking</strong> for basss, leads, and simple tonal lines  </li>
+<li><strong>Pitch-trackable resonant filter</strong> for shaping another oscillator into expressive melodic parts</li>
+</ol>
+<p>Its simultaneous outputs and dual FM inputs make it more musically flexible than a basic small filter, especially in compact Eurorack systems.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

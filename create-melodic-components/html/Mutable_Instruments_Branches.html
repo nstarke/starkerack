@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Branches</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Branches</h1>
+<ul>
+<li><a href="../../manuals/branches_quickstart.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/branches/manual">Manual PDF / Online Manual</a></p>
+<h1>Mutable Instruments Branches — using it for melodic patching</h1>
+<p>Branches is a <strong>dual Bernoulli gate</strong>. In plain musical terms, it takes an incoming trigger and <strong>probabilistically sends it to one of two outputs</strong>. That makes it great for adding <strong>variation, phrase branching, note selection, rhythmic melody changes, and semi-random structure</strong>.</p>
+<p>Since this PDF is only for <strong>Branches</strong>, I’ll focus on how its <strong>two internal Bernoulli sections</strong> can be used to build melodic material.</p>
+<h2>What the module does</h2>
+<p>Each section has:</p>
+<ul>
+<li><strong>IN</strong>: trigger input</li>
+<li><strong>CV input</strong>: modulates probability</li>
+<li><strong>OUT A / OUT B</strong>: trigger goes to one or the other</li>
+<li><strong>Probability knob</strong>: biases the odds</li>
+<li><strong>Toggle mode</strong></li>
+<li><strong>Latch mode</strong></li>
+</ul>
+<p>Important details from the manual:</p>
+<ul>
+<li>Output trigger/gate level is <strong>+5V</strong></li>
+<li>There are <strong>two identical sections</strong></li>
+<li><strong>Section 1 is internally routed to section 2</strong> if nothing is patched into section 2’s input</li>
+<li>At extreme probability settings, it behaves more like a <strong>voltage-controlled switch</strong> than a random router</li>
+<li><strong>Toggle mode</strong> changes the logic from “A vs B randomly each hit” to “stay on same output vs switch to the other output”</li>
+<li><strong>Latch mode</strong> keeps an output high until the other output is activated</li>
+</ul>
+<h2>Big picture: why Branches is useful for melody</h2>
+<p>Branches does <strong>not generate pitch CV by itself</strong>. Instead, it generates <strong>decisions</strong>. In melodic systems, those decisions are incredibly useful because they can determine:</p>
+<ul>
+<li>which sequencer advances</li>
+<li>which envelope fires</li>
+<li>which pitch source is sampled</li>
+<li>which quantizer input is used</li>
+<li>which phrase gets played</li>
+<li>when a melody repeats or diverges</li>
+<li>when accents or ornament notes happen</li>
+</ul>
+<p>So Branches is best thought of as a <strong>melody structure and phrase variation module</strong>.</p>
+<hr />
+<h1>Melodic patch ideas</h1>
+<h2>1. Probabilistic phrase selector</h2>
+<p>Use Branches to choose between <strong>two melodic phrases</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send a clock or trigger stream into <strong>Branches IN</strong></li>
+<li>Patch <strong>OUT A</strong> to trigger/clock <strong>Sequencer A</strong></li>
+<li>Patch <strong>OUT B</strong> to trigger/clock <strong>Sequencer B</strong></li>
+<li>Send both sequencers’ pitch CV to:</li>
+<li>separate voices, or</li>
+<li>a switch/mixer/quantizer downstream for a single voice</li>
+</ul>
+<h3>Result</h3>
+<p>Each incoming trigger decides whether phrase A or phrase B plays. By adjusting the probability, you can make:</p>
+<ul>
+<li>one phrase dominant with occasional deviations</li>
+<li>a balanced call-and-response</li>
+<li>rare fills from the second phrase</li>
+</ul>
+<h3>Musical use</h3>
+<p>This is ideal for:
+- verse variation
+- generative lead lines
+- bassline evolution
+- occasional alternate cadences</p>
+<hr />
+<h2>2. One clock, two note lanes</h2>
+<p>Instead of using two independent sequencers, use Branches to split a trigger stream to <strong>two sample-and-hold or quantizer events</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Main rhythm trigger into <strong>IN</strong></li>
+<li><strong>OUT A</strong> triggers one pitch event source</li>
+<li><strong>OUT B</strong> triggers another pitch event source</li>
+<li>For example:</li>
+<li>A = chord tones</li>
+<li>B = passing tones or tension notes</li>
+</ul>
+<h3>Result</h3>
+<p>Your melody alternates unpredictably between “stable” and “color” notes.</p>
+<h3>Musical use</h3>
+<p>This is an easy way to make melodies feel:
+- less looped
+- more human
+- harmonically alive</p>
+<hr />
+<h2>3. Ornament generator</h2>
+<p>Use one branch for the main melody, the other for embellishments.</p>
+<h3>Patch</h3>
+<ul>
+<li>Clock or note trigger into Branches</li>
+<li><strong>OUT A</strong> goes to your main melodic envelope/gate</li>
+<li><strong>OUT B</strong> goes to:</li>
+<li>a higher-pitched voice</li>
+<li>a short envelope for grace notes</li>
+<li>a second sequencer with trills or fills</li>
+</ul>
+<h3>Result</h3>
+<p>Most notes are normal, but some are replaced or accompanied by embellishments.</p>
+<h3>Musical use</h3>
+<p>Great for:
+- acid-style flourishes
+- melodic fills
+- percussive synth ornamentation
+- occasional octave jumps</p>
+<hr />
+<h2>4. Controlled melodic randomness with CV over probability</h2>
+<p>The probability parameter has a <strong>CV input</strong>, which is where Branches becomes especially musical.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send a slow LFO, envelope, sequencer row, or random CV into the <strong>probability CV</strong></li>
+<li>Feed regular triggers into <strong>IN</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The odds of choosing A or B change over time. That means your melody can slowly drift from one phrase to another, or become more/less active in certain note lanes.</p>
+<h3>Musical use</h3>
+<p>Examples:
+- during a buildup, increase probability of “fill” notes
+- during breakdowns, bias toward sparse notes
+- use a bar-long envelope so phrase switching evolves across the measure</p>
+<p>This is one of the strongest uses of Branches for melodic composition: <strong>macro control over variation density</strong>.</p>
+<hr />
+<h2>5. Cascaded melodic decisions using both sections</h2>
+<p>Because <strong>section 1 is internally connected to section 2</strong> unless section 2 has its own input, you can create <strong>multi-stage probabilistic routing</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send one trigger stream into <strong>section 1 input</strong></li>
+<li>Leave <strong>section 2 input unpatched</strong></li>
+<li>Now section 1 and 2 can act like a chain of decisions</li>
+</ul>
+<h3>Result</h3>
+<p>You can derive more nuanced event trees, such as:
+- first decision: main note or alternate note
+- second decision: if an alternate path occurs, choose between two different variants</p>
+<h3>Musical use</h3>
+<p>This lets you build <strong>3-way or 4-way melodic branching structures</strong> when combined with additional routing or voice destinations.</p>
+<p>For example:
+- Section 1 chooses “core phrase” vs “variation”
+- Section 2 further divides the variation into “upward fill” vs “downward fill”</p>
+<p>That’s powerful for generative melodies that still sound composed.</p>
+<hr />
+<h2>6. Voltage-controlled switch behavior for deterministic arrangement changes</h2>
+<p>The manual notes that at <strong>extreme settings</strong>, the output is no longer random and behaves like a <strong>voltage-controlled switch</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send a trigger stream into Branches</li>
+<li>Use CV to push probability hard left or right at certain moments</li>
+</ul>
+<h3>Result</h3>
+<p>Branches becomes a performance-friendly phrase switcher:
+- section A during one part of the song
+- section B during another part
+- probabilistic in-between during transitions</p>
+<h3>Musical use</h3>
+<p>This is excellent for:
+- moving between verse and chorus patterns
+- transitioning from stable melody to generative melody
+- live improvisation with controlled uncertainty</p>
+<hr />
+<h2>7. Toggle mode for melodic continuity</h2>
+<p>In normal mode, every incoming trigger is a fresh coin toss.</p>
+<p>In <strong>toggle mode</strong>, the coin toss instead decides:
+- <strong>stay on the same output</strong>
+- <strong>switch to the opposite output</strong></p>
+<p>This makes the output behavior much more <strong>phrase-like</strong>.</p>
+<h3>Why this matters for melody</h3>
+<p>Instead of isolated random note decisions, you get <strong>runs</strong> and <strong>contiguous sections</strong>:
+- a phrase may remain on melody A for a while
+- then switch to melody B
+- then stay there until another switch event happens</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Enable <strong>toggle mode</strong></li>
+<li>Use <strong>OUT A</strong> and <strong>OUT B</strong> to drive two different melodic sequencers or two transposition sources</li>
+</ul>
+<h3>Result</h3>
+<p>You get larger-scale melodic coherence instead of per-note randomness.</p>
+<h3>Musical use</h3>
+<p>This is especially good for:
+- AB phrase alternation
+- bassline variation in chunks
+- evolving motifs
+- long-form generative structure</p>
+<p>If you want melody that feels intentional rather than “coin toss every note,” <strong>toggle mode is the secret weapon</strong>.</p>
+<hr />
+<h2>8. Latch mode for drone, held notes, and sustained melodic states</h2>
+<p>In <strong>latch mode</strong>, an output stays at +5V until the other output is activated.</p>
+<h3>Why that’s musically useful</h3>
+<p>This can create:
+- held states
+- sustained note selections
+- continuous enable signals for one melodic path or another</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>Use A and B to enable two different quantizer/scaler/transposition paths</li>
+<li>Use A and B to open two VCAs controlling different pitch CV sources</li>
+<li>Use A and B to select between two drones or sustained harmonic centers</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of short trigger events, Branches can act like a <strong>state selector</strong> for melody.</p>
+<h3>Musical use</h3>
+<p>You can build:
+- melodies that stay in one tonal area until “flipped”
+- alternating root notes for bass drones
+- long-held harmonic choices with occasional changes</p>
+<p>This is very useful when you want structure above the note-by-note level.</p>
+<hr />
+<h2>9. Root note vs. extension note logic</h2>
+<p>A very musical trick is to use Branches to decide whether a note event should be a <strong>strong harmonic tone</strong> or a <strong>color tone</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Trigger stream into IN</li>
+<li><strong>OUT A</strong> triggers a pitch source limited to root/third/fifth</li>
+<li><strong>OUT B</strong> triggers a pitch source including 7ths, 9ths, or chromatic passing notes</li>
+</ul>
+<h3>Result</h3>
+<p>Most notes reinforce the harmony, while some add tension.</p>
+<h3>Musical use</h3>
+<p>This creates melodies that sound:
+- tonal but not boring
+- generative but still musical
+- expressive without needing a complicated sequencer</p>
+<hr />
+<h2>10. Bassline and lead derived from one source</h2>
+<p>Use the two sections to derive related but non-identical melodic layers.</p>
+<h3>Patch</h3>
+<ul>
+<li>Feed a master trigger stream into section 1</li>
+<li>Use section 1 outputs for bassline decisions</li>
+<li>Let the internal routing feed section 2</li>
+<li>Use section 2 outputs for lead or counter-melody events</li>
+</ul>
+<h3>Result</h3>
+<p>The lead and bass become statistically related because they originate from the same incoming rhythmic source, but they won’t always fire together.</p>
+<h3>Musical use</h3>
+<p>This is a strong approach for:
+- ambient generative systems
+- Berlin-school style evolving sequences
+- modular techno with related voices</p>
+<hr />
+<h1>Best musical behaviors from each mode</h1>
+<h2>Normal mode</h2>
+<p>Best for:
+- per-note random variation
+- fills
+- ornaments
+- alternate note triggers</p>
+<h2>Toggle mode</h2>
+<p>Best for:
+- phrase-level alternation
+- AB structures
+- longer melodic continuity
+- motif switching</p>
+<h2>Latch mode</h2>
+<p>Best for:
+- held harmonic states
+- drones
+- switching between tonal centers
+- sustained melodic routing</p>
+<hr />
+<h1>Practical melodic strategies</h1>
+<h2>Keep one side musically safe</h2>
+<p>A strong patching principle:
+- <strong>A = stable musical choice</strong>
+- <strong>B = more unusual choice</strong></p>
+<p>For example:
+- A = root-position phrase
+- B = transposed phrase
+- A = diatonic notes
+- B = wider interval jumps
+- A = bass note
+- B = octave leap or accent</p>
+<p>Then tune probability so the piece stays coherent.</p>
+<h2>Modulate probability slowly</h2>
+<p>Fast probability modulation can be chaotic. For melodic use, slow modulation often works better:
+- bar-length envelopes
+- slow LFOs
+- sequencer rows changing every 4 or 8 steps</p>
+<p>This gives evolving form rather than jitter.</p>
+<h2>Use toggle mode when you want memory</h2>
+<p>Melodies often sound better when choices persist for a while. Toggle mode adds that persistence.</p>
+<h2>Use extremes for arrangement control</h2>
+<p>Don’t forget Branches can be nearly deterministic. That makes it useful not only for randomness, but for <strong>composed switching</strong> during a performance.</p>
+<hr />
+<h1>Example melodic patches</h1>
+<h2>Patch 1: Evolving two-phrase melody</h2>
+<ul>
+<li>Clock to Branches IN</li>
+<li>Toggle mode ON</li>
+<li>OUT A clocks Sequencer A</li>
+<li>OUT B clocks Sequencer B</li>
+<li>Both sequencers tuned to same scale</li>
+<li>Slow LFO into probability CV</li>
+</ul>
+<p><strong>Sound:</strong> long stretches of one phrase, with gradual transitions to another.</p>
+<h2>Patch 2: Bassline with occasional fill notes</h2>
+<ul>
+<li>Steady 16th or 8th-note triggers to IN</li>
+<li>OUT A triggers main bass pitch source</li>
+<li>OUT B triggers alternate higher fill pitch</li>
+<li>Probability mostly biased toward A</li>
+</ul>
+<p><strong>Sound:</strong> solid bassline with occasional melodic deviations.</p>
+<h2>Patch 3: Harmonic state selector</h2>
+<ul>
+<li>Latch mode ON</li>
+<li>OUT A opens VCA for one transposition CV</li>
+<li>OUT B opens VCA for another transposition CV</li>
+<li>Trigger Branches from a slower clock division</li>
+</ul>
+<p><strong>Sound:</strong> melody remains in one transposition/harmonic state until the next change.</p>
+<h2>Patch 4: Countermelody from shared source</h2>
+<ul>
+<li>Main trigger stream into section 1</li>
+<li>Use section 1 for primary voice routing</li>
+<li>Use section 2 as a second probabilistic layer</li>
+<li>Different probability settings on each section</li>
+</ul>
+<p><strong>Sound:</strong> two related melodic voices with intertwined variation.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>Mutable Instruments <strong>Branches</strong> is not a pitch generator, but it is extremely effective at creating <strong>melodic structure</strong> by making decisions about <strong>when</strong>, <strong>which path</strong>, and <strong>how often</strong> notes or phrases occur.</p>
+<p>Its most melodic strengths are:</p>
+<ul>
+<li><strong>probabilistic phrase selection</strong></li>
+<li><strong>alternate note routing</strong></li>
+<li><strong>ornament/fill generation</strong></li>
+<li><strong>A/B motif switching</strong></li>
+<li><strong>stateful melodic variation with toggle mode</strong></li>
+<li><strong>held harmonic states with latch mode</strong></li>
+<li><strong>CV-controlled evolution over time</strong></li>
+</ul>
+<p>If you pair Branches with sequencers, quantizers, sample-and-holds, precision adders, switches, or even just two different triggerable pitch sources, it becomes a very musical tool for building melodies that are <strong>alive, varied, and still intentional</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

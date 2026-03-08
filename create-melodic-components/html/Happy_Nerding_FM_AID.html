@@ -1,0 +1,453 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Happy_Nerding_FM_AID</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Happy Nerding — FM AID</h1>
+<ul>
+<li><a href="../../manuals/FM-AID-USERS-GUIDE_2020.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://happynerding.com/wp-content/uploads/2020/12/FMAID_manual_2020.pdf">FM AID Manual PDF</a></p>
+<h1>Happy Nerding FM AID: using it for melodic musical parts</h1>
+<p>The attached manual covers <strong>one module: Happy Nerding FM AID</strong>.<br />
+So rather than discussing a multi-module system from the PDFs, I’ll explain how <strong>FM AID works with the other kinds of Eurorack modules you likely already have</strong> to build melodic voices, leads, basses, plucks, bells, and evolving tonal parts.</p>
+<h2>What FM AID does musically</h2>
+<p>FM AID is an <strong>analog through-zero linear FM processor</strong>. In practice, it takes:</p>
+<ul>
+<li>a <strong>Carrier</strong> signal at the <strong>CAR input</strong></li>
+<li>a <strong>Modulator</strong> signal at the <strong>MOD input</strong></li>
+<li>optional FM-depth control at the <strong>CV input</strong></li>
+</ul>
+<p>and gives you <strong>four simultaneous outputs</strong>:</p>
+<ul>
+<li><strong>Square</strong></li>
+<li><strong>Saw</strong></li>
+<li><strong>Sine</strong></li>
+<li><strong>Triangle</strong></li>
+</ul>
+<p>If the <strong>carrier is a saw wave</strong>, those outputs behave like wave-shaped versions of the FM result:
+- sine = mellowest
+- triangle = slightly brighter
+- saw = bright
+- square = brightest</p>
+<p>That makes FM AID especially useful for <strong>melodic duties</strong>, because you can keep one pitch structure but choose different harmonic flavors from the outputs.</p>
+<h2>Important manual points that matter in patching</h2>
+<p>From the manual:</p>
+<ul>
+<li>Preferred signal levels are roughly <strong>-5V to +5V</strong></li>
+<li>The <strong>FM knob</strong> sets modulation depth/index</li>
+<li>The <strong>CV knob</strong> is <strong>bipolar</strong> and adds/subtracts incoming CV from the FM amount</li>
+<li><strong>CAR is normalled to MOD</strong> when nothing is plugged into MOD</li>
+<li>so one oscillator can act as both carrier and modulator</li>
+<li>It works best with <strong>saw as carrier</strong> if you want the named output shapes to behave as labeled</li>
+<li>There is an <strong>onboard trim</strong> for carrier amplitude calibration if the saw output shows artifacts</li>
+<li>Feedback patching from an output back into MOD can produce more aggressive/noisy/digital-like textures</li>
+</ul>
+<hr />
+<h1>Best ways to use FM AID for melodic components</h1>
+<h2>1. Simple 1V/oct melodic voice</h2>
+<p>This is the most direct use.</p>
+<h3>Patch</h3>
+<ul>
+<li>VCO A saw output → <strong>CAR</strong></li>
+<li>VCO B output (sine or triangle is a great start) → <strong>MOD</strong></li>
+<li>Same <strong>1V/oct pitch sequence</strong> → VCO A and VCO B</li>
+<li>FM AID output (start with <strong>Sine</strong> or <strong>Triangle</strong>) → VCA → filter or straight to mixer</li>
+<li>Envelope → VCA CV</li>
+<li>Optional envelope/LFO/sequencer lane → <strong>CV input</strong></li>
+</ul>
+<h3>Musical result</h3>
+<p>This gives you a very playable FM voice where:
+- pitch remains melodic and trackable
+- harmonic complexity comes from the modulator
+- different outputs give multiple timbral versions of the same note line</p>
+<h3>Why it works</h3>
+<p>Sending the same melodic pitch CV to both oscillators keeps their ratio fixed, which is ideal for <strong>stable, tonal FM melodies</strong>.</p>
+<h3>Good ratios to try</h3>
+<p>Tune the modulator relative to the carrier:
+- <strong>1:1</strong> = solid, centered, classic FM tone
+- <strong>2:1</strong> = brighter, more overtone-rich lead or bass
+- <strong>3:2</strong> = musical and slightly more complex
+- <strong>3:1 / 4:1</strong> = bell-like or metallic
+- <strong>1:2</strong> = hollow, subtler upper structure</p>
+<p>For melodic writing, start with:
+- bass: <strong>1:1 or 2:1</strong>
+- lead: <strong>1:1, 3:2, 2:1</strong>
+- bells/mallets: <strong>3:1 or 4:1</strong></p>
+<hr />
+<h2>2. Single-oscillator melodic folding voice</h2>
+<p>Because <strong>CAR is normalled to MOD</strong>, you can patch only one oscillator.</p>
+<h3>Patch</h3>
+<ul>
+<li>One saw VCO → <strong>CAR</strong></li>
+<li>Leave <strong>MOD unpatched</strong></li>
+<li>Pitch sequence → that oscillator’s 1V/oct</li>
+<li>FM AID <strong>Sine/Triangle/Saw/Square output</strong> → VCA → mixer</li>
+<li>Envelope or LFO → <strong>CV input</strong> or manually use FM knob</li>
+</ul>
+<h3>Musical result</h3>
+<p>This gives you a compact melodic voice with a kind of <strong>self-FM / wavefolding-adjacent behavior</strong>.<br />
+It’s not ratio FM in the classic two-oscillator sense, but it can produce:
+- animated basses
+- growling leads
+- harmonically rich mono lines</p>
+<h3>Best use</h3>
+<p>Great if you only have one primary oscillator available but still want a more complex melodic timbre.</p>
+<hr />
+<h2>3. Envelope-controlled FM plucks</h2>
+<p>One of the most musical uses of FM AID is making the FM amount dynamic.</p>
+<h3>Patch</h3>
+<ul>
+<li>Carrier VCO saw → <strong>CAR</strong></li>
+<li>Modulator VCO sine/triangle → <strong>MOD</strong></li>
+<li>Shared pitch CV to both oscillators</li>
+<li>Short decay envelope → <strong>CV input</strong></li>
+<li>Set <strong>CV knob positive</strong></li>
+<li>FM AID output → VCA → mixer</li>
+<li>Another envelope → VCA</li>
+</ul>
+<h3>Musical result</h3>
+<p>At the attack, the FM index is high, so the sound is bright.<br />
+As the envelope falls, the tone becomes purer and more focused.</p>
+<p>This is excellent for:
+- plucks
+- electric piano-ish tones
+- marimba-like tones
+- expressive sequences</p>
+<h3>Why this is especially good</h3>
+<p>This is one of the classic FM behaviors that reads immediately as “musical.”<br />
+You get transient brightness without the note staying harsh.</p>
+<hr />
+<h2>4. Velocity-sensitive melodic phrasing</h2>
+<p>The manual specifically suggests <strong>note velocity</strong> into the CV input.</p>
+<h3>Patch</h3>
+<ul>
+<li>Velocity CV from MIDI-to-CV or sequencer → <strong>CV input</strong></li>
+<li>Set <strong>CV knob</strong> to positive or negative amount</li>
+<li>Normal melodic FM voice patch as above</li>
+</ul>
+<h3>Musical result</h3>
+<p>Harder-played notes become:
+- brighter
+- more complex
+- more aggressive</p>
+<p>Softer notes stay:
+- rounder
+- cleaner
+- more sine-like</p>
+<p>This is extremely useful for expressive:
+- bass lines
+- leads
+- keyboard performance patches</p>
+<p>It’s one of the easiest ways to make an FM voice feel alive in a track.</p>
+<hr />
+<h2>5. Pitch-dependent timbre compensation</h2>
+<p>The manual also points out using <strong>pitch CV</strong> in the CV input.</p>
+<h3>Why do this?</h3>
+<p>FM timbre often changes across the keyboard. Sometimes higher notes get too bright or too thin.</p>
+<h3>Patch</h3>
+<ul>
+<li>Mult your pitch CV</li>
+<li>One copy to oscillator 1V/oct inputs</li>
+<li>Another copy to <strong>CV input</strong></li>
+<li>Use the <strong>CV knob</strong>:</li>
+<li><strong>positive</strong> = brighter as notes go higher</li>
+<li><strong>negative</strong> = less FM as notes go higher</li>
+</ul>
+<h3>Musical result</h3>
+<p>This helps balance a melodic patch across its range.</p>
+<h3>Practical uses</h3>
+<ul>
+<li><strong>Negative CV setting</strong> is great for bass/lead patches where high notes otherwise get too glassy</li>
+<li><strong>Positive CV setting</strong> is useful when you want a more synth-pop or digital-style brightness curve</li>
+</ul>
+<p>This is a very strong “make it sit in the mix” trick.</p>
+<hr />
+<h2>6. Stable melodic intervals with synced oscillators</h2>
+<p>The manual recommends <strong>hard-synced oscillators</strong> to reduce beating and keep the tone static.</p>
+<h3>Patch</h3>
+<ul>
+<li>Carrier oscillator as the master melodic oscillator</li>
+<li>Modulator oscillator hard-synced to carrier</li>
+<li>Both tuned to a chosen ratio</li>
+<li>FM AID patched normally</li>
+</ul>
+<h3>Musical result</h3>
+<p>You get a more locked, stable harmonic tone, which is especially useful when:
+- writing tonal melodies
+- layering with other harmonic instruments
+- recording repeated sequences that need consistency</p>
+<h3>Best for</h3>
+<ul>
+<li>tight basses</li>
+<li>precise arpeggios</li>
+<li>repeated melodic hooks</li>
+</ul>
+<hr />
+<h1>Understanding the four outputs in a musical context</h1>
+<p>A big advantage of FM AID is that it gives <strong>four tonal variants at once</strong>.</p>
+<h2>Sine output</h2>
+<p>Use for:
+- bass fundamentals
+- mellow leads
+- sub-rich melodic support
+- layering under brighter outputs</p>
+<p>It’s the safest starting point for tonal material.</p>
+<h2>Triangle output</h2>
+<p>Use for:
+- woody leads
+- rounded arps
+- melodic lines that need clarity without too much bite</p>
+<p>This is often the sweet spot for melodic content.</p>
+<h2>Saw output</h2>
+<p>Use for:
+- cutting hooks
+- bright sequences
+- acid-adjacent lines
+- melodic parts that need to stand in front of a mix</p>
+<p>Good when you want the FM motion to remain obvious.</p>
+<h2>Square output</h2>
+<p>Use for:
+- very bright lead tones
+- chiptune-adjacent melody colors
+- aggressive arps
+- heavily articulated riffs</p>
+<p>Can get intense quickly, especially at higher FM settings.</p>
+<h3>Very useful trick</h3>
+<p>Mult or record multiple outputs:
+- Sine for body
+- Triangle for definition
+- Saw or Square for edge</p>
+<p>Then mix to taste.</p>
+<hr />
+<h1>Patch recipes for actual melodic roles</h1>
+<h2>A. FM bassline</h2>
+<h3>Patch</h3>
+<ul>
+<li>Carrier saw VCO → CAR</li>
+<li>Modulator sine VCO → MOD</li>
+<li>Same pitch CV to both</li>
+<li>Modulator tuned <strong>1:1</strong> or <strong>2:1</strong></li>
+<li>FM AID <strong>Sine</strong> or <strong>Triangle</strong> out → lowpass filter → VCA</li>
+<li>Snappy envelope to VCA</li>
+<li>Small positive envelope to CV input</li>
+</ul>
+<h3>Result</h3>
+<p>Punchy, harmonically rich bass that still tracks well and keeps low-end focus.</p>
+<h3>Tips from the manual</h3>
+<p>If the bass loses weight as FM increases:
+- lower the carrier octave
+- lower modulator pitch
+- use sine or triangle as modulator</p>
+<p>These are directly recommended in the manual and are very effective.</p>
+<hr />
+<h2>B. Glassy lead</h2>
+<h3>Patch</h3>
+<ul>
+<li>Carrier saw → CAR</li>
+<li>Modulator sine/triangle → MOD</li>
+<li>Shared pitch CV</li>
+<li>Tune modulator to <strong>2:1</strong> or <strong>3:1</strong></li>
+<li>Use <strong>Triangle</strong> or <strong>Saw</strong> output</li>
+<li>Add moderate FM</li>
+<li>Add aftertouch/velocity/mod wheel CV to CV input</li>
+</ul>
+<h3>Result</h3>
+<p>Expressive FM lead with playable timbral dynamics.</p>
+<h3>Performance idea</h3>
+<ul>
+<li>low FM for verses</li>
+<li>increase FM manually for choruses or solos</li>
+<li>use velocity for accent notes</li>
+</ul>
+<hr />
+<h2>C. Bell or mallet sequence</h2>
+<h3>Patch</h3>
+<ul>
+<li>Carrier saw → CAR</li>
+<li>Modulator sine → MOD</li>
+<li>Ratio <strong>3:1, 4:1, or 5:1</strong></li>
+<li>Short decay envelope into CV input</li>
+<li>Set FM knob low to medium</li>
+<li>Use <strong>Sine</strong> output first</li>
+<li>Fast VCA envelope</li>
+</ul>
+<h3>Result</h3>
+<p>Tonal percussive sequence with a bright attack and cleaner tail.</p>
+<h3>Why it works</h3>
+<p>Classic FM bell behavior comes from:
+- nontrivial frequency ratios
+- decaying modulation index</p>
+<p>FM AID is ideal for this.</p>
+<hr />
+<h2>D. Animated arp with audio-rate CV modulation</h2>
+<p>The manual explicitly notes that <strong>audio-rate signals can be patched into the CV input</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Normal melodic FM voice</li>
+<li>Additional oscillator or audio LFO → <strong>CV input</strong></li>
+<li>CV knob to taste</li>
+<li>Arpeggiator or step sequencer driving pitch</li>
+</ul>
+<h3>Result</h3>
+<p>A moving, animated harmonic texture where the FM index itself is being modulated at audio rates.</p>
+<p>This can produce:
+- vocal-like shifting tones
+- unstable digital-esque arps
+- richly animated sustained notes</p>
+<p>Keep this subtle for musical melodic use.</p>
+<hr />
+<h2>E. Self-feedback lead/noise edge patch</h2>
+<p>The manual describes sending an output back into <strong>MOD</strong> for feedback.</p>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator saw → CAR</li>
+<li>FM AID output (start with triangle or saw) multed:</li>
+<li>one copy → mixer/VCA</li>
+<li>one copy → <strong>MOD</strong></li>
+<li>Increase FM gradually</li>
+</ul>
+<h3>Result</h3>
+<p>Starts as aggressive self-FM and can become noisy, tearing, or quasi-digital.</p>
+<h3>Musical use</h3>
+<p>Best for:
+- climactic lead lines
+- industrial melodies
+- transitions
+- high-intensity fills</p>
+<p>This is usually less “clean melodic” and more “expressive special effect,” but very useful in arrangement.</p>
+<hr />
+<h1>How to pair FM AID with common Eurorack module types</h1>
+<h2>With oscillators</h2>
+<p>Best pairing. You usually want:
+- a <strong>saw carrier</strong>
+- a <strong>sine or triangle modulator</strong> to start</p>
+<p>If your oscillators have stable tracking, FM AID becomes a strong melodic voice core.</p>
+<h2>With quantizers/sequencers</h2>
+<p>Excellent. Use them to:
+- keep pitch ratios musical
+- automate melodic movement
+- send accent/velocity lanes to CV input</p>
+<p>A sequencer with extra CV lanes makes FM AID much more expressive.</p>
+<h2>With envelopes</h2>
+<p>Essential for melodic articulation:
+- one envelope for amplitude
+- another for FM depth via CV input</p>
+<p>This is one of the best pairings.</p>
+<h2>With filters</h2>
+<p>Very useful, though not always necessary.
+FM already creates harmonic motion, but a filter helps:
+- tame harshness
+- emphasize sweet spots
+- shape bass vs lead role</p>
+<h2>With VCAs</h2>
+<p>Important if you want dynamic control over:
+- output loudness
+- modulator amplitude before FM AID
+- CV depth sent to the CV input</p>
+<p>A VCA on the modulator path can be extremely musical.</p>
+<h2>With mixers/attenuverters</h2>
+<p>Helpful for:
+- blending outputs
+- controlling modulation depth
+- offsetting the CV input
+- creating parallel voices</p>
+<hr />
+<h1>Practical melodic strategies</h1>
+<h2>Keep ratios simple first</h2>
+<p>For tonal music, start with:
+- 1:1
+- 2:1
+- 3:2</p>
+<p>These are easier to tune and sit better harmonically.</p>
+<h2>Use the CV input like a “brightness animation” input</h2>
+<p>Think of FM AID’s CV input less as abstract modulation and more as:
+- note attack brightness
+- expression
+- phrase accent
+- register compensation</p>
+<p>That mindset makes it much easier to use musically.</p>
+<h2>Start from the sine or triangle outputs</h2>
+<p>If the patch feels unruly, switch to:
+- <strong>Sine</strong> first
+- then <strong>Triangle</strong></p>
+<p>These outputs preserve musicality better in many melodic contexts.</p>
+<h2>Use a saw carrier when you want predictable results</h2>
+<p>The manual is clear that the module is designed around a saw carrier for the indicated output shapes.</p>
+<h2>If the low end disappears, reduce complexity</h2>
+<p>Again from the manual:
+- lower carrier octave
+- lower modulator pitch
+- use sine/triangle modulator</p>
+<p>This is especially important for bass melodies.</p>
+<hr />
+<h1>A few complete example melodic setups</h1>
+<h2>Minimal melodic voice</h2>
+<ul>
+<li>2 VCOs</li>
+<li>1 sequencer</li>
+<li>1 envelope</li>
+<li>1 VCA</li>
+<li>FM AID</li>
+</ul>
+<p>Patch shared pitch CV to both VCOs, saw to carrier, sine to modulator, triangle out to VCA.<br />
+This gives a clean, controllable FM lead or bass.</p>
+<h2>Expressive performance voice</h2>
+<ul>
+<li>2 VCOs</li>
+<li>keyboard/sequencer with velocity</li>
+<li>2 envelopes</li>
+<li>VCA</li>
+<li>filter</li>
+<li>FM AID</li>
+</ul>
+<p>Velocity to CV input, envelope to VCA, optional second envelope to FM depth.<br />
+Great for performable melodic phrasing.</p>
+<h2>Evolving melodic drone/sequence</h2>
+<ul>
+<li>2 VCOs</li>
+<li>slow modulator to CV input</li>
+<li>quantized pitch sequence</li>
+<li>FM AID multiple outputs mixed together</li>
+</ul>
+<p>This creates a harmonically shifting tonal line that remains melodic but keeps moving.</p>
+<hr />
+<h1>Calibration note</h1>
+<p>If the module sounds oddly distorted even at low FM, especially when using a saw carrier, the manual says the <strong>carrier calibration trimmer</strong> may need adjustment.</p>
+<p>Basic manual procedure:
+- nothing patched to CV or MOD
+- saw into CAR
+- FM knob fully CCW
+- monitor the <strong>saw output</strong>
+- adjust trim until the saw is clean and not “two-toothed”</p>
+<p>This matters because poor calibration can make melodic patches sound artifacty in an unintended way.</p>
+<hr />
+<h1>Bottom line</h1>
+<p><strong>FM AID is best thought of as a melodic timbre engine for oscillators.</strong><br />
+It is especially strong for:</p>
+<ul>
+<li>FM basses</li>
+<li>expressive leads</li>
+<li>bell/mallet tones</li>
+<li>plucks with animated attack</li>
+<li>evolving arpeggios</li>
+<li>layered tonal textures from the four simultaneous outputs</li>
+</ul>
+<p>Its most musical strengths are:</p>
+<ol>
+<li><strong>stable ratio-based FM with two oscillators</strong></li>
+<li><strong>self-patched single-oscillator complexity</strong></li>
+<li><strong>dynamic FM index control via envelopes, velocity, or pitch CV</strong></li>
+<li><strong>multiple simultaneous output flavors from one melodic line</strong></li>
+</ol>
+<p>If you want, I can also turn this into:
+- a <strong>set of specific patch diagrams</strong>
+- a <strong>“starter patches” cheat sheet</strong>
+- or a <strong>module pairing guide</strong> for FM AID with your exact rack.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

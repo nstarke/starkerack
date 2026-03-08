@@ -1,0 +1,445 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tubbutec_6m0d6</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tubbutec — 6m0d6</h1>
+<ul>
+<li><a href="../../manuals/6m0d6-User-Manual-1.0.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://tubbutec.de/6m0d6/">6m0d6 Manual PDF / latest manual</a></p>
+<h1>Using the Tubbutec/LPZW 6m0d6 for melodic music in a Eurorack system</h1>
+<p>The 6m0d6 is presented as a TR-606-inspired drum voice, but the manual makes it clear that it can go well beyond percussion. Its combination of <strong>tunable analog drum circuits</strong>, <strong>CV control</strong>, and especially the <strong>MIDI-playable metal oscillator section</strong> makes it surprisingly useful for melodic and harmonic material.</p>
+<h2>Big picture: where the melodic potential comes from</h2>
+<p>The manual describes three main sound-generation areas that matter for pitched or semi-pitched use:</p>
+<ol>
+<li><strong>Bass Drum oscillator section</strong></li>
+<li>Tuneable from normal kick range down/up into more tonal territory.</li>
+<li>
+<p>Long decay allows it to act like a bass voice rather than just a drum transient.</p>
+</li>
+<li>
+<p><strong>Tom circuits</strong></p>
+</li>
+<li>High Tom and Low Tom are explicitly pitch-adjustable.</li>
+<li>
+<p>Low Tom can be shifted into <strong>sub-bass / second bass drum</strong> territory with <strong>Sub Tom</strong>.</p>
+</li>
+<li>
+<p><strong>Metal oscillator network</strong></p>
+</li>
+<li>Originally for cymbal and hats, but here it is much more flexible.</li>
+<li><strong>Metal Tune CV is 1V/oct compatible</strong>.</li>
+<li>Over <strong>MIDI channel 1</strong>, the six metal oscillators can be played directly as a <strong>paraphonic six-voice synth source</strong>.</li>
+<li>Cymbal, hihats, and even snare can use this source, so those drum circuits become resonant pitched/noisy voices.</li>
+</ol>
+<p>That means this module can contribute:
+- <strong>basslines</strong>
+- <strong>pitched tom melodies</strong>
+- <strong>metallic leads</strong>
+- <strong>string-machine-like drones</strong>
+- <strong>paraphonic chordal textures</strong>
+- <strong>tuned percussion lines</strong></p>
+<hr />
+<h2>1. Bass Drum as a melodic bass voice</h2>
+<p>The manual says the bass drum has:
+- <strong>Tune</strong>
+- <strong>Tone</strong>
+- <strong>Decay</strong>
+- <strong>Click</strong></p>
+<p>And importantly:</p>
+<blockquote>
+<p>Tune changes the pitch of oscillator 1, ranging from sub-bass to Tom frequencies.<br />
+Decay adjusts the decay time of oscillator 1 from the original length up to several seconds.</p>
+</blockquote>
+<h3>Musical use</h3>
+<p>This is enough to turn the BD into a playable bass component, even if it is not full keyboard-tracking in the classic VCO sense.</p>
+<h3>Best approaches</h3>
+<ul>
+<li>Set <strong>Click</strong> low or off to reduce the percussive transient.</li>
+<li>Increase <strong>Decay</strong> for sustained low notes.</li>
+<li>Use <strong>Tune</strong> to find a stable sweet spot for a key center.</li>
+<li>Use trigger amplitude and accent creatively for dynamics.</li>
+</ul>
+<h3>In practice</h3>
+<ul>
+<li>Sequence the BD with a trigger sequencer for <strong>pitched kick-bass ostinatos</strong>.</li>
+<li>Modulate tune slowly for <strong>acid-adjacent bass movement</strong>.</li>
+<li>Use different trigger voltages for dynamic phrasing, since the manual notes that trigger amplitude changes not only volume but also timbre.</li>
+</ul>
+<h3>Best role</h3>
+<ul>
+<li><strong>Monophonic bass punctuation</strong></li>
+<li><strong>Electro bass drum basslines</strong></li>
+<li><strong>Sub-heavy root notes</strong></li>
+</ul>
+<hr />
+<h2>2. Toms as tuned percussion and bass/melody voices</h2>
+<p>The manual states:
+- <strong>HT Tune</strong> adjusts High Tom pitch
+- <strong>LT Tune</strong> adjusts Low Tom pitch
+- <strong>Sub Tom</strong> halves the pitch of the Low Tom and can create a <strong>sub-bass or second bass drum</strong>
+- Toms include a noise/reverb component that can be shaped with <strong>Noise Amount</strong> and <strong>Noise Tune</strong></p>
+<h3>Why this matters melodically</h3>
+<p>Toms are often the easiest drum circuits to repurpose as tuned percussion. Here, they are explicitly tuneable and can cover:
+- woody melodic hits
+- electro conga lines
+- bass ostinatos
+- tuned percussion sequences</p>
+<h3>Patch ideas</h3>
+<h4>A. Tuned tom duet</h4>
+<ul>
+<li>Sequence <strong>LT</strong> and <strong>HT</strong> as alternating trigger streams.</li>
+<li>Tune them to two related notes, like root and fifth.</li>
+<li>Use accent variation to make the line feel played rather than programmed.</li>
+</ul>
+<h4>B. Low Tom as bass, High Tom as melody accent</h4>
+<ul>
+<li>Engage <strong>Sub Tom</strong> on LT for low-end.</li>
+<li>Tune HT to a higher pitch for a call-and-response pattern.</li>
+</ul>
+<h4>C. Percussive marimba-ish line</h4>
+<ul>
+<li>Reduce noise amount.</li>
+<li>Keep decay moderate.</li>
+<li>Use short triggers and rhythmic sequencing.</li>
+</ul>
+<h3>Best role</h3>
+<ul>
+<li><strong>Tuned percussion</strong></li>
+<li><strong>Electro tom melodies</strong></li>
+<li><strong>Secondary bass voice</strong></li>
+</ul>
+<hr />
+<h2>3. Cymbal / hats / snare as pitched sound sources via the metal oscillator</h2>
+<p>This is the most important melodic feature in the manual.</p>
+<p>The module’s cymbal and hats are based on a <strong>metal sound created by six square-wave oscillators</strong>. The manual adds:
+- <strong>Metal Tune</strong>
+- <strong>Metal Spread</strong>
+- CV control for both
+- <strong>Metal Tune CV is 1V/oct</strong>
+- MIDI channel 1 can directly play the metal oscillators</p>
+<p>This is where the 6m0d6 stops being “just drums.”</p>
+<hr />
+<h2>4. Using Metal Tune CV as a melodic control source</h2>
+<p>From the manual:</p>
+<blockquote>
+<p>Metal Tune: Controls the tune of the metal sound. This input behaves in a 1V / Oct fashion, which makes it possible to play the metal sound like an instrument.</p>
+</blockquote>
+<p>This means that any instrument using the <strong>Metal</strong> source can become a pitch-controlled voice:
+- Cymbal
+- Open hihat
+- Closed hihat
+- Snare, if set to Metal source</p>
+<h3>Practical melodic setup</h3>
+<ol>
+<li>Set one of these instruments to <strong>Metal</strong> source.</li>
+<li>Patch a pitch CV sequencer into <strong>Metal Tune CV</strong>.</li>
+<li>Trigger the voice rhythmically.</li>
+<li>Adjust <strong>Metal Spread</strong>:</li>
+<li><strong>0 spread</strong> = more in-tune/unison behavior</li>
+<li>more spread = chorused, detuned, cluster-like sound</li>
+</ol>
+<h3>Musical outcomes</h3>
+<ul>
+<li><strong>Cymbal as a metallic pluck voice</strong></li>
+<li><strong>Open hat as a resonant lead</strong></li>
+<li><strong>Snare as a pitched noise synth</strong></li>
+<li><strong>Closed hat as a short digital clave-like melody source</strong></li>
+</ul>
+<h3>Most “melodic” settings</h3>
+<ul>
+<li>Lower spread</li>
+<li>Decay tuned to note length</li>
+<li>Reduced transient harshness via source and tone choices</li>
+</ul>
+<hr />
+<h2>5. MIDI channel 1 turns it into a paraphonic synth</h2>
+<p>This is the strongest melodic feature in the document.</p>
+<p>The manual says:</p>
+<blockquote>
+<p>Sending notes on MIDI channel 1 allows you to play the six metal oscillators directly.<br />
+This effectively turns the oscillators – and with them the Cymbal, Hihats and Snare Drum into a paraphonic six-voice synthesizer.</p>
+</blockquote>
+<p>And:</p>
+<blockquote>
+<p>With Spread set to 0, all oscillators are in tune; increasing Spread will detune all oscillators.</p>
+</blockquote>
+<h3>What that means musically</h3>
+<p>You can use the 6m0d6 as:
+- a <strong>6-oscillator metallic chord voice</strong>
+- a <strong>paraphonic drone instrument</strong>
+- a <strong>string-machine-like layer</strong>
+- an <strong>inharmonic bell/chime synth</strong></p>
+<p>Because the oscillators feed the cymbal/hihat/snare circuits, the envelope/filtering behavior of those drum voices shapes the final result.</p>
+<h3>Great melodic uses</h3>
+<h4>A. Cymbal as string synth</h4>
+<p>The manual explicitly suggests this:</p>
+<blockquote>
+<p>turn your Cymbal into a string synthesizer</p>
+</blockquote>
+<p>How:
+- Use MIDI channel 1 to play notes/chords
+- Set <strong>Cymbal decay long</strong>
+- Disable the cymbal pulse shaper if desired
+- Reduce spread for more tonal behavior, increase for ensemble shimmer</p>
+<h4>B. Snare as paraphonic synth voice</h4>
+<ul>
+<li>Set snare noise source to <strong>Metal</strong></li>
+<li>Tune body as needed</li>
+<li>Use longer decay</li>
+<li>Play from MIDI channel 1
+This can create nasal, filtered, reedy lines.</li>
+</ul>
+<h4>C. Hats as harmonic shimmer</h4>
+<ul>
+<li>Use open hat with long decay</li>
+<li>Feed notes from MIDI</li>
+<li>Spread slightly above zero
+This gives metallic choir / gamelan / string-machine textures.</li>
+</ul>
+<hr />
+<h2>6. CY.Pulse off: turning the cymbal into a sustained voice</h2>
+<p>A crucial detail from the manual:</p>
+<blockquote>
+<p>For the cymbal, this pulse shaper can be disabled, allowing complete control of the Cymbal sound.<br />
+Effectively, this can turn the cymbal into a drone sound generator or even string-synthesizer.</p>
+</blockquote>
+<p>This is a major melodic/harmonic feature.</p>
+<h3>Why it matters</h3>
+<p>Normally triggers are shortened to 1.2 ms, which preserves drum behavior. Disabling this for cymbal means incoming gate length can directly shape:
+- volume
+- envelope
+- sustain length</p>
+<h3>Patch ideas</h3>
+<h4>A. Gate-controlled drone</h4>
+<ul>
+<li>Turn off <strong>CY.Pulse</strong></li>
+<li>Send a long gate</li>
+<li>Use Metal source</li>
+<li>Feed pitch to Metal Tune CV or MIDI channel 1
+Result: a sustained metallic pad/drone.</li>
+</ul>
+<h4>B. Pseudo-envelope articulation</h4>
+<ul>
+<li>Use variable gate lengths from a sequencer</li>
+<li>Short gates = plucks</li>
+<li>Long gates = sustained notes</li>
+</ul>
+<h4>C. String-machine voice</h4>
+<ul>
+<li>Cymbal source = Metal</li>
+<li>Long decay</li>
+<li>Spread low to medium</li>
+<li>MIDI notes/chords in
+This is likely the most conventionally melodic patch in the module.</li>
+</ul>
+<hr />
+<h2>7. Noise source selection as timbral voice design</h2>
+<p>For <strong>snare, cymbal, and hats</strong>, the module allows selecting between:
+- <strong>Noise</strong>
+- <strong>Metal</strong>
+- <strong>XOR ringmod source</strong></p>
+<p>This matters for melody because each source produces different pitch clarity.</p>
+<h3>For clearer pitch</h3>
+<ul>
+<li>Use <strong>Metal</strong></li>
+<li>Keep <strong>Spread</strong> low</li>
+<li>Tune with Metal Tune</li>
+</ul>
+<h3>For dirtier melodic textures</h3>
+<ul>
+<li>Use <strong>XOR</strong></li>
+<li>Use MIDI or CV pitch control where possible</li>
+<li>Explore intermediate decay settings</li>
+</ul>
+<h3>For noisy tuned percussion</h3>
+<ul>
+<li>Use <strong>Noise</strong></li>
+<li>Tune via surrounding circuit behavior rather than expecting clear pitch</li>
+<li>Great for industrial tonal percussion</li>
+</ul>
+<hr />
+<h2>8. Noise Tune as lo-fi timbre control for melodic percussion</h2>
+<p>The manual notes that the white noise is digitally generated and its quality can be reduced for <strong>bit-crushed</strong> textures via <strong>Noise Tune</strong>.</p>
+<p>That means even if a voice isn’t strongly pitched, it can still contribute melodic identity through consistent timbre.</p>
+<h3>Use cases</h3>
+<ul>
+<li>Snare tuned into a repeated “note-like” industrial hit</li>
+<li>Toms with altered noise reverb for tuned ambience</li>
+<li>Lo-fi melodic percussion where the “pitch” is partly spectral rather than purely tonal</li>
+</ul>
+<p>This is especially useful in:
+- IDM
+- industrial
+- electro
+- leftfield techno
+- experimental pop</p>
+<hr />
+<h2>9. Accent and trigger voltage as expression for melodic phrasing</h2>
+<p>The trigger/accent section is more expressive than on a typical drum module.</p>
+<p>The manual says:
+- Trigger inputs accept <strong>1V to 15V</strong>
+- Trigger amplitude affects not just volume but also sound
+- Accent can be gated or CV-controlled
+- Accent amount can be externally modulated</p>
+<h3>For melodic use</h3>
+<p>This gives you articulation layers similar to velocity on a synth:
+- soft notes
+- hard notes
+- accented notes
+- timbral variation per note</p>
+<h3>Practical results</h3>
+<p>If you are sequencing toms or metallic voices melodically:
+- Use different trigger amplitudes for phrase accents
+- Use accent gate for selective emphasis
+- Use Accent Amount CV for crescendos and dynamic contours</p>
+<p>This is especially effective for:
+- tuned percussion lines
+- bass drum bass phrases
+- animated metallic leads</p>
+<hr />
+<h2>10. MIDI channel 10 for dynamic drum-note performance</h2>
+<p>On MIDI channel 10, the standard drum notes trigger the voices, and the manual says:
+- velocity 127 gives simultaneous accent
+- velocity below 64 shortens pulse length and reduces volume in interesting ways</p>
+<p>So even in drum-map mode, you can play <strong>dynamic melodic percussion</strong> from a keyboard or DAW.</p>
+<h3>Good uses</h3>
+<ul>
+<li>finger-drummed pitched tom riffs</li>
+<li>expressive metallic percussion</li>
+<li>DAW-sequenced velocity-based phrasing</li>
+<li>hybrid drum/melody parts</li>
+</ul>
+<hr />
+<h2>11. How 6equencer and 6m0d6 can work together melodically</h2>
+<p>The manual mentions direct compatibility with <strong>Tubbutec 6equencer</strong> via LINK. Even though the pages provided are mostly the 6m0d6 manual, there is enough to infer how the pairing supports melodic drum composition.</p>
+<h3>What LINK gives you</h3>
+<ul>
+<li>direct triggering of instruments and accent</li>
+<li>less patching</li>
+<li>per-voice drum sequencing workflow</li>
+</ul>
+<h3>Melodic use of the pairing</h3>
+<p>With 6equencer handling tight trigger programming and accents, you can use the 6m0d6 as a <strong>pitched percussion sequencer voice bank</strong>:
+- program repeating LT/HT patterns as melodic motifs
+- create accented hat/cymbal ostinatos
+- use external CV or MIDI simultaneously for tonal control of metal-based voices</p>
+<h3>Strongest combined role</h3>
+<ul>
+<li><strong>sequenced tuned percussion system</strong></li>
+<li><strong>electro bass + tom melody workstation</strong></li>
+<li><strong>hybrid drum machine / melodic voice module</strong></li>
+</ul>
+<hr />
+<h2>12. Best melodic patches you can build with this module</h2>
+<h2>Patch 1: Electro bassline</h2>
+<ul>
+<li>Use <strong>Bass Drum</strong></li>
+<li>Set <strong>Click</strong> low</li>
+<li>Raise <strong>Decay</strong></li>
+<li>Tune to song root</li>
+<li>Sequence triggers rhythmically</li>
+<li>Use accent sparingly for emphasis</li>
+</ul>
+<p><strong>Result:</strong> punchy mono bass voice with 606 DNA.</p>
+<hr />
+<h2>Patch 2: Tuned tom melody</h2>
+<ul>
+<li>Tune <strong>LT</strong> and <strong>HT</strong> to two scale tones</li>
+<li>Use alternating trigger pattern</li>
+<li>Moderate decay</li>
+<li>Low noise amount for clarity</li>
+</ul>
+<p><strong>Result:</strong> classic electro / synth-pop tuned percussion line.</p>
+<hr />
+<h2>Patch 3: Sub-bass from Low Tom</h2>
+<ul>
+<li>Enable <strong>Sub Tom</strong></li>
+<li>Tune LT low</li>
+<li>Short-to-medium decay</li>
+<li>Use sparse rhythm</li>
+</ul>
+<p><strong>Result:</strong> second bass voice or bass reinforcement under kick.</p>
+<hr />
+<h2>Patch 4: Metallic lead</h2>
+<ul>
+<li>Set <strong>Cymbal</strong> or <strong>Open Hat</strong> to <strong>Metal</strong> source</li>
+<li>Patch sequencer CV to <strong>Metal Tune CV</strong></li>
+<li>Set <strong>Metal Spread</strong> near zero</li>
+<li>Adjust decay to taste</li>
+</ul>
+<p><strong>Result:</strong> bright, tuned metallic melody.</p>
+<hr />
+<h2>Patch 5: String-machine cymbal</h2>
+<ul>
+<li>Set cymbal to <strong>Metal</strong></li>
+<li>Long decay</li>
+<li><strong>CY.Pulse off</strong></li>
+<li>Play from <strong>MIDI channel 1</strong></li>
+<li>Slight spread for ensemble shimmer</li>
+</ul>
+<p><strong>Result:</strong> sustained pad/chord layer from a drum module.</p>
+<hr />
+<h2>Patch 6: Paraphonic industrial chord voice</h2>
+<ul>
+<li>MIDI channel 1 into module</li>
+<li>Use cymbal and/or hats with longer decays</li>
+<li>Increase <strong>Metal Spread</strong></li>
+<li>Optionally use XOR on snare for roughness</li>
+</ul>
+<p><strong>Result:</strong> clangorous harmonic bed, excellent for EBM/industrial/experimental music.</p>
+<hr />
+<h2>Patch 7: Lo-fi melodic snare synth</h2>
+<ul>
+<li>Snare source = <strong>Metal</strong> or <strong>XOR</strong></li>
+<li>Tune body</li>
+<li>Increase decay</li>
+<li>Modulate <strong>Noise Tune</strong></li>
+<li>Trigger from MIDI or sequencer</li>
+</ul>
+<p><strong>Result:</strong> noisy but recognizable note-like stabs.</p>
+<hr />
+<h2>13. What the module does best melodically</h2>
+<p>The 6m0d6 is not a conventional precision melodic voice like a dedicated VCO + VCF + VCA chain. Instead, it excels at:</p>
+<ul>
+<li><strong>pitched percussion</strong></li>
+<li><strong>electro bass</strong></li>
+<li><strong>metallic tuned voices</strong></li>
+<li><strong>drone/chord textures from cymbal/hats</strong></li>
+<li><strong>paraphonic synthetic metal/string timbres</strong></li>
+<li><strong>expressive hybrid drum-melody lines</strong></li>
+</ul>
+<p>If you want:
+- clean subtractive melodies, use another voice
+- characterful, rhythmic, unusual melodic parts, this module is excellent</p>
+<hr />
+<h2>14. Best system companions for melodic use</h2>
+<p>To get the most melodic value from 6m0d6, pair it with:</p>
+<ul>
+<li><strong>CV sequencer</strong> for Metal Tune CV and dynamic modulation</li>
+<li><strong>Trigger sequencer</strong> with variable voltage outputs</li>
+<li><strong>MIDI-to-TRS sequencer or DAW</strong> for channel 1 paraphonic play</li>
+<li><strong>Envelope/LFO modulation</strong> for accent amount and decays</li>
+<li><strong>External filter/reverb/delay</strong> to turn cymbal/hihat voices into lush melodic layers</li>
+<li><strong>Quantizer</strong> if you are modulating Metal Tune CV from freer CV sources</li>
+</ul>
+<hr />
+<h2>Conclusion</h2>
+<p>From the manual, the 6m0d6 is far more than a drum clone. Its melodic strengths come from:</p>
+<ul>
+<li>tuneable <strong>BD and tom</strong> circuits for bass and percussion lines</li>
+<li><strong>1V/oct Metal Tune CV</strong></li>
+<li>switchable <strong>Metal / Noise / XOR</strong> sources</li>
+<li><strong>MIDI channel 1 direct play of six metal oscillators</strong></li>
+<li><strong>CY.Pulse disable</strong> for sustained cymbal drones and string-like tones</li>
+<li>dynamic triggers and accent for expressive articulation</li>
+</ul>
+<p>So if you use it together with a sequencer, MIDI source, or 6equencer, it can function as a <strong>hybrid drum machine plus melodic voice module</strong>, especially for bass, tuned percussion, metallic leads, and paraphonic textures.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

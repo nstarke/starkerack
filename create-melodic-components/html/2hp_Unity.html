@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Unity</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Unity</h1>
+<ul>
+<li><a href="../../manuals/2hp_Unity.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Unity — melodic patch ideas and how to use it musically</h1>
+<p>Based on the attached manual, <strong>Unity</strong> is a <strong>dual 3-input unity/averaging mixer</strong> with smart output normalling, so it can behave as:</p>
+<ul>
+<li><strong>two 3-to-1 mixers</strong>, or</li>
+<li><strong>one 6-to-1 mixer</strong> if <strong>Out 1 is left unpatched</strong></li>
+</ul>
+<p>It has three gain modes:</p>
+<ul>
+<li><strong>Averaging mode</strong>: each input at <strong>1/3 gain</strong></li>
+<li><strong>Unity mode</strong>: each input at <strong>1x gain</strong></li>
+<li><strong>Split mode</strong>:</li>
+<li>top mixer = <strong>unity gain</strong></li>
+<li>bottom mixer = <strong>1/3 gain</strong></li>
+</ul>
+<p>Because it mixes either audio or CV, this is very useful for <strong>melodic generation</strong>, especially when combining sequencers, quantizers, envelopes, LFOs, offsets, and transposition voltages.</p>
+<hr />
+<h2>What Unity does well in a melodic system</h2>
+<p>Unity is not itself a pitch source, oscillator, or quantizer. Its role is to <strong>combine voltages</strong>. In melodic patching, that means it is ideal for:</p>
+<ul>
+<li><strong>adding transposition to a sequence</strong></li>
+<li><strong>blending multiple modulation sources into pitch movement</strong></li>
+<li><strong>creating stepped melodic variation from several CVs</strong></li>
+<li><strong>mixing related audio voices into a single melodic line</strong></li>
+<li><strong>building a larger 6-source modulation mix</strong></li>
+<li><strong>combining “main melody + ornament + drift”</strong></li>
+</ul>
+<p>In practice, Unity becomes a <strong>pitch-control hub</strong>.</p>
+<hr />
+<h2>Key behaviors that matter musically</h2>
+<h2>1. Unity Mode for pitch and melodic CV</h2>
+<p>In <strong>Unity Mode</strong>, each input is passed at full level. This is the most important setting for melodic CV, because pitch voltages generally need to preserve their original scale relationships.</p>
+<p>Use this when combining:</p>
+<ul>
+<li>a sequencer pitch CV</li>
+<li>a keyboard CV</li>
+<li>a slow transpose voltage</li>
+<li>a vibrato LFO</li>
+<li>a random stepped voltage</li>
+<li>an envelope adding pitch bend</li>
+</ul>
+<h3>Example</h3>
+<p>If you patch:</p>
+<ul>
+<li>Input 1: main sequence</li>
+<li>Input 2: slow offset/transposition CV</li>
+<li>Input 3: small LFO</li>
+</ul>
+<p>Then <strong>Out 1</strong> becomes:</p>
+<p><strong>sequence + transpose + vibrato</strong></p>
+<p>That output can go to a <strong>quantizer</strong> or directly to a <strong>1V/oct input</strong>, depending on how controlled you want the melody to be.</p>
+<hr />
+<h2>2. Averaging Mode for combining related CVs more gently</h2>
+<p>In <strong>Averaging Mode</strong>, each input is attenuated to <strong>1/3</strong>. This is described in the manual as ideal for audio because it preserves relative loudness, but it can also be musically useful for CV when you want to <strong>blend sources without large pitch jumps</strong>.</p>
+<p>This is especially good for:</p>
+<ul>
+<li>mixing several LFOs into a subtle pitch contour</li>
+<li>combining random voltages into a softer melodic movement</li>
+<li>layering several transposition sources without overdriving pitch range</li>
+</ul>
+<h3>Example</h3>
+<p>Patch into the top mixer:</p>
+<ul>
+<li>stepped random</li>
+<li>triangle LFO</li>
+<li>envelope</li>
+</ul>
+<p>In averaging mode, the sum is smoother and smaller than in unity mode. Send that to a quantizer and you get a <strong>coherent melody generator</strong> from simple sources.</p>
+<hr />
+<h2>3. Split Mode for simultaneous pitch CV and audio mixing</h2>
+<p>In <strong>Split Mode</strong>:</p>
+<ul>
+<li>top mixer runs at <strong>unity gain</strong></li>
+<li>bottom mixer runs at <strong>1/3 gain</strong></li>
+</ul>
+<p>This is a very practical live-patching mode.</p>
+<h3>Why this matters</h3>
+<p>You can use:</p>
+<ul>
+<li><strong>top section</strong> for <strong>melodic CV</strong></li>
+<li><strong>bottom section</strong> for <strong>audio voice summing</strong></li>
+</ul>
+<p>That means one Unity can support a complete melodic lane:</p>
+<ul>
+<li>top: combine pitch-related CV</li>
+<li>bottom: combine audio from oscillators, sub-oscillators, or parallel sound sources</li>
+</ul>
+<h3>Example melodic voice chain</h3>
+<p><strong>Top mixer</strong>
+- sequencer CV
+- keyboard transpose CV
+- vibrato LFO<br />
+→ <strong>Out 1 to oscillator 1V/oct or quantizer input</strong></p>
+<p><strong>Bottom mixer</strong>
+- oscillator saw
+- sub oscillator
+- FM side tone<br />
+→ <strong>Out 2 to VCA/filter/audio path</strong></p>
+<p>This makes Unity useful as a compact “control + tone” support module.</p>
+<hr />
+<h2>4. Cascading / normalling for 6-source melodic control</h2>
+<p>The manual notes:</p>
+<ul>
+<li><strong>If Out 1 is not patched</strong>, the top mix is internally sent to the second mixer.</li>
+<li>Then <strong>Out 2</strong> contains the bottom three inputs <strong>plus</strong> the top three inputs.</li>
+</ul>
+<p>So Unity can become a <strong>6-input summing mixer</strong>.</p>
+<p>This is extremely useful for melodic CV construction.</p>
+<h3>6-way melodic control example</h3>
+<p>Patch all six inputs with:</p>
+<ol>
+<li>main sequencer</li>
+<li>octave transpose CV</li>
+<li>slow random voltage</li>
+<li>envelope pitch bend</li>
+<li>sine LFO vibrato</li>
+<li>manual offset or second sequencer</li>
+</ol>
+<p>Leave <strong>Out 1 unpatched</strong> and take the result from <strong>Out 2</strong>.</p>
+<p>Now you have a single “meta melody CV” made from six elements.</p>
+<p>Best use cases:</p>
+<ul>
+<li>feeding a <strong>quantizer</strong></li>
+<li>feeding a <strong>precision adder downstream</strong></li>
+<li>feeding a voice for experimental melodies</li>
+</ul>
+<p>Because Unity is not a precision adder, it’s best thought of as a <strong>creative CV combiner</strong>, especially before quantization.</p>
+<hr />
+<h1>Melodic patch recipes</h1>
+<h2>1. Sequence + transpose + vibrato</h2>
+<p><strong>Goal:</strong> a stable melody with motion</p>
+<p><strong>Patch</strong>
+- Unity in <strong>Unity Mode</strong>
+- Input 1: sequencer pitch CV
+- Input 2: offset or keyboard CV for transpose
+- Input 3: slow sine LFO
+- Out 1: to quantizer or oscillator pitch input</p>
+<p><strong>Result</strong>
+A sequence that can be transposed and gently animated.</p>
+<p><strong>Tip</strong>
+If the vibrato is too wide, attenuate it before Unity.</p>
+<hr />
+<h2>2. Random melody generator</h2>
+<p><strong>Goal:</strong> evolving melodic phrases</p>
+<p><strong>Patch</strong>
+- Unity in <strong>Averaging Mode</strong>
+- Input 1: stepped random CV
+- Input 2: slow triangle LFO
+- Input 3: envelope or decay CV
+- Out 1: to quantizer
+- Quantizer out: to oscillator 1V/oct</p>
+<p><strong>Result</strong>
+The quantizer turns the mixed CV into notes. Averaging mode keeps it from becoming too wild.</p>
+<hr />
+<h2>3. Call-and-response melody mix</h2>
+<p><strong>Goal:</strong> merge two melodic sources</p>
+<p><strong>Patch</strong>
+- Unity in <strong>Unity Mode</strong>
+- Input 1: sequencer A
+- Input 2: sequencer B
+- Input 3: gate-derived accent envelope to nudge pitch
+- Out 1: quantizer</p>
+<p><strong>Result</strong>
+A more complex composite melody. If one sequencer is slower, it acts like a transposition contour over the other.</p>
+<hr />
+<h2>4. Ornamenting a bassline</h2>
+<p><strong>Goal:</strong> add small melodic detail to a stable line</p>
+<p><strong>Patch</strong>
+- Input 1: bass sequence
+- Input 2: very small fast envelope
+- Input 3: subtle LFO
+- Unity Mode or Averaging Mode depending on intensity
+- Out 1: oscillator 1V/oct or quantizer</p>
+<p><strong>Result</strong>
+Your bassline gains slides, pushes, and micro-ornaments.</p>
+<hr />
+<h2>5. Six-source generative melody</h2>
+<p><strong>Goal:</strong> one dense melodic control signal</p>
+<p><strong>Patch</strong>
+Leave <strong>Out 1 unpatched</strong>.</p>
+<p>Top inputs:
+- sequencer
+- random stepped voltage
+- slow envelope</p>
+<p>Bottom inputs:
+- transpose CV
+- LFO
+- manual offset</p>
+<p>Take <strong>Out 2</strong> to a quantizer.</p>
+<p><strong>Result</strong>
+A deep, evolving melodic CV made from six sources.</p>
+<hr />
+<h2>6. One side CV, one side audio</h2>
+<p><strong>Goal:</strong> build one complete melodic voice with a single module</p>
+<p>Use <strong>Split Mode</strong>.</p>
+<h3>Top section for pitch</h3>
+<ul>
+<li>sequence CV</li>
+<li>transpose CV</li>
+<li>vibrato</li>
+</ul>
+<p>→ Out 1 to oscillator pitch</p>
+<h3>Bottom section for audio</h3>
+<ul>
+<li>oscillator waveform 1</li>
+<li>oscillator waveform 2</li>
+<li>noise/sub layer</li>
+</ul>
+<p>→ Out 2 to filter or VCA</p>
+<p><strong>Result</strong>
+One half shapes the notes, the other half shapes the timbre/body of the melodic voice.</p>
+<hr />
+<h1>Best companions for Unity in melodic patching</h1>
+<p>Unity becomes most musical when paired with other module types:</p>
+<h2>Sequencers</h2>
+<p>Use Unity to combine:
+- main pitch line
+- secondary sequence for transposition
+- accent-derived pitch movement</p>
+<h2>Quantizers</h2>
+<p>This is one of the best pairings.
+Since Unity sums voltages freely, a quantizer after it turns mixed CV into usable scales and melodies.</p>
+<h2>LFOs and function generators</h2>
+<p>These add:
+- vibrato
+- pitch drift
+- bends
+- phrase contour</p>
+<h2>Random / sample-and-hold modules</h2>
+<p>These create:
+- generative melodies
+- note variation
+- pseudo-counterpoint</p>
+<h2>Keyboards, pressure, or manual CV sources</h2>
+<p>Great for:
+- live transposition
+- expressive pitch changes
+- performance interaction</p>
+<h2>Oscillators and voice chains</h2>
+<p>Bottom section can sum audio sources while top section sums pitch CV in split mode.</p>
+<hr />
+<h1>Practical musical advice</h1>
+<h2>Use Unity Mode for pitch accuracy</h2>
+<p>If you are mixing a sequencer with transposition CV, <strong>Unity Mode</strong> is usually the right choice.</p>
+<h2>Use Averaging Mode before a quantizer</h2>
+<p>If the mix gets too extreme, average the sources and let the quantizer impose note structure.</p>
+<h2>Use Split Mode in compact systems</h2>
+<p>This is probably the most performance-friendly setup:
+- top = CV
+- bottom = audio</p>
+<h2>Watch pitch range</h2>
+<p>Three full-strength CVs summed together can create very large voltage swings. If that causes melodies to jump too far:
+- attenuate inputs before Unity, or
+- send the result to a quantizer</p>
+<h2>Remember the output normalling</h2>
+<p>Leaving <strong>Out 1 empty</strong> turns Unity into a 6-input mixer. This is one of the module’s most powerful melodic uses.</p>
+<hr />
+<h1>Summary</h1>
+<p><strong>Unity</strong> is a compact but very useful melodic utility. It helps create melody not by generating notes itself, but by <strong>combining the voltages that define melody</strong>.</p>
+<p>Its strongest melodic roles are:</p>
+<ul>
+<li><strong>adding transposition to sequences</strong></li>
+<li><strong>mixing vibrato and pitch modulation</strong></li>
+<li><strong>combining random and structured CV</strong></li>
+<li><strong>feeding quantizers with richer composite voltages</strong></li>
+<li><strong>supporting a full voice by handling CV on one side and audio on the other</strong></li>
+<li><strong>building 6-source generative pitch mixtures via output normalling</strong></li>
+</ul>
+<p>In a Eurorack system, this makes Unity a small but powerful <strong>melody-shaping tool</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

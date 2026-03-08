@@ -1,0 +1,405 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Behringer_173</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Behringer — 173</h1>
+<ul>
+<li><a href="../../manuals/QSG_BE_0720-AAL_173 QUAD GATE-MULTIPLES_WW.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Behringer System 100 173 QUAD GATE/MULTIPLES</h1>
+<h2>Using it to create melodic components in a Eurorack system</h2>
+<p>The <strong>173 Quad Gate/Multiples</strong> is not itself a sound source or pitch sequencer. It’s a <strong>utility module</strong> that helps <strong>route, distribute, and condition signals</strong> that are essential for building melodic patches.</p>
+<p>In practice, this module helps you make melodies by:</p>
+<ul>
+<li>distributing <strong>pitch CV</strong></li>
+<li>distributing <strong>gate/triggers</strong></li>
+<li>selectively <strong>passing or blocking signals</strong></li>
+<li>creating <strong>performance-routing structures</strong></li>
+<li>splitting one melodic control source to several destinations</li>
+</ul>
+<hr />
+<h2>What this module does</h2>
+<p>From the manual, the 173 contains two functional sections:</p>
+<h3>1. Quad Gate section</h3>
+<p>There are <strong>4 gate channels</strong>, each with:</p>
+<ul>
+<li><strong>GATE IN</strong></li>
+<li><strong>GATE OUT</strong></li>
+<li><strong>GATE CV</strong></li>
+<li>non-inverting input (<strong>active high</strong>)</li>
+<li>inverting input (<strong>active low</strong>)</li>
+</ul>
+<p>This means each channel can act like a <strong>voltage-controlled signal gate</strong>. A signal enters <strong>GATE IN</strong>, and whether it appears at <strong>GATE OUT</strong> depends on the CV applied to the gate control.</p>
+<p>This is very useful for melodic patching because it lets you decide <strong>when a CV or signal is allowed through</strong>.</p>
+<h3>2. Multiples section</h3>
+<p>There are <strong>6 rows of passive multiples</strong>, each row with <strong>4 parallel jacks</strong>:</p>
+<ul>
+<li>A, B, C, D are all connected together within a row</li>
+</ul>
+<p>This allows one signal to be copied to multiple destinations. Since these are <strong>passive multiples</strong>, they are best for many CV/audio duties, but precision pitch distribution can sometimes depend on the receiving modules.</p>
+<hr />
+<h2>Important technical points from the manual</h2>
+<h3>Gate section</h3>
+<ul>
+<li>CV control has:</li>
+<li><strong>non-inverting threshold:</strong> &gt; <strong>+3 V</strong></li>
+<li><strong>inverting threshold:</strong> &lt; <strong>+1.5 V</strong></li>
+<li>Max control input: <strong>10 V p-p</strong></li>
+</ul>
+<p>So if you feed a standard Eurorack gate or trigger into the control input, the gate will open/close reliably.</p>
+<h3>Multiples section</h3>
+<ul>
+<li><strong>6 sets of 4 parallel jacks</strong></li>
+<li><strong>passive</strong></li>
+<li>works with <strong>CV and audio signals</strong></li>
+</ul>
+<h3>Size / power</h3>
+<ul>
+<li><strong>16 HP</strong></li>
+<li><strong>40 mA on +12 V</strong></li>
+<li><strong>40 mA on -12 V</strong></li>
+</ul>
+<hr />
+<h1>How it helps create melodic music</h1>
+<p>Melodic patches usually need three things:</p>
+<ol>
+<li><strong>Pitch CV</strong></li>
+<li><strong>Gate/trigger timing</strong></li>
+<li><strong>Modulation/control over when notes happen</strong></li>
+</ol>
+<p>The 173 is especially useful for items 2 and 3, and secondarily for routing pitch CV.</p>
+<hr />
+<h1>Best melodic uses</h1>
+<h2>1. Split one pitch sequence to multiple destinations</h2>
+<p>Use a row of the <strong>MULTIPLES</strong> to send one pitch CV to several modules at once.</p>
+<h3>Example</h3>
+<p>Send one sequencer’s pitch CV to:</p>
+<ul>
+<li>oscillator 1 pitch input</li>
+<li>oscillator 2 pitch input</li>
+<li>quantizer input or transpose input</li>
+<li>CV recorder / precision adder / scope</li>
+</ul>
+<h3>Why this is melodic</h3>
+<p>This lets you build:</p>
+<ul>
+<li>layered unisons</li>
+<li>octaves</li>
+<li>interval harmonies</li>
+<li>doubled melodies</li>
+<li>parallel voices</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer pitch out → <strong>173 Multiple Row 1, jack A</strong></li>
+<li>Row 1 jack B → VCO 1 1V/Oct</li>
+<li>Row 1 jack C → VCO 2 1V/Oct</li>
+<li>Row 1 jack D → another melodic destination</li>
+</ul>
+<h3>Note</h3>
+<p>Because the multiples are passive, if you are distributing very precise <strong>1V/Oct pitch</strong>, check tuning. In many systems it works fine, but buffered multiples are more accurate for critical pitch tracking across multiple oscillators.</p>
+<hr />
+<h2>2. Split one gate pattern to several envelopes or voices</h2>
+<p>Use the <strong>MULTIPLES</strong> to distribute a gate signal.</p>
+<h3>Example</h3>
+<p>One sequencer gate goes to:</p>
+<ul>
+<li>envelope for voice 1</li>
+<li>envelope for voice 2</li>
+<li>clock/reset input elsewhere</li>
+<li>gate-control CV input on one of the 173 gate channels</li>
+</ul>
+<h3>Why this is melodic</h3>
+<p>This lets multiple voices articulate together, which is useful for:</p>
+<ul>
+<li>bass + lead doubling</li>
+<li>chords from multiple oscillators</li>
+<li>synchronized accents</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer gate out → <strong>173 Multiple Row 2 A</strong></li>
+<li>Row 2 B → envelope 1 gate in</li>
+<li>Row 2 C → envelope 2 gate in</li>
+<li>Row 2 D → gate logic / trigger processor</li>
+</ul>
+<hr />
+<h2>3. Use the gate channels to allow notes through only at selected times</h2>
+<p>This is where the 173 gets musically interesting.</p>
+<p>A gate channel can be used to <strong>pass or block a melodic CV stream</strong>.</p>
+<p>If you send pitch CV, stepped modulation, or another melodic control signal into <strong>GATE IN</strong>, and control the gate opening with another rhythm or logic signal into <strong>GATE CV</strong>, you can create <strong>selective melodies</strong>.</p>
+<h3>Example</h3>
+<p>You have:
+- a running pitch sequence
+- a second rhythmic gate pattern</p>
+<p>The second pattern opens the gate only on some steps.</p>
+<h3>Result</h3>
+<p>Only selected notes pass through, producing:
+- sparse melodies
+- rhythmic note omission
+- evolving motifs</p>
+<h3>Patch</h3>
+<ul>
+<li>Pitch sequencer CV → <strong>Gate 1 IN</strong></li>
+<li>Rhythm gate pattern → <strong>Gate 1 CV</strong> non-inverting</li>
+<li><strong>Gate 1 OUT</strong> → oscillator pitch input or quantizer input</li>
+</ul>
+<h3>Musical effect</h3>
+<p>This can create:
+- broken sequences
+- rhythmic filtering of melodies
+- alternating note access
+- pseudo-generative pitch phrases</p>
+<hr />
+<h2>4. Gate a modulation source before it reaches pitch</h2>
+<p>Another strong melodic use is to gate a modulation source that affects pitch.</p>
+<h3>Example</h3>
+<p>Instead of sending a continuous random CV into your oscillator pitch or quantizer, use the 173 to only let that CV pass at certain moments.</p>
+<h3>Patch</h3>
+<ul>
+<li>Random stepped CV → <strong>Gate 2 IN</strong></li>
+<li>Clock division or pattern gate → <strong>Gate 2 CV</strong></li>
+<li><strong>Gate 2 OUT</strong> → quantizer input</li>
+<li>Quantizer output → VCO pitch</li>
+</ul>
+<h3>Result</h3>
+<p>You get notes only when the gate opens, so the random source becomes a more structured melodic source.</p>
+<p>This is especially good for:
+- generative melodies
+- probabilistic lines
+- rhythmic pitch changes</p>
+<hr />
+<h2>5. Alternate between two melodic layers</h2>
+<p>While the 173 does not mix or switch between two sources directly, you can use multiple gate channels to control separate melodic streams and combine them downstream if you have another utility module.</p>
+<h3>Concept</h3>
+<ul>
+<li>Melody A goes through Gate 1</li>
+<li>Melody B goes through Gate 2</li>
+<li>Different gate patterns open each path</li>
+<li>Downstream module selects, sums, or voices them separately</li>
+</ul>
+<h3>Use</h3>
+<p>This is effective for:
+- call-and-response
+- verse/chorus CV structures
+- alternating arpeggio lines
+- counterpoint between two oscillators</p>
+<hr />
+<h2>6. Build phrase structure with transposition routing</h2>
+<p>Use the <strong>MULTIPLES</strong> to distribute a transposition CV to several places, and use <strong>gate channels</strong> to let that transposition or melodic modifier affect only certain sections.</p>
+<h3>Example</h3>
+<ul>
+<li>Base sequence plays constantly</li>
+<li>A transposition CV is allowed through only every 8 bars or on selected steps</li>
+</ul>
+<h3>Patch idea</h3>
+<ul>
+<li>Transposition CV source → <strong>Gate 3 IN</strong></li>
+<li>Phrase trigger → <strong>Gate 3 CV</strong></li>
+<li><strong>Gate 3 OUT</strong> → precision adder transpose input</li>
+<li>Sequencer pitch CV also goes to precision adder</li>
+<li>Precision adder out → oscillator pitch</li>
+</ul>
+<h3>Result</h3>
+<p>The melody changes register or key only when the phrase gate opens.</p>
+<hr />
+<h2>7. Create melodic accents by routing envelopes selectively</h2>
+<p>A melody is not only pitch; articulation shapes melody perception. The 173 can route gates to determine when envelopes happen.</p>
+<h3>Example</h3>
+<ul>
+<li>Main sequence gate goes through a multiple</li>
+<li>One branch triggers the normal VCA envelope</li>
+<li>Another branch controls the 173 gate that allows a second accent envelope or timbral modulation to pass</li>
+</ul>
+<h3>Result</h3>
+<p>Some notes become accented, brighter, or more dramatic.</p>
+<p>This creates:
+- melodic emphasis
+- phrase punctuation
+- dynamic contour</p>
+<hr />
+<h2>8. Derive harmony from one melodic source</h2>
+<p>The multiple section is especially helpful here.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Main pitch CV → multiple</li>
+<li>Copy 1 → VCO 1</li>
+<li>Copy 2 → precision adder with offset</li>
+<li>Copy 3 → second voice or filter tracking</li>
+<li>Copy 4 → quantizer auxiliary path</li>
+</ul>
+<p>If another utility adds intervals, the 173 serves as the central distribution hub.</p>
+<h3>Result</h3>
+<p>You can derive:
+- octaves
+- fifths
+- drone-related harmonies
+- parallel intervals</p>
+<hr />
+<h2>9. Use gate channels as rhythmic melodic masks</h2>
+<p>Think of each gate as a <strong>mask</strong> over a CV source.</p>
+<h3>Sources to mask</h3>
+<ul>
+<li>sequencer pitch CV</li>
+<li>keyboard CV</li>
+<li>joystick CV</li>
+<li>sample-and-hold CV</li>
+<li>slow LFO into quantizer</li>
+</ul>
+<h3>Controllers for the mask</h3>
+<ul>
+<li>clock divisions</li>
+<li>trigger sequencer</li>
+<li>manual gate button</li>
+<li>comparator output</li>
+<li>logic module</li>
+</ul>
+<h3>Musical outcome</h3>
+<p>This creates:
+- conditional melodies
+- polyrhythmic note appearance
+- repeating but varied lines
+- motif fragmentation</p>
+<hr />
+<h1>Concrete patch ideas</h1>
+<h2>Patch 1: Sparse techno lead</h2>
+<h3>Goal</h3>
+<p>Turn a dense sequence into a punchier melodic line.</p>
+<h3>Patch</h3>
+<ul>
+<li>8-step sequencer pitch CV → <strong>Gate 1 IN</strong></li>
+<li>Trigger sequencer pattern → <strong>Gate 1 CV</strong> non-inverting</li>
+<li><strong>Gate 1 OUT</strong> → quantizer → VCO 1V/Oct</li>
+<li>Main sequencer gate → envelope → VCA</li>
+<li>Optional: same pitch CV also sent via multiple to a second oscillator</li>
+</ul>
+<h3>Result</h3>
+<p>The pitch changes only on selected rhythmic moments, making the line more syncopated and hook-like.</p>
+<hr />
+<h2>Patch 2: Generative melody selector</h2>
+<h3>Goal</h3>
+<p>Use randomness but keep it musical.</p>
+<h3>Patch</h3>
+<ul>
+<li>Stepped random CV → <strong>Gate 2 IN</strong></li>
+<li>Euclidean trigger pattern → <strong>Gate 2 CV</strong></li>
+<li><strong>Gate 2 OUT</strong> → quantizer input</li>
+<li>Quantizer output → oscillator pitch</li>
+<li>Clock also triggers envelope/VCA</li>
+</ul>
+<h3>Result</h3>
+<p>Random values become a structured melody determined by the rhythm pattern.</p>
+<hr />
+<h2>Patch 3: One sequence, two oscillators, one harmony</h2>
+<h3>Goal</h3>
+<p>Create a thicker melodic voice.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer pitch out → <strong>Multiple row 1</strong></li>
+<li>Row 1 B → VCO 1 1V/Oct</li>
+<li>Row 1 C → VCO 2 1V/Oct</li>
+<li>Row 1 D → precision adder or tuner reference</li>
+<li>Sequencer gate out → <strong>Multiple row 2</strong></li>
+<li>Row 2 B/C → envelopes for both voices</li>
+</ul>
+<h3>Result</h3>
+<p>Two oscillators track the same melody. Detune one slightly or offset one by an interval elsewhere for harmony.</p>
+<hr />
+<h2>Patch 4: Phrase-based transposition</h2>
+<h3>Goal</h3>
+<p>Make a melody evolve across longer sections.</p>
+<h3>Patch</h3>
+<ul>
+<li>Main pitch sequence → VCO through usual path</li>
+<li>Slow CV or keyboard transpose voltage → <strong>Gate 3 IN</strong></li>
+<li>Phrase trigger every 16 steps → <strong>Gate 3 CV</strong></li>
+<li><strong>Gate 3 OUT</strong> → transpose input of sequencer/adder/quantizer</li>
+</ul>
+<h3>Result</h3>
+<p>The melody shifts only at phrase boundaries.</p>
+<hr />
+<h2>Patch 5: Inverted gate logic for rests</h2>
+<p>The manual notes the gate CV supports <strong>inverting (active low)</strong> behavior.</p>
+<h3>Use</h3>
+<p>This is useful when you want the signal to pass <strong>except when a control gate is present</strong>, effectively carving out rests or avoiding overlaps.</p>
+<h3>Patch</h3>
+<ul>
+<li>Pitch CV or modulation CV → <strong>Gate 4 IN</strong></li>
+<li>A “mute” gate pattern → <strong>Gate 4 CV</strong> inverting input</li>
+<li><strong>Gate 4 OUT</strong> → melodic destination</li>
+</ul>
+<h3>Result</h3>
+<p>Whenever that mute pattern goes high, the path closes, creating rests or withheld notes.</p>
+<p>This is great for:
+- anti-accent patterns
+- syncopated silences
+- phrase breathing</p>
+<hr />
+<h1>How this works with other typical modules</h1>
+<p>The 173 becomes much more musically useful when paired with:</p>
+<h2>Sequencers</h2>
+<p>Use it to split and condition:
+- pitch CV
+- gate lanes
+- reset pulses</p>
+<h2>Quantizers</h2>
+<p>Send gated random/LFO/sequenced voltages into a quantizer to turn utility gating into melody generation.</p>
+<h2>Oscillators</h2>
+<p>Distribute one melodic CV to several VCOs for layered voices.</p>
+<h2>Envelopes and VCAs</h2>
+<p>Use multiples for shared timing, and gate channels for selective articulation.</p>
+<h2>Sample &amp; hold / random modules</h2>
+<p>Gate their output before quantization to create controlled generative lines.</p>
+<h2>Clock dividers / logic</h2>
+<p>Use divided clocks and logic outputs to decide when notes are allowed through.</p>
+<h2>Precision adders / transposers</h2>
+<p>Multiples distribute the source; gates decide when transposition enters the phrase.</p>
+<hr />
+<h1>Limitations to keep in mind</h1>
+<h2>1. Passive multiples are not always ideal for precision pitch</h2>
+<p>For exact melodic tuning over several oscillators, a <strong>buffered multiple</strong> may be better.</p>
+<h2>2. This module does not generate pitches by itself</h2>
+<p>It needs external:
+- sequencers
+- random CV
+- keyboards
+- LFOs
+- quantizers
+- oscillators</p>
+<h2>3. Gate section is best thought of as a utility router</h2>
+<p>It won’t replace a dedicated sequential switch, logic processor, or precision CV processor, but it is very useful for controlling <strong>when melodic voltages are allowed through</strong>.</p>
+<hr />
+<h1>Best musical roles for the 173</h1>
+<p>If your goal is melody, this module is best used as:</p>
+<ul>
+<li>a <strong>pitch CV distributor</strong></li>
+<li>a <strong>gate distributor</strong></li>
+<li>a <strong>rhythmic mask for melodic CV</strong></li>
+<li>a <strong>phrase control utility</strong></li>
+<li>a <strong>voice-doubling hub</strong></li>
+<li>a <strong>generative melody conditioner</strong></li>
+</ul>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>Behringer 173 Quad Gate/Multiples</strong> helps create melodic components not by generating melodies directly, but by making melodic systems more flexible and playable.</p>
+<p>Its strongest melodic uses are:</p>
+<ul>
+<li>splitting one pitch line to several voices</li>
+<li>splitting gates to multiple envelopes or voices</li>
+<li>rhythmically allowing or blocking pitch/modulation signals</li>
+<li>structuring generative melodies</li>
+<li>creating phrase-level melodic variation</li>
+<li>building layered harmonic patches from one source</li>
+</ul>
+<p>If you want, I can also turn this into:
+1. a <strong>set of example patches using specific Behringer System 100 modules</strong>, or<br />
+2. a <strong>“melody recipe” guide showing exact cable connections for a full voice patch</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Altered_State_Machines_Eris</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Altered State Machines — Eris</h1>
+<ul>
+<li><a href="../../manuals/Eris _ Altered State Machines.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://alteredstatemachines.net/eris">Manual PDF / Product Page</a></p>
+<h1>Using the Altered State Machines Eris to Create Melodic Components</h1>
+<p>From the provided manual, the module shown is:</p>
+<ul>
+<li><strong>Altered State Machines Eris</strong></li>
+<li><strong>4×4 matrix mixer</strong></li>
+<li><strong>DC-coupled</strong>, so it can mix both <strong>audio</strong> and <strong>CV</strong></li>
+<li>Up to <strong>4× gain per channel</strong></li>
+<li>Includes an <strong>Aux input/output</strong></li>
+<li>Aux is summed with <strong>Output 1</strong> and can be softly muted</li>
+<li>Rear switch for <strong>unity or x2 gain</strong> on Aux input</li>
+</ul>
+<p>Because Eris is DC-coupled and has a true matrix architecture, it is especially useful for building <strong>melodic control structures</strong>, not just audio submixes. In a melodic Eurorack patch, Eris can act as a <strong>CV router, pitch combiner, transposition hub, feedback mixer, or voice distributor</strong>.</p>
+<hr />
+<h2>What Eris does musically</h2>
+<p>A 4×4 matrix mixer means:</p>
+<ul>
+<li>You have <strong>4 inputs</strong></li>
+<li>You have <strong>4 outputs</strong></li>
+<li>Each input can be sent to <strong>any or all outputs</strong></li>
+<li>The amount sent is controlled by a knob at each crosspoint</li>
+</ul>
+<p>So in melodic use, you can treat Eris as a way to combine and distribute:</p>
+<ul>
+<li>pitch CV</li>
+<li>envelopes</li>
+<li>LFOs</li>
+<li>sequencer rows</li>
+<li>offsets</li>
+<li>random voltages</li>
+<li>audio oscillators</li>
+</ul>
+<p>This makes it useful for creating melody by <strong>mixing pitch sources</strong>, <strong>sending related variations to multiple voices</strong>, and <strong>creating movement around a central tonal idea</strong>.</p>
+<hr />
+<h2>Best melodic uses for Eris</h2>
+<h2>1. Create harmonized pitch lines from one or more sequencers</h2>
+<p>If you patch pitch-related CV into several inputs, Eris can create multiple related melodic outputs.</p>
+<h3>Example patch</h3>
+<p>Inputs:
+- <strong>Input A</strong>: main pitch sequencer
+- <strong>Input B</strong>: slow offset CV or precision adder output
+- <strong>Input C</strong>: random stepped voltage
+- <strong>Input D</strong>: envelope or LFO for pitch animation</p>
+<p>Outputs:
+- <strong>Output 1</strong>: main voice pitch
+- <strong>Output 2</strong>: second oscillator pitch
+- <strong>Output 3</strong>: bass voice pitch
+- <strong>Output 4</strong>: transposed lead or FM index control</p>
+<h3>Result</h3>
+<p>Each output becomes a different weighted combination of the same sources. That means:</p>
+<ul>
+<li>Voice 1 can play the basic melody</li>
+<li>Voice 2 can play a related intervallic variation</li>
+<li>Voice 3 can get a simplified or lower-register version</li>
+<li>Voice 4 can become a more animated melodic derivative</li>
+</ul>
+<p>This is one of the strongest uses of Eris: <strong>turning a few CV sources into a family of melodies</strong>.</p>
+<hr />
+<h2>2. Build a modulation matrix for melodic motion</h2>
+<p>The manual explicitly says Eris can be used as a <strong>modulation matrix</strong>, and this is very important for melodic work.</p>
+<p>Patch in modulation sources such as:</p>
+<ul>
+<li>a slow triangle LFO</li>
+<li>a stepped random source</li>
+<li>an envelope</li>
+<li>a sequencer lane</li>
+</ul>
+<p>Then send them in different amounts to destinations like:</p>
+<ul>
+<li>oscillator 1 pitch</li>
+<li>oscillator 2 pitch</li>
+<li>filter cutoff</li>
+<li>wavefolder amount</li>
+</ul>
+<h3>Why this helps melody</h3>
+<p>Melody is not just note order. It also comes from:</p>
+<ul>
+<li>slight pitch drift</li>
+<li>phrase-based transposition</li>
+<li>varying brightness</li>
+<li>changing articulation</li>
+</ul>
+<p>Eris lets one modulation source influence several melodic voices in different proportions. That creates <strong>coherence</strong>, which is often more musical than using unrelated modulation everywhere.</p>
+<hr />
+<h2>3. Use it as a pitch variation network</h2>
+<p>Since Eris is DC-coupled, one very practical use is <strong>mixing pitch CV</strong>. This lets you create:</p>
+<ul>
+<li>transpositions</li>
+<li>interval stacks</li>
+<li>octave shifts</li>
+<li>unstable melodic variants</li>
+</ul>
+<h3>Example</h3>
+<p>Inputs:
+- <strong>A</strong>: quantized melody
+- <strong>B</strong>: +1V offset
+- <strong>C</strong>: slow random CV
+- <strong>D</strong>: keyboard or pressure CV</p>
+<p>Outputs:
+- <strong>Out 1</strong>: original melody
+- <strong>Out 2</strong>: melody + octave
+- <strong>Out 3</strong>: melody + small random deviation
+- <strong>Out 4</strong>: melody + performance control</p>
+<p>If your downstream oscillators need accurate 1V/oct tracking, you’ll usually want to send Eris outputs into a <strong>quantizer</strong> or carefully calibrate your scaling by ear, since matrix mixers are creative tools first and precision utilities second.</p>
+<p>Still, for melodic composition, this is extremely powerful.</p>
+<hr />
+<h2>4. Generate chord-like structures across several voices</h2>
+<p>Eris can distribute one melodic CV source to several voices while adding different amounts of supporting voltages.</p>
+<h3>Patch concept</h3>
+<p>Inputs:
+- <strong>A</strong>: root melody
+- <strong>B</strong>: fixed interval offset
+- <strong>C</strong>: another interval offset
+- <strong>D</strong>: slow macro modulation</p>
+<p>Outputs:
+- <strong>1</strong>: root
+- <strong>2</strong>: root + interval 1
+- <strong>3</strong>: root + interval 2
+- <strong>4</strong>: root + animated extension</p>
+<p>Run each output into a separate quantizer channel or separate oscillators, and you get <strong>parallel melodic structures</strong> that can resemble chords, counterpoint, or clustered harmony.</p>
+<p>This works especially well for:
+- triads spread across three oscillators
+- drone + melody combinations
+- canon-like pitch relations
+- evolving harmonic beds</p>
+<hr />
+<h2>5. Morph between melodic roles in performance</h2>
+<p>Because Eris has knobs at every routing point, it is highly playable.</p>
+<p>You can perform melody changes by:
+- bringing one sequencer into several outputs
+- fading in random voltage to destabilize pitch
+- reducing one modulation path while increasing another
+- moving a bassline into a lead register structure</p>
+<p>This is especially useful in live techno, ambient, and experimental patches where melody evolves by <strong>mix balance</strong> rather than by replacing sequences.</p>
+<hr />
+<h2>6. Use the Aux path as a melodic layer return or drone injection</h2>
+<p>The manual says:</p>
+<ul>
+<li>the <strong>Aux input</strong> is summed with <strong>Output 1</strong></li>
+<li>then both are sent to the <strong>Aux output</strong></li>
+<li>there is a <strong>mute</strong> for the Aux input</li>
+<li>Aux gain can be set to <strong>unity or x2</strong></li>
+</ul>
+<p>This suggests a few melodic uses.</p>
+<h3>A. Bring in a drone or second melodic line</h3>
+<p>Patch:
+- Main melodic mix on Output 1
+- Drone oscillator, sub voice, or effect return into Aux input
+- Use Aux mute to softly bring the extra layer in and out</p>
+<p>This is excellent for:
+- introducing a fifth or octave drone
+- adding reverb-returned melody
+- dropping in a secondary motif without clicks</p>
+<h3>B. Feedback-based melodic coloration</h3>
+<p>If you have an effect that emphasizes pitch, like:
+- delay
+- resonator
+- shimmer reverb
+- tuned feedback path</p>
+<p>you can send Eris output to that effect and return it to the Aux input. Since Aux is summed with Output 1, this creates a <strong>melodically reinforcing return path</strong>.</p>
+<h3>C. Percussive melodic accent</h3>
+<p>The manual mentions using Aux to mix a kick with the main signal, but for melodic work you could instead use it for:
+- plucked voice accents
+- a bass reinforcement line
+- a manually introduced counter-melody</p>
+<p>The clickless mute makes this ideal for performance.</p>
+<hr />
+<h2>7. Create cybernetic feedback melodies</h2>
+<p>The manual specifically mentions use in a <strong>cybernetic feedback circuit</strong>.</p>
+<p>In melodic terms, this can mean:</p>
+<ul>
+<li>sending a pitch-related or audio signal through effects</li>
+<li>returning it into Eris</li>
+<li>cross-mixing it with modulation or oscillators</li>
+<li>allowing the system to influence itself</li>
+</ul>
+<h3>Melodic applications</h3>
+<ul>
+<li>self-evolving semi-tonal loops</li>
+<li>unstable resonant melodies</li>
+<li>pitch-fed-back filtered sine structures</li>
+<li>recursive transpositions</li>
+</ul>
+<p>If you use feedback with pitch CV, be careful. Small changes can become extreme quickly. But with controlled amounts, Eris can create <strong>organic, evolving melodic systems</strong> that sound less programmed than a typical sequencer patch.</p>
+<hr />
+<h2>8. Multi-voice distribution from one melodic source</h2>
+<p>One of the simplest but strongest uses:</p>
+<ul>
+<li>Send one sequencer into Input A</li>
+<li>Route it to all four outputs in different amounts</li>
+<li>Add one or two other CV sources across the matrix</li>
+<li>Feed outputs to four oscillators, or to oscillator pitch plus timbral destinations</li>
+</ul>
+<p>This turns a single melody into:
+- lead
+- harmony
+- bass
+- ornament</p>
+<p>That is a very “musician-friendly” use of Eris in a compact system.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Four related melodies from one sequence</h2>
+<p><strong>Inputs</strong>
+- A: main sequencer CV
+- B: stepped random
+- C: slow triangle LFO
+- D: manual offset voltage</p>
+<p><strong>Outputs</strong>
+- 1: lead voice pitch
+- 2: bass voice pitch
+- 3: pluck voice pitch
+- 4: modulation to wavefolder or filter</p>
+<p><strong>How to set it</strong>
+- Send A strongly to outputs 1, 2, 3
+- Add a little B to outputs 2 and 3
+- Add C to output 3 only
+- Add D to output 1 for live transposition</p>
+<p><strong>Musical result</strong>
+A coherent melodic ecosystem: one recognizable line, one variation, one animated ornament.</p>
+<hr />
+<h2>Patch 2: Matrix-generated harmony</h2>
+<p><strong>Inputs</strong>
+- A: quantized root melody
+- B: offset representing a harmonic interval
+- C: another interval offset
+- D: envelope or phrase CV</p>
+<p><strong>Outputs</strong>
+- 1: root
+- 2: third/fifth-related line
+- 3: higher extension
+- 4: expressive transposition</p>
+<p><strong>Tip</strong>
+Use quantizers after Eris if you want the harmonic relationships to stay locked to a scale.</p>
+<hr />
+<h2>Patch 3: Live melodic performance hub</h2>
+<p><strong>Inputs</strong>
+- A: sequencer row 1
+- B: sequencer row 2
+- C: pressure or joystick CV
+- D: random source</p>
+<p><strong>Outputs</strong>
+- 1: lead pitch
+- 2: bass pitch
+- 3: filter contour CV
+- 4: FM or wavefold amount</p>
+<p><strong>Performance method</strong>
+Use the matrix knobs like a mixing desk for composition:
+- fade from row 1 into row 2
+- inject pressure into pitch
+- add random only at phrase endings
+- create breakdowns by stripping outputs back to one source</p>
+<hr />
+<h2>Patch 4: Aux-based melodic overlay</h2>
+<p><strong>Main path</strong>
+- Build your central melodic voice at Output 1</p>
+<p><strong>Aux path</strong>
+- Send a second oscillator, drone, or effected return to Aux input
+- Take Aux output as your final melodic sum
+- Use mute switch for clean entry/exit</p>
+<p><strong>Result</strong>
+A second musical layer appears and disappears smoothly, ideal for:
+- choruses
+- breakdown transitions
+- ambient widening
+- lead reinforcement</p>
+<hr />
+<h1>Strengths of Eris for melody</h1>
+<ul>
+<li><strong>DC-coupled</strong>, so it works with pitch and modulation CV</li>
+<li><strong>4×4 matrix format</strong> encourages related, structured variation</li>
+<li><strong>Gain up to 4x</strong> can amplify weak control sources</li>
+<li><strong>Aux path</strong> adds a performable melodic layer or return</li>
+<li>Good for both <strong>precise composition</strong> and <strong>experimental generative patching</strong></li>
+</ul>
+<hr />
+<h1>Things to watch out for</h1>
+<h2>1. Pitch precision</h2>
+<p>Matrix mixers can be used for pitch CV, but if you need exact tonal intervals, you may want:
+- a quantizer after the outputs
+- carefully tuned offsets
+- testing by ear with your oscillators</p>
+<h2>2. Gain staging</h2>
+<p>Since each channel can amplify up to 4x, it is easy to push CV or audio beyond expected ranges. That can be useful, but be intentional.</p>
+<h2>3. Feedback caution</h2>
+<p>For cybernetic/feedback patches, start with low levels. Melodic feedback can become noisy or unstable very fast.</p>
+<hr />
+<h1>Conclusion</h1>
+<p>Even though Eris is presented as a matrix mixer, it is very well suited to <strong>melodic patch design</strong> in Eurorack. Its biggest strength is not simply mixing signals, but creating <strong>families of related control voltages and audio layers</strong>. That makes it valuable for:</p>
+<ul>
+<li>harmonized voices</li>
+<li>melodic variation</li>
+<li>transposition systems</li>
+<li>modulation matrices</li>
+<li>live melodic performance mixing</li>
+<li>feedback-based generative melody</li>
+</ul>
+<p>If you pair it with sequencers, quantizers, oscillators, and effects, Eris can become the central “relationship builder” that turns a few simple sources into rich melodic structures.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

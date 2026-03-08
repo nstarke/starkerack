@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Synthesis_Technology_E340_Cloud_Generator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Synthesis Technology — E340 Cloud Generator</h1>
+<ul>
+<li><a href="../../manuals/E340_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.synthtech.com/euro/e340">Manual PDF</a></p>
+<h1>Synthesis Technology E340 Cloud Generator — melodic use in a Eurorack patch</h1>
+<p>The E340 is best understood as a <strong>single oscillator voice that internally stacks 2, 4, or 8 detuned oscillators</strong>. It gives you two simultaneous outputs:</p>
+<ul>
+<li><strong>SAW OUT</strong></li>
+<li><strong>SINE OUT</strong></li>
+</ul>
+<p>That makes it especially strong for <strong>thick melodic lines, drones with pitch focus, chord-like unison textures, and animated lead/bass parts</strong>.</p>
+<h2>What this module contributes melodically</h2>
+<h3>1. A playable pitched oscillator</h3>
+<p>The E340 accepts:</p>
+<ul>
+<li><strong>1V/OCT</strong> for note pitch</li>
+<li><strong>FM CV</strong> for pitch modulation</li>
+<li><strong>SYNC</strong> for hard sync effects</li>
+</ul>
+<p>So at its core, it can be used exactly like a melody oscillator:
+- sequence pitch into <strong>1V/OCT</strong>
+- use <strong>COARSE</strong> and <strong>FINE</strong> to tune range
+- send the output to a filter/VCA/envelope chain</p>
+<h3>2. “Unison melody” generator</h3>
+<p>The special melodic feature is <strong>SPREAD</strong>, which detunes the internal oscillators around the center pitch.</p>
+<p>This means one incoming pitch CV can become:
+- a subtle, wide <strong>supersaw-style lead</strong>
+- a soft chorused <strong>sine ensemble</strong>
+- an unstable, swarm-like <strong>animated note cloud</strong></p>
+<p>For melodic music, this is useful because it adds <strong>size and movement without needing multiple VCOs</strong>.</p>
+<h3>3. Motion around a note</h3>
+<p>The <strong>CHAOS</strong> and <strong>CHAOS BW</strong> controls add filtered random FM-like movement to the detuned voices.</p>
+<p>Musically, that means:
+- <strong>small CHAOS</strong> = lively pitch drift, like analog instability
+- <strong>higher CHAOS</strong> = more animated shimmer
+- <strong>high CHAOS + wide BW</strong> = noisy, unstable, nearly effects-style pitch cloud</p>
+<p>For melody, keep CHAOS low to moderate if you want notes to remain clearly tonal.</p>
+<hr />
+<h1>Important behavior that affects patching</h1>
+<p>The manual notes:</p>
+<ul>
+<li>CV inputs are effectively designed around about <strong>-5V to +5V</strong></li>
+<li>There are <strong>no built-in CV attenuators</strong> for most modulation destinations</li>
+<li>Any incoming CV is <strong>added to the panel knob position</strong></li>
+<li>If using a full-scale bipolar CV, the relevant panel knob should often be around <strong>12 o’clock</strong></li>
+<li>Overdriving CV can cause <strong>pitch changes</strong> or clamping</li>
+</ul>
+<p>So in musical patches:
+- attenuate external modulation before patching when possible
+- use modest modulation depth for SPREAD/CHAOS if you want stable intonation
+- be especially careful with pitch-related FM and large spread modulation</p>
+<hr />
+<h1>Best melodic roles for the E340</h1>
+<h2>1. Huge lead voice</h2>
+<p>Use <strong>SAW OUT</strong> with:
+- low or medium <strong>SPREAD</strong>
+- <strong>DENSITY</strong> at 4 or 8
+- low <strong>CHAOS</strong>
+- into a lowpass filter and VCA</p>
+<p>Result:
+- wide, glossy lead
+- classic supersaw-inspired melodic sound
+- good for trance, synthwave, cinematic hooks</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequencer CV → <strong>1V/OCT</strong></li>
+<li>Gate → envelope → VCA</li>
+<li><strong>SAW OUT</strong> → filter → VCA</li>
+<li>Envelope or slow LFO → filter cutoff</li>
+<li>Small CV modulation to <strong>SPREAD CV</strong> for chorus-like expansion on held notes</li>
+</ul>
+<hr />
+<h2>2. Soft ensemble sine melody</h2>
+<p>Use <strong>SINE OUT</strong> instead of saw.</p>
+<p>Result:
+- organ-like or choir-like melodic tone
+- less buzzy, more pure
+- useful for ambient lines, counter-melodies, basses, and tuned drones</p>
+<h3>Good settings</h3>
+<ul>
+<li><strong>DENSITY</strong> = 4 or 8</li>
+<li><strong>SPREAD</strong> very low</li>
+<li><strong>CHAOS</strong> low</li>
+<li><strong>CHAOS BW</strong> low to medium</li>
+</ul>
+<p>This gives a very elegant “many oscillators gently drifting together” character.</p>
+<hr />
+<h2>3. Animated bassline</h2>
+<p>The E340 can also do bass, especially if you keep it more controlled.</p>
+<h3>Suggested approach</h3>
+<ul>
+<li><strong>DENSITY</strong> = 2 or 4</li>
+<li><strong>SPREAD</strong> very low</li>
+<li><strong>CHAOS</strong> almost off</li>
+<li>choose <strong>SINE OUT</strong> for sub-heavy bass, or <strong>SAW OUT</strong> for more aggressive bass</li>
+</ul>
+<p>Because amplitude drops as density increases, <strong>DENSITY 2</strong> can feel punchier and louder for bass parts.</p>
+<hr />
+<h2>4. Chord-like unison without actual chords</h2>
+<p>The E340 does not quantize internal voices to chord intervals; it detunes them around a central pitch. Still, melodically it can create a <strong>quasi-harmonic cloud</strong>.</p>
+<p>This works well when:
+- notes are held longer
+- <strong>SPREAD</strong> is moderate
+- filtering shapes the brightness
+- reverb/delay is added</p>
+<p>You get the emotional effect of harmonic width even though the module is technically still centered on one pitch.</p>
+<hr />
+<h1>How the controls shape melody</h1>
+<h2>COARSE and FINE</h2>
+<p>These set the base tuning range.</p>
+<p>Use:
+- <strong>COARSE</strong> for register
+- <strong>FINE</strong> for exact tuning with the rest of your system</p>
+<p>If tracking is off, the manual notes a <strong>blue multiturn trimmer</strong> on the PCB for calibrating <strong>1V/OCT</strong>.</p>
+<hr />
+<h2>FM amount + FM input</h2>
+<p>This is pitch modulation of the fundamental frequency.</p>
+<p>For melodic purposes:
+- tiny modulation from an envelope can add attack punch
+- vibrato from an LFO can be expressive
+- audio-rate FM can make notes more metallic, but may reduce tonal clarity</p>
+<p>Use cautiously if your goal is a clean melody line.</p>
+<hr />
+<h2>SPREAD</h2>
+<p>This is the most important musical control.</p>
+<p>It detunes oscillators around the center pitch, and the detune amount is <strong>exponential</strong>:
+- very small at first
+- then rapidly wider</p>
+<p>So the sweet spots for melodic use are often in the lower part of the knob range.</p>
+<h3>Musical interpretation</h3>
+<ul>
+<li>very low: subtle thickening</li>
+<li>low-medium: unison lead / chorus</li>
+<li>medium: dramatic supersaw cloud</li>
+<li>high: swarm, less precise pitch center</li>
+</ul>
+<hr />
+<h2>CHAOS</h2>
+<p>Adds independent random movement to the spread voices.</p>
+<p>For melody:
+- use a little for life
+- use more for unstable ambient or experimental lines
+- too much can make tuned passages feel blurred</p>
+<hr />
+<h2>CHAOS BW</h2>
+<p>Changes the speed character of that random motion in <strong>6 steps</strong>.</p>
+<p>Think of it as:
+- <strong>narrow BW</strong> = slow drift
+- <strong>wide BW</strong> = faster flutter</p>
+<p>For musical phrasing:
+- slow drift is better for pads and lyrical melodies
+- faster motion is better for nervous textures and special effects</p>
+<hr />
+<h2>DENSITY</h2>
+<p>Selects <strong>2, 4, or 8 oscillators</strong>.</p>
+<p>Manual note: more oscillators means <strong>automatic amplitude reduction</strong> to avoid clipping.</p>
+<h3>Musical use</h3>
+<ul>
+<li><strong>2</strong> = clearer, stronger, more direct</li>
+<li><strong>4</strong> = balanced width and definition</li>
+<li><strong>8</strong> = widest, richest, most washed-out</li>
+</ul>
+<p>For melodies that need to cut through a mix, <strong>4</strong> is often a sweet spot.</p>
+<hr />
+<h2>SYNC</h2>
+<p>A positive voltage over <strong>+0.25V</strong> hard-syncs the VCOs.</p>
+<p>This can create:
+- harmonically rich synced leads
+- aggressive timbral changes while keeping melodic pitch anchored
+- unusual textures when combined with SPREAD</p>
+<p>For melodic use, sync is excellent if another oscillator is driving the sync input. You can then sequence the E340 as the “slave” oscillator and get animated harmonic movement while the note pitch remains playable.</p>
+<hr />
+<h1>Using both outputs together</h1>
+<p>A major strength of the E340 is having <strong>SAW and SINE available at the same time</strong>.</p>
+<h2>Layered melodic patch</h2>
+<p>Use:
+- <strong>SINE OUT</strong> for body/fundamental
+- <strong>SAW OUT</strong> for brightness</p>
+<p>Possible routing:
+- SINE → one VCA/filter path
+- SAW → separate filter/VCA path
+- mix them later</p>
+<p>This gives a more produced, layered sound from one module.</p>
+<h3>Example</h3>
+<ul>
+<li>SINE path: lowpass filtered, strong low mids</li>
+<li>SAW path: brighter, maybe highpass or bandpass filtered</li>
+<li>both controlled by the same sequencer and envelopes</li>
+</ul>
+<p>Result:
+- polished lead or bass with weight and air</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1 — Supersaw melody</h2>
+<p><strong>Goal:</strong> big, modern melodic line</p>
+<ul>
+<li>Pitch sequencer → <strong>1V/OCT</strong></li>
+<li>Gate sequencer → envelope</li>
+<li><strong>SAW OUT</strong> → lowpass filter → VCA</li>
+<li>Envelope → VCA CV</li>
+<li>Slow LFO or envelope → filter cutoff</li>
+<li>Small attenuated LFO → <strong>SPREAD CV</strong></li>
+<li>Settings:</li>
+<li>DENSITY: 8</li>
+<li>SPREAD: low-medium</li>
+<li>CHAOS: low</li>
+<li>CHAOS BW: low</li>
+</ul>
+<p>This makes a classic wide lead while staying tuneful.</p>
+<hr />
+<h2>Patch 2 — Floating ambient melody</h2>
+<p><strong>Goal:</strong> soft, shifting notes with motion</p>
+<ul>
+<li>Quantized CV source → <strong>1V/OCT</strong></li>
+<li><strong>SINE OUT</strong> → VCA → reverb/delay</li>
+<li>Slow random or envelope modulation → <strong>CHAOS CV</strong></li>
+<li>Very slow CV → <strong>SPREAD CV</strong></li>
+<li>Settings:</li>
+<li>DENSITY: 4 or 8</li>
+<li>SPREAD: low</li>
+<li>CHAOS: low-medium</li>
+<li>CHAOS BW: low</li>
+</ul>
+<p>This creates an ensemble-like melodic line that breathes.</p>
+<hr />
+<h2>Patch 3 — Expressive mono bass</h2>
+<p><strong>Goal:</strong> thick but controlled bass melody</p>
+<ul>
+<li>Sequencer → <strong>1V/OCT</strong></li>
+<li><strong>SINE OUT</strong> or <strong>SAW OUT</strong> → filter → VCA</li>
+<li>Envelope → VCA and slight filter modulation</li>
+<li>Optional tiny LFO → <strong>FM input</strong> via FM amount for subtle vibrato</li>
+<li>Settings:</li>
+<li>DENSITY: 2</li>
+<li>SPREAD: near minimum</li>
+<li>CHAOS: off or barely on</li>
+<li>CHAOS BW: low</li>
+</ul>
+<p>This keeps the bass centered while still fuller than a normal VCO.</p>
+<hr />
+<h2>Patch 4 — Sync lead with motion</h2>
+<p><strong>Goal:</strong> more aggressive melodic tone</p>
+<ul>
+<li>Another oscillator → <strong>SYNC input</strong></li>
+<li>Sequencer → E340 <strong>1V/OCT</strong></li>
+<li><strong>SAW OUT</strong> → filter → VCA</li>
+<li>Moderate <strong>SPREAD</strong></li>
+<li>Low <strong>CHAOS</strong></li>
+<li>Sweep filter and/or spread over time</li>
+</ul>
+<p>The manual specifically notes sync can sound very interesting at higher spread settings. This can produce animated, cutting lead timbres.</p>
+<hr />
+<h2>Patch 5 — Dual-output melodic layering</h2>
+<p><strong>Goal:</strong> one melody, two complementary timbres</p>
+<ul>
+<li>Sequencer → <strong>1V/OCT</strong></li>
+<li><strong>SINE OUT</strong> → VCA A</li>
+<li><strong>SAW OUT</strong> → filter → VCA B</li>
+<li>Same envelope gates both VCAs</li>
+<li>Mix A and B together</li>
+<li>Add a little modulation to SPREAD</li>
+</ul>
+<p>This gives a very complete melodic voice from a single oscillator module.</p>
+<hr />
+<h1>Best modulation strategies for melodic music</h1>
+<h2>Good choices</h2>
+<ul>
+<li>Small LFO to <strong>SPREAD CV</strong> for widening/narrowing</li>
+<li>Slow random to <strong>CHAOS CV</strong> for life</li>
+<li>Envelope to <strong>FM</strong> for transient pitch push</li>
+<li>Keyboard/mod wheel/pressure routed to spread or chaos for expressiveness</li>
+</ul>
+<h2>Use carefully</h2>
+<ul>
+<li>Large bipolar CV directly into SPREAD/CHAOS/BW without attenuation</li>
+<li>Fast random modulation if you want stable pitch perception</li>
+<li>Heavy FM for tonal melodies</li>
+</ul>
+<hr />
+<h1>Tonal and compositional character</h1>
+<p>The E340 is ideal when you want melody to feel:</p>
+<ul>
+<li><strong>larger than one oscillator</strong></li>
+<li><strong>alive and moving</strong></li>
+<li><strong>dense without stacking many modules</strong></li>
+<li><strong>cinematic, dreamy, glossy, or swarming</strong></li>
+</ul>
+<p>It is less ideal if you want:
+- perfectly clinical single-oscillator purity
+- explicit chord voicings from one pitch CV
+- precise interval-based harmony between internal voices</p>
+<p>Instead, it excels at <strong>unison-based melodic richness</strong>.</p>
+<hr />
+<h1>Summary</h1>
+<p>The E340 Cloud Generator is a strong melodic oscillator because it combines:</p>
+<ul>
+<li>proper <strong>1V/OCT pitch control</strong></li>
+<li>two simultaneous timbral outputs</li>
+<li>internal multi-oscillator unison</li>
+<li>animated detuning via <strong>SPREAD</strong></li>
+<li>controlled instability via <strong>CHAOS</strong> and <strong>CHAOS BW</strong></li>
+<li>timbral aggression via <strong>SYNC</strong></li>
+</ul>
+<h2>Best melodic applications</h2>
+<ul>
+<li>supersaw-style leads</li>
+<li>ensemble sine melodies</li>
+<li>thick basses</li>
+<li>ambient unison lines</li>
+<li>sync leads with width</li>
+<li>layered mono voices using both outputs</li>
+</ul>
+<h2>Most musical advice from the manual</h2>
+<p>Keep external CV moderated and use <strong>small amounts of SPREAD and CHAOS first</strong>. The E340 becomes most melodic when the central pitch stays clear and the cloud effect adds width rather than overwhelming note identity.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

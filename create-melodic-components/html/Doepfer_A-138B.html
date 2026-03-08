@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-138B</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-138B</h1>
+<ul>
+<li><a href="../../manuals/A138_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Doepfer A-138 Mixer: using it for melodic patching</h1>
+<p>The attached manual is for the <strong>Doepfer A-138 Mixer</strong> only, so I can explain how <strong>this module</strong> contributes to creating melodic material in a Eurorack system, and how it works <strong>with other melodic modules</strong> like sequencers, quantizers, oscillators, envelopes, LFOs, and filters.</p>
+<h2>What the A-138 does</h2>
+<p>The <strong>A-138</strong> is a <strong>4-channel mixer</strong> with:</p>
+<ul>
+<li><strong>4 inputs</strong>, each with its own level control</li>
+<li><strong>1 master output level</strong></li>
+<li>two versions:</li>
+<li><strong>A-138a</strong>: <strong>linear</strong> pots, best for <strong>control voltages (CV)</strong></li>
+<li><strong>A-138b</strong>: <strong>logarithmic</strong> pots, best for <strong>audio</strong></li>
+</ul>
+<p>It can mix:</p>
+<ul>
+<li><strong>audio signals</strong></li>
+<li><strong>control voltages</strong></li>
+<li>or a combination in utility contexts</li>
+</ul>
+<p>There is also an <strong>offset function on Input 1</strong> on later versions:
+- if nothing is plugged into input 1, knob 1 can generate:
+  - <strong>positive offset</strong> (~0 to +5V), or
+  - <strong>negative offset</strong> (~0 to -5V)
+- this is set with an internal <strong>JP4 jumper</strong></p>
+<p>That offset feature is especially useful for melody building.</p>
+<hr />
+<h2>Best role in melodic patching</h2>
+<p>The A-138 is <strong>not itself a sound source or sequencer</strong>, but it is very powerful as a <strong>melodic utility</strong>. It helps create melodies by letting you:</p>
+<ul>
+<li>combine multiple pitch-related CV sources</li>
+<li>add transposition offsets</li>
+<li>blend slow and fast modulation into pitch</li>
+<li>create variation in filter cutoff tied to melody</li>
+<li>mix several audio voices into one musical line or layered phrase</li>
+</ul>
+<p>For melodic work, the most important version is usually:</p>
+<h2>Use the <strong>A-138a</strong> for melodic CV</h2>
+<p>Because the <strong>A-138a</strong> has <strong>linear potentiometers</strong>, it is the better choice for:</p>
+<ul>
+<li>pitch CV mixing</li>
+<li>transposition</li>
+<li>combining sequencer + keyboard + modulation</li>
+<li>blending envelopes/LFOs/random with melodic control</li>
+</ul>
+<p>The <strong>A-138b</strong> is better when mixing final audio from voices.</p>
+<hr />
+<h1>How it can be used with other modules to create melodic components</h1>
+<h2>1. Transposing a sequence</h2>
+<p>A classic melodic use is to mix:</p>
+<ul>
+<li>a <strong>sequencer pitch CV</strong></li>
+<li>with a <strong>keyboard CV</strong>, <strong>precision voltage</strong>, or <strong>offset</strong></li>
+</ul>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequencer pitch CV → <strong>A-138 input 2</strong></li>
+<li>Offset or keyboard CV → <strong>A-138 input 1</strong></li>
+<li>A-138 output → <strong>VCO 1V/oct input</strong></li>
+<li>Sequencer gate → envelope/VCA as normal</li>
+</ul>
+<h3>Result</h3>
+<p>You can shift the whole melody up or down.</p>
+<h3>Why this is musical</h3>
+<p>This gives you:</p>
+<ul>
+<li>key changes</li>
+<li>phrase transposition</li>
+<li>verse/chorus movement</li>
+<li>manual melodic variation during performance</li>
+</ul>
+<h3>Extra tip</h3>
+<p>If your A-138 has the <strong>offset jumper enabled</strong>, and nothing is plugged into input 1, then <strong>knob 1 becomes a transpose control</strong>. That makes the mixer into a simple performance transposer.</p>
+<hr />
+<h2>2. Combining sequencer + vibrato + envelope pitch movement</h2>
+<p>You can layer several pitch influences into one melodic line.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Main pitch sequence CV → <strong>input 1</strong></li>
+<li>Slow LFO → <strong>input 2</strong></li>
+<li>Envelope → <strong>input 3</strong></li>
+<li>Random stepped CV (lightly attenuated) → <strong>input 4</strong></li>
+<li>A-138 output → <strong>VCO pitch input</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The oscillator receives a sum of:</p>
+<ul>
+<li>the base melody</li>
+<li>subtle vibrato</li>
+<li>pitch envelope attack movement</li>
+<li>a little random instability</li>
+</ul>
+<h3>Musical use</h3>
+<p>This is great for:</p>
+<ul>
+<li>expressive lead lines</li>
+<li>acid-style plucks</li>
+<li>animated basslines</li>
+<li>“humanized” melodies</li>
+</ul>
+<h3>Important note</h3>
+<p>Pitch inputs are sensitive, so keep modulation amounts small unless you want large interval jumps.</p>
+<hr />
+<h2>3. Creating harmonic intervals from one melody source</h2>
+<p>If you have multiple oscillators, the A-138 can help build related melodic voices.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequence CV multed to:</li>
+<li>VCO 1 directly</li>
+<li>A-138 input 2</li>
+<li>Offset voltage into A-138 input 1</li>
+<li>A-138 output → VCO 2 pitch</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li><strong>VCO 1</strong> plays the root melody</li>
+<li><strong>VCO 2</strong> plays the same melody transposed by the offset</li>
+</ul>
+<p>This creates:</p>
+<ul>
+<li>thirds</li>
+<li>fifths</li>
+<li>octaves</li>
+<li>drones against a moving melody</li>
+</ul>
+<p>If your offset is manually set, you can perform harmonic movement live.</p>
+<hr />
+<h2>4. Mixing control voltages for filter melody-tracking</h2>
+<p>Melodic character is often not just pitch, but also how the <strong>filter follows the note pattern</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Keyboard/sequencer pitch CV → <strong>input 1</strong></li>
+<li>Envelope CV → <strong>input 2</strong></li>
+<li>LFO → <strong>input 3</strong></li>
+<li>A-138 output → <strong>VCF cutoff CV input</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The filter opens according to a blend of:</p>
+<ul>
+<li>note position</li>
+<li>envelope articulation</li>
+<li>slow movement</li>
+</ul>
+<h3>Musical effect</h3>
+<p>This can make a melody feel:</p>
+<ul>
+<li>brighter on higher notes</li>
+<li>more expressive per note</li>
+<li>alive over time</li>
+</ul>
+<p>This is especially useful for:</p>
+<ul>
+<li>basslines</li>
+<li>leads</li>
+<li>plucked melodic patches</li>
+<li>Berlin-school style sequences</li>
+</ul>
+<p>The manual explicitly mentions mixing CVs for controlling something like a <strong>VCF</strong> from several sources.</p>
+<hr />
+<h2>5. Using the A-138b to layer melodic voices in audio</h2>
+<p>If you have multiple melodic voices, the <strong>A-138b</strong> is useful at the audio stage.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>VCO/voice 1 audio → input 1</li>
+<li>VCO/voice 2 audio → input 2</li>
+<li>Sub oscillator or noise layer → input 3</li>
+<li>Another voice/delay return → input 4</li>
+<li>A-138 output → filter, VCA, or external mixer</li>
+</ul>
+<h3>Result</h3>
+<p>You can create:</p>
+<ul>
+<li>layered lead sounds</li>
+<li>intervals and dyads</li>
+<li>thicker unison lines</li>
+<li>simple chord-like stacks</li>
+</ul>
+<p>Because the A-138b uses <strong>logarithmic pots</strong>, it feels more natural for balancing audio levels.</p>
+<hr />
+<h2>6. Building a controlled melodic modulation bus</h2>
+<p>One of the most useful musical applications is treating the A-138 as a <strong>CV mixer for one destination</strong>.</p>
+<p>For example, for a lead voice:</p>
+<h3>Into the mixer</h3>
+<ul>
+<li>sequencer row</li>
+<li>keyboard pressure / aftertouch</li>
+<li>LFO</li>
+<li>envelope</li>
+</ul>
+<h3>Out to one destination</h3>
+<ul>
+<li>oscillator pitch</li>
+<li>filter cutoff</li>
+<li>wavefolder depth</li>
+<li>FM amount</li>
+</ul>
+<h3>Result</h3>
+<p>You get a single “melodic behavior” bus made from several influences.</p>
+<p>This is powerful because melodies in modular are often not just notes, but <strong>interactions between pitch, timbre, and articulation</strong>.</p>
+<hr />
+<h2>7. Adding a manual phrase offset</h2>
+<p>If the jumper is set for the offset on input 1, and no cable is inserted there, knob 1 becomes a simple manual voltage source.</p>
+<h3>Uses for melody</h3>
+<p>You can use this to:</p>
+<ul>
+<li>transpose a sequence</li>
+<li>shift filter cutoff for a new section</li>
+<li>move a melody into a different register</li>
+<li>bias an LFO or envelope mix before it hits pitch</li>
+</ul>
+<p>This is one of the most performance-friendly uses of the A-138.</p>
+<hr />
+<h1>Example melodic patch recipes</h1>
+<h2>Patch 1: Simple transposable melody</h2>
+<h3>Modules involved</h3>
+<ul>
+<li>sequencer</li>
+<li>A-138a</li>
+<li>quantizer if needed</li>
+<li>VCO</li>
+<li>envelope</li>
+<li>VCA</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer CV → A-138 input 2</li>
+<li>A-138 output → quantizer input</li>
+<li>Quantizer output → VCO 1V/oct</li>
+<li>Gate → envelope → VCA</li>
+<li>Audio voice → output</li>
+<li>Use input 1 offset knob as transpose</li>
+</ul>
+<h3>Why it works</h3>
+<p>The quantizer keeps the mixed voltage musical, while the A-138 gives you manual transposition.</p>
+<hr />
+<h2>Patch 2: Evolving lead</h2>
+<h3>Modules involved</h3>
+<ul>
+<li>sequencer</li>
+<li>LFO</li>
+<li>envelope</li>
+<li>A-138a</li>
+<li>VCO</li>
+<li>VCF</li>
+<li>VCA</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer pitch CV → A-138 input 1</li>
+<li>Slow LFO → A-138 input 2</li>
+<li>Envelope (small amount) → A-138 input 3</li>
+<li>A-138 output → VCO pitch</li>
+</ul>
+<p>Optionally:
+- Mult sequencer CV and envelope into another A-138 or other mixer for VCF cutoff</p>
+<h3>Musical result</h3>
+<p>A lead that has:
+- stable melody
+- light movement
+- per-note inflection</p>
+<hr />
+<h2>Patch 3: Two-oscillator harmony line</h2>
+<h3>Modules involved</h3>
+<ul>
+<li>sequencer</li>
+<li>A-138a</li>
+<li>two VCOs</li>
+<li>mixer/audio path</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer CV multed:</li>
+<li>directly to VCO 1</li>
+<li>to A-138 input 2</li>
+<li>Offset into A-138 input 1</li>
+<li>A-138 output → VCO 2</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>oscillator 1 = melody</li>
+<li>oscillator 2 = harmony above or below</li>
+</ul>
+<p>Then mix both oscillators with:
+- <strong>A-138b</strong> for audio, if available</p>
+<hr />
+<h2>Patch 4: Melody-controlled timbre</h2>
+<h3>Modules involved</h3>
+<ul>
+<li>sequencer</li>
+<li>A-138a</li>
+<li>envelope</li>
+<li>LFO</li>
+<li>filter</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer CV → A-138 input 1</li>
+<li>Envelope → input 2</li>
+<li>LFO → input 3</li>
+<li>A-138 output → VCF CV input</li>
+</ul>
+<h3>Result</h3>
+<p>The timbre follows the contour of the melody, helping even simple note patterns sound more musical.</p>
+<hr />
+<h1>Practical advice</h1>
+<h2>For pitch CV, be careful</h2>
+<p>The A-138 is a general mixer, not necessarily a precision adder. That means:</p>
+<ul>
+<li>it is very useful for creative melodic CV mixing</li>
+<li>but for <strong>exact interval transposition over many octaves</strong>, a dedicated precision adder may be more accurate</li>
+</ul>
+<p>Still, for many musical patches it works very well.</p>
+<h2>A-138a vs A-138b</h2>
+<p>Choose based on task:</p>
+<ul>
+<li><strong>A-138a</strong></li>
+<li>pitch CV</li>
+<li>filter CV</li>
+<li>envelope/LFO mixing</li>
+<li>
+<p>transposition duties</p>
+</li>
+<li>
+<p><strong>A-138b</strong></p>
+</li>
+<li>mixing oscillator audio</li>
+<li>blending final melodic voices</li>
+<li>audio submixing before external output</li>
+</ul>
+<h2>The output attenuator is useful</h2>
+<p>Unlike many basic modular mixers, the A-138 has a <strong>master output attenuator</strong>, so it can:</p>
+<ul>
+<li>tame hot modular levels</li>
+<li>feed external gear more safely</li>
+<li>control overall level of a melodic submix</li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Doepfer A-138</strong> is best thought of as a <strong>melodic utility hub</strong>.</p>
+<p>It helps create melodic components by allowing you to:</p>
+<ul>
+<li>mix pitch CV sources</li>
+<li>transpose sequences</li>
+<li>add expressive modulation to notes</li>
+<li>combine multiple melodic control signals</li>
+<li>shape filter movement tied to melody</li>
+<li>layer multiple audio voices into one musical part</li>
+</ul>
+<p>If you have the <strong>A-138a</strong>, it is especially useful for <strong>building and varying melodies</strong> through CV combination. If you have the <strong>A-138b</strong>, it is excellent for <strong>summing melodic audio voices</strong> into a final line or layered part.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Bell</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Bell</h1>
+<ul>
+<li><a href="../../manuals/2hp_Bell.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Bell — using it to create melodic parts in a Eurorack patch</h1>
+<p>Based on the manual, <strong>Bell</strong> is a <strong>2HP modal synthesis melodic percussion voice</strong> designed for struck, resonant, pitched sounds: bells, vibraphones, marimbas, bowls, glass, and plate-like tones.</p>
+<h2>What the module does musically</h2>
+<p>Bell is essentially a compact <strong>pitched voice</strong> for:</p>
+<ul>
+<li>melodic percussion lines</li>
+<li>tuned hits and plucks</li>
+<li>chord-like layered strikes via polyphony</li>
+<li>metallic ambient textures</li>
+<li>physically inspired mallet sounds</li>
+</ul>
+<p>Its sound engine uses <strong>modal synthesis</strong>, so instead of a typical subtractive oscillator/filter path, it generates the resonant behavior of struck objects. That makes it especially good for:</p>
+<ul>
+<li><strong>glockenspiel-style melodies</strong></li>
+<li><strong>vibraphone ostinatos</strong></li>
+<li><strong>marimba riffs</strong></li>
+<li><strong>bell arpeggios</strong></li>
+<li><strong>bowl/drone accents</strong></li>
+<li><strong>hybrid acoustic-impossible percussion</strong></li>
+</ul>
+<h2>Key features from the manual</h2>
+<ul>
+<li><strong>6-voice polyphony</strong></li>
+<li><strong>Trigger input</strong> to create notes</li>
+<li><strong>Pitch control</strong></li>
+<li><strong>1V/Oct input</strong> for melodic control</li>
+<li><strong>Model control</strong> with CV</li>
+<li><strong>Damp control</strong> with CV</li>
+<li><strong>Audio output: 10Vpp</strong></li>
+<li><strong>8 physical models</strong>:</li>
+<li>Pure Bell</li>
+<li>Pure Vibraphone</li>
+<li>Harmonic Vibraphone</li>
+<li>Hard Marimba</li>
+<li>Soft Marimba</li>
+<li>Tibetan Bowl</li>
+<li>Wine Glass</li>
+<li>Redwood Plate</li>
+</ul>
+<hr />
+<h2>How Bell works in a melodic system</h2>
+<p>To make Bell perform as a melodic instrument, you mainly need three things:</p>
+<ol>
+<li><strong>A trigger source</strong></li>
+<li><strong>A pitch CV source</strong></li>
+<li><strong>A way to shape timbre over time</strong></li>
+</ol>
+<h3>1. Trigger input = note articulation</h3>
+<p>The <strong>Trig</strong> input causes a new note to sound using the current knob/CV state.</p>
+<p>Use this with:</p>
+<ul>
+<li>trigger sequencers</li>
+<li>gate-to-trigger sources</li>
+<li>clock dividers/multipliers</li>
+<li>Euclidean rhythm generators</li>
+<li>manual gate buttons</li>
+<li>logic-based rhythmic patterns</li>
+</ul>
+<p>Because Bell is a struck voice, each trigger acts like a mallet hit.</p>
+<h3>2. V/Oct input = melody</h3>
+<p>The <strong>V/Oct</strong> input accepts <strong>-1V to 6V</strong>, so you can drive Bell from:</p>
+<ul>
+<li>a CV sequencer</li>
+<li>a keyboard controller</li>
+<li>a quantizer</li>
+<li>a precision adder</li>
+<li>a sample &amp; hold into a quantizer</li>
+</ul>
+<p>This is the main input for writing actual melodies.</p>
+<h3>3. Pitch knob = base tuning and expressive movement</h3>
+<p>The <strong>Pitch</strong> knob sets the fundamental frequency, but the manual also notes something musically important:</p>
+<blockquote>
+<p>The pitch control remains active for the most recently generated note.</p>
+</blockquote>
+<p>That means while a note is ringing, moving Pitch can create:</p>
+<ul>
+<li><strong>vibrato</strong></li>
+<li><strong>pitch bends</strong></li>
+<li><strong>slewed transitions</strong></li>
+<li><strong>live retuning</strong></li>
+<li><strong>expressive struck-metal gestures</strong></li>
+</ul>
+<p>That’s a nice performance feature, especially for bowl and glass models.</p>
+<hr />
+<h1>How to patch Bell for melodic components</h1>
+<h2>Patch 1: Basic tuned melodic percussion line</h2>
+<p><strong>Goal:</strong> marimba or vibraphone melody</p>
+<p><strong>Patch:</strong>
+- Sequencer trigger out → <strong>Trig</strong>
+- Sequencer pitch CV / quantizer out → <strong>V/Oct</strong>
+- <strong>Out</strong> → VCA, LPG, mixer, or directly to output chain
+- Set <strong>Model</strong> to:
+  - Pure Vibraphone
+  - Harmonic Vibraphone
+  - Hard Marimba
+  - Soft Marimba</p>
+<p><strong>Musical result:</strong>
+- clean, tuned mallet melodies
+- excellent for ostinatos, hooks, and counter-melodies</p>
+<p><strong>Tips:</strong>
+- Use <strong>Hard Marimba</strong> for more attack and rhythmic clarity
+- Use <strong>Soft Marimba</strong> for gentler melodic support
+- Use <strong>Harmonic Vibraphone</strong> for more shimmer in sparse arrangements</p>
+<hr />
+<h2>Patch 2: Bell arpeggios</h2>
+<p><strong>Goal:</strong> chiming bell sequence</p>
+<p><strong>Patch:</strong>
+- Arpeggiator or stepped CV source → <strong>V/Oct</strong>
+- Clocked trigger stream → <strong>Trig</strong>
+- Set <strong>Model</strong> to <strong>Pure Bell</strong>
+- Set <strong>Damp</strong> low-to-medium for long ringing decay</p>
+<p><strong>Musical result:</strong>
+- glassy and metallic melodic figures
+- excellent for ambient, techno, soundtrack, and minimal patches</p>
+<p><strong>Extra move:</strong>
+- Modulate <strong>Model CV</strong> slowly with an LFO or sequenced CV to morph between bell-like and bowl-like materials.</p>
+<hr />
+<h2>Patch 3: Animated tuned percussion</h2>
+<p><strong>Goal:</strong> keep the melody the same, but change tone over time</p>
+<p><strong>Patch:</strong>
+- Quantized sequence → <strong>V/Oct</strong>
+- Trigger pattern → <strong>Trig</strong>
+- Slow bipolar LFO or sequencer lane → <strong>Model</strong>
+- Envelope, random CV, or slow modulation → <strong>Damp</strong></p>
+<p><strong>Why this works:</strong>
+- <strong>Model</strong> changes the resonant object itself
+- <strong>Damp</strong> changes resonance/decay and the apparent hardness/softness of the struck body</p>
+<p><strong>Musical result:</strong>
+- one melodic line that feels “performed” rather than static
+- timbral evolution across phrases
+- pseudo-acoustic variation</p>
+<p>Because both <strong>Model</strong> and <strong>Damp</strong> accept <strong>bipolar CV (-5V to 5V)</strong> added to the knob positions, they work well with centered modulation sources.</p>
+<hr />
+<h2>Patch 4: Polyphonic overlapping phrases</h2>
+<p><strong>Goal:</strong> create layered melodic textures</p>
+<p>Bell offers <strong>6-voice polyphony</strong>, meaning multiple struck notes can overlap naturally before the oldest one is stolen.</p>
+<p><strong>Patch:</strong>
+- Fast or medium trigger pattern → <strong>Trig</strong>
+- Quantized melodic sequence → <strong>V/Oct</strong>
+- Set <strong>Damp</strong> lower for longer decays
+- Use <strong>Tibetan Bowl</strong>, <strong>Wine Glass</strong>, or <strong>Pure Bell</strong></p>
+<p><strong>Musical result:</strong>
+- overlapping notes build implied harmony
+- works beautifully for:
+  - broken chords
+  - generative ambient lines
+  - shimmering bell clouds
+  - gamelan-like textures</p>
+<p>This is one of Bell’s strongest uses. Even with a monophonic CV line, the polyphony lets previous notes keep ringing while new notes enter, creating a naturally layered melodic field.</p>
+<hr />
+<h2>Patch 5: Bowls, drones, and melodic ambience</h2>
+<p><strong>Goal:</strong> less “percussion,” more sustained tonal atmosphere</p>
+<p><strong>Patch:</strong>
+- Sparse triggers → <strong>Trig</strong>
+- Slow quantized CV or manually tuned voltage → <strong>V/Oct</strong>
+- Model = <strong>Tibetan Bowl</strong> or <strong>Wine Glass</strong>
+- Lower damping for longer resonances
+- Add external reverb/delay after <strong>Out</strong></p>
+<p><strong>Musical result:</strong>
+- resonant tuned drones
+- meditative tonal strikes
+- cinematic punctuation notes</p>
+<p>This is especially effective if you trigger only a few notes per bar and let the resonance fill space.</p>
+<hr />
+<h2>Patch 6: Expressive lead percussion</h2>
+<p><strong>Goal:</strong> use Bell almost like a lead voice</p>
+<p>Because the <strong>Pitch</strong> knob affects the <strong>most recently generated note while it rings</strong>, Bell can be played expressively.</p>
+<p><strong>Patch:</strong>
+- Keyboard or sequencer CV → <strong>V/Oct</strong>
+- Gate/trigger → <strong>Trig</strong>
+- Perform with the <strong>Pitch</strong> knob by hand
+- Optionally route the output through delay/reverb</p>
+<p><strong>Musical result:</strong>
+- subtle bends
+- hand-played vibrato
+- expressive tuned metallic solos</p>
+<p>This is especially compelling with:
+- Wine Glass
+- Tibetan Bowl
+- Pure Bell</p>
+<hr />
+<h1>Understanding the controls musically</h1>
+<h2>Model</h2>
+<p>This chooses the resonator/excitor type. Think of it as selecting the “instrument family” or “material.”</p>
+<h3>Best uses by model</h3>
+<ul>
+<li>
+<p><strong>Pure Bell</strong><br />
+  Bright melodic chimes, lead bells, arpeggios</p>
+</li>
+<li>
+<p><strong>Pure Vibraphone</strong><br />
+  Jazz-like tuned percussion lines, clean melodic support</p>
+</li>
+<li>
+<p><strong>Harmonic Vibraphone</strong><br />
+  More overtone-rich melodic parts, lush arps</p>
+</li>
+<li>
+<p><strong>Hard Marimba</strong><br />
+  Strong attack, great for rhythmic riffs and sequence definition</p>
+</li>
+<li>
+<p><strong>Soft Marimba</strong><br />
+  Mellow repetitive patterns, understated melody</p>
+</li>
+<li>
+<p><strong>Tibetan Bowl</strong><br />
+  Long resonances, meditative melodies, drone accents</p>
+</li>
+<li>
+<p><strong>Wine Glass</strong><br />
+  Fragile, eerie, crystalline melodic textures</p>
+</li>
+<li>
+<p><strong>Redwood Plate</strong><br />
+  More unusual, experimental struck timbres; good for hybrid percussion melodies</p>
+</li>
+</ul>
+<h2>Damp</h2>
+<p>The manual describes Damp as changing the resonance of the excitor filters and affecting overall decay time.</p>
+<p>In practice, this means:</p>
+<ul>
+<li><strong>higher damping</strong> = shorter, tighter, more percussive notes</li>
+<li><strong>lower damping</strong> = longer ringing, more sustained and atmospheric notes</li>
+</ul>
+<h3>Musical uses of Damp</h3>
+<ul>
+<li>For <strong>fast melodic passages</strong>: increase damping so notes stay clear</li>
+<li>For <strong>ambient or chordal overlap</strong>: reduce damping so notes ring into each other</li>
+<li>For <strong>dynamic arrangement changes</strong>: modulate damping during a section to move from dry marimba to blooming bell cloud</li>
+</ul>
+<hr />
+<h1>Best partner modules for Bell</h1>
+<p>Since you asked how modules can be used together, here’s what Bell most benefits from alongside other Eurorack utilities and voices.</p>
+<h2>1. Sequencer + quantizer</h2>
+<p>Use with Bell for:</p>
+<ul>
+<li>melodies</li>
+<li>arpeggios</li>
+<li>tuned percussion riffs</li>
+<li>transposed patterns</li>
+</ul>
+<p>Ideal partners:
+- CV sequencer
+- quantizer
+- precision adder
+- keyboard controller</p>
+<h2>2. Trigger sequencer / clock tools</h2>
+<p>Bell needs distinct note events. Pairing it with rhythmic modules gives:</p>
+<ul>
+<li>syncopated struck melodies</li>
+<li>Euclidean bell lines</li>
+<li>polyrhythmic mallet parts</li>
+<li>generative melodic percussion</li>
+</ul>
+<p>Ideal partners:
+- trigger sequencer
+- clock divider
+- logic
+- burst generator</p>
+<h2>3. Modulation sources</h2>
+<p>Model and Damp are both good CV destinations.</p>
+<p>Use:
+- LFOs
+- random stepped voltages
+- envelopes
+- sequencer modulation lanes</p>
+<p>This adds:
+- timbral phrase movement
+- variation between strikes
+- evolving material/decay changes</p>
+<h2>4. Effects</h2>
+<p>Bell really opens up with effects.</p>
+<p>Best choices:
+- <strong>reverb</strong> for bowls, bells, glass
+- <strong>delay</strong> for arpeggios and melodic echoes
+- <strong>chorus</strong> for vibraphone-like lushness
+- <strong>filter</strong> for softening top end
+- <strong>wavefolder/distortion</strong> for aggressive metallic percussion</p>
+<h2>5. VCA / LPG / mixer</h2>
+<p>Even though Bell is already percussive, external level control helps in a full patch.</p>
+<p>Use these for:
+- balancing Bell with other voices
+- ducking under drums or bass
+- adding extra articulation with a VCA
+- warming transients with an LPG</p>
+<hr />
+<h1>Arrangement roles Bell can fill</h1>
+<p>Bell can serve several melodic roles in a track:</p>
+<h2>Primary melody</h2>
+<p>Use:
+- Pure Bell
+- Vibraphone
+- Wine Glass</p>
+<p>Great for sparse arrangements and melodic techno hooks.</p>
+<h2>Countermelody</h2>
+<p>Use:
+- Soft Marimba
+- Harmonic Vibraphone</p>
+<p>Works behind a lead oscillator or vocal-like synth line.</p>
+<h2>Chord illusion / harmonic wash</h2>
+<p>Use:
+- Tibetan Bowl
+- Pure Bell
+- Wine Glass
+with long decay and overlapping triggers.</p>
+<h2>Rhythmic melodic ostinato</h2>
+<p>Use:
+- Hard Marimba
+- Pure Vibraphone
+with short damping and a clocked trigger pattern.</p>
+<h2>Textural punctuation</h2>
+<p>Use:
+- Redwood Plate
+- Tibetan Bowl
+for occasional accent notes in ambient or experimental music.</p>
+<hr />
+<h1>Practical patch recipes</h1>
+<h2>A. Minimal techno bell hook</h2>
+<ul>
+<li>16-step sequencer CV → <strong>V/Oct</strong></li>
+<li>Sparse trigger pattern → <strong>Trig</strong></li>
+<li>Model = <strong>Pure Bell</strong></li>
+<li>Damp = medium</li>
+<li>Output → delay + reverb</li>
+</ul>
+<p>Result: a bright repeating motif over kick and bass.</p>
+<h2>B. Ambient bowl constellation</h2>
+<ul>
+<li>Random stepped CV → quantizer → <strong>V/Oct</strong></li>
+<li>Slow irregular triggers → <strong>Trig</strong></li>
+<li>Model = <strong>Tibetan Bowl</strong></li>
+<li>Damp = low</li>
+<li>Output → huge reverb</li>
+</ul>
+<p>Result: floating tuned metallic events.</p>
+<h2>C. Marimba polyrhythm</h2>
+<ul>
+<li>Polyrhythmic trigger source → <strong>Trig</strong></li>
+<li>Quantized repeating sequence → <strong>V/Oct</strong></li>
+<li>Model = <strong>Hard Marimba</strong></li>
+<li>Damp = higher</li>
+</ul>
+<p>Result: tight percussive melody with strong attack definition.</p>
+<h2>D. Generative glass melody</h2>
+<ul>
+<li>Sample &amp; hold → quantizer → <strong>V/Oct</strong></li>
+<li>Clock divider output → <strong>Trig</strong></li>
+<li>Slow bipolar LFO → <strong>Model</strong></li>
+<li>Random CV attenuated → <strong>Damp</strong></li>
+<li>Model centered near <strong>Wine Glass</strong></li>
+</ul>
+<p>Result: shifting crystalline melodic phrases.</p>
+<hr />
+<h1>Important operational notes from the manual</h1>
+<ul>
+<li><strong>Trigger creates notes using current knob/CV state</strong></li>
+<li><strong>6 voices maximum</strong>; oldest note is stolen when a new one arrives</li>
+<li><strong>Model and Damp CV are bipolar</strong>, with <strong>-5V to 5V</strong> input range</li>
+<li><strong>V/Oct input range is -1V to 6V</strong></li>
+<li><strong>Output is 10Vpp</strong></li>
+<li>LED lights for 30 ms when a sound is triggered</li>
+</ul>
+<p>That means in practice:
+- attenuate modulation if model jumping becomes too abrupt
+- use a quantized pitch source for tonal music
+- be aware that fast dense patterns may cause voice stealing if decay is long</p>
+<hr />
+<h1>Overall musical assessment</h1>
+<p><strong>Bell</strong> is best thought of as a <strong>compact melodic percussion voice with strong expressive potential</strong>. It is especially useful when you want:</p>
+<ul>
+<li>a full melodic voice in very little HP</li>
+<li>non-standard oscillator timbres</li>
+<li>struck, resonant acoustic-style tones</li>
+<li>overlapping tuned metallic notes</li>
+<li>a voice that can do both tonal rhythm and ambient melody</li>
+</ul>
+<p>Its biggest strengths for melodic music are:</p>
+<ol>
+<li><strong>true pitch control via V/Oct</strong></li>
+<li><strong>6-voice overlap for naturally layered phrases</strong></li>
+<li><strong>multiple resonant physical models</strong></li>
+<li><strong>Damp control for articulation and decay shaping</strong></li>
+<li><strong>very small footprint</strong></li>
+</ol>
+<p>If you want, I can also turn this into:
+- a <strong>clean patch sheet</strong>
+- a <strong>beginner-friendly quick-start guide</strong>
+- or a <strong>“best musical uses by genre” summary</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

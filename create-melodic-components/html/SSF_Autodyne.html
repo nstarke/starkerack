@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>SSF_Autodyne</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>SSF — Autodyne</h1>
+<ul>
+<li><a href="../../manuals/Autodyne - Steady State Fate.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1><a href="https://steadystatefate.com/products/autodyne">Autodyne manual / product page</a></h1>
+<p>From the material provided, only <strong>one module</strong> is documented here: <strong>Steady State Fate Autodyne</strong>. So I can’t analyze inter-module patch relationships from multiple manuals, but I <em>can</em> explain how <strong>Autodyne</strong> can be used <strong>with other Eurorack building blocks</strong> to create and shape <strong>melodic components</strong>.</p>
+<h2>Module identified</h2>
+<ul>
+<li><strong>Steady State Fate Autodyne</strong></li>
+<li>4hp</li>
+<li>Auto-compressor / distortion</li>
+<li>Parallel compression blend</li>
+<li>Switchable sidechain filter</li>
+<li>External sidechain input</li>
+<li>Designed for clean-to-character dynamics control</li>
+</ul>
+<h2>What Autodyne does musically</h2>
+<p>Autodyne is <strong>not a pitch source, oscillator, sequencer, or quantizer</strong>. It won’t generate melodies by itself. Instead, it is a <strong>dynamics and tone-shaping module</strong> that helps melodic parts become:
+- more present
+- more even in level
+- punchier
+- more saturated
+- more expressive
+- more mix-ready</p>
+<p>That means it works best <strong>after</strong> a melodic voice or <strong>on a melodic bus</strong>.</p>
+<h2>Core controls and how they affect melodic material</h2>
+<h3>COMP</h3>
+<p>According to the page, <strong>ratio, threshold, and gain behavior are combined into one control</strong>.
+- <strong>Below center</strong>: gentler compression, more traditional leveling
+- <strong>Past center</strong>: more aggressive compression
+- Useful for:
+  - evening out inconsistent note levels
+  - adding sustain to plucks
+  - gluing legato phrases
+  - making arpeggios feel more “forward”</p>
+<h3>GAIN</h3>
+<p>This trims output level, but can also push into <strong>heavy distortion</strong>.
+- Low/moderate use: compensates level after compression
+- High use: adds harmonics and aggression
+- Useful for melody:
+  - brighten dull waveforms
+  - add edge to leads
+  - turn simple sine/triangle voices into more audible foreground lines</p>
+<h3>BLEND</h3>
+<p>Parallel compression mix between dry and compressed signal.
+- Minimum: effectively bypasses compression
+- Increasing blend: mixes in compressed character
+- Very useful for melodic work because you can:
+  - keep transients from a pluck
+  - add body/sustain underneath
+  - preserve articulation while increasing density</p>
+<h3>Side Chain Filter</h3>
+<p>The sidechain can be filtered with a <strong>high-pass response</strong> so low frequencies don’t over-trigger compression.
+- This matters if your melodic line has:
+  - strong bass content
+  - resonant low mids
+  - filter sweeps
+- For melody, this helps compression react more to the <strong>articulation and upper tone</strong> rather than low-end energy.</p>
+<h3>External Side Chain Input</h3>
+<p>An external signal can drive the compressor detector.
+- This opens up rhythmic and phrase-shaping possibilities for melodic lines:
+  - duck melodies under kick
+  - pulse a drone with a trigger pattern
+  - shape a sustained lead from an unrelated rhythmic source</p>
+<hr />
+<h2>Best ways to use Autodyne for melodic components</h2>
+<h2>1. Make a plucked sequence sound bigger</h2>
+<p><strong>Patch idea</strong>
+- VCO → VCF → VCA/envelope → <strong>Autodyne</strong> → mixer
+- Use a sequencer + quantizer for pitch</p>
+<p><strong>Settings</strong>
+- COMP: just below or around noon
+- BLEND: 10–1 o’clock
+- GAIN: unity or slight boost</p>
+<p><strong>Result</strong>
+- Short notes gain body and sustain
+- Quiet notes become more audible
+- The sequence feels more polished without losing attack</p>
+<p>This is especially good for:
+- acid-style lines
+- marimba/pluck voices
+- filtered saw arpeggios</p>
+<hr />
+<h2>2. Turn a simple oscillator line into a lead</h2>
+<p>If your melodic voice is too plain:
+- oscillator → wavefolder/filter → VCA → <strong>Autodyne</strong>
+- push <strong>GAIN</strong> for harmonic enhancement
+- add some <strong>COMP</strong> and a moderate <strong>BLEND</strong></p>
+<p><strong>Result</strong>
+- more upper harmonics
+- greater perceived loudness
+- lead cuts through a mix better</p>
+<p>This works well on:
+- triangle leads
+- sine FM lines
+- softly filtered saws</p>
+<hr />
+<h2>3. Add sustain to sparse melodies</h2>
+<p>Some melodic phrases feel too thin when notes decay quickly.</p>
+<p><strong>Patch</strong>
+- voice → <strong>Autodyne</strong> → delay/reverb</p>
+<p><strong>Settings</strong>
+- COMP above noon
+- BLEND moderate
+- GAIN adjusted to match output</p>
+<p><strong>Result</strong>
+- note tails become more audible
+- sustained ambience feeds delay/reverb more evenly
+- melodic phrases sound more connected</p>
+<p>This is useful for:
+- ambient sequences
+- slow generative melodies
+- fragile west-coast style plucks</p>
+<hr />
+<h2>4. Use parallel compression to keep articulation</h2>
+<p>Autodyne’s <strong>BLEND</strong> is especially useful for melody because fully compressed melodic material can lose expression.</p>
+<p><strong>Approach</strong>
+- Start with stronger compression than you think you need
+- Then back off with <strong>BLEND</strong></p>
+<p><strong>Why</strong>
+- dry path preserves note attack and pitch clarity
+- compressed path adds body and sustain</p>
+<p><strong>Result</strong>
+- melodic line stays expressive
+- dynamics become controlled
+- phrase remains intelligible in dense arrangements</p>
+<p>This is one of the strongest uses of Autodyne on melodic voices.</p>
+<hr />
+<h2>5. Create rhythmic melodic pumping with external sidechain</h2>
+<p><strong>Patch</strong>
+- melodic voice audio → Autodyne IN
+- kick drum, trigger-derived envelope, or percussion bus → sidechain input</p>
+<p><strong>Result</strong>
+- the melodic line ducks rhythmically
+- sustained notes become animated
+- static harmonies feel syncopated</p>
+<p>For melodic music, this can make:
+- pads pulse with groove
+- basslines stay out of the kick’s way
+- drones become rhythmically musical</p>
+<p>If using a kick as sidechain:
+- enable sidechain filtering as needed
+- tune response by ear so ducking supports the groove rather than flattening the phrase</p>
+<hr />
+<h2>6. Keep bass melodies controlled</h2>
+<p>For bass melodies or low-register sequenced lines, compression can overreact to the fundamental. The <strong>sidechain filter</strong> is important here.</p>
+<p><strong>Patch</strong>
+- bass voice → Autodyne
+- sidechain filter engaged</p>
+<p><strong>Result</strong>
+- compression responds less to huge low-end swings
+- pitch definition improves
+- bass melody stays firmer and more even</p>
+<p>Great for:
+- sequenced monosynth bass
+- low LPG plucks
+- resonant filter bass phrases</p>
+<hr />
+<h2>7. Add “glue” to a layered melodic bus</h2>
+<p>If you have multiple melodic voices mixed together externally or through a submixer:
+- lead + countermelody + arpeggio → submix → <strong>Autodyne</strong></p>
+<p><strong>Result</strong>
+- parts feel like one musical object
+- peaks are controlled
+- harmonic density increases</p>
+<p>This is probably the most “studio-like” use:
+- one module can make several melodic layers feel unified</p>
+<hr />
+<h2>How Autodyne fits in a melodic signal chain</h2>
+<h2>A. After the full voice</h2>
+<p><strong>Typical melodic use</strong>
+- pitch CV → oscillator → filter → VCA → <strong>Autodyne</strong></p>
+<p>Best when you want:
+- overall note leveling
+- sustain
+- character
+- final polish</p>
+<h2>B. Before time effects</h2>
+<ul>
+<li>voice → <strong>Autodyne</strong> → delay/reverb</li>
+</ul>
+<p>Best when you want:
+- more consistent sends into effects
+- richer echoes
+- smoother ambient tails</p>
+<h2>C. On a melodic subgroup</h2>
+<ul>
+<li>several voices → mixer → <strong>Autodyne</strong> → final mix</li>
+</ul>
+<p>Best when you want:
+- ensemble cohesion
+- “glue”
+- bus compression flavor</p>
+<hr />
+<h2>Pairing ideas with common module types</h2>
+<p>Even though only Autodyne is shown, here’s how it works with typical melody-generating modules:</p>
+<h3>With sequencers</h3>
+<p>Use sequencers for pitch and rhythm, then Autodyne to:
+- even note accents
+- increase sustain on short gate patterns
+- make step sequences feel more finished</p>
+<h3>With quantizers</h3>
+<p>Quantizers produce stable pitch structure; Autodyne helps those pitches feel:
+- more connected
+- louder in a mix
+- more expressive dynamically</p>
+<h3>With oscillators</h3>
+<p>Autodyne can make oscillator voices:
+- more harmonically rich via gain/distortion
+- more stable in level via compression
+- more lead-like via saturation</p>
+<h3>With filters</h3>
+<p>After a resonant filter, Autodyne can tame peaks and emphasize tone.
+Useful when:
+- resonance causes some notes to jump out
+- envelope sweeps are too uneven
+- filter pings need more body</p>
+<h3>With VCAs and envelopes</h3>
+<p>VCA + envelope create the articulation; Autodyne reshapes the result.
+- fast envelope + Autodyne = punchy plucks with more density
+- long envelope + Autodyne = smoother, sustained melodic lines</p>
+<h3>With wavefolders / distortion</h3>
+<p>Autodyne after tone-shaping can help manage wild dynamics.
+- folded timbres often vary a lot in level
+- compression makes them more playable melodically</p>
+<hr />
+<h2>Practical melodic patch recipes</h2>
+<h2>Patch 1: Compressed analog lead</h2>
+<ul>
+<li>Quantizer/sequencer → VCO pitch</li>
+<li>VCO saw → lowpass filter</li>
+<li>Envelope → filter + VCA</li>
+<li>VCA out → <strong>Autodyne</strong> → reverb</li>
+</ul>
+<p><strong>Autodyne</strong>
+- COMP: 1 o’clock
+- GAIN: slight boost
+- BLEND: noon</p>
+<p><strong>Sound</strong>
+- stable, present mono lead with body and sustain</p>
+<hr />
+<h2>Patch 2: Rhythmic ducked pad melody</h2>
+<ul>
+<li>Oscillator chord or pad voice → VCA → <strong>Autodyne</strong></li>
+<li>Kick or trigger envelope → sidechain input</li>
+</ul>
+<p><strong>Autodyne</strong>
+- COMP: noon to 2 o’clock
+- BLEND: to taste
+- Sidechain filter: experiment based on trigger source</p>
+<p><strong>Sound</strong>
+- breathing/pumping harmonic bed with strong groove</p>
+<hr />
+<h2>Patch 3: Distorted bass melody</h2>
+<ul>
+<li>Sequencer → quantizer → bass oscillator</li>
+<li>Filter → VCA → <strong>Autodyne</strong></li>
+</ul>
+<p><strong>Autodyne</strong>
+- COMP: moderate
+- GAIN: pushed into character/distortion
+- BLEND: retain some dry signal
+- Sidechain filter: on</p>
+<p><strong>Sound</strong>
+- aggressive but controlled bass sequence with better note consistency</p>
+<hr />
+<h2>Patch 4: Glue for arpeggio + lead</h2>
+<ul>
+<li>Arp voice and lead voice into mixer</li>
+<li>Mixer out → <strong>Autodyne</strong> → stereo FX / output</li>
+</ul>
+<p><strong>Autodyne</strong>
+- COMP: mild
+- BLEND: low to moderate
+- GAIN: unity</p>
+<p><strong>Sound</strong>
+- layered melodic lines feel unified and mix-ready</p>
+<hr />
+<h2>Strengths of Autodyne for melody</h2>
+<ul>
+<li>Very compact at <strong>4hp</strong></li>
+<li>Good for <strong>final voice shaping</strong></li>
+<li>Parallel compression is excellent on articulate melodic content</li>
+<li>Sidechain input enables musical rhythmic interaction</li>
+<li>Can move from transparent control to obvious color/distortion</li>
+</ul>
+<h2>Limitations for melody</h2>
+<ul>
+<li>Does <strong>not</strong> generate pitch, gates, or CV</li>
+<li>No evidence in the provided material of voltage control over parameters</li>
+<li>More of a <strong>processor</strong> than a melodic source</li>
+<li>Best paired with oscillators, filters, envelopes, sequencers, and quantizers</li>
+</ul>
+<h2>Bottom line</h2>
+<p><strong>Autodyne is a finishing and character module for melodic material.</strong> It won’t create melodies on its own, but it can make melodic voices:
+- louder without simply turning them up
+- more sustained
+- more harmonically rich
+- rhythmically animated via sidechaining
+- better glued into a complete track</p>
+<p>If you want, I can also turn this into:
+1. a <strong>“best patch ideas” cheat sheet</strong>, or<br />
+2. a <strong>signal-flow diagram</strong> showing exactly where Autodyne fits in melodic Eurorack patches.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

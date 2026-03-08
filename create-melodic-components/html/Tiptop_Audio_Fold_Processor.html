@@ -1,0 +1,355 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_Fold_Processor</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — Fold Processor</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_foldprocessor.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.tiptopaudio.com">Manual PDF</a></p>
+<h1>Tiptop Audio Fold Processor: using it for melodic parts</h1>
+<p>From the manual, this module has <strong>two linked analog sections</strong>:</p>
+<ol>
+<li><strong>Wavefolder</strong>  </li>
+<li>Audio goes in at <strong>IN 1 / IN 2</strong></li>
+<li>Main controls: <strong>FOLD</strong> and <strong>INJECT</strong></li>
+<li>Both can be modulated with CV via:<ul>
+<li><strong>FOLD CV</strong> + attenuator</li>
+<li><strong>INJECT CV</strong> + attenuator</li>
+</ul>
+</li>
+<li>
+<p>Main folded sound comes out of <strong>OUT</strong></p>
+</li>
+<li>
+<p><strong>Subdivider / square &amp; divide section</strong></p>
+</li>
+<li>Fed internally from the folded output</li>
+<li>Mixed output at <strong>SUBDIV OUT</strong></li>
+<li>Four octave-related divisions with level knobs:<ul>
+<li><strong>÷1</strong></li>
+<li><strong>÷2</strong></li>
+<li><strong>÷4</strong></li>
+<li><strong>÷8</strong></li>
+</ul>
+</li>
+</ol>
+<p>The manual specifically demonstrates pairing it with:
+- a <strong>Tiptop Z2040</strong> self-oscillating filter as a sine source, or
+- a <strong>Z3000</strong> sine output,
+- plus optionally an <strong>LFO</strong>
+- and even <strong>Z-DSP</strong> delay/feedback ideas.</p>
+<p>So if your goal is <strong>melodic content</strong>, the Fold Processor is best understood as a <strong>timbre and octave-generation voice shaper</strong>, not a pitch source by itself.</p>
+<hr />
+<h2>What this module contributes musically</h2>
+<p>For melody writing, the Fold Processor helps in three main ways:</p>
+<h3>1. It adds harmonic richness to simple pitched material</h3>
+<p>If you feed it a <strong>sine or triangle</strong> from a VCO, or a <strong>self-oscillating filter sine</strong>, the <strong>FOLD</strong> control adds upper harmonics while preserving the underlying pitch.</p>
+<p>This is ideal for:
+- making a plain melody line more vivid
+- animating sustained notes
+- creating expressive lead tones
+- turning a basic bass sequence into something more vocal or metallic</p>
+<p>This is classic wavefolding behavior: the pitch remains the same, but the overtone content becomes more complex.</p>
+<hr />
+<h3>2. It creates musically related sub-octaves</h3>
+<p>The <strong>SUBDIV OUT</strong> gives you divided versions of the already-processed signal, with four mixable divisions spaced by octaves.</p>
+<p>That makes it useful for:
+- sub-octave bass reinforcement
+- adding lower octave layers under a melody
+- generating organ-like stacked octave textures
+- making a monophonic line feel fuller and more harmonically anchored</p>
+<p>Because the divisions are mixed with separate gain knobs, you can dial in:
+- just a single lower octave
+- a thick 2-octave bass stack
+- a complex pulse-rich harmonic bed underneath a lead</p>
+<hr />
+<h3>3. It introduces movement through CV</h3>
+<p>The manual emphasizes that <strong>FOLD</strong> and <strong>INJECT</strong> are both voltage controllable.</p>
+<p>That means a melody can evolve over time by modulating:
+- fold depth
+- offset/injection amount
+- the behavior of the subdivider indirectly, since it follows the folded signal</p>
+<p>This is especially effective for:
+- accents
+- phrasing changes
+- timbral variation per note
+- dynamic bass textures
+- pseudo-sequenced harmonic shifts even when pitch stays fixed</p>
+<hr />
+<h1>Best melodic pairings from the manual</h1>
+<h2>1. Z2040 + Fold Processor</h2>
+<p>The manual’s first patch uses the <strong>Z2040</strong> in self-oscillation as a natural sine source.</p>
+<h3>Why this works melodically</h3>
+<p>A self-oscillating filter can track pitch and act like a sine oscillator. Feeding that into the Fold Processor gives you:
+- a clean base tone from the Z2040
+- a harmonically enriched lead/bass voice from the Fold Processor
+- controllable timbre without losing clear pitch identity</p>
+<h3>Melodic use cases</h3>
+<ul>
+<li><strong>Lead voice</strong>: sequence the Z2040 pitch, send its output to Fold, and animate FOLD with slow CV</li>
+<li><strong>Bassline</strong>: use lower notes, then blend in <strong>÷2</strong> and <strong>÷4</strong> at SUBDIV OUT</li>
+<li><strong>Plucked melodic line</strong>: use envelope-driven modulation to FOLD CV for note-by-note brightness changes</li>
+</ul>
+<hr />
+<h2>2. Z3000 sine output + Fold Processor</h2>
+<p>The manual also suggests using the <strong>Z3000 sine output</strong> if you don’t have the Z2040.</p>
+<h3>Why this is strong for melody</h3>
+<p>A stable sine VCO into a wavefolder is one of the most reliable ways to build:
+- articulate melodies
+- FM-adjacent tones
+- west-coast-style expressive voices</p>
+<h3>Good melodic patch ideas</h3>
+<ul>
+<li><strong>Simple lead</strong>: Z3000 sine → Fold IN1 → OUT</li>
+<li><strong>Animated sequence</strong>: sequence pitch on Z3000, patch LFO or envelope into FOLD CV</li>
+<li><strong>Bass melody with body</strong>: use SUBDIV OUT and mix in <strong>÷1 + ÷2</strong></li>
+</ul>
+<hr />
+<h2>3. LFO + Fold CV for evolving phrases</h2>
+<p>On page 3, the manual shows an <strong>LFO patched to FOLD CV</strong> while listening to <strong>SUBDIV OUT</strong>.</p>
+<h3>What this does musically</h3>
+<p>This does not change the note pitch directly, but it changes the overtone profile and how the divide circuit reacts.</p>
+<p>For melodies, this gives:
+- changing articulation across sustained notes
+- rhythmic animation
+- “talking” or pulsing harmonic motion
+- movement in octave layers</p>
+<h3>Best applications</h3>
+<ul>
+<li>sustained melodic drones</li>
+<li>sequenced basslines with subtle motion</li>
+<li>repeated arpeggios that need more life</li>
+<li>evolving ostinatos</li>
+</ul>
+<hr />
+<h2>4. Z-DSP after Fold Processor</h2>
+<p>The manual suggests adding <strong>delay from the Z-DSP</strong>, or putting Fold in the <strong>feedback path</strong>.</p>
+<h3>Melodic role</h3>
+<p>This turns the Fold Processor from a simple timbre tool into a phrase-sculpting effect.</p>
+<p>Useful for:
+- melodic echoes with increasingly folded harmonics
+- dubby sub-octave bass repeats
+- dense lead textures
+- feedback melodies that grow more unstable and expressive</p>
+<hr />
+<h1>How to build melodic voices with this module</h1>
+<h2>Patch 1: Expressive folded lead</h2>
+<p><strong>Goal:</strong> a playable or sequenced lead voice</p>
+<p><strong>Patch</strong>
+- VCO or self-oscillating Z2040 sine → <strong>Fold IN1</strong>
+- <strong>Fold OUT</strong> → VCA / filter / mixer / output
+- Envelope or slow CV → <strong>FOLD CV</strong>
+- Optional second modulation source → <strong>INJECT CV</strong></p>
+<p><strong>Result</strong>
+- clean pitch center
+- harmonic complexity per note
+- animated lead tone without needing multiple oscillators</p>
+<p><strong>Tip</strong>
+Keep FOLD moderate for tonal melodies. High settings can become noisy or unstable.</p>
+<hr />
+<h2>Patch 2: Melodic bass with octave reinforcement</h2>
+<p><strong>Goal:</strong> a bassline that stays melodic but gains weight</p>
+<p><strong>Patch</strong>
+- Sine/triangle VCO → <strong>Fold IN1</strong>
+- Use <strong>SUBDIV OUT</strong>
+- Bring up:
+  - <strong>÷1</strong> for original folded core
+  - <strong>÷2</strong> for one octave down
+  - optionally <strong>÷4</strong> for extra depth</p>
+<p><strong>Result</strong>
+- thick, organ-like or synth-bass character
+- strong melodic center
+- richer low-end from a single source</p>
+<p><strong>Tip</strong>
+For clear bass melodies, use less folding and lower levels on the deepest divisions.</p>
+<hr />
+<h2>Patch 3: Evolving melody from one oscillator</h2>
+<p><strong>Goal:</strong> make a repetitive sequence feel harmonically alive</p>
+<p><strong>Patch</strong>
+- Sequenced oscillator → <strong>Fold IN1</strong>
+- Slow LFO → <strong>FOLD CV</strong>
+- Different slow or offset CV → <strong>INJECT CV</strong>
+- Monitor <strong>OUT</strong> or <strong>SUBDIV OUT</strong></p>
+<p><strong>Result</strong>
+- every repetition has slightly different harmonic behavior
+- melodic phrases breathe over time
+- can sound like subtle filtering, PWM, or timbral sequencing</p>
+<hr />
+<h2>Patch 4: Call-and-response lead and sub layer</h2>
+<p><strong>Goal:</strong> use both outputs in a larger patch</p>
+<p>Since the subdivider is fed from the folded output internally, you can use:
+- <strong>OUT</strong> as the brighter main melody
+- <strong>SUBDIV OUT</strong> as a lower shadow voice</p>
+<p><strong>Patch</strong>
+- Oscillator → Fold
+- <strong>OUT</strong> → main melodic chain
+- <strong>SUBDIV OUT</strong> → second VCA/mixer channel</p>
+<p><strong>Result</strong>
+- top voice and low octave support from one source
+- easy layered melodic phrasing
+- useful for techno leads, electro basses, and cinematic monosynth lines</p>
+<hr />
+<h1>Important musical behavior from the manual</h1>
+<h2>The sound depends heavily on the input signal</h2>
+<p>The manual says results are “heavily dependent on the type of incoming signal.”</p>
+<p>For melodic use, that means:</p>
+<h3>Best inputs</h3>
+<ul>
+<li>sine</li>
+<li>triangle</li>
+<li>self-oscillating filter</li>
+<li>simple VCO waveforms</li>
+</ul>
+<p>These preserve pitch clarity and produce the most controlled melodic results.</p>
+<h3>More aggressive inputs</h3>
+<ul>
+<li>samples</li>
+<li>drums</li>
+<li>already-complex waveforms</li>
+</ul>
+<p>These can work, but the Fold Processor behaves more like <strong>analog distortion</strong> than classic melodic wavefolding.</p>
+<p>So for melody:
+- use simple waveforms when you want tonal precision
+- use complex material when you want broken, gritty, industrial phrases</p>
+<hr />
+<h2>INJECT can create “dead zones”</h2>
+<p>The manual mentions the INJECT control may create a <strong>dead zone</strong>, especially near edges.</p>
+<p>Musically, this means:
+- not all knob positions will respond smoothly
+- some settings may seem to reduce activity
+- this is normal and part of the circuit character</p>
+<p>In performance, use this intentionally:
+- dead zones can create contrast
+- sweeping in and out of them can give expressive transitions
+- they’re especially dramatic on the subdivider</p>
+<hr />
+<h2>The subdivider can get “totally wild”</h2>
+<p>The manual warns that with Fold and Inject sweeps:
+- octaves move in and out
+- pulses get pulse-width modulated
+- the sound can range from sweet to destructive</p>
+<p>For melodic work, this means the subdivider is best used in two modes:</p>
+<h3>Controlled mode</h3>
+<ul>
+<li>modest FOLD</li>
+<li>modest INJECT</li>
+<li>one or two subdivision levels only</li>
+</ul>
+<p>Good for:
+- basslines
+- octave doubling
+- tonal accompaniment</p>
+<h3>Wild mode</h3>
+<ul>
+<li>stronger folding</li>
+<li>active modulation</li>
+<li>multiple divisions mixed</li>
+</ul>
+<p>Good for:
+- aggressive hooks
+- experimental melodies
+- broken arpeggios
+- transitions and fills</p>
+<hr />
+<h1>Practical strategies for melodic composition</h1>
+<h2>Use OUT when melody clarity matters</h2>
+<p>If the tune itself is the focus, the <strong>OUT</strong> jack is usually the better choice.</p>
+<p>Use it for:
+- lead lines
+- melodic arps
+- motif definition
+- parts that must track pitch clearly</p>
+<hr />
+<h2>Use SUBDIV OUT when harmony-by-octave matters</h2>
+<p>If you want one note to sound like a stacked instrument, use <strong>SUBDIV OUT</strong>.</p>
+<p>Use it for:
+- bass foundations
+- octave chorusing
+- drone melodies
+- single-note riffs that need more size</p>
+<hr />
+<h2>Modulate timbre, not pitch</h2>
+<p>The Fold Processor does not quantize or create scales. Its melodic role is:
+- shaping harmonics
+- adding octave divisions
+- making one pitch line sound more musically complex</p>
+<p>So pair it with:
+- sequencers
+- keyboard CV
+- quantized random CV
+- tuned self-oscillating filters or VCOs</p>
+<p>That gives you a proper melodic source, while Fold adds expression and depth.</p>
+<hr />
+<h1>A few strong “musician” patch recipes</h1>
+<h2>West-coast style melody voice</h2>
+<ul>
+<li>Sine oscillator → Fold IN1</li>
+<li>OUT → LPG or VCA</li>
+<li>Envelope → amplitude</li>
+<li>Slow envelope/LFO → FOLD CV</li>
+</ul>
+<p>Great for:
+- plucks
+- woody leads
+- animated monosynth lines</p>
+<hr />
+<h2>Octave bass melody</h2>
+<ul>
+<li>Oscillator → Fold</li>
+<li>SUBDIV OUT → VCA/filter</li>
+<li>Raise ÷1 and ÷2, tiny bit of ÷4</li>
+<li>Sequence the source oscillator</li>
+</ul>
+<p>Great for:
+- techno bass
+- electro lines
+- synthwave support bass</p>
+<hr />
+<h2>FM-adjacent melodic texture</h2>
+<p>The manual suggests patching <strong>OUT into the FM input of a VCO</strong>.</p>
+<p>Try:
+- VCO A sine → Fold
+- Fold OUT → FM input of VCO B
+- Sequence VCO B as main melody
+- Use VCO A as harmonic animator</p>
+<p>Great for:
+- glassy tuned leads
+- unstable melodic tones
+- metallic but musical voices</p>
+<hr />
+<h2>Melodic delay line</h2>
+<ul>
+<li>Oscillator → Fold → Z-DSP delay</li>
+<li>Sequence oscillator</li>
+<li>Modulate FOLD slowly</li>
+</ul>
+<p>Great for:
+- ambient melodies
+- dub sequences
+- repeating motifs that evolve harmonically</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Tiptop Fold Processor</strong> is not primarily a melody generator; it is a <strong>melodic enhancer and octave sculptor</strong>.</p>
+<p>Used with modules referenced in the manual—especially a <strong>Z2040</strong>, <strong>Z3000</strong>, <strong>LFO</strong>, and <strong>Z-DSP</strong>—it can create:</p>
+<ul>
+<li>expressive folded leads</li>
+<li>octave-rich basslines</li>
+<li>animated mono melodies</li>
+<li>evolving arpeggios</li>
+<li>distorted melodic hooks</li>
+<li>sub-octave accompaniment from a single oscillator</li>
+</ul>
+<p>For the most musical and pitch-stable results:
+- feed it simple, tuned waveforms
+- use <strong>OUT</strong> for clarity
+- use <strong>SUBDIV OUT</strong> for octave layering
+- modulate <strong>FOLD</strong> and <strong>INJECT</strong> for phrasing and movement</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

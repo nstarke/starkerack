@@ -1,0 +1,470 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Schlappi_Engineering_100_Grit</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Schlappi Engineering — 100 Grit</h1>
+<ul>
+<li><a href="../../manuals/100_GRIT_MANUAL_20190826.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">100 Grit Manual PDF</a></p>
+<h1>Using Schlappi Engineering 100 Grit for Melodic Music</h1>
+<p>The <strong>Schlappi Engineering 100 Grit</strong> is often described as a touch-controlled distortion/filter/performance instrument, but it can absolutely be used to create <strong>melodic material</strong>, not just noise and destruction. From the manual, the key melodic building blocks are:</p>
+<ul>
+<li>a <strong>low pass transistor ladder filter</strong></li>
+<li>a <strong>VCA</strong></li>
+<li>a <strong>distortion stage</strong></li>
+<li><strong>filter FM inputs</strong></li>
+<li><strong>resonance behavior that can approach self-oscillation</strong></li>
+<li><strong>touch points</strong> that act like resistive patch points into circuit nodes</li>
+<li>several <strong>internal feedback normalizations</strong> that can turn the module into a playable voice or animated processor</li>
+</ul>
+<p>Because this manual only covers <strong>one module</strong>, the most useful way to answer your question is to explain how the <strong>different sections of the 100 Grit work together</strong> to produce melodic components such as:</p>
+<ul>
+<li>tuned filter pings</li>
+<li>basslines</li>
+<li>distorted leads</li>
+<li>FM-like tones</li>
+<li>self-oscillating sine-ish melodic voices</li>
+<li>animated harmonics that follow pitch CV</li>
+</ul>
+<hr />
+<h2>What in 100 Grit is useful for melody?</h2>
+<h2>1. Filter as the pitch-bearing core</h2>
+<p>The manual says:</p>
+<ul>
+<li><strong>FM1 and FM2 sum together and control the cutoff frequency</strong></li>
+<li><strong>FM2</strong> can be used for <strong>V/OCT CV to roughly track along with incoming signal</strong></li>
+<li>the filter can be trimmed so resonance <strong>just starts to self-oscillate</strong></li>
+</ul>
+<p>This means the filter is not just a tone shaper — it can become a <strong>quasi-oscillator</strong> or at least a <strong>pitch-emphasizing resonant core</strong>.</p>
+<h3>Melodic implications</h3>
+<ul>
+<li>Send <strong>1V/oct or sequencer pitch CV</strong> into <strong>FM2</strong></li>
+<li>Raise <strong>RES</strong></li>
+<li>Tune <strong>FREQUENCY</strong> to the desired range</li>
+<li>Use <strong>OUT</strong> for cleaner melodic material or <strong>DIST</strong> for a more aggressive voice</li>
+</ul>
+<p>This likely won’t behave like a precision oscillator, but it can produce:
+- rough melodic tracking
+- tuned resonant notes
+- acid-like lines
+- screaming leads with recognizable pitch centers</p>
+<hr />
+<h2>2. VCA lets envelopes articulate notes</h2>
+<p>The manual is clear that:</p>
+<ul>
+<li><strong>GAIN controls the gain of the VCA</strong></li>
+<li><strong>No sound will come out of either output without some initial gain</strong></li>
+<li><strong>5V at GAIN CV gives unity gain</strong></li>
+<li>you can use <strong>GAIN CV</strong> as a normal VCA control input</li>
+</ul>
+<h3>Melodic implications</h3>
+<p>A VCA is one of the main things needed to turn a continuous tone into a <strong>note phrase</strong>.</p>
+<p>Use:
+- envelope to <strong>GAIN CV</strong>
+- pitch CV to <strong>FM2</strong>
+- gate/trigger to your envelope generator
+- output from <strong>OUT</strong> or <strong>DIST</strong></p>
+<p>This gives you a standard melodic voice structure:
+<strong>pitch CV → FM2</strong><br />
+<strong>envelope → GAIN CV</strong><br />
+<strong>audio source or self-oscillation → audio path</strong></p>
+<p>So even though 100 Grit is wild, it can still function as a classic <strong>articulated mono synth voice</strong>.</p>
+<hr />
+<h2>3. Resonance can make tones sing or self-oscillate</h2>
+<p>The resonance section is especially important melodically.</p>
+<p>From the manual:
+- <strong>RES controls resonance</strong>
+- <strong>RES CV</strong> can modulate resonance
+- internal resonance trim can be set so the filter <strong>just starts to self-oscillate</strong>
+- removing the <strong>Input to Resonance header (J9)</strong> changes the character and allows self-oscillation to overtake the input signal more strongly</p>
+<h3>Melodic implications</h3>
+<p>This enables at least three melodic uses:</p>
+<h4>A. Resonant filtering of an existing oscillator</h4>
+<p>Patch an oscillator into <strong>IN1</strong> and use:
+- <strong>FM2</strong> for pitch-related movement if desired
+- <strong>RES</strong> to emphasize harmonics
+- <strong>GAIN CV</strong> for note articulation</p>
+<p>This yields strong melodic bass/lead processing.</p>
+<h4>B. Filter ping voice</h4>
+<p>With high resonance and short envelopes into frequency or gain, the module can behave like a <strong>pinged resonant filter</strong>, producing percussive but pitched notes.</p>
+<h4>C. Self-oscillating voice</h4>
+<p>If trimmed appropriately and set for strong resonance, the filter can become a <strong>standalone tone source</strong>. Then:
+- sequence <strong>FM2</strong>
+- envelope <strong>GAIN CV</strong>
+- monitor <strong>OUT</strong></p>
+<p>This is one of the clearest ways to get melody directly from the 100 Grit without another oscillator.</p>
+<hr />
+<h2>4. Distortion can preserve melody while adding harmonics</h2>
+<p>The distortion path is not just chaos. The manual states:
+- <strong>DIST</strong> is the output of the distortion circuit following the VCA
+- <strong>GAIN</strong> controls how hard distortion is pushed
+- the <strong>x100</strong> switch gives extreme distortion</p>
+<h3>Melodic implications</h3>
+<p>For melodic work, distortion helps in two ways:</p>
+<h4>A. Make simple melodic lines more present</h4>
+<p>A basic sine/triangle/saw into 100 Grit can become:
+- thicker bass
+- screaming lead
+- harmonically rich sequence</p>
+<h4>B. Create pitch-rich resonant tones</h4>
+<p>When resonance is already near oscillation, the distortion can turn a plain resonant tone into:
+- acid basslines
+- industrial melodies
+- unstable but still trackable solos</p>
+<p>For melody, it is often best to start with:
+- <strong>x100 off</strong>
+- moderate <strong>GAIN</strong>
+- moderate <strong>IN1</strong>
+- use <strong>OUT</strong> and <strong>DIST</strong> alternately to hear where pitch remains clearest</p>
+<p>Then engage <strong>x100</strong> once the line is established.</p>
+<hr />
+<h2>Internal interactions that matter for melodic patching</h2>
+<h2>5. Normalizations can animate a melodic voice</h2>
+<p>One of the most interesting features in the manual is that <strong>unused inputs have internal feedback normalizations</strong>. These can make a melodic patch much more alive.</p>
+<p>Key normalizations:</p>
+<ul>
+<li><strong>IN1 normalled to DIST2</strong></li>
+<li><strong>IN2 normalled to DIST</strong></li>
+<li><strong>FM1 normalled to DIST</strong></li>
+<li><strong>GAIN CV normalled to POLE 2</strong></li>
+<li><strong>RES CV normalled to DIST</strong></li>
+</ul>
+<p>These are active only when the input is <strong>unpatched</strong>, and the associated control must be turned down if you do not want its effect.</p>
+<h3>Melodic use of each normalization</h3>
+<h4>IN2 ← DIST</h4>
+<p>The manual says this acts as a <strong>distorted resonance path in opposition to RES</strong>.</p>
+<p>Use this for:
+- more vocal melodic tones
+- unstable harmonic emphasis on basslines
+- snarling leads</p>
+<p>With a pitched input, this can add motion without losing the basic note.</p>
+<h4>FM1 ← DIST</h4>
+<p>The manual says this applies the distortion output as dynamic frequency modulation.</p>
+<p>Use this carefully for:
+- metallic melodic lines
+- laser-bass sequences
+- aggressive pitch shimmer</p>
+<p>For melody, keep FM1 amount low. Too much will smear pitch.</p>
+<h4>GAIN CV ← POLE 2</h4>
+<p>The manual calls this a relatively subtle form of distortion, shifting harmonic content.</p>
+<p>This is one of the most useful melodic features because it creates:
+- internal animation tied to the filter
+- harmonic movement that follows the note
+- a more “alive” tone without fully destroying pitch</p>
+<p>Great for:
+- basslines
+- drones with melodic contour
+- sustained leads</p>
+<h4>RES CV ← DIST</h4>
+<p>This introduces audio-rate modulation of resonance and can make laser sounds and screeches.</p>
+<p>For melodic use:
+- keep low
+- use as accent coloration
+- add only on select notes or phrases</p>
+<p>This can be very expressive but becomes chaotic quickly.</p>
+<hr />
+<h2>Touch points as melodic performance controls</h2>
+<p>The touch points are not only for noise. They expose:
+- <strong>DIST 2 OUT</strong>
+- <strong>GAIN CV</strong>
+- <strong>DIST 2 AMP PIN</strong>
+- <strong>RES CV</strong>
+- <strong>DIST 1 AMP PIN</strong>
+- <strong>FREQ CV</strong>
+- <strong>DIST OUT</strong>
+- another <strong>GAIN CV</strong></p>
+<p>The manual describes them as <strong>direct resistive connections</strong> to circuit points. You can bridge them with:
+- fingers
+- patch cable tips
+- alligator clips
+- conductive materials</p>
+<h3>Melodic uses of touch points</h3>
+<h2>6. Manual expressive pitch bending</h2>
+<p>Touching or injecting signal at <strong>FREQ CV</strong> can create:
+- vibrato
+- bends
+- squeals
+- expressive pitch movement</p>
+<p>This makes 100 Grit act like a playable lead instrument.</p>
+<h2>7. Dynamic timbral articulation</h2>
+<p>Using:
+- <strong>DIST OUT → GAIN CV</strong>
+- <strong>DIST 2 OUT → RES CV</strong>
+- or finger-bridging adjacent output/input points</p>
+<p>you can add phrase-specific changes during a melodic performance.</p>
+<p>This is useful for:
+- turning sustained notes into expressive gestures
+- adding grit at phrase endings
+- making repeated notes vary naturally</p>
+<h2>8. Audio-rate modulation for pitched sidebands</h2>
+<p>The manual notes audio into <strong>FREQ CV</strong>, <strong>GAIN CV</strong>, or <strong>RES CV</strong> can create distortion and AM/FM-like effects.</p>
+<p>If the source is pitched and somewhat related to the note being played, you can get:
+- clangorous intervals
+- quasi-FM melodies
+- harmonic enrichment</p>
+<p>This works especially well if another oscillator is patched to a touch point while pitch CV sequences the filter.</p>
+<hr />
+<h1>Practical melodic patch ideas</h1>
+<h2>Patch 1: Distorted bass voice</h2>
+<p>This is the most straightforward melodic use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator saw/square → <strong>IN1</strong></li>
+<li>Sequencer pitch CV → oscillator 1V/oct</li>
+<li>Same pitch CV or related CV → <strong>FM2</strong></li>
+<li>Envelope → <strong>GAIN CV</strong></li>
+<li>Listen to <strong>OUT</strong> first, then <strong>DIST</strong></li>
+</ul>
+<h3>Settings</h3>
+<ul>
+<li><strong>IN1</strong> around 50–75%</li>
+<li><strong>FREQUENCY</strong> low to mid</li>
+<li><strong>RES</strong> around 20–40%</li>
+<li><strong>GAIN</strong> around 50–75%</li>
+<li><strong>x100</strong> off initially</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>solid bass articulation</li>
+<li>resonant vowel/growl tone</li>
+<li>controlled harmonic aggression</li>
+<li>notes remain defined</li>
+</ul>
+<h3>Why it works</h3>
+<p>The oscillator provides stable pitch, while 100 Grit adds:
+- filtering
+- envelope shaping
+- saturation
+- internal harmonic animation</p>
+<hr />
+<h2>Patch 2: Self-oscillating lead voice</h2>
+<p>Use the filter itself as the sound source.</p>
+<h3>Patch</h3>
+<ul>
+<li>No audio input, or very low audio input</li>
+<li>Pitch CV/sequencer → <strong>FM2</strong></li>
+<li>Envelope → <strong>GAIN CV</strong></li>
+<li>Listen to <strong>OUT</strong></li>
+<li>Raise <strong>RES</strong> until near or at oscillation</li>
+</ul>
+<h3>Optional</h3>
+<ul>
+<li>use <strong>J9</strong> resonance header behavior if you want more self-oscillation dominance</li>
+<li>add slight <strong>FM1</strong> amount unpatched for internal distortion feedback FM</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>unstable but playable lead tones</li>
+<li>sine-ish to tearing resonant voice</li>
+<li>great for acid, industrial lead lines, eerie melodies</li>
+</ul>
+<h3>Notes</h3>
+<p>The manual only says <strong>roughly track</strong>, so expect:
+- character over precision
+- best results in narrower melodic ranges
+- excellent expressive imperfections</p>
+<hr />
+<h2>Patch 3: Pinged melodic percussion</h2>
+<p>This creates tuned percussive notes that can still form melodies.</p>
+<h3>Patch</h3>
+<ul>
+<li>No sustained input required, or use a very short transient input</li>
+<li>Triggered envelope → <strong>GAIN CV</strong></li>
+<li>Pitch CV → <strong>FM2</strong></li>
+<li>High <strong>RES</strong></li>
+<li>Listen to <strong>OUT</strong></li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>tuned blips</li>
+<li>tom-like notes</li>
+<li>wooden/plucky resonant sounds</li>
+<li>melodic percussion lines</li>
+</ul>
+<h3>Enhancement</h3>
+<p>Use a little <strong>DIST</strong> output to add edge, but not so much that pitch disappears.</p>
+<hr />
+<h2>Patch 4: Acid-style sequenced line</h2>
+<p>100 Grit looks especially suited for this.</p>
+<h3>Patch</h3>
+<ul>
+<li>VCO saw → <strong>IN1</strong></li>
+<li>Sequencer pitch → VCO</li>
+<li>Envelope or accent CV → <strong>GAIN CV</strong></li>
+<li>Pitch CV or envelope modulation → <strong>FM2</strong></li>
+<li>Listen to <strong>DIST</strong> or <strong>OUT</strong></li>
+</ul>
+<h3>Settings</h3>
+<ul>
+<li><strong>RES</strong> medium-high</li>
+<li><strong>FREQUENCY</strong> fairly open</li>
+<li><strong>GAIN</strong> high enough to saturate</li>
+<li><strong>x100</strong> off or momentary on for accents</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>squelchy, aggressive, unstable acid lines</li>
+<li>strong melodic contour</li>
+<li>expressive accents through gain and resonance interaction</li>
+</ul>
+<h3>Extra trick</h3>
+<p>Leave <strong>FM1</strong> unpatched and bring it up slightly so the <strong>DIST-normalled modulation</strong> adds bite and movement.</p>
+<hr />
+<h2>Patch 5: Harmonic melody shaper for an external oscillator</h2>
+<p>Instead of making a voice from scratch, use 100 Grit to turn a plain melody into something animated.</p>
+<h3>Patch</h3>
+<ul>
+<li>Clean VCO/submix → <strong>IN1</strong></li>
+<li>Melody from sequencer controls oscillator pitch</li>
+<li>Envelope → <strong>GAIN CV</strong></li>
+<li>Leave <strong>GAIN CV</strong> normalization partially active if useful</li>
+<li>Listen to <strong>OUT</strong> and/or <strong>DIST</strong></li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>melodic line stays recognizable</li>
+<li>harmonics move internally</li>
+<li>can go from warm to brutal without losing sequence identity</li>
+</ul>
+<p>This is especially effective if your source oscillator is simple, because 100 Grit can supply much of the personality.</p>
+<hr />
+<h2>Patch 6: Manual touch-played melodic solo</h2>
+<p>Use the touch points as performance controls over a sequenced note stream.</p>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator → <strong>IN1</strong></li>
+<li>Pitch CV → oscillator and optionally <strong>FM2</strong></li>
+<li>Envelope → <strong>GAIN CV</strong></li>
+<li>Listen to <strong>DIST</strong></li>
+<li>During playback, touch:</li>
+<li><strong>DIST OUT</strong> with <strong>FREQ CV</strong></li>
+<li><strong>DIST 2 OUT</strong> with <strong>RES CV</strong></li>
+<li>adjacent output/input pairs</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>expressive bends</li>
+<li>phrase-ending shrieks</li>
+<li>manually injected timbral accents</li>
+<li>a playable solo voice rather than static sequence</li>
+</ul>
+<p>This is one of the most unique melodic uses of the module.</p>
+<hr />
+<h1>Which output is better for melody: OUT or DIST?</h1>
+<h2>OUT</h2>
+<p>Better for:
+- clearer pitch
+- filter-based melodic work
+- self-oscillation patches
+- basslines where note definition matters</p>
+<h2>DIST</h2>
+<p>Better for:
+- aggressive leads
+- industrial bass
+- harmonically dense melodic phrases
+- expressive destruction after the note is established</p>
+<p>A good strategy is:
+1. build the melody on <strong>OUT</strong>
+2. switch to <strong>DIST</strong>
+3. add x100 or feedback slowly</p>
+<hr />
+<h1>Headers and their role in melodic behavior</h1>
+<h2>J9: Input to Resonance</h2>
+<p>Default is <strong>ON</strong>.</p>
+<p>Manual says this:
+- maintains bass frequencies
+- prevents some classic resonance-related volume loss
+- removing it allows more whistling sounds and lets self-oscillation overtake the input</p>
+<h3>Melodic use</h3>
+<ul>
+<li><strong>ON</strong>: better for basslines and fuller melodic material</li>
+<li><strong>OFF</strong>: better for whistling resonant leads and self-oscillating melodic patches</li>
+</ul>
+<h2>J10: Output Source</h2>
+<p>Default is <strong>VCA</strong></p>
+<p>If moved, <strong>OUT</strong> can come directly from the filter rather than post-VCA.</p>
+<h3>Melodic use</h3>
+<ul>
+<li><strong>VCA position</strong>: best for articulated notes with envelopes</li>
+<li><strong>Filter output position</strong>: best if you want continuous filter tone independent of GAIN, or want to use DIST and OUT as two different melodic/timbral taps</li>
+</ul>
+<hr />
+<h1>Best strategies for making 100 Grit musical instead of random</h1>
+<h2>1. Start with stable pitch elsewhere</h2>
+<p>The easiest way to make 100 Grit melodic is to feed it:
+- a tuned VCO
+- quantized sequence
+- bass drone with pitch center</p>
+<p>Then use 100 Grit for articulation and color.</p>
+<h2>2. Add chaos gradually</h2>
+<p>Because many controls are normalized to feedback sources, it is easy to lose pitch definition. For musical use:
+- begin with all secondary controls fully CCW
+- add one modulation path at a time
+- monitor whether the note center remains audible</p>
+<h2>3. Use FM2 for pitch, FM1 for character</h2>
+<p>Based on the manual, <strong>FM2</strong> is the better destination for external pitch tracking, while <strong>FM1</strong> is often useful as a character modulation lane due to its distortion normalization.</p>
+<h2>4. Keep distortion after pitch is established</h2>
+<p>If the melody is disappearing:
+- lower <strong>GAIN</strong>
+- reduce <strong>IN1</strong>
+- use <strong>OUT</strong> instead of <strong>DIST</strong>
+- reduce <strong>FM1</strong>
+- reduce <strong>RES CV</strong></p>
+<h2>5. Treat touch points like expressive macros</h2>
+<p>Rather than using them constantly, use them for:
+- fills
+- transitions
+- accents
+- note bends at phrase ends</p>
+<p>That keeps the melodic line intelligible.</p>
+<hr />
+<h1>Best melodic roles for 100 Grit in a system</h1>
+<p>The manual suggests a module that excels at these melodic jobs:</p>
+<h2>Bass voice processor</h2>
+<p>Probably one of its strongest roles:
+- input oscillator
+- sequence pitch externally
+- use resonance and gain for weight and aggression</p>
+<h2>Dirty lead synth</h2>
+<p>Especially with:
+- resonant filter
+- rough tracking via FM2
+- touch point performance</p>
+<h2>Resonant auxiliary voice</h2>
+<p>Self-oscillation or filter ping patches can act as:
+- second melody line
+- countermelody
+- tuned percussion</p>
+<h2>Performance sound design layer</h2>
+<p>Even if another module provides pitch, 100 Grit can provide:
+- expressive harmonic movement
+- phrase-level distortion
+- live tactile interaction</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>Schlappi 100 Grit</strong> can create melodic components by combining its sections in a few core ways:</p>
+<ol>
+<li><strong>Filter + FM2 + resonance</strong> can act as a rough pitch-bearing voice</li>
+<li><strong>GAIN CV</strong> gives note articulation, making it usable like a synth voice</li>
+<li><strong>OUT</strong> preserves note clarity; <strong>DIST</strong> adds aggressive harmonic content</li>
+<li><strong>Self-oscillation</strong> and <strong>filter pinging</strong> make it capable of generating melody on its own</li>
+<li><strong>Feedback normalizations</strong> add animated harmonics and movement that can follow a sequence</li>
+<li><strong>Touch points</strong> provide highly expressive manual performance control for bends, modulation, and accents</li>
+</ol>
+<p>In practice, the most musical uses are:
+- <strong>distorted basslines</strong>
+- <strong>acid leads</strong>
+- <strong>resonant self-oscillating melodies</strong>
+- <strong>pinged tuned percussion</strong>
+- <strong>externally pitched melodies made more alive through internal feedback and touch control</strong></p>
+<p>So while 100 Grit is famous for destruction, the manual makes it clear that it is also a very strong <strong>melodic performance processor and semi-voice</strong>, especially when used with pitch CV, envelopes, and careful control of its internal feedback paths.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

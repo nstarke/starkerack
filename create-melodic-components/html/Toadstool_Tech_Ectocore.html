@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Toadstool_Tech_Ectocore</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Toadstool Tech — Ectocore</h1>
+<ul>
+<li><a href="../../manuals/ectocore_quickstart.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h2>Using Ectocore to create melodic components</h2>
+<p>Ectocore is primarily a sample slicer / breakbeat performance module, but from this quickstart it can still contribute strong <strong>melodic material</strong> when used intentionally. The key is to treat it as a <strong>pitched sample phrase generator</strong>, <strong>rhythmic note source</strong>, and <strong>modulated audio texture</strong> rather than only a drum looper.</p>
+<h2>What Ectocore gives you musically</h2>
+<p>From the manual page, Ectocore provides:</p>
+<ul>
+<li><strong>Sample playback</strong> with <strong>bank</strong> and <strong>sample</strong> selection</li>
+<li><strong>Slice-jumping / looping behavior</strong> via <strong>Amen</strong></li>
+<li><strong>Probability / density-based FX activity</strong> via <strong>Break</strong></li>
+<li><strong>Selectable FX sets</strong> via <strong>Grimoire</strong></li>
+<li><strong>Clock input/output</strong> and <strong>trigger output</strong></li>
+<li><strong>CV inputs</strong> for at least:</li>
+<li>Amen</li>
+<li>Break</li>
+<li>Sample</li>
+<li>Audio outputs L/R</li>
+<li>Extra performance functions:</li>
+<li><strong>Tap + Break = Volume + Drive</strong></li>
+<li><strong>Tap + Amen = LP ↔ HP DJ Filter</strong></li>
+<li><strong>Tap + Sample = Gated Chopper</strong></li>
+</ul>
+<p>That means it can be used as a <strong>clocked melodic loop voice</strong> with animated variation.</p>
+<hr />
+<h2>Best melodic use cases</h2>
+<h3>1. Pitched sample playback as a melodic loop source</h3>
+<p>If you load banks with:</p>
+<ul>
+<li>single notes</li>
+<li>tuned multisamples</li>
+<li>vocal chops</li>
+<li>synth stabs</li>
+<li>plucked sounds</li>
+<li>short chords</li>
+</ul>
+<p>then <strong>Sample</strong> becomes your melodic selector. You can step through different notes or timbres by changing sample selection manually or with CV.</p>
+<p><strong>How to use it melodically:</strong>
+- Put related pitches into one bank, e.g. C, D, E, G, A stabs
+- Clock Ectocore externally so it stays aligned with the patch
+- Use <strong>Sample CV</strong> to move among note samples
+- Use <strong>Trig Out</strong> to derive gates from playback behavior for other voices</p>
+<p>This makes Ectocore act like a rough sampled oscillator/phrase player.</p>
+<hr />
+<h3>2. Slice sequencing with Amen as pseudo-melody</h3>
+<p>The <strong>Amen</strong> control changes looping random jumping of sample slices.</p>
+<p>According to the manual:
+- Fully left: sample plays normally
+- Turn up: cycles through looping slice patterns
+- Steps from <strong>1–16</strong>
+- Fully right: generates a new pattern every loop, with FX fill between loops
+- “Reroll” by turning fully right and back</p>
+<p>If your source sample contains:
+- an arpeggio
+- a bassline
+- a chord phrase
+- a vocal melody
+- individually tuned notes across the sample</p>
+<p>then <strong>Amen</strong> turns that sample into a kind of <strong>recombinative melodic sequencer</strong>.</p>
+<p><strong>Practical patch idea:</strong>
+- Load a 1-bar melodic phrase with clearly separated notes
+- Clock Ectocore from your master clock
+- Set Amen to a moderate value so it loops a stable slice pattern
+- Adjust the <strong>Amen Attenurandomizer</strong>:
+  - left = more chaotic melodic jumps
+  - right = more local / nearby movement</p>
+<p>This gives you a melody that can remain recognizable while evolving.</p>
+<hr />
+<h3>3. Trigger extraction for melodic synchronization</h3>
+<p>The quickstart states <strong>Trigger Mode</strong> changes how the <strong>Trig output</strong> generates triggers based on the playing sample.</p>
+<p>This is especially useful for melodic systems because Ectocore can become a <strong>phrase-derived gate source</strong>.</p>
+<p>Use <strong>Trig Out</strong> to:
+- trigger an envelope for a VCA controlling another oscillator
+- trigger a quantized sample-and-hold pitch line
+- clock a sequencer reset or advance
+- strike a low-pass gate in sync with detected sample events</p>
+<p>This means a melodic phrase in Ectocore can drive a second melodic voice elsewhere in the rack.</p>
+<p><strong>Musical result:</strong><br />
+Your external oscillator, resonator, or physical modeling voice can follow the articulation of the sampled material.</p>
+<hr />
+<h2>How to pair Ectocore with other module types for melody</h2>
+<p>Even though only one manual page is attached here, we can still describe how this module fits into a broader melodic Eurorack patch.</p>
+<h3>With a quantizer</h3>
+<p>Patch Ectocore’s <strong>Trig Out</strong> into:
+- sample-and-hold clock
+- sequencer advance
+- envelope trigger</p>
+<p>Then use a random or stepped voltage through a <strong>quantizer</strong> to create a pitch line that follows the groove of the sample.</p>
+<p><strong>Why this works well:</strong>
+- Ectocore determines phrase timing
+- quantizer determines harmonic pitch
+- your oscillator provides stable tonal material</p>
+<p>This is one of the best ways to turn a break/slice module into a melodic conductor.</p>
+<hr />
+<h3>With an oscillator or complex voice</h3>
+<p>Use Ectocore as a <strong>rhythmic phrase master</strong> while a VCO handles pitch:</p>
+<ul>
+<li>Ectocore <strong>Trig Out</strong> → envelope generator trigger</li>
+<li>Envelope → VCA or LPG for your oscillator voice</li>
+<li>Sequencer/quantizer → oscillator pitch</li>
+<li>Ectocore audio mixed quietly underneath</li>
+</ul>
+<p>Now the oscillator inherits the <strong>groove contour</strong> of the sample playback, creating melodic lines that lock to Ectocore’s internal slicing.</p>
+<hr />
+<h3>With a sampler or granular module</h3>
+<p>If another module in your rack can sample/resample:
+- Feed Ectocore audio into it
+- Capture short melodic fragments
+- Re-pitch, freeze, or granulate those fragments</p>
+<p>Because Ectocore can heavily vary playback using <strong>Amen</strong>, <strong>Break</strong>, and <strong>Grimoire</strong>, it becomes an excellent <strong>melodic source material generator</strong> for downstream pitch-based processing.</p>
+<hr />
+<h3>With filters and LPGs</h3>
+<p>The extra functions are very useful for melody shaping:</p>
+<ul>
+<li><strong>Tap + Amen: LP ↔ HP DJ Filter</strong></li>
+<li><strong>Tap + Break: Volume + Drive</strong></li>
+<li><strong>Tap + Sample: Gated Chopper</strong></li>
+</ul>
+<p>These let you turn a static melodic sample into an expressive lead or hook.</p>
+<p><strong>Examples:</strong>
+- Use the <strong>DJ filter</strong> to carve out a vocal lead or soften bright stabs
+- Add <strong>Drive</strong> to make bass notes or synth hits more present
+- Use <strong>Gated Chopper</strong> to impose note-like articulation on sustained material</p>
+<p>This matters because melodic usefulness often depends less on pitch alone and more on <strong>phrasing and contour</strong>.</p>
+<hr />
+<h2>Strong melodic patch strategies</h2>
+<h2>1. Chopped arpeggio generator</h2>
+<p><strong>Goal:</strong> turn one sampled phrase into a repeating melodic hook.</p>
+<p><strong>Patch:</strong>
+- Load a bank with short arpeggiated synth phrases or single-cycle note stabs
+- External clock into <strong>Clk In</strong>
+- Audio Out L/R to mixer
+- Set <strong>Amen</strong> around low-mid for stable repeating slice loops
+- Set <strong>Amen Attenurandomizer</strong> right-of-center for localized movement
+- Use <strong>Break</strong> sparingly
+- Choose a restrained <strong>Grimoire</strong> setting</p>
+<p><strong>Result:</strong><br />
+A looping melodic phrase that mutates slightly but stays musical.</p>
+<hr />
+<h2>2. Melodic phrase + external bass voice</h2>
+<p><strong>Goal:</strong> use Ectocore to articulate another tonal voice.</p>
+<p><strong>Patch:</strong>
+- Ectocore <strong>Trig Out</strong> → envelope trigger
+- Envelope → VCA for a bass oscillator
+- Pitch CV for bass comes from a sequencer + quantizer
+- Ectocore runs a vocal chop or synth phrase on top
+- Sync Ectocore via external clock</p>
+<p><strong>Result:</strong><br />
+The bassline and sampled melodic material share articulation and groove, making them feel compositionally linked.</p>
+<hr />
+<h2>3. Sample-per-note bank</h2>
+<p><strong>Goal:</strong> use Ectocore as a crude melodic sample instrument.</p>
+<p><strong>Preparation:</strong>
+- Put one note per sample in a bank:
+  - Sample 1 = C
+  - Sample 2 = D
+  - Sample 3 = E
+  - etc.</p>
+<p><strong>Patch/use:</strong>
+- Modulate <strong>Sample CV</strong> with stepped voltage
+- Keep <strong>Amen</strong> low or off
+- Use <strong>Break</strong> minimally
+- Use <strong>Trig Out</strong> for complementary voice timing if needed</p>
+<p><strong>Result:</strong><br />
+Not a precision chromatic sampler, but very effective for lo-fi melodic stepping, especially for house, breaks, electro, and IDM.</p>
+<hr />
+<h2>4. Evolving ambient melody texture</h2>
+<p><strong>Goal:</strong> derive soft melodic movement from longer tonal recordings.</p>
+<p><strong>Patch:</strong>
+- Load sustained chords, bowed tones, vocal drones, or field recordings with pitched content
+- Set <strong>Amen</strong> to moderate/high
+- Turn <strong>Amen Attenurandomizer</strong> left for more chaos or right for smoother continuity
+- Use <strong>DJ filter</strong> to focus tonal bands
+- Add small amounts of <strong>Break/Grimoire</strong> FX</p>
+<p><strong>Result:</strong><br />
+A wandering melodic texture rather than a strict sequence—great for ambient and experimental music.</p>
+<hr />
+<h2>5. Lead hook resynthesis workflow</h2>
+<p><strong>Goal:</strong> harvest melodic ideas from Ectocore and layer them with another voice.</p>
+<p><strong>Patch:</strong>
+- Load expressive lead/vocal/synth samples
+- Use <strong>Sample</strong> switching and <strong>Amen</strong> looping to find a compelling motif
+- Send <strong>Trig Out</strong> to trigger another voice in parallel
+- Tune the second voice to your track’s key
+- Mix Ectocore low and let the second voice provide harmonic clarity</p>
+<p><strong>Result:</strong><br />
+Ectocore supplies the quirky melodic identity; the other voice reinforces pitch center.</p>
+<hr />
+<h2>Important limitations for melody</h2>
+<p>From this quickstart, Ectocore does <strong>not appear to be a traditional 1V/oct melodic voice</strong>. So:</p>
+<ul>
+<li>It is best for <strong>sample-based melody</strong></li>
+<li>It excels at <strong>phrase chopping</strong>, <strong>recombination</strong>, and <strong>event extraction</strong></li>
+<li>It is less suited to precise keyboard-style melodic playing</li>
+<li>Melodic success depends heavily on:</li>
+<li>what samples you load</li>
+<li>how they’re organized into banks</li>
+<li>how much randomization you allow</li>
+</ul>
+<p>So think of it as a <strong>melody manipulator</strong> more than a conventional oscillator.</p>
+<hr />
+<h2>Best practices for melodic results</h2>
+<h3>Use harmonically curated banks</h3>
+<p>Keep each bank focused:
+- one scale
+- one chord family
+- one instrument type
+- one register</p>
+<p>That way random or CV-based sample changes remain musical.</p>
+<h3>Keep Amen in the “recognizable” range</h3>
+<p>Too little = static playback<br />
+Too much = full fragmentation</p>
+<p>For melody, the sweet spot is often:
+- enough slice repetition to create motif
+- enough movement to create variation</p>
+<h3>Use Break sparingly</h3>
+<p>Heavy FX density can destroy pitch clarity. For melody:
+- low-to-moderate Break usually works best
+- choose Grimoire settings that preserve note identity</p>
+<h3>Let another module handle exact pitch</h3>
+<p>For structured tonal writing:
+- let Ectocore provide phrase/groove/timbre
+- let a sequencer + quantizer + oscillator provide exact notes</p>
+<p>This hybrid approach is usually strongest.</p>
+<hr />
+<h2>Summary</h2>
+<p>Ectocore can be used for melodic components in several powerful ways:</p>
+<ul>
+<li>as a <strong>sample-based melodic voice</strong></li>
+<li>as a <strong>phrase slicer</strong> that recombines pitched material into hooks</li>
+<li>as a <strong>trigger extractor</strong> for articulating external melodic voices</li>
+<li>as a <strong>textural melodic layer</strong> using filters, drive, and gated chopping</li>
+<li>as a <strong>source of evolving motifs</strong> when banks are organized musically</li>
+</ul>
+<p>Its strongest melodic role is not “play exact notes from a keyboard,” but rather <strong>generate and reshape melodic phrases with rhythmic intelligence</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

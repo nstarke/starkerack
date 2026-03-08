@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Delay</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Delay</h1>
+<ul>
+<li><a href="../../manuals/Delay_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>2hp Delay — using it for melodic components</h1>
+<p>This manual covers a single module: <strong>2hp Delay</strong>.<br />
+Even though it’s an effect, it can be very useful for building <strong>melodic structure</strong>, not just ambience. In a Eurorack patch, delay often becomes a <strong>rhythmic pitch-support tool</strong>: it can create repeated notes, implied counterpoint, evolving arpeggio-like patterns, and sustained harmonic beds from short melodic phrases.</p>
+<h2>What the module does</h2>
+<p>The <strong>Delay</strong> is a <strong>2 HP Eurorack delay processor</strong> with:</p>
+<ul>
+<li><strong>Audio input and output</strong></li>
+<li><strong>Three main parameters</strong></li>
+<li><strong>TIME</strong></li>
+<li><strong>FDBK</strong> (feedback)</li>
+<li><strong>MIX</strong></li>
+<li><strong>CV inputs for all three parameters</strong></li>
+<li>Delay range from <strong>milliseconds to nearly two seconds</strong></li>
+<li>Feedback capable of going to <strong>infinity</strong></li>
+</ul>
+<h2>Panel summary</h2>
+<p>From the manual:</p>
+<ol>
+<li><strong>IN</strong> — audio input, 10Vpp  </li>
+<li><strong>TIME CV</strong> — CV for delay time, 0–5V  </li>
+<li><strong>TIME</strong> — sets repeat interval  </li>
+<li><strong>FDBK CV</strong> — CV for feedback, 0–5V  </li>
+<li><strong>FDBK</strong> — sets number of repeats  </li>
+<li><strong>MIX CV</strong> — CV for dry/wet mix, 0–5V  </li>
+<li><strong>MIX</strong> — dry/wet balance  </li>
+<li><strong>OUT</strong> — audio output, 10Vpp  </li>
+</ol>
+<h2>How Delay contributes to melody</h2>
+<p>A delay doesn’t generate pitch by itself, but it can strongly shape melodic content in these ways:</p>
+<h3>1. Creating repeated note phrases</h3>
+<p>Feed a melodic voice into Delay and set:</p>
+<ul>
+<li><strong>TIME</strong> to a musically relevant interval</li>
+<li><strong>FDBK</strong> to a few repeats</li>
+<li><strong>MIX</strong> around 25–50%</li>
+</ul>
+<p>This gives you repeating notes behind the original melody, making a simple sequence feel more complex and musical.</p>
+<h3>2. Turning short motifs into longer lines</h3>
+<p>A very short phrase from a sequencer can become a fuller melodic statement when delay repeats extend it. This is especially useful if your patch has:</p>
+<ul>
+<li>a quantized pitch sequence</li>
+<li>plucked envelopes</li>
+<li>short percussive voices</li>
+</ul>
+<p>The delay fills the gaps, making sparse lines sound intentional and composed.</p>
+<h3>3. Creating call-and-response effects</h3>
+<p>Set the <strong>TIME</strong> so the repeat lands after the original phrase. With moderate feedback, the repeats act like an answer to the played line. This works well for:</p>
+<ul>
+<li>acid-style leads</li>
+<li>FM plucks</li>
+<li>filtered pulse melodies</li>
+<li>mallet-like voices</li>
+</ul>
+<h3>4. Producing pseudo-counterpoint</h3>
+<p>Longer delay times with lower mix can create a second layer that overlaps with new notes. If your incoming melody changes pitch while older repeats are still audible, you get the effect of multiple melodic lines interacting.</p>
+<h3>5. Building harmonic beds from monophonic material</h3>
+<p>With high <strong>FDBK</strong> and a longer <strong>TIME</strong>, a monophonic sequence can smear into a sustained texture. If the original line moves through scale tones, the delay can create overlapping pitch layers that imply harmony.</p>
+<h3>6. CV animation for evolving melodic texture</h3>
+<p>Because <strong>TIME, FDBK, and MIX</strong> all accept CV, you can animate the delay in sync with the rest of the patch:</p>
+<ul>
+<li>modulate <strong>TIME</strong> slowly for shifting rhythmic placement</li>
+<li>modulate <strong>FDBK</strong> to make some notes bloom into long tails</li>
+<li>modulate <strong>MIX</strong> to bring echoes in and out as part of arrangement</li>
+</ul>
+<p>This is where the module becomes especially musical.</p>
+<hr />
+<h1>Best melodic use cases</h1>
+<h2>1. Echoed lead line</h2>
+<p>Patch:</p>
+<ul>
+<li>Oscillator/voice → Delay <strong>IN</strong></li>
+<li>Delay <strong>OUT</strong> → mixer/output</li>
+</ul>
+<p>Settings:</p>
+<ul>
+<li><strong>TIME</strong>: short to medium</li>
+<li><strong>FDBK</strong>: low to medium</li>
+<li><strong>MIX</strong>: low to medium</li>
+</ul>
+<p>Result:
+- A lead becomes wider and more expressive without losing definition.</p>
+<p>Good for:
+- techno hooks
+- ambient motifs
+- Berlin-style step melodies</p>
+<h2>2. Arpeggio thickening</h2>
+<p>Feed an arpeggio or stepped sequence into Delay.</p>
+<p>Settings:</p>
+<ul>
+<li><strong>TIME</strong> synced by ear to the sequence pulse</li>
+<li><strong>FDBK</strong> around 2–4 audible repeats</li>
+<li><strong>MIX</strong> around 30–40%</li>
+</ul>
+<p>Result:
+- The arp sounds denser and more interlocked.
+- Repeats fill empty spaces between notes.</p>
+<h2>3. Canon-style melodic overlap</h2>
+<p>Use a medium-long <strong>TIME</strong> so each note repeats after one or two steps of the sequence.</p>
+<p>Result:
+- Notes from earlier in the melody overlap with current notes.
+- This creates a simple canon or round effect.</p>
+<p>This works particularly well with:
+- quantized diatonic melodies
+- pentatonic sequences
+- simple 3–5 note motifs</p>
+<h2>4. Drone from melody</h2>
+<p>Use:</p>
+<ul>
+<li>long <strong>TIME</strong></li>
+<li>high <strong>FDBK</strong></li>
+<li>medium/high <strong>MIX</strong></li>
+</ul>
+<p>Feed in occasional notes or a sparse sequence.</p>
+<p>Result:
+- A melodic phrase turns into a sustained tonal cloud.
+- Very effective for ambient or intro sections.</p>
+<h2>5. Voltage-addressed arrangement movement</h2>
+<p>Use external CV:</p>
+<ul>
+<li>LFO or slow random to <strong>MIX CV</strong></li>
+<li>envelope or sequencer gate-derived CV to <strong>FDBK CV</strong></li>
+<li>stepped CV to <strong>TIME CV</strong></li>
+</ul>
+<p>Result:
+- Certain notes become more echoed than others
+- Some repeats stack into phrases
+- The melodic texture changes over time without changing the source sequence</p>
+<hr />
+<h1>Important musical behavior of each control</h1>
+<h2>TIME</h2>
+<p>This is the most compositionally significant control.</p>
+<p>It sets the interval between repeats. For melodic use:</p>
+<ul>
+<li><strong>Short times</strong>: thicken notes, slapback, doubling</li>
+<li><strong>Medium times</strong>: rhythmic echo, phrase extension</li>
+<li><strong>Long times</strong>: overlapping melody, ambient layering</li>
+</ul>
+<h3>Musical tip</h3>
+<p>If you tune the TIME by ear relative to the tempo, echoes can land in useful subdivisions. Even though this manual does not mention clock sync, you can still manually dial in timings that feel like:</p>
+<ul>
+<li>dotted echoes</li>
+<li>off-beat responses</li>
+<li>phrase-length repeats</li>
+</ul>
+<h3>CV on TIME</h3>
+<p>Using CV on delay time can create:
+- shifting rhythmic relationships
+- pitchy/glitchy time changes depending on the source and modulation depth
+- expressive transitions</p>
+<p>For melodic patches, subtle modulation usually works better than extreme modulation unless you want unstable, tape-like or fractured effects.</p>
+<h2>FDBK</h2>
+<p>This controls how many repeats you hear.</p>
+<p>For melody:</p>
+<ul>
+<li><strong>Low feedback</strong>: just a few echoes, keeps phrase clarity</li>
+<li><strong>Medium feedback</strong>: builds a repeating motif</li>
+<li><strong>High feedback</strong>: turns phrases into looping melodic residue</li>
+<li><strong>Near infinity</strong>: self-sustaining texture</li>
+</ul>
+<h3>Musical tip</h3>
+<p>Use higher feedback on sparse sequences, lower feedback on dense ones.<br />
+If the incoming line is already busy, too much feedback can blur pitch relationships.</p>
+<h3>CV on FDBK</h3>
+<p>This is excellent for making only some notes “blossom” into repeating structures. For example:</p>
+<ul>
+<li>Send accented steps or envelopes to <strong>FDBK CV</strong></li>
+<li>Stronger notes produce more repeats</li>
+<li>Unaccented notes stay dry and articulate</li>
+</ul>
+<p>That creates phrasing and hierarchy in a melody.</p>
+<h2>MIX</h2>
+<p>This determines how prominent the delayed signal is compared with the dry signal.</p>
+<p>For melody:</p>
+<ul>
+<li><strong>Low mix</strong>: support role, preserves note articulation</li>
+<li><strong>Mid mix</strong>: clearly audible interplay between line and repeats</li>
+<li><strong>High mix</strong>: original becomes less dominant; can create ghost-melody effects</li>
+<li><strong>Full wet</strong>: useful as a parallel delayed line</li>
+</ul>
+<h3>CV on MIX</h3>
+<p>One of the easiest ways to “arrange” the melodic space dynamically.<br />
+For instance:</p>
+<ul>
+<li>Bring delay forward during transitions</li>
+<li>Pull it back during busy sections</li>
+<li>Use envelopes to make note tails emerge after each attack</li>
+</ul>
+<hr />
+<h1>Patch ideas for melodic music</h1>
+<h2>Patch 1: Minimal techno riff enhancer</h2>
+<p><strong>Source modules needed:</strong> sequencer, oscillator/voice, envelope/VCA, Delay</p>
+<p>Patch:
+- Sequencer pitch CV → oscillator pitch
+- Gate → envelope → VCA
+- Voice output → Delay IN
+- Delay OUT → mixer</p>
+<p>Settings:
+- TIME: short-medium
+- FDBK: low-medium
+- MIX: low</p>
+<p>Why it works:
+- Preserves punch
+- Adds repeated notes that reinforce the groove
+- Makes a 1-bar riff feel more active</p>
+<h2>Patch 2: Ambient overlapping melody</h2>
+<p>Patch:
+- Quantized slow sequence → voice
+- Voice output → Delay IN
+- Delay OUT → reverb or mixer</p>
+<p>Settings:
+- TIME: long
+- FDBK: medium-high
+- MIX: medium-high</p>
+<p>Optional modulation:
+- slow LFO to MIX CV
+- very slow random to TIME CV</p>
+<p>Why it works:
+- Notes overlap into suspended harmonies
+- A simple melodic line becomes a floating harmonic texture</p>
+<h2>Patch 3: Accent-sensitive echo melody</h2>
+<p>Patch:
+- Voice → Delay IN
+- Accent CV or envelope → FDBK CV</p>
+<p>Settings:
+- TIME: medium
+- FDBK knob: low
+- MIX: medium</p>
+<p>Why it works:
+- Only accented notes generate substantial repeats
+- Repetition becomes part of phrasing
+- Great for acid or sequenced electro lines</p>
+<h2>Patch 4: Pseudo two-voice canon</h2>
+<p>Patch:
+- Monophonic melodic voice → Delay IN
+- Delay OUT → mixer</p>
+<p>Settings:
+- TIME: close to one beat or one step cycle by ear
+- FDBK: low-medium
+- MIX: medium</p>
+<p>Why it works:
+- The repeat enters like a second player echoing the melody
+- Creates the illusion of polyphony from a single voice</p>
+<h2>Patch 5: Wet-only melodic shadow</h2>
+<p>Patch:
+- Send voice to Delay
+- Set MIX high or fully wet
+- Mix dry signal separately outside the module if possible</p>
+<p>Why it works:
+- The delayed line acts like an independent melodic shadow
+- Very effective if the dry voice is centered and the delay is processed separately</p>
+<hr />
+<h1>Practical performance advice</h1>
+<h2>Keep the source melody simple</h2>
+<p>Delay tends to reward simple melodic material:</p>
+<ul>
+<li>3–7 note loops</li>
+<li>repeated motifs</li>
+<li>sparse arpeggios</li>
+<li>call-and-response phrases</li>
+</ul>
+<p>If the source is too dense, the repeats may mask pitch clarity.</p>
+<h2>Tune the TIME by ear</h2>
+<p>Because the module is not described as clock-syncable in the manual, treat TIME as a performance control. Sweep until the repeats sit in the groove.</p>
+<h2>Use FDBK carefully</h2>
+<p>The manual notes that feedback can go to <strong>infinity</strong>. That means this module can enter a self-sustaining state. Musically, this is useful, but in performance:</p>
+<ul>
+<li>raise feedback gradually</li>
+<li>monitor output level</li>
+<li>be ready to pull back MIX or FDBK</li>
+</ul>
+<h2>Animate one parameter at a time</h2>
+<p>For melodic clarity:
+- modulate <strong>MIX</strong> first
+- then add selective <strong>FDBK</strong> modulation
+- use <strong>TIME CV</strong> more sparingly unless you want obvious time-warping effects</p>
+<hr />
+<h1>Installation/specs from the manual</h1>
+<ul>
+<li><strong>Format:</strong> 2 HP Eurorack</li>
+<li><strong>Depth:</strong> 47 mm, skiff friendly</li>
+<li><strong>Power:</strong>  </li>
+<li>+12V = 72mA  </li>
+<li>-12V = 28mA  </li>
+</ul>
+<p>Installation note from the manual:
+- Red stripe corresponds to <strong>-12V</strong>
+- On the module, the ribbon should be connected with the <strong>red band facing the front</strong></p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>2hp Delay</strong> is best thought of as a <strong>melodic multiplier</strong> rather than just an effect. It helps create:</p>
+<ul>
+<li>repeated note patterns</li>
+<li>phrase extension</li>
+<li>overlapping lines</li>
+<li>implied harmony</li>
+<li>evolving melodic texture through CV</li>
+</ul>
+<p>If paired with a sequenced oscillator voice, quantizer, envelope, and VCA, it can turn very minimal note material into something much more musical and emotionally rich.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bastl_Instruments_ABC_Mixer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Bastl Instruments — ABC Mixer</h1>
+<ul>
+<li><a href="../../manuals/manual-abc-web.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h2>Bastl Instruments ABC — using it for melodic work in a Eurorack system</h2>
+<p>The attached manual is for the <strong>Bastl Instruments ABC</strong>, a <strong>6-channel mixer</strong>. By itself, ABC does <strong>not generate pitch, gates, envelopes, or sound</strong>, so it is not a melodic voice on its own. But in a melodic patch, it is very useful as a <strong>utility mixer</strong> for combining the control voltages and audio signals that make melodies expressive and playable.</p>
+<h2>What the module does</h2>
+<p>ABC provides:</p>
+<ul>
+<li><strong>6 inputs</strong>: A, B, C, D, E, F</li>
+<li><strong>2 outputs</strong>:</li>
+<li><strong>A+B+C</strong></li>
+<li><strong>D+E+F</strong></li>
+<li>If nothing is patched into <strong>A+B+C out</strong>, that mix is <strong>normalled into D+E+F out</strong>, so the module can act as:</li>
+<li><strong>two 3-channel mixers</strong>, or</li>
+<li><strong>one 6-channel mixer</strong></li>
+<li>Each channel has a <strong>gain knob</strong></li>
+<li><strong>Maximum gain is 1</strong> per channel</li>
+<li>By default the inputs are <strong>AC-coupled</strong> for audio</li>
+<li>There are <strong>solder jumpers</strong> on the back to change it for <strong>DC-coupled CV mixing</strong></li>
+<li>There are <strong>3 normalization jumpers</strong> on the back:</li>
+<li>A normalled to D</li>
+<li>B normalled to E</li>
+<li>C normalled to F</li>
+</ul>
+<h2>Why this matters for melody</h2>
+<p>Melody in Eurorack usually comes from combining:</p>
+<ul>
+<li><strong>pitch CV</strong></li>
+<li><strong>sequence transposition</strong></li>
+<li><strong>modulation</strong></li>
+<li><strong>clocked variation</strong></li>
+<li><strong>layered audio voices</strong></li>
+</ul>
+<p>ABC is ideal for the <strong>combining</strong> part.</p>
+<hr />
+<h2>Best melodic uses for ABC</h2>
+<h3>1. Mix multiple audio voices into one melodic line or harmony bus</h3>
+<p>If you have several oscillators or full voices playing related notes:</p>
+<ul>
+<li>Voice 1 audio → A</li>
+<li>Voice 2 audio → B</li>
+<li>Voice 3 audio → C</li>
+<li>Output from <strong>A+B+C</strong> → filter / VCA / effects / final mix</li>
+</ul>
+<p>This is the most direct melodic use:
+- combine a <strong>lead oscillator</strong>
+- a <strong>sub octave</strong>
+- a <strong>FM layer</strong>
+- or several voices playing chords or counterpoint</p>
+<p>Because each channel has its own level control, ABC works well for balancing:
+- root note vs fifth
+- lead vs harmony
+- dry oscillator vs processed layer</p>
+<h3>2. Build a 6-oscillator chord or unison stack</h3>
+<p>Since A+B+C can cascade into D+E+F, you can use all six channels as one mix bus:</p>
+<ul>
+<li>Osc 1 → A</li>
+<li>Osc 2 → B</li>
+<li>Osc 3 → C</li>
+<li>Osc 4 → D</li>
+<li>Osc 5 → E</li>
+<li>Osc 6 → F</li>
+<li>Take output from <strong>D+E+F</strong></li>
+</ul>
+<p>This is excellent for:
+- supersaw-style unison
+- chord stacks
+- layered sine partials
+- combining multiple plucked or struck voices into one harmonic texture</p>
+<p>For melodic music, this is especially good if the oscillators are:
+- tuned to chord tones
+- slightly detuned
+- spread across octaves</p>
+<h3>3. Use it as a stereo melodic mixer</h3>
+<p>The rear jumpers can normalize:
+- A → D
+- B → E
+- C → F</p>
+<p>This lets you patch the same melodic sources into left and right groups and adjust each side separately. For example:</p>
+<ul>
+<li>Melody voice 1 → A</li>
+<li>Melody voice 2 → B</li>
+<li>Melody voice 3 → C</li>
+<li>Use <strong>A+B+C</strong> as Left</li>
+<li>Use <strong>D+E+F</strong> as Right</li>
+</ul>
+<p>Then you can create stereo width by setting different levels on D/E/F than on A/B/C.</p>
+<p>This is useful for:
+- stereo chord voices
+- left/right balance of arp layers
+- pseudo-stereo melodic textures before effects</p>
+<h3>4. Mix pitch CV sources for transposition and variation</h3>
+<p>The manual says ABC can be modified for <strong>CV mixing</strong> by closing the solder jumpers on the back, which bypass the capacitors and make it suitable for <strong>DC-coupled</strong> signals.</p>
+<p>Once modified for CV, ABC becomes very useful for melodic control.</p>
+<p>Example:
+- Sequencer pitch CV → A
+- Precision offset or keyboard CV → B
+- Slow modulation or random stepped CV → C
+- <strong>A+B+C out</strong> → oscillator 1V/oct</p>
+<p>This lets you create:
+- transposed sequences
+- evolving melodies
+- offset pitch structures
+- controlled randomness</p>
+<p>Important note:
+because this is just a mixer, not a precision adder, pitch mixing may be musically useful but may not be as exact as a dedicated precision adder for strict tonal tracking over many octaves.</p>
+<p>Still, for:
+- small transpositions
+- melodic drift
+- layering sequence sources
+- experimental tonal work</p>
+<p>…it can be very effective.</p>
+<h3>5. Mix modulation sources that shape melody indirectly</h3>
+<p>Even if you don’t use it for pitch CV, ABC is very useful for combining modulations that affect melodic articulation:</p>
+<ul>
+<li>Envelope + LFO + velocity CV → filter cutoff</li>
+<li>Envelope + random CV → wavefolder amount</li>
+<li>Sequencer row + LFO → FM index</li>
+<li>Accent CV + envelope → VCA control path</li>
+</ul>
+<p>This helps create more musical phrasing:
+- brighter notes on accents
+- timbre changes across a sequence
+- evolving harmonic content
+- rhythmic movement in melodic lines</p>
+<p>Again, this requires the <strong>CV modification</strong> if you want proper DC-coupled CV behavior.</p>
+<hr />
+<h2>Patch ideas for melodic components</h2>
+<h3>Patch 1: Layered lead voice</h3>
+<p>Use ABC as an audio mixer for one melody built from several sources.</p>
+<ul>
+<li>VCO saw → A</li>
+<li>VCO pulse → B</li>
+<li>Sub oscillator → C</li>
+<li>A+B+C out → filter → VCA → output</li>
+<li>Sequencer pitch CV controls all oscillators</li>
+</ul>
+<p>Result:
+- one melody
+- richer timbre
+- easy balancing of harmonic layers</p>
+<h3>Patch 2: Harmony stack</h3>
+<p>Create a chord from several independently tuned oscillators.</p>
+<ul>
+<li>Root oscillator → A</li>
+<li>Third → B</li>
+<li>Fifth → C</li>
+<li>Seventh or octave → D</li>
+<li>Ninth or doubled root → E</li>
+<li>Noise/transient layer → F</li>
+<li>Final output from D+E+F</li>
+</ul>
+<p>Result:
+- a full harmonic bed or stab voice
+- useful for pads, chord hits, and drone harmony</p>
+<h3>Patch 3: Stereo arpeggio mixer</h3>
+<p>With rear normalization jumpers set:</p>
+<ul>
+<li>Arp voice 1 → A</li>
+<li>Arp voice 2 → B</li>
+<li>Arp voice 3 → C</li>
+<li>Left = A+B+C</li>
+<li>Right = D+E+F</li>
+</ul>
+<p>Set different right-side levels for a stereo image.</p>
+<p>Result:
+- wider melodic field
+- clearer separation of lines
+- more polished stereo presentation</p>
+<h3>Patch 4: CV melody shaping mixer</h3>
+<p>After CV mod:</p>
+<ul>
+<li>Main sequencer CV → A</li>
+<li>Transpose CV from keyboard or sequencer row → B</li>
+<li>Stepped random CV → C</li>
+<li>A+B+C → oscillator pitch input</li>
+</ul>
+<p>Use small amounts on B and C.</p>
+<p>Result:
+- melody stays recognizable
+- but gains movement and variation
+- great for generative tonal patches</p>
+<h3>Patch 5: Two parallel melodic buses</h3>
+<p>Use ABC as two separate 3-channel mixers.</p>
+<p>Bus 1:
+- Lead voice layers → A/B/C
+- A+B+C → lead processing chain</p>
+<p>Bus 2:
+- Harmony / counter-melody layers → D/E/F
+- D+E+F → second processing chain</p>
+<p>Result:
+- one module handles both lead and accompaniment summing</p>
+<hr />
+<h2>Things to keep in mind</h2>
+<h3>1. Default behavior is for audio</h3>
+<p>Out of the box, the inputs are <strong>AC-coupled</strong>, so it is intended primarily for <strong>audio mixing</strong>.</p>
+<p>If you want to mix:
+- pitch CV
+- envelopes
+- gates
+- offsets
+- LFOs used as steady CV</p>
+<p>you should use the rear <strong>solder jumpers</strong> to convert it for <strong>DC-coupled CV mixing</strong>.</p>
+<h3>2. Maximum gain is 1</h3>
+<p>This means it is a <strong>unity-gain style mixer</strong>, not a boost mixer. It combines signals, but does not amplify channels above their incoming level.</p>
+<h3>3. It is not a precision adder</h3>
+<p>For exact melodic pitch operations, especially 1V/oct transposition over large ranges, a dedicated precision adder is often better. ABC is best for:
+- practical utility mixing
+- approximate CV blends
+- experimental melodic control
+- audio layering</p>
+<h3>4. It is especially strong in small systems</h3>
+<p>In a compact rack, ABC is great because melodic patches often need simple summing:
+- several oscillators into one voice
+- several voices into one harmony bus
+- modulation sources combined for expressive articulation</p>
+<hr />
+<h2>Bottom line</h2>
+<p>The <strong>Bastl ABC</strong> is best thought of as a <strong>support module for melodic patching</strong> rather than a melody generator.</p>
+<p>It helps create melodic components by letting you:</p>
+<ul>
+<li><strong>layer multiple oscillators</strong> into richer leads and chords</li>
+<li><strong>combine several melodic voices</strong> into one submix</li>
+<li><strong>build stereo melodic mixes</strong></li>
+<li><strong>mix CV sources</strong> for transposition and variation, if modified for DC coupling</li>
+<li><strong>combine modulation signals</strong> that make melodies more expressive</li>
+</ul>
+<p>So if your system already has:
+- sequencers
+- quantizers
+- oscillators
+- envelopes
+- filters
+- VCAs</p>
+<p>then ABC becomes very useful as the glue that turns separate melodic ingredients into a coherent musical line or harmonic texture.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

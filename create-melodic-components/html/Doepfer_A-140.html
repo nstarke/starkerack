@@ -1,0 +1,414 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-140</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-140</h1>
+<ul>
+<li><a href="../../manuals/A140_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100_man/A140_man.pdf">Doepfer A-140 ADSR Manual PDF</a></p>
+<h1>Doepfer A-140 ADSR — using it to create melodic components</h1>
+<p>From the attached manual, the module here is the <strong>Doepfer A-140 ADSR</strong>, an envelope generator for the A-100 system. By itself, it does <strong>not generate pitch or audio</strong>, but it is extremely useful for shaping the melodic behavior of other modules in a patch.</p>
+<h2>What the A-140 does</h2>
+<p>The A-140 outputs a time-varying control voltage with the classic four stages:</p>
+<ul>
+<li><strong>Attack</strong></li>
+<li><strong>Decay</strong></li>
+<li><strong>Sustain</strong></li>
+<li><strong>Release</strong></li>
+</ul>
+<p>It has:</p>
+<ul>
+<li><strong>Gate input</strong></li>
+<li><strong>Retrig input</strong></li>
+<li><strong>2 normal envelope outputs</strong></li>
+<li><strong>1 inverted envelope output</strong></li>
+<li><strong>LED envelope indicator</strong></li>
+<li><strong>3-position time range switch</strong></li>
+<li><strong>H</strong> = very slow, up to minutes</li>
+<li><strong>M</strong> = medium</li>
+<li><strong>L</strong> = very fast, down to very short times</li>
+</ul>
+<p>The manual notes that it can modulate:</p>
+<ul>
+<li><strong>VCA</strong></li>
+<li><strong>VCF</strong></li>
+<li><strong>VCO pulse width</strong></li>
+<li><strong>VCO frequency</strong></li>
+<li><strong>phase processors</strong></li>
+<li><strong>voltage-controlled LFOs</strong></li>
+</ul>
+<p>That means its role in melody is mostly about <strong>articulation, timbre movement, accenting, and pitch contour</strong>.</p>
+<hr />
+<h1>How it helps create melodic parts</h1>
+<p>A melodic patch usually needs a few layers working together:</p>
+<ol>
+<li><strong>Pitch source</strong> — sequencer, keyboard CV, quantizer, random source</li>
+<li><strong>Sound source</strong> — VCO</li>
+<li><strong>Tone shaping</strong> — VCF</li>
+<li><strong>Amplitude shaping</strong> — VCA</li>
+<li><strong>Timing/control</strong> — gate/trigger source</li>
+<li><strong>Envelope modulation</strong> — the A-140</li>
+</ol>
+<p>The <strong>A-140 turns static notes into playable phrases</strong>. Even a simple pitch sequence becomes musical once the ADSR shapes loudness, brightness, and motion.</p>
+<hr />
+<h1>Best musical uses of the A-140 in melodic patches</h1>
+<h2>1. Classic note articulation: ADSR -&gt; VCA</h2>
+<p>This is the most important melodic use.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>Pitch CV</strong> -&gt; VCO 1V/Oct</li>
+<li><strong>VCO audio out</strong> -&gt; VCF or directly to VCA</li>
+<li><strong>A-140 Output</strong> -&gt; VCA CV input</li>
+<li><strong>Gate/keyboard/sequencer gate</strong> -&gt; A-140 Gate</li>
+</ul>
+<h3>Result</h3>
+<p>Each note gets a contour:</p>
+<ul>
+<li><strong>Short attack, short decay, low sustain, medium release</strong> = plucky sequence</li>
+<li><strong>Fast attack, medium decay, medium sustain, short release</strong> = synth lead</li>
+<li><strong>Slow attack, high sustain, long release</strong> = pads or swelling melodic lines</li>
+</ul>
+<h3>Why this matters melodically</h3>
+<p>The envelope defines whether the melody feels:</p>
+<ul>
+<li>percussive</li>
+<li>legato</li>
+<li>soft</li>
+<li>aggressive</li>
+<li>sustained</li>
+<li>expressive</li>
+</ul>
+<p>Even the same pitch sequence can sound like bass, lead, pluck, or pad just by changing the ADSR.</p>
+<hr />
+<h2>2. Brightness contour: ADSR -&gt; VCF cutoff</h2>
+<p>This is the second major melodic use.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>VCO</strong> -&gt; <strong>VCF audio in</strong></li>
+<li><strong>VCF out</strong> -&gt; <strong>VCA</strong></li>
+<li><strong>A-140 Output</strong> -&gt; <strong>VCF CV input</strong></li>
+<li>Same gate source -&gt; <strong>A-140 Gate</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Each note opens the filter differently over time.</p>
+<h3>Good settings</h3>
+<ul>
+<li><strong>Fast attack</strong></li>
+<li><strong>Short/medium decay</strong></li>
+<li><strong>Lower sustain</strong></li>
+<li><strong>Short release</strong></li>
+</ul>
+<p>This gives a note a bright front edge, then a darker body — very useful for melodic phrasing.</p>
+<h3>Musical effect</h3>
+<p>This adds:</p>
+<ul>
+<li>note definition</li>
+<li>expressiveness</li>
+<li>dynamic emphasis</li>
+<li>“speaking” synth timbre</li>
+</ul>
+<p>For melodic lines, this helps notes feel shaped instead of flat.</p>
+<hr />
+<h2>3. Simultaneous melodic shaping: one ADSR to both VCA and VCF</h2>
+<p>The A-140 provides <strong>two identical normal outputs</strong>, so you can split the same envelope without a mult.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>Output 1</strong> -&gt; VCA CV</li>
+<li><strong>Output 2</strong> -&gt; VCF CV</li>
+<li><strong>Gate source</strong> -&gt; A-140 Gate</li>
+</ul>
+<h3>Result</h3>
+<p>One note event controls both:
+- loudness
+- brightness</p>
+<p>This is one of the most useful “together” functions described by the panel layout.</p>
+<h3>Why it’s good</h3>
+<p>With one envelope, your melody gets cohesive articulation. The attack of the volume and the attack of the filter rise together, which feels natural and musical.</p>
+<hr />
+<h2>4. Pitch envelope for melodic attack: ADSR -&gt; VCO FM / pitch CV</h2>
+<p>The manual specifically mentions <strong>ADSR -&gt; VCO (FM)</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>A-140 Output</strong> -&gt; attenuator or FM input on VCO</li>
+<li>Gate source -&gt; A-140 Gate</li>
+</ul>
+<h3>Result</h3>
+<p>The note pitch moves during the envelope.</p>
+<h3>Musical uses</h3>
+<ul>
+<li>Tiny amount: subtle “analog” attack bend</li>
+<li>Medium amount: synth brass or punchy bass transient</li>
+<li>Large amount: dramatic swoops or unstable melodic effects</li>
+</ul>
+<h3>Best settings</h3>
+<ul>
+<li><strong>Very fast attack</strong></li>
+<li><strong>Short decay</strong></li>
+<li><strong>Zero or low sustain</strong></li>
+<li><strong>Short release</strong></li>
+</ul>
+<p>This creates a pitch blip at note onset.</p>
+<h3>Important note</h3>
+<p>Use a <strong>small modulation amount</strong> if you want stable melody. Too much envelope-to-pitch makes notes sound out of tune.</p>
+<hr />
+<h2>5. PWM movement tied to each note: ADSR -&gt; VCO pulse width</h2>
+<p>The manual also suggests <strong>ADSR -&gt; VCO (PWM)</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Use a square/pulse wave VCO output</li>
+<li><strong>A-140 Output</strong> -&gt; PWM CV input</li>
+<li>Gate source -&gt; A-140 Gate</li>
+</ul>
+<h3>Result</h3>
+<p>The harmonic content shifts with each note.</p>
+<h3>Musical effect</h3>
+<p>This is great for:
+- animated lead sounds
+- expressive bass
+- more vocal-sounding melodic timbres</p>
+<h3>Why it helps melody</h3>
+<p>Instead of every note having the same spectral shape, each note has internal motion. That makes repetitive sequences sound more alive.</p>
+<hr />
+<h2>6. Inverse contour for counter-motion: Inverse Output</h2>
+<p>One special feature of the A-140 is its <strong>inverted envelope output</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li><strong>Normal Output</strong> -&gt; VCA CV or VCF CV</li>
+<li><strong>Inverse Output</strong> -&gt; second modulation destination</li>
+</ul>
+<h3>Examples</h3>
+<ul>
+<li>Normal out -&gt; open filter</li>
+<li>Inverse out -&gt; reduce another parameter at the same time</li>
+</ul>
+<p>Or:</p>
+<ul>
+<li>Normal out -&gt; one oscillator’s FM depth rises</li>
+<li>Inverse out -&gt; another oscillator’s PWM falls</li>
+</ul>
+<h3>Musical value</h3>
+<p>This creates <strong>complementary motion</strong>, which is excellent for more complex melodic voices. As one parameter rises, another falls.</p>
+<p>That can make a melody feel more animated and intentional.</p>
+<hr />
+<h2>7. Re-triggered envelopes for rhythmic melodic animation</h2>
+<p>The <strong>Retrig input</strong> is especially useful.</p>
+<p>The manual states that while the gate remains open, pulses arriving at <strong>Retrig</strong> restart the envelope.</p>
+<h3>Patch</h3>
+<ul>
+<li>Long gate or held keyboard note -&gt; <strong>A-140 Gate</strong></li>
+<li>LFO square, clock, trigger sequencer, or rhythmic pulse -&gt; <strong>Retrig</strong></li>
+<li>Envelope output -&gt; VCF, VCA, PWM, or pitch amount</li>
+</ul>
+<h3>Result</h3>
+<p>A sustained note can contain repeated internal articulations.</p>
+<h3>Melodic applications</h3>
+<ul>
+<li>Held drone with pulsing brightness</li>
+<li>Sustained lead note with repeating attack accents</li>
+<li>Trills or tremolo-like shape when routed to VCA</li>
+<li>Repeated filter pecks on a long note</li>
+</ul>
+<h3>Why this is musically powerful</h3>
+<p>You can make <strong>one pitch behave like a phrase</strong> instead of a static sustained note.</p>
+<p>This is excellent for:
+- Berlin-school sequences
+- pulsing leads
+- ratcheting-style melodic textures
+- expressive sustained solos</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Simple monosynth melody</h2>
+<h3>Connections</h3>
+<ul>
+<li>Sequencer pitch CV -&gt; VCO 1V/Oct</li>
+<li>Sequencer gate -&gt; A-140 Gate</li>
+<li>VCO saw -&gt; VCF in</li>
+<li>VCF out -&gt; VCA in</li>
+<li>A-140 Output 1 -&gt; VCA CV</li>
+<li>A-140 Output 2 -&gt; VCF CV</li>
+</ul>
+<h3>Suggested ADSR</h3>
+<ul>
+<li>Attack: low</li>
+<li>Decay: medium</li>
+<li>Sustain: medium-low</li>
+<li>Release: short-medium</li>
+<li>Time Range: M</li>
+</ul>
+<h3>Sound</h3>
+<p>A classic articulate melodic line with punch and contour.</p>
+<hr />
+<h2>Patch 2: Plucky sequence</h2>
+<h3>Connections</h3>
+<p>Same as above</p>
+<h3>Suggested ADSR</h3>
+<ul>
+<li>Attack: 0</li>
+<li>Decay: short</li>
+<li>Sustain: 0 or very low</li>
+<li>Release: short</li>
+<li>Time Range: M or L</li>
+</ul>
+<h3>Sound</h3>
+<p>Short plucked notes, ideal for arpeggios and sequenced melodies.</p>
+<hr />
+<h2>Patch 3: Expressive lead</h2>
+<h3>Connections</h3>
+<ul>
+<li>Keyboard/sequencer gate -&gt; A-140 Gate</li>
+<li>A-140 Output 1 -&gt; VCA CV</li>
+<li>A-140 Output 2 -&gt; VCF CV</li>
+<li>Optional: small amount of envelope -&gt; VCO FM</li>
+</ul>
+<h3>Suggested ADSR</h3>
+<ul>
+<li>Attack: very short</li>
+<li>Decay: medium</li>
+<li>Sustain: medium-high</li>
+<li>Release: medium</li>
+<li>Time Range: M</li>
+</ul>
+<h3>Sound</h3>
+<p>Lead voice with a touch of filter movement and optional pitch attack for expression.</p>
+<hr />
+<h2>Patch 4: Long evolving melody</h2>
+<h3>Connections</h3>
+<ul>
+<li>Pitch sequence -&gt; VCO</li>
+<li>Gate -&gt; A-140 Gate</li>
+<li>A-140 -&gt; VCF and/or VCA</li>
+<li>Time Range -&gt; H</li>
+</ul>
+<h3>Suggested ADSR</h3>
+<ul>
+<li>Attack: long</li>
+<li>Decay: long</li>
+<li>Sustain: medium</li>
+<li>Release: long</li>
+</ul>
+<h3>Sound</h3>
+<p>Slow melodic swells and evolving phrase lines, useful for ambient or cinematic music.</p>
+<hr />
+<h2>Patch 5: Pulsing sustained note with retrigger</h2>
+<h3>Connections</h3>
+<ul>
+<li>Held gate -&gt; A-140 Gate</li>
+<li>Clock or LFO pulse -&gt; Retrig</li>
+<li>Envelope output -&gt; VCF CV</li>
+</ul>
+<h3>Suggested ADSR</h3>
+<ul>
+<li>Attack: fast</li>
+<li>Decay: medium</li>
+<li>Sustain: low</li>
+<li>Release: short</li>
+</ul>
+<h3>Sound</h3>
+<p>A sustained pitch with repeated note-like accents in tone.</p>
+<p>This is very effective when a melody note needs internal rhythm.</p>
+<hr />
+<h2>Patch 6: Accent programming with envelope-to-pitch</h2>
+<h3>Connections</h3>
+<ul>
+<li>Sequence CV -&gt; VCO 1V/Oct</li>
+<li>Gate -&gt; A-140 Gate</li>
+<li>A-140 Output -&gt; attenuated VCO FM input</li>
+</ul>
+<h3>Suggested ADSR</h3>
+<ul>
+<li>Attack: 0</li>
+<li>Decay: short</li>
+<li>Sustain: 0</li>
+<li>Release: short</li>
+<li>Time Range: L or M</li>
+</ul>
+<h3>Sound</h3>
+<p>Each note has a small pitch kick at the start, great for punchy bass melodies.</p>
+<hr />
+<h1>How the time range switch changes musical behavior</h1>
+<p>The <strong>Time Range</strong> switch is very important for melodic use.</p>
+<h2>L (low)</h2>
+<p>Very fast envelopes.</p>
+<p>Best for:
+- clicks
+- plucks
+- percussive bass
+- sharp filter attacks
+- tight sequencer lines</p>
+<h2>M (medium)</h2>
+<p>General-purpose melodic work.</p>
+<p>Best for:
+- leads
+- basses
+- normal keyboard articulation
+- standard synth phrasing</p>
+<h2>H (high)</h2>
+<p>Very slow envelopes.</p>
+<p>Best for:
+- swelling notes
+- ambient melody
+- slow filter sweeps tied to note events
+- long releases between phrases</p>
+<hr />
+<h1>How to think about the inverted output musically</h1>
+<p>The inverted output is easy to overlook, but it can be very useful in melodic design.</p>
+<h2>Example uses</h2>
+<ul>
+<li>Normal out -&gt; VCA, inverse out -&gt; negative filter modulation</li>
+<li>Normal out -&gt; oscillator pitch rise, inverse out -&gt; second oscillator pitch fall</li>
+<li>Normal out -&gt; open one VCA, inverse out -&gt; close another VCA</li>
+</ul>
+<h2>Melodic result</h2>
+<p>This allows:
+- timbral crossfades
+- push-pull movement
+- note-dependent contrast
+- more complex phrase articulation</p>
+<p>It’s especially good when building a melody voice from multiple oscillators or parallel signal paths.</p>
+<hr />
+<h1>Limitations to keep in mind</h1>
+<p>From the manual, the A-140 is an <strong>envelope generator only</strong>. So to create full melodic components, you still need other modules such as:</p>
+<ul>
+<li><strong>VCO</strong> for pitch/audio generation</li>
+<li><strong>VCA</strong> for amplitude control</li>
+<li><strong>VCF</strong> for tone shaping</li>
+<li><strong>Sequencer / keyboard / MIDI-CV</strong> for pitch and gate</li>
+</ul>
+<p>So the A-140 is not the melody source, but rather the module that makes a melody <strong>musical, shaped, and expressive</strong>.</p>
+<hr />
+<h1>Best “used together” roles in a melodic system</h1>
+<p>If you are combining this module with standard Eurorack voice modules, the strongest pairings are:</p>
+<h2>A-140 + VCA</h2>
+<p>For note articulation and dynamics</p>
+<h2>A-140 + VCF</h2>
+<p>For brightness contour and expressive phrasing</p>
+<h2>A-140 + VCO PWM</h2>
+<p>For animated timbre per note</p>
+<h2>A-140 + VCO pitch/FM</h2>
+<p>For pitch attack and synth-style transient shaping</p>
+<h2>A-140 + clock/LFO via Retrig</h2>
+<p>For repeated articulation inside sustained melodic notes</p>
+<h2>A-140 normal + inverse outputs together</h2>
+<p>For complex counter-moving modulations in a melody voice</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Doepfer A-140 ADSR</strong> is one of the core modules for turning a raw pitch sequence into an actual melodic performance.</p>
+<p>Its biggest strengths for melodic patching are:</p>
+<ul>
+<li>shaping <strong>volume</strong> with a VCA</li>
+<li>shaping <strong>brightness</strong> with a VCF</li>
+<li>adding <strong>pitch attack</strong> to a VCO</li>
+<li>animating <strong>PWM</strong></li>
+<li>using <strong>retriggering</strong> for rhythmic internal motion</li>
+<li>using <strong>normal and inverted outputs</strong> for richer note behavior</li>
+</ul>
+<p>If you patch it into both the <strong>VCA and VCF</strong> of a voice, you already have the foundation of a very playable melodic synthesizer voice. Add a sequencer or keyboard CV, and the A-140 becomes the articulation engine that gives your melodies life.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

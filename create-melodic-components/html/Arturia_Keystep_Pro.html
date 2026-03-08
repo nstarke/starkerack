@@ -1,0 +1,582 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Arturia_Keystep_Pro</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Arturia — Keystep Pro</h1>
+<ul>
+<li><a href="../../manuals/keystep-pro_Manual_1_1_0_EN.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1><a href="https://downloads.arturia.net/products/keystep-pro/manual/keystep-pro_Manual_1_0_0_EN.pdf">Arturia KeyStep Pro User Manual (PDF)</a></h1>
+<h2>Overview</h2>
+<p>The attached manual is for the <strong>Arturia KeyStep Pro</strong>, which is not a Eurorack module itself, but is extremely useful as the <strong>melodic brain</strong> of a Eurorack system. From a modular musician’s perspective, it can function as:</p>
+<ul>
+<li>a <strong>4-track pitch/gate sequencer</strong></li>
+<li>a <strong>3-track arpeggiator</strong></li>
+<li>a <strong>CV keyboard controller</strong></li>
+<li>a <strong>drum trigger source</strong></li>
+<li>a <strong>master or slave clock</strong></li>
+<li>a <strong>performance arranger</strong> with patterns, chains, scenes, transposition, scales, and chord memory</li>
+</ul>
+<p>If your goal is to create <strong>melodic components for music</strong> with Eurorack, the KeyStep Pro is a powerful central controller because it provides:</p>
+<ul>
+<li><strong>4 independent CV/Gate voice outputs</strong></li>
+<li><strong>Pitch CV + Gate + Mod/Velocity CV per voice</strong></li>
+<li><strong>scale quantization</strong></li>
+<li><strong>chord memory</strong></li>
+<li><strong>polyphonic sequencing</strong></li>
+<li><strong>arpeggiation</strong></li>
+<li><strong>track splits</strong></li>
+<li><strong>pattern chaining and scenes</strong></li>
+<li><strong>drum gates for rhythmic modulation or percussion</strong></li>
+</ul>
+<hr />
+<h2>What the KeyStep Pro gives a Eurorack melodic system</h2>
+<p>For each of the four voices, the rear panel provides:</p>
+<ul>
+<li><strong>Pitch</strong></li>
+<li><strong>Velo/Mod</strong></li>
+<li><strong>Gate</strong></li>
+</ul>
+<p>These can be patched into a modular voice like this:</p>
+<ul>
+<li><strong>Pitch CV → oscillator 1V/oct input</strong></li>
+<li><strong>Gate → envelope gate input</strong></li>
+<li><strong>Envelope output → VCA CV input</strong></li>
+<li><strong>Oscillator output → filter → VCA → output</strong></li>
+<li><strong>Velo/Mod CV → filter cutoff CV input, VCA level CV input, wavefold amount, FM amount, etc.</strong></li>
+</ul>
+<p>So even with a minimal modular setup, the KeyStep Pro can generate a full melodic structure.</p>
+<hr />
+<h2>Basic melodic patching strategies</h2>
+<h2>1. Single melodic voice</h2>
+<p>This is the simplest use.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>Voice 1 Pitch → VCO 1V/oct</strong></li>
+<li><strong>Voice 1 Gate → EG gate input</strong></li>
+<li><strong>EG out → VCA CV</strong></li>
+<li><strong>VCO audio → VCF → VCA</strong></li>
+<li><strong>Voice 1 Velo/Mod → VCF cutoff CV</strong></li>
+</ul>
+<h3>Result</h3>
+<p>You get a classic monosynth voice where the KeyStep Pro:
+- plays notes from the keyboard
+- sequences melodies
+- records pitch, gate, velocity
+- lets dynamics affect timbre through the modulation output</p>
+<p>This is ideal for:
+- basslines
+- leads
+- modal melodies
+- acid-like phrases
+- transposable sequences</p>
+<hr />
+<h2>2. Four independent melodic voices</h2>
+<p>Because there are <strong>4 separate CV/Gate voice outputs</strong>, you can run four modular voices at once.</p>
+<h3>Example arrangement</h3>
+<ul>
+<li><strong>Track 1 / Voice 1</strong> → bass voice</li>
+<li><strong>Track 2 / Voice 2</strong> → lead voice</li>
+<li><strong>Track 3 / Voice 3</strong> → counter-melody</li>
+<li><strong>Track 4 / Voice 4</strong> → slow chord tones / drone line</li>
+</ul>
+<h3>Result</h3>
+<p>You can build complete melodic interplay:
+- bass ostinato
+- arpeggiated upper line
+- evolving counterpoint
+- independent rhythmic lengths for polymeter/polyrhythm</p>
+<p>This is one of the KeyStep Pro’s strongest uses in Eurorack.</p>
+<hr />
+<h2>3. One sequencer controlling multiple oscillators as a chord voice</h2>
+<p>The manual describes <strong>CV routing</strong>, which is especially important in modular use.</p>
+<p>You can route one track to multiple voice outputs. So, for example:</p>
+<ul>
+<li><strong>Track 1 → Voices 1, 2, 3, 4</strong></li>
+</ul>
+<p>If a step contains multiple notes, the KeyStep Pro distributes those notes across the routed voices.</p>
+<h3>Patch</h3>
+<ul>
+<li>Voice 1 Pitch/Gate → Oscillator A / envelope A</li>
+<li>Voice 2 Pitch/Gate → Oscillator B / envelope B</li>
+<li>Voice 3 Pitch/Gate → Oscillator C / envelope C</li>
+<li>Voice 4 Pitch/Gate → Oscillator D / envelope D</li>
+</ul>
+<p>Mix those oscillators or voices together.</p>
+<h3>Result</h3>
+<p>You can create:
+- block chords
+- stacked intervals
+- harmonic pads
+- four-note sequenced chords
+- chord stabs</p>
+<p>This is extremely useful if your modular contains several oscillators but no dedicated chord sequencer.</p>
+<hr />
+<h2>4. Shared pitch with different timbral destinations</h2>
+<p>Another good Eurorack strategy is not to think of the four voices only as “four synth voices.” Instead, use them as parallel melodic control streams.</p>
+<p>For example:
+- Voice 1 controls a sine oscillator bass
+- Voice 2 controls a filtered saw voice
+- Voice 3 controls a resonant FM voice
+- Voice 4 controls a noise-based tuned percussion voice</p>
+<p>Even if they play related material, they can occupy different musical roles.</p>
+<hr />
+<h2>Melodic tools in the KeyStep Pro that matter for Eurorack</h2>
+<h2>Sequencers</h2>
+<p>There are <strong>4 sequencers</strong>, each capable of:
+- up to <strong>64 steps per pattern</strong>
+- <strong>16 patterns per track</strong>
+- polyphonic step content
+- editable:
+  - pitch
+  - gate
+  - velocity
+  - time shift
+  - randomness/probability</p>
+<p>For modular use, this means you can create very expressive pitch/gate sequences, not just rigid note rows.</p>
+<h3>Why this matters in Eurorack</h3>
+<p>Eurorack often excels at tone generation and modulation, but can lack a fast compositional interface. The KeyStep Pro provides that.</p>
+<p>You can:
+- enter sequences from the keyboard
+- overdub chords
+- set step probability
+- nudge timing
+- vary gate lengths
+- transpose in performance</p>
+<p>That makes modular voices feel more like playable instruments than static patches.</p>
+<hr />
+<h2>Arpeggiators</h2>
+<p>Tracks 2–4 each have an arpeggiator.</p>
+<p>Arp patterns include:
+- Up
+- Down
+- Exclusive pendulum
+- Inclusive pendulum
+- Random
+- Order played
+- Poly</p>
+<p>Arp octave ranges:
+- -1
+- 0
+- +1
+- +2
+- +3</p>
+<h3>Eurorack use</h3>
+<p>Arpeggiators are especially effective when driving:
+- plucked voices
+- LPG-based voices
+- FM bell voices
+- ratcheting acid lines
+- modal ostinatos</p>
+<p>You can hold an arpeggio and use your modular hands-on:
+- open filters
+- change wavefolder depth
+- modulate delay feedback
+- shift rhythm clocks
+- repatch while the arp keeps running</p>
+<p>This is a very modular-friendly workflow.</p>
+<hr />
+<h2>Scale quantization</h2>
+<p>The manual highlights built-in scales:
+- Major
+- Minor
+- Dorian
+- Mixolydian
+- Harmonic Minor
+- Blues
+- User scales</p>
+<p>This is huge for melodic modular work.</p>
+<h3>Why it matters</h3>
+<p>In Eurorack, raw sequencer voltages can drift into atonal territory quickly unless quantized. The KeyStep Pro lets you stay musical before CV even reaches the rack.</p>
+<p>You can:
+- keep melodies in key
+- transpose live without wrong notes
+- use modal harmony
+- shift root notes while preserving interval relationships</p>
+<h3>Practical uses</h3>
+<ul>
+<li>Dorian for jazzy/minor grooves</li>
+<li>Mixolydian for synth-funk and cosmic lines</li>
+<li>Harmonic minor for darker cinematic sequences</li>
+<li>Blues scale for pentatonic riffing</li>
+<li>User scales for custom interval sets</li>
+</ul>
+<hr />
+<h2>Chord mode</h2>
+<p>The KeyStep Pro can memorize a chord and let you trigger that chord from a single key.</p>
+<h3>Eurorack use cases</h3>
+<ol>
+<li><strong>Feed one track into multiple voice outputs</strong> to distribute the chord tones</li>
+<li><strong>Use chord mode with arpeggiators</strong> to generate harmonically rich note cascades</li>
+<li><strong>Record chord patterns</strong> into sequences for structured harmonic movement</li>
+</ol>
+<p>This is a great way to get harmonic composition into a modular rig without needing a dedicated chord module.</p>
+<hr />
+<h2>Velocity / Mod output as melodic expression</h2>
+<p>Each voice has a <strong>Velo/Mod output</strong> that can send either:
+- velocity
+- pressure/aftertouch</p>
+<p>This is very important for expressive Eurorack patching.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li><strong>Velocity → filter cutoff</strong></li>
+<li>harder notes sound brighter</li>
+<li><strong>Velocity → VCA CV attenuator</strong></li>
+<li>dynamic amplitude phrasing</li>
+<li><strong>Velocity → wavefolder amount</strong></li>
+<li>accented notes become harmonically richer</li>
+<li><strong>Aftertouch → vibrato amount</strong></li>
+<li>finger pressure adds expression</li>
+<li><strong>Aftertouch → FM index</strong></li>
+<li>press into notes for aggressive timbral bloom</li>
+<li><strong>Aftertouch → reverb/delay modulation</strong></li>
+<li>expressive ambient performance</li>
+</ul>
+<p>This is one of the best ways to make a modular patch feel alive and playable.</p>
+<hr />
+<h2>Track splits for melodic performance</h2>
+<p>The manual describes keyboard splits.</p>
+<h3>Example split</h3>
+<ul>
+<li>Lower keyboard zone → bass sequence or arp</li>
+<li>Upper keyboard zone → lead voice</li>
+</ul>
+<h3>Modular use</h3>
+<p>You could:
+- play a bassline on Track 1 into Voice 1
+- play a melody on Track 2 into Voice 2
+- or keep one side arpeggiated and the other manually played</p>
+<p>This is ideal for live modular performance because one controller becomes a two-part instrument.</p>
+<hr />
+<h2>Time division and polyrhythmic melody</h2>
+<p>Each sequence or arp can have independent time division:
+- 1/4
+- 1/8
+- 1/16
+- 1/32
+- triplet variants</p>
+<p>Each sequencer can also have independent lengths.</p>
+<h3>Result in Eurorack</h3>
+<p>You can build:
+- a 7-step bassline
+- against a 12-step melody
+- against a 16-step arp
+- against a 5-step modulation contour</p>
+<p>That gives you evolving melodic relationships without needing a large collection of in-rack sequencers.</p>
+<p>This is excellent for:
+- generative-feeling structures
+- Berlin school patterns
+- Steve Reich style phasing
+- polymetric techno
+- ambient counterpoint</p>
+<hr />
+<h2>Step probability / randomness for melodic variation</h2>
+<p>Each step can carry randomness/probability.</p>
+<h3>Eurorack advantage</h3>
+<p>Instead of repatching random voltage sources, you can keep melodic structure while introducing controlled instability.</p>
+<p>Use this for:
+- occasional passing tones
+- probabilistic melody notes
+- semi-generative basslines
+- varied ostinatos
+- evolving arpeggios</p>
+<p>This is especially powerful with voices patched through delays and reverbs.</p>
+<hr />
+<h2>Looper strip for modular performance</h2>
+<p>The looper strip can temporarily loop subdivisions of the current playback.</p>
+<h3>Use in melodic performance</h3>
+<p>This can create:
+- stutters
+- rhythmic phrase slicing
+- glitch fills
+- melodic repeats
+- short loop captures before dropping back to the full phrase</p>
+<p>For Eurorack this is excellent when combined with:
+- delay
+- granular modules
+- resonators
+- LPGs
+- clocked modulation</p>
+<p>It gives you immediate performance variation without altering the original sequence.</p>
+<hr />
+<h2>Drum gates as melodic modulators</h2>
+<p>The KeyStep Pro has <strong>8 drum gate outputs</strong>. These are not limited to drums.</p>
+<p>You can use drum gates to trigger:
+- envelopes
+- clock dividers
+- sample-and-hold
+- sequential switches
+- logic modules
+- burst generators
+- reset inputs
+- LPG strikes</p>
+<h3>Melodic uses</h3>
+<p>This is where a Eurorack musician can get clever.</p>
+<p>For example:
+- melodic CV comes from Track 1 Voice outputs
+- drum gates trigger supporting modulation events:
+  - accent envelopes
+  - filter pings
+  - delay throws
+  - transposition pulses
+  - switch events between oscillators
+  - trigger quantized random voltages for ornamentation</p>
+<p>So the drum section can become a <strong>melodic articulation system</strong>, not just percussion.</p>
+<hr />
+<h2>Clocking and synchronization with modular</h2>
+<p>The KeyStep Pro includes:
+- Clock In
+- Clock Out
+- Reset Out</p>
+<p>This means it can either:
+- <strong>clock your rack</strong>
+- or <strong>follow your rack</strong></p>
+<h3>As master</h3>
+<p>Use KeyStep Pro to send clock to:
+- clock divider/multiplier
+- trigger sequencers
+- modulation clocks
+- synced delays
+- Euclidean trigger generators</p>
+<p>Then your melodic sequences stay tightly integrated with the rest of the patch.</p>
+<h3>As slave</h3>
+<p>Use a modular clock source or trigger source to drive the KeyStep Pro.</p>
+<p>This is useful if:
+- your rack has a master clock module
+- you want irregular/burst-derived tempo relationships
+- you want modular timing fluctuations to affect the external sequencer</p>
+<p>The manual specifically notes that burst-like or clock-based modulation can affect the KeyStep Pro timing creatively.</p>
+<hr />
+<h2>Best ways to use KeyStep Pro with common Eurorack building blocks</h2>
+<h2>With oscillators</h2>
+<p>Pitch CV goes directly to 1V/oct.
+Use multiple voices for:
+- intervals
+- unison detune stacks
+- chord distribution
+- canon/counterpoint</p>
+<h2>With filters</h2>
+<p>Use Velo/Mod CV for dynamic brightness.
+This gives your melodies articulation beyond pitch.</p>
+<h2>With VCAs</h2>
+<p>Gate drives the envelope; velocity can control loudness or modulation depth.</p>
+<h2>With function generators / envelopes</h2>
+<p>Gate outputs are perfect triggers.
+Drum gates can fire secondary envelopes for accents and ornament.</p>
+<h2>With quantizers</h2>
+<p>Usually not necessary if using KeyStep Pro pitch sequencing, since it already handles scale logic.
+But quantizers can still be used on secondary modulation voltages.</p>
+<h2>With switches</h2>
+<p>Drum gates or melodic gates can clock sequential switches to route voices or modulation differently each phrase.</p>
+<h2>With random modules</h2>
+<p>Use KeyStep Pro for intentional pitch structure and let the rack provide:
+- timbral variation
+- accent variation
+- ornamentation
+- probabilistic modulation</p>
+<h2>With samplers / granular modules</h2>
+<p>Pitch CV can transpose sample playback while drum gates and Velo/Mod add articulation and texture changes.</p>
+<hr />
+<h2>Concrete melodic patch examples</h2>
+<h2>Patch 1: Modular bassline with accents</h2>
+<ul>
+<li>Voice 1 Pitch → analog VCO 1V/oct</li>
+<li>Voice 1 Gate → ADSR gate</li>
+<li>ADSR → VCA CV</li>
+<li>Voice 1 Velo/Mod → filter cutoff CV</li>
+<li>Sequencer Track 1 in minor scale</li>
+</ul>
+<p>Use:
+- short gate on most steps
+- longer gate on phrase endings
+- higher velocity on accents
+- occasional probability drops</p>
+<p>Result:
+A dynamic, musical bassline with phrasing and tonal consistency.</p>
+<hr />
+<h2>Patch 2: Two-voice counterpoint</h2>
+<ul>
+<li>Voice 1 → bass oscillator voice</li>
+<li>Voice 2 → lead oscillator voice</li>
+<li>Track 1 sequence length = 12</li>
+<li>Track 2 sequence length = 15</li>
+<li>same scale, different root emphasis</li>
+</ul>
+<p>Result:
+Interlocking melodies that evolve against each other over time.</p>
+<hr />
+<h2>Patch 3: Chord-distributed poly patch</h2>
+<ul>
+<li>Track 1 in Seq mode</li>
+<li>route Track 1 to Voices 1–4</li>
+<li>each voice patched to separate oscillator/envelope/VCA chain</li>
+<li>sequence polyphonic chords</li>
+<li>Velo/Mod from one or more voices to filter CV or LPG response</li>
+</ul>
+<p>Result:
+Modular chord progressions and harmonic stabs.</p>
+<hr />
+<h2>Patch 4: Arpeggiated modal voice with aftertouch timbre</h2>
+<ul>
+<li>Track 2 in Arp mode</li>
+<li>Voice 2 Pitch → digital oscillator</li>
+<li>Voice 2 Gate → LPG or envelope</li>
+<li>Voice 2 Mod set to Pressure</li>
+<li>Pressure CV → wavefolder depth or FM amount</li>
+</ul>
+<p>Result:
+Expressive arp performance where pressing harder changes timbre, not just loudness.</p>
+<hr />
+<h2>Patch 5: Melodic voice plus support triggers</h2>
+<ul>
+<li>Voice 1 controls melody</li>
+<li>Drum Gates 1–4 trigger:</li>
+<li>accent envelope</li>
+<li>resonator ping</li>
+<li>switch reset</li>
+<li>delay send envelope</li>
+</ul>
+<p>Result:
+A melody with structured articulations and support events tied to rhythm.</p>
+<hr />
+<h2>Patch 6: Split keyboard live modular setup</h2>
+<ul>
+<li>Lower split: Track 1 bass sequence into Voice 1</li>
+<li>Upper split: Track 2 lead played live into Voice 2</li>
+<li>Track 3 arpeggio held in background into Voice 3</li>
+</ul>
+<p>Result:
+A compact live performance system with bass, lead, and harmonic motion from one controller.</p>
+<hr />
+<h2>Composition features that help melodic modular work</h2>
+<h2>Patterns</h2>
+<p>Each track has 16 patterns.
+Use these for:
+- verse / chorus / bridge melodic ideas
+- alternate basslines
+- variations on a motif
+- harmonic changes</p>
+<h2>Chains</h2>
+<p>String patterns together into longer structures.</p>
+<p>For modular music this means:
+- less repetitive looping
+- more song-like evolution
+- live arrangement without repatching</p>
+<h2>Scenes</h2>
+<p>Scenes store current combinations of patterns/chains/states.</p>
+<p>This is valuable for performance:
+- one scene = sparse intro
+- next scene = full bass + arp
+- next scene = transposed or denser arrangement
+- next scene = reduced outro</p>
+<hr />
+<h2>Why this is especially good for melodic Eurorack</h2>
+<p>A lot of Eurorack systems are strong at:
+- sound design
+- modulation
+- texture
+- rhythm</p>
+<p>But melodic writing can become awkward if you rely only on in-rack sequencing. The KeyStep Pro solves that by offering:</p>
+<ul>
+<li>immediate keyboard input</li>
+<li>proper pitch organization</li>
+<li>scales and chords</li>
+<li>multi-track arrangement</li>
+<li>expressive outputs</li>
+<li>CV and MIDI integration</li>
+<li>fast performance access without menu diving</li>
+</ul>
+<p>In practical terms, it lets your modular system behave more like:
+- a playable synth ensemble
+- a compositional instrument
+- a live melodic workstation</p>
+<hr />
+<h2>Recommended melodic workflows</h2>
+<h2>Workflow 1: Bass + lead + drone</h2>
+<ul>
+<li>Track 1: bass sequence</li>
+<li>Track 2: lead arp</li>
+<li>Track 3: slow drone or counterline</li>
+<li>Track 4: spare voice for live performance</li>
+</ul>
+<h2>Workflow 2: Harmonic modular</h2>
+<ul>
+<li>Route one track across multiple voices</li>
+<li>use polyphonic steps for chords</li>
+<li>use a second track for bass root movement</li>
+</ul>
+<h2>Workflow 3: Modal live improvisation</h2>
+<ul>
+<li>choose a scale</li>
+<li>hold arp</li>
+<li>transpose with root changes</li>
+<li>manually play leads over top</li>
+<li>modulate timbre in the rack</li>
+</ul>
+<h2>Workflow 4: Semi-generative melody</h2>
+<ul>
+<li>fixed melodic sequence in one track</li>
+<li>probability and random step behavior</li>
+<li>support modulation from drum gates</li>
+<li>different track lengths for long-form evolution</li>
+</ul>
+<hr />
+<h2>Limitations to be aware of</h2>
+<p>From a Eurorack point of view:</p>
+<ul>
+<li>It is an <strong>external controller</strong>, not a rack module</li>
+<li>CV outputs are <strong>monophonic per jack</strong>, unless distributing poly notes across multiple voices</li>
+<li>true in-rack generative voltage interaction is still separate from the KeyStep Pro’s internal sequencing logic</li>
+<li>modulation over CV is limited to the provided outputs, though MIDI CC opens further possibilities outside pure analog paths</li>
+</ul>
+<p>Still, these are minor relative to its strength as a melodic controller.</p>
+<hr />
+<h2>Bottom line</h2>
+<p>If you're building melodic music with Eurorack, the <strong>KeyStep Pro</strong> can serve as the central compositional hub for your system.</p>
+<p>It works best when you use it to provide:
+- <strong>pitch structure</strong>
+- <strong>gate rhythm</strong>
+- <strong>harmonic logic</strong>
+- <strong>performance transposition</strong>
+- <strong>arranged pattern changes</strong>
+- <strong>expressive modulation control</strong></p>
+<p>while the rack provides:
+- <strong>tone generation</strong>
+- <strong>timbre shaping</strong>
+- <strong>animation</strong>
+- <strong>space</strong>
+- <strong>voltage-based variation</strong></p>
+<p>That combination is ideal:<br />
+<strong>KeyStep Pro for intentional melody and arrangement, Eurorack for sonic character and modulation depth.</strong></p>
+<hr />
+<h2>Best use summary</h2>
+<p>Use the KeyStep Pro with Eurorack melodic modules to create:</p>
+<ul>
+<li><strong>basslines</strong></li>
+<li><strong>lead sequences</strong></li>
+<li><strong>arpeggios</strong></li>
+<li><strong>chord voicings</strong></li>
+<li><strong>counterpoint</strong></li>
+<li><strong>polymetric melodic layers</strong></li>
+<li><strong>expressive keyboard-played voices</strong></li>
+<li><strong>structured live arrangements</strong></li>
+</ul>
+<p>The most effective patching pattern is:</p>
+<ol>
+<li><strong>Pitch CV to oscillator</strong></li>
+<li><strong>Gate to envelope</strong></li>
+<li><strong>Envelope to VCA</strong></li>
+<li><strong>Velo/Mod to timbre</strong></li>
+<li><strong>Use scales/chords/arps/patterns/scenes for composition</strong></li>
+<li><strong>Use drum gates for articulation and secondary modulation</strong></li>
+</ol>
+<p>That gives you a complete melodic ecosystem around your modular rig.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

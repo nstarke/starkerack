@@ -1,0 +1,312 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Freez</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Freez</h1>
+<ul>
+<li><a href="../../manuals/Freez_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Freez Manual PDF</a></p>
+<h1>Using the 2hp Freez to Create Melodic Components</h1>
+<p>The attached manual covers the <strong>2hp Freez</strong>, a <strong>voltage-controlled locked looper</strong> that captures a short slice of incoming audio and repeats it. While it is not a pitch-tracking oscillator or traditional sampler, it can absolutely be used to generate <strong>melodic material</strong> when paired with other Eurorack modules.</p>
+<h2>What Freez Does Musically</h2>
+<p>Freez records incoming audio into a buffer and then "freezes" that buffer for looping playback.</p>
+<p>Key behavior from the manual:</p>
+<ul>
+<li><strong>SIZE</strong> sets loop/buffer length</li>
+<li>Fully CCW = longest buffer</li>
+<li>Fully CW = shortest buffer</li>
+<li>Range: roughly <strong>9 ms to 3 s</strong></li>
+<li><strong>S. RATE</strong> sets sample rate</li>
+<li>Range: <strong>2.36 kHz to 96 kHz</strong></li>
+<li>Changing <strong>SIZE</strong> after freezing alters the captured material's <strong>pitch and timbre</strong></li>
+<li>Changing <strong>S. RATE</strong> affects both:</li>
+<li>the incoming audio fidelity</li>
+<li>the time/pitch character of the frozen loop</li>
+<li><strong>FREEZ</strong> can be controlled by:</li>
+<li>front-panel button</li>
+<li><strong>TRIG</strong> input</li>
+<li><strong>momentary or latching</strong> toggle</li>
+</ul>
+<p>That makes Freez useful as a hybrid of:</p>
+<ul>
+<li>micro-looper</li>
+<li>beat repeater</li>
+<li>pseudo-granular voice</li>
+<li>pitch-warped sample fragment player</li>
+<li>crude wavetable-ish sound source</li>
+</ul>
+<h2>The Core Idea for Melody</h2>
+<p>To get melodic results, think of Freez less like a recorder and more like a <strong>tiny captured waveform engine</strong>.</p>
+<p>If you freeze:</p>
+<ul>
+<li>a single cycle or near-single-cycle waveform,</li>
+<li>a short pluck,</li>
+<li>a vocal consonant/vowel fragment,</li>
+<li>a filtered noise burst,</li>
+<li>or a transient-rich sound,</li>
+</ul>
+<p>then modulating <strong>SIZE</strong> and <strong>S. RATE</strong> can push the frozen sound into stable-ish pitches or stepped note-like changes.</p>
+<h2>Best Ways to Use Freez for Melodic Material</h2>
+<h2>1. Freeze a Simple Oscillator Waveform</h2>
+<p>Patch:</p>
+<ul>
+<li>VCO sine/triangle/saw -&gt; <strong>IN</strong></li>
+<li><strong>OUT</strong> -&gt; VCA -&gt; filter/mixer</li>
+<li>Use button or <strong>TRIG</strong> to capture a tiny fragment</li>
+<li>Set <strong>SIZE</strong> toward shorter settings</li>
+<li>Tune with <strong>S. RATE</strong></li>
+</ul>
+<h3>Why this works</h3>
+<p>If the buffer becomes very short, Freez begins behaving like a repeating waveform fragment. The looped cycle can produce a pitched tone. You can then "play" it by altering:</p>
+<ul>
+<li><strong>S. RATE</strong> for broad pitch movement</li>
+<li><strong>SIZE</strong> for more radical pitch/timbre changes</li>
+</ul>
+<h3>Best musical result</h3>
+<p>A sine or triangle input usually gives the cleanest melodic tone. Saws and complex waves give harsher, more digital pitched textures.</p>
+<h2>2. Use a Quantized CV Source on S. RATE CV</h2>
+<p>The manual says <strong>S. RATE CV</strong> accepts <strong>±5V</strong> and is added to the knob position.</p>
+<p>Patch:</p>
+<ul>
+<li>sequencer CV -&gt; quantizer -&gt; <strong>S. RATE CV</strong></li>
+<li>manually freeze a short buffer first</li>
+<li>use the sequencer to step through note values</li>
+</ul>
+<h3>Result</h3>
+<p>This is one of the strongest ways to get actual melodic lines out of Freez. Since sample rate changes alter playback character, stepped voltages can create note-like intervals. It may not track in exact 1V/oct fashion, but quantized stepped CV can still produce musically coherent melodies.</p>
+<h3>Tip</h3>
+<p>Use the front-panel <strong>S. RATE</strong> knob as your base tuning, then let the quantized CV define the melody contour.</p>
+<h2>3. Sequence the SIZE CV for Interval Jumps</h2>
+<p>The <strong>SIZE CV input</strong> also accepts <strong>±5V</strong> and is summed with the knob.</p>
+<p>Patch:</p>
+<ul>
+<li>random stepped CV or sequencer -&gt; attenuator -&gt; <strong>SIZE CV</strong></li>
+<li>freeze a buffer</li>
+<li>carefully limit modulation depth</li>
+</ul>
+<h3>Result</h3>
+<p>SIZE changes can shift both <strong>pitch and timbre</strong>, often more dramatically than S. RATE. This is excellent for:</p>
+<ul>
+<li>alien arpeggios</li>
+<li>metallic melodies</li>
+<li>vowel-like interval shifts</li>
+<li>broken digital lead lines</li>
+</ul>
+<h3>Tip</h3>
+<p>Small SIZE modulation amounts work best if you want recognizable pitches. Larger modulation becomes more granular and textural.</p>
+<h2>4. Clocked Triggering for Rhythmic Melodic Re-Sampling</h2>
+<p>Use <strong>TRIG</strong> to repeatedly capture new snippets in time with your patch.</p>
+<p>Patch:</p>
+<ul>
+<li>melodic source or chord source -&gt; <strong>IN</strong></li>
+<li>clock division or gate pattern -&gt; <strong>TRIG</strong></li>
+<li><strong>MODE TOGGLE</strong> in <strong>momentary</strong> or <strong>latching</strong> depending behavior desired</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of one stable pitch, Freez can grab rhythmic slices of an already-pitched sound. This creates:</p>
+<ul>
+<li>stuttering lead phrases</li>
+<li>glitch arpeggios</li>
+<li>repeated note fragments</li>
+<li>pseudo-granular melodic riffs</li>
+</ul>
+<h3>Mode behavior from the manual</h3>
+<ul>
+<li><strong>Momentary mode</strong>:</li>
+<li>freeze lasts while gate is high / button is held</li>
+<li><strong>Latching mode</strong>:</li>
+<li>each rising edge toggles freeze on/off</li>
+</ul>
+<h3>Musical use</h3>
+<ul>
+<li><strong>Momentary</strong> is better for rhythmic repeats and gated melodic textures</li>
+<li><strong>Latching</strong> is better when you want to capture one note and continue "playing" it with CV</li>
+</ul>
+<h2>5. Feed Freez with Filter Pings or Percussive Tones</h2>
+<p>Instead of a steady oscillator, feed it short resonant sounds:</p>
+<ul>
+<li>LPG plucks</li>
+<li>self-oscillating filter pings</li>
+<li>tuned percussion voices</li>
+<li>Karplus-Strong patches</li>
+</ul>
+<p>Patch:</p>
+<ul>
+<li>resonant voice -&gt; <strong>IN</strong></li>
+<li>freeze very short sections after the transient</li>
+<li>modulate <strong>S. RATE</strong></li>
+</ul>
+<h3>Result</h3>
+<p>You get expressive, unusual melodic tones with a natural attack baked into the sampled material. This often sounds more organic than freezing a plain waveform.</p>
+<h2>6. Turn Speech or Field Recordings into Pitched Leads</h2>
+<p>The manual emphasizes sound mangling and buffer warping. This makes Freez excellent for melodic extraction from non-musical audio.</p>
+<p>Patch:</p>
+<ul>
+<li>microphone preamp / sample player / radio / field recording -&gt; <strong>IN</strong></li>
+<li>freeze very short vocal or noisy fragment</li>
+<li>tune using <strong>S. RATE</strong></li>
+<li>optionally sequence <strong>SIZE CV</strong></li>
+</ul>
+<h3>Result</h3>
+<p>This can yield:</p>
+<ul>
+<li>vocal-like synth leads</li>
+<li>haunted choirs</li>
+<li>granular pads</li>
+<li>melodic glitch hooks</li>
+</ul>
+<p>A tiny vowel fragment often creates especially playable melodic content.</p>
+<h2>7. Use Freez as a Crude Drone Oscillator</h2>
+<p>Freeze a tiny loop and leave it latched.</p>
+<p>Patch:</p>
+<ul>
+<li>sound source -&gt; <strong>IN</strong></li>
+<li>latch a short buffer</li>
+<li><strong>OUT</strong> -&gt; filter -&gt; VCA</li>
+<li>sequence VCA with envelopes</li>
+<li>vary <strong>S. RATE</strong> slowly or with stepped CV</li>
+</ul>
+<h3>Result</h3>
+<p>Freez becomes its own unstable digital oscillator voice. Even without precise pitch tracking, this works well for:</p>
+<ul>
+<li>bass drones</li>
+<li>pad roots</li>
+<li>monophonic lead parts</li>
+<li>supporting tonal textures</li>
+</ul>
+<h2>Patch Recipes for Melodic Use</h2>
+<h2>Patch 1: Lo-Fi Lead Voice</h2>
+<p><strong>Modules needed</strong>
+- VCO
+- Freez
+- quantizer
+- sequencer
+- VCA
+- envelope
+- filter optional</p>
+<p><strong>Patch</strong>
+- VCO saw -&gt; Freez <strong>IN</strong>
+- Freeze a short buffer manually
+- Sequencer CV -&gt; quantizer -&gt; <strong>S. RATE CV</strong>
+- Gate sequencer -&gt; envelope -&gt; VCA CV
+- Freez <strong>OUT</strong> -&gt; VCA -&gt; mixer</p>
+<p><strong>What happens</strong>
+The frozen buffer acts like a rough oscillator, while the sequencer creates note changes. This gives a crunchy, digital lead.</p>
+<h2>Patch 2: Glitch Arpeggiator</h2>
+<p><strong>Modules needed</strong>
+- melodic source
+- clock
+- trigger sequencer
+- Freez
+- reverb/delay</p>
+<p><strong>Patch</strong>
+- melodic source -&gt; <strong>IN</strong>
+- trigger sequencer -&gt; <strong>TRIG</strong>
+- Set <strong>MODE</strong> to momentary
+- Short <strong>SIZE</strong>, medium-low <strong>S. RATE</strong>
+- <strong>OUT</strong> -&gt; delay/reverb</p>
+<p><strong>What happens</strong>
+Freez repeatedly grabs tiny slices of the input and spits out rhythmic, melodic repeats. Great for IDM-style hooks.</p>
+<h2>Patch 3: Vocal Fragment Keyboard</h2>
+<p><strong>Modules needed</strong>
+- sampler or external audio
+- Freez
+- quantized CV source
+- VCA/filter</p>
+<p><strong>Patch</strong>
+- vocal sample -&gt; <strong>IN</strong>
+- latch-freeze a very short vowel segment
+- Quantized CV -&gt; <strong>S. RATE CV</strong>
+- Slow CV or manual movement -&gt; <strong>SIZE</strong>
+- <strong>OUT</strong> -&gt; filter/VCA</p>
+<p><strong>What happens</strong>
+You get a playable vocal-ish synth line from a frozen speech fragment.</p>
+<h2>Patch 4: Harmonic Resampling Voice</h2>
+<p><strong>Modules needed</strong>
+- chord oscillator or submix of oscillators
+- Freez
+- sequencer or S&amp;H
+- attenuator</p>
+<p><strong>Patch</strong>
+- mixed harmonic signal -&gt; <strong>IN</strong>
+- freeze a medium-short buffer
+- Stepped CV -&gt; attenuator -&gt; <strong>SIZE CV</strong>
+- Optional second CV -&gt; <strong>S. RATE CV</strong></p>
+<p><strong>What happens</strong>
+The harmonically rich source produces complex melodic tones. CV over SIZE and S. RATE makes it behave like a digital wavetable/granular synth voice.</p>
+<h2>Strengths for Melody</h2>
+<p>Based on the manual, Freez is especially good at:</p>
+<ul>
+<li><strong>short-loop pitch generation</strong></li>
+<li><strong>timbral note variation</strong></li>
+<li><strong>rhythmic melodic repetition</strong></li>
+<li><strong>lo-fi digital lead sounds</strong></li>
+<li><strong>captured micro-sample drones</strong></li>
+<li><strong>pseudo-granular arpeggios</strong></li>
+</ul>
+<h2>Limitations to Keep in Mind</h2>
+<p>Freez is not described as a precision pitch module. So for melodic use:</p>
+<ul>
+<li>it likely will <strong>not track 1V/oct accurately</strong></li>
+<li>tuning may be approximate</li>
+<li>note intervals may need to be found by ear</li>
+<li>extreme SIZE/S. RATE changes may alter timbre more than pitch</li>
+</ul>
+<p>That said, those limitations are also its musical strength. It excels at:</p>
+<ul>
+<li>unstable melody</li>
+<li>degraded digital pitch</li>
+<li>expressive resampling</li>
+<li>unusual tonal artifacts</li>
+</ul>
+<h2>Practical Performance Tips</h2>
+<h2>Use attenuation on CV</h2>
+<p>Both CV inputs accept <strong>±5V</strong>, and both are added to the knob setting. A full-strength sequencer may be too wide. Attenuation helps narrow the response into a more playable range.</p>
+<h2>Capture carefully</h2>
+<p>The exact frozen slice matters a lot. Tiny changes in when you press freeze can dramatically alter pitch, stability, and harmonic content.</p>
+<h2>Start clean, then get weird</h2>
+<p>For easier tuning:
+- start with a simple waveform
+- high <strong>S. RATE</strong>
+- short <strong>SIZE</strong></p>
+<p>Then lower sample rate or widen size modulation for more character.</p>
+<h2>Pair with envelopes and filters</h2>
+<p>Freez becomes much more "musical" as a melodic voice when shaped downstream by:
+- VCA + envelope
+- lowpass filter
+- LPG
+- delay/reverb</p>
+<p>These help turn its static loop into articulated notes.</p>
+<h2>Use latching for drone, momentary for articulation</h2>
+<ul>
+<li><strong>Latching mode</strong>: best for creating a sustained frozen source</li>
+<li><strong>Momentary mode</strong>: best for rhythmic phrasing and beat-repeat style melodic fragments</li>
+</ul>
+<h2>Bottom Line</h2>
+<p>The <strong>2hp Freez</strong> is not a conventional melodic module, but it can absolutely serve as a <strong>melodic sound generator</strong> when used as a tiny captured waveform looper. The most effective strategies are:</p>
+<ol>
+<li><strong>freeze a very short pitched sound</strong></li>
+<li><strong>sequence S. RATE CV for note movement</strong></li>
+<li><strong>use SIZE for timbral/pitch variation</strong></li>
+<li><strong>trigger freezing rhythmically for glitch melodies</strong></li>
+<li><strong>shape the result with VCAs, filters, and effects</strong></li>
+</ol>
+<p>In a Eurorack system, Freez works best as a <strong>character voice</strong> for:
+- lo-fi leads
+- granular melodies
+- vocal-like synth lines
+- broken arps
+- digital drones</p>
+<p>If you want, I can also turn this into:
+- a <strong>"patch ideas" cheat sheet</strong>
+- a <strong>beginner-friendly explanation</strong>
+- or a <strong>module pairing guide</strong> listing the best companion module types for Freez.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

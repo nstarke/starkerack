@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Switch</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Switch</h1>
+<ul>
+<li><a href="../../manuals/2hp_Switch.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>2hp Switch: using it for melodic patching</h1>
+<p>The attached manual is for the <strong>2hp Switch</strong>, a <strong>4-in / 1-out voltage-controlled signal router</strong>. It can switch <strong>audio, CV, or gate signals</strong>, and the active input can be chosen either by the <strong>SEL knob</strong> or by <strong>SEL CV</strong>.</p>
+<h2>What the module does</h2>
+<h3>Core behavior</h3>
+<ul>
+<li><strong>4 inputs</strong></li>
+<li><strong>1 output</strong></li>
+<li>Routes <strong>one selected input</strong> to the output</li>
+<li>Selection can be:</li>
+<li>set manually with the <strong>SEL</strong> knob</li>
+<li>changed dynamically with <strong>SEL CV</strong></li>
+</ul>
+<h3>Important specs from the manual</h3>
+<ul>
+<li><strong>Input level:</strong> ±10V</li>
+<li><strong>SEL CV range:</strong> ±5V</li>
+<li><strong>CV is added to the current knob position</strong></li>
+<li><strong>Very fast switching</strong>, low noise</li>
+<li>Works with:</li>
+<li>audio</li>
+<li>control voltage</li>
+<li>gates/triggers</li>
+</ul>
+<hr />
+<h1>How Switch helps create melodic components</h1>
+<p>Even though Switch is not a pitch generator by itself, it is very useful for <strong>melody construction</strong>, because melodies in Eurorack are often built by choosing between:
+- different pitch CV sources
+- different rhythmic gate streams
+- different transpositions
+- different quantized sequences
+- different audio voices playing melodic material</p>
+<p>Switch is basically a <strong>decision point</strong> in the patch. It lets you create melodies by selecting which source is currently active.</p>
+<hr />
+<h1>Best melodic use cases</h1>
+<h2>1. Switch between multiple pitch CV sources</h2>
+<p>Patch four different pitch-related CVs into the inputs:
+- Input 1: a sequencer line
+- Input 2: a random voltage source
+- Input 3: a transposed copy of the sequencer
+- Input 4: a slow modulation source into a quantizer</p>
+<p>Then send <strong>OUT</strong> to:
+- a quantizer input, then to oscillator 1V/oct
+- or directly to an oscillator if the voltages are already musical</p>
+<h3>Result</h3>
+<p>You get a melody that can jump between four different pitch behaviors.</p>
+<h3>Why this works musically</h3>
+<p>This is one of the easiest ways to create:
+- verse/chorus-like variation
+- call-and-response melodic motion
+- controlled unpredictability</p>
+<hr />
+<h2>2. Switch between different transpositions of the same sequence</h2>
+<p>A very musical patch is to mult one melodic CV sequence into several processors:
+- Input 1: original sequence
+- Input 2: sequence + 2 semitones
+- Input 3: sequence + 5 semitones
+- Input 4: sequence + 7 semitones</p>
+<p>Send the output to your oscillator pitch path.</p>
+<h3>Result</h3>
+<p>The same melodic contour is preserved, but the active harmony changes.</p>
+<h3>Musical effect</h3>
+<p>This gives you:
+- modal shifts
+- chord-root movement
+- bassline variation
+- instant harmonic structure from one phrase</p>
+<p>If you clock the switching rhythmically, you can make the melody outline harmonic changes without needing a second sequencer.</p>
+<hr />
+<h2>3. Switch between quantizer inputs or quantized outputs</h2>
+<p>If you have a quantizer in the system, Switch becomes especially useful.</p>
+<h3>Option A: switch unquantized sources into one quantizer</h3>
+<ul>
+<li>Inputs: different modulation/pitch CV sources</li>
+<li>OUT → quantizer → oscillator</li>
+</ul>
+<p>This makes four raw sources become one playable melodic stream.</p>
+<h3>Option B: switch between already-quantized melodies</h3>
+<ul>
+<li>Inputs: four different quantized pitch lines</li>
+<li>OUT → oscillator 1V/oct</li>
+</ul>
+<p>This is cleaner if each source already has a distinct scale or pattern.</p>
+<h3>Musical effect</h3>
+<p>You can move between:
+- stable melody
+- semi-random melody
+- arpeggio-like motion
+- transposed variations</p>
+<hr />
+<h2>4. Switch gate patterns that drive melodic events</h2>
+<p>Melody is not just pitch; it is also <strong>when notes happen</strong>.</p>
+<p>Patch four gate or trigger sources into Switch:
+- Input 1: straight clock division
+- Input 2: syncopated trigger pattern
+- Input 3: random triggers
+- Input 4: Euclidean rhythm</p>
+<p>Then send <strong>OUT</strong> to:
+- envelope trigger input
+- sequencer advance input
+- sample-and-hold trigger
+- quantizer trigger, if applicable</p>
+<h3>Result</h3>
+<p>You can keep the same pitch source but radically change the melodic phrasing.</p>
+<h3>Why this matters</h3>
+<p>A single pitch sequence can sound like entirely different melodies when the note timing changes.</p>
+<hr />
+<h2>5. Switch audio from different melodic voices</h2>
+<p>Because Switch also handles audio, you can patch:
+- Input 1: sine lead
+- Input 2: square bass voice
+- Input 3: filtered pluck
+- Input 4: FM voice</p>
+<p>Then switch which voice reaches the output.</p>
+<h3>Result</h3>
+<p>One melodic line can jump between different timbres or instruments.</p>
+<h3>Performance use</h3>
+<p>This is great for:
+- live arrangement
+- fills
+- alternating lead sounds
+- turning one sequence into a multi-voice phrase</p>
+<p>Because the module switches quickly, it can create abrupt, stylized phrase changes.</p>
+<hr />
+<h2>6. Create stepped melodic selection with CV over SEL</h2>
+<p>The most interesting part of this module is <strong>SEL CV</strong>.</p>
+<p>Since the <strong>SEL CV is added to the knob position</strong>, you can offset the range manually and then animate selection with another CV source.</p>
+<p>Patch a CV source to SEL:
+- stepped random voltage
+- sequencer CV lane
+- LFO
+- sample &amp; hold
+- gate-derived stepped voltage</p>
+<h3>Result</h3>
+<p>The chosen melodic source changes over time automatically.</p>
+<h3>Musical uses</h3>
+<ul>
+<li>every bar, choose a different sequence</li>
+<li>probabilistic melody path changes</li>
+<li>evolving motif selection</li>
+<li>generative melodic arrangement</li>
+</ul>
+<p>This turns Switch into a kind of <strong>meta-sequencer</strong>, where it sequences which sequence is active.</p>
+<hr />
+<h1>Example melodic patches</h1>
+<h2>Patch 1: Four-part melodic phrase selector</h2>
+<p><strong>Goal:</strong> build a melody from four phrase fragments.</p>
+<h3>Patch</h3>
+<ul>
+<li>Input 1: phrase A pitch CV</li>
+<li>Input 2: phrase B pitch CV</li>
+<li>Input 3: phrase C pitch CV</li>
+<li>Input 4: phrase D pitch CV</li>
+<li>OUT → quantizer or oscillator 1V/oct</li>
+<li>Clocked stepped CV → SEL CV</li>
+</ul>
+<h3>What happens</h3>
+<p>Each incoming control step at SEL chooses a different phrase source. Instead of one linear melody, you get a modular phrase system.</p>
+<h3>Great for</h3>
+<ul>
+<li>generative leads</li>
+<li>evolving basslines</li>
+<li>non-repeating motifs</li>
+</ul>
+<hr />
+<h2>Patch 2: Harmonic movement from one sequence</h2>
+<p><strong>Goal:</strong> use one sequence to imply chord changes.</p>
+<h3>Patch</h3>
+<p>Take one sequence and create 4 versions:
+- Input 1: root
+- Input 2: +3 or +4 semitones
+- Input 3: +7 semitones
+- Input 4: +12 semitones</p>
+<ul>
+<li>OUT → oscillator pitch</li>
+<li>slow clocked CV or manual changes → SEL</li>
+</ul>
+<h3>What happens</h3>
+<p>The same melodic shape moves through harmonic positions.</p>
+<h3>Great for</h3>
+<ul>
+<li>basslines</li>
+<li>ostinatos</li>
+<li>techno hooks</li>
+<li>arpeggiated motifs</li>
+</ul>
+<hr />
+<h2>Patch 3: Gate-switched melody articulation</h2>
+<p><strong>Goal:</strong> change note rhythm while keeping pitch constant.</p>
+<h3>Patch</h3>
+<ul>
+<li>Pitch sequencer → oscillator pitch</li>
+<li>Inputs 1–4: four different gate patterns</li>
+<li>OUT → envelope trigger</li>
+</ul>
+<h3>What happens</h3>
+<p>The same pitch material gets different rhythmic articulation depending on which gate stream is active.</p>
+<h3>Great for</h3>
+<ul>
+<li>turning a loop into a song structure</li>
+<li>creating fills</li>
+<li>live improvisation</li>
+</ul>
+<hr />
+<h2>Patch 4: Random-but-musical note source selector</h2>
+<p><strong>Goal:</strong> mix predictable and unpredictable melody sources.</p>
+<h3>Patch</h3>
+<ul>
+<li>Input 1: sequencer</li>
+<li>Input 2: sequencer transposed up a fifth</li>
+<li>Input 3: random stepped CV</li>
+<li>Input 4: slow envelope or LFO into quantizer</li>
+<li>OUT → quantizer → oscillator</li>
+<li>Sample &amp; hold or random stepped CV → SEL CV</li>
+</ul>
+<h3>What happens</h3>
+<p>The melodic voice alternates between stable and unstable sources.</p>
+<h3>Great for</h3>
+<ul>
+<li>generative ambient</li>
+<li>experimental melodies</li>
+<li>evolving Berlin-school style patterns</li>
+</ul>
+<hr />
+<h2>Patch 5: Timbral melody switching</h2>
+<p><strong>Goal:</strong> one melody, multiple instrumental identities.</p>
+<h3>Patch</h3>
+<ul>
+<li>One pitch sequence controls several oscillators/voices</li>
+<li>Audio outputs of those voices → Inputs 1–4</li>
+<li>OUT → filter/VCA/mixer</li>
+<li>rhythmic CV → SEL CV</li>
+</ul>
+<h3>What happens</h3>
+<p>Different notes or note groups appear with different timbres.</p>
+<h3>Great for</h3>
+<ul>
+<li>melodic fills</li>
+<li>pseudo-round-robin voicing</li>
+<li>choppy electro phrasing</li>
+</ul>
+<hr />
+<h1>Practical advice for melodic use</h1>
+<h2>Use quantization when switching pitch CV</h2>
+<p>If the inputs contain free CV rather than tuned pitch, the output may jump to non-musical voltages. Sending <strong>OUT</strong> to a <strong>quantizer</strong> makes the result much more melodic.</p>
+<h2>Use slow or clocked CV for intentional source changes</h2>
+<p>If SEL CV moves too freely, the routing may change too often. For more musical results:
+- use stepped voltages
+- sample-and-hold
+- sequencer rows
+- clock divisions</p>
+<h2>Use the knob as a bias or range control</h2>
+<p>Because the CV is <strong>added to the knob position</strong>, the knob can act like a manual “center” or source preference. This is useful in performance.</p>
+<h2>Great for form and arrangement</h2>
+<p>Switch is especially strong at the <strong>phrase level</strong>:
+- choose which melody source is active this bar
+- choose which rhythm drives the melody
+- choose which transposition is active in the chorus</p>
+<p>So it is less a note sequencer, and more a <strong>melodic structure and variation tool</strong>.</p>
+<hr />
+<h1>Strengths of this module in melodic systems</h1>
+<h2>Excellent for:</h2>
+<ul>
+<li>selecting between melodic CV lanes</li>
+<li>switching transpositions</li>
+<li>switching quantized sources</li>
+<li>changing rhythmic articulation</li>
+<li>routing different audio voices</li>
+<li>generative melody structures</li>
+</ul>
+<h2>Less ideal for:</h2>
+<ul>
+<li>smooth crossfades between sources</li>
+<li>polyphony</li>
+<li>direct note creation without external CV/audio sources</li>
+</ul>
+<p>This is a <strong>router</strong>, not a sequencer or quantizer. Its power comes from how you combine it with those modules.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>2hp Switch</strong> is best understood as a <strong>melodic selector and structure tool</strong>. It creates musical interest by choosing among:
+- multiple pitch sources
+- transposed variants
+- different rhythm generators
+- different melodic voices</p>
+<p>In a Eurorack patch, that makes it extremely useful for:
+- evolving melodies
+- performance variation
+- generative composition
+- compact harmonic movement</p>
+<p>If you want, I can also turn this into:
+1. a <strong>beginner-friendly patch recipe list</strong>,<br />
+2. an <strong>advanced generative melody guide</strong>, or<br />
+3. a <strong>“best modules to pair with 2hp Switch” companion chart</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

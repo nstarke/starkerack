@@ -1,0 +1,531 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Vermona_Melodicer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Vermona — Melodicer</h1>
+<ul>
+<li><a href="../../manuals/melodicer manual en 1.1 web.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Vermona meloDICER — creating melodic components in a Eurorack system</h1>
+<p>meloDICER is a <strong>stochastic melodic sequencer / advanced control-voltage quantizer</strong>. In practice, it excels at generating <strong>musical pitch streams and phrase-like melodic motion</strong> that sit between fixed sequencing and controlled randomness.</p>
+<p>If your goal is to build <strong>melodic parts</strong> in a modular patch, meloDICER can serve as:</p>
+<ul>
+<li>a <strong>main melody generator</strong></li>
+<li>a <strong>pitch randomizer with repeatable patterns</strong></li>
+<li>a <strong>quantizer for incoming CV</strong></li>
+<li>a <strong>melody processor for externally supplied rhythms</strong></li>
+<li>a <strong>transposition target for modulation and performance control</strong></li>
+</ul>
+<hr />
+<h2>What the module does best for melody</h2>
+<p>The manual makes clear that meloDICER separates musical output into two domains:</p>
+<ul>
+<li><strong>RHYTHM</strong></li>
+<li><strong>MELODY</strong></li>
+</ul>
+<p>For melodic creation, the most important idea is that <strong>you do not program exact notes step by step</strong>. Instead, you define:</p>
+<ul>
+<li>which notes are allowed</li>
+<li>which octaves are allowed</li>
+<li>how likely each note is</li>
+<li>whether phrases repeat or continuously evolve</li>
+</ul>
+<p>That makes it ideal for:
+- generative leads
+- ambient motifs
+- Berlin-school style repeating phrases with variation
+- probabilistic basslines
+- evolving tonal accompaniment
+- melodic layers that stay musical without being rigid</p>
+<hr />
+<h2>Core melodic controls</h2>
+<h2>1. Semitone probability faders</h2>
+<p>The melody section uses faders for semitones. These define the <strong>probability</strong> of each note appearing.</p>
+<h3>Musical use</h3>
+<p>This is the heart of melodic shaping.</p>
+<p>For example:</p>
+<ul>
+<li>raise only <strong>C</strong> → melody outputs only C across the chosen octave range</li>
+<li>raise <strong>C, E, G</strong> → creates a C major triadic pitch pool</li>
+<li>raise <strong>C, D, E, G, A</strong> → pentatonic melody source</li>
+<li>raise more dissonant tones at lower levels → occasional tension notes</li>
+</ul>
+<h3>Why this is powerful</h3>
+<p>Instead of programming a sequence, you define a <strong>harmonic field</strong>. meloDICER then draws from it stochastically.</p>
+<p>This is especially useful for:
+- tonal improvisation
+- quickly finding hooks
+- staying in-key during live performance
+- generating accompaniment that follows a harmonic identity</p>
+<hr />
+<h2>2. Octave range faders</h2>
+<p>Two faders define the low and high pitch boundaries.</p>
+<h3>Musical use</h3>
+<p>This lets you shape register very quickly:</p>
+<ul>
+<li>narrow range → bassline or motif</li>
+<li>wide range → more expressive melody</li>
+<li>high-only range → lead voice</li>
+<li>low-mid range → ostinato or counterline</li>
+</ul>
+<p>Because pitch probability interacts with range, the same note selection can feel very different depending on octave span.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li><strong>1-octave range</strong> for bass</li>
+<li><strong>2–3 octaves</strong> for melodic arpeggiation</li>
+<li><strong>high narrow range</strong> for glassy plucks</li>
+<li><strong>wide range</strong> for wandering ambient lines</li>
+</ul>
+<hr />
+<h2>3. Dice mode vs realtime mode</h2>
+<p>This is one of meloDICER’s most important compositional features.</p>
+<h3>Dice mode</h3>
+<p>Pressing DICE generates a new random pattern for melody and/or rhythm, then repeats it.</p>
+<p>This is ideal when you want:
+- a phrase that loops
+- a motif you can keep
+- a melody you can save as a pattern
+- controlled experimentation</p>
+<h3>Realtime mode</h3>
+<p>Holding DICE switches that section into realtime generation, where notes are continuously re-randomized.</p>
+<p>This is ideal when you want:
+- endless evolving melodies
+- generative ambient motion
+- non-repeating tonal drift
+- controlled instability</p>
+<h3>Best musical strategy</h3>
+<p>A very strong use case is:</p>
+<ul>
+<li>keep <strong>rhythm in dice mode</strong></li>
+<li>put <strong>melody in realtime mode</strong></li>
+</ul>
+<p>This gives you a stable rhythmic phrase with continuously shifting pitches.</p>
+<p>Or reverse it:</p>
+<ul>
+<li>fixed melody pool</li>
+<li>changing rhythm</li>
+</ul>
+<p>That’s excellent for melodic variation without losing identity.</p>
+<hr />
+<h2>4. Pattern length</h2>
+<p>Pattern length can be set from a sub-range within 16 steps of 1/16-note resolution.</p>
+<h3>Musical use</h3>
+<p>This matters a lot for melody because phrase length shapes memorability.</p>
+<p>Examples:
+- <strong>16/16</strong> = standard 1-bar phrase
+- <strong>7 steps</strong> = asymmetrical looping motif
+- <strong>5 or 11 steps</strong> = polymetric melodic cycling against other modules
+- shifted start/end range = altered phrase contour without changing probabilities</p>
+<p>This makes meloDICER useful not only as a melody generator but also as a <strong>phrase architecture tool</strong>.</p>
+<hr />
+<h2>Rhythm controls as melodic articulation</h2>
+<p>Although the question is about melody, the rhythm section strongly affects how the melody is perceived.</p>
+<h2>NOTE VALUE</h2>
+<p>Sets the base rhythmic subdivision.</p>
+<p>For melody this means:
+- 1/8 → singable motif
+- 1/16 → sequencer-like line
+- slower values → sparse melodic statements</p>
+<h2>VARIATION</h2>
+<p>Adds longer or shorter note values around the base.</p>
+<p>For melody this creates:
+- phrase irregularity
+- rhythmic life
+- occasional syncopation or expansion</p>
+<h2>LEGATO</h2>
+<p>Determines the probability that pitches change without a new gate.</p>
+<p>For melody this is huge:
+- low LEGATO → articulated, sequenced notes
+- medium LEGATO → phrased and lyrical
+- high LEGATO → slurred motion, especially good with portamento or sustained envelopes</p>
+<h2>REST</h2>
+<p>Introduces silence.</p>
+<p>For melody, REST is not just rhythmic absence; it creates:
+- breathing room
+- motif clarity
+- syncopated phrasing
+- call-and-response feeling</p>
+<p>A melody with carefully chosen note probabilities and moderate REST often sounds much more intentional than a fully dense stream of notes.</p>
+<hr />
+<h2>Best ways to use meloDICER with other modules</h2>
+<p>Below are the most practical ways to combine it with the rest of a Eurorack system to make melodic components.</p>
+<hr />
+<h2>1. As a full melodic voice source</h2>
+<h3>Patch</h3>
+<ul>
+<li><strong>1V/OCT OUT</strong> → oscillator 1V/OCT</li>
+<li><strong>GATE OUT</strong> → envelope gate input</li>
+<li>envelope → VCA CV</li>
+<li>oscillator → filter → VCA</li>
+</ul>
+<h3>Result</h3>
+<p>meloDICER becomes the complete melody brain for a voice.</p>
+<h3>Best for</h3>
+<ul>
+<li>lead lines</li>
+<li>basslines</li>
+<li>generative motifs</li>
+<li>melodic arpeggios</li>
+</ul>
+<h3>Tips</h3>
+<ul>
+<li>use a waveform with clear pitch identity, like saw, pulse, or triangle</li>
+<li>add slight filter movement for phrase dynamics</li>
+<li>keep note selection sparse for more memorable melodies</li>
+</ul>
+<hr />
+<h2>2. As a duet generator with two oscillators</h2>
+<p>Because meloDICER outputs one pitch CV, you can mult it to multiple oscillators.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>1V/OCT OUT</strong> → mult → oscillator A + oscillator B</li>
+<li>tune osc B to a fixed interval, e.g. +5th or +octave</li>
+<li><strong>GATE OUT</strong> → envelope(s)</li>
+</ul>
+<h3>Result</h3>
+<p>A harmonized melodic line.</p>
+<h3>Best for</h3>
+<ul>
+<li>unison leads</li>
+<li>octave bass</li>
+<li>fifth-based techno melodies</li>
+<li>rich ambient lines</li>
+</ul>
+<h3>Variation</h3>
+<p>Use separate envelopes/VCAs so one oscillator is longer or quieter than the other. That gives a layered melodic contour from one CV source.</p>
+<hr />
+<h2>3. As a melody source for sampled or plucked voices</h2>
+<p>meloDICER pairs especially well with:
+- LPG-based voices
+- plucks
+- FM voices
+- wavetable oscillators
+- physical modeling modules</p>
+<p>Because the note stream is probabilistic, timbres with strong transient identity make the melody feel intentional and expressive.</p>
+<h3>Great patch style</h3>
+<ul>
+<li>medium note variation</li>
+<li>moderate rest</li>
+<li>some legato</li>
+<li>restricted note set like minor pentatonic</li>
+</ul>
+<p>This produces very musical plucked patterns quickly.</p>
+<hr />
+<h2>4. As a constrained improviser over a harmonic center</h2>
+<p>Set only notes that belong to a scale or chord.</p>
+<h3>Example scales</h3>
+<ul>
+<li>minor pentatonic for safe melodic wandering</li>
+<li>dorian for moody but flexible lines</li>
+<li>major triad + 2nd + 6th for bright pop-like movement</li>
+<li>chromatic plus weighted chord tones for jazzy tension/release</li>
+</ul>
+<h3>Result</h3>
+<p>The module improvises <strong>inside your harmonic rules</strong>.</p>
+<p>This is one of the strongest ways to use it: let the machine “compose,” but only from your curated note world.</p>
+<hr />
+<h2>5. With an external clocked rhythm source in Mode B (Seq + Gate)</h2>
+<p>Mode B is very useful musically.</p>
+<p>In this mode, meloDICER stops generating its own rhythm and instead takes gate signals at <strong>GATE IN 1</strong>, while still generating pitch from the melody section.</p>
+<h3>Why that matters</h3>
+<p>You can use another module for rhythm while meloDICER handles pitch choice.</p>
+<h3>Patch</h3>
+<ul>
+<li>trigger/gate sequencer or rhythm generator → <strong>GATE IN 1</strong></li>
+<li><strong>1V/OCT OUT</strong> → oscillator pitch</li>
+<li>external gates also drive the envelope, or derive articulation from your patch</li>
+</ul>
+<h3>Result</h3>
+<p>External rhythm + meloDICER pitch intelligence.</p>
+<h3>Best companions</h3>
+<ul>
+<li>trigger sequencers</li>
+<li>Euclidean rhythm modules</li>
+<li>random gate sources</li>
+<li>clock dividers</li>
+<li>logic-generated rhythms</li>
+</ul>
+<h3>Strong musical use</h3>
+<p>Pair a complex but repeating drum/trigger pattern with meloDICER’s melody engine for <strong>tight but non-programmed melodic phrasing</strong>.</p>
+<p>The manual even suggests pairing it with another rhythm module for altered rhythms or duophonic ideas.</p>
+<hr />
+<h2>6. Use CV IN 1 for melodic transposition</h2>
+<p>CV IN 1 can affect pitch in two major ways:</p>
+<ul>
+<li><strong>ADD SEQ</strong> = adds incoming CV unquantized</li>
+<li><strong>TRANS SEQ</strong> = adds incoming CV quantized to semitones</li>
+</ul>
+<h3>Best melodic use</h3>
+<p>Use <strong>TRANS SEQ</strong> for clean musical transposition.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>sequencer row → CV IN 1 for chord-root changes</li>
+<li>precision adder-like transposition source</li>
+<li>keyboard CV → transpose generated melody live</li>
+<li>slow stepped random voltage → phrase-level modulation</li>
+</ul>
+<h3>Result</h3>
+<p>Your melody keeps its interval/probability character but shifts harmonically.</p>
+<p>This is extremely effective for:
+- verse/chorus movement
+- bassline root progression
+- live harmonic changes
+- generative composition that still follows song structure</p>
+<h3>ADD SEQ use</h3>
+<p>Use <strong>ADD SEQ</strong> when you want looser, more analog movement:
+- LFO vibrato-ish pitch motion
+- slewed CV drift
+- experimental microtonal wobble</p>
+<hr />
+<h2>7. Modulate pitch range with CV IN 1 LO and HI</h2>
+<p>CV IN 1 can also modulate the low and high range boundaries.</p>
+<h3>Musical use</h3>
+<p>This changes melodic register over time.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>slow LFO to HI → melody gradually expands upward</li>
+<li>envelope to LO → notes jump out of the bass range temporarily</li>
+<li>sequencer CV to range bounds → different sections occupy different registers</li>
+</ul>
+<h3>Result</h3>
+<p>A melody that feels like it “opens up,” “climbs,” or “contracts.”</p>
+<p>This is great for arrangement within a live patch.</p>
+<hr />
+<h2>8. Quantize external CV in Modes C and D</h2>
+<p>meloDICER has two quantizer modes, which makes it useful even when it’s not your main sequencer.</p>
+<h2>Mode C — Quantizer 1</h2>
+<ul>
+<li>external CV enters <strong>CV IN 2</strong></li>
+<li>quantization occurs on quarter notes / clock basis</li>
+<li>melody faders define the scale and note weighting</li>
+</ul>
+<h2>Mode D — Quantizer 2</h2>
+<ul>
+<li>external CV at <strong>CV IN 2</strong></li>
+<li>quantization happens while <strong>GATE IN 2</strong> is active</li>
+</ul>
+<h3>Why this matters musically</h3>
+<p>The faders do not just define scale membership; they define <strong>quantization range weighting</strong>. That means you can bias external voltages toward certain notes.</p>
+<h3>Great patch sources</h3>
+<ul>
+<li>sample &amp; hold</li>
+<li>random CV</li>
+<li>chaotic generators</li>
+<li>sequencer rows</li>
+<li>LFOs</li>
+<li>pressure / controller voltages</li>
+</ul>
+<h3>Result</h3>
+<p>You can turn raw modulation into:
+- in-key melodies
+- weighted tonal contours
+- playable harmonic textures</p>
+<p>This is a very elegant way to generate melodies from “non-musical” CV sources.</p>
+<hr />
+<h2>9. Use meloDICER for bass + lead relationships</h2>
+<p>One practical way to use the module in a system is to derive a <strong>bass-focused melodic line</strong>, then mirror or support it elsewhere.</p>
+<h3>Patch</h3>
+<ul>
+<li>meloDICER pitch to bass oscillator</li>
+<li>mult same CV to second voice through offset/transposition</li>
+<li>second voice processed differently (higher octave, longer envelope, more reverb)</li>
+</ul>
+<h3>Result</h3>
+<p>You get coherent melodic layering because both voices share a pitch source.</p>
+<h3>Best musical outcomes</h3>
+<ul>
+<li>bass + octave lead</li>
+<li>bass + shimmering counter shimmer</li>
+<li>mono line + sub</li>
+<li>motif + drone accent</li>
+</ul>
+<hr />
+<h2>10. Save patterns as melodic scenes</h2>
+<p>meloDICER stores patterns that include:
+- rhythm and melody settings
+- available note values for variation
+- pattern length
+- DICE button states
+- current random values</p>
+<p>That means saved patterns can function like <strong>melodic snapshots</strong>.</p>
+<h3>Musical use</h3>
+<p>Store:
+- bass pattern
+- verse motif
+- chorus motif
+- sparse ambient line
+- highly active climax phrase</p>
+<p>Then recall them as composition states.</p>
+<h3>Important performance note</h3>
+<p>Loading activates <strong>lock-mode</strong>, preventing current physical control positions from immediately overwriting the loaded pattern. That’s useful on stage.</p>
+<hr />
+<h2>11. Lock mode for preparing melodic changes</h2>
+<p>LOCK is very performance-friendly.</p>
+<h3>Why it matters</h3>
+<p>Normally, moving faders instantly affects output. In LOCK mode, you can set up:
+- new scale
+- new octave range
+- new pattern length</p>
+<p>without hearing the change yet.</p>
+<h3>Performance use</h3>
+<p>While one melody plays, prepare the next one, then exit LOCK to apply it at once.</p>
+<p>This is excellent for:
+- transitions
+- breakdowns
+- harmonic pivots
+- building tension before a melodic reveal</p>
+<hr />
+<h2>12. Gate-input control for melodic performance</h2>
+<p>Gate inputs can be configured for:
+- toggling dice/realtime
+- re-dicing rhythm or melody
+- restart
+- mute</p>
+<h3>Melodic uses</h3>
+<ul>
+<li>trigger new melody generation from a manual gate button</li>
+<li>re-dice at bar boundaries from a clocked trigger source</li>
+<li>restart phrases for arrangement alignment</li>
+<li>switch between looping and evolving modes with logic or performance gates</li>
+</ul>
+<p>This makes meloDICER highly patchable inside a larger generative ecosystem.</p>
+<hr />
+<h1>Musical patch recipes</h1>
+<h2>Patch 1: Generative lead line</h2>
+<p><strong>Use when:</strong> you want an evolving top melody</p>
+<ul>
+<li>set note faders to a pentatonic or modal scale</li>
+<li>set octave range to 2–3 octaves</li>
+<li>NOTE VALUE around 1/8 or 1/16</li>
+<li>moderate VARIATION</li>
+<li>medium LEGATO</li>
+<li>some REST</li>
+<li>rhythm in dice mode</li>
+<li>melody in realtime mode</li>
+</ul>
+<p><strong>Result:</strong> a coherent but always-changing lead.</p>
+<hr />
+<h2>Patch 2: Repeatable hook finder</h2>
+<p><strong>Use when:</strong> you want to discover catchy melodic loops</p>
+<ul>
+<li>choose 3–5 notes</li>
+<li>use a narrow octave range</li>
+<li>keep rhythm simple</li>
+<li>press DICE repeatedly until a memorable phrase appears</li>
+<li>save the pattern</li>
+</ul>
+<p><strong>Result:</strong> fast hook generation without step programming.</p>
+<hr />
+<h2>Patch 3: Probabilistic bassline</h2>
+<p><strong>Use when:</strong> you want moving low-end that stays musical</p>
+<ul>
+<li>choose root, fifth, octave, maybe minor/major third</li>
+<li>narrow the range low</li>
+<li>reduce VARIATION</li>
+<li>low to medium REST</li>
+<li>low LEGATO</li>
+<li>dice both rhythm and melody until it grooves</li>
+</ul>
+<p><strong>Result:</strong> bass movement with human-like irregularity.</p>
+<hr />
+<h2>Patch 4: Externally driven melody</h2>
+<p><strong>Use when:</strong> you already have a rhythm sequencer you like</p>
+<ul>
+<li>switch to <strong>Mode B</strong></li>
+<li>rhythm sequencer / Euclidean trigger source → GATE IN 1</li>
+<li>melody faders define harmonic pool</li>
+<li>1V/OCT to oscillator</li>
+</ul>
+<p><strong>Result:</strong> your external rhythm gains an intelligent pitch layer.</p>
+<hr />
+<h2>Patch 5: Random CV to tonal melody</h2>
+<p><strong>Use when:</strong> you want chaos disciplined into music</p>
+<ul>
+<li>random stepped CV → CV IN 2</li>
+<li>switch to quantizer mode C or D</li>
+<li>raise scale-note faders</li>
+<li>use clock or gate source as required by the chosen mode</li>
+</ul>
+<p><strong>Result:</strong> unstable source material becomes structured melody.</p>
+<hr />
+<h2>Patch 6: Section transposition</h2>
+<p><strong>Use when:</strong> you want song-like harmonic movement</p>
+<ul>
+<li>set CV IN 1 to <strong>TRANS SEQ</strong></li>
+<li>send stepped CV from sequencer or keyboard</li>
+<li>keep one melodic pattern running</li>
+<li>transpose roots over time</li>
+</ul>
+<p><strong>Result:</strong> a consistent melodic identity across chord/root changes.</p>
+<hr />
+<h1>Important operational notes from the manual</h1>
+<h2>External clock behavior</h2>
+<p>meloDICER syncs its internal clock to external clock, but does <strong>not</strong> behave like a classic “advance one step per pulse” sequencer. Starting and stopping external clock won’t hard start/stop the sequence in the traditional way.</p>
+<p>For arrangement control:
+- use <strong>mute</strong>
+- use <strong>restart</strong>
+- use configured gate inputs</p>
+<p>This matters if you are trying to align melodies tightly with other sequencers.</p>
+<hr />
+<h2>Firmware limitation noted in the manual</h2>
+<p>In firmware <strong>R19</strong>, the edit-parameter assignments for <strong>CV IN 2 controlling NOTE VALUE and VARIATION</strong> are noted as <strong>not working</strong>.</p>
+<p>So for melodic rhythm modulation via CV IN 2:
+- LEGATO and REST are more reliable based on the manual note
+- be cautious expecting NOTE VALUE / VARIATION modulation in that firmware</p>
+<hr />
+<h2>Voltage and interfacing notes</h2>
+<p>Useful integration details:</p>
+<ul>
+<li><strong>1V/OCT output:</strong> 0–5 V</li>
+<li><strong>GATE OUT:</strong> +10 V</li>
+<li><strong>CV inputs:</strong> 0–5 V active, up to +12 V tolerated</li>
+<li><strong>clock/gate inputs:</strong> threshold +2 V</li>
+</ul>
+<p>So it should integrate well with most Eurorack voices, modulation sources, and trigger sequencers.</p>
+<hr />
+<h1>Best companion module types</h1>
+<p>meloDICER works especially well with:</p>
+<ul>
+<li>analog or digital VCOs</li>
+<li>envelope + VCA voice chains</li>
+<li>LPGs for plucky melodic articulation</li>
+<li>quantized transposition sources</li>
+<li>Euclidean / probabilistic trigger generators</li>
+<li>clock dividers and logic</li>
+<li>random voltage sources</li>
+<li>sample &amp; hold</li>
+<li>precision adders</li>
+<li>filters with strong character</li>
+<li>delay/reverb for generative ambient output</li>
+</ul>
+<p>If you are building a melodic system around it, the most synergistic pairings are:</p>
+<ol>
+<li><strong>A voice module or oscillator/filter/VCA chain</strong></li>
+<li><strong>A clock or master timing source</strong></li>
+<li><strong>A trigger sequencer or gate generator</strong></li>
+<li><strong>A CV source for transposition</strong></li>
+<li><strong>Effects for spatializing the result</strong></li>
+</ol>
+<hr />
+<h1>Bottom line</h1>
+<p>Vermona meloDICER is best understood not as a traditional note-entry sequencer, but as a <strong>musical probability engine</strong> for pitch and phrasing.</p>
+<p>Used with other Eurorack modules, it can create melodic components by:</p>
+<ul>
+<li>generating complete melodies and basslines</li>
+<li>constraining randomness to chosen scales/chords</li>
+<li>repeating or continuously evolving pitch patterns</li>
+<li>accepting external rhythms for pitch generation</li>
+<li>quantizing random or sequenced CV into weighted scales</li>
+<li>transposing live for harmonic development</li>
+<li>storing melodic states as recallable patterns</li>
+</ul>
+<p>Its real strength is that it lets you <strong>compose by defining musical boundaries rather than exact events</strong>. In a Eurorack system, that makes it incredibly effective for patches that feel alive, tonal, and performable.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

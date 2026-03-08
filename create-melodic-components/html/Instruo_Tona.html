@@ -1,0 +1,414 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Instruo_Tona</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Instruo — Tona</h1>
+<ul>
+<li><a href="../../manuals/Tona-Manual-A5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Instruō tòna — using it for melodic patching</h1>
+<p>The <strong>Instruō tòna</strong> is an <strong>analog VCO</strong> designed to be the main pitched sound source in a Eurorack melodic voice. From the manual, it provides:</p>
+<ul>
+<li><strong>1V/Oct tracking</strong> for keyboard/sequencer pitch control</li>
+<li>Four standard waveform outputs:</li>
+<li>Square</li>
+<li>Saw</li>
+<li>Triangle</li>
+<li>Sine</li>
+<li>A <strong>wavefolded output</strong></li>
+<li><strong>Linear FM</strong></li>
+<li><strong>Hard sync</strong></li>
+</ul>
+<p>This means tòna is best understood as the <strong>core tone generator</strong> in a melodic system: it makes the pitch, and its outputs can be shaped downstream by filters, VCAs, envelopes, and modulation.</p>
+<hr />
+<h2>What role it plays in a melodic patch</h2>
+<p>For melodic music, a patch usually needs:</p>
+<ol>
+<li><strong>Pitch source</strong> — sequencer, keyboard, quantizer, or CV recorder</li>
+<li><strong>Sound source</strong> — oscillator</li>
+<li><strong>Amplitude shaping</strong> — VCA + envelope</li>
+<li><strong>Tone shaping</strong> — filter and/or timbre modulation</li>
+<li><strong>Optional animation</strong> — FM, sync, wavefold CV, vibrato, etc.</li>
+</ol>
+<p>In this ecosystem, <strong>tòna is the sound source</strong>.</p>
+<p>The manual’s patch examples explicitly show it used as:</p>
+<ul>
+<li>an <strong>East Coast synth voice oscillator</strong></li>
+<li>an <strong>FM carrier oscillator</strong></li>
+<li>a <strong>self-modulated wavefold voice</strong></li>
+</ul>
+<hr />
+<h2>Core melodic uses</h2>
+<h2>1. Classic mono synth lead or bass voice</h2>
+<p>This is the most straightforward use.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Send <strong>1V/Oct CV</strong> from a sequencer or keyboard into <strong>tòna’s 1V/Oct input</strong></li>
+<li>Use one of the waveform outputs:</li>
+<li><strong>Saw</strong> for bright lead/bass tones</li>
+<li><strong>Square</strong> for hollow/reedy melodies</li>
+<li><strong>Triangle</strong> for softer, rounder lines</li>
+<li><strong>Sine</strong> for pure bass, sub-melodies, or FM-friendly tones</li>
+<li>Route oscillator output to:</li>
+<li><strong>filter</strong></li>
+<li>then <strong>VCA</strong></li>
+<li>Trigger an envelope from the same sequencer gate to shape the VCA, and optionally the filter</li>
+</ul>
+<h3>Musical result</h3>
+<p>This gives you:
+- basslines
+- arpeggios
+- leads
+- sequenced motifs
+- simple drones with pitch movement</p>
+<h3>Good waveform choices</h3>
+<ul>
+<li><strong>Saw + filter envelope</strong>: classic subtractive melody</li>
+<li><strong>Square + resonance</strong>: stronger, nasal sequences</li>
+<li><strong>Triangle</strong>: great for understated melodic layers</li>
+<li><strong>Sine</strong>: pure tonal melodies, often ideal for doubling another voice</li>
+</ul>
+<hr />
+<h2>2. Layered waveform melodic voice</h2>
+<p>Because tòna provides multiple simultaneous waveform outputs, you can use it as a <strong>multi-timbre melodic source</strong>.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Patch <strong>saw, square, and triangle</strong> into separate mixer inputs</li>
+<li>Blend them before the filter/VCA</li>
+<li>Control pitch from the same 1V/Oct line</li>
+</ul>
+<h3>Why this matters musically</h3>
+<p>This lets you build a more complex melodic timbre without needing multiple oscillators.</p>
+<h3>Example uses</h3>
+<ul>
+<li><strong>Bassline</strong>: mostly square with a little saw for bite</li>
+<li><strong>Lead</strong>: saw-heavy with a little triangle to soften edges</li>
+<li><strong>Sequence</strong>: mix square and triangle for a more animated but not harsh tone</li>
+</ul>
+<h3>Performance benefit</h3>
+<p>You can alter the harmonic content of the melody by moving mixer levels rather than repatching.</p>
+<hr />
+<h2>3. West Coast flavored melodic timbres via wavefolding</h2>
+<p>A major strength of tòna is the <strong>wavefold output</strong>. The manual notes that the wavefolder processes the oscillator’s <strong>sine waveform</strong> and can move from nearly sine-like to rich harmonic content.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Use the <strong>Wavefold Output</strong> as your main audio output</li>
+<li>Sequence pitch with <strong>1V/Oct</strong></li>
+<li>Route to VCA and optionally filter</li>
+<li>Adjust the <strong>Wavefold fader</strong> to set timbral complexity</li>
+</ul>
+<h3>Musical result</h3>
+<p>This is excellent for:
+- expressive melodic lines
+- plucked or bell-like tones
+- bright, animated sequences
+- evolving motifs that cut through a mix</p>
+<h3>Why it’s melodic-friendly</h3>
+<p>Unlike a filter sweep that generally removes harmonics, wavefolding can <strong>add harmonics dynamically</strong>, making the same melody feel more alive and articulate.</p>
+<h3>Best use cases</h3>
+<ul>
+<li>minimal techno sequences</li>
+<li>generative melodies</li>
+<li>modern “Buchla-ish” lead lines</li>
+<li>tuned percussion-style patches</li>
+</ul>
+<hr />
+<h2>4. Animated melodic phrases with wavefold CV</h2>
+<p>The manual shows a patch where one of tòna’s own waveforms is sent to the <strong>Wavefold CV input</strong>. This creates synchronized audio-rate timbral modulation.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Main melodic pitch enters via <strong>1V/Oct</strong></li>
+<li>Listen to the <strong>Wavefold Output</strong></li>
+<li>Patch one of tòna’s own outputs — often <strong>saw</strong> — into <strong>Wavefold CV Input</strong></li>
+<li>Set the <strong>Wavefold CV attenuator</strong> to taste</li>
+</ul>
+<h3>Musical result</h3>
+<p>This produces:
+- harmonically animated notes
+- buzzing, vocal-like timbres
+- timbral motion locked to oscillator pitch
+- more aggressive melodic textures</p>
+<p>Because the modulation source tracks the same pitch as the oscillator, the timbre remains tightly related to the melody.</p>
+<h3>Practical musical use</h3>
+<p>This is great for:
+- acid-adjacent melodic lines
+- metallic sequences
+- animated arps
+- one-oscillator complex timbre voices</p>
+<hr />
+<h2>5. FM melodic voice</h2>
+<p>The manual specifically describes tòna as the <strong>carrier</strong> in an FM patch, with another oscillator patched into <strong>Linear FM</strong>.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Pitch sequence goes into <strong>1V/Oct</strong></li>
+<li>Another oscillator’s output goes to <strong>Linear FM Input</strong></li>
+<li>Use <strong>Linear FM Attenuator</strong> to control modulation depth</li>
+<li>Use tòna’s <strong>sine</strong> or <strong>triangle</strong> as the main output for cleaner FM behavior, or saw/square/wavefold for more complex results</li>
+</ul>
+<h3>Musical result</h3>
+<p>This can create:
+- metallic melodies
+- glassy bells
+- inharmonic plucks
+- aggressive lead tones
+- rich bass timbres</p>
+<h3>Melodic strategy</h3>
+<p>For tonal melodic work:
+- keep FM depth lower for stable pitch identity
+- use a modulator tuned to musically related intervals if possible
+- start with sine-to-sine FM, then increase complexity</p>
+<h3>Especially useful for</h3>
+<ul>
+<li>melodic percussion</li>
+<li>evolving lead lines</li>
+<li>digital-sounding motifs from analog modules</li>
+<li>contrast against more traditional subtractive voices</li>
+</ul>
+<hr />
+<h2>6. Hard sync leads and sequenced riffs</h2>
+<p>tòna has a <strong>Sync Input</strong> for hard synchronization. On each rising edge, the oscillator resets its cycle.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Use a second oscillator as the <strong>master sync source</strong></li>
+<li>Send a hard-edged waveform like <strong>saw or square</strong> into <strong>Sync Input</strong></li>
+<li>Sequence pitch on tòna using <strong>1V/Oct</strong></li>
+<li>Listen to saw, square, triangle, or wavefold output</li>
+</ul>
+<h3>Musical result</h3>
+<p>Hard sync creates:
+- cutting lead sounds
+- tearing harmonics
+- bright, expressive solo tones
+- harmonically rich riffs</p>
+<h3>Why it works for melody</h3>
+<p>Sync preserves a strong pitch center while adding dramatic overtone motion. That makes it ideal for:
+- solos
+- hook lines
+- sync bass
+- tension-building sequences</p>
+<h3>Extra tip</h3>
+<p>Sweep tòna’s frequency while sync is active for classic ripping sync timbres.</p>
+<hr />
+<h2>How tòna combines with common companion modules</h2>
+<p>The manual’s examples reference a broader voice architecture. Here’s how tòna works with each type of module to create melody.</p>
+<h2>1. With a sequencer or keyboard</h2>
+<p>This is the most important pairing.</p>
+<h3>Connections</h3>
+<ul>
+<li>Sequencer/keyboard <strong>pitch CV</strong> → <strong>1V/Oct</strong></li>
+<li>Sequencer/keyboard <strong>gate</strong> → envelope trigger/gate</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- playable notes
+- repeating patterns
+- transposable basslines
+- melodic phrases tied to a clock or performance input</p>
+<p>Without a pitch CV source, tòna is mainly a drone oscillator. With one, it becomes a melodic instrument.</p>
+<hr />
+<h2>2. With an envelope generator</h2>
+<p>An envelope shapes each note over time.</p>
+<h3>Connections</h3>
+<ul>
+<li>Gate from sequencer → envelope</li>
+<li>Envelope output → VCA CV</li>
+<li>Optional second envelope copy → filter cutoff CV or wavefold CV</li>
+</ul>
+<h3>Result</h3>
+<p>Your pitches become actual <strong>notes</strong> instead of continuous tones.</p>
+<h3>Musical possibilities</h3>
+<ul>
+<li>short percussive plucks</li>
+<li>long legato leads</li>
+<li>swelling pads</li>
+<li>dynamic filter articulation per note</li>
+</ul>
+<hr />
+<h2>3. With a VCA</h2>
+<p>The VCA makes the melodic line rhythmic and performable.</p>
+<h3>Connections</h3>
+<ul>
+<li>tòna audio out → VCA audio in</li>
+<li>Envelope → VCA CV in</li>
+</ul>
+<h3>Result</h3>
+<p>Each note starts and stops cleanly.</p>
+<p>This is essential for:
+- basslines
+- melodies
+- staccato sequences
+- accents</p>
+<hr />
+<h2>4. With a filter</h2>
+<p>The filter shapes brightness and emphasis.</p>
+<h3>Connections</h3>
+<ul>
+<li>tòna output or waveform mix → filter input</li>
+<li>Filter output → VCA</li>
+<li>Envelope or LFO → filter cutoff CV</li>
+</ul>
+<h3>Result</h3>
+<p>Classic subtractive melodic phrasing.</p>
+<h3>Musical uses</h3>
+<ul>
+<li>mellow bass from saw or square</li>
+<li>expressive resonance on leads</li>
+<li>plucky sequences with envelope modulation</li>
+<li>spectral movement over repeated pitch patterns</li>
+</ul>
+<hr />
+<h2>5. With a mixer</h2>
+<p>Since tòna offers multiple simultaneous outputs, a mixer is especially useful.</p>
+<h3>Connections</h3>
+<ul>
+<li>Multiple waveform outputs → mixer channels</li>
+<li>Mixer output → filter or VCA</li>
+</ul>
+<h3>Result</h3>
+<p>You can build a custom melodic timbre from one oscillator.</p>
+<h3>Example blend ideas</h3>
+<ul>
+<li><strong>Square + triangle</strong> = woody bass</li>
+<li><strong>Saw + sine</strong> = firm but smooth lead</li>
+<li><strong>Triangle + wavefold</strong> = articulate but not overly harsh line</li>
+</ul>
+<hr />
+<h2>6. With another oscillator</h2>
+<p>A second oscillator expands tòna dramatically.</p>
+<h3>Uses</h3>
+<ul>
+<li>FM modulator</li>
+<li>Sync master/slave partner</li>
+<li>Detuned unison voice</li>
+<li>Interval doubling source</li>
+</ul>
+<h3>Melodic benefits</h3>
+<ul>
+<li>richer harmonies</li>
+<li>more animated timbres</li>
+<li>stereo layering</li>
+<li>more complex tracked sequences</li>
+</ul>
+<hr />
+<h2>Best melodic patch recipes</h2>
+<h2>A. Simple melodic voice</h2>
+<p><strong>Good for:</strong> leads, bass, arps</p>
+<ul>
+<li>Sequencer pitch → 1V/Oct</li>
+<li>Sequencer gate → envelope</li>
+<li>tòna saw out → filter → VCA</li>
+<li>Envelope → VCA CV</li>
+<li>Optional envelope → filter CV</li>
+</ul>
+<p>This is the bread-and-butter patch.</p>
+<hr />
+<h2>B. Smooth bass melody</h2>
+<p><strong>Good for:</strong> sublines, low-end motifs</p>
+<ul>
+<li>Sequencer pitch → 1V/Oct</li>
+<li>Triangle or sine out → VCA</li>
+<li>Envelope → VCA CV</li>
+<li>Optional light filter shaping</li>
+</ul>
+<p>This keeps the line focused and stable.</p>
+<hr />
+<h2>C. Expressive folded lead</h2>
+<p><strong>Good for:</strong> modern leads, solos, signature tones</p>
+<ul>
+<li>Sequencer pitch → 1V/Oct</li>
+<li>Wavefold output → VCA/filter</li>
+<li>Gate → envelope</li>
+<li>Envelope → VCA</li>
+<li>LFO or envelope → Wavefold CV input</li>
+</ul>
+<p>This gives each note internal timbral movement.</p>
+<hr />
+<h2>D. FM melody</h2>
+<p><strong>Good for:</strong> bells, metallic hooks, sharp basses</p>
+<ul>
+<li>Sequencer pitch → 1V/Oct</li>
+<li>Second oscillator sine → Linear FM input</li>
+<li>tòna sine out → VCA/filter</li>
+<li>Envelope → VCA</li>
+<li>Raise FM attenuator carefully</li>
+</ul>
+<p>Low FM depth = more tonal.<br />
+High FM depth = more experimental.</p>
+<hr />
+<h2>E. Sync lead</h2>
+<p><strong>Good for:</strong> cutting solos and hooks</p>
+<ul>
+<li>Sequencer pitch → 1V/Oct</li>
+<li>Second oscillator saw/square → Sync input</li>
+<li>tòna saw or square out → filter → VCA</li>
+<li>Envelope → VCA and/or filter</li>
+</ul>
+<p>Great for prominent melodic phrases.</p>
+<hr />
+<h2>F. Self-patched animated sequence</h2>
+<p><strong>Good for:</strong> complex one-oscillator riffs</p>
+<ul>
+<li>Sequencer pitch → 1V/Oct</li>
+<li>Wavefold output → filter/VCA</li>
+<li>Saw output → Wavefold CV input</li>
+<li>Set Wavefold and CV attenuation to taste</li>
+<li>Envelope → VCA</li>
+</ul>
+<p>This creates movement without requiring extra modulation modules.</p>
+<hr />
+<h2>Strengths of tòna for melody</h2>
+<p>Based on the manual, tòna is especially strong as a melodic oscillator because it combines:</p>
+<ul>
+<li><strong>Stable pitch tracking</strong> via 1V/Oct</li>
+<li><strong>Immediate access to classic waveforms</strong></li>
+<li><strong>Built-in wavefolding</strong> for more advanced timbres</li>
+<li><strong>Linear FM</strong> for harmonic and inharmonic animation</li>
+<li><strong>Hard sync</strong> for sharper lead sounds</li>
+<li><strong>Simultaneous outputs</strong> for layering and mixing</li>
+</ul>
+<p>So it can cover both:
+- <strong>traditional subtractive melodic roles</strong>
+- <strong>more experimental timbral melody roles</strong></p>
+<hr />
+<h2>Practical musical workflow</h2>
+<p>A good way to approach tòna in a rack is:</p>
+<ol>
+<li>Start with <strong>triangle or saw</strong></li>
+<li>Patch a basic <strong>sequencer → filter → VCA</strong> voice</li>
+<li>Get the melody working first</li>
+<li>Then choose one enhancement:</li>
+<li>add <strong>wavefold</strong></li>
+<li>add <strong>FM</strong></li>
+<li>add <strong>sync</strong></li>
+<li>blend multiple waveforms</li>
+<li>self-patch wavefold CV</li>
+</ol>
+<p>This keeps the melodic intention clear before adding complexity.</p>
+<hr />
+<h2>Bottom line</h2>
+<p>The <strong>Instruō tòna</strong> is a strong <strong>primary melodic oscillator</strong>. It can function as:</p>
+<ul>
+<li>a classic mono synth VCO</li>
+<li>a layered subtractive voice source</li>
+<li>a wavefold-based melodic timbre generator</li>
+<li>an FM carrier</li>
+<li>a sync voice</li>
+<li>a self-patched complex oscillator for animated sequences</li>
+</ul>
+<p>If paired with even a basic set of support modules — <strong>sequencer, envelope, VCA, and optionally filter/mixer</strong> — it can create a wide range of melodic components:
+- basslines
+- leads
+- arpeggios
+- plucks
+- drones with pitch motion
+- metallic FM motifs
+- harmonically rich folded sequences</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

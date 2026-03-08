@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Wenzellabs_NSA_Selector</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Wenzellabs — NSA Selector</h1>
+<ul>
+<li><a href="../../manuals/wenzellabs_the_NSA_selector_ the NSA selector eurorack module.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://github.com/wenzellabs/the_NSA_selector">Manual PDF / Source</a></p>
+<h1>the NSA selector — melodic use in a Eurorack system</h1>
+<p>As a Eurorack musician, I’d treat <strong>the NSA selector</strong> less like a conventional voice module and more like a <strong>data-to-audio sound source / network instrument</strong>. Based on the manual, it is:</p>
+<ul>
+<li>a <strong>4HP</strong> module</li>
+<li>with <strong>2 Ethernet ports</strong></li>
+<li><strong>1 audio output</strong></li>
+<li>internally a <strong>100 Mbps fast ethernet switch</strong></li>
+<li>with a mirrored internal port feeding a <strong>4-bit DAC + low-pass filter</strong></li>
+<li>outputting the sound of <strong>raw network traffic</strong></li>
+</ul>
+<p>So this is not an oscillator, sampler, or audio interface in the normal sense. It literally turns packet activity into audio.</p>
+<h2>What the module does musically</h2>
+<p>The key sentence in the manual is essentially:</p>
+<blockquote>
+<p>any bit on the network will be sent to the audio output</p>
+</blockquote>
+<p>That means your “melody” does not come from pitch CV going into a VCO. Instead, melody emerges from:</p>
+<ul>
+<li>the <strong>timing</strong> of packets</li>
+<li>the <strong>size</strong> of packets</li>
+<li>the <strong>structure</strong> of protocol headers</li>
+<li>the <strong>payload data</strong> being transmitted</li>
+<li>the <strong>rate / density</strong> of traffic on the link</li>
+</ul>
+<p>In practice, this gives you a module that can produce:</p>
+<ul>
+<li>clicks</li>
+<li>pulses</li>
+<li>harsh digital tones</li>
+<li>noisy pitched bands</li>
+<li>rhythmic bursts</li>
+<li>repeatable patterns if the network traffic is controlled carefully</li>
+</ul>
+<h2>Best ways to create melodic material</h2>
+<h2>1. Use the included sequencer script as a pitch/rhythm source</h2>
+<p>The manual mentions a <strong>sequencer/</strong> folder containing a shell script that “mimics a sequencer by network pings of different size.”</p>
+<p>This is probably the most direct melodic use.</p>
+<h3>Why it works</h3>
+<p>Different ping packet sizes create different bit patterns and durations on the wire. Those become distinct audio events at the output. If you send them in a repeating order, you get a crude stepped note sequence.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>NSA selector audio out → <strong>VCA</strong></li>
+<li>VCA → <strong>filter</strong> or <strong>wavefolder</strong></li>
+<li>trigger/gate source → VCA CV input</li>
+<li>optionally NSA selector → <strong>clocked delay / reverb</strong></li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>packet sizes become “notes”</li>
+<li>repetition creates a sequence</li>
+<li>VCA gating can sharpen events into plucks</li>
+<li>filtering can emphasize certain resonances, making the sequence feel more tonal</li>
+</ul>
+<h3>Performance tip</h3>
+<p>If you make several ping sizes correspond to several recognizable timbres, you can compose phrases by ordering those sizes like notes in a scale.</p>
+<h2>2. Convert WAV audio into the module’s native network format</h2>
+<p>The most explicitly melodic feature in the manual is the <strong>upconverter/</strong> tool. It converts a <strong>mono 16-bit 48 kHz WAV</strong> into a <strong>4-bit 25 MHz .nsa file</strong> using delta-sigma style conversion.</p>
+<p>This is huge for melody, because it means you can prepare pitched material externally and then “play it” over the network.</p>
+<h3>Why it works</h3>
+<p>Instead of hoping random traffic sounds musical, you intentionally encode:</p>
+<ul>
+<li>single notes</li>
+<li>scales</li>
+<li>arpeggios</li>
+<li>basslines</li>
+<li>melodies</li>
+<li>drones</li>
+</ul>
+<p>Then transmit those files over the network so the NSA selector outputs them as audio.</p>
+<h3>Strong melodic workflow</h3>
+<ol>
+<li>Create a simple melody in DAW or audio editor</li>
+<li>Render as mono WAV</li>
+<li>Convert to <code>.nsa</code></li>
+<li>Serve/transmit it over the network</li>
+<li>Patch the output into your Eurorack system</li>
+</ol>
+<h3>Patch ideas</h3>
+<ul>
+<li>
+<p>NSA selector → <strong>low-pass filter</strong> → VCA → mixer<br />
+  for taming the harshness into a more playable lead</p>
+</li>
+<li>
+<p>NSA selector → <strong>resonant band-pass filter</strong><br />
+  to isolate partials that behave like a stable pitch center</p>
+</li>
+<li>
+<p>NSA selector → <strong>quantizer is not needed on audio</strong>, but use:</p>
+</li>
+<li><strong>envelope follower</strong> from the audio</li>
+<li>envelope follower CV → filter cutoff or VCA</li>
+<li>this creates dynamic articulation from the traffic itself</li>
+</ul>
+<h3>Musical result</h3>
+<p>This is your best route to actual recognizably melodic phrases. The quality is intentionally lo-fi and packet-corrupted, but that can sound beautiful in an industrial / glitch / electroacoustic context.</p>
+<h2>3. “Listen to images” for stepped or scanned pseudo-melodies</h2>
+<p>The manual says uncompressed, unencrypted <strong>BMP</strong> image transfers can be heard, effectively letting you “hear the pixels.”</p>
+<h3>Why that matters melodically</h3>
+<p>Images are organized data. Repeated structures in an image can create:</p>
+<ul>
+<li>repeating frequency zones</li>
+<li>stepped transitions</li>
+<li>scan-like rises/falls</li>
+<li>motif-like bursts</li>
+</ul>
+<p>A striped or patterned image can generate surprisingly sequence-like audio.</p>
+<h3>Creative melodic trick</h3>
+<p>Design BMPs intentionally as “graphic scores”:</p>
+<ul>
+<li>horizontal stripes for repeated note-like bands</li>
+<li>diagonal lines for rising/falling gestures</li>
+<li>checkerboards for alternating intervals</li>
+<li>blocks of different brightness for phrase sections</li>
+</ul>
+<p>Then transfer the BMP and process the result through your modular.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>NSA selector → <strong>slew-ish LPG or low-pass gate</strong></li>
+<li>then into <strong>reverb</strong></li>
+<li>optionally layer with a tuned oscillator tracking the envelope of the output</li>
+</ul>
+<p>This won’t produce equal-tempered notes directly, but it can generate melodic contours and motifs.</p>
+<h2>4. Use traffic saturation and retransmission as ornamentation</h2>
+<p>The manual notes that saturating the link introduces artifacts, retransmissions, and extra texture.</p>
+<h3>Melodic interpretation</h3>
+<p>Think of this as ornament generation:</p>
+<ul>
+<li>retransmissions = repeats/flams</li>
+<li>congestion = distortion/smear</li>
+<li>header overhead = transient attack content</li>
+<li>link saturation = sustained noisy tone bed</li>
+</ul>
+<p>So a clean encoded melody can become expressive when pushed into overload.</p>
+<h3>Musical use</h3>
+<p>Start with a simple converted WAV melody, then:
+- intentionally saturate the network
+- add simultaneous traffic
+- let the melody degrade into glitchy harmonization</p>
+<p>This works especially well for:
+- IDM
+- noise-pop
+- electro
+- broken transmission ambient
+- cyberpunk soundtrack textures</p>
+<h2>5. Create call-and-response with controlled and uncontrolled traffic</h2>
+<p>The module has two Ethernet jacks and forwards traffic unmodified while tapping it for audio.</p>
+<p>That means you can create layers of musical behavior:
+- <strong>controlled traffic</strong> = your intended melody
+- <strong>ambient traffic</strong> = live counterpoint/noise layer</p>
+<h3>Example setup</h3>
+<ul>
+<li>one machine sends your <code>.nsa</code> melody or ping sequence</li>
+<li>another generates browsing, pings, tcpdump echo, file transfer, or game traffic</li>
+</ul>
+<p>The output becomes a hybrid of:
+- intentional notes
+- accidental accompaniment</p>
+<h3>Patch concept</h3>
+<ul>
+<li>NSA selector out → <strong>mult</strong></li>
+<li>path 1 → dry mixer channel</li>
+<li>path 2 → distortion/filter/delay</li>
+</ul>
+<p>Use the dry channel for articulation and the processed channel for harmonic smear. This can make packet melodies feel bigger and more “composed.”</p>
+<h2>6. Use tcpdump “echo” as a primitive delay for melodic phrases</h2>
+<p>The manual describes a trick where dumping network traffic to console can effectively double the activity, creating a kind of <strong>echo</strong>.</p>
+<h3>Musical use</h3>
+<p>This is especially useful for melodic phrasing.</p>
+<p>If you transmit a short sequence or encoded note phrase, then add:
+- <code>tcpdump -ni eth0</code>
+- or more verbose variants</p>
+<p>you can generate repeating or thickened events.</p>
+<h3>Result</h3>
+<ul>
+<li>short notes become doubled</li>
+<li>sparse phrases become denser</li>
+<li>repeated packet observation adds a primitive feedback feel</li>
+</ul>
+<p>It is not tempo-locked delay in the Eurorack sense, but musically it behaves like:
+- slapback
+- stutter
+- burst-repeat
+- data haze</p>
+<h2>How to combine it with typical Eurorack modules for melody</h2>
+<p>Because the NSA selector has only <strong>audio out</strong> and no CV inputs, the “using modules together” part is mostly about <strong>what you patch after it</strong>.</p>
+<h2>Best companions</h2>
+<h3>Filter</h3>
+<p>A resonant filter is probably the most important partner.</p>
+<p>Why:
+- packet audio is bright and aggressive
+- filtering can isolate stable spectral areas
+- resonance can emphasize apparent pitch</p>
+<p>Use:
+- low-pass for smoother lead lines
+- band-pass for vowel-like melodic tones
+- high resonance for whistle-like digital notes</p>
+<h3>VCA + envelope</h3>
+<p>Helps impose phrasing.</p>
+<p>Use a gate source or trigger sequencer to:
+- chop continuous network texture into note lengths
+- accent certain events
+- create rhythmic articulation independent of the traffic itself</p>
+<h3>Low-pass gate</h3>
+<p>Excellent if you want the module to feel more “played” and less like a data stream.</p>
+<h3>Delay / reverb</h3>
+<p>Turns fragmented packet events into melodic ambience.</p>
+<p>Especially good for:
+- sparse ping sequences
+- image-data scans
+- short <code>.nsa</code> note phrases</p>
+<h3>Distortion / wavefolder</h3>
+<p>Can turn weakly pitched digital noise into richer lead or bass material.</p>
+<h3>Envelope follower</h3>
+<p>A sleeper pairing. Derive CV from the audio amplitude and use it to modulate:
+- filter cutoff
+- VCA level
+- another oscillator’s FM amount</p>
+<p>That creates self-animated melodic movement from the network data itself.</p>
+<h3>Pitch tracker or PLL-style module</h3>
+<p>If you have a pitch-tracking utility or PLL, you may be able to extract unstable but interesting pitch CV from the output and use that to drive another oscillator. That gives you:
+- NSA selector = chaotic melodic source
+- analog/digital VCO = stabilized harmonic shadow</p>
+<h2>Practical melodic strategies</h2>
+<h2>Strategy A: Packet melody voice</h2>
+<ul>
+<li>create ping-size sequence</li>
+<li>NSA selector out → filter → VCA → reverb</li>
+<li>use external trigger sequencer for articulation</li>
+</ul>
+<p>This gives percussive, glitch-melodic phrases.</p>
+<h2>Strategy B: Encoded lead line</h2>
+<ul>
+<li>compose WAV melody</li>
+<li>convert to <code>.nsa</code></li>
+<li>transmit file</li>
+<li>NSA selector → resonant filter → stereo FX</li>
+</ul>
+<p>This is the clearest path to actual lead melodies.</p>
+<h2>Strategy C: Image-score music</h2>
+<ul>
+<li>create patterned BMP</li>
+<li>send it through the fileserver setup</li>
+<li>NSA selector → band-pass filter → delay</li>
+</ul>
+<p>This gives scanning, abstract melodic contours.</p>
+<h2>Strategy D: Dual-layer data harmony</h2>
+<ul>
+<li>send <code>.nsa</code> melody</li>
+<li>simultaneously add web/file/ping traffic</li>
+<li>output → mult</li>
+<li>one clean, one heavily processed</li>
+</ul>
+<p>This creates melody plus noisy accompaniment from the same source.</p>
+<h2>What kind of melodies this module is best at</h2>
+<p>This module is best for:</p>
+<ul>
+<li><strong>glitch melodies</strong></li>
+<li><strong>lo-fi digital leads</strong></li>
+<li><strong>harsh arpeggios</strong></li>
+<li><strong>rhythmic data motifs</strong></li>
+<li><strong>industrial bleeps</strong></li>
+<li><strong>cybernetic drones with melodic contour</strong></li>
+<li><strong>corrupted sample-like phrases</strong></li>
+</ul>
+<p>It is less suited for:
+- clean tonal melodies
+- precise 1V/oct playing
+- traditional keyboard-style performance
+- harmonically pure subtractive synthesis</p>
+<h2>Overall musical assessment</h2>
+<p>The NSA selector is basically a <strong>network sonification voice</strong>. To get melodic results, the trick is to stop thinking like “pitch CV into oscillator” and instead think:</p>
+<ul>
+<li><strong>packet design = composition</strong></li>
+<li><strong>traffic structure = sequencing</strong></li>
+<li><strong>network load = timbre</strong></li>
+<li><strong>modular processing = articulation and tonal focus</strong></li>
+</ul>
+<p>If I were building a melodic patch around it, my first choice would be:</p>
+<ol>
+<li>generate a simple <code>.nsa</code> phrase from a WAV melody</li>
+<li>run the output through a resonant filter and VCA</li>
+<li>add clocked delay/reverb</li>
+<li>layer with a more stable oscillator for pitch reinforcement</li>
+</ol>
+<p>That would give the best mix of:
+- recognizable melody
+- packet grit
+- playable modular dynamics</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

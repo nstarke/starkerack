@@ -1,0 +1,547 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Mavis</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Mavis</h1>
+<ul>
+<li><a href="../../manuals/MAVIS_MANUAL_V2_06.27.2022.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.moogmusic.com/media/2022/06/Mavis_Manual.pdf">Moog Mavis User Manual (PDF / product page)</a></p>
+<h1>Using Moog Mavis to Create Melodic Components in Music</h1>
+<p>The <strong>Moog Mavis</strong> is a compact semi-modular analog synth voice that can generate a surprising range of <strong>melodic material</strong> on its own or as part of a Eurorack system. From the manual, its key melodic building blocks are:</p>
+<ul>
+<li><strong>VCO</strong> for pitch generation</li>
+<li><strong>Keyboard / KB CV / 1V-OCT</strong> for note control</li>
+<li><strong>EG</strong> for note articulation</li>
+<li><strong>VCF</strong> for timbral shaping</li>
+<li><strong>VCA</strong> for amplitude contour</li>
+<li><strong>LFO</strong> for cyclic modulation or even second-oscillator audio use</li>
+<li><strong>Sample + Hold</strong> for stepped voltages and pseudo-random melodies</li>
+<li><strong>Mixer / Attenuator / Mult / Wavefolder</strong> for shaping and routing pitch and timbre control</li>
+</ul>
+<p>Below is a practical analysis of how these modules work together specifically for <strong>melodic synthesis</strong>.</p>
+<hr />
+<h2>1. Core melodic voice architecture</h2>
+<p>At its simplest, Mavis already contains a normalled melodic signal path:</p>
+<p><strong>Keyboard / external pitch CV → VCO → VCF → VCA → output</strong></p>
+<p>And for note triggering:</p>
+<p><strong>Keyboard / external gate → EG → VCA</strong></p>
+<p>This means Mavis naturally behaves like a classic monosynth voice. For melody writing, this gives you three essential layers:</p>
+<ol>
+<li><strong>Pitch source</strong>  </li>
+<li>Internal keyboard via <strong>KB CV</strong></li>
+<li>External sequencer via <strong>1V/OCT</strong></li>
+<li><strong>Note articulation</strong></li>
+<li>Gate into <strong>EG</strong></li>
+<li>EG shapes note onset and duration through the <strong>VCA</strong></li>
+<li><strong>Tone shaping</strong></li>
+<li>VCO waveform and pulse width define harmonic base</li>
+<li>VCF cutoff/resonance define brightness and contour</li>
+</ol>
+<p>This is the foundation for basslines, lead lines, arps, and sequenced motifs.</p>
+<hr />
+<h2>2. Melodic pitch generation</h2>
+<h2>A. Internal keyboard as a melodic controller</h2>
+<p>The onboard one-octave button keyboard outputs pitch through the internal routing and also via <strong>KB CV out</strong>.</p>
+<p>Useful melodic behaviors from the manual:</p>
+<ul>
+<li><strong>KB SCALE</strong> changes the voltage span of the keyboard  </li>
+<li>Full CCW: one octave across low C to high C</li>
+<li>Full CW: five octaves across the same keys</li>
+</ul>
+<p>This is unusual and musically powerful. It means the keyboard can act as:</p>
+<ul>
+<li>a normal one-octave melodic keyboard</li>
+<li>a <strong>compressed pitch map</strong> for wide melodic leaps</li>
+<li>an expressive CV source for transposition and interval experiments</li>
+</ul>
+<h3>Musical use</h3>
+<ul>
+<li>Set KB SCALE low for traditional melodies</li>
+<li>Increase KB SCALE for larger interval jumps and wide-register riffs</li>
+<li>Use GLIDE to turn discrete notes into portamento phrases</li>
+</ul>
+<hr />
+<h2>B. External sequencer or Eurorack pitch CV</h2>
+<p>The <strong>1V/OCT input</strong> allows Mavis to be driven from any sequencer, keyboard, quantizer, or CV source.</p>
+<p>This makes Mavis ideal as a <strong>complete analog melodic voice</strong> in a modular system.</p>
+<h3>Common melodic patch</h3>
+<ul>
+<li>External sequencer pitch CV → <strong>1V/OCT</strong></li>
+<li>External gate/trig → <strong>GATE</strong></li>
+<li>Audio out from <strong>/VCA</strong> to mixer or interface</li>
+</ul>
+<p>This gives you:
+- precise melodic sequences
+- synchronized timing
+- classic analog note articulation</p>
+<hr />
+<h2>C. Sample + Hold as a melody generator</h2>
+<p>The <strong>S+H</strong> circuit is one of the most useful melodic tools in Mavis.</p>
+<p>By default:
+- <strong>VCO</strong> is the sample source
+- <strong>LFO</strong> is the gate source</p>
+<p>The result is a stepped voltage output at <strong>S+H out</strong>, which can be patched to pitch destinations like <strong>1V/OCT</strong>.</p>
+<h3>Why this creates melodies</h3>
+<p>When S+H samples a changing waveform, it outputs discrete voltage steps. Those steps can become pitches when sent to the oscillator pitch input.</p>
+<h3>Patch idea</h3>
+<ul>
+<li><strong>S+H out → 1V/OCT</strong></li>
+</ul>
+<p>Now the oscillator pitch jumps in stepped intervals. If the VCO source waveform is saw, the values vary more continuously and produce broader pitch variety.</p>
+<h3>Make it musical</h3>
+<p>Because raw S+H can be too wide or erratic:
+- use the <strong>Attenuator</strong>
+- use <strong>KB CV</strong> as a transposition source
+- use the <strong>Mixer</strong> to combine offsets and pitch voltages</p>
+<p>This is one of the best ways to create:
+- generative melodies
+- pseudo-random riffs
+- Berlin-school stepping patterns
+- experimental lead lines</p>
+<hr />
+<h2>3. Controlling melodic range and transposition</h2>
+<p>Mavis includes several utilities that are extremely useful for turning raw control voltage into musical pitch material.</p>
+<h2>A. Attenuator for pitch interval control</h2>
+<p>Patch:
+- <strong>S+H out → ATTN (+5)</strong>
+- <strong>ATTN out → 1V/OCT</strong></p>
+<p>Now the <strong>ATTENUATOR</strong> knob scales the pitch movement.</p>
+<h3>Musical result</h3>
+<ul>
+<li>low attenuation = small interval melody</li>
+<li>high attenuation = wide leaps</li>
+</ul>
+<p>This is essential for making random voltages feel more musical.</p>
+<hr />
+<h2>B. Mixer for pitch offsets and combining sources</h2>
+<p>The <strong>ONE/TWO mixer</strong> can combine voltages, not just audio. This means it can build more complex melodic CV.</p>
+<p>Examples:</p>
+<h3>1. Add transposition offset</h3>
+<ul>
+<li>Put a CV into <strong>TWO</strong></li>
+<li>Use <strong>ONE LVL</strong> with nothing at ONE input for offset behavior described in the manual</li>
+</ul>
+<p>This can shift a melodic line up/down.</p>
+<h3>2. Combine two melodic sources</h3>
+<ul>
+<li>Sequencer CV → <strong>TWO</strong></li>
+<li>S+H or LFO CV → <strong>ONE</strong></li>
+<li><strong>ONE+TWO out → 1V/OCT</strong></li>
+</ul>
+<p>This creates:
+- melody plus ornament
+- pitch drift
+- interval modulation
+- semi-random note variation over a structured sequence</p>
+<hr />
+<h2>C. Mult for parallel melodic control</h2>
+<p>The <strong>MULT</strong> lets one pitch source affect several destinations at once.</p>
+<h3>Example</h3>
+<ul>
+<li><strong>KB CV → MULT</strong></li>
+<li><strong>MULT 1 → 1V/OCT</strong></li>
+<li><strong>MULT 2 → LFO RATE</strong></li>
+</ul>
+<p>Now the keyboard pitch also changes LFO rate. If the LFO is in audio range, this enables pitch-linked harmonic behavior. If the LFO is in low range, it gives note-dependent modulation speeds, which can make melody lines feel more animated.</p>
+<hr />
+<h2>4. Articulation: turning pitches into notes</h2>
+<p>Pitch CV alone is not enough for melody. The note needs time-shaping. On Mavis, this is mainly handled by:</p>
+<ul>
+<li><strong>GATE</strong></li>
+<li><strong>EG</strong></li>
+<li><strong>VCA</strong></li>
+<li>optionally <strong>VCF modulation</strong></li>
+</ul>
+<h2>A. EG to VCA = note shape</h2>
+<p>By default the envelope generator shapes the VCA. This creates note contours:</p>
+<ul>
+<li><strong>Attack</strong>: slow or sharp onset</li>
+<li><strong>Decay</strong>: fall from peak</li>
+<li><strong>Sustain</strong>: held note level</li>
+<li><strong>Release</strong>: tail after key/gate ends</li>
+</ul>
+<h3>Musical uses</h3>
+<ul>
+<li>Fast attack / short decay / low sustain = pluck, sequence blip, bass stab</li>
+<li>Fast attack / medium decay / medium sustain = lead line</li>
+<li>Slow attack / long release = melodic pad-like phrasing</li>
+<li>Long release + glide = lyrical mono lead</li>
+</ul>
+<hr />
+<h2>B. EG to filter for melodic expressiveness</h2>
+<p>The <strong>VCF MOD MIX</strong> and <strong>VCF MOD AMT</strong> let the EG shape filter cutoff.</p>
+<p>This is critical for melody because it makes each note dynamically “speak.”</p>
+<h3>Musical results</h3>
+<ul>
+<li>positive filter EG: classic synth pluck</li>
+<li>negative filter EG: darker attack and opening tail</li>
+<li>higher resonance: vowel-like melodic articulation</li>
+<li>moderate envelope amount: expressive phrasing without overpowering pitch</li>
+</ul>
+<p>For melodies, filter envelopes are often as important as note pitch.</p>
+<hr />
+<h2>5. Using modulation to enrich melodies</h2>
+<h2>A. LFO vibrato</h2>
+<p>Use the VCO modulation section:
+- <strong>VCO MOD MIX toward LFO</strong>
+- raise <strong>PITCH MOD AMT</strong></p>
+<p>This creates pitch modulation.</p>
+<h3>Musical result</h3>
+<ul>
+<li>low amount, medium rate = vibrato</li>
+<li>slow rate = drifting melodic line</li>
+<li>fast rate = FM-like brightness or instability</li>
+</ul>
+<p>For leads, subtle vibrato adds life.</p>
+<hr />
+<h2>B. PWM for animated melodic timbre</h2>
+<p>If using pulse wave:
+- set <strong>VCO WAVE</strong> toward pulse
+- raise <strong>PWM AMT</strong>
+- choose EG or LFO with <strong>VCO MOD MIX</strong></p>
+<p>This creates melodic tones that evolve over time.</p>
+<h3>Musical result</h3>
+<ul>
+<li>LFO PWM = classic animated lead/pad character</li>
+<li>EG PWM = every note has its own timbral attack</li>
+<li>useful for melody lines needing movement without filter overuse</li>
+</ul>
+<hr />
+<h2>C. Filter modulation as phrasing engine</h2>
+<p>Use:
+- <strong>VCF MOD MIX</strong> to choose EG/LFO blend
+- <strong>VCF MOD AMT</strong> to define depth and polarity</p>
+<p>This can create:
+- repeating brightness pulses across a sequence
+- note-by-note contour
+- syncopated tonal motion if driven externally</p>
+<p>A melody becomes much more compelling when timbre moves with it.</p>
+<hr />
+<h2>6. LFO as a second oscillator for richer melodic voices</h2>
+<p>One of the most musically important manual examples is using the <strong>LFO in audio rate</strong> as a second oscillator.</p>
+<p>Patch:
+- <strong>LFO out → ONE (-5)</strong>
+- <strong>VCO out → TWO</strong>
+- <strong>ONE+TWO out → FOLD IN</strong>
+- optionally <strong>KB CV → LFO RATE</strong></p>
+<h3>Why this matters melodically</h3>
+<p>A second oscillator thickens a melody dramatically:
+- intervals
+- beating
+- richer harmonics
+- more presence for bass or lead lines</p>
+<p>Without the <strong>KB CV → LFO RATE</strong> patch, the LFO stays at fixed pitch while the VCO tracks the keyboard. That creates drone-against-melody effects.</p>
+<p>With <strong>KB CV → LFO RATE</strong>, both oscillators track together more like a classic dual-osc monosynth.</p>
+<h3>Musical applications</h3>
+<ul>
+<li>fat basslines</li>
+<li>harmonically dense lead sounds</li>
+<li>metallic melodic phrases when slightly detuned</li>
+<li>aggressive solos when combined with wavefolder</li>
+</ul>
+<hr />
+<h2>7. Wavefolder for melodic timbre design</h2>
+<p>Mavis is notable for including a <strong>wavefolder</strong>, and this can strongly affect melodic presence.</p>
+<p>Patch:
+- <strong>VCO out → FOLD IN</strong></p>
+<p>Now the oscillator is routed through the folder, then onward to filter/VCA.</p>
+<h3>Musical role in melody</h3>
+<p>Wavefolding adds harmonic complexity before the filter. This is especially effective for:
+- cutting leads
+- acid-adjacent bass timbres
+- expressive solo voices
+- brighter melodic motifs that stay audible in a mix</p>
+<p>The manual notes the folder is especially pronounced with <strong>saw wave</strong>.</p>
+<h3>Best melodic use</h3>
+<ul>
+<li>saw wave into folder</li>
+<li>moderate fold amount</li>
+<li>filter cutoff partially open</li>
+<li>envelope on filter</li>
+<li>slight glide</li>
+</ul>
+<p>This produces a very playable, vocal, aggressive monosynth lead.</p>
+<hr />
+<h2>8. Sample + Hold for structured melodic variation</h2>
+<p>S+H doesn’t need to be fully random. It can create <strong>rhythmic melodic motifs</strong> when carefully constrained.</p>
+<h2>A. Stepped pitch sequence</h2>
+<ul>
+<li><strong>S+H out → 1V/OCT</strong></li>
+<li>LFO provides clocking</li>
+<li>adjust <strong>LFO RATE</strong></li>
+<li>use <strong>ATTENUATOR</strong> to reduce range</li>
+</ul>
+<p>Result:
+- a repeating but quasi-random stepped melody</p>
+<h2>B. Stepped filter melody accent</h2>
+<ul>
+<li><strong>S+H out → CUTOFF</strong></li>
+<li>keyboard still controls pitch</li>
+</ul>
+<p>Result:
+- stable melody pitch with evolving timbral accents</p>
+<h2>C. Parallel pitch + filter melody</h2>
+<ul>
+<li><strong>S+H out → MULT</strong></li>
+<li><strong>MULT 1 → 1V/OCT</strong></li>
+<li><strong>MULT 2 → CUTOFF</strong></li>
+</ul>
+<p>Result:
+- pitch and brightness move together
+- creates highly animated melodic lines with internal coherence</p>
+<p>This is especially effective for generative music.</p>
+<hr />
+<h2>9. Glide as a melodic expression tool</h2>
+<p>The <strong>GLIDE</strong> control affects transitions between notes.</p>
+<h3>Melodic uses</h3>
+<ul>
+<li>no glide: precise sequenced lines</li>
+<li>short glide: legato funk bass or lead phrasing</li>
+<li>medium glide: classic monosynth solos</li>
+<li>long glide: experimental interval smears</li>
+</ul>
+<p>Because glide also affects <strong>KB CV out</strong>, it can be part of larger patch behavior if KB CV is used elsewhere.</p>
+<p>This makes Mavis good for:
+- portamento leads
+- acid-style slides
+- expressive legato phrases
+- animated CV interactions</p>
+<hr />
+<h2>10. Patch strategies for different melodic roles</h2>
+<h2>A. Bassline voice</h2>
+<p><strong>Goal:</strong> tight, punchy low-end melody</p>
+<p>Suggested setup:
+- VCO: saw or pulse
+- Filter: low-pass, medium cutoff
+- Resonance: low to medium
+- EG: fast attack, short decay, medium/low sustain, short release
+- VCF EG: moderate positive amount
+- Glide: very low or subtle
+- Optional: wavefolder lightly engaged</p>
+<p>Patch ideas:
+- external sequencer → <strong>1V/OCT</strong>, <strong>GATE</strong>
+- <strong>VCO out → FOLD IN</strong> for extra bite
+- subtle <strong>PWM</strong> or filter LFO modulation</p>
+<hr />
+<h2>B. Lead voice</h2>
+<p><strong>Goal:</strong> expressive monophonic melody</p>
+<p>Suggested setup:
+- VCO: saw/pulse blend
+- Pulse width adjusted for body
+- Filter: medium cutoff, some resonance
+- EG: fast attack, medium decay, medium sustain, medium release
+- Glide: moderate
+- LFO to pitch: subtle vibrato
+- Filter EG: moderate</p>
+<p>Patch ideas:
+- <strong>VCO out → FOLD IN</strong>
+- <strong>KB CV → MULT</strong>
+- one copy to pitch path, another to LFO rate for note-dependent vibrato speed or dual oscillator tracking
+- audio-rate LFO mixed with VCO for thicker tone</p>
+<hr />
+<h2>C. Generative melody source</h2>
+<p><strong>Goal:</strong> self-running melodic component</p>
+<p>Suggested patch:
+- <strong>S+H out → ATTN in</strong>
+- <strong>ATTN out → 1V/OCT</strong>
+- LFO as default S+H gate
+- VCO as default sample source
+- EG with medium attack/decay
+- VCA in EG mode
+- S+H optionally also to filter via MULT</p>
+<p>Refinements:
+- slow LFO for sparse melodic notes
+- faster LFO for arpeggio-like stepping
+- attenuate pitch range for tonal consistency
+- use external quantizer downstream if desired in a bigger Eurorack system</p>
+<hr />
+<h2>D. Drone-plus-melody patch</h2>
+<p><strong>Goal:</strong> melody against a fixed internal harmonic reference</p>
+<p>Patch:
+- LFO in audio range
+- <strong>LFO out → ONE (-5)</strong>
+- <strong>VCO out → TWO</strong>
+- <strong>ONE+TWO → FOLD IN</strong>
+- no KB CV to LFO RATE</p>
+<p>Result:
+- VCO follows played notes
+- LFO stays fixed
+- creates interval beating and drone tension</p>
+<p>This is excellent for:
+- modal melodies
+- experimental techno hooks
+- cinematic motifs</p>
+<hr />
+<h2>E. Sequence with animated timbre</h2>
+<p><strong>Goal:</strong> melody that evolves without changing note content</p>
+<p>Patch:
+- sequencer pitch → <strong>1V/OCT</strong>
+- sequencer gate → <strong>GATE</strong>
+- <strong>S+H out → CUTOFF</strong> or LFO → CUTOFF
+- use EG on VCF also
+- pulse wave with PWM</p>
+<p>Result:
+- steady melodic pattern
+- constantly shifting articulation and brightness
+- useful for minimalist and modular-style repetition</p>
+<hr />
+<h2>11. Best module combinations for melody inside Mavis</h2>
+<p>Here are the most important “musician’s combinations” from the manual.</p>
+<h2>1. Keyboard + VCO + EG + VCA</h2>
+<p>The basic playable melody path.</p>
+<p>Best for:
+- immediate lead/bass playing
+- testing melodic ideas
+- expressive manual performance</p>
+<hr />
+<h2>2. External 1V/OCT + GATE + VCF EG</h2>
+<p>Turns Mavis into a full Eurorack melodic voice.</p>
+<p>Best for:
+- sequenced basslines
+- modular lead voice
+- DAW/CV controlled melodies</p>
+<hr />
+<h2>3. S+H + Attenuator + 1V/OCT</h2>
+<p>Turns Mavis into a generative pitch machine.</p>
+<p>Best for:
+- random melodies
+- evolving motifs
+- self-playing patches</p>
+<hr />
+<h2>4. LFO audio rate + Mixer + VCO + FOLD IN</h2>
+<p>Makes a richer two-oscillator melodic synth.</p>
+<p>Best for:
+- thick leads
+- harmonically rich riffs
+- aggressive melodic material</p>
+<hr />
+<h2>5. VCO + Wavefolder + Filter</h2>
+<p>Adds harmonic complexity before subtractive shaping.</p>
+<p>Best for:
+- cutting melodies
+- expressive solo tones
+- modern, brash analog voices</p>
+<hr />
+<h2>6. Mult + one CV source to multiple destinations</h2>
+<p>Couples pitch with timbre/modulation.</p>
+<p>Best for:
+- melodies that “open up” as they rise
+- pitch-dependent modulation behavior
+- more organic phrasing</p>
+<hr />
+<h2>12. Practical melodic patch recipes</h2>
+<h2>Patch 1: Classic analog lead</h2>
+<ul>
+<li>Use default signal path</li>
+<li>VCO wave between saw and pulse</li>
+<li>Filter cutoff around mid position</li>
+<li>Resonance low-medium</li>
+<li>EG: fast attack, medium decay, medium sustain, medium release</li>
+<li>VCF MOD MIX toward EG</li>
+<li>VCF MOD AMT positive</li>
+<li>slight glide</li>
+<li>slight LFO vibrato via VCO mod</li>
+</ul>
+<p>Result: singing Moog-style mono lead</p>
+<hr />
+<h2>Patch 2: Acid-ish melodic bass</h2>
+<ul>
+<li>saw wave</li>
+<li><strong>VCO out → FOLD IN</strong></li>
+<li>cutoff fairly low</li>
+<li>resonance medium-high</li>
+<li>EG with fast attack, short decay, low sustain, short release</li>
+<li>VCF EG amount fairly high</li>
+<li>glide short</li>
+</ul>
+<p>Result: sharp, articulate melodic bassline</p>
+<hr />
+<h2>Patch 3: Generative stepped melody</h2>
+<ul>
+<li><strong>S+H out → ATTN (+5)</strong></li>
+<li><strong>ATTN out → 1V/OCT</strong></li>
+<li>leave default S+H source/gate</li>
+<li>LFO rate sets melody speed</li>
+<li>VCO wave to saw for broader pitch values</li>
+<li>EG short-medium for percussive notes if externally gated, or use drone methods with filter animation</li>
+</ul>
+<p>Result: autonomous modular melody source</p>
+<hr />
+<h2>Patch 4: Dual oscillator solo</h2>
+<ul>
+<li>LFO rate to audio range</li>
+<li><strong>LFO out → ONE (-5)</strong></li>
+<li><strong>VCO out → TWO</strong></li>
+<li><strong>ONE+TWO out → FOLD IN</strong></li>
+<li><strong>KB CV → LFO RATE</strong></li>
+<li>tune LFO by rate knob</li>
+<li>shape with filter and EG</li>
+</ul>
+<p>Result: fuller, more powerful melodic voice</p>
+<hr />
+<h2>Patch 5: Pitch + brightness linked melody</h2>
+<ul>
+<li><strong>KB CV → MULT</strong></li>
+<li><strong>MULT 1 → 1V/OCT</strong> or let internal keyboard handle pitch</li>
+<li><strong>MULT 2 → CUTOFF</strong></li>
+</ul>
+<p>Attenuate if needed via utility rerouting.</p>
+<p>Result: higher notes naturally get brighter, mimicking acoustic behavior</p>
+<hr />
+<h2>13. What makes Mavis especially good for melody</h2>
+<p>From a Eurorack musician’s perspective, Mavis is especially effective for melodic work because it combines:</p>
+<ul>
+<li>a <strong>true analog voice</strong></li>
+<li>a <strong>playable keyboard</strong></li>
+<li><strong>1V/oct and gate I/O</strong></li>
+<li>internal utility modules usually missing from small synth voices</li>
+<li><strong>wavefolder</strong> for additional harmonic expression</li>
+<li><strong>audio-rate LFO</strong> that doubles as second oscillator</li>
+<li><strong>sample &amp; hold</strong> for generative pitch material</li>
+</ul>
+<p>So it can function as:</p>
+<ul>
+<li>a self-contained melodic monosynth</li>
+<li>a Eurorack lead/bass voice</li>
+<li>a generative melody module</li>
+<li>a modulation-rich timbre engine for repeating note patterns</li>
+</ul>
+<hr />
+<h2>14. Final musician’s take</h2>
+<p>If your goal is to create <strong>melodic components</strong>, think of Mavis in three layers:</p>
+<h3>1. Pitch layer</h3>
+<p>Use:
+- keyboard
+- external 1V/oct
+- S+H
+- attenuated CV
+- mixed CV sources</p>
+<h3>2. Articulation layer</h3>
+<p>Use:
+- gate
+- EG
+- VCA
+- glide</p>
+<h3>3. Character layer</h3>
+<p>Use:
+- waveform selection
+- pulse width / PWM
+- filter envelope
+- resonance
+- wavefolder
+- audio-rate LFO mixing</p>
+<p>The most musical patches usually come from combining all three layers:
+- <strong>stable pitch source</strong>
+- <strong>dynamic envelope</strong>
+- <strong>moving timbre</strong></p>
+<p>That’s where Mavis becomes much more than a starter synth—it becomes a very capable <strong>melodic modular voice</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

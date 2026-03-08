@@ -1,0 +1,416 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Robaux_DCSN-3</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Robaux — DCSN-3</h1>
+<ul>
+<li><a href="../../manuals/robauxDCSN3Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h2>Robaux Decision Tree — using it for melodic components</h2>
+<p>The attached manual pages describe the <strong>Robaux Decision Tree</strong>, a trigger/gate routing and clock-divider module. It is <strong>not a pitch generator by itself</strong>, but it is very useful for building <strong>melodic structure</strong> when paired with oscillators, quantizers, envelopes, sequencers, shift registers, sample &amp; hold, or precision adders.</p>
+<h2>What the module does</h2>
+<p>At its core, the Decision Tree:</p>
+<ul>
+<li>takes a <strong>gate/trigger</strong> at <strong>input a</strong></li>
+<li>routes that trigger <strong>randomly</strong> to:</li>
+<li>one of the three main outputs <strong>b / c / d</strong></li>
+<li>then to one of the related suboutputs:<ul>
+<li><strong>e f g</strong></li>
+<li><strong>h i j</strong></li>
+<li><strong>k l m</strong></li>
+</ul>
+</li>
+</ul>
+<p>This creates branching rhythmic paths.</p>
+<p>It can operate in:
+- <strong>Mono/Mono</strong>
+- <strong>Poly/Mono</strong>
+- <strong>Poly/Poly</strong>
+- and their <strong>Latch</strong> versions</p>
+<p>It also has:
+- a <strong>random ↔ repeating 16-step pattern</strong> control
+- a <strong>new random sequence</strong> button
+- an <strong>auto-reset / hidden reset</strong> behavior
+- <strong>clock divider modes</strong>:
+  - Classic Divider
+  - 2/3/5 Divider
+  - Spread</p>
+<h2>Why this matters for melody</h2>
+<p>Melody in Eurorack is often built from several layers:</p>
+<ul>
+<li><strong>pitch source</strong>: sequencer, random voltage, S&amp;H, Turing machine, keyboard, quantizer</li>
+<li><strong>timing</strong>: clocks, triggers, rhythmic gates</li>
+<li><strong>articulation</strong>: envelopes, accent, ratchets, note length</li>
+<li><strong>structure</strong>: variation, phrase resets, call-and-response</li>
+</ul>
+<p>The Decision Tree is strongest in the last three categories:
+- it decides <strong>when notes happen</strong>
+- it creates <strong>branching phrase structures</strong>
+- it can generate <strong>different melodic lanes</strong>
+- it can create <strong>repeating or semi-random phrase skeletons</strong>
+- it can divide one clock into multiple related time layers</p>
+<p>So, together with other melodic modules, it becomes a very powerful <strong>melodic organizer</strong>.</p>
+<hr />
+<h2>Best uses for melodic patching</h2>
+<h2>1. Branch one pitch stream into multiple melodic voices</h2>
+<h3>Patch idea</h3>
+<p>Use one pitch source and let the Decision Tree decide which voice gets played.</p>
+<p><strong>Patch:</strong>
+- clock or trigger sequencer → <strong>input a</strong>
+- same pitch CV source → several oscillators or voices
+- outputs <strong>b/c/d</strong> → different envelope generators or LPGs for 3 different voices</p>
+<h3>Result</h3>
+<p>Each incoming note event is sent to a different voice. If each voice has:
+- a different timbre
+- different octave
+- different quantizer scale
+- different filter setting</p>
+<p>then a single pitch line becomes a <strong>distributed melody</strong>.</p>
+<h3>Musical effect</h3>
+<ul>
+<li>call-and-response</li>
+<li>hocketing melodies</li>
+<li>pseudo-polyphony from a single source</li>
+<li>generative ensemble lines</li>
+</ul>
+<p>This is especially effective in <strong>Mono/Mono</strong> mode if you want one clear note event per step.</p>
+<hr />
+<h2>2. Create melodic branches with separate pitch processors</h2>
+<p>Instead of only routing triggers to voices, route them to <strong>different pitch-generation chains</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>master clock → <strong>a</strong></li>
+<li>outputs <strong>b/c/d</strong> trigger:</li>
+<li>sample &amp; hold 1</li>
+<li>sample &amp; hold 2</li>
+<li>sequencer advance</li>
+<li>suboutputs <strong>e–m</strong> trigger:</li>
+<li>quantizer change</li>
+<li>transposition source</li>
+<li>octave switch</li>
+<li>glide envelope</li>
+<li>accent envelope</li>
+</ul>
+<h3>Result</h3>
+<p>Different branches of the tree can produce:
+- different notes
+- different octave ranges
+- different scales
+- different note lengths</p>
+<p>This turns the module into a <strong>melodic decision engine</strong>.</p>
+<h3>Example</h3>
+<ul>
+<li><strong>b</strong> triggers a bass-note generator</li>
+<li><strong>c</strong> triggers a midrange melody</li>
+<li><strong>d</strong> triggers a high-answer phrase</li>
+<li>lower outputs <strong>e–m</strong> trigger ornaments, grace notes, transpositions, or alternate quantizer inputs</li>
+</ul>
+<hr />
+<h2>3. Use repeat/random morphing for phrase evolution</h2>
+<p>The manual says knob <strong>n</strong> smoothly adjusts between:
+- <strong>completely random</strong>
+- and a <strong>repeating 16-step pattern</strong></p>
+<p>This is excellent for melody because it gives you a continuum between:
+- generative unpredictability
+- stable motif repetition</p>
+<h3>Musical application</h3>
+<p>Patch a regular clock into <strong>a</strong>, and let the outputs trigger:
+- a quantized random CV source
+- a step sequencer reset/advance
+- envelope triggers for note articulation</p>
+<p>Then use knob <strong>n</strong> to move between:
+- evolving melodic fragments
+- recognizable looping phrases</p>
+<h3>Why this is powerful</h3>
+<p>A lot of modular melodies fail by being either:
+- too random to remember
+- too repetitive to stay interesting</p>
+<p>The Decision Tree is designed to sit between those extremes.</p>
+<hr />
+<h2>4. Generate melody plus ornament layers</h2>
+<p>Because there are 12 outputs arranged in a hierarchy, you can assign different outputs to different melodic functions.</p>
+<h3>Suggested structure</h3>
+<ul>
+<li><strong>b/c/d</strong> = main note lanes</li>
+<li><strong>e/h/k</strong> = accents</li>
+<li><strong>f/i/l</strong> = grace notes or ratchets</li>
+<li><strong>g/j/m</strong> = transposition, reset, or harmony events</li>
+</ul>
+<h3>Result</h3>
+<p>You can create melodies where:
+- some events trigger the main pitch
+- some add ornament notes
+- some trigger higher-octave doubles
+- some trigger secondary voices</p>
+<p>This is a good way to create <strong>musically legible complexity</strong> instead of pure randomness.</p>
+<hr />
+<h2>5. Use latch modes as a melodic switch</h2>
+<p>The latch modes hold the signal until a new input appears. The manual specifically notes this makes the module good as a <strong>random switch</strong>.</p>
+<p>For melody, this is extremely useful.</p>
+<h3>Patch idea</h3>
+<p>Use the module to hold one selected route active, so one melodic branch stays selected until the next trigger changes it.</p>
+<p><strong>Patch examples:</strong>
+- send one CV source into several switched destinations
+- hold one drone note active
+- keep one transposition lane enabled
+- select one of several sequencers for a phrase</p>
+<h3>Melodic effect</h3>
+<p>In <strong>Latch Mono/Mono</strong> or <strong>Latch Poly/Mono</strong>:
+- a route stays active longer
+- phrases feel more intentional
+- melodic fragments persist before changing</p>
+<p>This can create:
+- sustained pedal tones
+- held harmonic states
+- phrase-based melodic switching</p>
+<hr />
+<h2>6. Use Poly modes for chords or layered melodic bursts</h2>
+<p>In:
+- <strong>Poly/Mono</strong>, one or more main outputs can fire, but each selected branch still picks one suboutput
+- <strong>Poly/Poly</strong>, multiple outputs can fire across the whole tree</p>
+<h3>Melodic use</h3>
+<p>These modes are ideal when your system has:
+- multiple oscillators
+- a chord voice
+- several quantized pitch sources
+- multiple envelope/VCA paths</p>
+<h3>Patch idea</h3>
+<ul>
+<li>one clock into <strong>a</strong></li>
+<li>several outputs trigger separate envelopes opening different tuned oscillators</li>
+<li>each oscillator is tuned to a scale degree or interval</li>
+</ul>
+<h3>Result</h3>
+<p>The tree produces:
+- dyads
+- triad fragments
+- staggered chord tones
+- clustered melodic bursts</p>
+<p>In latch versions, these can become sustained harmonic textures.</p>
+<hr />
+<h2>7. Build a self-playing melodic ecosystem</h2>
+<p>The Decision Tree excels in generative patches where one timing source branches into many related events.</p>
+<h3>Example full melodic ecosystem</h3>
+<ul>
+<li>clock → <strong>a</strong></li>
+<li><strong>b</strong> advances sequencer 1</li>
+<li><strong>c</strong> samples random voltage into quantizer 2</li>
+<li><strong>d</strong> triggers bass envelope</li>
+<li><strong>e/f/g</strong> trigger:</li>
+<li>ornament envelope</li>
+<li>octave shift</li>
+<li>glide</li>
+<li><strong>h/i/j</strong> trigger:</li>
+<li>alternate scale selection</li>
+<li>precision adder offset</li>
+<li>sequence reset</li>
+<li><strong>k/l/m</strong> trigger:</li>
+<li>second quantizer</li>
+<li>harmonic voice</li>
+<li>phrase reset</li>
+</ul>
+<h3>Result</h3>
+<p>A single incoming pulse creates:
+- main melody
+- variation
+- harmony
+- resets and phrase structure</p>
+<p>This is one of the strongest uses of the module in melodic music.</p>
+<hr />
+<h2>8. Use the clock divider modes as melodic timing sources</h2>
+<p>The divider section is very valuable for melody because it creates multiple related trigger streams at different rates.</p>
+<h2>Classic Divider mode</h2>
+<p>According to the manual:
+- <strong>b</strong> = /2
+- <strong>e</strong> = /4
+- <strong>f</strong> = /8
+- <strong>g</strong> = /16</p>
+<p>And the lower outputs:
+- <strong>c h i j k l m d</strong>
+act like an <strong>8-step clock sequencer</strong>, cycling one after the other.</p>
+<h3>Melodic uses</h3>
+<ul>
+<li>Use /2, /4, /8, /16 to trigger:</li>
+<li>bass notes</li>
+<li>melody notes</li>
+<li>phrase changes</li>
+<li>chord changes</li>
+<li>Use the 8-step cycling outputs to:</li>
+<li>step through 8 note sources</li>
+<li>trigger 8 stored voltages</li>
+<li>create an addressable melody from static CVs</li>
+</ul>
+<h3>Especially useful for</h3>
+<ul>
+<li>techno arps</li>
+<li>clocked Berlin-style sequences</li>
+<li>phrase resets and structured melodic repetition</li>
+</ul>
+<hr />
+<h2>9. Use 2/3/5 Divider mode for polyrhythmic melody</h2>
+<p>The manual specifies:
+- <strong>b e f g</strong> = /2 /4 /8 /16
+- <strong>c h i j</strong> = /3 /6 /12 /24
+- <strong>d k l m</strong> = /5 /10 /20 /40</p>
+<p>This is excellent for creating <strong>multi-timescale melodies</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>/2 group → bassline triggers</li>
+<li>/3 group → lead melody</li>
+<li>/5 group → accent or transposition events</li>
+</ul>
+<h3>Result</h3>
+<p>Even with simple pitch material, the differing divisions create:
+- phase relationships
+- evolving counterpoint
+- non-repeating melodic interplay</p>
+<h3>Why this works musically</h3>
+<p>Pitch content can remain simple, while timing complexity creates the sense of intelligent melodic motion.</p>
+<p>This mode is especially good with:
+- quantized random voltages
+- shift-register melodies
+- fixed 8-step sequencers
+- transposition inputs</p>
+<hr />
+<h2>10. Use Spread mode for harmonic and overtone-based melody</h2>
+<p>The manual says Spread mode creates successive divisions:
+- 1/2, 1/3, 1/4, 1/5, 1/6, 1/7, etc.</p>
+<p>It also explicitly suggests using it at <strong>audio rate for polyphonic chords using one square VCO</strong>.</p>
+<h3>Melodic/harmonic application 1: subharmonic melody</h3>
+<p>Feed an audio-rate square wave into the input and use the outputs as subharmonic tones.</p>
+<p>This can create:
+- chordal intervals
+- pseudo-organ harmonies
+- subharmonic melodic structures</p>
+<p>If you switch or sequence these outputs through VCAs, you can build melodies from one oscillator’s divided frequencies.</p>
+<h3>Melodic/harmonic application 2: trigger-derived note hierarchies</h3>
+<p>At clock rate, use the spread outputs to trigger different voices at increasingly slower rates:
+- frequent notes in one voice
+- slower harmony notes in another
+- very slow root movement in a third</p>
+<p>This gives a natural melodic hierarchy:
+- ornament
+- phrase
+- harmonic anchor</p>
+<hr />
+<h2>11. Hidden reset input for phrase control</h2>
+<p>The hidden reset input uses <strong>jack m</strong> in a special mode, and is useful for returning to the first step in loop mode.</p>
+<p>This matters for melody because reset is how you create:
+- downbeats
+- phrase boundaries
+- recurring motifs
+- synchronized loops with other sequencers</p>
+<h3>Use cases</h3>
+<ul>
+<li>reset the module every 16 or 32 beats</li>
+<li>align it with a master sequencer</li>
+<li>force phrase restarts at section changes</li>
+<li>keep generative melodies from drifting too far</li>
+</ul>
+<p>When activated, <strong>m</strong> is no longer available as an output, so it’s a tradeoff:
+- fewer melodic branches
+- more phrase control</p>
+<p>Usually worth it if your patch needs stronger song structure.</p>
+<hr />
+<h2>12. Practical melodic patch recipes</h2>
+<h2>Patch 1: Three-lane melody router</h2>
+<p><strong>Goal:</strong> one pitch source, three melodic personalities</p>
+<ul>
+<li>clock → <strong>a</strong></li>
+<li>quantized CV → 3 oscillators</li>
+<li><strong>b/c/d</strong> → 3 envelopes/VCAs</li>
+<li>tune each oscillator differently:</li>
+<li>b = root register</li>
+<li>c = fifth above</li>
+<li>d = octave/high voice</li>
+</ul>
+<p>Use <strong>Mono/Mono</strong> for clean hocketing.<br />
+Use <strong>Poly/Poly</strong> for chord fragments.</p>
+<hr />
+<h2>Patch 2: Generative melody with stable phrase memory</h2>
+<p><strong>Goal:</strong> random notes that become recurring motifs</p>
+<ul>
+<li>trigger clock → <strong>a</strong></li>
+<li>outputs trigger a sample &amp; hold and quantizer setup</li>
+<li>set knob <strong>n</strong> midway toward repeating pattern</li>
+<li>press <strong>o</strong> to regenerate until the phrase feels musical</li>
+</ul>
+<p>This gives a melody that sounds composed rather than chaotic.</p>
+<hr />
+<h2>Patch 3: Ornament engine</h2>
+<p><strong>Goal:</strong> main notes plus decorative notes</p>
+<ul>
+<li><strong>b/c/d</strong> trigger main melody voice events</li>
+<li><strong>e/f/g</strong> trigger short envelope for upper-octave oscillator</li>
+<li><strong>h/i/j</strong> trigger filter ping or FM accent</li>
+<li><strong>k/l/m</strong> trigger transposition CV changes</li>
+</ul>
+<p>Now the tree creates melodic detail around the core line.</p>
+<hr />
+<h2>Patch 4: Polyrhythmic melodic trio</h2>
+<p><strong>Goal:</strong> three related melodies with different pulse rates</p>
+<p>In <strong>2/3/5 Divider</strong> mode:
+- /2 outputs → bassline sequencer advance
+- /3 outputs → lead sequencer advance
+- /5 outputs → transposition or accent logic</p>
+<p>This produces slowly evolving melodic counterpoint.</p>
+<hr />
+<h2>Patch 5: Subharmonic chord melody</h2>
+<p><strong>Goal:</strong> melody/harmony from one oscillator</p>
+<p>In <strong>Spread</strong> mode:
+- square VCO → input
+- outputs → separate VCAs/mixer/filter paths
+- use external gates to open selected divided outputs rhythmically</p>
+<p>This creates dark, organ-like melodic harmonies from one source.</p>
+<hr />
+<h2>Strengths for melodic composition</h2>
+<p>The Robaux Decision Tree is especially strong for:</p>
+<ul>
+<li><strong>generative melodies</strong></li>
+<li><strong>branching phrase logic</strong></li>
+<li><strong>polyrhythmic note triggering</strong></li>
+<li><strong>hocketing between voices</strong></li>
+<li><strong>melody/harmony separation</strong></li>
+<li><strong>self-playing patches with structure</strong></li>
+<li><strong>subharmonic harmonic material in Spread mode</strong></li>
+</ul>
+<h2>Limitations</h2>
+<p>By itself, it does <strong>not</strong> generate pitch CV.<br />
+To make it fully melodic, pair it with:
+- quantizers
+- random CV sources
+- sequencers
+- sample &amp; hold
+- oscillators
+- switch modules
+- precision adders
+- envelope/VCA voice chains</p>
+<p>Think of it as a <strong>melody traffic controller</strong>, not the melody source itself.</p>
+<h2>Best partner modules</h2>
+<p>It pairs especially well with:
+- quantizers
+- Turing Machine / random CV modules
+- sequencers with reset/advance inputs
+- sample &amp; hold
+- shift registers
+- envelope generators
+- logic modules
+- VCAs/LPGs
+- precision adders
+- multi-oscillator voice setups</p>
+<h2>Bottom line</h2>
+<p>The Decision Tree can be a powerful melodic module when used as a <strong>rhythmic branching brain</strong>. It shines when you want melodies that feel:
+- alive
+- structured
+- varied
+- pseudo-composed</p>
+<p>Its strongest musical role is to distribute timing and phrase decisions across several pitch paths, turning ordinary melodic sources into evolving, layered musical systems.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

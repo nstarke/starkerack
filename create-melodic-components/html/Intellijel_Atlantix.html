@@ -1,0 +1,612 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Atlantix</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Atlantix</h1>
+<ul>
+<li><a href="../../manuals/atlantix_manual_2024.09.12.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Atlantix Manual PDF</a></p>
+<h1>Intellijel Atlantix + ATLX Expander: using them to create melodic parts</h1>
+<p>The <strong>Intellijel Atlantix</strong> is essentially a complete <strong>dual-oscillator analog voice</strong> in Eurorack:<br />
+- <strong>VCO A</strong> = main melodic oscillator<br />
+- <strong>VCO B</strong> = second oscillator or modulation source<br />
+- <strong>Mixer</strong> = blends waves and auxiliary signals<br />
+- <strong>VCF</strong> = tone shaping / articulation<br />
+- <strong>Envelope + VCA</strong> = note dynamics<br />
+- <strong>Mods / S&amp;H</strong> = motion, variation, pseudo-sequencing<br />
+- <strong>ATLX expander</strong> = extra waveform/filter outs + ring mod access</p>
+<p>For melodic music, this means Atlantix can function as:</p>
+<ol>
+<li>a <strong>full monosynth voice</strong>  </li>
+<li>a <strong>two-layer melodic source</strong>  </li>
+<li>a <strong>bass / lead / arp voice</strong>  </li>
+<li>a <strong>self-patching melodic generator</strong>  </li>
+<li>a <strong>hub for external sequencers, envelopes, and utilities</strong></li>
+</ol>
+<hr />
+<h2>What the module gives you for melody</h2>
+<h2>1. A complete playable voice</h2>
+<p>Atlantix already contains the full chain you need:</p>
+<p><strong>Pitch CV → Oscillator(s) → Mixer → Filter → VCA → Output</strong></p>
+<p>Specifically:
+- Send <strong>1V/oct</strong> pitch to <strong>PITCH A IN [1.A]</strong>
+- Send gates to <strong>GATE [5.A]</strong>
+- Take audio from <strong>OUT [5.G]</strong></p>
+<p>With no extra patching, the internal normals already connect:
+- Mixer → VCF
+- VCF → VCA
+- Envelope → VCA
+- Envelope → filter modulation
+- Mod sources → oscillator/filter FM destinations</p>
+<p>So for melody, this behaves much like a semi-normalled analog synth voice.</p>
+<hr />
+<h2>2. Strong oscillator relationships for harmonic melody</h2>
+<h3>VCO A</h3>
+<p>VCO A is the main melodic oscillator:
+- octave + fine tune
+- saw + pulse in the mixer
+- PWM
+- sync
+- exponential FM
+- thru-zero linear FM</p>
+<p>This makes it great for:
+- classic lead lines
+- bass lines
+- sync leads
+- expressive FM timbres
+- evolving melodic tones</p>
+<h3>VCO B</h3>
+<p>VCO B can be:
+- another audio oscillator
+- an LFO
+- a pitch-following harmonic partner
+- a modulation source</p>
+<p>The key melodic feature is the <strong>PITCH SOURCE [2.3]</strong> switch:
+- <strong>A+B</strong>: VCO B can follow PITCH A, optionally offset by PITCH B input
+- <strong>B</strong>: VCO B is independent</p>
+<p>This is extremely useful for melody because you can make VCO B:
+- track the main melody in unison
+- track it at an interval
+- run independently as a second melodic line
+- act as a synced/fm modulator tied to the same keyboard/sequencer pitch</p>
+<hr />
+<h1>Best melodic use cases</h1>
+<h2>1. Classic mono lead voice</h2>
+<p>This is the most straightforward patch.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer/keyboard pitch → <strong>PITCH A [1.A]</strong></li>
+<li>Gate → <strong>GATE [5.A]</strong></li>
+<li>Audio out → <strong>OUT [5.G]</strong></li>
+</ul>
+<h3>Settings</h3>
+<ul>
+<li>Bring up <strong>SAW [3.2]</strong> or <strong>PULSE [3.1]</strong></li>
+<li>Set filter to <strong>LP</strong></li>
+<li>Use envelope on filter with <strong>ENV [4.3]</strong></li>
+<li>Set VCA mode to <strong>ADSR [5.6]</strong></li>
+</ul>
+<h3>Why it works</h3>
+<p>Atlantix has the classic subtractive architecture for melodic leads:
+- harmonically rich oscillator
+- resonant multimode filter
+- ADSR contour
+- optional drive at the VCA</p>
+<h3>Variations</h3>
+<ul>
+<li>Add <strong>SUB [3.3]</strong> for a thicker lead</li>
+<li>Add <strong>NOISE [3.4]</strong> very subtly for breath/grit</li>
+<li>Use <strong>SYNC A SOURCE = VCO B saw</strong> and <strong>SYNC TYPE = HARD</strong> for classic sync leads</li>
+<li>Use <strong>DRIVE [5.7]</strong> in SYM or ASYM for more aggressive solos</li>
+</ul>
+<hr />
+<h2>2. Basslines</h2>
+<p>Atlantix looks especially strong for bass.</p>
+<h3>Why</h3>
+<ul>
+<li>VCO A has <strong>sub oscillator</strong> options:</li>
+<li>-1 octave</li>
+<li>-2 octaves</li>
+<li>logical OR pulse-style sub</li>
+<li>Filter can be lowpass and resonant</li>
+<li>VCA drive gives weight</li>
+<li>Envelope can be very snappy in <strong>FAST</strong> mode</li>
+</ul>
+<h3>Patch</h3>
+<p>Same as mono lead:
+- Pitch → <strong>PITCH A</strong>
+- Gate → <strong>GATE</strong>
+- Audio → <strong>OUT</strong></p>
+<h3>Suggested settings</h3>
+<ul>
+<li>Mixer:</li>
+<li><strong>SAW</strong> medium-high</li>
+<li><strong>SUB</strong> medium-high</li>
+<li>maybe a little <strong>PULSE</strong></li>
+<li>Filter:</li>
+<li><strong>LP</strong></li>
+<li>moderate resonance</li>
+<li>medium envelope amount</li>
+<li>Envelope:</li>
+<li>fast attack</li>
+<li>short/medium decay</li>
+<li>low sustain</li>
+<li>short release</li>
+<li>VCA:</li>
+<li><strong>ADSR</strong></li>
+<li>maybe <strong>SYM</strong> drive</li>
+</ul>
+<h3>Musical result</h3>
+<p>You get:
+- Moog-ish rounded bass
+- acid-like resonant bass
+- punchy techno bass
+- sync bass with bite</p>
+<hr />
+<h2>3. Dual-oscillator interval leads</h2>
+<p>Since VCO B can follow pitch from VCO A, you can build richer melodic voices.</p>
+<h3>Method A: use VCO B as audio via AUX inputs</h3>
+<p>The mixer has two normalized AUX paths:
+- <strong>AUX 1</strong> can default to <strong>VCO A triangle</strong> or <strong>VCO B square</strong>
+- <strong>AUX 2</strong> can default to <strong>VCO A sine</strong> or <strong>VCO B saw</strong></p>
+<p>So you can bring VCO B into the main signal path without needing the expander.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Pitch CV → <strong>PITCH A</strong></li>
+<li>Leave <strong>PITCH B</strong> unpatched</li>
+<li>Set <strong>VCO B PITCH SOURCE [2.3] = A+B</strong></li>
+<li>Tune <strong>PITCH B [2.2]</strong> to an interval:</li>
+<li>slight detune = thick unison</li>
+<li>+7 semitones ≈ fifth</li>
+<li>+12 semitones = octave</li>
+<li>Set <strong>AUX 1 Source [3.10]</strong> to VCO B square and raise <strong>AUX 1 [3.5]</strong></li>
+<li>Or set <strong>AUX 2 Source [3.11]</strong> to VCO B saw and raise <strong>AUX 2 [3.6]</strong></li>
+</ul>
+<h3>Result</h3>
+<p>One incoming melodic pitch controls both oscillators, but VCO B can be offset to create:
+- octave leads
+- fifth-based heroic leads
+- detuned unison leads
+- tuned drone-plus-lead combinations</p>
+<p>This is one of Atlantix’s strongest melodic features.</p>
+<hr />
+<h2>4. Cross-modulated melodic timbres</h2>
+<p>For more advanced melodic parts, use VCO B to modulate VCO A.</p>
+<h3>Internal normal advantage</h3>
+<p>If nothing is plugged into <strong>FM 1 IN [1.D]</strong>, VCO A’s FM 1 source defaults to <strong>MOD X</strong>.<br />
+MOD X can select VCO B waveforms.</p>
+<p>So you can:
+- choose VCO B sine/triangle/saw/square as MOD X source
+- send that to VCO A FM1 internally
+- choose <strong>TZFM</strong> or <strong>EXP</strong>
+- control modulation depth with <strong>INDEX [1.4]</strong>
+- control dynamic FM amount with <strong>IM [1.3]</strong></p>
+<h3>Melodic applications</h3>
+<h4>Linear FM melodies</h4>
+<p>Use <strong>TZFM</strong>
+- good pitch stability
+- better for tuned melodic playing
+- rich but still musical harmonic movement</p>
+<h4>Exponential FM melodies</h4>
+<p>Use <strong>EXP</strong>
+- wilder and more vintage
+- pitch/timbre change together
+- better for expressive, unstable lines</p>
+<h3>Great musical setup</h3>
+<ul>
+<li>VCO B follows VCO A pitch with <strong>A+B</strong></li>
+<li>Tune VCO B to a simple ratio (unison, octave, fifth-ish)</li>
+<li>Use <strong>MOD X = VCO B sine</strong></li>
+<li>Raise <strong>INDEX</strong></li>
+<li>Modulate index with the envelope via the internal IM normal</li>
+</ul>
+<p>This creates notes that start bright/complex and settle into a purer pitch—excellent for:
+- plucked FM tones
+- metallic melodic motifs
+- expressive synth leads</p>
+<hr />
+<h2>5. Oscillator sync leads</h2>
+<p>VCO A supports both <strong>hard</strong> and <strong>soft</strong> sync.</p>
+<h3>Default normal</h3>
+<p>If nothing is patched to <strong>SYNC A [1.B]</strong>, VCO A can sync either to:
+- <strong>VCO B saw</strong>
+- or <strong>GATE</strong>
+depending on <strong>SYNC A SOURCE [1.13]</strong></p>
+<h3>Melodic uses</h3>
+<h4>VCO B as sync master</h4>
+<ul>
+<li>Gives classic ripping sync lead sounds</li>
+<li>Sequence pitch into VCO A</li>
+<li>Let VCO B follow or offset pitch</li>
+<li>Sweep VCO A tuning for the signature sync harmonics</li>
+</ul>
+<h4>Gate sync</h4>
+<ul>
+<li>Each note can restart the oscillator phase</li>
+<li>Great for percussive/plucky consistency</li>
+<li>Useful for tight bass or plucked melodies</li>
+</ul>
+<h3>Hard sync</h3>
+<p>Sharper, more aggressive, classic lead tone.</p>
+<h3>Soft sync</h3>
+<p>Smoother, less abrasive, still harmonically rich.</p>
+<p>For melodic content, sync is especially useful when you want:
+- one-note leads with lots of movement
+- repeated sequences that need timbral animation
+- expressive filterless or lightly filtered solo lines</p>
+<hr />
+<h2>6. PWM melodies</h2>
+<p>Atlantix gives VCO A pulse width and pulse width modulation.</p>
+<h3>Internal PWM normals</h3>
+<p>If nothing is plugged into <strong>PWM IN [1.F]</strong>, the source can be:
+- <strong>VCO B sine</strong>
+- <strong>Envelope</strong></p>
+<h3>Melodic applications</h3>
+<h4>Envelope PWM</h4>
+<ul>
+<li>each note opens/closes pulse width</li>
+<li>great for plucks, brass-like leads, animated bass</li>
+</ul>
+<h4>VCO B PWM</h4>
+<ul>
+<li>slow VCO B in LFO mode for moving pulse texture</li>
+<li>audio-rate VCO B for more aggressive harmonic animation</li>
+</ul>
+<p>Because pulse width changes harmonic content dramatically, this is one of the easiest ways to make a repeating melody feel alive without changing notes.</p>
+<hr />
+<h1>Using the filter melodically</h1>
+<p>Atlantix’s filter is not just a tone control—it can become part of the melodic identity.</p>
+<h2>1. Pitch-tracking filter</h2>
+<p>If nothing is patched into <strong>FM 2 [4.B]</strong>, the filter defaults to tracking <strong>VCO A pitch</strong>.</p>
+<p>This is very useful for melody because:
+- higher notes can stay bright
+- lower notes remain warm
+- the voice feels more “played” across the keyboard</p>
+<p>Use this for:
+- bass patches
+- expressive mono leads
+- patches with significant resonance</p>
+<h2>2. Envelope-shaped articulation</h2>
+<p>The envelope is normalled to the filter and scaled by <strong>ENV [4.3]</strong>.</p>
+<p>This gives classic melodic articulations:
+- pluck
+- sweep
+- punch
+- vowel-like attacks</p>
+<h2>3. Multimode filtering for different melodic roles</h2>
+<ul>
+<li><strong>LP</strong>: best for basses and classic leads</li>
+<li><strong>BP</strong>: focused, nasal, sequence-friendly</li>
+<li><strong>HP</strong>: thinner melodic lines, useful in dense mixes</li>
+<li><strong>PHZ</strong>: very interesting animated melodic textures</li>
+</ul>
+<h3>Phaser mode for melody</h3>
+<p>The <strong>PHZ</strong> mode can make repeating melodic parts more animated and spatial without needing a separate phaser module. Good for:
+- arps
+- sequences
+- hovering melodic ostinatos</p>
+<hr />
+<h1>Using the envelope and VCA for phrasing</h1>
+<p>Atlantix’s ADSR and VCA determine how “played” your melody feels.</p>
+<h2>Envelope ranges</h2>
+<p>Three rates:
+- <strong>FAST</strong>
+- <strong>MED</strong>
+- <strong>SLOW</strong></p>
+<p>This makes Atlantix suitable for:
+- short staccato basslines
+- medium synth leads
+- long evolving drones or ambient melodies</p>
+<h2>VCA modes</h2>
+<h3>ADSR mode</h3>
+<p>Best for traditional melodic phrasing.</p>
+<h3>GATE mode</h3>
+<p>Makes the voice behave like an organ:
+- immediate on
+- immediate off</p>
+<p>Great for:
+- chiptune-ish lines
+- mechanical sequences
+- external envelope control</p>
+<h2>Drive</h2>
+<p>The VCA has:
+- <strong>SYM</strong>
+- <strong>X</strong>
+- <strong>ASYM</strong></p>
+<p>For melody:
+- <strong>SYM</strong> = tighter, more centered saturation
+- <strong>ASYM</strong> = dirtier, more characterful harmonics</p>
+<p>This can help a lead or bass cut through without extra modules.</p>
+<hr />
+<h1>How the MOD section helps melody</h1>
+<p>This section is where Atlantix becomes much more than a basic voice.</p>
+<h2>MOD X and MOD Y</h2>
+<p>Two assignable modulation outputs with:
+- 8 source choices each
+- unipolar/bipolar switching
+- polarity inversion</p>
+<p>Defaults:
+- <strong>MOD X → VCO A FM1</strong>
+- <strong>MOD Y → VCF FM1</strong></p>
+<p>That means the module is already set up for dynamic self-patched melodic timbres.</p>
+<h2>Useful melodic modulation sources</h2>
+<p>You can choose for MOD X/Y:
+- VCO B sine/triangle/saw/square
+- sample &amp; hold
+- noise
+- VCF
+- VCA or MIX depending on X/Y</p>
+<h3>Musical use cases</h3>
+<h4>VCO B as LFO</h4>
+<p>Set <strong>VCO/LFO [2.4] = LFO</strong>
+Then MOD X or MOD Y can become:
+- vibrato
+- filter wobble
+- slow timbral drift</p>
+<h4>Audio-rate modulation</h4>
+<p>Set VCO B to audio
+Use MOD X/Y for:
+- FM tones
+- filter FM brightness
+- harsh or glassy melodic timbres</p>
+<h4>Using VCF or MIX as modulation</h4>
+<p>This creates feedback-like self-referential motion.
+Very useful for:
+- unstable evolving melodic tones
+- animated drones
+- living, semi-chaotic sequence timbres</p>
+<hr />
+<h1>Sample &amp; Hold for melodic variation</h1>
+<p>Atlantix includes S&amp;H/T&amp;H and noise, which can create melodic motion even without a traditional sequencer.</p>
+<h2>S&amp;H basics</h2>
+<ul>
+<li><strong>HOLD [6.A]</strong> determines when sampling occurs</li>
+<li><strong>SAMP [6.B]</strong> is the source being sampled</li>
+<li><strong>S&amp;H OUT [6.C]</strong> is the stepped result</li>
+</ul>
+<p>If nothing is plugged in:
+- HOLD can default to <strong>VCO B square</strong> or <strong>Gate</strong>
+- SAMP defaults to <strong>white noise</strong></p>
+<h2>Melodic applications</h2>
+<h3>1. Random note generator</h3>
+<p>Patch:
+- <strong>S&amp;H OUT [6.C]</strong> → <strong>PITCH A [1.A]</strong></p>
+<p>Then use:
+- quantizer externally if you want tonal notes
+- HOLD from gate for one new pitch per note
+- HOLD from VCO B square for clocked random stepping</p>
+<p>This creates random melodies.</p>
+<h3>2. Per-note timbre variation</h3>
+<p>Instead of pitch, patch S&amp;H to:
+- <strong>VCF FM</strong>
+- <strong>Q</strong>
+- <strong>PWM</strong>
+- <strong>IM</strong>
+- <strong>FM 2</strong></p>
+<p>This is often musically better than random pitch because the melody stays stable while each note gets a slightly different color.</p>
+<h3>3. Semi-random ornamentation</h3>
+<p>Use <strong>Track &amp; Hold</strong> instead of Sample &amp; Hold for more fluid, less rigid movement.</p>
+<hr />
+<h1>How Atlantix and ATLX work together musically</h1>
+<p>The <strong>ATLX expander</strong> adds significant melodic flexibility because it exposes many internal signals as dedicated outputs.</p>
+<h2>Extra oscillator waveform outputs</h2>
+<p>ATLX gives dedicated outputs for:
+- VCO A sine / triangle / saw / pulse
+- VCO B sine / triangle / saw / square
+- sub out
+- multiple filter outputs
+- ring mod out</p>
+<p>This matters for melody because you can use Atlantix as a <strong>voice plus source bank</strong>.</p>
+<h2>1. Parallel melodic layers</h2>
+<p>Use the main <strong>OUT [5.G]</strong> as one complete melodic voice, while also taking:
+- <strong>A SAW</strong>
+- <strong>B SIN</strong>
+- <strong>SUB</strong>
+- dedicated filter outs</p>
+<p>These can go to:
+- external VCAs
+- extra filters
+- effects
+- wavefolders
+- stereo processing</p>
+<p>So one Atlantix sequence can become:
+- dry bass in the center
+- filtered sine octave layer
+- effected saw lead in parallel
+- sub reinforcement on another path</p>
+<h2>2. Multiple filter-output melodies</h2>
+<p>The expander gives:
+- <strong>LP</strong>
+- <strong>HP</strong>
+- <strong>BP</strong>
+- <strong>PHZ</strong></p>
+<p>This is excellent for building melodic texture:
+- use <strong>OUT</strong> as your main voice
+- send <strong>BP out</strong> to delay/reverb for a second melodic shadow
+- send <strong>HP out</strong> to distortion for bright harmonics
+- send <strong>PHZ out</strong> to stereo effects for width</p>
+<p>A single melody line becomes a layered arrangement.</p>
+<h2>3. Ring modulation for tuned melodic overtones</h2>
+<p>The ring mod section has:
+- <strong>X in</strong>
+- <strong>Y in</strong>
+- <strong>RING out</strong></p>
+<p>Defaults:
+- X = Osc A sine
+- Y = Osc B sine</p>
+<p>If VCO B tracks VCO A at a fixed interval, the ring mod can produce very musical sidebands.</p>
+<h3>Melodic use</h3>
+<ul>
+<li>Tune VCO B to octave/fifth/other interval</li>
+<li>Use <strong>RING out</strong> as a second audio layer</li>
+<li>Mix it externally with the main voice</li>
+</ul>
+<p>This can produce:
+- bell-like melodic doubles
+- metallic leads
+- tuned shimmer on bass notes
+- inharmonic but repeating melodic color</p>
+<p>For melodic composition, the best approach is often not to use ring mod alone, but to blend it under the main voice.</p>
+<hr />
+<h1>Practical melodic patch ideas</h1>
+<h2>Patch 1: Simple analog lead</h2>
+<p><strong>Connections</strong>
+- Pitch CV → PITCH A
+- Gate → GATE
+- OUT → mixer/audio interface</p>
+<p><strong>Settings</strong>
+- SAW up
+- LP filter
+- ENV to filter moderate
+- ADSR mode
+- slight resonance</p>
+<p><strong>Result</strong>
+Classic subtractive mono lead.</p>
+<hr />
+<h2>Patch 2: Thick bass with sub</h2>
+<p><strong>Connections</strong>
+- Pitch CV → PITCH A
+- Gate → GATE
+- OUT → output</p>
+<p><strong>Settings</strong>
+- SAW medium
+- SUB high
+- LP 4-pole
+- fast envelope
+- drive ON
+- filter tracking active via FM2 normal</p>
+<p><strong>Result</strong>
+Solid melodic bassline with good low-end focus.</p>
+<hr />
+<h2>Patch 3: Dual-oscillator interval melody</h2>
+<p><strong>Connections</strong>
+- Pitch CV → PITCH A
+- Gate → GATE</p>
+<p><strong>Settings</strong>
+- VCO B pitch source = A+B
+- Tune VCO B to fifth or octave
+- AUX 1 source = B square or AUX 2 source = B saw
+- bring up AUX level
+- blend with VCO A waves</p>
+<p><strong>Result</strong>
+One-note melody with harmonic interval layering.</p>
+<hr />
+<h2>Patch 4: Sync lead</h2>
+<p><strong>Connections</strong>
+- Pitch CV → PITCH A
+- Gate → GATE</p>
+<p><strong>Settings</strong>
+- SYNC A source = VCO B saw
+- SYNC TYPE = HARD
+- VCO B tracks A+B
+- Sweep VCO A pitch knob while playing
+- use filter sparingly</p>
+<p><strong>Result</strong>
+Classic tearing sync lead for melodic solos.</p>
+<hr />
+<h2>Patch 5: Musical FM pluck</h2>
+<p><strong>Connections</strong>
+- Pitch CV → PITCH A
+- Gate → GATE</p>
+<p><strong>Settings</strong>
+- MOD X source = VCO B sine
+- FM1 uses MOD X normal
+- TZFM selected
+- VCO B tracks A+B
+- INDEX moderate
+- IM raised so envelope affects FM index
+- short envelope</p>
+<p><strong>Result</strong>
+Bright attack with harmonically rich but playable melodic notes.</p>
+<hr />
+<h2>Patch 6: Animated PWM melody</h2>
+<p><strong>Connections</strong>
+- Pitch CV → PITCH A
+- Gate → GATE</p>
+<p><strong>Settings</strong>
+- Pulse up in mixer
+- PWM source = envelope or VCO B sine
+- moderate PWM amount
+- LP or BP filter
+- medium ADSR</p>
+<p><strong>Result</strong>
+Warm animated sequence or lead with organic motion.</p>
+<hr />
+<h2>Patch 7: Melodic voice plus parallel shimmer using ATLX</h2>
+<p><strong>Connections</strong>
+- Pitch CV → PITCH A
+- Gate → GATE
+- Main OUT → main mix
+- ATLX RING OUT → reverb/delay return or second VCA
+- Optionally ATLX BP OUT → stereo effect path</p>
+<p><strong>Settings</strong>
+- VCO B tuned to interval from VCO A
+- Ring mod defaults to A sine and B sine</p>
+<p><strong>Result</strong>
+Main melody stays grounded, while ring mod and filter outs create a second melodic halo.</p>
+<hr />
+<h1>Best strategies for writing melodic music with Atlantix</h1>
+<h2>1. Keep VCO A as the “pitch anchor”</h2>
+<p>For the clearest melodic result:
+- send your main sequence to <strong>PITCH A</strong>
+- let the rest of the module orbit around that pitch</p>
+<p>This preserves musical coherence while allowing rich timbral movement.</p>
+<h2>2. Use VCO B for one of three jobs</h2>
+<p>VCO B is most effective when you commit it to a role:
+- <strong>harmonic partner</strong>
+- <strong>LFO/modulator</strong>
+- <strong>audio-rate FM/sync source</strong></p>
+<p>Trying to do all three at once can get chaotic.</p>
+<h2>3. Use modulation for articulation, not just complexity</h2>
+<p>For melodic parts, the best modulation destinations are often:
+- filter cutoff
+- PWM
+- FM index
+- resonance in small amounts</p>
+<p>These preserve note identity while adding expression.</p>
+<h2>4. Use S&amp;H for timbre, not only pitch</h2>
+<p>Random pitch can be fun, but random timbral variation often sits better musically.
+Try S&amp;H to:
+- filter cutoff
+- Q
+- pulse width
+- FM depth</p>
+<h2>5. Use the expander for arrangement</h2>
+<p>ATLX is especially useful for taking one melodic part and splitting it into:
+- core voice
+- upper texture
+- sub reinforcement
+- effected duplicate</p>
+<p>That is powerful for composition and mixing.</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>Atlantix</strong> is very well suited to melodic music because it combines:
+- a playable main oscillator
+- a secondary oscillator that can track, offset, sync, or modulate
+- an internal mixer with useful waveform normals
+- a flexible multimode filter
+- ADSR/VCA articulation
+- self-patching modulation tools
+- random/held voltage generation
+- optional expander outputs for layering</p>
+<p>In practice, it excels at:
+- <strong>basslines</strong>
+- <strong>mono leads</strong>
+- <strong>sync solos</strong>
+- <strong>FM plucks</strong>
+- <strong>dual-oscillator interval melodies</strong>
+- <strong>self-evolving sequences</strong>
+- <strong>layered melodic textures with the ATLX expander</strong></p>
+<p>If you want, I can also turn this into:
+1. a <strong>set of 10 specific melodic patches</strong>,<br />
+2. a <strong>quick-start cheat sheet</strong>, or<br />
+3. a <strong>signal-flow diagram showing how to patch Atlantix as a lead/bass voice</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-112_Granular_Looper</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-112 Granular Looper</h1>
+<ul>
+<li><a href="../../manuals/ADDAC112_Granular_E_0.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://media.addacsystem.com/manuals/ADDAC112_manual.pdf">ADDAC112 VC Looper &amp; Granular Processor Manual (PDF)</a></p>
+<h1>Using the ADDAC112 to Create Melodic Components in a Eurorack System</h1>
+<p>The <strong>ADDAC112 VC Looper &amp; Granular Processor</strong> is not just a texture machine. It can be used very effectively as a <strong>melodic instrument</strong>, especially when you treat its <strong>looper</strong>, <strong>pitch controls</strong>, <strong>quantizer</strong>, <strong>preset system</strong>, and <strong>granular engine</strong> as compositional tools rather than just effects.</p>
+<h2>What the module gives you musically</h2>
+<p>From the manual, the ADDAC112 combines:</p>
+<ul>
+<li>a <strong>stereo looper</strong></li>
+<li>a <strong>granular processor</strong> that works on the selected loop</li>
+<li><strong>CV over nearly every front-panel control</strong></li>
+<li><strong>quantized pitch control</strong></li>
+<li><strong>preset recall</strong></li>
+<li><strong>loop selection by CV</strong></li>
+<li>the ability to <strong>record, overdub, repitch, and resample</strong></li>
+<li>up to <strong>99 loops</strong> and <strong>99 presets</strong> per bank</li>
+</ul>
+<p>That means it can act as:</p>
+<ul>
+<li>a <strong>melodic sampler</strong></li>
+<li>a <strong>phrase looper</strong></li>
+<li>a <strong>quantized granular voice</strong></li>
+<li>a <strong>pitched resampling oscillator</strong></li>
+<li>a <strong>bank of playable notes/chords/phrases</strong></li>
+<li>a <strong>generative melody source</strong></li>
+</ul>
+<hr />
+<h2>The main melodic building blocks</h2>
+<h2>1. Loops as playable notes or phrases</h2>
+<p>The most direct melodic use is to record or load short loops that contain:</p>
+<ul>
+<li>a single note</li>
+<li>a sustained harmonic tone</li>
+<li>a chord stab</li>
+<li>a pluck</li>
+<li>a vocal syllable</li>
+<li>a melodic phrase</li>
+</ul>
+<p>Then use:</p>
+<ul>
+<li><strong>LOOP SELECT</strong> to choose which sample is active</li>
+<li><strong>LOOP PITCH</strong> to transpose it</li>
+<li><strong>QUANTIZE</strong> to constrain pitch musically</li>
+<li><strong>PRESET SELECT</strong> to switch complete granular settings</li>
+</ul>
+<h3>Good loop material for melody</h3>
+<p>For melodic composition, load or record:</p>
+<ul>
+<li>one-shot notes from an oscillator</li>
+<li>tuned percussion</li>
+<li>vocal vowels</li>
+<li>filtered saw/square tones</li>
+<li>chords from external gear</li>
+<li>short arpeggio fragments</li>
+</ul>
+<p>A useful strategy is to build a bank where each loop is:</p>
+<ul>
+<li>the same approximate loudness</li>
+<li>similar duration</li>
+<li>tuned to a root note</li>
+</ul>
+<p>Then the module becomes a playable melodic memory.</p>
+<hr />
+<h2>2. Quantized pitch for tonal control</h2>
+<p>The manual shows that both <strong>loop pitch</strong> and <strong>grain pitch</strong> can be quantized, depending on menu settings.</p>
+<h3>Quantizer options</h3>
+<p>You can set the quantizer to affect:</p>
+<ul>
+<li><strong>both</strong> loops and grains</li>
+<li><strong>loops only</strong></li>
+<li><strong>grains only</strong></li>
+</ul>
+<p>There are also selectable scales, including default or custom scale sets. This is very important for melodic use.</p>
+<h3>Musical implication</h3>
+<p>If you send CV to:</p>
+<ul>
+<li><strong>Loop Pitch CV</strong></li>
+<li><strong>Grain Pitch CV</strong></li>
+</ul>
+<p>and quantization is enabled, the pitch changes can snap to scale tones. This turns the module into something much more like a playable voice.</p>
+<h3>Best melodic use</h3>
+<ul>
+<li>Use <strong>Loops Only</strong> if you want stable sampled phrases that transpose in key.</li>
+<li>Use <strong>Grains Only</strong> if the loop stays fixed but the granular layer creates the melody.</li>
+<li>Use <strong>Both</strong> if you want a harmonically locked but highly animated result.</li>
+</ul>
+<hr />
+<h2>3. Grains as a melodic voice</h2>
+<p>The granular engine reads from the currently selected loop, and each grain has control over:</p>
+<ul>
+<li><strong>position</strong></li>
+<li><strong>length</strong></li>
+<li><strong>delay/intermittency</strong></li>
+<li><strong>direction</strong></li>
+<li><strong>repeat</strong></li>
+<li><strong>volume</strong></li>
+<li><strong>panning</strong></li>
+<li><strong>pitch</strong></li>
+<li><strong>envelope</strong></li>
+<li><strong>deviation/randomness</strong></li>
+</ul>
+<p>This is where the module becomes especially interesting for melody.</p>
+<p>Instead of thinking "granular = texture," think:</p>
+<ul>
+<li>each grain can be a <strong>note event</strong></li>
+<li>grain pitch can define the melodic interval</li>
+<li>grain position can choose which part of the source is heard</li>
+<li>grain repeat/intermittency can form rhythms</li>
+<li>envelope shapes can turn grains into plucks, pads, or bowed tones</li>
+</ul>
+<hr />
+<h1>Practical melodic patch ideas</h1>
+<h2>Patch 1: Quantized sample voice</h2>
+<h3>Goal</h3>
+<p>Use the ADDAC112 like a pitchable sampler voice.</p>
+<h3>Setup</h3>
+<ol>
+<li>Record a stable tone into a loop, such as:</li>
+<li>sine</li>
+<li>triangle</li>
+<li>filtered saw</li>
+<li>
+<p>vocal hum</p>
+</li>
+<li>
+<p>Bring up:</p>
+</li>
+<li><strong>Loop Volume</strong></li>
+<li>optionally <strong>Dry Volume</strong> down</li>
+<li>
+<p><strong>Grains Volume</strong> down for now</p>
+</li>
+<li>
+<p>Enable quantization for <strong>Loops Only</strong> or <strong>Both</strong>.</p>
+</li>
+<li>
+<p>Send a sequencer CV into <strong>Loop Pitch CV</strong>.</p>
+</li>
+</ol>
+<h3>Result</h3>
+<p>The loop plays back as a transposable sampled tone. Because the pitch range can be set in the menu, you can choose finer or wider behavior.</p>
+<h3>Best for</h3>
+<ul>
+<li>basslines</li>
+<li>lead lines</li>
+<li>drones with chord changes</li>
+<li>transposed vocal tones</li>
+</ul>
+<h3>Enhancement</h3>
+<p>Use <strong>Play/Reset</strong> and <strong>On Loop Change</strong> options to control whether playback retriggers or continues smoothly.</p>
+<hr />
+<h2>Patch 2: Granular melody from a static loop</h2>
+<h3>Goal</h3>
+<p>Create a melodic line using grain pitch while the loop itself stays fixed.</p>
+<h3>Setup</h3>
+<ol>
+<li>Record or load a harmonically rich loop.</li>
+<li>a chord</li>
+<li>sustained oscillator</li>
+<li>field recording with identifiable pitch content</li>
+<li>
+<p>vocal tone</p>
+</li>
+<li>
+<p>Keep <strong>Loop Volume</strong> low or off.</p>
+</li>
+<li>Bring up <strong>Grains Volume</strong>.</li>
+<li>Set:</li>
+<li>moderate <strong>Grains Active</strong></li>
+<li>short-to-medium <strong>Play Length</strong></li>
+<li>low <strong>Length Deviation</strong></li>
+<li>low <strong>Position Deviation</strong></li>
+<li>
+<p>moderate <strong>Attack/Decay</strong></p>
+</li>
+<li>
+<p>Send melodic CV into <strong>Grain Pitch CV</strong>.</p>
+</li>
+<li>Set quantizer to <strong>Grains Only</strong> or <strong>Both</strong>.</li>
+</ol>
+<h3>Result</h3>
+<p>The granular engine becomes the actual melodic voice. The loop is just source material.</p>
+<h3>Why it works</h3>
+<p>A stable source with moving grain pitch gives you:
+- a coherent timbre
+- melodic control
+- evolving articulation</p>
+<h3>Best for</h3>
+<ul>
+<li>shimmering leads</li>
+<li>choral melodies</li>
+<li>bell-like lines</li>
+<li>ambient motifs</li>
+</ul>
+<hr />
+<h2>Patch 3: Scan different loop positions as different notes</h2>
+<h3>Goal</h3>
+<p>Turn one recorded phrase into many melodic events.</p>
+<h3>Setup</h3>
+<ol>
+<li>Record a loop containing several different notes or timbral regions.
+   Example:</li>
+<li>a short melody</li>
+<li>a scale</li>
+<li>a spoken word</li>
+<li>
+<p>multiple plucks</p>
+</li>
+<li>
+<p>Use the granular engine.</p>
+</li>
+<li>Modulate <strong>Position</strong> with:</li>
+<li>stepped random</li>
+<li>sequencer CV</li>
+<li>sample &amp; hold</li>
+<li>
+<p>keyboard CV offset/attenuated</p>
+</li>
+<li>
+<p>Set low <strong>Position Deviation</strong> for more precise scanning.</p>
+</li>
+<li>Set short <strong>Play Length</strong>.</li>
+</ol>
+<h3>Result</h3>
+<p>Each grain picks a different slice of the loop, so the loop acts like a wavetable or phrase memory. If the recorded material contains separate notes, scanning position becomes a melodic selection method.</p>
+<h3>Best for</h3>
+<ul>
+<li>cut-up melodies</li>
+<li>phrase rearrangement</li>
+<li>pseudo-wavetable lead sounds</li>
+<li>vocal formant melodies</li>
+</ul>
+<hr />
+<h2>Patch 4: Use loop banks as a note/chord palette</h2>
+<h3>Goal</h3>
+<p>Use different loops as separate notes, intervals, or chords.</p>
+<h3>Setup</h3>
+<p>Create a bank where loop numbers correspond to musical material, for example:</p>
+<ul>
+<li>Loop 1 = C</li>
+<li>Loop 2 = E</li>
+<li>Loop 3 = G</li>
+<li>Loop 4 = Bb</li>
+<li>Loop 5 = Dm chord</li>
+<li>Loop 6 = G chord</li>
+<li>Loop 7 = vocal note</li>
+<li>Loop 8 = noise transient</li>
+</ul>
+<p>Then sequence <strong>Loop Select CV</strong>.</p>
+<h3>Result</h3>
+<p>The ADDAC112 behaves like a sample-addressed melodic instrument. This is especially strong if each loop is normalized and similar in length.</p>
+<h3>Best for</h3>
+<ul>
+<li>chord progression playback</li>
+<li>note selection by CV</li>
+<li>switching among melodic motifs</li>
+<li>live performance scenes</li>
+</ul>
+<h3>Extra musical trick</h3>
+<p>Set <strong>On Loop Change</strong> to:
+- <strong>Immediate</strong> for abrupt jump-cuts
+- <strong>On Loop End</strong> for phrase-aligned changes</p>
+<p>This gives you either chopped rhythmic melody or phrase-safe musical transitions.</p>
+<hr />
+<h2>Patch 5: Granular arpeggiator</h2>
+<h3>Goal</h3>
+<p>Make repeating grains function like arpeggiated notes.</p>
+<h3>Setup</h3>
+<ol>
+<li>Use a harmonically rich loop.</li>
+<li>Set:</li>
+<li>short <strong>Play Length</strong></li>
+<li>clear <strong>Attack/Decay</strong></li>
+<li>moderate <strong>Grain Loop Delay</strong></li>
+<li>low/moderate <strong>Delay Deviation</strong></li>
+<li>
+<p><strong>Repeat Mode</strong> to Repeat X or Probability</p>
+</li>
+<li>
+<p>Patch stepped CV to:</p>
+</li>
+<li><strong>Grain Pitch</strong></li>
+<li>or <strong>Position</strong></li>
+<li>
+<p>or both</p>
+</li>
+<li>
+<p>Use quantization.</p>
+</li>
+</ol>
+<h3>Result</h3>
+<p>Grains become repeating note attacks. With envelope shaping, they behave like plucked notes.</p>
+<h3>Best for</h3>
+<ul>
+<li>arps</li>
+<li>pointillist melodies</li>
+<li>clocked melodic textures</li>
+<li>sequenced microsound lines</li>
+</ul>
+<hr />
+<h2>Patch 6: Resampling melody generator</h2>
+<h3>Goal</h3>
+<p>Use the looper and overdub path to recursively build melodic material.</p>
+<p>The manual explains that recording input is a mix of:
+1. input signal
+2. current loop playback
+3. grains feedback</p>
+<h3>Setup</h3>
+<ol>
+<li>Start with a simple recorded note or phrase.</li>
+<li>Granularly process it.</li>
+<li>Increase <strong>Grains Feedback</strong> so grains feed the recorder.</li>
+<li>Use <strong>Overdub Decay</strong> to keep some of the old buffer while replacing part of it.</li>
+<li>Repitch loops and grains while re-recording.</li>
+</ol>
+<h3>Result</h3>
+<p>The buffer gradually evolves into a new pitched source. Over time, your melody becomes self-derived and transforms while staying related.</p>
+<h3>Best for</h3>
+<ul>
+<li>evolving melodic drones</li>
+<li>self-mutating ostinatos</li>
+<li>recursive harmonic layering</li>
+<li>experimental tonal composition</li>
+</ul>
+<hr />
+<h2>Patch 7: Phrase harmonizer</h2>
+<h3>Goal</h3>
+<p>Create harmony from a monophonic phrase.</p>
+<h3>Setup</h3>
+<ol>
+<li>Record a melodic phrase into the looper.</li>
+<li>Keep loop playback present.</li>
+<li>Add grains with:</li>
+<li>different <strong>Grain Pitch</strong></li>
+<li>moderate <strong>Grains Active</strong></li>
+<li>medium <strong>Attack/Decay</strong></li>
+<li>
+<p>panning spread</p>
+</li>
+<li>
+<p>Quantize grains to a useful scale.</p>
+</li>
+</ol>
+<h3>Result</h3>
+<p>The loop plays the original line while the grains add harmonized intervals around it.</p>
+<h3>Best for</h3>
+<ul>
+<li>vocal harmonies</li>
+<li>synthetic counterlines</li>
+<li>thickened leads</li>
+<li>melodic ambient layering</li>
+</ul>
+<hr />
+<h1>How the two sections work together melodically</h1>
+<h2>Looper = phrase memory and tonal source</h2>
+<p>The looper is best thought of as:
+- the sample pool
+- the root pitch body
+- the rhythmic/melodic phrase source</p>
+<h2>Granular engine = articulation and variation</h2>
+<p>The granular side provides:
+- note extraction
+- alternate pitch layers
+- repeated fragments
+- harmonic extension
+- microtiming variation</p>
+<p>Together, they can behave like:
+- a sampler + harmonizer
+- a phrase looper + granular sequencer
+- a wavetable-ish voice made from recorded sound</p>
+<hr />
+<h1>Most important controls for melody</h1>
+<h2>LOOP PITCH</h2>
+<p>This is central if you want the looper itself to act melodically.</p>
+<p>Use it for:
+- transposition
+- basslines
+- chord changes
+- tuned phrase playback</p>
+<h2>GRAIN PITCH</h2>
+<p>Use this when the grains are the “notes.”</p>
+<p>Use it for:
+- harmonies
+- lead melodies
+- arps
+- interval clouds</p>
+<h2>POSITION</h2>
+<p>Very useful if your loop contains several notes or timbral regions.</p>
+<p>Use it for:
+- selecting note zones
+- changing vowel/formant region
+- slicing recorded phrases</p>
+<h2>PLAY LENGTH</h2>
+<p>This determines whether grains sound like:
+- clicks
+- plucks
+- syllables
+- sustained tones</p>
+<p>For melody, short-to-medium lengths often work best.</p>
+<h2>ATTACK / DECAY</h2>
+<p>These shape articulation.</p>
+<p>For melodic roles:
+- short attack/decay = plucked
+- longer attack/decay = pad or bowed
+- asymmetry = speech-like phrasing</p>
+<h2>GRAIN LOOP DELAY</h2>
+<p>This sets spacing between grain events.</p>
+<p>Use it as a rhythmic density control for:
+- arps
+- repeated melodic pulses
+- sparse pointillism</p>
+<h2>REPEAT MODE</h2>
+<p>This matters a lot musically.</p>
+<ul>
+<li><strong>Probability</strong> gives generative variation</li>
+<li><strong>Repeat X</strong> gives motif persistence</li>
+</ul>
+<hr />
+<h1>Strong musical workflows</h1>
+<h2>Workflow 1: Build a playable note bank</h2>
+<ul>
+<li>record one note per loop</li>
+<li>normalize levels</li>
+<li>use Loop Select CV for note choice</li>
+<li>use Loop Pitch for transposition</li>
+<li>use presets for articulation variants</li>
+</ul>
+<p>This gives you a sample-based melodic instrument.</p>
+<h2>Workflow 2: Build a phrase bank</h2>
+<ul>
+<li>record riffs, chord stabs, short lines</li>
+<li>switch loops under CV</li>
+<li>set loop changes to immediate or phrase-end</li>
+<li>add grains for ornamental harmony</li>
+</ul>
+<p>This is excellent for live melodic performance.</p>
+<h2>Workflow 3: One loop, many melodies</h2>
+<ul>
+<li>record a single rich source</li>
+<li>use grains only</li>
+<li>sequence grain pitch and/or position</li>
+<li>let deviation add small variation</li>
+</ul>
+<p>This is probably the most “granular” melodic use.</p>
+<hr />
+<h1>Presets as melodic scenes</h1>
+<p>The manual notes that presets store:
+- loop lists
+- granular settings</p>
+<p>This is very useful compositionally.</p>
+<p>You can make presets like:</p>
+<ul>
+<li><strong>Preset 0</strong> = dry loop playback</li>
+<li><strong>Preset 1</strong> = short plucked grains</li>
+<li><strong>Preset 2</strong> = octave-up shimmer</li>
+<li><strong>Preset 3</strong> = reverse grain melody</li>
+<li><strong>Preset 4</strong> = long pad harmonization</li>
+</ul>
+<p>Then sequence or manually switch presets as arrangement sections.</p>
+<p>This turns the module into a <strong>scene-based melodic processor</strong>.</p>
+<hr />
+<h1>Good companion module roles in a rack</h1>
+<p>Even though this manual only covers the ADDAC112, it clearly benefits from being paired with standard Eurorack utility categories.</p>
+<h2>1. Pitch sequencer</h2>
+<p>Use for:
+- loop pitch melodies
+- grain pitch melodies
+- quantized transposition</p>
+<h2>2. Random stepped CV</h2>
+<p>Use for:
+- grain position
+- loop select
+- repeat density
+- panning and variation</p>
+<h2>3. Clock / trigger source</h2>
+<p>Use for:
+- loop control
+- synced recording
+- clocked mode behavior
+- rhythmic loop changes</p>
+<h2>4. Envelope/LFO/Function generator</h2>
+<p>Use for:
+- modulating position slowly
+- sweeping grain length
+- changing density and articulation</p>
+<h2>5. External oscillator or voice</h2>
+<p>Use as source material to record tuned notes/chords into the looper.</p>
+<hr />
+<h1>Particularly powerful melodic features from the manual</h1>
+<h2>Quantizer with custom scales</h2>
+<p>This is one of the biggest musical advantages. You can constrain pitch material to a compositionally useful set.</p>
+<p>Because the scale file can be customized, you can create:
+- standard tonal scales
+- modal scales
+- just intonation-ish ratio sets
+- harmonic series mappings
+- non-octave scales</p>
+<p>That makes the module unusually strong for melodic experimentation.</p>
+<h2>Independent playback, recording, and grains</h2>
+<p>The updated firmware allows:
+- loop playback
+- grains processing
+- recording</p>
+<p>to happen in parallel.</p>
+<p>This means you can:
+- play one melodic loop
+- granularly decorate it
+- simultaneously record a new loop from the mixture</p>
+<p>That is ideal for iterative melodic development.</p>
+<h2>CV over almost everything</h2>
+<p>This means melody on the ADDAC112 does not have to be static. You can voltage-control:
+- pitch
+- density
+- position
+- volume
+- selection
+- feedback behavior</p>
+<p>So the melodic output can evolve constantly.</p>
+<hr />
+<h1>Performance-oriented melodic strategies</h1>
+<h2>1. Live resampled soloing</h2>
+<ul>
+<li>record a short phrase live</li>
+<li>immediately granularize it</li>
+<li>transpose grains with CV</li>
+<li>overdub new notes into the same buffer</li>
+</ul>
+<p>This gives a live-looping solo instrument feel.</p>
+<h2>2. Preset-based verse/chorus changes</h2>
+<p>Use presets to shift between:
+- sparse plucks
+- dense harmony
+- reverse shimmer
+- wide stereo melody</p>
+<h2>3. Loop-select chord progression</h2>
+<p>Assign different chord tones or chord stabs to loop slots, then use CV or manual selection for harmonic movement.</p>
+<h2>4. Reverse melody accents</h2>
+<p>Use grain direction probability or reverse loop playback for occasional backward note phrasing.</p>
+<hr />
+<h1>A few concrete melodic patch recipes</h1>
+<h2>Recipe A: Granular lead</h2>
+<ul>
+<li>Record a steady saw wave note</li>
+<li>Loop volume low</li>
+<li>Grains volume high</li>
+<li>Grains active: low to medium</li>
+<li>Position fixed</li>
+<li>Length short-medium</li>
+<li>Attack low</li>
+<li>Decay medium</li>
+<li>Grain pitch sequenced and quantized</li>
+</ul>
+<p>Result: expressive digital lead.</p>
+<h2>Recipe B: Vocal chord instrument</h2>
+<ul>
+<li>Load sung vowels at different pitches into separate loops</li>
+<li>Sequence loop select</li>
+<li>Add grains pitched a third or fifth above</li>
+<li>Moderate panning</li>
+<li>Longer envelope</li>
+</ul>
+<p>Result: choir-like harmonic pad or melodic line.</p>
+<h2>Recipe C: Broken tape melody</h2>
+<ul>
+<li>Record a melodic phrase</li>
+<li>Use loop pitch under quantized CV</li>
+<li>Add moderate delay deviation and grain repeat</li>
+<li>Anti-aliasing off for rougher pitching</li>
+</ul>
+<p>Result: degraded but tonal phrase mutation.</p>
+<h2>Recipe D: Arp cloud</h2>
+<ul>
+<li>Harmonic loop source</li>
+<li>Short grains</li>
+<li>Grain repeat active</li>
+<li>Grain pitch quantized</li>
+<li>Position slightly modulated</li>
+<li>Delay controls set for pulsed spacing</li>
+</ul>
+<p>Result: sparkling arpeggiated cloud.</p>
+<hr />
+<h1>Limitations to keep in mind for melodic use</h1>
+<h2>1. Knob pickup behavior with presets</h2>
+<p>When changing presets, panel knobs do not immediately reflect stored values. You have to cross the stored value before the knob becomes active. In performance, this matters.</p>
+<h2>2. Loop memory is finite</h2>
+<p>The bank has about 30 MB total shared loop memory, so if you want many melodic loops, keep them short and efficient.</p>
+<h2>3. Save your bank</h2>
+<p>Recorded loops live in volatile memory until saved. For melody-building sessions, save often.</p>
+<h2>4. Grain pitch can stall in one pitch range mode</h2>
+<p>The manual warns that in the <strong>-INF to +24</strong> mode, grain pitch at -INF can stop the grain engine. Avoid that setting unless you intend it.</p>
+<hr />
+<h1>Best overall musical concept</h1>
+<p>The ADDAC112 works best melodically when you think in three layers:</p>
+<h2>Layer 1: Source</h2>
+<p>Record or load something with pitch identity:
+- note
+- chord
+- phrase
+- voice
+- harmonic texture</p>
+<h2>Layer 2: Selection</h2>
+<p>Choose what musical material is active via:
+- loop select
+- grain position
+- preset changes</p>
+<h2>Layer 3: Tuning and articulation</h2>
+<p>Shape it into melody with:
+- loop pitch
+- grain pitch
+- quantization
+- envelope
+- density
+- repetition</p>
+<p>That is the core of how this module becomes a melodic instrument rather than only a sound processor.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>ADDAC112</strong> can be used for melody in at least four strong ways:</p>
+<ol>
+<li>
+<p><strong>As a quantized looper-sampler voice</strong><br />
+   Record notes/phrases and transpose them musically.</p>
+</li>
+<li>
+<p><strong>As a granular melodic voice</strong><br />
+   Keep the loop static and sequence grain pitch, position, and rhythm.</p>
+</li>
+<li>
+<p><strong>As a phrase/chord switching instrument</strong><br />
+   Use loop select and presets as musical scene changes.</p>
+</li>
+<li>
+<p><strong>As a self-resampling melody generator</strong><br />
+   Feed loops and grains back into recording for evolving tonal material.</p>
+</li>
+</ol>
+<p>If your goal is melodic composition, the most powerful combination is:</p>
+<ul>
+<li>tuned source loop</li>
+<li>quantized pitch CV</li>
+<li>controlled grain envelopes</li>
+<li>moderate position scanning</li>
+<li>preset-based scene changes</li>
+</ul>
+<p>That gives you everything from <strong>pitched leads and basslines</strong> to <strong>harmonized phrases</strong>, <strong>granular arpeggios</strong>, and <strong>evolving melodic textures</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

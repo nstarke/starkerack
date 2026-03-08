@@ -1,0 +1,652 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-207_Quantizer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-207 Quantizer</h1>
+<ul>
+<li><a href="../../manuals/ADDAC_207_Quantizer_REV05.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.addacsystem.com/sites/default/files/2021-04/ADDAC207_UsersGuide_Rev05.pdf">ADDAC207 Intuitive Quantizer User’s Guide (PDF)</a></p>
+<h1>Using the ADDAC207 Intuitive Quantizer to Create Melodic Components</h1>
+<p>The attached manual is for the <strong>ADDAC207 Intuitive Quantizer</strong>, a 4-channel quantizer/keyboard/chord generator for Eurorack. Since only this module’s manual is included, I’ll treat the “modules used together” as:</p>
+<ul>
+<li>the <strong>4 internal quantizer voices</strong> of the ADDAC207,</li>
+<li>the <strong>scale, keyboard, transpose, gate, and assign functions</strong> working together,</li>
+<li>and how you would patch it with typical Eurorack companions like <strong>sequencers, random CV, LFOs, envelopes, oscillators, and switches</strong>.</li>
+</ul>
+<h2>What this module does musically</h2>
+<p>The ADDAC207 is best thought of as a <strong>melodic control center</strong>. It can:</p>
+<ul>
+<li>quantize up to <strong>4 CV sources</strong> to the same scale,</li>
+<li>generate <strong>harmonies/chords</strong> from a single source,</li>
+<li>act as a <strong>manual keyboard</strong>,</li>
+<li>output <strong>gates</strong> for note events,</li>
+<li>support <strong>transpose</strong> from an external CV,</li>
+<li>save <strong>presets</strong> for scales/settings,</li>
+<li>and even do <strong>alternate temperaments</strong> and microtonal-style tuning tricks.</li>
+</ul>
+<p>That makes it useful for creating:</p>
+<ul>
+<li>melodies,</li>
+<li>basslines,</li>
+<li>harmonized leads,</li>
+<li>arpeggio-like structures,</li>
+<li>chord voicings,</li>
+<li>modal shifts,</li>
+<li>transposed sequences,</li>
+<li>and playable keyboard parts.</li>
+</ul>
+<hr />
+<h2>Core architecture relevant to melody</h2>
+<h2>1. Four quantizer voices</h2>
+<p>Each voice has:</p>
+<ul>
+<li><strong>CV IN</strong></li>
+<li><strong>CV OUT</strong></li>
+<li><strong>GATE IN</strong></li>
+<li><strong>GATE OUT</strong></li>
+</ul>
+<p>This means each voice can be:</p>
+<ul>
+<li>an independent pitch stream, or</li>
+<li>linked to <strong>Voice 1 as master</strong> when Voices 2–4 have no CV patched.</li>
+</ul>
+<p>That “Voice 1 master” behavior is one of the most musically important features in the module.</p>
+<h3>Practical meaning</h3>
+<p>You can patch:</p>
+<ul>
+<li>one sequencer/random CV into <strong>Voice 1</strong></li>
+<li>leave <strong>Voices 2–4 unpatched at input</strong></li>
+<li>define interval offsets for Note 2/3/4</li>
+</ul>
+<p>…and suddenly the module becomes a <strong>scale-aware chord generator</strong>.</p>
+<hr />
+<h2>2. Scale selection and note masks</h2>
+<p>You can define the active note set in two ways:</p>
+<ul>
+<li>with the <strong>Key / accidental / major-minor controls</strong> plus <strong>SET KEY</strong></li>
+<li>or manually by turning individual note buttons on/off</li>
+</ul>
+<p>So the ADDAC207 can function as:</p>
+<ul>
+<li>a normal key quantizer, or</li>
+<li>a custom scale/mode quantizer, or</li>
+<li>a restricted note collection generator for motifs.</li>
+</ul>
+<h3>Why this matters musically</h3>
+<p>A quantizer is not just a tuning aid. It shapes melodic identity.</p>
+<p>For example:</p>
+<ul>
+<li><strong>major scale</strong> gives conventional brightness</li>
+<li><strong>natural minor</strong> gives darker tonal material</li>
+<li>a custom note mask like <strong>C, D, F, G, A</strong> creates pentatonic melodies</li>
+<li>a sparse note selection like <strong>C, Eb, F#, A</strong> creates angular, cinematic material</li>
+</ul>
+<p>This module is very good for “composing with omission.”</p>
+<hr />
+<h2>3. Quantizer vs Keyboard mode</h2>
+<p>The ADDAC207 has 2 main modes:</p>
+<ul>
+<li><strong>Quantizer Mode</strong></li>
+<li><strong>Keyboard Mode</strong></li>
+</ul>
+<h3>Quantizer Mode</h3>
+<p>Incoming CV is quantized to the active note set.</p>
+<p>This is the main mode for:</p>
+<ul>
+<li>sequencers</li>
+<li>random voltages</li>
+<li>slewed modulation</li>
+<li>sample-and-hold</li>
+<li>LFO-derived pitch lines</li>
+</ul>
+<h3>Keyboard Mode</h3>
+<p>The buttons become a <strong>monophonic keyboard</strong>.</p>
+<p>Important detail from the manual:</p>
+<ul>
+<li><strong>Voice 1 plays all notes</strong></li>
+<li><strong>Voices 2–4 only play notes allowed by the quantizer scale</strong>, useful for chord generation</li>
+</ul>
+<h3>Musical use</h3>
+<p>This makes the module perform like:</p>
+<ul>
+<li>a playable live pitch controller,</li>
+<li>a harmonic improvisation tool,</li>
+<li>a way to audition scales/chords before sequencing them.</li>
+</ul>
+<hr />
+<h1>Best musical patch strategies</h1>
+<h2>Patch Strategy 1: Single melody line from random or sequencer CV</h2>
+<h3>Patch</h3>
+<ul>
+<li>CV source -&gt; <strong>IN 1</strong></li>
+<li><strong>OUT 1</strong> -&gt; oscillator 1V/oct</li>
+<li><strong>GATE OUT 1</strong> -&gt; envelope trigger/gate</li>
+<li>envelope -&gt; VCA</li>
+<li>oscillator -&gt; filter/VCA/audio path</li>
+</ul>
+<h3>Result</h3>
+<p>You get a pitch stream forced into the chosen scale.</p>
+<h3>Best source types</h3>
+<ul>
+<li>stepped random</li>
+<li>sequencer row</li>
+<li>sample-and-hold from noise</li>
+<li>slow triangle/sine LFO for repeating contour melodies</li>
+<li>pressure/joystick CV for manual melody creation</li>
+</ul>
+<h3>Useful settings</h3>
+<ul>
+<li><strong>Q.TYPE Above</strong> for always pushing notes upward into the scale</li>
+<li><strong>Below</strong> for grounded/downward-feeling resolution</li>
+<li><strong>Ignore</strong> for sparse/event-style behavior when only exact scale voltages should pass meaningfully</li>
+</ul>
+<h3>Musical character</h3>
+<ul>
+<li>Above = more rising/aspirational</li>
+<li>Below = more weighted/stable</li>
+<li>Ignore = glitchy/minimal/selective</li>
+</ul>
+<hr />
+<h2>Patch Strategy 2: One source into 4-part harmony</h2>
+<p>This is probably the most powerful melodic use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer/random CV -&gt; <strong>IN 1</strong></li>
+<li>Leave <strong>IN 2–4 unpatched</strong></li>
+<li>Turn <strong>Voice 1 Master</strong> ON in the TRIG.R menu</li>
+<li>Set Note intervals:</li>
+<li><strong>NOTE 2</strong> = 3rd</li>
+<li><strong>NOTE 3</strong> = 5th</li>
+<li><strong>NOTE 4</strong> = 7th</li>
+<li>Patch <strong>OUT 1–4</strong> to 4 oscillators, or 4 voices in a polyphonic patch</li>
+</ul>
+<h3>Result</h3>
+<p>The module derives harmonized outputs from one melodic root.</p>
+<p>Because intervals are interpreted <strong>according to the active scale</strong>, the harmony is diatonic rather than fixed-chromatic.</p>
+<h3>Why this is musically strong</h3>
+<p>If you choose:
+- C major scale
+- root melody on Voice 1
+- intervals 3rd / 5th / 7th</p>
+<p>then the resulting harmony follows the scale, producing musically coherent chords.</p>
+<p>For example:
+- over C you might get C–E–G–B
+- over D you might get D–F–A–C
+- over E you might get E–G–B–D</p>
+<p>So the chord quality shifts naturally with scale degree.</p>
+<h3>Great uses</h3>
+<ul>
+<li>4-voice pads</li>
+<li>stacked oscillators</li>
+<li>chord stabs</li>
+<li>organ-style harmonies</li>
+<li>modal drones with moving tops</li>
+<li>generative harmony</li>
+</ul>
+<hr />
+<h2>Patch Strategy 3: Bass + lead + chord tones from one source</h2>
+<p>Instead of treating all 4 outputs equally, split their roles.</p>
+<h3>Patch idea</h3>
+<ul>
+<li><strong>OUT 1</strong> -&gt; bass oscillator</li>
+<li><strong>OUT 2</strong> -&gt; mid voice</li>
+<li><strong>OUT 3</strong> -&gt; lead/pluck</li>
+<li><strong>OUT 4</strong> -&gt; upper shimmer/FM mod oscillator</li>
+</ul>
+<p>Set intervals for 2/3/4 to create voicings like:
+- root / 3rd / 5th / 7th
+- root / 5th / octave / 10th
+- root / 4th / 6th / 9th</p>
+<h3>Musical benefit</h3>
+<p>One CV source becomes a complete tonal ecosystem.</p>
+<p>This is especially effective if:
+- each oscillator has a different envelope length,
+- different filter brightness,
+- different stereo placement.</p>
+<hr />
+<h2>Patch Strategy 4: Four independent melodies in one key</h2>
+<h3>Patch</h3>
+<ul>
+<li>4 independent CV sources -&gt; <strong>IN 1–4</strong></li>
+<li>4 separate oscillators or voices on <strong>OUT 1–4</strong></li>
+<li>optionally 4 different trigger streams to each <strong>GATE IN</strong></li>
+</ul>
+<h3>Result</h3>
+<p>You get four separate melodic lines constrained to the same scale.</p>
+<h3>Great for</h3>
+<ul>
+<li>contrapuntal patches</li>
+<li>generative ensembles</li>
+<li>bass / lead / arp / drone divisions</li>
+<li>percussion tuned to scale tones</li>
+<li>four sequencers made harmonically compatible</li>
+</ul>
+<h3>Why it works</h3>
+<p>Instead of harmonizing one source, you harmonically <strong>unify multiple independent sources</strong>.</p>
+<p>This is often more interesting than strict chord following, because each line retains its own rhythm and contour.</p>
+<hr />
+<h2>Patch Strategy 5: Use GATE IN for rhythmically controlled melody updates</h2>
+<p>Each voice can quantize from CV changes alone, but <strong>GATE IN</strong> allows external timing control.</p>
+<h3>Patch</h3>
+<ul>
+<li>flowing CV -&gt; Voice IN</li>
+<li>trigger pattern -&gt; corresponding <strong>GATE IN</strong></li>
+<li><strong>OUT</strong> -&gt; oscillator pitch</li>
+<li><strong>GATE OUT</strong> -&gt; envelope</li>
+</ul>
+<h3>Result</h3>
+<p>Pitch only updates when a trigger arrives.</p>
+<h3>Why this matters</h3>
+<p>This lets you separate:
+- <strong>pitch source behavior</strong> from
+- <strong>note rhythm</strong></p>
+<p>So you can use:
+- slow random drift as pitch material
+- fast clocked triggers for rhythm</p>
+<p>Or:
+- a sequencer CV row
+- irregular trigger pattern for syncopated note extraction</p>
+<h3>Musically this enables</h3>
+<ul>
+<li>sampled melodic gestures</li>
+<li>rhythmic arp-like slicing of continuous voltages</li>
+<li>stable timing from unstable pitch sources</li>
+</ul>
+<hr />
+<h2>Patch Strategy 6: Manual keyboard performance with harmonized outputs</h2>
+<h3>Patch</h3>
+<ul>
+<li>Enter <strong>Keyboard Mode</strong></li>
+<li>Use buttons as notes</li>
+<li><strong>OUT 1–4</strong> to multiple oscillators/voices</li>
+<li><strong>GATE OUTS</strong> to envelopes</li>
+</ul>
+<h3>Result</h3>
+<p>You play the module directly as a mini performance keyboard.</p>
+<h3>Particularly useful for</h3>
+<ul>
+<li>live improvisation</li>
+<li>quickly testing voicings</li>
+<li>drone harmonies</li>
+<li>melodic sketching</li>
+<li>hands-on modal playing</li>
+</ul>
+<h3>Important behavior</h3>
+<p>In keyboard mode:
+- Voice 1 can access all notes
+- Voices 2–4 still respect the selected scale and interval logic</p>
+<p>That makes it very good for <strong>safe live harmony playing</strong> without accidentally hitting bad chord tones.</p>
+<hr />
+<h1>Transposition as a musical system</h1>
+<p>The ASSIGN input is a big compositional feature.</p>
+<p>You can assign the external CV input to several functions, especially:</p>
+<ul>
+<li><strong>Input Transpose</strong></li>
+<li><strong>Scale Transpose</strong></li>
+<li>Note 2/3/4 offsets</li>
+<li>Quantization type</li>
+<li>Gate length</li>
+<li>Trigger repeat</li>
+<li>Octave offset</li>
+<li>Preset change</li>
+</ul>
+<h2>1. Input Transpose</h2>
+<p>This adds incoming assign CV to the incoming melodic CV before quantization.</p>
+<h3>Musical effect</h3>
+<p>The melody shape is preserved, but moved up/down within scale behavior.</p>
+<h3>Good use cases</h3>
+<ul>
+<li>transpose a sequence by keyboard CV</li>
+<li>use a second sequencer for phrase transposition</li>
+<li>use pressure/joystick to shift motif center</li>
+<li>use slow CV for evolving harmonic drift</li>
+</ul>
+<hr />
+<h2>2. Scale Transpose</h2>
+<p>This transposes the <strong>scale itself</strong>, not the incoming melody CV.</p>
+<h3>Musical effect</h3>
+<p>The same input voltage is now interpreted against a different root.</p>
+<p>This is a very different result from input transposition.</p>
+<h3>Why it’s musically interesting</h3>
+<p>Input transpose = “move the melody”
+Scale transpose = “move the harmonic world under the melody”</p>
+<p>That makes scale transpose especially useful for:
+- chord progressions
+- key changes
+- modal shifts
+- harmonic cycling in generative patches</p>
+<h3>Example use</h3>
+<p>Keep a repeating contour at Voice 1 input.
+Use a slow or sequenced CV into ASSIGN mapped to <strong>Scale Transpose</strong>.
+Now the contour remains similar while the harmonic context changes.</p>
+<p>This is excellent for:
+- ambient
+- Berlin-school
+- generative tonal music
+- soundtrack work</p>
+<hr />
+<h1>Chord construction ideas using NOTE 2/3/4 intervals</h1>
+<p>The module lets you define interval relationships for Voices 2–4 relative to Voice 1.</p>
+<p>Since these are scale-aware, you can create many musically useful textures.</p>
+<h2>Traditional tertian harmony</h2>
+<ul>
+<li>Note 2 = 3rd</li>
+<li>Note 3 = 5th</li>
+<li>Note 4 = 7th</li>
+</ul>
+<p>Use for:
+- jazz-ish chord color
+- lush pads
+- generative harmony</p>
+<h2>Open harmony</h2>
+<ul>
+<li>Note 2 = 5th</li>
+<li>Note 3 = 8th</li>
+<li>Note 4 = 10th</li>
+</ul>
+<p>Use for:
+- cinematic openness
+- less muddy lower registers
+- wide melodic stacks</p>
+<h2>Quartal-ish/modal flavor</h2>
+<ul>
+<li>Note 2 = 4th</li>
+<li>Note 3 = 7th</li>
+<li>Note 4 = 9th</li>
+</ul>
+<p>Use for:
+- suspended/modal harmony
+- less tonal certainty
+- modern ambient textures</p>
+<h2>Parallel melodic doubles</h2>
+<ul>
+<li>Note 2 = 3rd</li>
+<li>Note 3 = 6th</li>
+<li>Note 4 = 8th</li>
+</ul>
+<p>Use for:
+- folk-like doubles
+- contrapuntal melodic blooms
+- denser lead lines</p>
+<hr />
+<h1>Scale design for melody writing</h1>
+<p>The manual makes clear you can manually toggle note buttons on/off. This is where the module gets especially compositional.</p>
+<h2>1. Diatonic scales</h2>
+<p>For conventional melodic work:
+- major
+- natural minor</p>
+<p>Good for:
+- tonal basslines
+- hooks
+- chord progressions
+- voice-leading patches</p>
+<h2>2. Pentatonic extraction</h2>
+<p>Instead of using all 7 notes, choose 5.</p>
+<p>Good for:
+- fewer clashes
+- stronger melodies from random CV
+- easy layering over drones
+- “everything sounds good” generative patches</p>
+<h2>3. Sparse custom scales</h2>
+<p>Choose only 3–6 notes.</p>
+<p>Good for:
+- motif control
+- minimalist patterns
+- gamelan-like reduction
+- pseudo-arpeggiation from random CV</p>
+<h2>4. Modal use with Scale Mode</h2>
+<p>The module supports scale modes like:
+- Ionian
+- Dorian
+- Phrygian
+- Lydian
+- Mixolydian
+- Aeolian
+- Locrian</p>
+<p>This is useful when you want:
+- the same basic key center,
+- but different emotional color.</p>
+<h3>Examples</h3>
+<ul>
+<li><strong>Dorian</strong> for minor but hopeful</li>
+<li><strong>Phrygian</strong> for dark/tension</li>
+<li><strong>Lydian</strong> for floating/bright</li>
+<li><strong>Mixolydian</strong> for dominant/bluesy repetition</li>
+</ul>
+<hr />
+<h1>Gate functions and melody shaping</h1>
+<h2>Gate Length</h2>
+<p>Gate length can be set from very short to very long.</p>
+<p>This directly affects articulation.</p>
+<h3>Short gate</h3>
+<ul>
+<li>plucky notes</li>
+<li>arpeggios</li>
+<li>percussive basslines</li>
+</ul>
+<h3>Long gate</h3>
+<ul>
+<li>legato envelopes</li>
+<li>sustained drones</li>
+<li>tied melodic phrases</li>
+</ul>
+<h2>Gate Off Condition</h2>
+<p>There’s an option to only quantize a new note when gate out is off.</p>
+<h3>Musical use</h3>
+<p>This can force phrase clarity and prevent too-fast note updates.</p>
+<p>Good for:
+- monophonic synth lines
+- clean phrasing
+- reducing chatter from unstable CV sources</p>
+<h2>Trigger Repeat</h2>
+<p>If ON, re-hitting the same quantized pitch still outputs a gate.</p>
+<h3>Important use</h3>
+<p>This is excellent for:
+- repeated notes with fresh envelope articulation
+- rhythmic ostinatos
+- percussive lead lines</p>
+<p>If OFF:
+- same pitch won’t retrigger unnecessarily</p>
+<p>That is useful for:
+- smooth legato behavior
+- less repetitive re-firing</p>
+<hr />
+<h1>Presets as song structure tools</h1>
+<p>The module stores presets containing scale notes and many menu settings.</p>
+<p>This means you can use presets to prepare different melodic states such as:</p>
+<ul>
+<li>verse scale</li>
+<li>chorus scale</li>
+<li>bridge mode</li>
+<li>alternate harmony interval set</li>
+<li>different gate or quantization behavior</li>
+</ul>
+<p>Since ASSIGN can also be mapped to <strong>change preset</strong>, the module can potentially become a <strong>song-section harmonic switcher</strong>.</p>
+<h3>Example</h3>
+<p>Preset 1:
+- C major
+- chord tones 3rd/5th/7th</p>
+<p>Preset 2:
+- A minor
+- open intervals 5th/8ve/10th</p>
+<p>Preset 3:
+- custom pentatonic
+- short gates</p>
+<p>Preset 4:
+- Lydian with longer gates</p>
+<p>Then move between them in performance or by external CV assignment.</p>
+<hr />
+<h1>Alternate temperaments and melodic identity</h1>
+<p>The tuning menu supports several temperaments, including:</p>
+<ul>
+<li>Equal</li>
+<li>Just</li>
+<li>Bohlen-Pierce</li>
+<li>Pure / Well Tuned</li>
+<li>Exotic</li>
+</ul>
+<p>For most melodic Eurorack use, you’ll likely stay in <strong>Equal</strong>. But the others can be used intentionally.</p>
+<h2>Just temperament</h2>
+<p>Can make intervals feel more resonant and consonant around a chosen root.</p>
+<p>Good for:
+- drones
+- root-centered ambient harmony
+- static harmonic fields</p>
+<h2>Bohlen-Pierce / Exotic</h2>
+<p>More experimental territory.</p>
+<p>Good for:
+- alien melody systems
+- non-standard tonal centers
+- abstract generative composition</p>
+<p>Important note from the manual: non-equal temperaments are more root-dependent, so they are best when the piece has a strong tonal center rather than constant transposition.</p>
+<hr />
+<h1>Strong real-world melodic patch examples</h1>
+<h2>Example 1: Generative ambient chord cloud</h2>
+<h3>Patch</h3>
+<ul>
+<li>Smooth random CV -&gt; IN 1</li>
+<li>Clock divider trigger -&gt; GATE IN 1</li>
+<li>Voice 1 Master ON</li>
+<li>Note 2 = 3rd</li>
+<li>Note 3 = 5th</li>
+<li>Note 4 = 7th</li>
+<li>OUT 1–4 -&gt; four oscillators or four voices</li>
+<li>Slow envelopes from GATE OUTs</li>
+<li>Long gate length</li>
+<li>Major or Dorian scale</li>
+</ul>
+<h3>Result</h3>
+<p>A slow-moving harmonized cloud with coherent tonal motion.</p>
+<hr />
+<h2>Example 2: Bassline plus harmonized lead</h2>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer CV -&gt; IN 1</li>
+<li>Trigger pattern -&gt; GATE IN 1</li>
+<li>OUT 1 -&gt; bass oscillator</li>
+<li>OUT 2/3/4 -&gt; stacked lead oscillators</li>
+<li>Use different octaves externally at oscillators or via octave offseting elsewhere</li>
+</ul>
+<h3>Result</h3>
+<p>The bassline drives the harmony while upper voices bloom into chords.</p>
+<hr />
+<h2>Example 3: Four coordinated but independent melodic voices</h2>
+<h3>Patch</h3>
+<ul>
+<li>4 sequencer lanes / random sources -&gt; IN 1–4</li>
+<li>Same key and scale across all voices</li>
+<li>Different trigger streams into GATE IN 1–4</li>
+<li>OUTs to 4 sound sources</li>
+</ul>
+<h3>Result</h3>
+<p>A small ensemble that remains harmonically unified.</p>
+<p>This is especially effective for:
+- modular “string quartet” style patches
+- tuned percussion ensembles
+- minimal music phasing systems</p>
+<hr />
+<h2>Example 4: Live playable harmonic controller</h2>
+<h3>Patch</h3>
+<ul>
+<li>Keyboard mode</li>
+<li>OUT 1–4 to four oscillators/voices</li>
+<li>GATE OUTs to envelopes</li>
+<li>Set Note 2/3/4 intervals</li>
+<li>Use presets for different harmonic environments</li>
+</ul>
+<h3>Result</h3>
+<p>Hands-on chord melody performance from the panel itself.</p>
+<hr />
+<h2>Example 5: Harmonic progression engine with scale transpose</h2>
+<h3>Patch</h3>
+<ul>
+<li>Repeating melodic sequencer into IN 1</li>
+<li>ASSIGN input mapped to <strong>Scale Transpose</strong></li>
+<li>Slow stepped CV sequence into ASSIGN</li>
+<li>Voice 1 Master ON with chord intervals set</li>
+</ul>
+<h3>Result</h3>
+<p>The melodic contour stays recognizable while the underlying harmonic key changes.</p>
+<p>This is one of the best uses in the module for creating actual “progressions” in generative music.</p>
+<hr />
+<h1>Best supporting modules to pair with the ADDAC207</h1>
+<p>Even though they’re not in the attached manual, this quantizer pairs especially well with:</p>
+<h2>Sequencers</h2>
+<p>For intentional melodic structure:
+- step sequencers
+- CV sequencers
+- Cartesian sequencers
+- Turing/random-loop sequencers</p>
+<h2>Random voltage sources</h2>
+<p>For generative melody:
+- stepped random
+- sample &amp; hold
+- fluctuating random
+- chaos CV</p>
+<h2>Clocks and trigger generators</h2>
+<p>To control note timing through GATE IN.</p>
+<h2>Oscillators</h2>
+<p>Especially multiple oscillators, since the ADDAC207 shines as a chord source.</p>
+<h2>Envelopes and VCAs</h2>
+<p>Because GATE OUT gives you note articulation.</p>
+<h2>Switches/sequential switches</h2>
+<p>For alternating melodic sources into one voice or redistributing outputs.</p>
+<h2>Mixers and precision adders</h2>
+<p>For layering additional transposition and interval structure.</p>
+<h2>Joysticks, touch controllers, keyboards</h2>
+<p>Excellent with ASSIGN transpose functions and keyboard mode.</p>
+<hr />
+<h1>Important practical observations from the manual</h1>
+<h2>Voice 1 as master is central</h2>
+<p>If inputs 2–4 are unpatched and master behavior is active, the module becomes much more than a quantizer — it becomes a <strong>scale-aware harmony engine</strong>.</p>
+<h2>Trigger repeat changes phrasing dramatically</h2>
+<p>This matters a lot if you want repeated notes to retrigger envelopes.</p>
+<h2>Reaction time can be adjusted</h2>
+<p>This is mostly UX-related, but helpful if you perform in keyboard mode and want to avoid accidental menu entry.</p>
+<h2>Fine tuning is per voice</h2>
+<p>Very useful when driving multiple oscillators in stacked harmony patches.</p>
+<h2>Presets do not store everything</h2>
+<p>Fine tunings and some global settings are in main memory, not preset memory.</p>
+<hr />
+<h1>Best musical roles for this module</h1>
+<p>The ADDAC207 is especially strong as:</p>
+<ul>
+<li>a <strong>master melodic quantizer</strong> for a whole patch</li>
+<li>a <strong>chord generator</strong> from one CV line</li>
+<li>a <strong>4-part harmony distributor</strong></li>
+<li>a <strong>modal/generative melody shaper</strong></li>
+<li>a <strong>manual playable keyboard quantizer</strong></li>
+<li>a <strong>transpose/progression engine</strong></li>
+</ul>
+<p>It is less just a utility and more a <strong>compositional module</strong>.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>If you use the ADDAC207 well, it can provide nearly all pitch organization for a modular patch:</p>
+<ul>
+<li>one source becomes a melody,</li>
+<li>one melody becomes a chord,</li>
+<li>multiple CVs become a coherent ensemble,</li>
+<li>external CV can transpose notes or entire harmonic spaces,</li>
+<li>and presets can organize different musical sections.</li>
+</ul>
+<p>The strongest melodic workflows are:</p>
+<ol>
+<li><strong>single CV -&gt; harmonized multi-voice outputs</strong></li>
+<li><strong>multiple CV streams -&gt; shared scale coherence</strong></li>
+<li><strong>assign CV -&gt; transposition or scale movement</strong></li>
+<li><strong>keyboard mode -&gt; direct melodic/harmonic performance</strong></li>
+</ol>
+<p>If you want, I can also turn this into:
+- a <strong>“patch cookbook” with 10 concrete patches</strong>,
+- a <strong>cheat sheet for live performance</strong>, or
+- a <strong>signal flow diagram</strong> for using the ADDAC207 in a melodic Eurorack system.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

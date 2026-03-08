@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Arcus_Audio_Unity_Mixer</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Arcus Audio — Unity Mixer</h1>
+<ul>
+<li><a href="../../manuals/Unity Mixer - Arcus Audio.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://arcusaudio.com/product/unity_mixer/">Manual PDF</a></p>
+<h1>Arcus Audio Unity Mixer — melodic use analysis</h1>
+<p>The PDF/page provided is for the <strong>Arcus Audio Unity Mixer</strong>, a <strong>2HP dual 3:1 unity gain summing mixer</strong> that can also function as a <strong>single 6:1 mixer</strong>. It is <strong>DC-coupled</strong>, so it can mix both <strong>audio and CV</strong>, which is what makes it especially useful for melodic patching in Eurorack.</p>
+<h2>Module identified from the manual</h2>
+<h3>Unity Mixer</h3>
+<ul>
+<li><strong>Type:</strong> Dual 3:1 unity gain mixer / 6:1 mixer</li>
+<li><strong>Width:</strong> 2HP</li>
+<li><strong>DC-coupled:</strong> yes</li>
+<li><strong>Use with:</strong> audio or CV</li>
+<li><strong>Input impedance:</strong> 10kΩ</li>
+<li><strong>Indicators:</strong> bi-color LEDs on outputs 1 and 2 for level/polarity</li>
+<li><strong>Power:</strong> 15mA on +12V, 15mA on -12V</li>
+</ul>
+<hr />
+<h1>What this module does musically</h1>
+<p>A unity mixer does not amplify or attenuate by itself; it <strong>adds signals together at fixed gain</strong>. In melodic systems, that is extremely valuable because melodies often come from <strong>combining pitch-related voltages</strong>:</p>
+<ul>
+<li>sequencer pitch CV</li>
+<li>keyboard CV</li>
+<li>quantizer output</li>
+<li>transposition voltage</li>
+<li>octave offsets</li>
+<li>envelopes used as temporary pitch bends</li>
+<li>LFO or vibrato</li>
+<li>random voltage</li>
+<li>chord intervals</li>
+</ul>
+<p>Because the Unity Mixer is <strong>DC-coupled</strong>, it can combine all of those control voltages directly.</p>
+<hr />
+<h1>Best melodic uses</h1>
+<h2>1. Transposing a sequence</h2>
+<p>Patch:
+- <strong>Input 1:</strong> pitch sequence CV
+- <strong>Input 2:</strong> offset voltage from a precision adder, keyboard, fader, or fixed voltage source
+- <strong>Output:</strong> oscillator 1V/oct</p>
+<p>Result:
+- Your melody plays normally, but the second voltage shifts it up or down.
+- This is one of the simplest and most useful melodic applications.</p>
+<p>Example:
+- Sequence sends the melody
+- A slow manual offset or another sequencer row transposes the entire line every bar</p>
+<hr />
+<h2>2. Adding vibrato or pitch animation</h2>
+<p>Patch:
+- <strong>Input 1:</strong> main pitch CV
+- <strong>Input 2:</strong> attenuated LFO
+- <strong>Output:</strong> oscillator pitch input</p>
+<p>Result:
+- The oscillator follows the melody, while the LFO adds vibrato.</p>
+<p>Important note:
+- Since this mixer is unity gain and has <strong>no attenuators</strong>, the modulation source should already be reduced elsewhere.
+- If your LFO is too strong, vibrato may become wide pitch wobble.</p>
+<hr />
+<h2>3. Creating pitch slides and bends</h2>
+<p>Patch:
+- <strong>Input 1:</strong> sequencer pitch CV
+- <strong>Input 2:</strong> envelope or function generator
+- <strong>Output:</strong> oscillator 1V/oct</p>
+<p>Result:
+- The envelope adds a temporary pitch rise or fall at each note.
+- Great for acid-style attacks, plucks, or expressive bends.</p>
+<p>This works especially well if the envelope is short and subtle.</p>
+<hr />
+<h2>4. Layering interval voltages for harmony</h2>
+<p>Patch:
+- <strong>Mixer A output:</strong> root melody CV + interval offset
+- <strong>Mixer B output:</strong> root melody CV + different interval offset</p>
+<p>Send:
+- Output A -&gt; oscillator 1 pitch
+- Output B -&gt; oscillator 2 pitch</p>
+<p>Result:
+- You get harmonized melodic lines from one source melody.</p>
+<p>Example uses:
+- root + fifth
+- root + octave
+- root + third</p>
+<p>If you have fixed voltage sources or a sequencer channel producing stable interval voltages, this mixer lets you build simple harmonic structures.</p>
+<hr />
+<h2>5. Mixing several melodic CV sources before quantization</h2>
+<p>Patch:
+- <strong>Input 1:</strong> slow random CV
+- <strong>Input 2:</strong> stepped sequencer row
+- <strong>Input 3:</strong> manual offset
+- <strong>Output:</strong> quantizer input</p>
+<p>Result:
+- The mixed voltage becomes the raw melodic material.
+- The quantizer then forces the combined result into a musical scale.</p>
+<p>This is one of the most powerful uses for a unity mixer in melodic composition:
+- random provides variation
+- sequence provides structure
+- offset provides phrase movement</p>
+<hr />
+<h2>6. Mixing after quantization for controlled transposition</h2>
+<p>Patch:
+- <strong>Input 1:</strong> quantized melody CV
+- <strong>Input 2:</strong> octave offset or transposition CV
+- <strong>Output:</strong> oscillator 1V/oct</p>
+<p>Result:
+- Keeps the melody stable while allowing phrase-level movement.
+- Very useful when you want musical transposition without changing the contour of the melody.</p>
+<hr />
+<h2>7. Building a 6-input melodic control bus</h2>
+<p>Since the two 3:1 mixers can act as a <strong>single 6:1 mixer</strong>, you can combine many melodic influences into one pitch stream.</p>
+<p>Possible combined sources:
+- sequencer
+- keyboard CV
+- offset voltage
+- vibrato LFO
+- envelope bend
+- random modulation</p>
+<p>Result:
+- One “composite melody CV” controlling an oscillator or quantizer.</p>
+<p>This is excellent for experimental melodic systems where pitch is generated by several interacting sources.</p>
+<hr />
+<h1>How to use it with common melodic module types</h1>
+<p>Even though the provided PDF only directly documents the Unity Mixer, here is how it fits into a typical melodic Eurorack voice.</p>
+<h2>With a sequencer</h2>
+<p>Use the Unity Mixer to:
+- transpose the sequence
+- add accents as pitch offsets
+- combine two rows into one more complex pitch line</p>
+<h2>With a quantizer</h2>
+<p>Use the Unity Mixer:
+- <strong>before quantizer</strong> for generative note creation
+- <strong>after quantizer</strong> for octave transposition and controlled shifts</p>
+<h2>With oscillators</h2>
+<p>Send mixed pitch CV to:
+- one oscillator for a single animated melody
+- two oscillators from separate summed outputs for harmonized lines</p>
+<h2>With envelopes and LFOs</h2>
+<p>Add:
+- envelopes for bends
+- LFOs for vibrato
+- stepped modulation for melodic ornamentation</p>
+<h2>With precision voltage sources</h2>
+<p>Although this is not specifically described as a precision adder in the manual, it can still be used for <strong>practical pitch summing</strong> in many patches. For highly exact long-range 1V/oct transposition, a dedicated precision adder may be better, but for many real-world musical patches this mixer is still very useful.</p>
+<hr />
+<h1>Patch ideas for melodic music</h1>
+<h2>Patch 1: Simple transposed bassline</h2>
+<ul>
+<li>Sequencer pitch out -&gt; Unity Mixer input 1</li>
+<li>Manual offset/fixed voltage -&gt; input 2</li>
+<li>Mixer output -&gt; VCO 1V/oct</li>
+<li>Sequencer gate -&gt; envelope -&gt; VCA</li>
+</ul>
+<p>Use:
+- offset voltage to move the bassline between sections</p>
+<p>Sound:
+- classic structured melodic bass part</p>
+<hr />
+<h2>Patch 2: Lead with vibrato and pitch envelope</h2>
+<ul>
+<li>Sequencer pitch -&gt; input 1</li>
+<li>attenuated LFO -&gt; input 2</li>
+<li>short envelope -&gt; input 3</li>
+<li>mixer output -&gt; lead oscillator pitch</li>
+</ul>
+<p>Sound:
+- stable melody with animated vibrato and slight attack bend</p>
+<hr />
+<h2>Patch 3: Generative melody source</h2>
+<ul>
+<li>stepped random -&gt; input 1</li>
+<li>slow triangle LFO -&gt; input 2</li>
+<li>manual offset -&gt; input 3</li>
+<li>mixer output -&gt; quantizer -&gt; oscillator</li>
+</ul>
+<p>Sound:
+- evolving but scale-locked melodic line</p>
+<hr />
+<h2>Patch 4: Two-voice harmony from one sequence</h2>
+<p><strong>Mixer 1</strong>
+- root melody -&gt; input 1
+- +third offset -&gt; input 2
+- output 1 -&gt; oscillator A</p>
+<p><strong>Mixer 2</strong>
+- root melody -&gt; input 1
+- +fifth or +octave offset -&gt; input 2
+- output 2 -&gt; oscillator B</p>
+<p>Sound:
+- instant harmonized melodic texture</p>
+<hr />
+<h2>Patch 5: Phrase modulation bus</h2>
+<p>Use all 6 inputs:
+- main sequence
+- bar-by-bar transpose CV
+- vibrato
+- occasional random step voltage
+- envelope bend
+- fixed offset</p>
+<p>Then:
+- output -&gt; quantizer -&gt; oscillator</p>
+<p>Sound:
+- a melody with internal motion and larger-form phrasing</p>
+<hr />
+<h1>Strengths of this module for melodic work</h1>
+<ul>
+<li><strong>Tiny 2HP footprint</strong></li>
+<li><strong>DC-coupled</strong>, so it handles pitch and modulation CV</li>
+<li>Can support <strong>two separate melodic voices</strong></li>
+<li>Can be combined into a <strong>single complex melody CV mixer</strong></li>
+<li>LEDs help visualize polarity and signal activity</li>
+<li>Great for adding small melodic utilities without sacrificing rack space</li>
+</ul>
+<hr />
+<h1>Limitations to keep in mind</h1>
+<h2>No attenuators</h2>
+<p>This is the main limitation in melodic patching.
+If you are mixing pitch CV with LFOs, envelopes, or random voltages, you will often want:
+- attenuators
+- offset generators
+- utility VCAs</p>
+<p>Without attenuation, modulation depth may be too large.</p>
+<h2>Not explicitly presented as a precision adder</h2>
+<p>For very exact pitch transposition across many octaves, a dedicated precision adder is usually safer. But for many melodic and experimental applications, this mixer is still very useful.</p>
+<h2>Summing can push voltage ranges high</h2>
+<p>If you combine several CV sources, the total voltage may exceed the musically useful range for the destination. A quantizer or attenuator downstream may help.</p>
+<hr />
+<h1>Overall musical verdict</h1>
+<p>The <strong>Arcus Audio Unity Mixer</strong> is not a melody generator by itself, but it is an extremely useful <strong>melodic utility</strong>. In a Eurorack system, melodic content often comes from <strong>summing multiple control voltages</strong>, and this module is built exactly for that.</p>
+<p>It is especially good for:
+- sequence transposition
+- harmonic interval stacking
+- adding vibrato or pitch envelopes
+- combining generative CV sources before a quantizer
+- making two related melodic voices in minimal space</p>
+<p>If your rack already has:
+- a sequencer
+- quantizer
+- oscillator
+- envelopes/LFOs
+- a few offset or attenuator tools</p>
+<p>then the Unity Mixer becomes a very effective <strong>melodic glue module</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

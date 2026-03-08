@@ -1,0 +1,413 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>TAKAAB_Odd_Clock_Divider</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>TAKAAB — Odd Clock Divider</h1>
+<ul>
+<li><a href="../../manuals/TAKAAB OCD - Odd Clock Divider – Siam Modular.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1><a href="https://siammodular.com/products/takaab-ocd-odd-clock-divider?srsltid=AfmBOopTsJBGyNaC6WtMfJJU3EFzdu1WvzDldMz3y6eA2c-lwQCE1iKj">Manual PDF / Product Page</a></h1>
+<h2>Module identified</h2>
+<p>From the attached pages, the clearly documented module is:</p>
+<ul>
+<li><strong>TAKAAB OCD – Odd Clock Divider</strong></li>
+</ul>
+<p>Related modules shown/referenced on the page:</p>
+<ul>
+<li><strong>TAKAAB ECD – Even Clock Divider</strong></li>
+<li><strong>TAKAAB OCD + ECD Clock Divider Bundle</strong></li>
+<li><strong>TAKAAB 2XOR – Dual 3-input Logic Exclusive OR Gate</strong></li>
+<li><strong>TAKAAB UXS</strong> (mentioned as an expander/helper for bringing jumper control to the front panel)</li>
+</ul>
+<hr />
+<h2>What the OCD does</h2>
+<p>The <strong>TAKAAB OCD</strong> is a <strong>2HP clock divider</strong> designed to generate less-common rhythmic divisions from an incoming clock.</p>
+<h3>Inputs / controls</h3>
+<ul>
+<li><strong>CLOCK IN</strong></li>
+<li>Accepts <strong>2.5V–10V</strong></li>
+<li>Up to <strong>10 kHz</strong></li>
+<li><strong>RESET jack</strong></li>
+<li>Accepts <strong>2.5V–10V</strong></li>
+<li>Resets output clocks so they restart from pulse 1</li>
+<li><strong>RESET button</strong></li>
+<li>Manual reset</li>
+</ul>
+<h3>Outputs</h3>
+<p>It creates divided clocks at:</p>
+<ul>
+<li><strong>/3</strong></li>
+<li><strong>/5</strong></li>
+<li><strong>/7</strong></li>
+<li><strong>/9</strong></li>
+<li><strong>/10</strong></li>
+</ul>
+<p>There is also a <strong>jumper option</strong> to change <strong>/9</strong> to <strong>/6</strong>.</p>
+<h3>Output behavior</h3>
+<ul>
+<li>Output level: <strong>6V</strong></li>
+<li>Duty cycle: nominally <strong>50%</strong>, but for odd divisions it is rounded to nearest pulse:</li>
+<li>/3 ≈ <strong>1 high : 2 low</strong></li>
+<li>/7 ≈ <strong>3 high : 4 low</strong></li>
+<li>/9 ≈ <strong>4 high : 5 low</strong></li>
+<li>/6 is noted as exceptional:</li>
+<li><strong>4 high : 2 low</strong></li>
+</ul>
+<h3>Chaining / normalization</h3>
+<p>The page also says the board has headers to:</p>
+<ul>
+<li>normalize <strong>RESET</strong> between adjacent divider modules</li>
+<li>normalize <strong>CLOCK IN</strong> between adjacent <strong>OCD</strong> or <strong>ECD</strong> modules</li>
+<li>connect reset-button behavior to an adjacent <strong>ECD</strong></li>
+</ul>
+<p>That means OCD and ECD are intended to work very well as a compact clocking ecosystem.</p>
+<hr />
+<h2>Important musical reality: this is not a pitch generator</h2>
+<p>By itself, the <strong>OCD does not generate voltages for melody</strong> in the usual pitch-CV sense. It generates <strong>timing events</strong>.</p>
+<p>So if your goal is <strong>melodic components</strong>, the OCD contributes indirectly by creating:</p>
+<ul>
+<li><strong>rhythmic trigger structures</strong></li>
+<li><strong>phrase lengths</strong></li>
+<li><strong>reset cycles</strong></li>
+<li><strong>accent logic</strong></li>
+<li><strong>counterpoint timing</strong></li>
+<li><strong>non-4/4 note-entry patterns</strong></li>
+</ul>
+<p>To make actual melodies, you pair it with one or more of:</p>
+<ul>
+<li>a <strong>sequencer</strong></li>
+<li>a <strong>quantizer</strong></li>
+<li>a <strong>sample-and-hold</strong></li>
+<li>a <strong>Turing machine / random CV source</strong></li>
+<li>an <strong>envelope + VCA + oscillator voice</strong></li>
+<li>a <strong>switch / sequential switch</strong></li>
+<li>logic modules such as the referenced <strong>TAKAAB 2XOR</strong></li>
+</ul>
+<hr />
+<h2>Best ways these modules can be used together for melodic music</h2>
+<h2>1. Create polyrhythmic note triggers for one pitch source</h2>
+<h3>Patch idea</h3>
+<ul>
+<li>Master clock → <strong>OCD CLOCK IN</strong></li>
+<li>Use <strong>/3</strong> to trigger an envelope/VCA for your main voice</li>
+<li>Use <strong>/5</strong> to clock a sample-and-hold or sequencer advance</li>
+<li>Use <strong>/7</strong> to reset a short sequencer or switch</li>
+</ul>
+<h3>Result</h3>
+<p>Your pitch changes and your note articulations happen at different rates.<br />
+This creates melodies that feel:</p>
+<ul>
+<li>asymmetrical</li>
+<li>evolving</li>
+<li>less grid-locked</li>
+<li>“alive” without being random</li>
+</ul>
+<h3>Why it works</h3>
+<p>If a sequencer advances every 5 pulses but the voice is articulated every 3 pulses, the same pitch will sometimes repeat and sometimes change before the next note. That creates emergent melodic phrasing.</p>
+<hr />
+<h2>2. Pair OCD with ECD to create long-form melodic cycles</h2>
+<p>The product page strongly suggests pairing <strong>OCD + ECD</strong>.</p>
+<h3>Why this is powerful</h3>
+<p>Even divisions and odd divisions together create <strong>least-common-multiple phrase lengths</strong>. That means melodic structures take much longer to repeat.</p>
+<p>For example:
+- ECD /4 clocks a sequencer row change
+- OCD /5 advances a second sequencer or transposition source
+- ECD /8 resets one event
+- OCD /7 resets another</p>
+<h3>Musical effect</h3>
+<p>You get:</p>
+<ul>
+<li>long melodic forms</li>
+<li>repeating motifs that slowly phase</li>
+<li>evolving ostinatos</li>
+<li>pseudo-generative tonal movement</li>
+</ul>
+<h3>Example patch</h3>
+<ul>
+<li>Master clock → normalized to <strong>ECD + OCD</strong></li>
+<li><strong>ECD /2</strong> → trigger bass envelope</li>
+<li><strong>OCD /3</strong> → trigger melody envelope</li>
+<li><strong>ECD /4</strong> → advance 4-step sequencer</li>
+<li><strong>OCD /5</strong> → transpose sequencer via precision adder input or switch</li>
+<li><strong>OCD /7</strong> → reset melody every 7 pulses</li>
+<li><strong>ECD /8</strong> → reset bass every 8 pulses</li>
+</ul>
+<p>This creates a melody that loops against a different harmonic cycle.</p>
+<hr />
+<h2>3. Use odd divisions to define phrase boundaries</h2>
+<p>The <strong>RESET</strong> input is especially important musically.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Main clock → OCD</li>
+<li><strong>/10</strong> output → reset a melodic sequencer</li>
+<li><strong>/3</strong> output → trigger the sequencer to advance</li>
+<li><strong>/5</strong> output → trigger an accent envelope or open a secondary VCA</li>
+</ul>
+<h3>Result</h3>
+<p>A sequence might be stepped at /3 but forced back to step 1 every /10.</p>
+<p>That means:
+- the pattern does not simply run linearly
+- phrase starts occur at a different interval than note events
+- your melody acquires a recognizable but unusual structure</p>
+<p>This is excellent for:
+- minimalist melodies
+- Berlin-school style pattern mutations
+- modular techno phrases
+- nonstandard arpeggios</p>
+<hr />
+<h2>4. Generate melodic syncopation with odd trigger streams</h2>
+<p>If you already have a quantized CV melody, the OCD can shape <strong>when notes are heard</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Quantizer CV → oscillator 1V/oct</li>
+<li>Envelope trigger from <strong>OCD /3</strong></li>
+<li>Accent or filter envelope from <strong>OCD /5</strong></li>
+<li>A second layer or sub voice from <strong>OCD /7</strong></li>
+</ul>
+<h3>Result</h3>
+<p>One pitch line becomes multiple interacting note layers:
+- some notes are short
+- some are accented
+- some appear only every 5 or 7 base pulses</p>
+<p>This turns a plain melody into a more composed line.</p>
+<hr />
+<h2>5. Use OCD + 2XOR for melodic gate logic</h2>
+<p>The related product list includes <strong>TAKAAB 2XOR</strong>, which is very useful here.</p>
+<h3>What XOR adds</h3>
+<p>XOR outputs are high when inputs differ. With divided clocks, XOR produces new composite rhythms.</p>
+<h3>Example patch</h3>
+<ul>
+<li>OCD <strong>/3</strong> and <strong>/5</strong> → XOR input pair</li>
+<li>XOR output → trigger sequencer advance</li>
+<li>OCD <strong>/7</strong> → trigger envelope</li>
+<li>ECD <strong>/4</strong> → reset</li>
+</ul>
+<h3>Musical result</h3>
+<p>The sequencer advances only on the changing relationship between /3 and /5. This creates:
+- irregular note placements
+- emergent motifs
+- structured unpredictability</p>
+<p>If the sequencer is quantized, these irregular advances become melodic phrases rather than just rhythmic noise.</p>
+<h3>Another strong use</h3>
+<ul>
+<li>XOR two divisions to create a trigger stream</li>
+<li>use that trigger stream to clock a <strong>sample-and-hold</strong></li>
+<li>sample a slow CV or random source</li>
+<li>quantize the result</li>
+</ul>
+<p>That gives you melodies whose note changes are mathematically patterned instead of purely random.</p>
+<hr />
+<h2>6. Use /6 jumper option for more conventional melodic support</h2>
+<p>The manual text says <strong>/9 can be changed to /6</strong> via jumper.</p>
+<h3>Why this matters</h3>
+<p>/9 is musically unusual and great for long cycles, but /6 is often easier to integrate with:
+- 3-based grooves
+- 6/8 feels
+- triplet-adjacent structures
+- phrase balancing against /3</p>
+<h3>Example</h3>
+<ul>
+<li>/3 = note trigger</li>
+<li>/6 = accent reset or transposition event</li>
+<li>/5 = alternate melodic voice trigger</li>
+</ul>
+<p>This gives a melody that feels semi-structured rather than fully “off-grid.”</p>
+<p>If you want accessible but still interesting melodic motion, using <strong>/6 instead of /9</strong> may be preferable.</p>
+<hr />
+<h2>7. Build counterpoint from one master clock</h2>
+<p>A very modular-musician way to use OCD/ECD is to derive multiple “players” from one pulse train.</p>
+<h3>Example 3-voice melodic patch</h3>
+<ul>
+<li>Master clock → OCD + ECD</li>
+<li><strong>ECD /2</strong> → bass trigger</li>
+<li><strong>OCD /3</strong> → mid voice trigger</li>
+<li><strong>OCD /5</strong> → high voice trigger</li>
+<li>one shared quantized CV source goes to a switch or S&amp;H system</li>
+<li><strong>ECD /4</strong> changes the bass pitch source</li>
+<li><strong>OCD /7</strong> changes the high voice pitch source</li>
+<li><strong>/10</strong> resets everything</li>
+</ul>
+<h3>Result</h3>
+<p>You get independent note entrances from one timing network.<br />
+Even with simple pitch material, the differing trigger rates imply counterpoint.</p>
+<p>This is one of the best uses of clock dividers in melodic patching:<br />
+<strong>timing independence creates the illusion of compositional complexity.</strong></p>
+<hr />
+<h2>8. Use OCD as a melodic “form” generator, not just rhythm generator</h2>
+<p>Many people first think of clock dividers as drum tools, but odd dividers are especially good for <strong>formal structure</strong>.</p>
+<h3>They can control:</h3>
+<ul>
+<li>when a sequencer advances</li>
+<li>when a sequencer resets</li>
+<li>when a transposition occurs</li>
+<li>when a switch changes source</li>
+<li>when a random voltage is sampled</li>
+<li>when a second harmony line appears</li>
+<li>when a melodic motif is muted/unmuted</li>
+</ul>
+<h3>Example form patch</h3>
+<ul>
+<li>/3 → melody gate</li>
+<li>/5 → transposition change</li>
+<li>/7 → switch between two stored CV rows</li>
+<li>/10 → reset the row sequencer</li>
+</ul>
+<p>This gives you melody, variation, and phrase recurrence from one 2HP utility.</p>
+<hr />
+<h2>9. Excellent use with sequential switches</h2>
+<p>If you have a switch module, OCD becomes much more melodic.</p>
+<h3>Patch</h3>
+<ul>
+<li>3 or 4 different CV sources into a sequential switch</li>
+<li>OCD <strong>/5</strong> advances the switch</li>
+<li>OCD <strong>/3</strong> triggers the envelope</li>
+<li>ECD <strong>/4</strong> or OCD <strong>/10</strong> resets the switch</li>
+<li>switched CV goes through a quantizer to oscillator pitch</li>
+</ul>
+<h3>Result</h3>
+<p>The pitch source changes on a different cycle than the note triggers.<br />
+That yields:
+- recurring motifs
+- broken arpeggios
+- phrase mutation
+- musically coherent “generative” melody</p>
+<hr />
+<h2>10. Best use with sample-and-hold for generative melody</h2>
+<p>A classic patch:</p>
+<ul>
+<li>Noise or slow chaotic CV → Sample &amp; Hold input</li>
+<li>OCD <strong>/7</strong> → S&amp;H trigger</li>
+<li>S&amp;H output → Quantizer</li>
+<li>Quantizer → oscillator pitch</li>
+<li>OCD <strong>/3</strong> → envelope trigger</li>
+<li>ECD <strong>/8</strong> or OCD <strong>/10</strong> → reset related clocking/sequencer logic</li>
+</ul>
+<h3>Why this works</h3>
+<p>The note selection changes slowly at /7, while the actual played notes articulate at /3.<br />
+So each sampled pitch may repeat a few times before changing, producing recognizable melodic cells.</p>
+<p>This is far more musical than triggering random pitch on every note.</p>
+<hr />
+<h2>Strengths of the OCD for melody-making</h2>
+<h3>1. Odd divisions create non-obvious phrase structures</h3>
+<p>/3, /5, /7, /9 are great for:
+- polymeter
+- additive-feel melody
+- pattern drift
+- non-repeating ostinatos</p>
+<h3>2. Reset makes the complexity controllable</h3>
+<p>Without reset, odd clocks can drift indefinitely.<br />
+With reset, you can define phrase lengths and keep the music intelligible.</p>
+<h3>3. Compact size</h3>
+<p>At <strong>2HP</strong>, it’s ideal as a support module in a melody-focused system.</p>
+<h3>4. Chainable architecture</h3>
+<p>The onboard normalization with adjacent ECD/OCD modules makes it easy to create a compact clock network for:
+- melody
+- bass
+- transposition
+- accents
+- structural resets</p>
+<hr />
+<h2>Limitations to understand</h2>
+<p>For melodic use, the OCD is <strong>support infrastructure</strong>, not a full melodic source.</p>
+<p>You will still want at least one of:
+- quantizer
+- sequencer
+- S&amp;H
+- logic
+- precision adder
+- switch</p>
+<p>Also note:
+- fixed divisions only
+- no CV control over division
+- no swing or shuffle mentioned
+- no built-in pattern memory or pitch generation</p>
+<p>So think of it as the <strong>skeleton of melodic timing</strong>, not the melody itself.</p>
+<hr />
+<h2>Best musical pairings</h2>
+<h2>OCD + ECD</h2>
+<p>Best for:
+- long non-repeating phrases
+- bass vs melody timing separation
+- phrase resets
+- polymetric sequencing</p>
+<h2>OCD + 2XOR</h2>
+<p>Best for:
+- derived trigger logic
+- irregular sequencer clocks
+- more “composed” generative patterns
+- accent and articulation streams</p>
+<h2>OCD + quantizer + S&amp;H</h2>
+<p>Best for:
+- generative melodies
+- slowly changing tonal lines
+- ambient and experimental sequencing</p>
+<h2>OCD + switch / sequencer</h2>
+<p>Best for:
+- melodic variation
+- phrase mutation
+- transposition events
+- arpeggio restructuring</p>
+<hr />
+<h2>Practical patch recipes</h2>
+<h2>Recipe 1: Minimal melodic generator</h2>
+<ul>
+<li>Master clock → OCD</li>
+<li>/5 → Sample &amp; Hold trigger</li>
+<li>Random or slow CV → S&amp;H in</li>
+<li>S&amp;H out → Quantizer → VCO pitch</li>
+<li>/3 → Envelope trigger → VCA</li>
+<li>/10 → Reset sequencer or related clock tool</li>
+</ul>
+<p><strong>Sound:</strong> evolving melody with repeating sub-phrases</p>
+<hr />
+<h2>Recipe 2: Bass + lead polymeter</h2>
+<ul>
+<li>Master clock → ECD + OCD</li>
+<li>ECD /2 → bass trigger</li>
+<li>ECD /4 → bass sequencer advance</li>
+<li>OCD /3 → lead trigger</li>
+<li>OCD /5 → lead sequencer advance</li>
+<li>OCD /7 → lead reset</li>
+<li>ECD /8 → bass reset</li>
+</ul>
+<p><strong>Sound:</strong> stable bass with drifting lead phrase</p>
+<hr />
+<h2>Recipe 3: Logic melody clock</h2>
+<ul>
+<li>OCD /3 + /5 → 2XOR</li>
+<li>XOR out → sequencer clock</li>
+<li>OCD /7 → envelope trigger</li>
+<li>Sequencer CV → quantizer → VCO</li>
+<li>/10 → reset</li>
+</ul>
+<p><strong>Sound:</strong> irregular but structured melodic line</p>
+<hr />
+<h2>Recipe 4: Two-row melodic switching</h2>
+<ul>
+<li>Row A CV and Row B CV into switch</li>
+<li>OCD /5 → switch advance/toggle</li>
+<li>OCD /3 → gate envelope</li>
+<li>ECD /4 → sequencer advance</li>
+<li>/10 reset</li>
+</ul>
+<p><strong>Sound:</strong> melody that alternates between two harmonic identities</p>
+<hr />
+<h2>Bottom line</h2>
+<p>The <strong>TAKAAB OCD</strong> is best used for melody as a <strong>rhythmic and structural control module</strong>. On its own, it does not output pitch, but when paired with modules like the <strong>ECD</strong>, <strong>2XOR</strong>, sequencers, quantizers, sample-and-hold, and switches, it becomes a very effective tool for:</p>
+<ul>
+<li>generating nonstandard melodic rhythms</li>
+<li>creating long-form evolving phrases</li>
+<li>introducing controlled asymmetry</li>
+<li>building polymetric bass/lead relationships</li>
+<li>resetting and shaping melodic form</li>
+</ul>
+<p>If you use it like a <strong>phrase engine</strong> rather than just a divider, it becomes surprisingly powerful for melodic composition in Eurorack.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

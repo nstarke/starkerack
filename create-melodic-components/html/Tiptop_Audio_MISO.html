@@ -1,0 +1,431 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tiptop_Audio_MISO</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Tiptop Audio — MISO</h1>
+<ul>
+<li><a href="../../manuals/Tiptop_Audio_miso.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://tiptopaudio.com/miso/">Tiptop Audio MISO Manual PDF</a></p>
+<h1>Tiptop Audio MISO — using it to create melodic components in a Eurorack system</h1>
+<p>MISO is a <strong>CV and signal utility</strong> built around four core functions:</p>
+<ul>
+<li><strong>Mix</strong></li>
+<li><strong>Invert</strong></li>
+<li><strong>Scale</strong></li>
+<li><strong>Offset</strong></li>
+</ul>
+<p>From the manual, the module contains:</p>
+<ul>
+<li><strong>Top section:</strong> channels <strong>1</strong> and <strong>2</strong></li>
+<li><strong>Bottom section:</strong> channels <strong>A</strong> and <strong>B</strong></li>
+<li>Each channel has:</li>
+<li><strong>Input</strong></li>
+<li><strong>Scale/Invert knob</strong></li>
+<li><strong>Offset knob</strong></li>
+<li><strong>Output</strong></li>
+<li>Each pair has a <strong>mix output</strong></li>
+<li><strong>1+2</strong></li>
+<li><strong>A+B</strong></li>
+<li>The center section is a <strong>voltage-controlled crossfader</strong></li>
+<li>Crossfades between <strong>1+2</strong> and <strong>A+B</strong></li>
+<li>Final output is the <strong>Σ (sigma) output</strong></li>
+</ul>
+<p>This makes MISO extremely useful for melody building, because melodic CV in Eurorack is often just a combination of:</p>
+<ul>
+<li>pitch source</li>
+<li>transposition</li>
+<li>attenuation/scaling</li>
+<li>inversion</li>
+<li>offsetting into a musically useful range</li>
+<li>mixing multiple modulation sources into one destination</li>
+</ul>
+<hr />
+<h1>What MISO does musically</h1>
+<p>MISO does <strong>not generate quantized notes by itself</strong>, but it is excellent for shaping control voltage into melodic behavior.</p>
+<p>You can use it to:</p>
+<ul>
+<li>combine two or more pitch-related CVs</li>
+<li>make a sequence narrower or wider in interval range</li>
+<li>invert a sequence around a center point</li>
+<li>add manual transposition</li>
+<li>fade between two different melodic contours</li>
+<li>create related counter-melodies from one source</li>
+<li>mix slow modulation into pitch for evolving phrases</li>
+<li>prepare CV before sending it to a quantizer or oscillator 1V/oct input</li>
+</ul>
+<p>If you have sequencers, LFOs, sample &amp; hold, random voltage, or envelopes in your system, MISO can turn them into much more musical pitch material.</p>
+<hr />
+<h1>Core melodic uses</h1>
+<h2>1. Manual transposition of a melody</h2>
+<p>The most immediate melodic use is <strong>offset as transposition</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer pitch CV → <strong>IN 1</strong></li>
+<li><strong>OUT 1</strong> → oscillator <strong>1V/Oct</strong></li>
+<li>Use channel 1 <strong>Scale/Invert</strong> to set pitch amount</li>
+<li>Use channel 1 <strong>Offset</strong> to shift the whole melody up or down</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>The original melody stays intact</li>
+<li>Offset acts like a <strong>transpose control</strong></li>
+<li>Great for moving a riff between verse/chorus ranges</li>
+</ul>
+<p>If your sequencer output is already at a proper 1V/oct level, keep scale near unity and use offset carefully.</p>
+<hr />
+<h2>2. Tightening or widening interval range</h2>
+<p>Scale control is excellent for changing how wide a melody moves.</p>
+<h3>Patch</h3>
+<ul>
+<li>Pitch sequence CV → <strong>IN 1</strong></li>
+<li><strong>OUT 1</strong> → quantizer or oscillator pitch input</li>
+</ul>
+<h3>Use</h3>
+<ul>
+<li>Turn <strong>Scale/Invert</strong> right:</li>
+<li>wider melodic leaps</li>
+<li>more dramatic interval motion</li>
+<li>Turn toward center:</li>
+<li>smaller note movement</li>
+<li>more repetitive or hook-like phrases</li>
+<li>Turn left:</li>
+<li>interval pattern is inverted</li>
+</ul>
+<h3>Musical effect</h3>
+<p>A rising melody can become:</p>
+<ul>
+<li>compressed into a narrow motif</li>
+<li>expanded into wide leaps</li>
+<li>mirrored into a descending contour</li>
+</ul>
+<p>This is one of the best uses of MISO for composition.</p>
+<hr />
+<h2>3. Inverting a melody into a counter-line</h2>
+<p>Because the scale knob is bipolar, MISO can create an <strong>inverted contour</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Melody CV → <strong>IN 1</strong></li>
+<li><strong>OUT 1</strong> → second oscillator or second quantizer channel</li>
+<li>Turn Scale/Invert negative</li>
+</ul>
+<h3>Result</h3>
+<p>You get a melodic line that moves opposite the original:
+- when the original goes up, the new one goes down
+- when the original goes down, the new one rises</p>
+<p>Add offset afterward to place the inverted line into a useful register.</p>
+<p>This is very effective for:
+- bassline vs lead relationships
+- pseudo-counterpoint
+- mirrored arpeggios</p>
+<hr />
+<h2>4. Mixing two melodic CV sources</h2>
+<p>The pair mixer outputs (<strong>1+2</strong>, <strong>A+B</strong>) are ideal for building composite melodies.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer A pitch CV → <strong>IN 1</strong></li>
+<li>Slow random or second sequencer → <strong>IN 2</strong></li>
+<li>Take <strong>1+2 OUT</strong> to quantizer or oscillator pitch</li>
+</ul>
+<h3>Result</h3>
+<p>You get a pitch line that is the sum of:
+- the main melody
+- a secondary motion source</p>
+<h3>Good combinations</h3>
+<ul>
+<li>steady sequence + slow triangle LFO</li>
+<li>sequencer + sample-and-hold</li>
+<li>arpeggio + envelope</li>
+<li>bassline + manual offset voltage</li>
+</ul>
+<h3>Musical use</h3>
+<p>This can create:
+- phrase variation
+- evolving transposition
+- melodic drift
+- ornamentation</p>
+<p>If the result is too wild, reduce one source with its Scale/Invert knob.</p>
+<hr />
+<h2>5. Creating call-and-response melodies with the crossfader</h2>
+<p>The center crossfader is one of MISO’s strongest compositional features.</p>
+<p>It crossfades between:</p>
+<ul>
+<li><strong>1+2</strong></li>
+<li><strong>A+B</strong></li>
+</ul>
+<h3>Patch</h3>
+<p><strong>Top section</strong>
+- Main sequence CV → <strong>IN 1</strong>
+- Slow transposition source → <strong>IN 2</strong></p>
+<p><strong>Bottom section</strong>
+- Alternate sequence or inverted version → <strong>IN A</strong>
+- Another modulation source → <strong>IN B</strong></p>
+<p>Then:
+- Take <strong>Σ output</strong> to quantizer or oscillator pitch
+- Use the center crossfader manually or with CV</p>
+<h3>Result</h3>
+<p>You can move between two melodic worlds:</p>
+<ul>
+<li>section one: stable phrase</li>
+<li>section two: variation, inversion, or alternate pattern</li>
+</ul>
+<h3>Musical effect</h3>
+<p>This works beautifully for:
+- verse/chorus transitions
+- A/B phrase morphing
+- switching between root-position and transposed patterns
+- evolving melodic scenes in generative patches</p>
+<p>If you modulate the crossfader with a slow CV, the melody can gradually morph over time.</p>
+<hr />
+<h1>Best ways to use MISO with common melodic modules</h1>
+<h2>With a sequencer</h2>
+<p>MISO can sit between sequencer and oscillator/quantizer.</p>
+<p>Use it to:
+- transpose
+- invert
+- compress note range
+- mix another CV with the sequence
+- create a second related line</p>
+<h3>Example</h3>
+<ul>
+<li>Sequencer pitch → IN 1</li>
+<li>Manual offset on channel 1 = key change</li>
+<li>LFO into IN 2</li>
+<li>1+2 out → quantizer → oscillator</li>
+</ul>
+<p>This gives a stable sequence with controlled movement.</p>
+<hr />
+<h2>With a quantizer</h2>
+<p>This is one of the best combinations.</p>
+<p>MISO is especially powerful <strong>before</strong> a quantizer.</p>
+<h3>Why</h3>
+<p>MISO can generate continuously variable CV combinations, and the quantizer turns them into notes in a scale.</p>
+<h3>Patch</h3>
+<ul>
+<li>Random CV / LFO / sequence / mixed sources → MISO</li>
+<li><strong>Σ output</strong> → quantizer input</li>
+<li>Quantizer output → oscillator 1V/oct</li>
+</ul>
+<h3>Result</h3>
+<p>MISO shapes raw pitch behavior, while the quantizer makes it musical.</p>
+<p>This setup is ideal for:
+- generative melodies
+- transposable motifs
+- harmonically safe experimentation</p>
+<hr />
+<h2>With oscillators</h2>
+<p>You can use MISO as a pitch processor directly.</p>
+<h3>Single oscillator</h3>
+<ul>
+<li>Process pitch CV before oscillator 1V/oct input</li>
+</ul>
+<h3>Dual oscillator</h3>
+<ul>
+<li>Same source split into two MISO channels</li>
+<li>One normal, one inverted/scaled/offset</li>
+<li>Send each to a different oscillator</li>
+</ul>
+<p>This gives:
+- harmonized motion
+- contrary motion
+- octave shifts
+- bass/lead relationships</p>
+<hr />
+<h2>With LFOs and envelopes as melody sources</h2>
+<p>The manual explicitly shows MISO being used with LFOs into filter CV, but the exact same idea works for pitch.</p>
+<h3>Example</h3>
+<ul>
+<li>Saw LFO → IN 1</li>
+<li>Sine LFO → IN 2</li>
+<li>1+2 out → quantizer → oscillator</li>
+</ul>
+<p>Now MISO mixes two cyclic voltages into repeating melodic shapes.</p>
+<p>Change:
+- one scale amount
+- one offset
+- one polarity</p>
+<p>and the pattern changes dramatically.</p>
+<p>This is a powerful way to make:
+- pseudo-sequences without a sequencer
+- looping melodic phrases
+- shifting arpeggio-like structures</p>
+<hr />
+<h1>Practical melodic patch ideas</h1>
+<h2>Patch 1: Simple transposable melody</h2>
+<h3>Goal</h3>
+<p>Basic lead or bassline with hands-on transposition</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer pitch CV → <strong>IN 1</strong></li>
+<li><strong>OUT 1</strong> → oscillator <strong>1V/oct</strong></li>
+<li>Gate from sequencer → envelope/VCA as usual</li>
+</ul>
+<h3>Play it</h3>
+<ul>
+<li>Use <strong>Offset 1</strong> to transpose</li>
+<li>Use <strong>Scale/Invert 1</strong> to reduce or exaggerate interval motion</li>
+</ul>
+<h3>Best for</h3>
+<ul>
+<li>basslines</li>
+<li>live performance tweaking</li>
+<li>moving a pattern between sections</li>
+</ul>
+<hr />
+<h2>Patch 2: Inverted counter-melody</h2>
+<h3>Goal</h3>
+<p>Create a second melodic voice from the first</p>
+<h3>Patch</h3>
+<ul>
+<li>Mult original pitch CV</li>
+<li>Copy 1 → oscillator A</li>
+<li>Copy 2 → <strong>IN 1</strong> on MISO</li>
+<li><strong>OUT 1</strong> → oscillator B</li>
+<li>Set Scale/Invert negative</li>
+<li>Adjust Offset to place oscillator B in a good range</li>
+</ul>
+<h3>Result</h3>
+<p>A mirrored melodic relationship between two voices.</p>
+<h3>Best for</h3>
+<ul>
+<li>duophonic lines</li>
+<li>ambient counterpoint</li>
+<li>techno bass + lead interplay</li>
+</ul>
+<hr />
+<h2>Patch 3: Sequence plus controlled randomness</h2>
+<h3>Goal</h3>
+<p>Add variation without losing musicality</p>
+<h3>Patch</h3>
+<ul>
+<li>Main sequence CV → <strong>IN 1</strong></li>
+<li>Random stepped CV → <strong>IN 2</strong></li>
+<li><strong>1+2 OUT</strong> → quantizer → oscillator</li>
+</ul>
+<h3>Tune it</h3>
+<ul>
+<li>Keep channel 1 fairly strong</li>
+<li>Keep channel 2 subtle</li>
+<li>Use Offset to center the notes around the right register</li>
+</ul>
+<h3>Result</h3>
+<p>You preserve motif identity while adding melodic surprise.</p>
+<hr />
+<h2>Patch 4: Morphing between two melodies</h2>
+<h3>Goal</h3>
+<p>Continuous A/B melodic movement</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequence A → <strong>IN 1</strong></li>
+<li>Supporting CV for A phrase → <strong>IN 2</strong></li>
+<li>Sequence B → <strong>IN A</strong></li>
+<li>Supporting CV for B phrase → <strong>IN B</strong></li>
+<li><strong>Σ output</strong> → quantizer → oscillator</li>
+<li>Slow LFO → <strong>crossfade CV</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The melody drifts between two distinct phrase structures.</p>
+<h3>Best for</h3>
+<ul>
+<li>generative music</li>
+<li>soundtrack work</li>
+<li>slowly evolving minimalism</li>
+</ul>
+<hr />
+<h2>Patch 5: Four-source melodic generator</h2>
+<h3>Goal</h3>
+<p>Build a complex note stream from several simple voltages</p>
+<h3>Patch</h3>
+<ul>
+<li>Slow triangle LFO → IN 1</li>
+<li>Fast sample &amp; hold → IN 2</li>
+<li>Envelope → IN A</li>
+<li>Sequencer row or keyboard CV → IN B</li>
+<li>Σ out → quantizer → oscillator</li>
+</ul>
+<h3>Use</h3>
+<ul>
+<li>Tune each scale amount carefully</li>
+<li>Use offsets to bias each side</li>
+<li>Move the crossfader to emphasize different phrase families</li>
+</ul>
+<h3>Result</h3>
+<p>A rich melodic source with macro-level control.</p>
+<hr />
+<h1>How to think about MISO for melody</h1>
+<p>A useful way to think about MISO is:</p>
+<h2>It is a pitch-composition utility</h2>
+<p>It lets you sculpt melodic voltage before that voltage becomes notes.</p>
+<p>Each function corresponds to a musical idea:</p>
+<ul>
+<li><strong>Scale</strong> = interval size</li>
+<li><strong>Invert</strong> = reverse contour</li>
+<li><strong>Offset</strong> = transpose/register shift</li>
+<li><strong>Mix</strong> = combine motifs or influences</li>
+<li><strong>Crossfade</strong> = move between phrase identities</li>
+</ul>
+<p>That is exactly the kind of processing that makes melodies feel written rather than merely generated.</p>
+<hr />
+<h1>Important cautions for pitch use</h1>
+<p>From the manual:</p>
+<ul>
+<li>input range: <strong>±10V</strong></li>
+<li>output range: <strong>±10V</strong></li>
+<li>max offset: <strong>±10V</strong></li>
+<li>crossfade CV range: <strong>±10V</strong></li>
+</ul>
+<h2>Practical considerations</h2>
+<h3>1. Watch 1V/oct precision</h3>
+<p>MISO is a utility processor, not specifically described in the manual as a precision adder.<br />
+So for pitch CV:</p>
+<ul>
+<li>use your ears</li>
+<li>test tracking over several octaves</li>
+<li>it may be perfect for musical use, but don’t assume laboratory precision over huge ranges</li>
+</ul>
+<p>For most melodic and transposition tasks in a practical patch, it should still be very useful.</p>
+<h3>2. Quantizer helps a lot</h3>
+<p>If you’re mixing LFOs/random voltages for melody, patch MISO into a quantizer to keep things scale-locked.</p>
+<h3>3. Offset can push pitch too far</h3>
+<p>Because offset range is large, small knob moves can significantly shift register. This is great for performance, but easy to overdo.</p>
+<hr />
+<h1>Best musical roles for MISO in a melodic rack</h1>
+<p>MISO is especially good as:</p>
+<ul>
+<li>a <strong>pre-quantizer CV composer</strong></li>
+<li>a <strong>manual transposer</strong></li>
+<li>an <strong>inversion and interval shaper</strong></li>
+<li>a <strong>dual melody morpher</strong></li>
+<li>a <strong>source of related pitch lines</strong></li>
+<li>a <strong>performance macro control for melodic variation</strong></li>
+</ul>
+<p>It is less a “melody generator” by itself and more a <strong>melody transformer and organizer</strong>.</p>
+<hr />
+<h1>Summary</h1>
+<p>From the manual, MISO gives you four processed channels, two submixes, and a voltage-controlled crossfader. In melodic patching, that means you can:</p>
+<ul>
+<li>scale a melody’s interval range</li>
+<li>invert melodic contour</li>
+<li>offset/transposition-shift pitch CV</li>
+<li>mix multiple CV sources into one note stream</li>
+<li>build two separate melodic layers and fade between them</li>
+<li>derive basslines, harmonies, and variations from one source</li>
+</ul>
+<p>In real musical use, MISO shines when placed:</p>
+<ul>
+<li><strong>between CV sources and oscillators</strong></li>
+<li><strong>before a quantizer</strong></li>
+<li><strong>between one sequencer and multiple voices</strong></li>
+<li><strong>as a performance control surface for melodic morphing</strong></li>
+</ul>
+<p>If you want, I can also turn this into:
+1. a <strong>set of concrete patch recipes</strong> for techno / ambient / generative styles, or<br />
+2. a <strong>signal-flow diagram</strong> showing exactly how to patch MISO with sequencers, quantizers, and oscillators for melody.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

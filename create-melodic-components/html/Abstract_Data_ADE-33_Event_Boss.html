@@ -1,0 +1,514 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Abstract_Data_ADE-33_Event_Boss</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Abstract Data — ADE-33 Event Boss</h1>
+<ul>
+<li><a href="../../manuals/ADE33_Manual_v1_0.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://www.abstractdata.biz/downloads/ADE-33_Event_Boss_User_Guide_v1_0_1.pdf">Manual PDF</a></p>
+<h1>Abstract Data ADE-33 Event Boss — using it to create melodic components</h1>
+<p>The <strong>ADE-33 Event Boss</strong> is not a pitch sequencer by itself. It is a <strong>gate/trigger/rhythm processor and pattern generator</strong>. So for melody, its role is:</p>
+<ul>
+<li>creating <strong>when notes happen</strong></li>
+<li>creating <strong>phrase structure</strong></li>
+<li>creating <strong>variations and repetitions</strong></li>
+<li>switching between melodic sources</li>
+<li>generating rhythmic conditions that drive quantizers, sample &amp; holds, envelopes, sequential switches, logic patches, and transposition events</li>
+</ul>
+<p>In a melodic Eurorack patch, think of the ADE-33 as the module that gives your pitch source <strong>musical timing and phrasing</strong>.</p>
+<hr />
+<h2>What the module does best for melody</h2>
+<p>From the manual, the ADE-33 processes:</p>
+<ul>
+<li><strong>clock / gate / trigger / square LFO / PWM LFO inputs</strong></li>
+<li><strong>0–5V CV inputs</strong></li>
+<li>and outputs <strong>0–5V gates/events</strong></li>
+</ul>
+<p>It has:</p>
+<ul>
+<li><strong>6 Global Modes</strong></li>
+<li>each with <strong>6 Local Modes</strong></li>
+<li>input selection between <strong>A1</strong> and <strong>A2</strong></li>
+<li>CV or event control over <strong>mode selection</strong></li>
+<li>CV or event control over <strong>A1/A2 switching</strong></li>
+</ul>
+<p>This means it can become the rhythmic brain in front of a melodic chain such as:</p>
+<ul>
+<li>clock → <strong>ADE-33</strong> → envelope → VCA for note articulation</li>
+<li>clock → <strong>ADE-33</strong> → sample &amp; hold trigger → quantizer → oscillator pitch</li>
+<li>two rhythm sources → <strong>ADE-33 logic/probability</strong> → trigger melodic changes</li>
+<li><strong>ADE-33</strong> output → sequential switch advance → rotate through stored voltages/pitches</li>
+</ul>
+<hr />
+<h1>Best musical use cases for melody</h1>
+<h2>1. Generate note triggers for a quantized melody</h2>
+<p>This is the most obvious use.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Master clock into <strong>IN: GATE A1</strong></li>
+<li>ADE-33 <strong>OUT</strong> into:</li>
+<li>envelope generator trigger, and/or</li>
+<li>sample &amp; hold trigger</li>
+<li>Random CV / sequencer CV / modulation source into pitch path</li>
+<li>Pitch CV then into a <strong>quantizer</strong></li>
+<li>Quantizer out to oscillator 1V/oct</li>
+</ul>
+<h3>Result</h3>
+<p>ADE-33 determines <strong>which clock pulses become notes</strong>.<br />
+That means it shapes the rhythmic contour of the melody.</p>
+<h3>Best modes</h3>
+<ul>
+<li><strong>Global Mode 1: Variables</strong></li>
+<li><strong>Global Mode 3: Probability</strong></li>
+<li><strong>Global Mode 6: Gates</strong></li>
+</ul>
+<p>These are especially useful for turning a straight clock into:
+- sparse melodies
+- syncopated motifs
+- repeating 8-step phrasing
+- evolving note density</p>
+<hr />
+<h2>2. Use it as a phrase mask over an existing sequencer</h2>
+<p>If you already have a CV sequencer producing pitch, the ADE-33 can decide <strong>which steps sound</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Pitch sequencer → quantizer → oscillator pitch</li>
+<li>Same sequencer clock → ADE-33 input A1</li>
+<li>ADE-33 OUT → envelope / LPG / VCA gate</li>
+</ul>
+<h3>Result</h3>
+<p>The pitch sequence keeps running, but only selected steps are heard.<br />
+This creates:
+- implied new melodies
+- rests
+- accents
+- phrase reshaping</p>
+<p>This is one of the strongest melodic uses of the ADE-33.</p>
+<hr />
+<h2>3. Switch between two melodic rhythms</h2>
+<p>The A1/A2 input selection is very useful.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Clock pattern 1 into <strong>A1</strong></li>
+<li>Clock pattern 2 into <strong>A2</strong></li>
+<li>Use <strong>A1/A2 SELECT</strong> manually or by CV/event</li>
+<li>OUT triggers a melodic voice or sample &amp; hold</li>
+</ul>
+<h3>Result</h3>
+<p>You can morph between:
+- straight notes and syncopated notes
+- sparse and dense note streams
+- verse and chorus phrasing
+- two independent trigger lanes driving one melodic voice</p>
+<p>This can make one pitch source feel like multiple composed phrases.</p>
+<hr />
+<h1>Global modes and how they help with melody</h1>
+<h2>Global Mode 1: Variables</h2>
+<p>This is an 8-event patterning system based on a CV-defined variable <strong>n</strong> from 1–8.</p>
+<h3>Why it matters melodically</h3>
+<p>This is great for building:
+- repeating note masks
+- periodic emphasis
+- phrase cycles
+- pseudo-sequenced rhythmic motifs</p>
+<h3>Good melodic applications</h3>
+<h4>Local Mode 1: <code>&lt;nth&gt; Pass</code></h4>
+<p>Lets every nth event through.</p>
+<p>Use this to create:
+- regular accents
+- every-3rd or every-4th note triggers
+- structured ostinatos</p>
+<h4>Local Mode 2: <code>&lt;nth&gt; Block</code></h4>
+<p>Blocks every nth event.</p>
+<p>Use this to:
+- remove predictable notes
+- create syncopation from a straight clock
+- carve holes into a sequence</p>
+<h4>Local Mode 3: <code>&lt;n&gt; Pass</code></h4>
+<p>Only passes n of 8 events.</p>
+<p>Good for:
+- note density control
+- turning a constant clock into 1/8, 2/8, 3/8... melodic activity</p>
+<h4>Local Mode 4: <code>&lt;n&gt; Block</code></h4>
+<p>Blocks n of 8 events.</p>
+<p>Useful for:
+- phrase thinning
+- dynamic note omission</p>
+<h4>Local Modes 5 and 6</h4>
+<p>Hybrid/toggling behaviors. Great for animated patterns when modulated.</p>
+<h3>Best melodic pairing</h3>
+<ul>
+<li>send slow LFO or envelope into <strong>GATE B/CV</strong></li>
+<li>use output to trigger <strong>sample &amp; hold + quantizer</strong></li>
+<li>now the melody breathes in repeating but changing 8-step forms</li>
+</ul>
+<hr />
+<h2>Global Mode 2: Multiples</h2>
+<p>Clock multiplication and division.</p>
+<h3>Why it matters melodically</h3>
+<p>This directly changes <strong>note rate</strong>:
+- slower divisions = fewer notes, more spacious melodies
+- multiplications = ratchets, trills, ornamentation, fast runs</p>
+<h3>Great melodic uses</h3>
+<h4>Local Modes 1, 3, 5: Divides</h4>
+<p>Use for:
+- reducing note density
+- creating half-time or polyrhythmic lead lines
+- making one pitch source feel more deliberate</p>
+<h4>Local Modes 2, 4, 6: Multiplies</h4>
+<p>Use for:
+- ratcheting
+- repeated notes
+- ornamentation
+- fast bursts before the next pitch change</p>
+<h3>Important patch trick</h3>
+<p>If your pitch changes more slowly than the multiplied trigger stream:
+- one pitch can be retriggered several times
+- this creates <strong>ratchets</strong> and <strong>embellishments</strong></p>
+<h3>Example</h3>
+<ul>
+<li>Sequencer pitch changes every quarter note</li>
+<li>ADE-33 multiplies gate into 3x or 6x</li>
+<li>envelope retriggers several times on same pitch</li>
+<li>result: melodic flutter or Berlin-school articulation</li>
+</ul>
+<hr />
+<h2>Global Mode 3: Probability</h2>
+<p>Pseudo-random chance-based event processing.</p>
+<h3>Why it matters melodically</h3>
+<p>This creates controlled unpredictability in:
+- note occurrence
+- note length
+- phrase variation
+- repetition probability</p>
+<h3>Best melodic local modes</h3>
+<h4>Local Mode 1: Percentage Pass</h4>
+<p>A note happens only with a chosen probability.</p>
+<p>Perfect for:
+- generative melodies
+- sparse ambient lines
+- evolving arps</p>
+<h4>Local Mode 2: Percentage Block</h4>
+<p>Like above, but from the opposite perspective.</p>
+<p>Good when you want a mostly full pattern with occasional omissions.</p>
+<h4>Local Mode 3: Gate Tie</h4>
+<p>Can tie one note into the next.</p>
+<p>Musically this means:
+- longer held notes
+- legato phrasing
+- fewer re-articulations</p>
+<p>If your pitch source is stable during the tie, you get sustained tones.<br />
+If pitch changes underneath, you can get glide-like phrase behavior depending on the rest of your patch.</p>
+<h4>Local Mode 4: Gate Tie/Pass</h4>
+<p>Only tied events pass.</p>
+<p>This can create:
+- long-note-only melodic moments
+- selective sustain gestures
+- fewer but more expressive notes</p>
+<h4>Local Mode 5: Flip-Flop (Coin Toss)</h4>
+<p>Each event has a chance to be “tossed” into high or low.</p>
+<p>Great as a generative trigger stream for:
+- sample &amp; hold melodies
+- transposition triggers
+- secondary voice call/response</p>
+<h4>Local Mode 6: Flip-Flop (Inversion)</h4>
+<p>Chance-based inversion of the gate result.</p>
+<p>Useful for making a rhythmic melody line become its own opposite.</p>
+<h3>Best melodic pairing</h3>
+<ul>
+<li>ADE-33 probability output triggers <strong>sample &amp; hold</strong></li>
+<li>noise / stepped random / chaotic CV into S&amp;H input</li>
+<li>S&amp;H out into <strong>quantizer</strong></li>
+<li>quantizer to oscillator pitch</li>
+</ul>
+<p>This gives extremely playable melodic generation.</p>
+<hr />
+<h2>Global Mode 4: Logic</h2>
+<p>Classic logic between selected A input and B input.</p>
+<h3>Why it matters melodically</h3>
+<p>Logic is powerful for melody because it combines two rhythmic streams into one new note pattern.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>A1 = master clock division</li>
+<li>A2 = Euclidean rhythm or second trigger source</li>
+<li>B = another gate rhythm</li>
+<li>OUT = melodic gate trigger</li>
+</ul>
+<h3>Local modes</h3>
+<ul>
+<li><strong>AND</strong>: notes only when both patterns overlap</li>
+<li><strong>NAND</strong>: almost inverse overlap behavior</li>
+<li><strong>OR</strong>: broader note activity</li>
+<li><strong>NOR</strong>: sparse inverted space</li>
+<li><strong>XOR</strong>: notes only when one source is high but not both</li>
+<li><strong>XNOR</strong>: notes when sources agree</li>
+</ul>
+<h3>Musical outcomes</h3>
+<p>This is excellent for:
+- interlocking melodies
+- call-and-response note masks
+- generating new trigger lines from two simple sources
+- composing with rhythmic relationships rather than step programming</p>
+<h3>Very strong melodic patch</h3>
+<ul>
+<li>Source A = regular 16th-note pulse</li>
+<li>Source B = slower modulation pulse</li>
+<li>XOR output triggers melodic voice</li>
+<li>quantized random voltage supplies pitch</li>
+</ul>
+<p>Result: melody appears only at changing relational positions.</p>
+<hr />
+<h2>Global Mode 5: Phase</h2>
+<p>Phase shifting, delay, and mark/space manipulation.</p>
+<h3>Why it matters melodically</h3>
+<p>Melody is not only pitch and note choice — it is also <strong>placement</strong>.<br />
+This mode changes note timing relative to the beat.</p>
+<h3>Useful local modes</h3>
+<h4>Quantised Shift / Percentage Shift</h4>
+<p>Shift triggers later in time.</p>
+<p>Good for:
+- syncopation
+- laid-back melodies
+- off-beat counter-melodies</p>
+<h4>Short Shift / Long Shift</h4>
+<p>Time delay in milliseconds.</p>
+<p>Great for:
+- echoes in trigger space
+- humanized melodic timing
+- delayed secondary voice triggering</p>
+<h4>Quantised Mark/Space / Percentage Mark/Space</h4>
+<p>Changes pulse width / gate length.</p>
+<p>Useful for:
+- altering articulation
+- staccato vs legato behavior
+- changing how long envelopes remain open
+- affecting portamento behavior in some systems</p>
+<h3>Strong melodic use</h3>
+<p>Duplicate a clock:
+- one copy directly clocks your pitch sequencer
+- another copy goes through ADE-33 Phase mode to trigger envelopes</p>
+<p>Now pitch remains grid-locked, but note articulation shifts in time.<br />
+This can make a melody feel swung, dragged, or offset.</p>
+<hr />
+<h2>Global Mode 6: Gates</h2>
+<p>Gate extension and gate-logic-style note shaping.</p>
+<h3>Why it matters melodically</h3>
+<p>This mode is about <strong>articulation</strong> and <strong>phrase length</strong>.</p>
+<h3>Useful local modes</h3>
+<h4><code>&lt;n&gt; High</code></h4>
+<p>Output stays high for n of 8 events.</p>
+<p>Can turn pulses into sustained note regions.</p>
+<h4><code>&lt;n&gt; High/Low</code></h4>
+<p>Alternating blocks of held and silent time.</p>
+<p>Excellent for:
+- phrase on/off structure
+- drone vs melody alternation
+- periodic legato passages</p>
+<h4>Logic Pass</h4>
+<p>Gate passes depending on input and CV threshold.</p>
+<p>Use as a conditional note generator.</p>
+<h4>Logic Hold</h4>
+<p>Can create held notes based on threshold state.</p>
+<p>Very useful if you want:
+- sustained melodic notes under CV control
+- notes that latch into longer phrases</p>
+<h4>Hybrid modes 5 and 6</h4>
+<p>Great for animated articulation when CV is moving.</p>
+<h3>Best melodic outcome</h3>
+<p>Use Gates mode after a busy trigger source to make:
+- some notes short
+- some tied
+- some sustained</p>
+<p>This gives melodic lines more expressive shape.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Generative melody from one clock</h2>
+<h3>Modules needed</h3>
+<ul>
+<li>clock</li>
+<li>ADE-33</li>
+<li>sample &amp; hold</li>
+<li>random CV source</li>
+<li>quantizer</li>
+<li>oscillator</li>
+<li>envelope + VCA</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Clock → ADE-33 A1</li>
+<li>Slow LFO → ADE-33 B/CV</li>
+<li>ADE-33 OUT → S&amp;H trigger</li>
+<li>Random CV → S&amp;H input</li>
+<li>S&amp;H out → quantizer → oscillator 1V/oct</li>
+<li>ADE-33 OUT also → envelope trigger → VCA</li>
+</ul>
+<h3>Suggested mode</h3>
+<ul>
+<li><strong>Global 1 Variables</strong> or <strong>Global 3 Probability</strong></li>
+</ul>
+<h3>Musical result</h3>
+<p>A melody with stable rhythmic identity but changing note selection.</p>
+<hr />
+<h2>Patch 2: Ratcheting melodic sequencer</h2>
+<h3>Patch</h3>
+<ul>
+<li>Pitch sequencer → quantizer → oscillator</li>
+<li>Clock → ADE-33 A1</li>
+<li>ADE-33 OUT → envelope trigger</li>
+<li>Set ADE-33 to <strong>Multiples</strong></li>
+<li>Use CV on B/CV to vary multiplier</li>
+</ul>
+<h3>Result</h3>
+<p>Same melody, but selected notes become repeated bursts.</p>
+<h3>Best for</h3>
+<ul>
+<li>techno leads</li>
+<li>acid articulation</li>
+<li>arpeggio embellishment</li>
+</ul>
+<hr />
+<h2>Patch 3: Two-pattern melodic phrase switching</h2>
+<h3>Patch</h3>
+<ul>
+<li>Straight 8th-note clock → A1</li>
+<li>Syncopated trigger pattern → A2</li>
+<li>Use A1/A2 selection manually or by gate/CV</li>
+<li>OUT → envelope trigger for melodic voice</li>
+<li>Pitch source remains the same</li>
+</ul>
+<h3>Result</h3>
+<p>One pitch line, two rhythmic interpretations.</p>
+<h3>Why it works</h3>
+<p>This feels like switching between composed melodic phrases without changing pitch material.</p>
+<hr />
+<h2>Patch 4: Logic-composed melody</h2>
+<h3>Patch</h3>
+<ul>
+<li>Trigger source 1 → A1</li>
+<li>Trigger source 2 → B/CV</li>
+<li>ADE-33 in <strong>Logic mode</strong></li>
+<li>OUT → trigger S&amp;H</li>
+<li>Slow CV source into S&amp;H input</li>
+<li>S&amp;H → quantizer → oscillator pitch</li>
+</ul>
+<h3>Result</h3>
+<p>The note timings are generated by interaction of two rhythms, producing emergent melody.</p>
+<h3>Best logic mode</h3>
+<ul>
+<li><strong>XOR</strong> for lively syncopation</li>
+<li><strong>AND</strong> for sparse, intentional notes</li>
+<li><strong>OR</strong> for fuller melodic lines</li>
+</ul>
+<hr />
+<h2>Patch 5: Legato and sustain sculptor</h2>
+<h3>Patch</h3>
+<ul>
+<li>Existing melodic trigger pattern → A1</li>
+<li>Slow CV → B/CV</li>
+<li>ADE-33 in <strong>Probability Gate Tie</strong> or <strong>Gates mode</strong></li>
+<li>OUT → envelope/gate input of voice</li>
+</ul>
+<h3>Result</h3>
+<p>Some notes become tied or held longer, creating more expressive phrasing.</p>
+<hr />
+<h2>Patch 6: Phase-shifted counter melody</h2>
+<h3>Patch</h3>
+<ul>
+<li>Main clock → mult</li>
+<li>One copy to sequencer clock</li>
+<li>One copy to ADE-33 A1 in <strong>Phase mode</strong></li>
+<li>ADE-33 OUT triggers second voice envelope or S&amp;H</li>
+<li>Same or related pitch source feeds second voice</li>
+</ul>
+<h3>Result</h3>
+<p>Countermelody lands slightly after or around the main sequence, creating groove and depth.</p>
+<hr />
+<h1>Best companion modules for melodic use</h1>
+<p>The ADE-33 becomes especially melodic when paired with:</p>
+<h2>Quantizer</h2>
+<p>Because ADE-33 does not generate pitch itself, a quantizer is essential if you're making melody from sampled CV.</p>
+<h2>Sample &amp; Hold / Track &amp; Hold</h2>
+<p>ADE-33’s output is perfect as a trigger source for capturing voltages as notes.</p>
+<h2>Sequential switch</h2>
+<p>Use ADE-33 OUT to advance through:
+- stored voltages
+- multiple pitch rows
+- transposition sources</p>
+<h2>Envelope generator / function generator</h2>
+<p>Since ADE-33 outputs gates/events, it naturally controls note articulation.</p>
+<h2>Clock divider / multiplier / Euclidean trigger source</h2>
+<p>Feeding rhythmic material into A1, A2, and B makes Logic/Variables/Probability especially rich.</p>
+<h2>Precision adder / transposer</h2>
+<p>Use ADE-33 to trigger when transpositions occur rather than when notes occur.</p>
+<hr />
+<h1>Performance strategies</h1>
+<h2>1. Modulate B/CV slowly</h2>
+<p>This is the main “musical evolution” input in many modes.<br />
+A slow triangle LFO, random slew, or envelope can make a melody gradually transform.</p>
+<h2>2. Sequence mode changes</h2>
+<p>The <strong>MODE SELECT/RESET</strong> input can step through local modes or jump by CV.<br />
+That means one melody engine can move through different rhythmic algorithms over time.</p>
+<p>This is powerful for:
+- verse/chorus differences
+- fills
+- changing note densities live</p>
+<h2>3. Animate A1/A2 switching</h2>
+<p>Feed two clocks or trigger patterns and let the module switch between them via gate/CV.<br />
+This is one of the easiest ways to get “composed” phrase variation.</p>
+<h2>4. Use reset/count functions</h2>
+<p>Several modes use the <strong>MODE SELECT/RESET</strong> input to reset counters or freeze values.<br />
+Resetting phrases against bar lines helps the melody feel intentional rather than drifting.</p>
+<hr />
+<h1>Limitations to understand</h1>
+<h2>It does not output pitch CV</h2>
+<p>So it cannot directly create melodies without external pitch-related modules.</p>
+<h2>It reads events rather than syncing like a transport-aware sequencer</h2>
+<p>Per the manual, it does not “sync” in a DAW-like sense; it just interprets incoming signals.</p>
+<h2>Best thought of as a melodic rhythm processor</h2>
+<p>Its real strength is creating:
+- note timing
+- articulation
+- gate variation
+- structural rhythm
+- phrase transformations</p>
+<hr />
+<h1>Most useful modes for melody, ranked</h1>
+<h2>1. Probability</h2>
+<p>Best for generative and evolving melodic triggers.</p>
+<h2>2. Variables</h2>
+<p>Best for repeatable rhythmic phrases and note masks.</p>
+<h2>3. Multiples</h2>
+<p>Best for ratchets and note-rate control.</p>
+<h2>4. Phase</h2>
+<p>Best for groove, swing, delay, and articulation timing.</p>
+<h2>5. Gates</h2>
+<p>Best for sustain, ties, and phrase-length changes.</p>
+<h2>6. Logic</h2>
+<p>Best for combining multiple rhythmic sources into melodic trigger structures.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>ADE-33 Event Boss</strong> is best used for melody as a <strong>rhythmic composer for pitch systems</strong>.<br />
+It does not choose notes, but it can strongly shape melodic identity by controlling:</p>
+<ul>
+<li>when notes occur</li>
+<li>how often they repeat</li>
+<li>whether they are tied or blocked</li>
+<li>how phrases evolve</li>
+<li>how different rhythmic sources combine</li>
+<li>when a melody becomes sparse, dense, swung, delayed, or probabilistic</li>
+</ul>
+<p>If you pair it with:
+- a <strong>quantizer</strong>
+- a <strong>sample &amp; hold</strong>
+- a <strong>pitch CV source</strong>
+- or an existing sequencer</p>
+<p>it becomes a very powerful module for creating melodic phrases that feel alive rather than mechanically stepped.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

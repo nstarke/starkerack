@@ -1,0 +1,482 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qu-Bit_Synapse</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Qu-Bit — Synapse</h1>
+<ul>
+<li><a href="../../manuals/Synapse.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Qu-Bit Synapse: using it to create melodic components</h1>
+<p>Synapse is not a pitch quantizer or traditional sequencer, but it <strong>can absolutely be used to build melodic material</strong> because it combines:</p>
+<ul>
+<li>4 crossfaders</li>
+<li>routable/sequential switching</li>
+<li>8 memory states</li>
+<li>internal +5V offsets</li>
+<li>internal LFOs</li>
+<li>CV/audio compatibility throughout</li>
+</ul>
+<p>That means it can act as a:</p>
+<ul>
+<li>stepped CV composer</li>
+<li>phrase selector</li>
+<li>melodic router</li>
+<li>stored-voltage pattern source</li>
+<li>animated modulation source for pitch-related destinations</li>
+</ul>
+<h2>What Synapse does that matters for melody</h2>
+<p>From the manual, the most melody-relevant features are:</p>
+<ul>
+<li><strong>DC-coupled inputs</strong>: works with CV as well as audio</li>
+<li><strong>Per-channel A/B crossfading</strong>: blend between two voltages per channel</li>
+<li><strong>+5V DC offset normalled to each B input</strong>: lets each channel generate CV without external sources</li>
+<li><strong>8 memory locations</strong>: store crossfade positions and recall them with one knob</li>
+<li><strong>Sequential/routable outputs via Terminal and Advance</strong></li>
+<li><strong>Inertia</strong>: slews transitions between stored states</li>
+<li><strong>Internal LFOs</strong>: can animate pitch/modulation patterns</li>
+<li><strong>Sum outputs</strong>: combine channels into more complex control voltages</li>
+</ul>
+<h2>Important melodic concept</h2>
+<p>Synapse excels when you think of it as a <strong>voltage-scene morphing router</strong>.</p>
+<p>Each of the 4 channels can hold a voltage or blend between two voltages.<br />
+Then the module can:</p>
+<ul>
+<li>save those blends into memory slots</li>
+<li>advance/swizzle routing</li>
+<li>sum channels</li>
+<li>slew transitions</li>
+</ul>
+<p>So instead of a classic “one note per step” sequencer, it’s more like:</p>
+<ul>
+<li><strong>one harmonic/melodic state per memory</strong></li>
+<li><strong>one destination/output arrangement per switch state</strong></li>
+<li><strong>one evolving phrase through interpolation, switching, and summed CV</strong></li>
+</ul>
+<h2>Melodic patch strategies</h2>
+<h2>1. Use Synapse as a 4-stage stored voltage sequencer</h2>
+<p>This is the most direct melodic use.</p>
+<h3>How</h3>
+<ul>
+<li>Enable the <strong>+5V DC offset</strong> on B inputs.</li>
+<li>Leave A inputs unpatched, or feed them with 0V / another reference voltage.</li>
+<li>Use each channel’s crossfade knob to choose a voltage between A and B.</li>
+<li>Send a channel output to an oscillator’s <strong>1V/oct</strong> input, ideally through a quantizer if you want strict tuning.</li>
+<li>Use <strong>Advance</strong> to step routing through outputs.</li>
+</ul>
+<h3>Why it works</h3>
+<p>With DC offset enabled, each crossfade becomes a voltage chooser.<br />
+The manual explicitly notes this can make Synapse function like:</p>
+<ul>
+<li>a <strong>four step sequencer</strong></li>
+<li>an <strong>eight stage stored voltage source</strong></li>
+</ul>
+<h3>Musical result</h3>
+<p>You can create:</p>
+<ul>
+<li>bassline steps</li>
+<li>lead note contours</li>
+<li>transposition voltages</li>
+<li>motif fragments</li>
+</ul>
+<h3>Best companion modules</h3>
+<ul>
+<li>quantizer</li>
+<li>sample &amp; hold / clock source</li>
+<li>envelope + VCA</li>
+<li>oscillator with stable tracking</li>
+</ul>
+<h3>Tip</h3>
+<p>Because the B input is +5V when enabled, the crossfade knob becomes a performance control for stored CV amount. Save multiple memories and you get phrase recall.</p>
+<hr />
+<h2>2. Build 8 melodic “phrases” with Memory</h2>
+<p>Memory is where Synapse becomes especially useful for composition.</p>
+<h3>How</h3>
+<ul>
+<li>Create four voltage settings across the four crossfade channels.</li>
+<li>Save them to one memory slot.</li>
+<li>Change the four fader positions to a new shape.</li>
+<li>Save again.</li>
+<li>Repeat for up to <strong>8 memories</strong>.</li>
+</ul>
+<p>Then sweep or CV the <strong>Memory</strong> control to recall different stored voltage arrangements.</p>
+<h3>Why it’s musical</h3>
+<p>Each memory slot can represent:</p>
+<ul>
+<li>a chord tone set</li>
+<li>a bass phrase</li>
+<li>a transposition profile</li>
+<li>a melodic contour</li>
+<li>a verse/chorus variation</li>
+</ul>
+<h3>Important manual behavior</h3>
+<ul>
+<li>When a memory location is selected, <strong>crossfade CV inputs are disabled</strong></li>
+<li>Changes aren’t stored until <strong>Save</strong> is pressed</li>
+<li>Fully CCW on Memory = <strong>memory bypass</strong></li>
+</ul>
+<h3>Melodic uses</h3>
+<ul>
+<li>8 different note clusters</li>
+<li>8 phrase presets</li>
+<li>8 harmonic regions for transposition</li>
+<li>song section changes without repatching</li>
+</ul>
+<h3>Strong patch idea</h3>
+<p>Use:
+- <strong>Out 1</strong> -&gt; quantizer -&gt; VCO pitch
+- <strong>Out 2</strong> -&gt; second quantizer/VCO pitch
+- <strong>Out 3</strong> -&gt; filter cutoff
+- <strong>Out 4</strong> -&gt; FM amount or wavefold amount</p>
+<p>Now each memory slot becomes a full melodic “scene.”</p>
+<hr />
+<h2>3. Use it as a melody generator before a quantizer</h2>
+<p>Synapse is especially powerful <strong>upstream of a quantizer</strong>.</p>
+<h3>How</h3>
+<p>Patch Synapse output into:
+- quantizer input
+- then quantizer output to oscillator 1V/oct</p>
+<h3>Why</h3>
+<p>Synapse can generate rich, unstable, blended, slewed, shuffled voltages. A quantizer then converts those into usable musical notes.</p>
+<h3>What this gives you</h3>
+<ul>
+<li>playable melodic randomness</li>
+<li>phrase morphing</li>
+<li>evolving sequences</li>
+<li>repeated motifs with variation</li>
+</ul>
+<h3>Great sources for A/B inputs</h3>
+<p>Feed the A and B inputs with:
+- slow LFOs
+- envelopes
+- offsets
+- random stepped voltages
+- another sequencer’s rows
+- pressure/controller CV</p>
+<p>Then use Synapse to blend and reroute before quantization.</p>
+<h3>Result</h3>
+<p>Instead of programming exact notes, you shape a <strong>melodic probability field</strong> that the quantizer turns into scales/arpeggios.</p>
+<hr />
+<h2>4. Crossfade between two pitch sequences</h2>
+<p>A very strong use case.</p>
+<h3>How</h3>
+<p>For each channel:
+- patch one sequencer row or CV source into <strong>A</strong>
+- patch another sequence into <strong>B</strong>
+- send the resulting output to a quantizer or oscillator pitch input</p>
+<h3>What happens</h3>
+<p>The crossfade knob and CV let you interpolate between two melodic lines.</p>
+<h3>Musical outcomes</h3>
+<ul>
+<li>phrase mutation</li>
+<li>call/response between two melodies</li>
+<li>morphing bassline</li>
+<li>gradual harmonic transition</li>
+</ul>
+<h3>With Memory</h3>
+<p>Store multiple crossfade positions:
+- Memory 1 = mostly A
+- Memory 2 = balanced
+- Memory 3 = mostly B
+- etc.</p>
+<p>Now you have recallable interpolation states between two sequences.</p>
+<h3>With Inertia</h3>
+<p>Add glide between memory changes for:
+- portamento
+- phrase smearing
+- expressive transitions</p>
+<hr />
+<h2>5. Use 4 channels as harmonic interval generators</h2>
+<p>Synapse can generate related CVs on multiple outputs.</p>
+<h3>How</h3>
+<p>Set each channel to a different fixed CV amount using the +5V offset or external voltage references.</p>
+<p>For example:
+- Ch1 = root
+- Ch2 = third-ish voltage
+- Ch3 = fifth-ish voltage
+- Ch4 = octave or seventh</p>
+<p>Then send those outputs to:
+- multiple quantizers/oscillators
+- precision adders
+- switch matrix destinations</p>
+<h3>Result</h3>
+<p>You can create:
+- chord voicings
+- parallel melodic intervals
+- stacked canon lines
+- drone harmony structures</p>
+<h3>Better with quantizers</h3>
+<p>Because raw CV won’t necessarily correspond to exact intervals, quantizers make this much more musical and repeatable.</p>
+<hr />
+<h2>6. Sequentially route one melodic line to different voices</h2>
+<p>The <strong>Terminal</strong> switching section makes Synapse useful as a melodic distributor.</p>
+<h3>How</h3>
+<p>Patch a pitch CV source or melodic blend through Synapse, then use the outputs to address:
+- multiple oscillators
+- different quantizers/scales
+- separate voice chains</p>
+<p>Use:
+- <strong>Terminal encoder</strong> for manual routing shifts
+- <strong>Advance</strong> input for clocked movement
+- <strong>Scatter</strong> for shuffled routing</p>
+<h3>Melodic use</h3>
+<p>One sequence can be sent to different destinations over time, creating:
+- rotating counterpoint
+- pseudo-rounds/canons
+- changing voice assignments
+- phrase movement across timbres</p>
+<h3>Example</h3>
+<ul>
+<li>Out 1 -&gt; quantizer in C minor -&gt; VCO 1</li>
+<li>Out 2 -&gt; quantizer in pentatonic -&gt; VCO 2</li>
+<li>Out 3 -&gt; filter ping pitch CV</li>
+<li>Out 4 -&gt; FM oscillator pitch</li>
+</ul>
+<p>Advance the switch with a clock and one source becomes a changing melodic orchestrator.</p>
+<hr />
+<h2>7. Use Scatter for melodic permutation</h2>
+<p>The <strong>Scatter</strong> function shuffles output positions.</p>
+<h3>Why this is good for melody</h3>
+<p>It creates permutations of where voltages go.</p>
+<p>If each output drives a different pitch destination or quantizer, a shuffle creates:
+- rearranged melodic order
+- changed voicings
+- altered call/response behavior
+- spatialized note movement</p>
+<h3>Best patch</h3>
+<p>Set up 4 distinct voltage channels, each feeding different harmonic functions, then trigger Scatter rhythmically but not every beat.</p>
+<p>This gives phrase reshuffling without changing the underlying note material.</p>
+<hr />
+<h2>8. Use Sum outputs for composite melodic CV</h2>
+<p>Synapse includes:
+- <strong>1+2</strong>
+- <strong>3+4</strong>
+- <strong>Sum</strong></p>
+<p>From the manual:
+- <strong>1+2 / 3+4</strong> are post-switch sums
+- <strong>Sum</strong> is pre-switch sum of each crossfade channel</p>
+<h3>Melodic use</h3>
+<p>Summing CV sources is extremely useful for:
+- transposition
+- interval stacking
+- phrase complexity
+- combining motion layers</p>
+<h3>Patch examples</h3>
+<ul>
+<li>Channel 1 = base pitch contour</li>
+<li>Channel 2 = small interval modulation</li>
+<li>Channel 3 = octave jumps</li>
+<li>Channel 4 = slow transposition</li>
+</ul>
+<p>Then:
+- <strong>Sum</strong> -&gt; quantizer -&gt; oscillator</p>
+<p>Now your pitch line is the combined result of multiple independent melodic influences.</p>
+<h3>Another option</h3>
+<p>Use:
+- <strong>1+2</strong> as bass pitch CV
+- <strong>3+4</strong> as lead pitch CV</p>
+<p>This can create related but distinct melodic lines from the same patch.</p>
+<hr />
+<h2>9. Use Inertia for melodic glide and phrase smoothing</h2>
+<p>The <strong>Inertia</strong> control adds slew to changes in:
+- memory location
+- crossfade knob moves
+- crossfade CV input changes</p>
+<p>Range is up to <strong>5 seconds</strong>.</p>
+<h3>Why it matters</h3>
+<p>This turns abrupt CV changes into:
+- portamento
+- slide between notes
+- phrase rubato feel
+- smoothed transitions between melodic states</p>
+<h3>Great use cases</h3>
+<ul>
+<li>acid-style slides</li>
+<li>gliding between stored memory phrases</li>
+<li>smoothing random voltages before quantization</li>
+<li>generating legato motion from stepped sources</li>
+</ul>
+<h3>Tip</h3>
+<p>Use moderate inertia before a quantizer for evolving melodic movement, or after quantized pitch if you want actual continuous pitch glide.</p>
+<hr />
+<h2>10. Internal LFOs for animated melodic modulation</h2>
+<p>The internal triangle LFOs can modulate each crossfade channel.</p>
+<h3>Why useful for melody</h3>
+<p>If the channels are producing pitch CV or transposition voltages, the internal LFOs can create:
+- vibrato-like pitch motion
+- note cycling between A and B voltages
+- repeating melodic oscillation
+- canon-like phased movement between channels</p>
+<h3>Key LFO features</h3>
+<ul>
+<li>per-channel amplitude</li>
+<li>shared frequency</li>
+<li>multiple relationship modes:</li>
+<li>Phase Offset</li>
+<li>Alternating</li>
+<li>Cascading</li>
+<li>Synchronous</li>
+</ul>
+<h3>Best melodic application</h3>
+<p>Use internal LFOs <strong>before quantization</strong>.<br />
+That way the LFOs don’t just create vibrato—they create <strong>motion through discrete notes</strong> once quantized.</p>
+<h3>Especially useful modes</h3>
+<ul>
+<li><strong>Phase Offset</strong>: creates rotating melodic movement between channels</li>
+<li><strong>Alternating</strong>: useful for call/response two-voice phrases</li>
+<li><strong>Cascading</strong>: excellent for sequential melodic activation</li>
+<li><strong>Synchronous</strong>: stacked harmonic pulsing</li>
+</ul>
+<hr />
+<h2>Practical melodic patch examples</h2>
+<h2>Patch 1: 8-state bass sequencer</h2>
+<h3>Goal</h3>
+<p>A recallable bassline source.</p>
+<h3>Patch</h3>
+<ul>
+<li>Enable <strong>+5V DC offset</strong></li>
+<li>Set four channels to four different CV levels</li>
+<li>Patch <strong>Sum</strong> -&gt; quantizer -&gt; VCO 1V/oct</li>
+<li>Clock envelopes/VCA separately</li>
+<li>Save 8 different memory states</li>
+</ul>
+<h3>Result</h3>
+<p>Each memory becomes a different bass pattern contour.<br />
+Use the Memory knob manually or with CV to move between bass phrases.</p>
+<hr />
+<h2>Patch 2: Morphing lead between two melodies</h2>
+<h3>Goal</h3>
+<p>Blend two sequencers into one evolving lead.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer A CV -&gt; channel A inputs</li>
+<li>Sequencer B CV -&gt; channel B inputs</li>
+<li>Crossfade outputs -&gt; quantizer -&gt; VCO</li>
+<li>Use crossfade CV inputs or internal LFOs</li>
+<li>Add <strong>Inertia</strong> for glide</li>
+</ul>
+<h3>Result</h3>
+<p>A lead line that continuously mutates between two source melodies.</p>
+<hr />
+<h2>Patch 3: Four-note chord engine</h2>
+<h3>Goal</h3>
+<p>Create harmonic material from fixed voltages.</p>
+<h3>Patch</h3>
+<ul>
+<li>Enable +5V offset</li>
+<li>Set channels to four different voltage levels</li>
+<li>Out 1-4 -&gt; four quantizer channels / four oscillators</li>
+<li>Save multiple memory states as different voicings</li>
+<li>Use Advance or Terminal to rotate assignments</li>
+</ul>
+<h3>Result</h3>
+<p>Stored chord voicings and melodic inversions with dynamic voice reassignment.</p>
+<hr />
+<h2>Patch 4: Quantized melody from animated voltages</h2>
+<h3>Goal</h3>
+<p>Generate self-moving melodic content.</p>
+<h3>Patch</h3>
+<ul>
+<li>Enable +5V offset or patch offsets/random CV into A/B inputs</li>
+<li>Set LFO amplitudes per channel</li>
+<li>Choose <strong>Cascading</strong> or <strong>Phase Offset</strong> LFO relationship</li>
+<li>Patch <strong>Sum</strong> -&gt; quantizer -&gt; oscillator</li>
+</ul>
+<h3>Result</h3>
+<p>An automatically evolving melodic line with recurring structure.</p>
+<hr />
+<h2>Patch 5: Counterpoint by switched destination routing</h2>
+<h3>Goal</h3>
+<p>One CV source creates multiple interrelated melodic voices.</p>
+<h3>Patch</h3>
+<ul>
+<li>Build 4 distinct CV blends on Synapse</li>
+<li>Route outputs to:</li>
+<li>Out 1 -&gt; quantizer 1 -&gt; VCO 1</li>
+<li>Out 2 -&gt; quantizer 2 -&gt; VCO 2</li>
+<li>Out 3 -&gt; precision adder transpose input</li>
+<li>Out 4 -&gt; FM voice pitch</li>
+<li>Use <strong>Advance</strong> with clock divisions</li>
+<li>Occasionally trigger <strong>Scatter</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Rotating contrapuntal lines and shifting harmonic functions.</p>
+<hr />
+<h2>Patch 6: Memory as song-section transposer</h2>
+<h3>Goal</h3>
+<p>Use Synapse to transpose a melodic sequence differently per section.</p>
+<h3>Patch</h3>
+<ul>
+<li>Main sequencer -&gt; precision adder input A</li>
+<li>Synapse output -&gt; precision adder transpose input</li>
+<li>Build memory states containing different DC voltages</li>
+<li>Save 8 transposition values or 8 four-channel transposition sets</li>
+</ul>
+<h3>Result</h3>
+<p>Verse, chorus, bridge transpositions are instantly recallable.</p>
+<hr />
+<h2>Things to watch out for</h2>
+<h2>1. Raw pitch CV may need quantization</h2>
+<p>Synapse outputs continuous CV. For tonal melodic work, a <strong>quantizer</strong> is highly recommended.</p>
+<h2>2. Memory disables channel CV inputs</h2>
+<p>When a memory slot is selected, the crossfade CV inputs are disabled.<br />
+So if your melody depends on external modulation per channel, memory mode changes that behavior.</p>
+<h2>3. LFO frequency goes very high</h2>
+<p>It ranges up to <strong>1kHz</strong>, which is more audio-rate territory.<br />
+For melody, you’ll usually want much slower settings unless intentionally creating complex CV behavior.</p>
+<h2>4. Switching and pitch</h2>
+<p>Click-less switching is great for audio, but for pitch CV changes you may still want to manage:
+- clock timing
+- quantizer response
+- slew via Inertia</p>
+<h2>5. Saved state behavior</h2>
+<p>A lot of the module’s state is stored to permanent memory. That’s helpful for performance patches, but remember your last-used settings may reappear on reboot.</p>
+<h2>Best companion modules for melodic systems</h2>
+<p>Synapse pairs especially well with:</p>
+<ul>
+<li><strong>Quantizers</strong>: essential for tonal pitch generation</li>
+<li><strong>Precision adders</strong>: for transposition workflows</li>
+<li><strong>Sequential clocks/gates</strong>: to drive Advance and event timing</li>
+<li><strong>Envelope/VCA chains</strong>: to articulate notes</li>
+<li><strong>Oscillators with good 1V/oct tracking</strong></li>
+<li><strong>Clock dividers/probability modules</strong>: for phrase variation</li>
+<li><strong>Buffered mults/mixers</strong>: to distribute melodic CV</li>
+<li><strong>Sample and hold/random sources</strong>: for semi-composed melodies</li>
+</ul>
+<h2>Best musical roles for Synapse</h2>
+<p>If you’re building melodic music, Synapse is strongest as:</p>
+<ol>
+<li><strong>a stored voltage phrase generator</strong></li>
+<li><strong>a sequencer morphing tool</strong></li>
+<li><strong>a transposition and interval source</strong></li>
+<li><strong>a multi-voice pitch router</strong></li>
+<li><strong>an evolving CV composer before a quantizer</strong></li>
+</ol>
+<p>It is less ideal as:
+- a precise note-entry sequencer
+- a standalone quantized melody source
+- a traditional keyboard replacement</p>
+<h2>Bottom line</h2>
+<p>Synapse is best understood as a <strong>melodic infrastructure module</strong> rather than a dedicated sequencer.</p>
+<p>It helps create melody by letting you:</p>
+<ul>
+<li>generate CV from offsets</li>
+<li>blend between two melodic voltages</li>
+<li>store phrase states</li>
+<li>slew between them</li>
+<li>sum them into more complex pitch contours</li>
+<li>route them across multiple voices</li>
+<li>animate them with internal LFOs</li>
+<li>permute destination assignments</li>
+</ul>
+<p>In a Eurorack melodic system, the most powerful setup is usually:</p>
+<p><strong>Synapse -&gt; quantizer / precision adder -&gt; oscillator(s)</strong></p>
+<p>That turns its fluid, morphing voltage behavior into playable, structured musical notes.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Grids</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Grids</h1>
+<ul>
+<li><a href="../../manuals/Manual - Mutable Instruments Grids Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Using Mutable Instruments Grids to Create Melodic Components</h1>
+<p>Grids is primarily a <strong>3-channel drum trigger generator</strong>, not a pitch sequencer. But in a Eurorack system, trigger patterns can absolutely become <strong>melodic structure</strong> when routed creatively. Its strength is generating evolving rhythmic frameworks, which you can use to animate quantizers, sequencers, sample-and-hold circuits, envelopes, switches, and sequential controllers.</p>
+<h2>What Grids does best</h2>
+<p>Grids outputs:</p>
+<ul>
+<li><strong>3 trigger streams</strong></li>
+<li><strong>3 accent streams</strong></li>
+<li>Internal or external clocked rhythmic patterns</li>
+<li>CV-controllable pattern morphing via:</li>
+<li><strong>Map X</strong></li>
+<li><strong>Map Y</strong></li>
+<li><strong>Fill 1–3</strong></li>
+<li><strong>Chaos</strong></li>
+</ul>
+<p>This makes it ideal as a <strong>melodic rhythm brain</strong> rather than a direct melody source.</p>
+<hr />
+<h2>Core idea: rhythm becomes melody when it controls pitch events</h2>
+<p>Grids does not output voltages for note pitch, but it can create melodic content by controlling when notes happen and how often different note sources are heard.</p>
+<p>Typical patch concept:</p>
+<ul>
+<li>Use a <strong>pitch source</strong>: sequencer, quantizer + random voltage, keyboard CV, S&amp;H, Turing machine, etc.</li>
+<li>Use <strong>Grids trigger outputs</strong> to fire:</li>
+<li>envelopes for a VCA</li>
+<li>quantizer sample inputs</li>
+<li>sample-and-hold</li>
+<li>sequential switches</li>
+<li>shift-register clocks</li>
+<li>sequencer advance/reset inputs</li>
+</ul>
+<p>That turns Grids into a sophisticated generator of <strong>melodic phrasing, syncopation, repetition, and variation</strong>.</p>
+<hr />
+<h2>Ways to use Grids for melodic components</h2>
+<h2>1. Triggering envelopes for melodic voices</h2>
+<p>The simplest method:</p>
+<ul>
+<li>Send <strong>TRIG 1</strong> to an envelope generator</li>
+<li>Envelope opens a VCA for an oscillator voice</li>
+<li>Pitch comes from another module</li>
+<li>Repeat with <strong>TRIG 2</strong> and <strong>TRIG 3</strong> for additional voices</li>
+</ul>
+<p>This gives you:</p>
+<ul>
+<li>one rhythmically active bassline</li>
+<li>one syncopated lead</li>
+<li>one high-register pluck or arpeggio</li>
+</ul>
+<p>Because each channel has independent <strong>Fill</strong>, you can make:
+- Channel 1 sparse = bass
+- Channel 2 medium = chord stabs
+- Channel 3 dense = ornamentation</p>
+<p>This is one of the easiest ways to make Grids function as a <strong>melodic arrangement tool</strong>.</p>
+<hr />
+<h2>2. Use triggers to clock sample-and-hold for note generation</h2>
+<p>A very effective melodic patch:</p>
+<ul>
+<li>Send noise, random CV, or a slow modulation source into <strong>Sample &amp; Hold input</strong></li>
+<li>Send a <strong>Grids trigger output</strong> into the S&amp;H clock</li>
+<li>Send S&amp;H output into a <strong>quantizer</strong></li>
+<li>Quantizer output goes to oscillator pitch</li>
+</ul>
+<p>Result: Grids determines <strong>when a new note is chosen</strong>.</p>
+<p>Musically this is powerful because:
+- sparse fills create stable melodic motifs
+- higher fills create busier note changes
+- morphing Map X/Y changes where notes land
+- Chaos adds occasional extra notes or ghost-note-like melodic flourishes</p>
+<p>This can sound like:
+- generative plucked sequences
+- IDM-style melodic fragments
+- evolving acid-like patterns if sent to a resonant voice</p>
+<hr />
+<h2>3. Advance a sequencer irregularly</h2>
+<p>If you already have a pitch sequencer:</p>
+<ul>
+<li>Route Grids <strong>TRIG 1</strong> to the sequencer’s <strong>clock/advance</strong></li>
+<li>Route <strong>ACC 1</strong> or another channel to <strong>reset</strong> or <strong>direction change</strong></li>
+<li>Send sequencer CV to oscillator pitch</li>
+</ul>
+<p>Now Grids reshapes the melody by deciding <strong>when the sequencer steps</strong>.</p>
+<p>This creates:
+- skipped notes
+- repeated notes
+- uneven phrase lengths
+- dynamic syncopation</p>
+<p>Especially useful with:
+- 8-step analog sequencers
+- Cartesian sequencers
+- shift-register sequencers
+- step sequencers with reset input</p>
+<p>Because the manual notes that accent marks <strong>structurally important steps</strong>, ACC outputs are especially useful for phrase markers.</p>
+<hr />
+<h2>4. Use accent outputs to create melodic emphasis</h2>
+<p>Each channel includes an <strong>ACC output</strong> corresponding to structurally important beats.</p>
+<p>For melodic use, route ACC to:</p>
+<ul>
+<li>envelope decay CV for stronger accents</li>
+<li>filter cutoff CV</li>
+<li>VCA CV summing input</li>
+<li>wavefolder depth</li>
+<li>FM amount</li>
+<li>quantizer transpose input</li>
+<li>switch select input</li>
+</ul>
+<p>That means the same pitch sequence can gain musical shape through accent structure.</p>
+<p>Example:
+- TRIG 2 fires a lead voice
+- ACC 2 adds +2V to filter cutoff only on important notes</p>
+<p>This yields phrased melodies that feel more intentional and less robotic.</p>
+<hr />
+<h2>5. Switching between pitch sources</h2>
+<p>Grids is excellent for controlling <strong>sequential switches</strong> or <strong>VC switches</strong>.</p>
+<p>Patch idea:</p>
+<ul>
+<li>Pitch Source A = bass sequence</li>
+<li>Pitch Source B = random quantized notes</li>
+<li>Pitch Source C = fixed drone interval</li>
+<li>Use Grids triggers or accents to switch between them</li>
+</ul>
+<p>For example:
+- <strong>TRIG 1</strong> clocks a sequential switch
+- Output of switch goes to oscillator pitch
+- Different pitch rows are selected rhythmically</p>
+<p>Or:
+- ACC 1 selects when a transposition source is applied</p>
+<p>This turns rhythmic pattern generation into <strong>melodic contour generation</strong>.</p>
+<hr />
+<h2>6. Create call-and-response melodic voices</h2>
+<p>Because Grids has three coordinated channels, it can produce interlocking melodic lines.</p>
+<p>Example patch:</p>
+<ul>
+<li><strong>TRIG 1</strong> → bass voice envelope</li>
+<li><strong>TRIG 2</strong> → lead voice envelope</li>
+<li><strong>TRIG 3</strong> → pluck or bell voice envelope</li>
+</ul>
+<p>Pitch sources:
+- one shared quantized CV distributed to all voices at different octave offsets
+- or separate CV streams for each voice</p>
+<p>Then tune Fill settings as follows:
+- Fill 1 low for foundational bass
+- Fill 2 medium for response phrases
+- Fill 3 high for ornamentation</p>
+<p>Map X/Y morphing changes the interplay between voices, often giving the feel of composed counter-rhythm even though the module is drum-oriented.</p>
+<hr />
+<h2>7. Clocking a quantizer’s sample input</h2>
+<p>Some quantizers or CV processors can sample incoming CV only when triggered.</p>
+<p>Patch:</p>
+<ul>
+<li>LFO, random CV, joystick, or slow sequencer → quantizer input</li>
+<li><strong>Grids trigger</strong> → quantizer trigger/sample input</li>
+<li>Quantizer output → oscillator pitch</li>
+</ul>
+<p>This allows Grids to define melodic phrasing while another modulation source defines contour.</p>
+<p>Very playable because:
+- manual Fill knobs immediately alter note density
+- CV into Map X/Y can create larger structural evolution
+- external clock sync keeps the melody locked to the rest of the patch</p>
+<hr />
+<h2>8. Use Euclidean mode for melodic sequencing</h2>
+<p>The manual includes a <strong>Euclidean sequencer mode</strong>.</p>
+<p>In this mode:
+- <strong>C1, C2, D</strong> set cycle length/size for channels 1–3
+- <strong>E1, E2, E3</strong> control fill rate
+- <strong>ACC outputs</strong> fire on the first note of the pattern cycle</p>
+<p>For melodic applications, this is extremely useful.</p>
+<h3>Melodic Euclidean patch ideas</h3>
+<h4>Polymetric melody layers</h4>
+<ul>
+<li>Channel 1 clocks a bass note source</li>
+<li>Channel 2 clocks a higher sequence</li>
+<li>Channel 3 clocks a modulation event or chord stab</li>
+</ul>
+<p>Different cycle lengths create:
+- phasing melodies
+- looping polymeters
+- Steve Reich / Berlin-school style interactions</p>
+<h4>Phrase reset logic</h4>
+<p>Since ACC fires on the first note of the pattern cycle in Euclidean mode:
+- use ACC to reset another sequencer
+- trigger transposition
+- switch scales
+- start an envelope with longer decay</p>
+<p>This helps create coherent melodic cycles from otherwise repetitive pulses.</p>
+<hr />
+<h2>9. Use Grids as a gate source instead of trigger source</h2>
+<p>The manual notes that outputs can be changed from <strong>trigger</strong> to <strong>gate</strong> mode in options.</p>
+<p>This matters melodically because gates can control:</p>
+<ul>
+<li>note length</li>
+<li>sustain duration</li>
+<li>legato-like phrasing</li>
+<li>envelope hold stages</li>
+<li>opening of VCAs for drones or sustained tones</li>
+</ul>
+<p>With gate mode:
+- a dense melodic line can become more connected
+- different clock duty cycles can affect gate length if externally clocked</p>
+<p>This is especially helpful if you want Grids to move beyond percussive plucks into:
+- sustained basslines
+- held chord tones
+- melodic drones with rhythmic articulation</p>
+<hr />
+<h2>10. Alternate output layout for melodic system integration</h2>
+<p>The manual describes an alternate accent/output layout:</p>
+<ul>
+<li><strong>ACC / CLK / RST</strong></li>
+</ul>
+<p>This is very useful in a melody-focused patch.</p>
+<p>You can use:
+- <strong>CLK</strong> to drive pitch sequencers or arpeggiators
+- <strong>RST</strong> to reset melodic sequencers at phrase boundaries
+- <strong>ACC</strong> as a global melodic emphasis or transposition trigger</p>
+<p>This lets Grids act more like a <strong>master phrase controller</strong> for both drums and melody.</p>
+<hr />
+<h2>Especially useful controls for melodic patching</h2>
+<h2>Map X and Map Y</h2>
+<p>These choose the rhythmic region/pattern backbone.</p>
+<p>For melody, this means:
+- where notes happen
+- how syncopated they feel
+- whether the phrase feels straight, broken, busy, sparse, etc.</p>
+<p>Slow CV modulation here can create long-form melodic evolution.</p>
+<h2>Fill 1–3</h2>
+<p>These are the most immediately useful for melody.</p>
+<p>They control note density per channel:
+- low fill = sparse melodic punctuation
+- medium fill = recognizable phrase
+- high fill = runs, repeated notes, ornamentation</p>
+<h2>Chaos</h2>
+<p>Chaos adds perturbations to the fill structure.</p>
+<p>Melodically, this can mean:
+- grace-note-like extra triggers
+- occasional note repetitions
+- less predictable phrase density</p>
+<p>At high settings, it can create glitchy or improvisatory melodic behavior.</p>
+<p>If swing is enabled in options, <strong>Chaos becomes swing amount</strong> for the internal clock, which can greatly affect melodic feel.</p>
+<hr />
+<h2>Good melodic patch recipes</h2>
+<h2>Patch 1: Generative bassline</h2>
+<ul>
+<li>Grids TRIG 1 → S&amp;H clock</li>
+<li>Slow random CV → S&amp;H input</li>
+<li>S&amp;H output → quantizer</li>
+<li>Quantizer output → VCO pitch</li>
+<li>TRIG 1 also → envelope → VCA</li>
+</ul>
+<p>Result: a bassline whose note changes follow Grids’ learned rhythmic structure.</p>
+<hr />
+<h2>Patch 2: Three-part melodic ensemble</h2>
+<ul>
+<li>TRIG 1 → bass envelope</li>
+<li>TRIG 2 → mid voice envelope</li>
+<li>TRIG 3 → high pluck envelope</li>
+<li>One quantized CV source multed to all three voices</li>
+<li>Different octave offsets for each voice</li>
+<li>ACC outputs modulate filter or decay per voice</li>
+</ul>
+<p>Result: rhythmically interlocked melodic texture from one pitch source.</p>
+<hr />
+<h2>Patch 3: Rhythmic sequencer disruption</h2>
+<ul>
+<li>Conventional step sequencer → VCO pitch</li>
+<li>Grids TRIG 2 → sequencer clock</li>
+<li>ACC 2 → sequencer reset</li>
+<li>Fill 2 controls note density</li>
+</ul>
+<p>Result: Grids imposes dynamic phrasing on an otherwise fixed sequence.</p>
+<hr />
+<h2>Patch 4: Euclidean melody engine</h2>
+<ul>
+<li>Enable Euclidean mode</li>
+<li>Channel 1 = bass trigger</li>
+<li>Channel 2 = lead trigger</li>
+<li>Channel 3 = transposition trigger</li>
+<li>ACC outputs reset or transpose related sequencers</li>
+</ul>
+<p>Result: tightly structured polymetric melodic motion.</p>
+<hr />
+<h2>Patch 5: Chord stab animator</h2>
+<ul>
+<li>Quantized chord CV or fixed intervals sent to oscillators</li>
+<li>Grids TRIG outputs fire envelopes for separate chord tones or voices</li>
+<li>ACC boosts one note’s VCA or filter for inversion emphasis</li>
+</ul>
+<p>Result: rhythmic chord patterns with evolving density.</p>
+<hr />
+<h2>Practical limitations</h2>
+<p>Since Grids is not a pitch sequencer, it cannot by itself generate complete melodies in the traditional “note-by-note pitch + gate” sense. It needs companion modules such as:</p>
+<ul>
+<li>quantizers</li>
+<li>CV sequencers</li>
+<li>random voltage sources</li>
+<li>sample-and-hold</li>
+<li>switches</li>
+<li>sequential routers</li>
+<li>envelope generators and VCAs</li>
+</ul>
+<p>So its role in melodic creation is best understood as:</p>
+<ul>
+<li><strong>phrase generator</strong></li>
+<li><strong>note-density shaper</strong></li>
+<li><strong>accent and articulation source</strong></li>
+<li><strong>reset/clock logic source</strong></li>
+<li><strong>polyrhythmic event organizer</strong></li>
+</ul>
+<hr />
+<h2>Best use cases in a melodic Eurorack patch</h2>
+<p>Grids works especially well for melodic content when you want:</p>
+<ul>
+<li>evolving generative melodies</li>
+<li>rhythmic counterpoint between voices</li>
+<li>human-feeling note placement</li>
+<li>accents that shape phrasing</li>
+<li>modulation-driven structural change</li>
+<li>hybrid drum/melody systems where rhythms and notes feel related</li>
+</ul>
+<p>It is less suitable if you need:
+- exact composed melodies
+- deterministic pitch sequencing without external modules
+- direct harmonic programming from the module itself</p>
+<hr />
+<h2>Summary</h2>
+<p>Mutable Instruments Grids can be a strong <strong>melodic support module</strong> even though it is designed as a drum trigger generator. Its real melodic power comes from using its three trigger/accent channels to control:</p>
+<ul>
+<li>when pitches are sampled</li>
+<li>when sequencers advance</li>
+<li>when voices articulate</li>
+<li>how accents shape expression</li>
+<li>how multiple melodic layers interlock</li>
+</ul>
+<p>In a Eurorack system, Grids becomes a kind of <strong>melodic rhythm architect</strong>. Pair it with quantizers, random CV, sequencers, switches, and envelopes, and it can generate basslines, arpeggios, phrase resets, polymetric melodic layers, and expressive accent structures.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

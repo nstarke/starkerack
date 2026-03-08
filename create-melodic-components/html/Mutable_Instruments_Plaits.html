@@ -1,0 +1,482 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Plaits</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Plaits</h1>
+<ul>
+<li><a href="../../manuals/Mutable Instruments - Plaits.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/plaits/manual/">Mutable Instruments Plaits Manual (PDF/manual page)</a></p>
+<h1>Using Plaits to Create Melodic Components</h1>
+<p>Plaits is a very flexible <strong>macro-oscillator voice</strong> for Eurorack, and based on this manual, it can serve as the core melodic sound source in several different ways: as a conventional pitched oscillator, a chord generator, a plucked/struck physical model, a wavetable lead, or even a speech-like melodic texture.</p>
+<h2>What Plaits gives you musically</h2>
+<p>Plaits contains:</p>
+<ul>
+<li><strong>16 synthesis models</strong></li>
+<li><strong>1V/Oct pitch input</strong></li>
+<li><strong>internal LPG (low-pass gate)</strong></li>
+<li><strong>internal decay envelope triggered from TRIG</strong></li>
+<li><strong>main OUT plus AUX output</strong></li>
+<li>CV control over:</li>
+<li>model</li>
+<li>timbre</li>
+<li>morph</li>
+<li>harmonics</li>
+<li>frequency / FM</li>
+<li>level</li>
+</ul>
+<p>That means it can function either as:</p>
+<ul>
+<li>a <strong>complete melodic voice</strong> with only pitch and trigger required, or</li>
+<li>a <strong>deeply modulatable oscillator</strong> inside a larger patch.</li>
+</ul>
+<h2>Best melodic uses from the available models</h2>
+<p>For melody writing, the strongest Plaits models are:</p>
+<h3>1. Virtual analog model</h3>
+<p>Great for:</p>
+<ul>
+<li>basslines</li>
+<li>mono leads</li>
+<li>arpeggios</li>
+<li>classic subtractive-style sequences</li>
+</ul>
+<p>Controls:
+- <strong>HARMONICS</strong>: detune between the two waves
+- <strong>TIMBRE</strong>: pulse shape / hardsync formants
+- <strong>MORPH</strong>: saw/triangle/notch variation</p>
+<p>How to use melodically:
+- Send a sequencer or keyboard into <strong>V/OCT</strong>
+- Send gates/triggers into <strong>TRIG</strong>
+- Use the internal LPG for instant articulation
+- Modulate <strong>TIMBRE</strong> or <strong>MORPH</strong> slowly for evolving lead lines</p>
+<p>This is probably the easiest “traditional synth voice” inside the module.</p>
+<hr />
+<h3>2. Waveshaping / wavefolding model</h3>
+<p>Great for:</p>
+<ul>
+<li>expressive leads</li>
+<li>brighter melodic hooks</li>
+<li>animated basses</li>
+</ul>
+<p>Controls:
+- <strong>HARMONICS</strong>: waveshaper waveform
+- <strong>TIMBRE</strong>: wavefolder amount
+- <strong>MORPH</strong>: waveform asymmetry</p>
+<p>How to use melodically:
+- Patch pitch CV to <strong>V/OCT</strong>
+- Trigger the internal envelope via <strong>TRIG</strong>
+- Add slow CV to <strong>TIMBRE</strong> for movement across phrases
+- Use <strong>AUX</strong> as an alternate folded tone for layering or parallel processing</p>
+<p>This model works well when you want melodic material that feels more modern and harmonically rich.</p>
+<hr />
+<h3>3. FM model</h3>
+<p>Great for:</p>
+<ul>
+<li>glassy melodies</li>
+<li>electric piano-like lines</li>
+<li>metallic but playable leads</li>
+<li>complex bass tones</li>
+</ul>
+<p>Controls:
+- <strong>HARMONICS</strong>: frequency ratio
+- <strong>TIMBRE</strong>: modulation index
+- <strong>MORPH</strong>: feedback/chaos character</p>
+<p>How to use melodically:
+- Keep <strong>MORPH</strong> near noon for more stable pitched tones
+- Sequence pitch via <strong>V/OCT</strong>
+- Use light CV on <strong>TIMBRE</strong> to animate note brightness
+- Use <strong>AUX</strong> sub output to reinforce the fundamental for bass melodies</p>
+<p>This is one of the best models for melodic lines that need more harmonic complexity without losing pitch definition.</p>
+<hr />
+<h3>4. Additive model</h3>
+<p>Great for:</p>
+<ul>
+<li>organ-like leads</li>
+<li>hollow melodic lines</li>
+<li>soft harmonic pads when externally enveloped</li>
+<li>clear, trackable tonal material</li>
+</ul>
+<p>Controls:
+- <strong>HARMONICS</strong>: spectral bump count
+- <strong>TIMBRE</strong>: center harmonic
+- <strong>MORPH</strong>: bump shape</p>
+<p>How to use melodically:
+- This model responds very musically to subtle modulation
+- Use it for tonal sequences where each note should remain clear
+- The <strong>AUX</strong> output gives a Hammond-like subset of harmonics, useful for second-layer melody doubling</p>
+<p>This is a good choice when you want melody without too much harshness.</p>
+<hr />
+<h3>5. Wavetable model</h3>
+<p>Great for:</p>
+<ul>
+<li>evolving leads</li>
+<li>digital arpeggios</li>
+<li>melodic ostinatos</li>
+<li>retro/futuristic tones</li>
+</ul>
+<p>Controls:
+- <strong>HARMONICS</strong>: bank selection
+- <strong>TIMBRE</strong>: row
+- <strong>MORPH</strong>: column</p>
+<p>How to use melodically:
+- Sequence notes into <strong>V/OCT</strong>
+- Modulate <strong>TIMBRE</strong> and/or <strong>MORPH</strong> with slow LFOs, random, or envelope CV
+- Use <strong>AUX</strong> low-fi output for a doubled or contrast voice</p>
+<p>This model is especially useful when the melody should change tone over time without changing pitch.</p>
+<hr />
+<h3>6. Chord model</h3>
+<p>Excellent for melodic-harmonic writing.</p>
+<p>Controls:
+- <strong>HARMONICS</strong>: chord type
+- <strong>TIMBRE</strong>: inversion/transposition
+- <strong>MORPH</strong>: waveform selection
+- <strong>AUX</strong>: root note</p>
+<p>How to use musically:
+- Send 1V/Oct to <strong>V/OCT</strong> to transpose the entire chord
+- Trigger with <strong>TRIG</strong>
+- Sequence chord changes as if Plaits were a harmonic voice
+- Use <strong>AUX</strong> root output separately as:
+  - a bassline source
+  - pitch reference
+  - doubled melody</p>
+<p>This is one of the most powerful “melodic component” tools in the module because a single pitch CV line can become full harmonic movement.</p>
+<hr />
+<h3>7. Speech model</h3>
+<p>Useful for:</p>
+<ul>
+<li>vocal melody fragments</li>
+<li>robotic hooks</li>
+<li>spoken textures integrated into pitched music</li>
+</ul>
+<p>Controls:
+- <strong>HARMONICS</strong>: vowel/speech algorithm/word bank
+- <strong>TIMBRE</strong>: species/formant shift
+- <strong>MORPH</strong>: phoneme or word segment</p>
+<p>Musical use:
+- Sequence pitch melodically for “singing synth” effects
+- Trigger words/segments with <strong>TRIG</strong>
+- Use CV over <strong>MORPH</strong> to scan phonemes rhythmically
+- Use FM attenuverter to affect intonation when triggered</p>
+<p>This is less conventional, but very effective for melodic ear candy or top-line motifs.</p>
+<hr />
+<h3>8. Resonator / string models</h3>
+<p>Great for:</p>
+<ul>
+<li>plucked melodies</li>
+<li>mallet-like sequences</li>
+<li>pseudo-acoustic lines</li>
+<li>ambient melodic figures</li>
+</ul>
+<p>Controls:
+- <strong>HARMONICS</strong>: inharmonicity/material
+- <strong>TIMBRE</strong>: excitation brightness
+- <strong>MORPH</strong>: decay</p>
+<p>How to use melodically:
+- Send note CV to <strong>V/OCT</strong>
+- Send gates/triggers to <strong>TRIG</strong>
+- Let the internal exciter and decay shape each note
+- Use <strong>LEVEL</strong> as accent input for more expressive phrasing when using triggered physical models</p>
+<p>These models are especially strong for melodic sequences that need natural attack and resonant decay.</p>
+<hr />
+<h2>Using the internal envelope and LPG for melodic patches</h2>
+<p>One of the most important melodic features in Plaits is that you do <strong>not</strong> always need an external envelope + VCA.</p>
+<h3>With TRIG patched:</h3>
+<p>Plaits can:
+- trigger its own decaying envelope
+- strike its internal LPG
+- excite physical/percussive models
+- sample-and-hold model CV</p>
+<p>This means a minimal melodic patch can be:</p>
+<ul>
+<li>sequencer pitch CV → <strong>V/OCT</strong></li>
+<li>sequencer gate/trigger → <strong>TRIG</strong></li>
+<li>audio out → mixer</li>
+</ul>
+<p>That alone creates a playable melodic voice.</p>
+<h3>Why this matters</h3>
+<p>For melodic composition, this makes Plaits ideal for:</p>
+<ul>
+<li>compact live systems</li>
+<li>generative patches</li>
+<li>quick sketching of riffs and motifs</li>
+<li>multi-voice systems where you want to conserve VCAs/envelopes</li>
+</ul>
+<h2>Important note about the attenuverters</h2>
+<p>The manual notes that when a corresponding CV input is <strong>unpatched</strong> and <strong>TRIG is patched</strong>, the attenuverters for <strong>TIMBRE</strong>, <strong>FM</strong>, and <strong>MORPH</strong> control the amount of internal envelope modulation.</p>
+<p>This is extremely useful for melody because it gives you note-by-note timbral articulation without extra patching.</p>
+<p>For example:
+- internal envelope to <strong>TIMBRE</strong> = brighter attack on each note
+- internal envelope to <strong>MORPH</strong> = shape changes per note
+- internal envelope to <strong>FM</strong> = pitch sweep or transient movement</p>
+<p>This is a major feature for expressive melodic phrasing.</p>
+<h2>Simple melodic patch ideas</h2>
+<h2>1. Classic mono lead</h2>
+<p>Use:
+- virtual analog, waveshaping, or FM model</p>
+<p>Patch:
+- pitch sequencer → <strong>V/OCT</strong>
+- gate/trigger sequencer → <strong>TRIG</strong>
+- <strong>OUT</strong> → mixer/filter/effects</p>
+<p>Technique:
+- use internal LPG
+- set moderate decay
+- assign internal envelope to <strong>TIMBRE</strong> with attenuverter for dynamic attack brightness</p>
+<p>Result:
+- expressive lead line with minimal patching</p>
+<hr />
+<h2>2. Plucked melody</h2>
+<p>Use:
+- string/resonator model</p>
+<p>Patch:
+- sequencer → <strong>V/OCT</strong>
+- triggers → <strong>TRIG</strong>
+- OUT → reverb/delay</p>
+<p>Technique:
+- short to medium decay
+- increase excitation brightness with <strong>TIMBRE</strong>
+- use <strong>LEVEL</strong> CV for accents on selected notes</p>
+<p>Result:
+- melodic plucks, kalimba-like lines, or modal sequences</p>
+<hr />
+<h2>3. Chord progression plus bassline from one module</h2>
+<p>Use:
+- chord model</p>
+<p>Patch:
+- sequence → <strong>V/OCT</strong>
+- gates → <strong>TRIG</strong>
+- <strong>OUT</strong> → main mixer voice
+- <strong>AUX</strong> → separate bass processing chain</p>
+<p>Technique:
+- OUT carries full chord sound
+- AUX gives root note, which can become a bass component
+- tune waveform with <strong>MORPH</strong>
+- animate inversion using <strong>TIMBRE</strong></p>
+<p>Result:
+- harmonic and melodic content from one module</p>
+<hr />
+<h2>4. Evolving arpeggio voice</h2>
+<p>Use:
+- wavetable or additive model</p>
+<p>Patch:
+- arpeggiator/sequencer → <strong>V/OCT</strong>
+- triggers → <strong>TRIG</strong>
+- slow LFO/random → <strong>TIMBRE</strong> or <strong>MORPH</strong></p>
+<p>Technique:
+- keep pitch sequence simple
+- let timbre modulation create variation
+- use AUX as contrasting secondary texture</p>
+<p>Result:
+- melodic line that evolves without becoming harmonically unclear</p>
+<hr />
+<h2>5. Expressive bass melody</h2>
+<p>Use:
+- FM or virtual analog model</p>
+<p>Patch:
+- bass sequencer → <strong>V/OCT</strong>
+- gate → <strong>TRIG</strong>
+- <strong>AUX</strong> sub or alternate output mixed with main out</p>
+<p>Technique:
+- use AUX sub to support low end
+- keep LPG response tighter and more VCA-like if you want punch
+- shorter decay for rhythmic articulation</p>
+<p>Result:
+- bassline with both definition and body</p>
+<hr />
+<h2>6. Vocal top-line</h2>
+<p>Use:
+- speech model</p>
+<p>Patch:
+- melodic CV → <strong>V/OCT</strong>
+- trigger sequence → <strong>TRIG</strong>
+- slow/stepped CV → <strong>MORPH</strong></p>
+<p>Technique:
+- scan phonemes or words while notes change
+- use reverb or delay after the module
+- automate <strong>TIMBRE</strong> for different “vocal characters”</p>
+<p>Result:
+- unusual melodic hooks and vocal-style motifs</p>
+<h2>Using OUT and AUX together for melody</h2>
+<p>A big compositional strength of Plaits is the relationship between <strong>OUT</strong> and <strong>AUX</strong>.</p>
+<p>Depending on the model, AUX may be:
+- a sub oscillator
+- another timbral variant
+- a low-fi version
+- a raw exciter
+- a root note
+- filtered/noisy complement</p>
+<p>This allows several melodic strategies:</p>
+<h3>Layered melody</h3>
+<p>Mix OUT and AUX together for a fuller lead.</p>
+<h3>Split roles</h3>
+<p>Send:
+- <strong>OUT</strong> to main melodic chain
+- <strong>AUX</strong> to another filter/VCA/effect path</p>
+<h3>Bass + melody</h3>
+<p>On the chord or FM models, AUX can support the root or sub while OUT carries the more complex upper content.</p>
+<h3>Parallel processing</h3>
+<p>Use different effects on OUT and AUX:
+- dry OUT + wet AUX
+- distorted AUX + clean OUT
+- mono center OUT + stereo FX AUX</p>
+<h2>Settings that matter for melodic use</h2>
+<h2>1. FREQUENCY knob range</h2>
+<p>You can narrow the coarse tuning range to <strong>14 semitones around a fixed octave</strong> instead of the full 8-octave span.</p>
+<p>This is very helpful for melodic work because:
+- fine tuning is easier
+- live pitch adjustment is safer
+- it behaves more like a conventional oscillator tuning control</p>
+<p>To do this:
+- hold the <strong>second model button</strong>
+- turn <strong>HARMONICS</strong> to select the range</p>
+<p>For melodic systems, this is one of the first settings worth changing.</p>
+<h2>2. LPG response</h2>
+<p>You can adjust the internal low-pass gate from:
+- <strong>VCFA-like</strong> response to
+- <strong>VCA-like</strong> response</p>
+<p>For melody:
+- more <strong>VCFA</strong> = plucky, organic, darker tail
+- more <strong>VCA</strong> = more neutral, direct articulation</p>
+<p>If you want clean sequenced melodies, move it more toward VCA.
+If you want West Coast plucks or softer note edges, stay more toward VCFA.</p>
+<h2>3. Decay / ringing time</h2>
+<p>Adjustable with the button + <strong>MORPH</strong> combo.</p>
+<p>For melody:
+- short decay = basslines, staccato sequences, arps
+- medium decay = leads, plucks
+- long decay = ambient lines, overlapping phrases</p>
+<h2>Melodic role by synthesis family</h2>
+<h3>Best for stable tonal melodies</h3>
+<ul>
+<li>virtual analog</li>
+<li>additive</li>
+<li>wavetable</li>
+<li>chord</li>
+</ul>
+<h3>Best for animated expressive leads</h3>
+<ul>
+<li>waveshaping</li>
+<li>FM</li>
+<li>formant synthesis</li>
+<li>speech</li>
+</ul>
+<h3>Best for plucks and struck melodic material</h3>
+<ul>
+<li>string/resonator</li>
+<li>physical/percussive models used tonally</li>
+</ul>
+<h3>Best for bass melodies</h3>
+<ul>
+<li>virtual analog</li>
+<li>FM</li>
+<li>chord model with AUX root</li>
+<li>filtered noise model if tuned carefully for synth bass textures</li>
+</ul>
+<h2>Performance ideas</h2>
+<h2>1. Model switching per phrase</h2>
+<p>The model CV input can be modulated, and if TRIG is patched, model changes happen only when a trigger is received. That means you can switch synthesis model on note boundaries.</p>
+<p>Musically, this allows:
+- verse lead on one model, chorus lead on another
+- alternating timbres every step
+- controlled phrase-by-phrase variation</p>
+<p>Because model changes can be sampled on triggers, it can stay rhythmically coherent.</p>
+<h2>2. Accent-based phrasing</h2>
+<p>For physical/percussive models, <strong>LEVEL</strong> acts as an accent control when TRIG is patched.</p>
+<p>This is great for:
+- melodic percussion
+- expressive plucked sequences
+- more human phrasing in repeating melodic patterns</p>
+<h2>3. Internal envelope as timbral articulation</h2>
+<p>Instead of only opening amplitude, use the unpatched CV attenuverters to route the internal envelope to timbre-related parameters.</p>
+<p>This gives each note:
+- a brighter start
+- a pitch transient
+- a shape sweep</p>
+<p>That makes simple sequences sound much more musical.</p>
+<h2>Practical melodic patch recipes</h2>
+<h2>Recipe A: Minimal lead voice</h2>
+<ul>
+<li>V/OCT from sequencer</li>
+<li>TRIG from gate sequencer</li>
+<li>OUT to mixer</li>
+<li>model: virtual analog or waveshaper</li>
+<li>short-medium decay</li>
+<li>envelope to TIMBRE via attenuverter</li>
+</ul>
+<p>Use when you want: fast patching, clear melody</p>
+<h2>Recipe B: Ambient pluck line</h2>
+<ul>
+<li>V/OCT from sequencer or quantized random</li>
+<li>TRIG from clock divider or sparse gates</li>
+<li>model: resonator/string</li>
+<li>OUT to reverb</li>
+<li>AUX to separate shimmer/delay path</li>
+</ul>
+<p>Use when you want: sparse melodic ambience</p>
+<h2>Recipe C: Harmonic melody engine</h2>
+<ul>
+<li>V/OCT from sequencer</li>
+<li>model: chord</li>
+<li>OUT for chordal body</li>
+<li>AUX for bass root</li>
+<li>TRIG for articulation</li>
+</ul>
+<p>Use when you want: instant musical structure from one voice</p>
+<h2>Recipe D: Digital arp</h2>
+<ul>
+<li>fast sequence into V/OCT</li>
+<li>wavetable model</li>
+<li>slow LFO into MORPH</li>
+<li>random stepped CV into TIMBRE</li>
+<li>TRIG every note</li>
+</ul>
+<p>Use when you want: animated, modern melodic motion</p>
+<h2>Recipe E: Metallic tuned melody</h2>
+<ul>
+<li>FM model</li>
+<li>tuned V/OCT sequence</li>
+<li>low to moderate modulation index</li>
+<li>MORPH near noon</li>
+<li>AUX mixed in lightly</li>
+</ul>
+<p>Use when you want: bellish or electric melodic hooks</p>
+<h2>Bottom line</h2>
+<p>Plaits is exceptionally strong for melodic duties because it combines:</p>
+<ul>
+<li>a wide range of <strong>pitched synthesis models</strong></li>
+<li>proper <strong>1V/Oct tracking</strong></li>
+<li>built-in <strong>triggered articulation</strong></li>
+<li>internal <strong>LPG + envelope</strong></li>
+<li>dual outputs for <strong>layering or split roles</strong></li>
+<li>enough timbral modulation to make even simple note sequences sound expressive</li>
+</ul>
+<p>In practice, Plaits can cover:</p>
+<ul>
+<li>basslines</li>
+<li>leads</li>
+<li>arpeggios</li>
+<li>chord progressions</li>
+<li>plucked lines</li>
+<li>tuned percussion</li>
+<li>vocal-like melodies</li>
+<li>layered harmonic/melodic textures</li>
+</ul>
+<p>If you are building melodic patches, the most immediately useful models are:
+- <strong>virtual analog</strong>
+- <strong>FM</strong>
+- <strong>wavetable</strong>
+- <strong>additive</strong>
+- <strong>chord</strong>
+- <strong>resonator/string</strong></p>
+<p>And the single most important trick from the manual is this:</p>
+<blockquote>
+<p>With <strong>TRIG</strong> patched and the timbre CV inputs left unpatched, the attenuverters can apply the <strong>internal envelope</strong> to timbre parameters, giving every note built-in melodic expression.</p>
+</blockquote>
+<p>That makes Plaits not just a sound source, but a very complete melodic voice.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

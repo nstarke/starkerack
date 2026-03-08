@@ -1,0 +1,432 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Clouds</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Clouds</h1>
+<ul>
+<li><a href="../../manuals/Mutable Instruments - Clouds.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Mutable Instruments Clouds — using it to create melodic material</h1>
+<p>Clouds is not a traditional oscillator or sampler; it’s a <strong>real-time granular texture processor</strong>. That means its melodic usefulness comes from how you feed it, freeze it, pitch it, and trigger grains. If you pair it with pitch CV, clocks, sequencers, envelopes, random sources, and sound sources, it can absolutely become a strong melodic voice.</p>
+<h2>What Clouds contributes musically</h2>
+<p>From the manual, Clouds lets you control:</p>
+<ul>
+<li><strong>POSITION</strong>: where in the buffer grains are taken from</li>
+<li><strong>SIZE</strong>: grain length</li>
+<li><strong>PITCH</strong>: transposition, with <strong>V/Oct input</strong></li>
+<li><strong>DENSITY</strong>: grain generation rate / overlap / random vs regular sowing</li>
+<li><strong>TEXTURE</strong>: envelope shape and diffusion</li>
+<li><strong>FREEZE</strong>: stop recording and play from captured audio</li>
+<li><strong>TRIGGER input</strong>: explicitly start grains</li>
+<li><strong>BLEND section</strong>: dry/wet, stereo spread, feedback, reverb</li>
+</ul>
+<p>That combination makes Clouds useful for melodic duties in a few different ways.</p>
+<hr />
+<h2>The key idea: Clouds can become a pitch-playable micro-sampler</h2>
+<p>The most important melodic trick in the manual is this:</p>
+<ul>
+<li>Set <strong>DENSITY to 12 o’clock</strong> so Clouds does <strong>not</strong> continuously generate grains.</li>
+<li>Send pulses to the <strong>TRIGGER input</strong>.</li>
+<li>Use the <strong>V/OCT PITCH input</strong> to transpose each grain melodically.</li>
+</ul>
+<p>In this mode, Clouds behaves a lot like a tiny granular sample player. Instead of long evolving textures, you get <strong>discrete notes</strong> from whatever is in the buffer.</p>
+<p>So the basic melodic patch is:</p>
+<ol>
+<li>Send audio into Clouds.</li>
+<li>Capture or <strong>FREEZE</strong> a useful sound.</li>
+<li>Clock or sequence the <strong>TRIGGER</strong> input.</li>
+<li>Send sequenced pitch CV to <strong>V/OCT</strong>.</li>
+<li>Tune <strong>POSITION</strong> and <strong>SIZE</strong> until the grains speak like notes.</li>
+</ol>
+<p>This is the most direct way to use Clouds for melodies.</p>
+<hr />
+<h2>Best source modules to pair with Clouds for melody</h2>
+<p>Clouds works best with modules that provide one or more of the following:</p>
+<ul>
+<li><strong>Stable pitched audio source</strong><br />
+  Example: VCO, wavetable oscillator, physical modeling voice, filtered saw/sine</li>
+<li><strong>Pitch sequencer / keyboard / MIDI-CV</strong></li>
+<li><strong>Trigger or gate sequencer</strong></li>
+<li><strong>Clock / divider / rhythm source</strong></li>
+<li><strong>Random or sample-and-hold modulation</strong></li>
+<li><strong>Envelope + VCA before Clouds or after Clouds</strong></li>
+<li><strong>Quantizer</strong>, if using random CV melodically</li>
+</ul>
+<h3>Particularly strong pairings</h3>
+<h4>1. Oscillator + sequencer + Clouds</h4>
+<p>Feed a simple oscillator line into Clouds, freeze a moment, then resequence the grains at new pitches.<br />
+This gives you:</p>
+<ul>
+<li>chord-like melodies from single notes</li>
+<li>transposed fragments</li>
+<li>shimmering arpeggios</li>
+<li>“frozen vocal/string/saw” lead sounds</li>
+</ul>
+<p>The manual specifically notes that <strong>raw sawtooth and sine waves sound very good</strong>, especially with random modulation.</p>
+<h4>2. Noise/random + quantizer + Clouds</h4>
+<p>The manual suggests randomizing <strong>grain position or pitch</strong>. If you quantize that randomness, Clouds becomes a <strong>semi-generative melodic voice</strong>.</p>
+<p>Use:
+- random CV → quantizer → V/OCT
+- random or slow CV → POSITION
+- clock → TRIGGER</p>
+<p>Result:
+- shifting melodies built from one captured sound
+- pseudo-arpeggios
+- evolving tonal fragments</p>
+<h4>3. Chord or sequence source into Clouds</h4>
+<p>The manual mentions a great trick:
+- send a <strong>very fast sequence of 3 or 4 notes</strong> to the <strong>V/O input</strong>
+- if grains are sown randomly, each grain can pick one of those notes
+- the result is effectively <strong>a chord</strong></p>
+<p>In practice, this means Clouds can turn rapid pitch motion into harmonic clouds or melodic chord clusters.</p>
+<hr />
+<h2>Melodic patch strategies</h2>
+<h2>1. Frozen lead voice</h2>
+<h3>Patch</h3>
+<ul>
+<li>Audio source (sine, triangle, vocal snippet, pluck, or filtered saw) → <strong>Clouds IN L</strong></li>
+<li>Sequencer pitch CV → source oscillator pitch</li>
+<li>Then when you hear an interesting timbre, hit <strong>FREEZE</strong></li>
+<li>Send a melodic sequence to <strong>Clouds V/OCT</strong></li>
+<li>Send gates or clock to <strong>TRIGGER</strong></li>
+<li>Set <strong>DENSITY at noon</strong></li>
+<li>Adjust <strong>SIZE</strong> short to medium</li>
+<li>Set <strong>BLEND dry/wet</strong> fairly wet</li>
+</ul>
+<h3>What happens</h3>
+<p>You’ve captured a tiny “instrument sample” inside Clouds. Now each trigger plays a grain from that frozen sound at a chosen pitch.</p>
+<h3>Why it works</h3>
+<p>This is the closest Clouds gets to a playable sampler voice. Great for:
+- leads
+- bell-like notes
+- vocal synth melodies
+- glassy plucks</p>
+<hr />
+<h2>2. Granular arpeggiator</h2>
+<h3>Patch</h3>
+<ul>
+<li>Sustained oscillator, drone, or chord source → Clouds</li>
+<li>Freeze a rich harmonic moment</li>
+<li>Clock divider / trigger sequencer → <strong>TRIGGER</strong></li>
+<li>Arpeggiator or step sequencer → <strong>V/OCT</strong></li>
+<li>Slow LFO or random CV → <strong>POSITION</strong></li>
+<li>Moderate <strong>SIZE</strong></li>
+<li><strong>DENSITY at noon</strong></li>
+<li>Slight reverb/spread via BLEND</li>
+</ul>
+<h3>Result</h3>
+<p>Each trigger plays a different sliver of the frozen sound, while pitch CV imposes a melodic pattern. Because POSITION is moving, every note has a different color.</p>
+<p>This gives:
+- shimmering arps
+- pseudo-sampled mallet lines
+- animated digital melodies</p>
+<hr />
+<h2>3. Harmonic chord machine from one voice</h2>
+<p>The manual explicitly hints at this: rapid pitch changes into V/OCT can create a chord effect when random grains pick among those pitches.</p>
+<h3>Patch</h3>
+<ul>
+<li>Freeze a harmonically rich tone</li>
+<li>Set <strong>DENSITY clockwise</strong> for random grain generation</li>
+<li>Send a rapid stepped CV pattern with 3–4 quantized notes to <strong>V/OCT</strong></li>
+<li>Keep <strong>SIZE</strong> short</li>
+<li>Add a little <strong>stereo spread</strong></li>
+<li>Use moderate <strong>reverb</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Clouds smears those notes into a harmonic cluster. It’s not a clean polyphonic chord synth, but it produces:
+- lush pads
+- harmonic swarms
+- chord washes that can still imply melody</p>
+<p>This is especially strong if your source sound is simple, like a saw or sine, because the granular behavior supplies complexity.</p>
+<hr />
+<h2>4. Melodies from rhythmic slices</h2>
+<h3>Patch</h3>
+<ul>
+<li>Drum loop, plucky sequence, or rhythmic patch → Clouds</li>
+<li>Freeze a short segment</li>
+<li>Trigger grains rhythmically</li>
+<li>Send quantized pitch sequence to <strong>V/OCT</strong></li>
+<li>Scan <strong>POSITION</strong> manually or with CV</li>
+</ul>
+<h3>Result</h3>
+<p>You get a hybrid of melody and rhythmic sample slicing:
+- tuned percussive riffs
+- glitch melodies
+- “granular MPC” style phrases</p>
+<p>Short <strong>SIZE</strong> values make this more pointillistic. Longer values make it more legato.</p>
+<hr />
+<h2>5. Expressive touch-played melodic instrument</h2>
+<p>The manual suggests using:
+- contact microphone or touch strip to trigger grains and modify position</p>
+<h3>Patch</h3>
+<ul>
+<li>Capture a sound in Clouds</li>
+<li>Pressure plate / touch controller / manual gate → <strong>TRIGGER</strong></li>
+<li>Touch strip CV → <strong>POSITION</strong></li>
+<li>Keyboard CV → <strong>V/OCT</strong></li>
+</ul>
+<h3>Result</h3>
+<p>This gives a very expressive performance instrument:
+- finger-triggered granular notes
+- scrubbed sample-position melody
+- tactile microsound phrasing</p>
+<p>This is a great live-performance use.</p>
+<hr />
+<h2>Parameter roles in melody building</h2>
+<h2>POSITION</h2>
+<p>This is not only a timbral control; in a melodic patch it acts like <strong>sample selection</strong>.</p>
+<p>Use it to:
+- choose bright vs dark parts of the buffer
+- move through an evolving input recording
+- create note-to-note timbral variation</p>
+<p>With a sequencer or stepped random CV on POSITION, each note can sound like a different instrument articulation.</p>
+<hr />
+<h2>SIZE</h2>
+<p>SIZE strongly changes articulation.</p>
+<ul>
+<li><strong>Short SIZE</strong>: plucks, clicks, mallets, percussive melody</li>
+<li><strong>Medium SIZE</strong>: more intelligible notes, sampled tone feel</li>
+<li><strong>Long SIZE</strong>: smeared, legato, pad-like melodic lines</li>
+</ul>
+<p>If you want recognizably pitched notes, medium settings are often easiest. Too short can become noisy; too long can blur note definition.</p>
+<hr />
+<h2>PITCH / V-OCT</h2>
+<p>This is the core melodic input.</p>
+<p>From the manual:
+- the PITCH CV input has <strong>V/Oct response</strong>
+- center position is original pitch</p>
+<p>So Clouds can track melodic sequencing like an oscillator or sampler transpose input.</p>
+<p>Best uses:
+- sequence pitch from a keyboard/sequencer
+- quantize random voltages for generative melodies
+- transpose frozen textures into scales</p>
+<hr />
+<h2>DENSITY</h2>
+<p>For melody, this knob changes Clouds from “texture generator” to “note instrument.”</p>
+<ul>
+<li><strong>12 o’clock</strong>: no automatic grains; use <strong>TRIGGER</strong></li>
+<li><strong>Clockwise from noon</strong>: random grain sowing, better for swarming melodic clouds</li>
+<li><strong>Counterclockwise from noon</strong>: more regular grain generation</li>
+</ul>
+<p>For clear melodies:
+- keep it near <strong>noon</strong>
+- drive notes from TRIGGER</p>
+<p>For melodic atmospheres:
+- move clockwise and let grains self-generate</p>
+<hr />
+<h2>TEXTURE</h2>
+<p>TEXTURE controls envelope shape and later activates diffusion.</p>
+<p>For melody:
+- <strong>sharper envelope settings</strong> = clearer attacks, more rhythmic definition
+- <strong>smoother Hann-style settings</strong> = more pad-like notes
+- <strong>past 2 o’clock</strong> = diffuser for blurred, ambient melodic lines</p>
+<p>If you want a lead, keep diffusion low.<br />
+If you want a melodic haze or background harmony, push it higher.</p>
+<hr />
+<h2>FREEZE</h2>
+<p>FREEZE is the heart of intentional melodic use.</p>
+<p>Without freeze, Clouds is constantly recording new audio, so the source material keeps changing. That’s great for texture, but less stable for melody.</p>
+<p>With <strong>FREEZE on</strong>:
+- the buffer becomes fixed
+- Clouds behaves more predictably
+- transposition and triggering become more instrument-like</p>
+<p>A very practical approach:
+- perform source sound live
+- listen for a beautiful moment
+- hit <strong>FREEZE</strong>
+- then play that moment melodically from the keyboard/sequencer</p>
+<hr />
+<h2>BLEND parameters in melodic contexts</h2>
+<p>The BLEND knob can control:
+- dry/wet
+- stereo spread
+- feedback
+- reverb</p>
+<p>For melody:</p>
+<h3>Dry/wet</h3>
+<p>Essential. If fully dry, you’ll think nothing is happening.<br />
+For melodic use, set it mostly wet or fully wet.</p>
+<h3>Stereo spread</h3>
+<p>Excellent for widening arps and chord-like textures.</p>
+<h3>Feedback</h3>
+<p>Can create repeating harmonic tails or resonant buildup. In moderation, useful for melodic sustain.</p>
+<h3>Reverb</h3>
+<p>Helps frozen grains feel like a playable ambient instrument.</p>
+<p>The manual also notes that with FREEZE active, feedback behavior changes and becomes more reverb-like due to internal routing. That can make frozen melodic patches feel especially spacious.</p>
+<hr />
+<h2>Best source material for melodic results</h2>
+<p>According to the manual and in practice, these inputs work very well:</p>
+<ul>
+<li><strong>Sine waves</strong>: pure, bell-like, clean transposition</li>
+<li><strong>Saw waves</strong>: rich harmonics, strong granular color</li>
+<li><strong>Simple filtered tones</strong>: stable, musical, easy to tune</li>
+<li><strong>Short plucks</strong>: excellent for percussive melody</li>
+<li><strong>Voice or field recordings</strong>: expressive but less stable</li>
+<li><strong>Chords</strong>: good for harmonic pad and cluster melody</li>
+</ul>
+<p>If you want pitch clarity, use harmonically simple and stable sources.<br />
+If you want character, feed in complex timbres and modulate POSITION.</p>
+<hr />
+<h2>Concrete “used together” workflows with common eurorack companions</h2>
+<h2>Clouds + sequencer + oscillator</h2>
+<p>Use the oscillator as source material and the sequencer twice:
+- once to create the recorded phrase
+- then again to transpose Clouds via V/OCT</p>
+<p>This lets Clouds derive a second melodic line from the first.</p>
+<h3>Example</h3>
+<ul>
+<li>Oscillator sequence into Clouds</li>
+<li>Freeze on a note or phrase</li>
+<li>Different sequencer row into Clouds V/OCT</li>
+<li>Clocked triggers into TRIGGER</li>
+</ul>
+<p>Now the frozen phrase becomes a new melodic instrument.</p>
+<hr />
+<h2>Clouds + random source + quantizer</h2>
+<p>A classic generative setup.</p>
+<h3>Example</h3>
+<ul>
+<li>Random stepped CV → quantizer → V/OCT</li>
+<li>Another random or smooth CV → POSITION</li>
+<li>Clock → TRIGGER</li>
+<li>Frozen oscillator waveform in buffer</li>
+</ul>
+<p>Result:
+- scale-locked melodic fragments
+- non-repeating but coherent lines
+- ideal for ambient, IDM, soundtrack work</p>
+<hr />
+<h2>Clouds + keyboard + envelope/VCA</h2>
+<p>Use Clouds as a playable voice under the keyboard.</p>
+<h3>Example</h3>
+<ul>
+<li>Hold or freeze a source sound</li>
+<li>Keyboard CV → V/OCT</li>
+<li>Gate → TRIGGER</li>
+<li>Clouds output → VCA</li>
+<li>Keyboard gate also → envelope → VCA CV</li>
+</ul>
+<p>This gives note articulation after Clouds, making it behave more like a standard synth voice.</p>
+<hr />
+<h2>Clouds + logic/clock modules</h2>
+<p>Because TRIGGER explicitly starts grains, rhythmic modules are very useful.</p>
+<p>Use:
+- trigger sequencers
+- Euclidean rhythms
+- clock multipliers/dividers
+- burst generators</p>
+<p>This turns Clouds into a rhythmic melodic generator, especially when paired with pitch sequencing.</p>
+<hr />
+<h2>Clouds + sampler/looper/voice module</h2>
+<p>If another module gives stable audio phrases, Clouds can transform them into melodic matter:
+- capture a loop
+- freeze a small region
+- replay it at different pitches</p>
+<p>This is very effective for:
+- vocal chop melody
+- tuned texture riffs
+- re-harmonizing loops</p>
+<hr />
+<h2>Practical patch recipes</h2>
+<h2>Recipe 1: Glass bell melody</h2>
+<ul>
+<li>Sine wave oscillator into Clouds</li>
+<li>Freeze a stable sine or FM tone</li>
+<li>DENSITY at noon</li>
+<li>Trigger from 16th-note clock</li>
+<li>Quantized sequence into V/OCT</li>
+<li>SIZE short-medium</li>
+<li>TEXTURE smooth but not diffused</li>
+<li>Wet signal only</li>
+</ul>
+<p>Produces clean bell/pluck melodies.</p>
+<hr />
+<h2>Recipe 2: Vocal ghost lead</h2>
+<ul>
+<li>Spoken/sung phrase into Clouds</li>
+<li>Freeze on a vowel-rich moment</li>
+<li>Manual or sequenced triggers</li>
+<li>Keyboard/sequencer into V/OCT</li>
+<li>Moderate POSITION modulation</li>
+<li>Light reverb</li>
+</ul>
+<p>Produces haunting melodic leads from voice.</p>
+<hr />
+<h2>Recipe 3: Chord shimmer pad</h2>
+<ul>
+<li>Rich saw wave or chord source into Clouds</li>
+<li>Freeze</li>
+<li>DENSITY random and fairly high</li>
+<li>Fast 3–4 note sequence into V/OCT</li>
+<li>Large stereo spread</li>
+<li>Reverb up</li>
+<li>Slow POSITION modulation</li>
+</ul>
+<p>Produces floating harmonic/melodic pad structures.</p>
+<hr />
+<h2>Recipe 4: Granular pluck sequencer</h2>
+<ul>
+<li>Short pluck or filtered noise burst into Clouds</li>
+<li>Freeze</li>
+<li>Trigger from sequencer</li>
+<li>Quantized melody into V/OCT</li>
+<li>Small SIZE</li>
+<li>Sharp TEXTURE envelope</li>
+<li>Minimal diffusion</li>
+</ul>
+<p>Produces pointillistic tuned percussion lines.</p>
+<hr />
+<h2>Important limitation to understand</h2>
+<p>Clouds does <strong>not</strong> generate melody on its own in the same way a dedicated oscillator plus envelope would. It needs:
+- meaningful input audio
+- pitch CV or trigger structure
+- careful dry/wet setup</p>
+<p>Also, very dense settings can blur pitch. The manual notes that dense clouds often sound best with random position or pitch modulation; otherwise they can resemble a resonant comb filter.</p>
+<p>So for <strong>clear melody</strong>, think:
+- frozen source
+- triggered grains
+- sequenced V/OCT
+- moderate size
+- controlled density</p>
+<p>For <strong>melodic atmosphere</strong>, think:
+- random grain generation
+- moving position
+- more spread/reverb/diffusion</p>
+<hr />
+<h2>Best overall use cases for melody</h2>
+<p>Clouds is especially good for:</p>
+<ul>
+<li><strong>sampled/frozen leads</strong></li>
+<li><strong>granular arpeggios</strong></li>
+<li><strong>generative quantized melodies</strong></li>
+<li><strong>harmonic swarms and chord clouds</strong></li>
+<li><strong>pitched glitch/percussive riffs</strong></li>
+<li><strong>expressive transformed vocal/instrument phrases</strong></li>
+</ul>
+<p>It is less ideal if you want:
+- very precise transient reproduction
+- clean polyphony
+- straightforward subtractive synth melodies</p>
+<p>But if you want melody with motion, memory, and texture, it excels.</p>
+<hr />
+<h2>Bottom line</h2>
+<p>To use Clouds for melodic components, the strongest approach is:</p>
+<ol>
+<li>Feed it a musically rich source.</li>
+<li>Freeze a compelling moment.</li>
+<li>Set <strong>DENSITY to noon</strong>.</li>
+<li>Trigger grains externally.</li>
+<li>Sequence the <strong>V/OCT</strong> input.</li>
+<li>Shape articulation with <strong>SIZE</strong>, <strong>TEXTURE</strong>, and post-VCA/envelopes.</li>
+<li>Add controlled movement with <strong>POSITION</strong> modulation.</li>
+</ol>
+<p>That turns Clouds from a texture processor into a playable melodic granular voice.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

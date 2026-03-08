@@ -1,0 +1,422 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ADDAC_Systems_ADDAC-402_Heuristic_Rhythm_Generator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ADDAC Systems — ADDAC-402 Heuristic Rhythm Generator</h1>
+<ul>
+<li><a href="../../manuals/ADDAC402_UsersGuide_A_0_web_6500.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://addacsystem.com/uploads/files/ADDAC402_manual.pdf">ADDAC402 User Manual (PDF)</a></p>
+<h1>ADDAC402: using it for melodic components</h1>
+<p>The ADDAC402 is <strong>not a pitch sequencer</strong>. It is a <strong>4-channel trigger/gate rhythm generator</strong> with multiple algorithmic modes. So its role in melody-making is indirect but very powerful: it can become the <strong>timing brain</strong> that drives pitch events, phrase resets, transpositions, note length changes, and probabilistic articulation.</p>
+<p>If you pair it with quantizers, sample &amp; holds, sequential switches, precision adders, envelope generators, oscillators, or other melodic sequencers, it can generate surprisingly rich melodic structures.</p>
+<h2>What the module actually gives you</h2>
+<p>From the manual, the ADDAC402 provides:</p>
+<ul>
+<li>4 independent gate/trigger outputs</li>
+<li>4 inverted outputs</li>
+<li>multiple rhythm modes:</li>
+<li>Euclidean</li>
+<li>Gate Sequencer</li>
+<li>Game of Life</li>
+<li>Golomb Rulers</li>
+<li>Probabilistic</li>
+<li>Footwork</li>
+<li>Pong</li>
+<li>per-channel resets and skips</li>
+<li>global swing / assign CV</li>
+<li>trigger/gate selection per channel</li>
+<li>clocked operation</li>
+</ul>
+<p>That means it’s ideal for controlling <strong>when notes happen</strong>, <strong>which melodic lane is active</strong>, and <strong>how phrases evolve over time</strong>.</p>
+<hr />
+<h1>Best ways to use the ADDAC402 for melody</h1>
+<h2>1. Trigger a quantized random melody</h2>
+<p>A classic patch.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send one ADDAC402 gate output to a <strong>sample &amp; hold trigger</strong> or <strong>quantizer trigger</strong>.</li>
+<li>Feed random CV, noise, or a slow modulation source into the sample &amp; hold.</li>
+<li>Send the resulting CV into a <strong>quantizer</strong> and then to an oscillator’s 1V/oct.</li>
+</ul>
+<h3>Result</h3>
+<p>The 402 determines the rhythm of the melody; the random source determines pitch.</p>
+<h3>Why it works well</h3>
+<p>Different 402 modes create very different melodic feels:
+- <strong>Euclidean</strong> = balanced, musical ostinatos
+- <strong>Probabilistic</strong> = semi-random note entrances
+- <strong>Game of Life</strong> = evolving phrase structures
+- <strong>Pong</strong> = playful cyclic accents</p>
+<hr />
+<h2>2. Use the 4 channels as four melodic voices</h2>
+<p>Since the ADDAC402 has 4 outputs, it can drive:</p>
+<ul>
+<li>4 separate oscillators</li>
+<li>4 separate envelopes/VCA chains</li>
+<li>4 voices of a polyphonic patch</li>
+<li>4 different pitch sources into one mixer</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Gate 1 triggers bass notes</li>
+<li>Gate 2 triggers mid melody</li>
+<li>Gate 3 triggers high counterline</li>
+<li>Gate 4 triggers accent or ornament voice</li>
+</ul>
+<p>If each voice has its own pitch source or quantized CV stream, the 402 becomes a <strong>polyrhythmic melodic ensemble conductor</strong>.</p>
+<hr />
+<h2>3. Use outputs to clock multiple pitch sequencers at different rates</h2>
+<p>Instead of using the 402 only as note gates, use its outputs to <strong>advance pitch sequencers</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Gate 1 clocks Sequencer A</li>
+<li>Gate 2 clocks Sequencer B</li>
+<li>Gate 3 resets a sequencer every so often</li>
+<li>Gate 4 triggers an envelope for accents</li>
+</ul>
+<h3>Result</h3>
+<p>Pitch motion becomes rhythmically non-uniform. Notes do not advance every master beat; they advance only when the 402 says so.</p>
+<p>This is excellent for:
+- generative melodies
+- asymmetrical phrase lengths
+- shifting motifs</p>
+<hr />
+<h2>4. Use resets to create melodic phrasing</h2>
+<p>The manual makes clear that individual and master reset functions are central in many modes.</p>
+<p>If one 402 output is used as a <strong>reset signal</strong> for:
+- a pitch sequencer
+- a quantizer with internal pattern memory
+- a shift register melody source
+- a sequential switch</p>
+<p>then you can create repeating melodic phrases with controlled interruptions.</p>
+<h3>Example</h3>
+<ul>
+<li>Gate 1 = note trigger</li>
+<li>Gate 2 = sequencer advance</li>
+<li>Gate 3 = sequencer reset every 5 or 7 beats</li>
+<li>Gate 4 = transpose envelope or accent trigger</li>
+</ul>
+<p>This creates a melody that feels composed rather than merely random.</p>
+<hr />
+<h2>5. Use the inverted outputs for off-beat melodic echoes</h2>
+<p>The manual notes the inverted outputs are literal inversions of the normal gate outputs, effectively creating complementary timing relationships.</p>
+<h3>Melodic use</h3>
+<p>Take:
+- main gate output -&gt; primary melody voice
+- inverted output -&gt; second voice, pluck, echo, harmonizer, or transposed clone</p>
+<h3>Result</h3>
+<p>You get:
+- call-and-response phrasing
+- off-beat harmonies
+- interlocking melodic lines</p>
+<p>This is one of the most musically useful features on the module.</p>
+<hr />
+<h1>Mode-by-mode melodic applications</h1>
+<h2>1. Euclidean mode</h2>
+<p>This is the most immediately useful for melody.</p>
+<h3>Controls</h3>
+<ul>
+<li>Steps = pattern length</li>
+<li>Fills = number of active events</li>
+<li>Skip = rotates pattern</li>
+<li>CV on fills available</li>
+</ul>
+<h3>Melodic uses</h3>
+<ul>
+<li>Trigger a quantized voice with mathematically even note placement</li>
+<li>Use different step/fill settings per channel for interlocking arpeggios</li>
+<li>Rotate channels with skip to create phase-shifted melodic clones</li>
+</ul>
+<h3>Good patch</h3>
+<ul>
+<li>Channel 1: low voice, 8 steps / 3 fills</li>
+<li>Channel 2: mid voice, 11 steps / 4 fills</li>
+<li>Channel 3: high voice, 13 steps / 5 fills</li>
+<li>Channel 4: accent trigger to transpose a precision adder</li>
+</ul>
+<p>This produces evolving melodic counterpoint from simple materials.</p>
+<hr />
+<h2>2. Gate Sequencer mode</h2>
+<p>This turns the 402 into a direct step gate sequencer.</p>
+<h3>Controls</h3>
+<ul>
+<li>Steps = number of bars</li>
+<li>Fills = move edit cursor</li>
+<li>Skips = activate/clear step</li>
+</ul>
+<h3>Melodic uses</h3>
+<p>This mode is best if you want to <strong>compose note rhythms manually</strong> while leaving pitch generation elsewhere.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>Program note on/off patterns for 4 melodic lines</li>
+<li>Use one channel to trigger pitch changes, another to trigger envelopes</li>
+<li>Use one channel only for ornament notes or ratchet-like accents</li>
+</ul>
+<p>Because presets are available in this mode, it’s useful for structured live melodic sets.</p>
+<hr />
+<h2>3. Game of Life mode</h2>
+<p>This produces cellular automata patterns.</p>
+<h3>Controls</h3>
+<ul>
+<li>Fills = number of bars</li>
+<li>Skip = move pattern forward</li>
+<li>Individual reset = new initial pattern</li>
+<li>Master reset = calculate next pattern</li>
+</ul>
+<h3>Melodic uses</h3>
+<p>Excellent for:
+- generative ambient melodies
+- evolving canons
+- long-form algorithmic composition</p>
+<h3>Patch idea</h3>
+<ul>
+<li>4 outputs trigger 4 separate quantized pitch paths</li>
+<li>Hit master reset occasionally to evolve to a related phrase</li>
+<li>Use one channel’s output to transpose another voice</li>
+</ul>
+<p>This creates melody that feels organic and self-transforming.</p>
+<hr />
+<h2>4. Golomb Rulers mode</h2>
+<p>These patterns are based on unique interval spacing.</p>
+<h3>Melodic uses</h3>
+<p>This is ideal when you want:
+- sparse melodic events
+- non-repeating accents
+- unusual phrase spacing</p>
+<h3>Patch idea</h3>
+<p>Use Golomb outputs to trigger:
+- a plucked voice
+- a shift register advance
+- a sample &amp; hold refresh
+- a second oscillator for occasional harmony notes</p>
+<p>This can generate pointillistic melodic textures.</p>
+<hr />
+<h2>5. Probabilistic mode</h2>
+<p>Each channel outputs events based on probability.</p>
+<h3>Melodic uses</h3>
+<p>Perfect for:
+- varied note density
+- humanized phrasing
+- uncertain ornamentation</p>
+<h3>Patch idea</h3>
+<ul>
+<li>One voice gets low probability for occasional melodic punctuation</li>
+<li>One voice gets medium probability for main line</li>
+<li>One voice gets high probability for trills or repeated notes</li>
+</ul>
+<p>The manual notes that higher settings on earlier channels may “eat up” probability for later ones, so treat the channels as somewhat interdependent. That can actually be musically useful for melody: denser lead lines naturally suppress decorations.</p>
+<hr />
+<h2>6. Footwork mode</h2>
+<p>This mode is based on a bug, but intentionally musical.</p>
+<h3>Controls</h3>
+<ul>
+<li>Steps = trigger length</li>
+<li>other fill functions shown on main screen</li>
+<li>skip/reset/gate-trigger switches inactive</li>
+</ul>
+<h3>Melodic uses</h3>
+<p>This is best for <strong>hyperactive rhythmic articulation</strong> of melody:
+- stuttering leads
+- fast repeated note bursts
+- glitch arpeggios
+- rapid gate patterns into LPGs or envelopes</p>
+<h3>Important note from manual</h3>
+<p>If Steps is too high, you may get no output; start low.</p>
+<h3>Patch idea</h3>
+<p>Use Footwork to trigger:
+- a fixed pitch voice for rhythmic riffs
+- a quantizer receiving slow-changing CV
+- a sequential switch cycling through pitch rows</p>
+<p>This produces complex rhythmic melody from a simple pitch structure.</p>
+<hr />
+<h2>7. Pong mode</h2>
+<p>Ball collisions with the 4 walls generate the 4 outputs.</p>
+<h3>Melodic uses</h3>
+<p>Very playable for melodic interaction.</p>
+<h3>Mapping from manual</h3>
+<ul>
+<li>Left wall = Gate 1</li>
+<li>Top wall = Gate 2</li>
+<li>Right wall = Gate 3</li>
+<li>Bottom wall = Gate 4</li>
+</ul>
+<h3>Patch idea</h3>
+<p>Assign each wall to:
+- a note in a chord
+- a different transposition lane
+- a different voice register</p>
+<p>Because collisions depend on simulated motion, this mode gives semi-predictable melodic phrasing that feels animated.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Euclidean arpeggiator network</h2>
+<h3>Modules needed</h3>
+<ul>
+<li>ADDAC402</li>
+<li>quantizer</li>
+<li>random CV or sequencer</li>
+<li>1–2 oscillators</li>
+<li>envelopes + VCAs</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Clock into ADDAC402</li>
+<li>Ch1 gate -&gt; S&amp;H trigger -&gt; quantizer -&gt; oscillator 1 pitch</li>
+<li>Ch2 gate -&gt; envelope for oscillator 1</li>
+<li>Ch3 gate -&gt; transpose input via precision adder</li>
+<li>Ch4 gate -&gt; reset random source or sequencer</li>
+</ul>
+<h3>Result</h3>
+<p>A melody with independent note timing, articulation, and phrase transposition.</p>
+<hr />
+<h2>Patch 2: Four-lane melodic canon</h2>
+<h3>Patch</h3>
+<ul>
+<li>Each ADDAC402 channel triggers a separate envelope/VCA voice</li>
+<li>Feed all voices related pitch CVs:</li>
+<li>same sequence, different octave offsets</li>
+<li>same random source, separately sampled</li>
+<li>same quantizer scale</li>
+</ul>
+<h3>Result</h3>
+<p>The 402 creates a canon-like polyphonic texture. Euclidean or Game of Life work especially well here.</p>
+<hr />
+<h2>Patch 3: Triggered sequential switch melody</h2>
+<h3>Modules needed</h3>
+<ul>
+<li>sequential switch</li>
+<li>4 stored voltages or 4 sequencer rows</li>
+<li>quantizer</li>
+<li>oscillator</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Use ADDAC402 outputs to:</li>
+<li>advance switch</li>
+<li>reset switch</li>
+<li>trigger envelope</li>
+<li>trigger sample &amp; hold</li>
+</ul>
+<h3>Result</h3>
+<p>The melody moves through different pitch sources according to 402 rhythm logic.</p>
+<hr />
+<h2>Patch 4: Complementary melody using inverted outs</h2>
+<h3>Patch</h3>
+<ul>
+<li>Main output 1 -&gt; lead voice trigger</li>
+<li>Inverted output 1 -&gt; second oscillator trigger</li>
+<li>Send second oscillator through a different octave or interval</li>
+</ul>
+<h3>Result</h3>
+<p>Every gap in the lead becomes an answering note. Great for contrapuntal melodic lines.</p>
+<hr />
+<h2>Patch 5: Probabilistic ornament generator</h2>
+<h3>Patch</h3>
+<ul>
+<li>Ch1 = steady main melody trigger source</li>
+<li>Ch2 = low-probability grace notes</li>
+<li>Ch3 = medium-probability transposition trigger</li>
+<li>Ch4 = rare reset of melody sequencer</li>
+</ul>
+<h3>Result</h3>
+<p>A stable melodic line with occasional embellishments and phrase variation.</p>
+<hr />
+<h1>How swing/assign helps melodic patches</h1>
+<p>The manual makes clear that the <strong>Swing/Assign</strong> control can be assigned to several functions, and multiple assigns can be active.</p>
+<p>Possible melodic uses:</p>
+<ul>
+<li><strong>Swing</strong>: add lilt to note timing</li>
+<li><strong>Assign to steps</strong>: dynamically alter rhythmic cycle length, affecting phrase length</li>
+<li><strong>Assign to skip</strong>: rotate patterns for melodic displacement</li>
+<li><strong>Assign to reset</strong>: externally force phrase restarts</li>
+<li><strong>Assign via CV</strong>: automate these changes with LFOs, envelopes, gates, or another sequencer</li>
+</ul>
+<p>This is especially valuable for melodies because it lets you animate structure without repatching.</p>
+<h3>Good trick</h3>
+<p>Feed gates into the Swing/Assign CV input after assigning <strong>SKIP</strong> or <strong>RESET</strong> to selected channels. Then another rhythmic source can periodically rotate or restart melodic timing patterns.</p>
+<hr />
+<h1>Best companion modules for melody</h1>
+<p>The ADDAC402 works especially well with:</p>
+<h2>Quantizers</h2>
+<p>To convert random or stepped CV into scale-locked melody.</p>
+<h2>Sample &amp; hold / track &amp; hold</h2>
+<p>To capture new notes only when the 402 triggers them.</p>
+<h2>Sequencers</h2>
+<p>Use the 402 to advance or reset them irregularly.</p>
+<h2>Precision adders</h2>
+<p>For transposition controlled by one of the rhythm channels.</p>
+<h2>Sequential switches</h2>
+<p>For selecting among pitch rows or melodic sources.</p>
+<h2>Envelope generators and VCAs</h2>
+<p>To shape note articulation from gate patterns.</p>
+<h2>Logic modules</h2>
+<p>Combine 402 outputs for more complex melodic triggers.</p>
+<h2>Clock dividers/multipliers</h2>
+<p>To produce layered phrase structures around the 402 clock.</p>
+<hr />
+<h1>Strongest musical roles for the ADDAC402 in a melodic system</h1>
+<h2>1. Phrase rhythm designer</h2>
+<p>It decides when notes occur.</p>
+<h2>2. Melody structure modulator</h2>
+<p>It resets, rotates, and spaces melodic events.</p>
+<h2>3. Polyphonic trigger source</h2>
+<p>It runs multiple melodic voices at once.</p>
+<h2>4. Articulation engine</h2>
+<p>Gate/trigger mode changes note length behavior.</p>
+<h2>5. Generative composition core</h2>
+<p>In Game of Life, Pong, Probabilistic, and Euclidean modes, it can generate evolving musical timing that keeps melodies alive.</p>
+<hr />
+<h1>Limitations to understand</h1>
+<p>To use it melodically, remember:</p>
+<ul>
+<li>It does <strong>not directly output pitch CV</strong></li>
+<li>You will usually need:</li>
+<li>a pitch source</li>
+<li>a quantizer</li>
+<li>or another sequencer</li>
+<li>Some modes are more useful for melody than others</li>
+<li>Footwork and Pong are more characterful than precise</li>
+<li>Gate Sequencer mode handles rhythm, not note values</li>
+</ul>
+<p>So think of the 402 as the <strong>rhythmic intelligence layer</strong> of a melodic patch, not the complete melody module.</p>
+<hr />
+<h1>Recommended melodic use ranking by mode</h1>
+<p>For most melodic applications, I’d rank the modes like this:</p>
+<ol>
+<li><strong>Euclidean</strong> — best all-around melodic rhythm source  </li>
+<li><strong>Gate Sequencer</strong> — best for manually composed melodic rhythms  </li>
+<li><strong>Game of Life</strong> — best for evolving generative melodies  </li>
+<li><strong>Probabilistic</strong> — best for variable melodic density  </li>
+<li><strong>Pong</strong> — best for playful semi-deterministic melodic motion  </li>
+<li><strong>Golomb Rulers</strong> — best for sparse abstract melodic accents  </li>
+<li><strong>Footwork</strong> — best for glitch/stutter melodic articulation  </li>
+</ol>
+<hr />
+<h1>Bottom line</h1>
+<p>The ADDAC402 becomes a strong melodic module when you stop thinking of melody as just pitch and start thinking of it as:</p>
+<ul>
+<li><strong>event timing</strong></li>
+<li><strong>phrase length</strong></li>
+<li><strong>repetition vs variation</strong></li>
+<li><strong>density</strong></li>
+<li><strong>articulation</strong></li>
+<li><strong>reset behavior</strong></li>
+<li><strong>counterpoint between voices</strong></li>
+</ul>
+<p>Used with quantizers, sample &amp; holds, switches, and pitch sequencers, it can drive:</p>
+<ul>
+<li>arpeggios</li>
+<li>melodic canons</li>
+<li>generative lead lines</li>
+<li>probabilistic ornamentation</li>
+<li>contrapuntal voices</li>
+<li>evolving phrase structures</li>
+</ul>
+<p>In a Eurorack system, this module is best seen as an <strong>algorithmic rhythmic composer for melody</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

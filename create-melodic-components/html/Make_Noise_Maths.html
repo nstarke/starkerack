@@ -1,0 +1,464 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Make_Noise_Maths</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Make Noise — Maths</h1>
+<ul>
+<li><a href="../../manuals/MATHSmanual2013.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://www.makenoisemusic.com/content/manuals/MATHSmanual2013.pdf">Manual PDF</a></p>
+<h1>Make Noise MATHS: using it to create melodic components</h1>
+<p>MATHS is not an oscillator or sequencer in the traditional sense, but it is extremely useful for building <strong>melodic structure</strong> in a Eurorack patch. From the manual, its main strengths are:</p>
+<ul>
+<li>function generation: envelopes, LFOs, cycling slopes</li>
+<li>slew / portamento</li>
+<li>CV mixing, inversion, offset generation</li>
+<li>analog OR / max selection</li>
+<li>gate extraction, pulse delay, clock division</li>
+<li>comparator-like and logic-like patch behavior</li>
+</ul>
+<p>That means MATHS is best understood as a <strong>melody shaper, melody animator, and melody utility brain</strong>. It can help generate, process, quantize-friendly, rhythmically reshape, and articulate pitch CV.</p>
+<h2>What MATHS contributes to melody</h2>
+<p>To make melody in modular, you usually need some combination of:</p>
+<ul>
+<li><strong>pitch CV source</strong></li>
+<li><strong>timing / trigger source</strong></li>
+<li><strong>articulation / envelopes</strong></li>
+<li><strong>variation / modulation</strong></li>
+<li><strong>mixing / offsets / inversion</strong></li>
+<li>sometimes <strong>portamento / slew</strong></li>
+<li>sometimes <strong>clock division / rhythmic derivation</strong></li>
+</ul>
+<p>MATHS covers most of the support roles.</p>
+<h2>Core melodic uses</h2>
+<h2>1. Portamento and glide for pitch lines</h2>
+<p>One of the most direct melodic uses:</p>
+<ul>
+<li>patch a sequencer or keyboard CV into <strong>CH 1 or CH 4 Signal Input</strong></li>
+<li>take <strong>Unity Output</strong> or <strong>Variable Output</strong></li>
+<li>send that to your oscillator’s 1V/oct input</li>
+</ul>
+<p>Then use:</p>
+<ul>
+<li><strong>Rise</strong> to control upward glide time</li>
+<li><strong>Fall</strong> to control downward glide time</li>
+<li><strong>Vari-Response</strong> to shape the glide curve</li>
+</ul>
+<p>This is especially powerful because MATHS gives you <strong>independent up/down slew</strong>. That means:</p>
+<ul>
+<li>rising notes can glide slowly</li>
+<li>falling notes can snap quickly</li>
+<li>or the reverse</li>
+</ul>
+<p>That produces melodic phrasing impossible with a simple one-knob slew limiter.</p>
+<h3>Musical results</h3>
+<ul>
+<li>acid-style slides</li>
+<li>“lazy” upward inflection on arpeggios</li>
+<li>asymmetrical lead phrasing</li>
+<li>humanized pitch movement</li>
+</ul>
+<h2>2. Mixing and offsetting pitch CV</h2>
+<p>Channels 2 and 3 can act as:</p>
+<ul>
+<li>attenuverters for incoming CV</li>
+<li>DC offsets when nothing is patched</li>
+</ul>
+<p>This is very useful for melody because you can:</p>
+<ul>
+<li>transpose a melodic sequence</li>
+<li>add vibrato depth</li>
+<li>combine multiple pitch influences before they hit a quantizer or oscillator</li>
+<li>invert a melodic contour</li>
+</ul>
+<p>For example:</p>
+<ul>
+<li>sequence into <strong>CH 2</strong></li>
+<li>slow LFO into <strong>CH 3</strong></li>
+<li>CH 2 and CH 3 mixed at <strong>SUM OUT</strong></li>
+<li>send SUM to a quantizer or oscillator pitch input</li>
+</ul>
+<p>This creates:
+- transposed melody
+- drifting melodic variation
+- interval modulation</p>
+<p>Because CH 2 can generate up to about <strong>±10V offset</strong> and CH 3 about <strong>±5V</strong>, they are also useful for manual transposition.</p>
+<h2>3. Creating stepped melodic variation via gate-derived timing</h2>
+<p>MATHS itself is not a pitch quantizer, but it can create <strong>timing structures</strong> that drive melodic events.</p>
+<p>Using:</p>
+<ul>
+<li><strong>EOR</strong> from CH 1</li>
+<li><strong>EOC</strong> from CH 4</li>
+<li>cycling channels</li>
+<li>trigger inputs</li>
+<li>pulse delay / clock division patches</li>
+</ul>
+<p>you can derive alternate clocks for:</p>
+<ul>
+<li>sequencer advance</li>
+<li>sample-and-hold triggering</li>
+<li>quantizer triggering</li>
+<li>envelope triggering for notes</li>
+</ul>
+<h3>Why this matters melodically</h3>
+<p>A lot of melody comes from <strong>when</strong> notes happen, not just which pitches occur. MATHS can generate:
+- delayed note entries
+- divided trigger streams
+- flams
+- syncopated derived clocks
+- self-modulated pulse trains</p>
+<p>So even if another module produces pitch, MATHS can make it melodically expressive.</p>
+<h2>4. Envelope generation for melodic articulation</h2>
+<p>CH 1 and CH 4 can each be used as:
+- AD envelopes via <strong>Trigger Input</strong>
+- ASR-style envelopes via <strong>Signal Input</strong>
+- cycling modulation sources</p>
+<p>This helps with melody in several ways:</p>
+<ul>
+<li>shape amplitude per note</li>
+<li>shape filter per note</li>
+<li>shape FM amount per note</li>
+<li>shape wavefolder depth per note</li>
+</ul>
+<p>That turns a static pitch sequence into an actual melodic line.</p>
+<h3>Example</h3>
+<ul>
+<li>sequencer pitch -&gt; oscillator 1V/oct</li>
+<li>gate -&gt; MATHS CH 1 Trigger</li>
+<li>CH 1 output -&gt; VCA CV</li>
+<li>CH 4 cycling slowly -&gt; filter cutoff or FM depth</li>
+</ul>
+<p>Now melody has:
+- note contour
+- dynamic phrasing
+- timbral movement</p>
+<h2>5. Vibrato and expressive pitch modulation</h2>
+<p>Set CH 1 or CH 4 to cycle as an LFO:</p>
+<ul>
+<li>linear response for triangle-like vibrato</li>
+<li>ramp or skewed shape for more character</li>
+<li>audio-rate if you want aggressive FM-like sidebands</li>
+</ul>
+<p>Patch:
+- Unity or Variable Output -&gt; oscillator pitch input, ideally through attenuation</p>
+<p>Or better:
+- use CH 2 / CH 3 to scale the vibrato depth first</p>
+<h3>Musical uses</h3>
+<ul>
+<li>subtle lead vibrato</li>
+<li>delayed vibrato if triggered from a gate structure</li>
+<li>asymmetrical or vocal-style pitch wobble</li>
+<li>animated bassline tuning movement</li>
+</ul>
+<h2>6. Building more complex melodic modulation with SUM / INV / OR</h2>
+<p>The <strong>SUM</strong>, <strong>INV</strong>, and <strong>OR</strong> outputs are especially good for melody support.</p>
+<h3>SUM OUT</h3>
+<p>Use it to combine:
+- pitch sequence
+- transposition offset
+- vibrato
+- envelope amount
+- random drift</p>
+<p>Then send to:
+- quantizer
+- oscillator pitch
+- filter tracking destination</p>
+<h3>INV OUT</h3>
+<p>Use it to create mirrored contour:
+- melody rises while another parameter falls
+- or invert a pitch modulation before mixing</p>
+<h3>OR OUT</h3>
+<p>This outputs the maximum positive voltage among inputs. For melody, that can be used as:
+- a “highest wins” contour selector
+- a way to combine envelopes into one accent stream
+- half-wave rectification of modulation before it affects pitch</p>
+<p>This is less traditional for pitch itself, but very useful for <strong>accent and phrasing logic</strong> around melody.</p>
+<hr />
+<h1>Practical melodic patch ideas from the manual</h1>
+<h2>1. Glide sequencer patch</h2>
+<p>Use MATHS as an asymmetrical slew on pitch CV.</p>
+<h3>Patch</h3>
+<ul>
+<li>sequencer pitch CV -&gt; <strong>CH 1 Signal Input</strong></li>
+<li><strong>CH 1 Unity Output</strong> -&gt; oscillator 1V/oct</li>
+<li>tune Rise and Fall to taste</li>
+<li>Vari-Response near log or linear</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>controlled glide between notes</li>
+<li>different feel going up vs down</li>
+</ul>
+<h3>Nice additions</h3>
+<ul>
+<li>send gate accent to <strong>Rise CV</strong> or <strong>Fall CV</strong></li>
+<li>use CH 2 or CH 3 to attenuate that modulation</li>
+</ul>
+<p>This can make only accented notes glide.</p>
+<h2>2. Manual transposition bus</h2>
+<h3>Patch</h3>
+<ul>
+<li>sequencer pitch -&gt; <strong>CH 2 Signal Input</strong></li>
+<li>leave <strong>CH 3 input unpatched</strong> to use its offset</li>
+<li>mix with <strong>SUM OUT</strong></li>
+<li>send SUM -&gt; quantizer or oscillator</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>CH 3 becomes a transpose knob</li>
+<li>CH 2 sets pitch scaling/polarity</li>
+</ul>
+<p>Good for:
+- key changes
+- chorus lift
+- bass transposition</p>
+<h2>3. Envelope-shaped pitch bend</h2>
+<h3>Patch</h3>
+<ul>
+<li>trigger stream -&gt; <strong>CH 1 Trigger Input</strong></li>
+<li><strong>CH 1 Unity or Variable Out</strong> -&gt; oscillator pitch FM input or mixed into pitch CV path</li>
+<li>attenuate carefully</li>
+<li>short Rise, medium Fall</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>each note gets a pitch sweep</li>
+<li>classic synth “pluck” or tom-like attack bend</li>
+<li>expressive lead attack inflection</li>
+</ul>
+<p>If you run this into a quantizer after mixing, it creates stepped ornament behavior; if directly to pitch, it makes continuous bends.</p>
+<h2>4. Vibrato under performance control</h2>
+<h3>Patch</h3>
+<ul>
+<li>CH 4 in cycle mode</li>
+<li>CH 4 output -&gt; <strong>CH 2 Signal Input</strong></li>
+<li>CH 2 output or SUM output -&gt; oscillator pitch modulation input</li>
+<li>use CH 2 attenuverter as vibrato depth control</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>manual vibrato amount</li>
+<li>can be faded in live</li>
+</ul>
+<p>Further:
+- patch gate or pressure CV to <strong>CH 4 Cycle Input</strong> for run/stop vibrato
+- or to <strong>Both CV</strong> for vibrato speed changes</p>
+<h2>5. Delayed note trigger for melodic swing</h2>
+<p>From the manual’s pulse delay concept:</p>
+<h3>Patch</h3>
+<ul>
+<li>clock or gate -&gt; <strong>CH 1 Trigger Input</strong></li>
+<li>take <strong>EOR OUT</strong> as delayed trigger</li>
+<li>send EOR to:</li>
+<li>envelope trigger</li>
+<li>sequencer advance</li>
+<li>sample &amp; hold trigger</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>delayed note onset</li>
+<li>laid-back phrasing</li>
+<li>pseudo-swing</li>
+<li>staggered melodic layers</li>
+</ul>
+<p>Fall affects pulse width, Rise affects delay.</p>
+<h2>6. Clock division for melodic density control</h2>
+<h3>Patch</h3>
+<ul>
+<li>master clock -&gt; <strong>CH 1 Trigger Input</strong></li>
+<li>use <strong>EOR</strong> or <strong>EOC-like derived behavior</strong> as divided output</li>
+<li>send that divided clock to sequencer advance or quantizer trigger</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>melody moves slower than the master rhythm</li>
+<li>changing Rise changes the melodic division ratio feel</li>
+<li>useful for polyrhythmic note progression</li>
+</ul>
+<h2>7. Complex LFO as melodic source into quantizer</h2>
+<p>The manual includes triangle/ramp/self-cycling patches. If you patch a cycling channel into a <strong>quantizer</strong>, it becomes a pitch source.</p>
+<h3>Patch</h3>
+<ul>
+<li>CH 1 cycling, linear or skewed response</li>
+<li>output from <strong>Unity Out</strong></li>
+<li>send to quantizer input</li>
+<li>quantizer output -&gt; oscillator 1V/oct</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>repeating melodic contour</li>
+<li>triangle gives pendulum-like melodies</li>
+<li>ramp gives rising phrases with reset</li>
+<li>skewed response changes how long notes dwell in parts of the scale</li>
+</ul>
+<p>Very musical and simple.</p>
+<h2>8. Dual interacting functions into quantizer</h2>
+<p>Using both CH 1 and CH 4:</p>
+<h3>Patch</h3>
+<ul>
+<li>CH 1 cycling slowly</li>
+<li>CH 4 cycling at a different rate</li>
+<li>combine with <strong>SUM OUT</strong></li>
+<li>send SUM -&gt; quantizer</li>
+<li>quantizer out -&gt; oscillator pitch</li>
+</ul>
+<p>Optionally:
+- use EOR and EOC to cross-trigger one another
+- modulate each other’s Rise/Fall/Both</p>
+<h3>Result</h3>
+<ul>
+<li>semi-repeating melodic phrases</li>
+<li>evolving contour</li>
+<li>complex but still bounded pitch movement</li>
+</ul>
+<p>This is one of the strongest “melody from utilities” uses of MATHS.</p>
+<h2>9. Sample-and-hold melodic system support</h2>
+<p>If you have a sample-and-hold or random voltage source elsewhere, MATHS makes it more melodic.</p>
+<h3>Use MATHS for:</h3>
+<ul>
+<li>divided or delayed triggers to clock the S&amp;H</li>
+<li>slew on the sampled voltage</li>
+<li>offset/transposition before quantization</li>
+<li>envelope generation for note articulation</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>noise/random -&gt; S&amp;H input</li>
+<li>MATHS EOR -&gt; S&amp;H clock</li>
+<li>S&amp;H out -&gt; CH 1 Signal Input for glide</li>
+<li>CH 2 offset added via SUM</li>
+<li>SUM -&gt; quantizer -&gt; oscillator</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>random but shaped melodies</li>
+<li>smoother intervals</li>
+<li>playable transposition</li>
+</ul>
+<h2>10. Accent extraction and phrase shaping</h2>
+<p>Use the OR bus and end-of-stage outputs to derive accents.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>multiple modulation sources to CH 1–4 variable outs</li>
+<li><strong>OR OUT</strong> -&gt; VCA CV or filter accent</li>
+<li>sequence pitch from elsewhere</li>
+<li>note trigger from MATHS-derived clocks</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>melody gets dynamic accent patterns</li>
+<li>“strongest of several motions” becomes accent contour</li>
+<li>useful for techno, IDM, generative lines</li>
+</ul>
+<hr />
+<h1>Best melodic workflows with MATHS</h1>
+<h2>A. With a sequencer</h2>
+<p>MATHS is best used to:
+- slew pitch
+- transpose
+- generate envelopes
+- derive alternate clocks
+- add vibrato and bends</p>
+<h2>B. With a quantizer</h2>
+<p>MATHS becomes much more melodic with a quantizer downstream:
+- cycling functions become scale-based melodies
+- mixed CV becomes harmonic motion
+- offsets become musical transposition
+- self-patched complexity becomes usable pitch material</p>
+<h2>C. With oscillators and VCAs</h2>
+<p>MATHS gives:
+- note articulation
+- accent
+- vibrato
+- pitch glide
+- timbral contour</p>
+<h2>D. In generative systems</h2>
+<p>MATHS can act as:
+- timing brain
+- contour generator
+- CV mixer
+- event derivation source</p>
+<p>That makes it excellent for evolving melodic patches even if no traditional sequencer is present.</p>
+<hr />
+<h1>Particularly strong melodic patch combinations inside MATHS itself</h1>
+<h2>1. CH 1 or 4 cycling into quantizer</h2>
+<p>Simple repeating melody source.</p>
+<h2>2. SUM of CH 1 + CH 4 into quantizer</h2>
+<p>More complex melodic phrase source.</p>
+<h2>3. CH 2 and CH 3 as transpose + interval offset</h2>
+<p>Great for harmonic movement.</p>
+<h2>4. EOR / EOC used as note clocks</h2>
+<p>Excellent for rhythmic melody generation.</p>
+<h2>5. Slewed sequence + envelope pitch bend</h2>
+<p>Classic expressive mono synth behavior.</p>
+<hr />
+<h1>A few concrete musical examples</h1>
+<h2>Acid-style lead</h2>
+<ul>
+<li>sequencer pitch -&gt; CH 1 Signal In</li>
+<li>CH 1 Unity -&gt; oscillator 1V/oct</li>
+<li>gate -&gt; CH 4 Trigger</li>
+<li>CH 4 out -&gt; VCA/filter</li>
+<li>use CH 1 Rise/Fall for slide</li>
+<li>use CH 4 for snappy envelope</li>
+</ul>
+<h2>Generative melody</h2>
+<ul>
+<li>CH 1 cycle slow</li>
+<li>CH 4 cycle medium</li>
+<li>SUM OUT -&gt; quantizer</li>
+<li>quantizer -&gt; oscillator</li>
+<li>EOC or EOR -&gt; envelope trigger</li>
+<li>CH 2 offset for transposition</li>
+</ul>
+<h2>Bassline with accents</h2>
+<ul>
+<li>sequencer pitch direct to oscillator</li>
+<li>MATHS derives divided/delayed trigger stream</li>
+<li>CH 1 envelope -&gt; VCA</li>
+<li>OR OUT -&gt; filter accent</li>
+<li>CH 4 cycling slowly -&gt; subtle pitch wobble</li>
+</ul>
+<h2>Ornamented lead</h2>
+<ul>
+<li>base pitch sequence -&gt; oscillator</li>
+<li>CH 1 triggered envelope mixed lightly into pitch</li>
+<li>CH 4 cycle as vibrato</li>
+<li>CH 2 controls vibrato depth</li>
+<li>delayed EOR triggers occasional secondary envelope</li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>MATHS creates melodic components less by “playing notes” directly and more by controlling the things that make notes musical:</p>
+<ul>
+<li><strong>pitch movement</strong></li>
+<li><strong>glide</strong></li>
+<li><strong>transposition</strong></li>
+<li><strong>articulation</strong></li>
+<li><strong>timing</strong></li>
+<li><strong>accent</strong></li>
+<li><strong>phrase variation</strong></li>
+<li><strong>complex CV generation for quantized melodies</strong></li>
+</ul>
+<p>If you pair it with:
+- an oscillator,
+- a quantizer and/or sequencer,
+- a VCA/filter,</p>
+<p>then MATHS becomes an extremely powerful melodic utility and generative composition tool.</p>
+<p>For melody specifically, the most important tricks are:</p>
+<ol>
+<li><strong>slew incoming pitch CV</strong> for expressive glide  </li>
+<li><strong>mix and offset CV</strong> for transposition and interval shaping  </li>
+<li><strong>use cycling outputs into a quantizer</strong> for self-generated melodies  </li>
+<li><strong>derive clocks with EOR/EOC</strong> for rhythmic note structure  </li>
+<li><strong>use envelopes for pitch bends and articulation</strong>  </li>
+<li><strong>combine channels with SUM/INV/OR</strong> for evolving melodic modulation  </li>
+</ol>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

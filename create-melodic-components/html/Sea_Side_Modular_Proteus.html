@@ -1,0 +1,511 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Sea_Side_Modular_Proteus</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Sea Side Modular — Proteus</h1>
+<ul>
+<li><a href="../../manuals/ProteusManual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://seaside.digital/proteusconfig/Proteus_manual_v1.2.3.pdf">Proteus Manual PDF (Seaside Modular, v1.2.3)</a></p>
+<h1>Seaside Modular Proteus — using it to create melodic parts in a Eurorack system</h1>
+<p>Based on the attached manual, <strong>Proteus</strong> is a <strong>clocked generative melody sequencer</strong> designed to sit at the center of a melodic patch. It generates scale-aware note sequences, can gradually evolve them over time, and provides enough control to move between <strong>stable repeating hooks</strong> and <strong>self-changing melodic motion</strong>.</p>
+<p>Since only one module manual is attached here, I’ll analyze <strong>how Proteus works with the rest of a typical Eurorack voice</strong> to build melodic components for music.</p>
+<hr />
+<h2>What Proteus does musically</h2>
+<p>Proteus creates a melody, repeats it, and then may alter or replace it according to probability settings. It outputs:</p>
+<ul>
+<li><strong>V/Oct pitch CV</strong> for oscillator tuning</li>
+<li><strong>Gate output</strong> for note triggering</li>
+<li>clocked sequence behavior driven by <strong>Gate In</strong></li>
+<li>external control of musical behavior through CV inputs</li>
+</ul>
+<p>Musically, that makes it ideal for:</p>
+<ul>
+<li>lead lines</li>
+<li>basslines</li>
+<li>ostinatos</li>
+<li>generative arpeggio-like phrases</li>
+<li>evolving tonal textures</li>
+<li>recurring motifs that slowly mutate over time</li>
+</ul>
+<p>Its core strength is that it is <strong>not just random</strong>. The module tries to generate melodies with more human-like tendencies:
+- repeated notes
+- ascending/descending runs
+- scale awareness
+- controllable complexity</p>
+<p>That means it can produce material that feels more like a usable phrase than pure chance.</p>
+<hr />
+<h2>Core patch role in a melodic system</h2>
+<p>At minimum, Proteus wants to sit in this chain:</p>
+<p><strong>Clock / trigger source → Proteus Gate In</strong><br />
+<strong>Proteus V/Oct Out → oscillator V/Oct</strong><br />
+<strong>Proteus Gate Out → envelope gate input</strong><br />
+<strong>Envelope → VCA / filter / LPG</strong><br />
+<strong>Oscillator → filter / VCA / output</strong></p>
+<p>This gives you a complete melodic voice.</p>
+<h3>In plain musical terms:</h3>
+<ul>
+<li>your <strong>clock</strong> determines rhythmic advancement</li>
+<li>Proteus decides <strong>which note happens next</strong></li>
+<li>the <strong>gate output</strong> determines when a note sounds</li>
+<li>your <strong>oscillator and voice path</strong> determine timbre</li>
+</ul>
+<hr />
+<h2>How the main controls shape melody</h2>
+<h2>1. Scale</h2>
+<p>Proteus is strongly scale-based. This is one of the biggest reasons it works well musically.</p>
+<p>Available scales include:
+- Major
+- Natural Minor
+- Harmonic Minor
+- Major Pentatonic
+- Minor Pentatonic
+- Dorian
+- Mixolydian
+- Phrygian / Bhairavi
+- Chromatic
+- 6 custom scales
+- Tuning mode</p>
+<h3>Musical use:</h3>
+<ul>
+<li><strong>Major / pentatonic</strong>: accessible melodic hooks, bright lead lines</li>
+<li><strong>Minor / harmonic minor</strong>: cinematic, darker sequences</li>
+<li><strong>Dorian / Mixolydian</strong>: modal lines that feel less predictable than basic major/minor</li>
+<li><strong>Phrygian</strong>: tense, exotic, dramatic</li>
+<li><strong>Chromatic</strong>: experimental or less tonal material</li>
+<li><strong>Custom scales</strong>: microtonal or personalized tonal systems</li>
+</ul>
+<p>If you want the melodic part to sit in a track cleanly, start here.</p>
+<hr />
+<h2>2. Length</h2>
+<p>Sequence length ranges from <strong>2 to 32 steps</strong>.</p>
+<h3>Musical use:</h3>
+<ul>
+<li><strong>2–4 steps</strong>: minimal motifs, bass pulses, techno hooks</li>
+<li><strong>5–8 steps</strong>: classic looping phrases</li>
+<li><strong>9–16 steps</strong>: longer melodic sentences</li>
+<li><strong>17–32 steps</strong>: evolving structures and less obvious repetition</li>
+</ul>
+<p>This parameter is one of the biggest determinants of whether the part feels like:
+- a riff
+- a phrase
+- a wandering line</p>
+<p>A nice trick from the manual: changing length also recalculates rest behavior, which can create a fresh rhythmic feel even if the melody content stays similar.</p>
+<hr />
+<h2>3. Density</h2>
+<p>Density controls how many notes are played versus turned into rests.</p>
+<h3>Musical use:</h3>
+<ul>
+<li><strong>high density</strong>: busy, continuous melodies</li>
+<li><strong>mid density</strong>: syncopation and phrase space</li>
+<li><strong>low density</strong>: sparse motifs, dubby bass, pointillistic melodic accents</li>
+</ul>
+<p>This means Proteus is not just sequencing pitch—it’s also shaping <strong>melodic rhythm</strong>.</p>
+<p>A useful performance approach:
+- keep the clock steady
+- move density to change the phrase from active to sparse without changing the note order</p>
+<p>That can feel like opening and closing the arrangement.</p>
+<hr />
+<h2>4. Sleep</h2>
+<p>Sleep inserts a number of beats before the sequence repeats.</p>
+<h3>Musical use:</h3>
+<p>This is a surprisingly powerful phrase tool.</p>
+<p>You can use it to create:
+- breathing room after a melody
+- call-and-response spacing
+- implied longer forms
+- syncopated cycle behavior against the master clock</p>
+<p>For example:
+- an 8-step melody with sleep can feel like a phrase plus rest
+- this is excellent for making melodic content feel intentional rather than constant</p>
+<p>It’s especially good in ambient, electro, and minimal styles.</p>
+<hr />
+<h2>5. Patience</h2>
+<p>Patience controls how quickly Proteus gets “bored” and decides to create a completely new melody.</p>
+<h3>Musical use:</h3>
+<p>This is the heart of Proteus’s identity.</p>
+<ul>
+<li><strong>low patience</strong>: constant renewal, unstable phrases, generative exploration</li>
+<li><strong>medium patience</strong>: melodic loops that stick around long enough to become recognizable before changing</li>
+<li><strong>high/infinite patience</strong>: fixed sequence behavior until you intervene</li>
+</ul>
+<p>This lets you control the balance between:
+- <strong>theme</strong>
+- <strong>variation</strong>
+- <strong>replacement</strong></p>
+<p>For composition, medium patience is often the sweet spot:
+- listeners can learn the melody
+- then it changes before becoming stale</p>
+<p>For live performance, infinite patience gives you a stable riff until you want a new one.</p>
+<hr />
+<h2>6. Complexity</h2>
+<p>Complexity shapes the algorithm used for new melody generation.</p>
+<p>According to the manual:
+- <strong>CCW</strong>: very simple melodies, sometimes only one or two notes
+- <strong>Noon</strong>: more complex, more directional runs
+- <strong>CW</strong>: fullest, most “intelligent” melodic generation</p>
+<h3>Musical use:</h3>
+<ul>
+<li><strong>low complexity</strong> = bassline mode, rhythmic repetition, hypnotic loops</li>
+<li><strong>mid complexity</strong> = phrase-like movement</li>
+<li><strong>high complexity</strong> = lead lines, busy counterpoint, more lyrical variation</li>
+</ul>
+<p>A great patch strategy:
+- use <strong>low complexity + low density</strong> for bass
+- use <strong>higher complexity + medium density</strong> for lead or upper voice</p>
+<hr />
+<h2>7. Octave</h2>
+<p>Octave controls the probability of octave transposition.</p>
+<h3>Musical use:</h3>
+<p>This creates large contour changes while preserving interval identity inside the pattern.</p>
+<p>Useful for:
+- bass patterns that occasionally jump upward
+- lead lines that expand dynamically
+- pseudo-variation without replacing the melody</p>
+<p>Since octave movement is constrained around the base octave, it stays relatively usable.</p>
+<hr />
+<h2>8. Mutate</h2>
+<p>Mutate changes individual notes from one cycle to the next.</p>
+<h3>Musical use:</h3>
+<p>This is different from replacing the whole melody.</p>
+<p>Use it for:
+- subtle evolution
+- ornamentation
+- “same riff, slightly different each bar” behavior
+- organic variation in long patches</p>
+<p>This is one of the best settings for ambient and generative systems because it preserves identity while adding drift.</p>
+<hr />
+<h2>Locking and stability: when to freeze the melody</h2>
+<p>Proteus has two different ways to stabilize behavior:</p>
+<h3>Patience at maximum</h3>
+<p>This prevents entirely new melodies from being generated, but <strong>mutations and octave shifts can still happen</strong>.</p>
+<h3>Lock toggle</h3>
+<p>This prevents:
+- new melody generation
+- mutations
+- octave transpositions</p>
+<h3>Musical use:</h3>
+<ul>
+<li>use <strong>high patience</strong> if you want the phrase to remain basically the same but still have local variation</li>
+<li>use <strong>lock toggle</strong> when you want a true compositional anchor</li>
+</ul>
+<p>This is useful in performance:
+- let Proteus roam while building tension
+- then lock a strong phrase when it lands on something good</p>
+<hr />
+<h2>Pattern bank: turning generative output into composition</h2>
+<p>Proteus includes <strong>four pattern slots</strong>.</p>
+<p>You can:
+- save generated melodies
+- reload them manually
+- step through filled slots via the <strong>NEXT</strong> input</p>
+<p>This is where Proteus becomes more than a random melody source. It can also be a <strong>curated phrase bank</strong>.</p>
+<h3>Musical use:</h3>
+<p>You can treat the pattern bank like:
+- verse / chorus variants
+- 4 harmonic moods
+- bassline states
+- arrangement scenes</p>
+<h3>Especially effective workflow:</h3>
+<ol>
+<li>generate a melody</li>
+<li>save the good ones</li>
+<li>use NEXT triggers to move through saved phrases</li>
+</ol>
+<p>That gives you structured melodic form from a generative source.</p>
+<hr />
+<h2>How Proteus interacts with other modules in a melodic patch</h2>
+<h2>1. With clock sources</h2>
+<p>Proteus depends on an incoming clock at <strong>Gate In</strong>.</p>
+<p>Best companions:
+- trigger sequencers
+- clock dividers/multipliers
+- logic bursts
+- Euclidean trigger modules
+- manual gate buttons</p>
+<h3>Musical results:</h3>
+<ul>
+<li>steady clock = regular melody playback</li>
+<li>irregular or patterned clock = asymmetrical phrasing</li>
+<li>divided clock = slow melodic movement</li>
+<li>multiplied clock = dense runs</li>
+</ul>
+<p>Proteus becomes much more expressive if the clock source is itself musical.</p>
+<hr />
+<h2>2. With oscillators / voices</h2>
+<p>Proteus outputs V/Oct, so it pairs naturally with:
+- analog VCOs
+- digital macro-oscillators
+- wavetable voices
+- FM voices
+- physical modeling voices
+- sampled voices</p>
+<h3>Pairing ideas:</h3>
+<ul>
+<li><strong>sine/triangle oscillator</strong> for basslines</li>
+<li><strong>saw or pulse through filter</strong> for classic sequences</li>
+<li><strong>wavetable voice</strong> for evolving leads</li>
+<li><strong>FM voice</strong> for bell-like generative melodies</li>
+<li><strong>plucked/physical modeling voice</strong> for semi-acoustic repeating motifs</li>
+</ul>
+<p>Proteus does not make sound; its musical personality is heavily shaped by the voice you connect to it.</p>
+<hr />
+<h2>3. With envelopes and VCAs</h2>
+<p>The gate output is critical.</p>
+<p>Patch:
+- <strong>Gate Out → envelope trigger/gate</strong>
+- <strong>envelope → VCA CV</strong>
+- <strong>oscillator → VCA audio in</strong></p>
+<p>This gives each active step articulation.</p>
+<h3>Why this matters:</h3>
+<p>Density creates rests, and the gate output translates those rests into audible phrasing. So even before filtering or modulation, Proteus already creates a strong articulation structure.</p>
+<hr />
+<h2>4. With filters and LPGs</h2>
+<p>Because Proteus can create repeating but evolving phrases, it pairs extremely well with tone-shaping that also moves over time.</p>
+<p>Try:
+- one filter cutoff envelope per note
+- a slow LFO on cutoff
+- random modulation on resonance
+- LPGs for plucky melodic lines</p>
+<h3>Musical result:</h3>
+<p>Even a stable melody can feel alive if the timbre shifts while Proteus handles pitch and rests.</p>
+<hr />
+<h2>5. With quantizers</h2>
+<p>Proteus is already scale-based, and it also has a <strong>quantize notes</strong> option affecting transpose behavior.</p>
+<p>In many cases, you may not need an external quantizer at all.</p>
+<p>However, external quantizers could still be useful if:
+- you mix Proteus CV with another modulation source
+- you want shared tuning across several melodic sources
+- you are building larger harmonic systems</p>
+<hr />
+<h2>6. With transpose CV sources</h2>
+<p>The <strong>Transpose jack</strong> is a major musical expansion point.</p>
+<p>You can send in:
+- sequenced voltages
+- keyboard CV
+- precision adder outputs
+- offset voltages
+- another melodic sequencer
+- sample-and-hold
+- slow random stepped CV</p>
+<h3>With quantize ON:</h3>
+<p>the resulting notes are forced into the currently selected scale.</p>
+<h3>With quantize OFF:</h3>
+<p>the transpose voltage is directly summed, allowing freer harmonic displacement.</p>
+<h3>Musical use:</h3>
+<ul>
+<li>transposing a fixed riff across chord roots</li>
+<li>moving a generative phrase through a harmonic progression</li>
+<li>using another sequencer as a “meta-sequencer”</li>
+<li>keyboard performance over a repeating motif</li>
+</ul>
+<p>This makes Proteus capable of more than static modal melody—it can become part of a real harmonic structure.</p>
+<hr />
+<h2>7. With CV modulation</h2>
+<p>Every knob except scale has a CV input with a stated range of <strong>-5V to +5V</strong>, summed with knob position.</p>
+<p>This is huge for musical depth.</p>
+<p>You can modulate:
+- length
+- density
+- sleep
+- patience
+- octave
+- mutate
+- complexity</p>
+<h3>Musical examples:</h3>
+<ul>
+<li><strong>slow LFO into density</strong>: melody breathes in and out</li>
+<li><strong>random stepped CV into length</strong>: shifting phrase boundaries</li>
+<li><strong>manual control voltage into patience</strong>: hold/release generative change</li>
+<li><strong>envelope into mutate</strong>: more note changes during accents</li>
+<li><strong>sequenced CV into octave</strong>: larger-form contour motion</li>
+<li><strong>CV into complexity</strong>: verse simple / chorus intricate</li>
+</ul>
+<p>This means Proteus can act less like a static sequencer and more like a dynamic melodic organism.</p>
+<hr />
+<h2>Settings Mode features that matter musically</h2>
+<p>Proteus has alternate functions in <strong>Settings Mode</strong>.</p>
+<p>These are especially relevant in performance patches.</p>
+<h2>Gate length</h2>
+<p>Controls note duration relative to trigger gap.</p>
+<h3>Musical use:</h3>
+<ul>
+<li>shorter = plucky, staccato</li>
+<li>longer = legato, sustained</li>
+<li>paired with envelopes/LPGs, this dramatically changes phrasing</li>
+</ul>
+<hr />
+<h2>Rotate</h2>
+<p>Rotates sequence start point forward/backward.</p>
+<h3>Musical use:</h3>
+<p>This is effectively a melodic reharmonization/rephrasing tool without changing the note content.</p>
+<p>Use it to:
+- create variations from a saved phrase
+- shift rhythmic emphasis
+- generate alternate entrances to the same motif</p>
+<hr />
+<h2>Slew length / Slew notes</h2>
+<p>Applies glide to some notes when slew mode is enabled.</p>
+<h3>Musical use:</h3>
+<ul>
+<li>acid-style slides</li>
+<li>portamento accents</li>
+<li>more vocal/legato behavior</li>
+<li>selected-note expressiveness rather than global portamento</li>
+</ul>
+<p>This can make Proteus feel much more performative, especially with mono synth voices.</p>
+<hr />
+<h2>Vary Gates with Rests</h2>
+<p>If a note is followed by a rest, the gate can be longer.</p>
+<h3>Musical use:</h3>
+<p>This creates more natural phrasing because notes can “fill” silence after them.
+Very useful for:
+- basslines
+- plucked lines
+- making sparse melodies feel less choppy</p>
+<hr />
+<h2>Preserve Melody Parameters</h2>
+<p>When enabled, loading a saved pattern recalls it exactly and locks knobs until matched.</p>
+<h3>Musical use:</h3>
+<p>This is essential if you want pattern recall to behave like song sections rather than approximate suggestions.</p>
+<hr />
+<h2>Quantize Notes</h2>
+<p>Keeps transpose behavior constrained to the current scale.</p>
+<h3>Musical use:</h3>
+<p>A big one for live systems.
+You can feed transpose voltages more freely and still stay in key.</p>
+<hr />
+<h2>Patch recipes for melodic use</h2>
+<h2>1. Stable bassline with slight life</h2>
+<p><strong>Goal:</strong> a repeating bass pattern that subtly evolves</p>
+<ul>
+<li>Clock → Proteus Gate In</li>
+<li>Proteus V/Oct → bass oscillator</li>
+<li>Proteus Gate Out → short envelope → VCA/LPG</li>
+<li>Scale: minor or pentatonic</li>
+<li>Length: 4–8</li>
+<li>Density: medium-high</li>
+<li>Complexity: low</li>
+<li>Patience: high</li>
+<li>Mutate: low</li>
+<li>Octave: low or off</li>
+</ul>
+<h3>Result:</h3>
+<p>A tight, usable bassline that doesn’t sound dead static.</p>
+<hr />
+<h2>2. Generative lead melody</h2>
+<p><strong>Goal:</strong> an evolving upper-line part</p>
+<ul>
+<li>Clock → Proteus</li>
+<li>V/Oct → bright oscillator or wavetable voice</li>
+<li>Gate Out → envelope</li>
+<li>Scale: Dorian, harmonic minor, or custom scale</li>
+<li>Length: 8–16</li>
+<li>Density: medium</li>
+<li>Complexity: high</li>
+<li>Patience: medium</li>
+<li>Mutate: medium</li>
+<li>Octave: medium</li>
+</ul>
+<h3>Add:</h3>
+<ul>
+<li>slow LFO to density</li>
+<li>slow random CV to patience</li>
+<li>filter animation downstream</li>
+</ul>
+<h3>Result:</h3>
+<p>A melody that stays musical but continues to develop over time.</p>
+<hr />
+<h2>3. Phrase-and-rest ambient patch</h2>
+<p><strong>Goal:</strong> melodies that speak, then leave space</p>
+<ul>
+<li>Slow clock into Gate In</li>
+<li>Long-envelope voice or resonant voice</li>
+<li>Sleep set to several beats</li>
+<li>Density medium-low</li>
+<li>Length 6–12</li>
+<li>Patience medium-high</li>
+<li>Mutate low-medium</li>
+</ul>
+<h3>Result:</h3>
+<p>Proteus outputs discrete melodic statements separated by silence, great for ambient or soundtrack work.</p>
+<hr />
+<h2>4. Harmonic progression via transpose input</h2>
+<p><strong>Goal:</strong> one melody moved through changing roots</p>
+<ul>
+<li>Main clock → Proteus</li>
+<li>Secondary sequencer or keyboard CV → Transpose jack</li>
+<li>Quantize ON</li>
+<li>Save a strong phrase in pattern bank</li>
+<li>Use transpose sequence as harmonic form</li>
+</ul>
+<h3>Result:</h3>
+<p>Proteus supplies motif identity while another source supplies harmonic motion.</p>
+<p>This is one of the strongest “actual song-writing” uses of the module.</p>
+<hr />
+<h2>5. Performance scene sequencer</h2>
+<p><strong>Goal:</strong> curated melodic states for live play</p>
+<ul>
+<li>Generate and save up to 4 good patterns</li>
+<li>Use NEXT input from trigger source or manual gate</li>
+<li>Optionally keep Preserve Melody Parameters enabled</li>
+<li>Use lock toggle strategically during transitions</li>
+</ul>
+<h3>Result:</h3>
+<p>You get hands-on control over when melodic scenes change, while still retaining the generative character of the module.</p>
+<hr />
+<h2>Best musical strengths of Proteus</h2>
+<p>From the manual, these are the standout compositional strengths:</p>
+<h3>1. It balances repetition and novelty</h3>
+<p>That is the whole design concept. It can hold a motif long enough to matter, then change it.</p>
+<h3>2. It combines pitch and rhythm shaping</h3>
+<p>Density and sleep make it more than a pitch sequencer.</p>
+<h3>3. It can be both generative and recallable</h3>
+<p>Pattern memory means good accidents can become usable form.</p>
+<h3>4. It works well for tonal music</h3>
+<p>Scale selection, custom scales, and transpose quantization make it practical in-key.</p>
+<h3>5. It supports gradual variation</h3>
+<p>Mutation and octave transposition allow evolution without total replacement.</p>
+<hr />
+<h2>Things to keep in mind while patching</h2>
+<h2>It needs a clock</h2>
+<p>No useful sequence advancement happens without clock pulses into Gate In.</p>
+<h2>It is strongest with an articulated voice</h2>
+<p>Because it outputs gate and pitch, it really shines when patched into a complete mono voice.</p>
+<h2>Saved patterns are valuable</h2>
+<p>Because generation is probabilistic, save strong material when you hear it.</p>
+<h2>Lock is performance gold</h2>
+<p>The lock toggle is an important “commit this phrase” gesture.</p>
+<h2>CV modulation can make it feel far bigger</h2>
+<p>Modulating density, patience, mutate, or complexity turns Proteus into a much more alive musical system.</p>
+<hr />
+<h2>Bottom line</h2>
+<p><strong>Proteus is best used as the melodic brain of a Eurorack voice.</strong> It excels at generating phrases that feel musical rather than purely random, and it gives you several levels of control over how stable, sparse, complex, or mutable those phrases are.</p>
+<p>In a system, it pairs especially well with:
+- clock sources
+- oscillators / complete voices
+- envelopes and VCAs
+- filters and LPGs
+- transpose CV sources
+- slow modulation sources
+- trigger sources for pattern stepping</p>
+<p>If your goal is to create <strong>melodic components for music</strong>, Proteus is most powerful when treated as a middle ground between:
+- a sequencer
+- a phrase generator
+- a motif variation engine</p>
+<p>It can provide:
+- bass motifs
+- lead melodies
+- modal repetitions
+- evolving generative phrases
+- saved phrase banks for arrangement and performance</p>
+<p>In short: <strong>Proteus is a very musical module for building repeating-but-living melodic material.</strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

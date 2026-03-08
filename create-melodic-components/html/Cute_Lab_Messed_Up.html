@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Cute_Lab_Messed_Up</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Cute Lab — Messed Up</h1>
+<ul>
+<li><a href="../../manuals/messed-up-manual-rev2.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>CuteLab Messed Up — using it to create melodic components</h1>
+<p>Messed Up is <strong>not a pitch generator by itself</strong>. It’s a <strong>clock processor / metric modulation source</strong> that creates related pulse streams: <strong>beat</strong>, <strong>divide</strong>, <strong>downbeat</strong>, <strong>truncate</strong>, and <strong>EoM</strong>. So its role in melodic patching is to become the <strong>timing brain</strong> for sequencers, quantizers, sample-and-holds, shift registers, envelopes, and switches.</p>
+<p>If you pair it with melodic modules, it can generate surprisingly rich melodic behavior by controlling <strong>when notes happen</strong>, <strong>when patterns reset</strong>, and <strong>when phrase structure changes</strong>.</p>
+<hr />
+<h2>What the module contributes musically</h2>
+<p>From the manual, Messed Up provides:</p>
+<ul>
+<li><strong>Beat output</strong>: the main pulse stream</li>
+<li><strong>Divide output</strong>: a mathematically related subdivision/superdivision based on the <code>divide : beat</code> ratio</li>
+<li><strong>Down output</strong>: measure reset / phrase marker</li>
+<li><strong>Truncate output</strong>: syncopated variation of the divide rhythm</li>
+<li><strong>EoM output</strong>: trigger when a metric modulation actually occurs</li>
+</ul>
+<p>Its central trick is <strong>metric modulation</strong>:</p>
+<ul>
+<li>new tempo = current tempo × <code>divide / beat</code></li>
+</ul>
+<p>Example:
+- if tempo is 120 BPM
+- beat = 4
+- divide = 3
+- modulation moves to 90 BPM</p>
+<p>That means it can transform one rhythmic grid into another while staying structurally related. For melody, that is extremely useful.</p>
+<hr />
+<h1>Best melodic uses</h1>
+<h2>1. Clocking a pitch sequencer with evolving note density</h2>
+<p>The simplest use:</p>
+<ul>
+<li>Patch <strong>Beat out</strong> to the clock input of a sequencer</li>
+<li>Send sequencer CV to an oscillator through a quantizer</li>
+<li>Use <strong>Down out</strong> to reset the sequencer</li>
+</ul>
+<p>This gives you a stable melodic phrase.</p>
+<p>Now introduce motion:</p>
+<ul>
+<li>Patch <strong>Divide out</strong> to a second sequencer, or to a switch that occasionally advances the melodic line differently</li>
+<li>Trigger <strong>modulation</strong></li>
+<li>After modulation, the former subdivision can become the new felt pulse</li>
+</ul>
+<h3>Result</h3>
+<p>Your melody feels like it has <strong>changed gear</strong> without becoming unrelated. This is excellent for:
+- transitions
+- verse/chorus tempo illusions
+- polymetric lead lines
+- gradual destabilization of repetitive pitch loops</p>
+<hr />
+<h2>2. Creating call-and-response melodies with Beat vs Divide</h2>
+<p>Because <strong>Beat</strong> and <strong>Divide</strong> are related but different clocks, they work well as two melodic lanes.</p>
+<h3>Patch idea</h3>
+<ul>
+<li><strong>Beat out</strong> → clock sequencer A</li>
+<li><strong>Divide out</strong> → clock sequencer B</li>
+<li>Sequencer A and B both go to different oscillators, or into a precision adder/mixer</li>
+<li><strong>Down out</strong> resets both</li>
+</ul>
+<p>Try settings like:
+- beat = 4, divide = 3
+- beat = 5, divide = 4
+- beat = 3, divide = 2</p>
+<h3>Why it works</h3>
+<p>You get two melodies that:
+- share a common phrase structure
+- drift against each other
+- periodically realign</p>
+<p>This is one of the easiest ways to produce:
+- canon-like lines
+- ostinato + lead relationships
+- pseudo-counterpoint in a small rack</p>
+<hr />
+<h2>3. Using Downbeat as phrase reset for melodic coherence</h2>
+<p>The manual emphasizes that the <strong>down output</strong> marks the beginning of the measure defined by <code>beat</code>.</p>
+<p>That’s incredibly valuable for melody.</p>
+<h3>Use Down out to:</h3>
+<ul>
+<li>reset a step sequencer</li>
+<li>reset a shift register melody</li>
+<li>fire an accent envelope</li>
+<li>trigger a sequential switch reset</li>
+<li>re-seed a random source at phrase boundaries</li>
+</ul>
+<h3>Musical effect</h3>
+<p>You can let a melody get rhythmically strange between downbeats while the phrase still feels intentional.</p>
+<p>For example:
+- <strong>Divide</strong> clocks note changes
+- <strong>Down</strong> resets the sequence every 4 or 5 beats</p>
+<p>This gives:
+- polymetric inner activity
+- stable phrase start
+- easier “hook”-style repetition</p>
+<hr />
+<h2>4. Truncate output for syncopated melodic rhythms</h2>
+<p>The <strong>truncate output</strong> is one of the most interesting parts of the module. It follows the divide rate, but the pattern is cut off and reset within the beat-defined span.</p>
+<p>This is excellent for melody because it can drive:
+- note triggers for syncopated basslines
+- arpeggiator advance inputs
+- sample-and-hold clocks
+- envelope gates for plucked voices</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Pitch source: sequencer or quantized random</li>
+<li><strong>Truncate out</strong> → envelope gate or sequencer clock</li>
+<li><strong>Beat out</strong> → another layer, such as a bass pulse</li>
+<li>Modulate truncate amount by CV</li>
+</ul>
+<h3>Result</h3>
+<p>Your melodic rhythm gains:
+- clipped phrases
+- repeated partial cells
+- syncopation that still remains locked to the larger structure</p>
+<p>This is especially strong for:
+- techno stabs
+- IDM melodies
+- broken arps
+- syncopated bass counterlines</p>
+<hr />
+<h2>5. EoM output as a melodic event trigger</h2>
+<p>The <strong>End of Modulation (EoM)</strong> output sends a trigger when the modulation actually happens.</p>
+<p>That means it can mark <strong>formal change</strong> in a patch.</p>
+<h3>Good uses for EoM</h3>
+<ul>
+<li>transpose a sequencer at the exact moment of modulation</li>
+<li>switch to another stored sequence</li>
+<li>open a VCA for a lead voice</li>
+<li>trigger a new random voltage for a melodic section</li>
+<li>change quantizer scale</li>
+<li>advance a song-stage sequencer</li>
+</ul>
+<h3>Musical effect</h3>
+<p>Metric modulation stops being only rhythmic; it becomes a <strong>harmonic or melodic scene change</strong> too.</p>
+<p>For instance:
+- EoM → sample-and-hold new transposition voltage
+- Beat clock continues the sequence
+- At each modulation, the melody shifts key center</p>
+<p>That gives very performable melodic form.</p>
+<hr />
+<h2>6. Round Trip mode for tension and release in melody</h2>
+<p>In <strong>Round Trip</strong> mode, one modulation moves away from the original tempo, and the next returns.</p>
+<p>This is very musical for melody.</p>
+<h3>Patch</h3>
+<ul>
+<li>Beat clocks main melody</li>
+<li>Divide clocks ornamentation or grace-note sequencer</li>
+<li>Use Round Trip mode</li>
+<li>Trigger modulation manually during transitions</li>
+</ul>
+<h3>Result</h3>
+<p>You can create:
+- “stretch away / snap back” phrasing
+- melody sections that temporarily re-interpret the pulse
+- dramatic fills that resolve exactly back to the original framework</p>
+<p>This is especially good live because it behaves like a rhythmic equivalent of harmonic departure and return.</p>
+<hr />
+<h2>7. One Way mode for melodic drift and escalation</h2>
+<p>In <strong>One Way</strong> mode, each modulation is relative to the already modulated tempo.</p>
+<p>That means repeated modulations can move the melody progressively farther from the starting groove.</p>
+<h3>Melodic applications</h3>
+<ul>
+<li>increasingly dense arpeggios</li>
+<li>slowing melodic ostinati</li>
+<li>evolving generative lines</li>
+<li>unstable polyrhythmic canon structures</li>
+</ul>
+<h3>Patch idea</h3>
+<ul>
+<li>Beat → main sequencer</li>
+<li>Divide → secondary sequence or ratchet trigger</li>
+<li>Repeatedly modulate in One Way mode</li>
+<li>Use Down out to keep occasional phrase resets</li>
+</ul>
+<p>This can make a melodic system feel as if it is <strong>spiraling</strong> without becoming random.</p>
+<hr />
+<h2>8. Beat/Divide latch for phrase-safe melodic changes</h2>
+<p>The manual notes that beat and divide changes can be <strong>latched to the next downbeat</strong>.</p>
+<p>This matters a lot for melody.</p>
+<p>If you change rhythmic ratios while clocking sequencers directly, the resulting melodic phrase can jump awkwardly. Latch avoids that.</p>
+<h3>Good performance workflow</h3>
+<ul>
+<li>Turn on latch for beat and/or divide</li>
+<li>Queue a new ratio during playback</li>
+<li>Let it take effect on the downbeat</li>
+</ul>
+<h3>Musical benefit</h3>
+<ul>
+<li>phrase-preserving timing changes</li>
+<li>cleaner pattern transitions</li>
+<li>less accidental derailment of sequencers</li>
+</ul>
+<p>This is ideal when driving tonal sequencers that should stay musical during live tweaking.</p>
+<hr />
+<h2>9. Internal clock + modulation as a self-contained melodic conductor</h2>
+<p>Messed Up can run on its <strong>internal clock</strong>, so it can be the master transport for a whole melodic patch.</p>
+<h3>Self-contained melodic patch</h3>
+<ul>
+<li>Internal clock as master</li>
+<li>Beat → main sequencer clock</li>
+<li>Divide → modulation sequencer or auxiliary melodic trigger</li>
+<li>Down → reset</li>
+<li>Truncate → occasional ornament notes</li>
+<li>EoM → transpose or switch scales</li>
+</ul>
+<p>Now the whole melodic patch is governed from one panel:
+- BPM
+- beat length
+- subdivision ratio
+- modulation timing
+- phrase change events</p>
+<p>This makes it a strong composition/performance module even though it doesn’t output pitch CV.</p>
+<hr />
+<h1>Specific melodic patch recipes</h1>
+<h2>Patch 1: Metric-modulating bassline</h2>
+<p><strong>Goal:</strong> bassline that changes rhythmic identity but stays coherent.</p>
+<ul>
+<li>Beat out → bass sequencer clock</li>
+<li>Down out → bass sequencer reset</li>
+<li>Sequencer CV → quantizer → oscillator</li>
+<li>Envelope from sequencer gate or Beat</li>
+<li>Set beat = 4, divide = 3</li>
+<li>Trigger modulation at phrase end</li>
+</ul>
+<p><strong>What happens:</strong><br />
+The bassline initially feels quarter-note based; after modulation, the triplet relation becomes the new pulse. Great for modular techno and electro.</p>
+<hr />
+<h2>Patch 2: Dual melody canon</h2>
+<p><strong>Goal:</strong> two melodies from one timing structure.</p>
+<ul>
+<li>Beat out → sequencer A clock</li>
+<li>Divide out → sequencer B clock</li>
+<li>Down out → reset both</li>
+<li>Sequencer A → oscillator 1</li>
+<li>Sequencer B → oscillator 2</li>
+<li>Optionally use same pitch row but different sequence lengths</li>
+</ul>
+<p><strong>What happens:</strong><br />
+You get melodies that braid together. Changing beat/divide changes the relationship dramatically.</p>
+<p>Recommended ratios:
+- 3:4
+- 4:5
+- 5:7</p>
+<hr />
+<h2>Patch 3: Syncopated arpeggio machine</h2>
+<p><strong>Goal:</strong> animated melodic rhythm.</p>
+<ul>
+<li>Pitch CV source: arpeggiator or quantized random voltage</li>
+<li>Truncate out → sample-and-hold clock or envelope trigger</li>
+<li>Beat out → reset arpeggiator every phrase</li>
+<li>Down out → reset switch or sequencer</li>
+<li>Slowly modulate truncate amount</li>
+</ul>
+<p><strong>What happens:</strong><br />
+The same pitch source is articulated in changing syncopated slices. Feels composed rather than random.</p>
+<hr />
+<h2>Patch 4: Harmonic scene changes on modulation</h2>
+<p><strong>Goal:</strong> make modulation trigger harmonic movement too.</p>
+<ul>
+<li>Beat out → sequencer clock</li>
+<li>Down out → reset</li>
+<li>EoM out → sample-and-hold a transposition voltage</li>
+<li>Transposition voltage → precision adder with sequencer CV</li>
+<li>Quantizer after adder</li>
+</ul>
+<p><strong>What happens:</strong><br />
+Every actual metric modulation also shifts the key center or melodic register. This is one of the most elegant uses of EoM.</p>
+<hr />
+<h2>Patch 5: Controlled generative melody</h2>
+<p><strong>Goal:</strong> generative line with phrase structure.</p>
+<ul>
+<li>Divide out → clock random CV source / Turing machine / shift register</li>
+<li>Beat out → trigger envelope for notes</li>
+<li>Down out → reset random source or sequencer</li>
+<li>EoM out → change scale or probability setting</li>
+<li>Use One Way mode for evolving timing</li>
+</ul>
+<p><strong>What happens:</strong><br />
+The note stream mutates, but downbeats keep the melody feeling sectional.</p>
+<hr />
+<h1>Useful settings for melodic work</h1>
+<h2>Beat Count / Div Count</h2>
+<p>These settings change pulses-per-note:
+- 1PPN
+- 2PPN
+- 4PPN
+- 8PPN</p>
+<p>This is very handy if your melodic sequencer expects faster clocking. You can:
+- keep the same phrase logic
+- but drive ratcheting, denser arps, or faster note advances</p>
+<p>A strong trick:
+- Beat Count = 1PPN for main melody
+- Div Count = 4PPN for ornament sequencer</p>
+<hr />
+<h2>Duty Cycle mode</h2>
+<p>Two pulse modes:
+- <strong>1:2</strong> = 50% duty-cycle pulse
+- <strong>0.01</strong> = fixed 10 ms trigger</p>
+<p>For melodic modules:
+- use <strong>0.01</strong> when clocking sequencers or trigger inputs that prefer short pulses
+- use <strong>1:2</strong> when driving gear that wants more gate-like behavior</p>
+<p>This can matter a lot when envelopes or sequencers double-trigger unexpectedly.</p>
+<hr />
+<h2>Beat Input Reset mode</h2>
+<p>The beat CV input can become a <strong>reset input</strong>.</p>
+<p>That means an external sequencer or master phrase trigger can force Messed Up back to the top of its measure.</p>
+<p>For melodic systems, this is excellent if you want:
+- one master sequencer controlling all phrase starts
+- Messed Up still generating complex internal subdivisions
+- hard synchronization between melody and clock modulation structure</p>
+<hr />
+<h2>Modulation Style</h2>
+<p>The manual lists three styles:</p>
+<ul>
+<li><strong>SynC</strong>: after modulation, beat count adjusts to equal divisions</li>
+<li><strong>StAY</strong>: beats/divisions do not change after modulation</li>
+<li><strong>FLIP</strong>: beats and divisions swap after modulation</li>
+</ul>
+<p>These are extremely important musically.</p>
+<h3>SynC</h3>
+<p>Best when you want the whole patch to feel like it has cleanly landed in the new tempo.<br />
+Good for:
+- melodic sections
+- obvious transitions
+- “now this is the new pulse”</p>
+<h3>StAY</h3>
+<p>Best when you want the exact same pattern relationships to remain, but the whole module perceptually speeds up or slows down.<br />
+Good for:
+- generative melodic systems
+- gradual surreal tempo migration</p>
+<h3>FLIP</h3>
+<p>Best for dramatic melodic reinterpretation.<br />
+Good for:
+- swapping foreground and background rhythms
+- making accompaniment become lead timing
+- mirrored call/response behavior</p>
+<p>For melodic patching, <strong>FLIP</strong> is particularly inspiring when Beat and Divide clock two different voices.</p>
+<hr />
+<h1>Performance ideas</h1>
+<h2>1. Phrase-aware live modulation</h2>
+<ul>
+<li>Use latch-to-downbeat</li>
+<li>Queue modulation before the end of a bar</li>
+<li>Send EoM to transpose your melody</li>
+</ul>
+<p>This creates very “composed” live changes.</p>
+<h2>2. Manual polyrhythm scanning</h2>
+<ul>
+<li>Leave melody patch constant</li>
+<li>Only change beat/divide</li>
+<li>Keep latches on</li>
+</ul>
+<p>The same notes will feel different because the attack timing changes.</p>
+<h2>3. Truncate as ornament generator</h2>
+<ul>
+<li>Main sequencer on Beat</li>
+<li>Ornament voice on Truncate</li>
+<li>Shared pitch source, different octave</li>
+</ul>
+<p>This can produce beautiful melodic decoration from a single sequence.</p>
+<hr />
+<h1>Limitations to understand</h1>
+<p>Messed Up does <strong>not</strong> directly generate:
+- pitch CV
+- scales
+- quantized melodies
+- note order</p>
+<p>So by itself it won’t make melody. It makes <strong>melody timing architecture</strong>.</p>
+<p>Think of it as controlling:
+- note onset
+- phrase boundary
+- rhythmic reinterpretation
+- formal transitions</p>
+<p>If you combine it with:
+- a pitch sequencer
+- quantizer
+- random voltage
+- precision adder
+- switch
+- envelope/VCA voice</p>
+<p>then it becomes a very powerful melodic composition tool.</p>
+<hr />
+<h1>Best companion module types</h1>
+<p>To create melodic components, pair Messed Up with:</p>
+<ul>
+<li><strong>Step sequencers</strong> — for note order</li>
+<li><strong>Quantizers</strong> — for tonal control</li>
+<li><strong>Sample &amp; hold / random CV</strong> — for generative melody</li>
+<li><strong>Sequential switches</strong> — for phrase variation</li>
+<li><strong>Precision adders</strong> — for transposition</li>
+<li><strong>Logic modules</strong> — to combine Beat/Divide/Truncate into more melodic trigger patterns</li>
+<li><strong>Clocked switches / burst modules</strong> — for ornamentation</li>
+<li><strong>Envelope generators + VCAs</strong> — to turn pulse structures into articulated notes</li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>CuteLab <strong>Messed Up</strong> is best understood as a <strong>melodic timing composer</strong> rather than a melody source.</p>
+<p>It excels at:</p>
+<ul>
+<li>clocking melodic sequencers with polyrhythmic structure</li>
+<li>resetting phrases with downbeats</li>
+<li>creating syncopated note triggers with truncate</li>
+<li>marking formal changes with EoM</li>
+<li>transforming the perceived pulse through metric modulation</li>
+<li>producing live-playable tension/release with Round Trip mode</li>
+<li>pushing melodies into evolving temporal space with One Way mode</li>
+</ul>
+<p>If you already have modules that generate pitch, Messed Up can make them feel much more musical, structural, and performable.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erica_Synths_Clap</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erica Synths — Clap</h1>
+<ul>
+<li><a href="../../manuals/CLAP_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="CLAP_manual.pdf">Manual PDF: CLAP_manual.pdf</a></p>
+<h1>Erica Synths Clap — melodic use analysis</h1>
+<p>Based on the attached manual, this is <strong>Erica Synths Clap</strong>, a <strong>percussion voice</strong> rather than a pitched oscillator. So by itself it is <strong>not primarily a melodic module</strong>, but it <strong>can still contribute to melodic components indirectly</strong> when combined with the rest of a Eurorack system.</p>
+<h2>What the module does</h2>
+<p>From the manual:</p>
+<ul>
+<li><strong>Tone</strong> control</li>
+<li><strong>Decay</strong> control</li>
+<li><strong>Tone CV</strong> with attenuator</li>
+<li><strong>Manual trigger</strong></li>
+<li><strong>Accent input</strong></li>
+<li><strong>Trigger input</strong></li>
+<li><strong>Audio output</strong></li>
+</ul>
+<h3>Relevant specs/features</h3>
+<ul>
+<li>Decay range: <strong>120 ms – 1100 ms</strong></li>
+<li>Audio level: <strong>-5V to +5V</strong></li>
+<li>CV level span: <strong>-5V to +5V</strong></li>
+<li>Accent CV level: <strong>10V</strong></li>
+<li>Trigger level: <strong>5V</strong></li>
+<li>Trigger time: <strong>1 ms</strong></li>
+</ul>
+<h2>How Clap can be used in melodic patches</h2>
+<p>Even though a clap is not tuned like a VCO, it can still support melodic material in several useful ways:</p>
+<h3>1. Rhythmic articulation for melodic lines</h3>
+<p>Use the Clap to reinforce note attacks in a melodic sequence.</p>
+<p><strong>Patch idea:</strong>
+- Send the same trigger pattern that advances or gates your melodic voice to the <strong>Clap TRIG IN</strong>
+- Mix the Clap output quietly under a bassline, lead, or chord stab
+- Adjust <strong>Decay</strong> short for tighter phrasing
+- Use <strong>Accent</strong> on selected steps to emphasize phrase points</p>
+<p><strong>Result:</strong><br />
+The clap acts like a transient enhancer, making melodic lines feel more animated and groove-focused.</p>
+<h3>2. CV-shaped percussive “pseudo-melody”</h3>
+<p>The <strong>Tone CV</strong> input can create timbral movement that tracks a sequencer or keyboard CV.</p>
+<p><strong>Patch idea:</strong>
+- Send a sequencer row, quantized CV, or slow melodic modulation into <strong>TONE CV</strong>
+- Use the Tone CV attenuator to limit the range
+- Trigger the clap in sync with the melodic sequence</p>
+<p><strong>Result:</strong><br />
+You won’t get precise pitches, but you can create <strong>stepped timbral contours</strong> that behave like a melodic phrase. This works especially well in electro, IDM, industrial, and minimal styles.</p>
+<h3>3. Accent as phrase dynamics</h3>
+<p>Use the <strong>ACC</strong> input to mirror melodic accents.</p>
+<p><strong>Patch idea:</strong>
+- Send accent gates from your sequencer into <strong>ACC</strong>
+- Put accents on the first note of a bar, syncopations, or phrase endings
+- Pair with varying <strong>Tone</strong> and <strong>Decay</strong></p>
+<p><strong>Result:</strong><br />
+The clap becomes a dynamic counterpart to melody, helping define musical phrasing much like velocity does in traditional instruments.</p>
+<h3>4. Layered tuned percussion</h3>
+<p>If you have:
+- a resonant filter,
+- LPG,
+- wavefolder,
+- resonator,
+- or pitch shifter,</p>
+<p>you can process the Clap output into something more pitch-related.</p>
+<p><strong>Patch idea:</strong>
+- Clap <strong>OUT</strong> → resonant filter / resonator / tuned delay
+- Tune the processor to the key of the track
+- Trigger the clap sparsely
+- Optionally modulate <strong>Tone CV</strong> from your melodic sequencer</p>
+<p><strong>Result:</strong><br />
+The clap becomes an exciter for a tuned resonant body, which can create metallic melodic plucks or tonal percussion.</p>
+<h3>5. Sampling and resequencing</h3>
+<p>If your system includes a sampler, looper, granular module, or external DAW/sampler:</p>
+<p><strong>Patch idea:</strong>
+- Record several clap variations with different <strong>Tone</strong>, <strong>Decay</strong>, and <strong>Accent</strong>
+- Map them chromatically in a sampler
+- Use them as pitched percussion or chopped tonal hits</p>
+<p><strong>Result:</strong><br />
+The module becomes raw material for melodic sample-based composition.</p>
+<h2>Best ways to combine it with other modules for melody</h2>
+<p>Since Clap is not itself a melodic voice, it works best <strong>with</strong> modules such as:</p>
+<ul>
+<li><strong>Sequencers</strong>: to provide triggers, accents, and stepped CV to Tone CV</li>
+<li><strong>Quantizers</strong>: to create musically related stepped modulation</li>
+<li><strong>Oscillators</strong>: layer clap with leads or bass</li>
+<li><strong>Filters/resonators</strong>: turn the clap into tuned percussion</li>
+<li><strong>VCAs/envelopes</strong>: shape parallel layers around the clap</li>
+<li><strong>Samplers/delays/reverbs</strong>: create tonal tails and harmonic space</li>
+<li><strong>Logic/clock modules</strong>: derive clap rhythms from melodic gates</li>
+</ul>
+<h2>Practical melodic patch examples</h2>
+<h2>A. Clap + bassline support</h2>
+<ul>
+<li>Bass sequencer gate multed to <strong>Clap TRIG IN</strong></li>
+<li>Bass accent gate multed to <strong>ACC</strong></li>
+<li>Clap mixed low behind bass voice</li>
+<li>Short decay, medium tone</li>
+</ul>
+<p><strong>Use:</strong> Adds punch and definition to bass phrases.</p>
+<h2>B. Clap as tonal percussion</h2>
+<ul>
+<li>Sequencer CV → <strong>TONE CV</strong></li>
+<li>Clap output → resonator tuned to song key</li>
+<li>Trigger from Euclidean rhythm or melodic clock division</li>
+</ul>
+<p><strong>Use:</strong> Creates pitched percussive motifs.</p>
+<h2>C. Clap as phrase marker</h2>
+<ul>
+<li>Trigger only on the first step of each melodic bar</li>
+<li>Accent only on section changes</li>
+<li>Long decay into reverb</li>
+</ul>
+<p><strong>Use:</strong> Gives structure to melodic progression and transitions.</p>
+<h2>D. Clap-driven texture melody</h2>
+<ul>
+<li>Fast trigger sequence into clap</li>
+<li>Slow or stepped CV into <strong>TONE CV</strong></li>
+<li>Output into delay with high feedback or spectral processor</li>
+</ul>
+<p><strong>Use:</strong> Generates repeating tonal textures that can function like a melodic layer.</p>
+<h2>Strengths for melodic use</h2>
+<ul>
+<li>Excellent transient source</li>
+<li>CV-controllable tone variation</li>
+<li>Accent allows expressive phrasing</li>
+<li>Very useful as an exciter for resonators and effects</li>
+<li>Can track rhythmic structure of melodic content well</li>
+</ul>
+<h2>Limitations</h2>
+<ul>
+<li>Not a true pitched voice</li>
+<li>No 1V/oct tracking</li>
+<li>Tone control is timbral, not note-accurate</li>
+<li>Better for <strong>melodic support</strong> or <strong>tuned percussion</strong> than for conventional melody playing</li>
+</ul>
+<h2>Bottom line</h2>
+<p><strong>Erica Synths Clap is not a melody generator on its own</strong>, but in a Eurorack system it can absolutely help create melodic components by:</p>
+<ul>
+<li>accenting melodic rhythms,</li>
+<li>providing timbrally sequenced percussive phrases,</li>
+<li>exciting tuned processors for tonal percussion,</li>
+<li>and reinforcing phrasing and dynamics around melodic voices.</li>
+</ul>
+<p>If you want, I can also turn this into a more structured <strong>“patch cookbook”</strong> format with:
+- <strong>melodic patch recipes</strong>
+- <strong>signal flow diagrams</strong>
+- and a <strong>“best companion module types”</strong> section.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

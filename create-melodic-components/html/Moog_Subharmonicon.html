@@ -1,0 +1,532 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moog_Subharmonicon</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Moog — Subharmonicon</h1>
+<ul>
+<li><a href="../../manuals/Subharmonicon_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://api.moogmusic.com/sites/default/files/2020-09/Subharmonicon_Manual.pdf">Moog Subharmonicon Manual (PDF)</a></p>
+<h1>Using These Modules Together to Create Melodic Components</h1>
+<p>Based on the manual you provided, the primary module/instrument here is the <strong>Moog Subharmonicon</strong>, with explicit integration examples for:</p>
+<ul>
+<li><strong>Subharmonicon</strong></li>
+<li><strong>DFAM</strong></li>
+<li><strong>Mother-32</strong></li>
+</ul>
+<p>From a Eurorack musician’s perspective, these three make an excellent melodic ecosystem, with <strong>Subharmonicon as the harmonic/polyrhythmic brain</strong>, <strong>Mother-32 as a clocked melodic voice or utility sequencer</strong>, and <strong>DFAM as a rhythmic companion that can also become a pitched melodic/percussive layer</strong>.</p>
+<hr />
+<h2>1. What each module contributes musically</h2>
+<h2>Subharmonicon</h2>
+<p>Subharmonicon is the main melodic generator here.</p>
+<p>It gives you:</p>
+<ul>
+<li><strong>2 VCOs</strong></li>
+<li><strong>4 subharmonic oscillators</strong> total</li>
+<li><strong>2 independent 4-step sequencers</strong></li>
+<li><strong>4 rhythm generators</strong></li>
+<li>quantization in:</li>
+<li><strong>12-ET</strong></li>
+<li><strong>8-ET</strong></li>
+<li><strong>12-JI</strong></li>
+<li><strong>8-JI</strong></li>
+<li>patch outputs for:</li>
+<li><strong>SEQ 1 / SEQ 2 CV</strong></li>
+<li><strong>SEQ 1 CLK / SEQ 2 CLK</strong></li>
+<li><strong>CLOCK</strong></li>
+<li>oscillator audio outs</li>
+<li>envelopes</li>
+</ul>
+<p>This means it can generate:</p>
+<ul>
+<li>basslines</li>
+<li>counterpoint</li>
+<li>drones</li>
+<li>chord-like structures</li>
+<li>pseudo-arpeggios</li>
+<li>polymetric melodic motion</li>
+<li>just-intonation harmonic clusters</li>
+</ul>
+<p>The big conceptual strength is that <strong>pitch and rhythm are both integer-derived</strong>:
+- subharmonics are pitch divisions of the main oscillator
+- rhythm generators are tempo divisions of the master clock</p>
+<p>That makes it naturally good at <strong>coherent, interlocked melodic structures</strong>.</p>
+<hr />
+<h2>Mother-32</h2>
+<p>From the manual’s sync example, Mother-32 is used mainly as:</p>
+<ul>
+<li>an external <strong>master clock</strong></li>
+<li>a second synchronized sequenced system</li>
+</ul>
+<p>In practice, alongside Subharmonicon, Mother-32 can serve as:</p>
+<ul>
+<li>a <strong>lead voice</strong></li>
+<li>a <strong>bass voice</strong></li>
+<li>a <strong>transposing CV source</strong></li>
+<li>a <strong>clock source/divider relationship partner</strong></li>
+<li>a way to add a more traditional single-line sequence against Subharmonicon’s harmonic motion</li>
+</ul>
+<p>Musically, Mother-32 is ideal for giving you a <strong>clear, conventional melodic line</strong> while Subharmonicon supplies moving harmony and polyrhythmic phrasing.</p>
+<hr />
+<h2>DFAM</h2>
+<p>The manual frames DFAM as a clock follower, but as Eurorack players know, DFAM is not just drums.</p>
+<p>Used with Subharmonicon, DFAM can become:</p>
+<ul>
+<li>tuned percussion</li>
+<li>repeating ostinato</li>
+<li>bass accent voice</li>
+<li>rhythmic melody voice</li>
+<li>clocked textural pitch layer</li>
+</ul>
+<p>Because Subharmonicon can send:
+- <strong>CLOCK OUT</strong>
+- <strong>TRIGGER OUT</strong>
+- <strong>SEQ 1 CLK</strong>
+- <strong>SEQ 2 CLK</strong></p>
+<p>to DFAM’s <strong>ADV/CLOCK</strong>, you can make DFAM participate in:
+- straight pulse rhythm
+- sequencer-specific pulse patterns
+- polyrhythmic phrase structures</p>
+<p>That means DFAM can reinforce melody not only as percussion, but as <strong>a rhythmically displaced tonal line</strong>.</p>
+<hr />
+<h1>2. Best overall melodic strategy</h1>
+<p>The most useful way to think about these together is:</p>
+<ul>
+<li><strong>Subharmonicon = harmonic/polyrhythmic composition engine</strong></li>
+<li><strong>Mother-32 = stable melodic narrator</strong></li>
+<li><strong>DFAM = rhythmic pitch accent / percussive melody</strong></li>
+</ul>
+<p>This creates three melodic roles:</p>
+<ol>
+<li>
+<p><strong>Foundational harmony</strong><br />
+   Subharmonicon’s VCOs + subharmonics establish chordal or modal space</p>
+</li>
+<li>
+<p><strong>Primary melody</strong><br />
+   Mother-32 provides a more readable line on top</p>
+</li>
+<li>
+<p><strong>Rhythmic melodic punctuation</strong><br />
+   DFAM locks to subdivisions or sequencer clocks for tuned rhythmic motifs</p>
+</li>
+</ol>
+<hr />
+<h1>3. How Subharmonicon generates melody</h1>
+<h2>A. Two sequencers controlling two pitch centers</h2>
+<p>Subharmonicon has:
+- <strong>Sequencer 1</strong> tied internally to VCO 1 and its subs
+- <strong>Sequencer 2</strong> tied internally to VCO 2 and its subs</p>
+<p>Each sequencer has 4 steps, but because of the rhythm generator assignments, those steps don’t have to advance uniformly.</p>
+<p>This is where the melodic magic comes from.</p>
+<p>You can make:</p>
+<ul>
+<li>Sequencer 1 advance at one rhythmic division</li>
+<li>Sequencer 2 advance at another</li>
+<li>one or both driven by multiple rhythm generators</li>
+</ul>
+<p>Result: a simple 4-step pitch pattern becomes a <strong>long-form evolving melody</strong>.</p>
+<h3>Practical melodic use</h3>
+<ul>
+<li>Put <strong>Sequencer 1</strong> on a root/fifth pattern</li>
+<li>Put <strong>Sequencer 2</strong> on a third/sixth/upper extension pattern</li>
+<li>Mix VCOs and subs to form intervals and moving harmony</li>
+</ul>
+<p>This gives you a compact system for:
+- modal riffs
+- rotating chord tones
+- bass + upper voice interplay</p>
+<hr />
+<h2>B. Sequencer assign buttons are the key to melodic complexity</h2>
+<p>Each sequencer can affect:</p>
+<ul>
+<li>the main VCO pitch</li>
+<li>SUB 1 integer</li>
+<li>SUB 2 integer</li>
+</ul>
+<p>So melody is not limited to “notes.” You can sequence:</p>
+<ul>
+<li>fundamental pitch only</li>
+<li>subharmonic interval only</li>
+<li>or both simultaneously</li>
+</ul>
+<h3>Why this matters</h3>
+<p>If you sequence only the VCO, the subs retain their interval relationship.</p>
+<p>If you sequence the subs too, then each step can reconfigure the harmonic content itself.</p>
+<p>That lets you create:</p>
+<ul>
+<li>moving dyads</li>
+<li>shifting chord voicings</li>
+<li>pseudo-inversions</li>
+<li>step-by-step harmonic modulation</li>
+</ul>
+<p>This is one of the most unique melodic features in the whole system.</p>
+<hr />
+<h2>C. Quantization makes it practical</h2>
+<p>Subharmonicon supports:</p>
+<ul>
+<li><strong>12-ET</strong> chromatic equal temperament</li>
+<li><strong>8-ET</strong> diatonic equal temperament</li>
+<li><strong>12-JI</strong> chromatic just intonation</li>
+<li><strong>8-JI</strong> diatonic just intonation</li>
+<li>or no quantization</li>
+</ul>
+<h3>Best melodic use cases</h3>
+<ul>
+<li><strong>12-ET</strong>: standard melodic integration with other synths</li>
+<li><strong>8-ET</strong>: modal or scale-limited melodies</li>
+<li><strong>12-JI / 8-JI</strong>: pure interval drones, harmonic studies, ancient/choral feel</li>
+<li><strong>Unquantized</strong>: gliding experimental tuning, microtonal tension</li>
+</ul>
+<p>If you want Subharmonicon to work tightly with <strong>Mother-32</strong>, use <strong>12-ET</strong> first.</p>
+<p>If you want Subharmonicon to generate the harmonic world and let Mother-32 float above it, try <strong>8-JI</strong> or <strong>12-JI</strong>.</p>
+<hr />
+<h1>4. How to combine Subharmonicon and Mother-32 melodically</h1>
+<p>The manual specifically shows <strong>Mother-32 clocking Subharmonicon</strong> by patching:</p>
+<ul>
+<li><strong>Mother-32 ASSIGN OUT -&gt; Subharmonicon CLOCK IN</strong></li>
+</ul>
+<p>This means Mother-32 can define global timing.</p>
+<h2>Why this is musically useful</h2>
+<p>Mother-32’s sequence can act like the “song grid,” while Subharmonicon creates layered melodic events inside that grid.</p>
+<h3>Good melodic arrangement</h3>
+<ul>
+<li>Mother-32 plays a clear 8-step or 16-step melodic motif</li>
+<li>Subharmonicon runs two 4-step polyrhythmic harmonic sequences under it</li>
+<li>Reset Subharmonicon at phrase boundaries for structured repetition</li>
+</ul>
+<p>This gives the music:
+- a recognizable lead line
+- evolving harmony underneath
+- predictable song phrasing despite internal complexity</p>
+<hr />
+<h2>Use case 1: Mother-32 lead, Subharmonicon harmony</h2>
+<p><strong>Patch/sync concept</strong>
+- Mother-32 clocks Subharmonicon
+- Subharmonicon in <strong>8-ET</strong> or <strong>12-ET</strong>
+- Sequencer 1 = low register root movement
+- Sequencer 2 = upper chord tone movement
+- Mother-32 = top-line melody</p>
+<p><strong>Result</strong>
+- Mother-32 behaves like the singer
+- Subharmonicon behaves like backing harmonic instruments</p>
+<p>This is probably the most immediate “musical song” use.</p>
+<hr />
+<h2>Use case 2: Subharmonicon transposed feel, Mother-32 fixed pattern</h2>
+<p>Even without a dedicated transpose workflow described in the manual, you can create the <em>effect</em> of transposed interaction by:</p>
+<ul>
+<li>keeping Mother-32 on a repetitive motif</li>
+<li>changing Subharmonicon’s VCO frequencies or step values live</li>
+<li>using RESET to realign phases</li>
+</ul>
+<p>This produces:
+- static melody against moving harmony
+- sequence reharmonization
+- minimalist phasing composition</p>
+<hr />
+<h2>Use case 3: Mother-32 as rhythmic authority, Subharmonicon as polymetric melody engine</h2>
+<p>Since Subharmonicon’s rhythm generators divide a shared tempo, externally clocking it from Mother-32 makes the whole patch breathe together.</p>
+<p>Try:
+- Mother-32 steady clock
+- Subharmonicon Rhythm 1 and 2 on Sequencer 1
+- Rhythm 3 and 4 on Sequencer 2
+- different divisions on each</p>
+<p>Now both voices remain song-synced, but melodic accents feel alive and irregular.</p>
+<p>This is excellent for:
+- Berlin-school lines
+- generative techno melodies
+- cyclical ambient counterpoint</p>
+<hr />
+<h1>5. How to combine Subharmonicon and DFAM melodically</h1>
+<p>The manual shows:</p>
+<ul>
+<li><strong>Subharmonicon CLOCK OUT -&gt; DFAM ADV/CLOCK IN</strong></li>
+</ul>
+<p>It also suggests alternatives:
+- <strong>TRIGGER OUT -&gt; DFAM ADV/CLOCK</strong>
+- <strong>SEQ 1 CLK -&gt; DFAM ADV/CLOCK</strong>
+- <strong>SEQ 2 CLK -&gt; DFAM ADV/CLOCK</strong></p>
+<p>This is where melodic interaction gets really interesting.</p>
+<h2>A. Straight clocked tuned DFAM</h2>
+<p>If you tune DFAM’s oscillators melodically and feed it the main Subharmonicon clock:</p>
+<ul>
+<li>DFAM advances at the global pulse</li>
+<li>Subharmonicon provides harmonic background</li>
+<li>DFAM gives a repeating tonal ostinato</li>
+</ul>
+<p>This works well when:
+- Subharmonicon is lush and slow
+- DFAM is short-decay and punchy</p>
+<p>DFAM becomes a kind of plucked bass or tuned percussion line.</p>
+<hr />
+<h2>B. Sequencer-clocked DFAM for polyrhythmic melody</h2>
+<p>Better yet, patch:</p>
+<ul>
+<li><strong>SEQ 1 CLK OUT -&gt; DFAM ADV/CLOCK</strong>
+or</li>
+<li><strong>SEQ 2 CLK OUT -&gt; DFAM ADV/CLOCK</strong></li>
+</ul>
+<p>Now DFAM advances only when that sequencer advances.</p>
+<p>Since Subharmonicon sequencer clocks are already rhythm-generator-derived, DFAM inherits the polyrhythm.</p>
+<h3>Musical result</h3>
+<p>DFAM no longer feels like “drums under a synth.”<br />
+It becomes a <strong>third melodic phrase</strong>, rhythmically subordinate to one Subharmonicon lane.</p>
+<p>This is excellent for:
+- call and response
+- bass reinforcement
+- rhythmic canon
+- melodic percussion</p>
+<hr />
+<h2>C. Trigger-based DFAM accents</h2>
+<p>Patch:
+- <strong>Subharmonicon TRIGGER OUT -&gt; DFAM ADV/CLOCK</strong></p>
+<p>Because the trigger out reflects envelope triggering, DFAM can follow phrase articulation rather than raw clock.</p>
+<p>This is good if you want DFAM to emphasize:
+- note attacks
+- phrase starts
+- envelope activity</p>
+<p>This yields a more performance-sensitive melodic rhythm.</p>
+<hr />
+<h1>6. Internal Subharmonicon patching for melody</h1>
+<p>Subharmonicon’s patchbay is not just for sync. It can re-route pitch and rhythm internally to create much richer melodic behavior.</p>
+<hr />
+<h2>A. Use SEQ 1 to control VCO 2</h2>
+<p>The manual explicitly gives this example:</p>
+<ul>
+<li><strong>SEQ 1 OUT -&gt; VCO 2 IN</strong></li>
+</ul>
+<p>This lets Sequencer 1 control VCO 2 pitch.</p>
+<h3>Musical implications</h3>
+<p>Now you can have:</p>
+<ul>
+<li>Sequencer 1 driving both voices</li>
+<li>Sequencer 2 disengaged or used separately</li>
+<li>parallel motion between oscillators</li>
+<li>offset melodic doubling</li>
+</ul>
+<p>Great for:
+- harmonized leads
+- octave doubling
+- fourth/fifth motion
+- canon-like melodic movement</p>
+<p>If VCO 2 is tuned to an interval from VCO 1 before patching, the result is a harmonized melody voice.</p>
+<hr />
+<h2>B. Sequence subharmonics independently</h2>
+<p>Patching and assign buttons let you think of subharmonics as melodic voices rather than static support.</p>
+<p>Try:
+- Sequencer 1 assigned to <strong>SUB 1</strong> but not OSC 1
+- Sequencer 2 assigned to <strong>SUB 2</strong> but not OSC 2</p>
+<p>Now the fundamentals stay stable while the undertones move.</p>
+<h3>Result</h3>
+<p>You get:
+- drone root
+- moving inner voices
+- evolving chord color</p>
+<p>This is extremely effective for ambient, folk-modal, and soundtrack composition.</p>
+<hr />
+<h2>C. Use SEQ outputs elsewhere in the rack</h2>
+<p>The patchbay provides:
+- <strong>SEQ 1 OUT</strong>
+- <strong>SEQ 2 OUT</strong></p>
+<p>These output pitch CV from the current sequencer steps.</p>
+<p>So if you add more Eurorack voices, Subharmonicon can sequence them too.</p>
+<p>Even with just the systems mentioned:
+- use Subharmonicon CV conceptually as the melodic master
+- let Mother-32 or other oscillator-based voices track those sequences if compatible in your setup</p>
+<p>This means Subharmonicon can be the <strong>central composition module</strong>, not just a sound source.</p>
+<hr />
+<h2>D. Use rhythm CV inputs for evolving melodic phrasing</h2>
+<p>Subharmonicon has CV inputs for:
+- RHYTHM 1
+- RHYTHM 2
+- RHYTHM 3
+- RHYTHM 4</p>
+<p>These control the integer division selection.</p>
+<p>If you modulate them, your sequence timing changes dynamically.</p>
+<h3>Melodic use</h3>
+<p>This is not pitch CV, but it directly shapes melodic identity by changing:
+- note density
+- accent placement
+- phrase length
+- repeat cycle</p>
+<p>If another module in the rack can output slow CV, you can morph static sequences into evolving melodic structures.</p>
+<hr />
+<h1>7. Best melodic roles for each output on Subharmonicon</h1>
+<h2>SEQ 1 OUT / SEQ 2 OUT</h2>
+<p>Use for:
+- sequencing external oscillators
+- doubling melodic lines
+- layered harmony
+- sending Subharmonicon’s pitch structure elsewhere</p>
+<h2>SEQ 1 CLK / SEQ 2 CLK</h2>
+<p>Use for:
+- clocking DFAM differently for melody accents
+- advancing other sequencers in the rack
+- creating phrase-linked rhythmic melody</p>
+<h2>CLOCK OUT</h2>
+<p>Use for:
+- making all melodic modules share pulse
+- keeping arpeggios and basslines aligned</p>
+<h2>TRIGGER OUT</h2>
+<p>Use for:
+- phrase accents
+- triggering percussive melodic voices
+- articulation-linked movement</p>
+<h2>VCF EG / VCA EG outputs</h2>
+<p>These are not pitch outputs, but can be used creatively for melodic phrasing if routed to other CV destinations in a larger system:
+- filter animation
+- amplitude contouring
+- dynamic phrase shaping</p>
+<hr />
+<h1>8. Strong melodic patch ideas</h1>
+<h2>Patch 1: Harmonic bed + lead + tuned percussion</h2>
+<p><strong>Goal:</strong> full melodic arrangement</p>
+<ul>
+<li>Mother-32 clocks Subharmonicon</li>
+<li>Subharmonicon:</li>
+<li>Sequencer 1 = bass/root movement</li>
+<li>Sequencer 2 = chord/upper interval movement</li>
+<li>Quantize = 12-ET</li>
+<li>DFAM clocked from <strong>SEQ 2 CLK</strong></li>
+<li>DFAM tuned as short-decay percussive pitch line</li>
+</ul>
+<p><strong>Musical result:</strong>
+- Mother-32 = lead melody
+- Subharmonicon = harmonic accompaniment
+- DFAM = syncopated melodic percussion</p>
+<p>This is probably the most complete trio use.</p>
+<hr />
+<h2>Patch 2: Just-intonation drone choir</h2>
+<p><strong>Goal:</strong> lush melodic harmony</p>
+<ul>
+<li>Subharmonicon quantize = <strong>8-JI</strong> or <strong>12-JI</strong></li>
+<li>VCOs tuned to consonant interval</li>
+<li>subs mixed prominently</li>
+<li>Sequencers move subharmonics more than fundamentals</li>
+<li>Mother-32 adds sparse top notes</li>
+<li>DFAM omitted or used minimally</li>
+</ul>
+<p><strong>Result:</strong>
+- moving overtone/undertone harmony
+- very pure interval relationships
+- slow melodic evolution</p>
+<p>Excellent for ambient and experimental tonal music.</p>
+<hr />
+<h2>Patch 3: Bassline machine</h2>
+<p><strong>Goal:</strong> strong low-end melody</p>
+<ul>
+<li>Subharmonicon Sequencer 1 on VCO 1 + subs</li>
+<li>low rhythm divisions on Seq 1</li>
+<li>DFAM clocked from <strong>TRIGGER OUT</strong> or <strong>SEQ 1 CLK</strong></li>
+<li>DFAM tuned to reinforce the same root or fifth</li>
+<li>Mother-32 plays higher counterline</li>
+</ul>
+<p><strong>Result:</strong>
+- Subharmonicon = complex bass harmony
+- DFAM = punchy bass punctuation
+- Mother-32 = agile upper melody</p>
+<p>Very effective for techno, electro, and soundtrack pulses.</p>
+<hr />
+<h2>Patch 4: One-sequence multi-voice harmony</h2>
+<p><strong>Goal:</strong> parallel melodic motion</p>
+<ul>
+<li>Patch <strong>SEQ 1 OUT -&gt; VCO 2 IN</strong></li>
+<li>Tune VCO 1 and VCO 2 to different starting intervals</li>
+<li>Use Sequencer 1 as main pitch contour</li>
+<li>Assign Sequencer 2 only to subs or leave it unused</li>
+<li>Clock from one or two rhythm generators</li>
+</ul>
+<p><strong>Result:</strong>
+- both VCOs track a related melodic shape
+- subs provide extra harmony
+- one compact sequence turns into a harmonized melodic stack</p>
+<p>This is a great way to make Subharmonicon behave more like a compact polyphonic composition tool.</p>
+<hr />
+<h1>9. The most important musical strengths of this system</h1>
+<h2>A. Melodies can be harmonic, not just monophonic</h2>
+<p>Subharmonicon is especially good at making melody feel like harmony in motion.</p>
+<p>Instead of one note at a time, you get:
+- note + undertones
+- two sequenced pitch centers
+- interval shifts by step</p>
+<p>So melodic writing becomes <strong>voice-leading</strong> rather than simple sequencing.</p>
+<hr />
+<h2>B. Rhythm and melody are inseparable</h2>
+<p>Because rhythm generators determine step advancement, melodic identity depends heavily on clock division.</p>
+<p>A 4-step sequence can feel like:
+- a bass riff
+- an arpeggio
+- a rotating harmonic cell
+- a generative phrase</p>
+<p>just by changing rhythm assignments.</p>
+<hr />
+<h2>C. You can create long evolving phrases from tiny materials</h2>
+<p>Two 4-step sequencers sounds limited on paper.</p>
+<p>But once you add:
+- four rhythm generators
+- separate assignments
+- two oscillators
+- four subharmonic oscillators
+- resets during performance</p>
+<p>you get surprisingly long melodic cycles.</p>
+<p>That makes the system perfect for:
+- minimalist composition
+- generative patches
+- evolving accompaniment
+- live performance variation</p>
+<hr />
+<h1>10. Practical advice for making it sound musical fast</h1>
+<h2>Start in 12-ET</h2>
+<p>If combining with Mother-32 or external gear, begin with <strong>12-ET</strong> for predictable pitch behavior.</p>
+<h2>Use one sequencer for roots, one for color</h2>
+<p>A very reliable approach is:
+- <strong>Seq 1</strong> = root/bass motion
+- <strong>Seq 2</strong> = harmonic color or higher-register motion</p>
+<h2>Don’t overuse all subs at once</h2>
+<p>All six sound sources can get dense fast. For melody, clarity often improves if:
+- one main VCO is dominant
+- one or two subs are supporting
+- the others are introduced selectively</p>
+<h2>Use RESET musically</h2>
+<p>RESET is not just technical. It is a phrase tool.
+Use it:
+- at bar starts
+- to restart evolving patterns
+- to bring harmony back into focus</p>
+<h2>Use sequencer clocks as composition tools</h2>
+<p>Instead of only using main clock out, use:
+- <strong>SEQ 1 CLK</strong> for one melodic follower
+- <strong>SEQ 2 CLK</strong> for another</p>
+<p>This creates structured interdependence across modules.</p>
+<hr />
+<h1>11. Bottom line</h1>
+<p>If your goal is to create <strong>melodic components for music</strong>, these modules work together best like this:</p>
+<ul>
+<li><strong>Subharmonicon</strong> creates the harmonic and polymetric core</li>
+<li><strong>Mother-32</strong> adds a stable, readable melodic line and/or master timing</li>
+<li><strong>DFAM</strong> becomes a clocked rhythmic pitch accent or tuned percussive melody</li>
+</ul>
+<p>The strongest musical workflows are:</p>
+<ol>
+<li><strong>Subharmonicon as harmonic engine, Mother-32 as lead</strong></li>
+<li><strong>Subharmonicon clocking or phrase-driving DFAM for tuned rhythmic motifs</strong></li>
+<li><strong>Using Subharmonicon’s sequencer CV and sequencer clocks to spread one melodic idea across multiple voices</strong></li>
+<li><strong>Using just intonation and subharmonic sequencing for rich, evolving interval-based music</strong></li>
+</ol>
+<p>In short, this setup excels at:
+- basslines
+- drones
+- harmonic ostinati
+- melodic counterpoint
+- polyrhythmic motifs
+- evolving tonal texture</p>
+<p>It is less about conventional keyboard-style melody writing and more about <strong>composed interlocking melodic ecosystems</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

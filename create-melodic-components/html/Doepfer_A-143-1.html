@@ -1,0 +1,417 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-143-1</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-143-1</h1>
+<ul>
+<li><a href="../../manuals/A1431_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1><a href="https://doepfer.de/a100_man/A1431_man.pdf">Doepfer A-143-1 Quad AD/LFO Manual (PDF)</a></h1>
+<h2>Doepfer A-143-1 Quad AD/LFO: using it for melodic patching</h2>
+<p>The A-143-1 is not a pitch sequencer in the usual sense, but it <strong>can become a very musical modulation hub</strong> for creating melodic motion when paired with oscillators, quantizers, VCAs, filters, switches, or sequential routing modules. Its strength is that it gives you <strong>four attack/decay function generators</strong>, each with:</p>
+<ul>
+<li>Trigger input</li>
+<li>Envelope output</li>
+<li>End-of-Attack (EOA) output</li>
+<li>Comparator output with adjustable threshold</li>
+<li>Polarizer amount into a shared mix output</li>
+<li>AD or looping LFO mode</li>
+</ul>
+<p>The important musical idea is this:</p>
+<blockquote>
+<p>The A-143-1 generates <strong>complex timed voltages and logic events</strong>, which can be shaped into stepped or repeating melodic structures.</p>
+</blockquote>
+<hr />
+<h2>What the module does well for melody</h2>
+<p>From the manual, the A-143-1 can operate as:</p>
+<ul>
+<li><strong>4 independent AD envelopes</strong></li>
+<li><strong>4 free-running AD-style LFOs</strong></li>
+<li><strong>A chained multi-stage envelope</strong></li>
+<li><strong>A complex cyclic modulation source</strong></li>
+</ul>
+<p>Because the trigger inputs are <strong>normalled</strong> from one comparator to the next, the four sections can self-chain into a larger evolving shape. That means you can build:</p>
+<ul>
+<li>repeating phrase contours</li>
+<li>rising/falling pitch gestures</li>
+<li>pseudo-sequences</li>
+<li>call-and-response modulation patterns</li>
+<li>ratcheting or stage-advanced melodic events via EOA/Cp outputs</li>
+</ul>
+<hr />
+<h2>Key features that matter musically</h2>
+<h3>1. Envelope outputs as melodic control voltages</h3>
+<p>Each channel outputs about:</p>
+<ul>
+<li><strong>0 to +8V in AD mode</strong></li>
+<li><strong>about +0.5V to +8V in LFO mode</strong></li>
+</ul>
+<p>This is useful for melodic work because envelope voltages can be sent to:</p>
+<ul>
+<li><strong>1V/oct pitch input</strong> of an oscillator, usually through attenuation/offset and ideally a quantizer</li>
+<li>filter cutoff to emphasize notes</li>
+<li>wavefolder / timbre CV for note-dependent tone changes</li>
+<li>VCA CV for articulation</li>
+</ul>
+<p>Raw envelope voltages are continuous, so if you want conventional notes, run them through a <strong>quantizer</strong> first.</p>
+<hr />
+<h3>2. Mix output as a composite melodic contour</h3>
+<p>The <strong>Mix Out</strong> sums all four envelopes according to each channel’s <strong>Mix Polarizer</strong>:</p>
+<ul>
+<li>clockwise = positive contribution</li>
+<li>counterclockwise = negative contribution</li>
+<li>center = no contribution</li>
+</ul>
+<p>This is where the module becomes especially melodic.</p>
+<p>By setting the four envelopes to different times and polarities, you can create a <strong>compound CV shape</strong> that rises and falls in repeatable phrase-like ways. Sent into a quantizer, this becomes a melodic line.</p>
+<p>Think of Mix Out as a way to “compose” one control voltage out of four moving parts.</p>
+<hr />
+<h3>3. Comparator outputs create stage timing</h3>
+<p>Each section has a <strong>Comparator output (Cp)</strong> tied to a manually adjustable threshold. The comparator changes state according to the envelope crossing that threshold, and these outputs are internally chained to trigger the next stage.</p>
+<p>Musically, this means:</p>
+<ul>
+<li>one envelope can determine <strong>when the next melodic event happens</strong></li>
+<li>threshold changes alter <strong>phrase timing</strong></li>
+<li>changing attack/decay changes <strong>rhythmic spacing</strong></li>
+<li>you can get non-uniform, human, asymmetrical timing patterns</li>
+</ul>
+<p>This is a huge advantage over a rigid clock divider if you want melody that breathes.</p>
+<hr />
+<h3>4. EOA outputs can trigger note events</h3>
+<p>The <strong>End of Attack (EOA)</strong> output goes high when the attack phase ends.</p>
+<p>That can be used to:</p>
+<ul>
+<li>trigger another envelope/VCA for accent</li>
+<li>clock a switch or sequential switch</li>
+<li>trigger sample &amp; hold</li>
+<li>strike a low pass gate</li>
+<li>advance an external sequencer or shift register</li>
+</ul>
+<p>So one contour can both define pitch movement <strong>and</strong> trigger the next note articulation.</p>
+<hr />
+<h2>Best melodic use cases</h2>
+<hr />
+<h2>1. Create a melodic CV line with Mix Out + quantizer</h2>
+<h3>Patch idea</h3>
+<ul>
+<li>Set all four sections to <strong>AD</strong></li>
+<li>Leave normalled chain behavior active, or trigger section 1 externally</li>
+<li>Set different Attack/Decay times on each section</li>
+<li>Use different polarizer settings for each channel</li>
+<li>Patch <strong>Mix Out → Quantizer → VCO 1V/oct</strong></li>
+</ul>
+<h3>What happens</h3>
+<p>The combined output becomes a repeating analog phrase contour. The quantizer turns that contour into notes.</p>
+<h3>Why it works</h3>
+<p>Each envelope contributes a timed rise/fall to the total CV. Because the stages trigger one another, you get a multi-segment melodic phrase rather than a simple triangle LFO.</p>
+<h3>Tips</h3>
+<ul>
+<li>Use <strong>short attacks</strong> for more stepped-sounding motion</li>
+<li>Use <strong>different decay times</strong> for phrase asymmetry</li>
+<li>Try:</li>
+<li>Ch1 + full positive</li>
+<li>Ch2 slight negative</li>
+<li>Ch3 medium positive</li>
+<li>Ch4 full negative<br />
+  This often creates contour shifts that quantize into memorable note loops</li>
+</ul>
+<hr />
+<h2>2. Use the 4 individual envelope outs as four melodic lanes</h2>
+<p>Instead of using Mix Out, use each <strong>Env Out</strong> separately.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Env 1 → quantizer A → VCO pitch</li>
+<li>Env 2 → filter cutoff</li>
+<li>Env 3 → wavefolder CV</li>
+<li>Env 4 → VCA CV or second oscillator FM index</li>
+</ul>
+<p>Or:</p>
+<ul>
+<li>Env 1/2/3/4 into a <strong>sequential switch</strong></li>
+<li>Switch output → quantizer → oscillator pitch</li>
+</ul>
+<h3>What happens</h3>
+<p>Each stage becomes its own melodic shape. If you route them one at a time through a switch, you effectively get a <strong>4-source melodic selector</strong>.</p>
+<h3>Musical result</h3>
+<p>This can sound like:
+- 4-note motif sources
+- varying phrase fragments
+- evolving lead lines
+- pseudo-sequenced arpeggios</p>
+<hr />
+<h2>3. Make an 8-stage melodic phrase from the module’s natural chaining</h2>
+<p>The manual notes that with all trigger inputs open and the units chained, the module behaves like a <strong>complex 8-stage LFO</strong> because each section has a rise and fall segment.</p>
+<p>That means musically you can think of it as:</p>
+<ul>
+<li>stage 1 rise</li>
+<li>stage 1 fall</li>
+<li>stage 2 rise</li>
+<li>stage 2 fall</li>
+<li>stage 3 rise</li>
+<li>stage 3 fall</li>
+<li>stage 4 rise</li>
+<li>stage 4 fall</li>
+</ul>
+<h3>Patch idea</h3>
+<ul>
+<li>Use default internal chaining</li>
+<li>Set all four units to AD or use cyclic behavior</li>
+<li>Patch Mix Out → quantizer → oscillator</li>
+</ul>
+<h3>Result</h3>
+<p>You get a recurring 8-segment phrase contour, which often feels more “composed” than a simple LFO.</p>
+<h3>Good for</h3>
+<ul>
+<li>basslines</li>
+<li>repeating ostinatos</li>
+<li>Berlin-school style looping pitch movement</li>
+<li>generative melodies</li>
+</ul>
+<hr />
+<h2>4. Use comparator outputs as note clocks</h2>
+<p>The comparator outputs change according to threshold crossings. Since they’re related to each envelope’s decay phase and threshold setting, they produce logic events at musically meaningful times.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Mix Out → quantizer → VCO pitch</li>
+<li>Cp 1 → envelope trigger for VCA</li>
+<li>Cp 2 → trigger percussion or accent envelope</li>
+<li>Cp 3 → advance switch</li>
+<li>Cp 4 → trigger sample &amp; hold</li>
+</ul>
+<h3>What happens</h3>
+<p>Now pitch is moving continuously, but note articulation is driven by internal stage timing. This creates <strong>melody plus rhythm from one module</strong>.</p>
+<h3>Musical benefit</h3>
+<p>You can separate:
+- <strong>pitch contour</strong> from Mix Out
+- <strong>note onset timing</strong> from Cp or EOA outputs</p>
+<p>That’s a very powerful way to get melodic complexity.</p>
+<hr />
+<h2>5. Use EOA outputs to sample the melodic contour</h2>
+<p>A very strong melodic patch is to let the A-143-1 make a continuous changing CV, then <strong>sample it</strong> at chosen moments.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Mix Out → Sample &amp; Hold input</li>
+<li>EOA 1 or Cp 1 → Sample &amp; Hold trigger</li>
+<li>S&amp;H out → quantizer → VCO 1V/oct</li>
+</ul>
+<h3>What happens</h3>
+<p>Instead of hearing a glide, you hear discrete note changes taken from the evolving analog contour.</p>
+<h3>Why this is good</h3>
+<p>This turns the module into a <strong>phrase generator</strong> with repeatable but adjustable note extraction points.</p>
+<h3>Variation</h3>
+<p>Use different EOA outputs to trigger the sample &amp; hold so different stages “pick” the note.</p>
+<hr />
+<h2>6. Use AD mode for phrase envelopes, LFO mode for autonomous melodies</h2>
+<p>The mode switch per section matters a lot.</p>
+<h3>In AD mode</h3>
+<p>Each section behaves like a triggered envelope. Best for:
+- externally clocked phrases
+- repeatable note lengths
+- synchronizing melody to drums/gates</p>
+<h3>In LFO mode</h3>
+<p>Each section free-runs. The manual notes you should insert a <strong>dummy cable</strong> in the trigger input if you don’t want the preceding comparator to retrigger it.</p>
+<p>Best for:
+- drifting melodic motion
+- semi-independent cyclical pitch sources
+- phasing melodies</p>
+<h3>Melodic strategy</h3>
+<ul>
+<li>Put 2 channels in AD mode for phrase structure</li>
+<li>Put 2 channels in LFO mode for drifting pitch/timbre modulation</li>
+<li>Combine via Mix Out or externally in a CV mixer</li>
+</ul>
+<p>This gives melody with both <strong>form</strong> and <strong>instability</strong>.</p>
+<hr />
+<h2>7. Make counter-melodies with positive and negative polarities</h2>
+<p>Because each channel has a polarizer into the mix, some envelopes can push pitch up while others pull it down.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Ch1 polarizer: high positive</li>
+<li>Ch2 polarizer: low negative</li>
+<li>Ch3 polarizer: medium positive</li>
+<li>Ch4 polarizer: medium negative</li>
+<li>Mix Out → quantizer → VCO pitch</li>
+</ul>
+<h3>Result</h3>
+<p>This creates contour interference:
+- some stages lift the phrase
+- some stages drag it downward</p>
+<p>Quantized, this can sound like:
+- tension/release
+- answers to previous notes
+- recurring melodic “hooks”</p>
+<p>This is one of the most musical features of the module.</p>
+<hr />
+<h2>8. Trigger multiple voices sequentially for melodic rounds</h2>
+<p>The manual specifically mentions controlling multiple similar modules in sequence. For melodic work, that means you can use the four envelope outs to animate <strong>four voices or four VCAs</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>One oscillator drone or chord source</li>
+<li>Four VCAs or four filters</li>
+<li>Env 1 → voice 1 amplitude/filter</li>
+<li>Env 2 → voice 2 amplitude/filter</li>
+<li>Env 3 → voice 3 amplitude/filter</li>
+<li>Env 4 → voice 4 amplitude/filter</li>
+</ul>
+<p>If each voice has a different pitch, the chained envelopes create a <strong>rotating melodic pattern</strong> across voices.</p>
+<h3>Good for</h3>
+<ul>
+<li>round-robin melodies</li>
+<li>quadraphonic phrases</li>
+<li>stereo ping-pong note animation</li>
+<li>chord tones appearing one after another</li>
+</ul>
+<hr />
+<h2>9. Use retrigger behavior musically</h2>
+<p>The manual notes unusual retrigger behavior:</p>
+<ul>
+<li>During <strong>attack</strong>, the envelope cannot be retriggered/reset</li>
+<li>During <strong>decay</strong>, a trigger changes direction from decay back to attack</li>
+</ul>
+<p>This is very musical.</p>
+<h3>Why</h3>
+<p>If you feed triggers during decay, the contour bends upward again instead of restarting hard. That produces:
+- elastic phrasing
+- pitch “bounces”
+- curved melodic ornaments
+- less mechanical repetition</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a clock or burst generator into one trigger input</li>
+<li>Use that envelope output for pitch CV through a quantizer</li>
+</ul>
+<p>The resulting phrase will feel less grid-locked than a standard sequencer.</p>
+<hr />
+<h2>10. Use threshold as a phrase spacing control</h2>
+<p>The <strong>Threshold</strong> knob is easy to underestimate. It affects when the comparator changes state, which affects when the next stage is triggered in the internal chain.</p>
+<h3>Musically, threshold changes:</h3>
+<ul>
+<li>note spacing</li>
+<li>amount of overlap/urgency between stages</li>
+<li>phrase swing</li>
+<li>density of melodic movement</li>
+</ul>
+<h3>Patch practice</h3>
+<p>Set similar Attack/Decay values on all four channels, then change only thresholds.</p>
+<p>You’ll hear the phrase timing shift significantly without changing the basic envelope lengths.</p>
+<p>This is great for:
+- evolving ostinatos
+- irregular “sequencer” timing
+- humanized repeating phrases</p>
+<hr />
+<h2>Example melodic patches</h2>
+<h2>Patch 1: Simple looping melody</h2>
+<p><strong>Goal:</strong> repeating 4–8 note melodic line</p>
+<ul>
+<li>Leave trigger inputs unpatched for internal chaining</li>
+<li>Set all channels to <strong>AD</strong></li>
+<li>Set varied attack/decay times</li>
+<li>Polarizers to mixed positive/negative values</li>
+<li>Mix Out → quantizer → VCO 1V/oct</li>
+<li>One EOA output → trigger envelope for VCA</li>
+</ul>
+<p><strong>Result:</strong> self-running melodic loop with articulated note events.</p>
+<hr />
+<h2>Patch 2: Triggered phrase generator</h2>
+<p><strong>Goal:</strong> one externally clocked phrase per gate</p>
+<ul>
+<li>External gate/trigger → Trig In 1</li>
+<li>Chained internally from there through stages 2–4</li>
+<li>Mix Out → quantizer → oscillator pitch</li>
+<li>Separate ADSR/VCA handles loudness</li>
+</ul>
+<p><strong>Result:</strong> every input trigger launches a full melodic phrase.</p>
+<p>This is especially useful for leads and bass phrases.</p>
+<hr />
+<h2>Patch 3: Semi-random note selection</h2>
+<p><strong>Goal:</strong> generative but structured melody</p>
+<ul>
+<li>Mix Out → sample &amp; hold input</li>
+<li>Cp 2 → sample &amp; hold trigger</li>
+<li>S&amp;H out → quantizer → VCO pitch</li>
+<li>Cp 4 → trigger accent envelope</li>
+</ul>
+<p><strong>Result:</strong> notes are extracted from the changing contour at repeating but uneven times.</p>
+<hr />
+<h2>Patch 4: Two-voice melodic conversation</h2>
+<p><strong>Goal:</strong> lead and answer line</p>
+<ul>
+<li>Env 1 + Env 2 mixed/quantized → VCO A pitch</li>
+<li>Env 3 + Env 4 mixed/quantized → VCO B pitch</li>
+<li>EOA outputs used to trigger separate VCAs</li>
+</ul>
+<p><strong>Result:</strong> one module generates two related melodic lines with shared timing DNA.</p>
+<hr />
+<h2>Patch 5: Arpeggio-like phrase with switch</h2>
+<p><strong>Goal:</strong> stepped melody from four contour sources</p>
+<ul>
+<li>Env 1/2/3/4 → sequential switch inputs</li>
+<li>Clock or EOA drives switch advance</li>
+<li>Switch output → quantizer → VCO pitch</li>
+</ul>
+<p><strong>Result:</strong> the melody jumps among four differently shaped control sources.</p>
+<hr />
+<h2>Best companions for melodic use</h2>
+<p>The A-143-1 becomes much more directly melodic when paired with:</p>
+<ul>
+<li><strong>Quantizer</strong> – essential for tonal note output</li>
+<li><strong>Sample &amp; Hold</strong> – turns evolving contours into steps</li>
+<li><strong>Sequential switch</strong> – selects among envelope sources</li>
+<li><strong>Clock / trigger source</strong> – synchronizes phrase starts</li>
+<li><strong>VCA / LPG</strong> – articulates notes</li>
+<li><strong>Precision adder / offset / attenuator</strong> – places pitch in a useful range</li>
+<li><strong>Oscillator with good 1V/oct tracking</strong></li>
+<li><strong>Logic / clock divider</strong> – for structured stage triggering</li>
+</ul>
+<p>Without a quantizer, it is still great for glides, portamento-style lines, and atonal or experimental pitch movement.</p>
+<hr />
+<h2>Practical melodic advice</h2>
+<h3>Use attenuation on pitch</h3>
+<p>The envelope range is large for 1V/oct use. If patched directly to pitch, it may span many octaves. Usually you’ll want:</p>
+<ul>
+<li>attenuator</li>
+<li>offset</li>
+<li>quantizer with input scaling if available</li>
+</ul>
+<h3>Quantize after mixing</h3>
+<p>For musical scales, the most effective order is often:</p>
+<p><strong>A-143-1 Mix Out → attenuate/offset → quantizer → oscillator</strong></p>
+<h3>Use EOA for articulation</h3>
+<p>The contour itself can define pitch, but use EOA or comparator outputs to generate note gates.</p>
+<h3>Keep some channels subtle</h3>
+<p>If every channel contributes strongly to Mix Out, the melody may become too jumpy. Often the best results come from:
+- one dominant contour
+- two medium influences
+- one small destabilizer</p>
+<hr />
+<h2>Summary</h2>
+<p>The Doepfer <strong>A-143-1</strong> is best understood melodically as a <strong>complex control-voltage phrase generator</strong>, not a conventional sequencer.</p>
+<p>It can create melodic material by:</p>
+<ul>
+<li>generating continuous pitch contours from the four envelope sections</li>
+<li>summing them into one composite phrase at <strong>Mix Out</strong></li>
+<li>using <strong>polarizers</strong> to shape melodic direction</li>
+<li>using <strong>threshold/comparator timing</strong> to create irregular stage progression</li>
+<li>using <strong>EOA and comparator outputs</strong> to trigger note articulation, switching, or sample &amp; hold</li>
+<li>running as either a triggered phrase generator or a self-cycling melodic engine</li>
+</ul>
+<p>If you add a <strong>quantizer</strong> and optionally a <strong>sample &amp; hold or sequential switch</strong>, the A-143-1 becomes extremely effective for:</p>
+<ul>
+<li>looping melodies</li>
+<li>bassline contours</li>
+<li>generative note patterns</li>
+<li>multi-stage phrases</li>
+<li>evolving counter-melodies</li>
+<li>multi-voice sequential animation</li>
+</ul>
+<p>In short:<br />
+<strong>the A-143-1 doesn’t write notes directly — it writes the motion that notes can be extracted from.</strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

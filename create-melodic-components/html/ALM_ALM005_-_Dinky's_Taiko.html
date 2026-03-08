@@ -1,0 +1,411 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ALM_ALM005_-_Dinky&#x27;s_Taiko</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>ALM — ALM005 - Dinky's Taiko</h1>
+<ul>
+<li><a href="../../manuals/alm005-manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>ALM-005 — Dinky’s Taiko: using it for melodic components</h1>
+<p>Dinky’s Taiko is presented as a <strong>12-bit digital drum voice</strong>, but it can absolutely be pushed into <strong>pitched, repeating, and quasi-melodic territory</strong>. It is not a precision oscillator and the manual explicitly says <strong>“don’t expect 1v/octave”</strong>, but in Eurorack that still leaves a lot of room for tuned percussion, basslines, metallic melodies, and animated tonal sequences.</p>
+<h2>What the manual tells us matters most for melodic use</h2>
+<p>From the manual:</p>
+<ul>
+<li>It has <strong>two sound generators</strong>:</li>
+<li>a <strong>digital noise source</strong></li>
+<li>a <strong>wavetable oscillator</strong> with <strong>24 waveforms</strong></li>
+<li>The oscillator has:</li>
+<li><strong>Start Freq</strong></li>
+<li><strong>End Freq</strong></li>
+<li><strong>Speed</strong></li>
+<li><strong>Release</strong></li>
+<li><strong>Wave</strong></li>
+<li>There are trigger inputs for:</li>
+<li><strong>Trigger</strong></li>
+<li><strong>Accent</strong></li>
+<li><strong>Choke</strong></li>
+<li>There is an output section with:</li>
+<li><strong>Mix</strong> between noise and oscillator</li>
+<li><strong>Tilt EQ</strong></li>
+<li>Most importantly:</li>
+<li><strong>all settings except tone/EQ are voltage controllable</strong></li>
+<li><strong>incoming CV is added to the knob setting</strong></li>
+<li><strong>values are snapshotted when a trigger is received</strong></li>
+</ul>
+<p>That last point is especially important for melody building: <strong>the timbre/pitch state is sampled at each trigger</strong>, so stepped CV and rhythmic triggers become a very effective way to “play notes.”</p>
+<hr />
+<h2>The key limitation: it is melodic, not chromatic</h2>
+<p>Dinky’s Taiko is <strong>not a tuned VCO</strong>. So if your goal is exact semitone tracking over several octaves, this is the wrong tool by itself.</p>
+<p>But if your goal is any of the following, it works very well:</p>
+<ul>
+<li><strong>pitched percussion</strong></li>
+<li><strong>tom/conga lines</strong></li>
+<li><strong>metallic riffs</strong></li>
+<li><strong>FM-like pseudo-basslines</strong></li>
+<li><strong>atonal or modal sequences</strong></li>
+<li><strong>repeating “note-like” motifs</strong></li>
+<li><strong>electro-style tuned drum melodies</strong></li>
+</ul>
+<p>Think of it as a <strong>voice for contour-based pitch</strong> rather than exact keyboard pitch.</p>
+<hr />
+<h2>How to get melodic behavior from it</h2>
+<h2>1. Use the oscillator as the main pitched source</h2>
+<p>For the clearest melodic result:</p>
+<ul>
+<li>turn <strong>Mix</strong> toward the <strong>oscillator</strong></li>
+<li>reduce the <strong>noise</strong> contribution</li>
+<li>use <strong>Wave</strong> settings that are less noisy and more stable</li>
+<li>keep <strong>EQ</strong> centered or tilted to emphasize the fundamental/body</li>
+</ul>
+<p>This gives you the most “note-like” core.</p>
+<h3>Good starting settings</h3>
+<ul>
+<li><strong>Mix</strong>: mostly or fully oscillator</li>
+<li><strong>Noise Release</strong>: low</li>
+<li><strong>Spectrum</strong>: low or irrelevant if noise is mostly out</li>
+<li><strong>Oscillator Release</strong>: medium</li>
+<li><strong>Start Freq</strong>: set by ear</li>
+<li><strong>End Freq</strong>: near Start Freq for more stable pitch</li>
+<li><strong>Speed</strong>: low to medium</li>
+<li><strong>Wave</strong>: start with sine-ish or less complex waves</li>
+</ul>
+<p>The manual mentions the wavetable starts with <strong>sines with increasing overtones</strong>, then progresses into <strong>squares, saws, blips, crunchy noise and vocal tracts</strong>. For melody, start with the earlier, smoother waves.</p>
+<hr />
+<h2>2. Treat Start Freq as your main “note” control</h2>
+<p>If you want note changes, <strong>Start Freq CV</strong> is the most obvious place to send sequenced voltage.</p>
+<p>Because the module snapshots CV at trigger time:</p>
+<ul>
+<li>send a <strong>stepped CV sequence</strong> to <strong>Start Freq</strong></li>
+<li>send matching <strong>triggers</strong> to <strong>Trigger</strong></li>
+<li>each hit reads a new oscillator frequency setting</li>
+</ul>
+<p>This creates a line of distinct pitched hits.</p>
+<h3>Best use cases</h3>
+<ul>
+<li>8-step tuned percussion sequence</li>
+<li>bass drum / tom melody</li>
+<li>industrial bell-like line</li>
+<li>quasi-arp patterns</li>
+</ul>
+<p>Since it’s not 1V/oct, you’ll want to tune it <strong>by ear</strong>, not by scale expectations.</p>
+<hr />
+<h2>3. Use End Freq and Speed to shape pitch motion within each note</h2>
+<p>This is where Dinky’s Taiko becomes uniquely musical.</p>
+<p>The oscillator moves from <strong>Start Freq</strong> to <strong>End Freq</strong> at a rate set by <strong>Speed</strong>. If the end is reached, it resets back to start. At higher settings this can become <strong>metallic and FM-like</strong>.</p>
+<p>So instead of thinking only in static notes, think in <strong>pitched gestures</strong>:</p>
+<ul>
+<li><strong>Start high, End low</strong> → tom drop, kick-like pitch envelope</li>
+<li><strong>Start low, End high</strong> → rising synthetic percussion</li>
+<li><strong>Start ≈ End</strong> → more stable note impression</li>
+<li><strong>High Speed</strong> → complex metallic “pitched” timbres</li>
+<li><strong>Moderate Speed + close freq settings</strong> → plucky tonal hits</li>
+</ul>
+<h3>Melodic trick</h3>
+<p>Keep <strong>Speed</strong> fixed and sequence <strong>Start Freq</strong> while keeping <strong>End Freq</strong> near it.<br />
+This yields a family of related pitches that feels like a melody rather than random drum variation.</p>
+<h3>Expressive trick</h3>
+<p>Sequence <strong>End Freq</strong> separately from <strong>Start Freq</strong>.<br />
+Then the “same note” can bend differently per step, giving you melodic phrasing instead of just pitch change.</p>
+<hr />
+<h2>4. Use trigger snapshotting like sample-and-hold performance logic</h2>
+<p>Because control values are captured only when a trigger arrives:</p>
+<ul>
+<li>slow LFOs into frequency inputs become <strong>stepped melodic variation</strong></li>
+<li>random CV becomes <strong>note-per-hit pitch sampling</strong></li>
+<li>envelopes won’t continuously sweep the note after trigger; instead they define the next note’s character</li>
+</ul>
+<p>This is excellent for:</p>
+<ul>
+<li><strong>generative melodies</strong></li>
+<li><strong>controlled random tuned percussion</strong></li>
+<li><strong>rhythmically quantized timbral note changes</strong></li>
+</ul>
+<p>In practice:
+- Send a slow triangle LFO to <strong>Start Freq</strong>
+- Clock a trigger pattern into <strong>Trigger</strong>
+- Each trigger captures a different point on the LFO
+- Result: repeating but evolving melodic contour</p>
+<hr />
+<h2>5. Accent and Choke add phrasing, not just drum dynamics</h2>
+<p>The manual says:</p>
+<ul>
+<li><strong>Accent</strong> further emphasizes the hit</li>
+<li><strong>Choke</strong> immediately stops it</li>
+</ul>
+<p>For melodic use, these are powerful articulation tools.</p>
+<h2>Accent as phrasing</h2>
+<p>Use Accent on selected steps to create:</p>
+<ul>
+<li>stronger “downbeats”</li>
+<li>implied note emphasis</li>
+<li>pseudo-accented melodic rhythm</li>
+<li>call-and-response patterns</li>
+</ul>
+<p>This can make a simple 1-note or 2-note tuned percussion line feel much more musical.</p>
+<h2>Choke as note length control</h2>
+<p>Because Choke immediately stops the sound, you can use it like a crude <strong>gate length/articulation input</strong>.</p>
+<p>Examples:
+- choke long releases to make syncopated short notes
+- let some hits ring while cutting others short
+- create open/closed hat style phrasing, but with pitched material</p>
+<p>For melody, this is useful because note length is a huge part of perceived phrasing.</p>
+<hr />
+<h2>Patch ideas for melodic components</h2>
+<h2>1. Tuned tom melody</h2>
+<p>A classic use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Trigger sequencer → <strong>Trigger</strong></li>
+<li>Stepped CV sequencer → <strong>Start Freq</strong></li>
+<li><strong>Mix</strong> mostly oscillator</li>
+<li><strong>Wave</strong> in the smoother part of the table</li>
+<li><strong>End Freq</strong> slightly lower than <strong>Start Freq</strong></li>
+<li><strong>Speed</strong> low to moderate</li>
+<li><strong>Osc Release</strong> medium</li>
+</ul>
+<h3>Result</h3>
+<p>A tom/conga-like melodic line with identifiable pitches.</p>
+<h3>Improve it</h3>
+<ul>
+<li>Send accents on steps 1 and 5</li>
+<li>Use choke on occasional offbeats for groove punctuation</li>
+</ul>
+<hr />
+<h2>2. Metallic bassline</h2>
+<p>This module can make aggressive pseudo-bass very well.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer CV → <strong>Start Freq</strong></li>
+<li>A second row or offset CV → <strong>End Freq</strong></li>
+<li><strong>Speed</strong> medium-high</li>
+<li><strong>Wave</strong> on a richer harmonic table entry</li>
+<li><strong>Mix</strong> fully oscillator</li>
+<li><strong>EQ</strong> toward low frequencies</li>
+<li>Trigger on 8th or 16th notes</li>
+</ul>
+<h3>Result</h3>
+<p>A distorted, metallic, pitch-bending bassline.</p>
+<p>Because the pitch is not exact, it works best in:
+- techno
+- EBM
+- industrial
+- electro
+- experimental</p>
+<hr />
+<h2>3. Bell/chime sequence</h2>
+<p>Use the reset/rollover behavior musically.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>Start Freq</strong> relatively high</li>
+<li><strong>End Freq</strong> close but not identical</li>
+<li><strong>Speed</strong> medium-high</li>
+<li><strong>Release</strong> medium-long</li>
+<li><strong>Wave</strong> from the brighter/harmonic section</li>
+<li>sequence small CV movements into <strong>Start Freq</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Bell-like or struck-metal melodic tones.</p>
+<p>Add sparse Accent triggers to create “featured” notes.</p>
+<hr />
+<h2>4. Vocal/percussive lead fragments</h2>
+<p>The wavetable includes <strong>vocal tract</strong> type waves.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>Wave</strong> in the vocal section</li>
+<li>Sequence <strong>Start Freq</strong></li>
+<li>Modulate <strong>Wave</strong> with stepped CV</li>
+<li>Short to medium release</li>
+<li>Mix mostly oscillator, a little noise</li>
+<li>Trigger in a syncopated rhythm</li>
+</ul>
+<h3>Result</h3>
+<p>Talking, formant-like melodic stabs.</p>
+<p>This is especially effective when used as a secondary melodic hook rather than the main tonal center.</p>
+<hr />
+<h2>5. Generative melodic percussion</h2>
+<p>Since CV is snapshotted, random sources become very playable.</p>
+<h3>Patch</h3>
+<ul>
+<li>Random stepped CV → <strong>Start Freq</strong></li>
+<li>Slow random or sequenced CV → <strong>Wave</strong></li>
+<li>Euclidean rhythm or clock pattern → <strong>Trigger</strong></li>
+<li>Sparse trigger pattern → <strong>Accent</strong></li>
+<li>Another rhythm source → <strong>Choke</strong></li>
+</ul>
+<h3>Result</h3>
+<p>A self-varying line of pitched hits with coherent rhythm.</p>
+<p>To keep it musically usable, attenuate external CV before it reaches the module, since the module’s knobs are offsets only and <strong>do not attenuate incoming CV</strong>.</p>
+<hr />
+<h2>How it works with other Eurorack modules</h2>
+<p>Even though only Dinky’s Taiko is shown here, the manual itself mentions it pairs very well with <strong>Pamela’s Workout</strong>. More broadly, here’s how it combines with common module types to create melodic material.</p>
+<h2>With a trigger sequencer or clock source</h2>
+<p>Essential. Since the sound is trigger-based, melodic structure starts with rhythm.</p>
+<p>Use:
+- regular clocked triggers for basslines
+- sparse triggers for melodic punctuation
+- polyrhythmic triggers for evolving phrases</p>
+<h2>With a CV sequencer</h2>
+<p>Best partner for pitched use.</p>
+<p>Send stepped CV to:
+- <strong>Start Freq</strong> for note changes
+- <strong>End Freq</strong> for contour changes
+- <strong>Wave</strong> for timbral note identity
+- <strong>Mix</strong> for morphing between tonal and noisy states</p>
+<h2>With a quantizer</h2>
+<p>A quantizer can still help, but not in the normal exact-pitch sense.</p>
+<p>Use it to:
+- constrain the incoming CV to musically spaced voltages
+- create repeatable interval relationships
+- make pitch movement more intentional</p>
+<p>Even though Dinky’s Taiko won’t track perfectly, quantized CV often still produces more coherent ear-pleasing note groupings.</p>
+<h2>With attenuators / offset / CV utility modules</h2>
+<p>Very important because the manual says incoming CV is <strong>added</strong> to the knob position and not attenuated at the input.</p>
+<p>You’ll want external utilities to:
+- reduce pitch modulation range
+- center the useful tonal area
+- keep wave selection from jumping too wildly
+- set playable frequency windows</p>
+<h2>With envelopes and VCAs after the output</h2>
+<p>Since the internal sound is hit-based and snapshot-based, an external VCA/envelope chain can reshape it into more conventionally melodic note lengths.</p>
+<p>For example:
+- Taiko out → filter → VCA
+- sequencer trigger multed to Taiko and external envelope
+- use the VCA envelope to impose another amplitude contour</p>
+<p>This can make it feel more “synth voice” and less “drum voice.”</p>
+<h2>With filters</h2>
+<p>A filter after Dinky’s Taiko is great for melody.</p>
+<p>Use filtering to:
+- tame harsh upper partials
+- emphasize a stable fundamental zone
+- make metallic tones sit like leads or basses
+- animate timbre with external modulation</p>
+<p>Low-pass filtering especially helps transform drum timbres into bass/melodic parts.</p>
+<h2>With reverb and delay</h2>
+<p>One of the easiest ways to push it into melodic role.</p>
+<ul>
+<li>Short delay: pseudo-melodic rhythmic doubling</li>
+<li>Long feedback delay: ambient pitched motifs</li>
+<li>Reverb: bell, mallet, and struck-object illusion</li>
+</ul>
+<hr />
+<h2>Practical strategies for writing melodic parts</h2>
+<h2>Strategy 1: Build around relative pitch, not exact tuning</h2>
+<p>Instead of trying to force western equal temperament, choose 3–5 ear-tuned positions on Start Freq that sound musical together.</p>
+<p>That gives you:
+- root
+- low fifth-ish
+- octave-ish
+- bright tension note
+- low accent note</p>
+<p>Then sequence among them.</p>
+<h2>Strategy 2: Keep one parameter stable</h2>
+<p>For clearer melody, don’t sequence everything at once.</p>
+<p>A strong starting point:
+- sequence <strong>Start Freq</strong>
+- keep <strong>Wave</strong> fixed
+- keep <strong>Speed</strong> fixed
+- keep <strong>End Freq</strong> near Start</p>
+<p>Then add modulation once the line already reads as melodic.</p>
+<h2>Strategy 3: Use Wave as “instrument change” per note</h2>
+<p>Instead of only changing pitch, step the <strong>Wave</strong> input on certain notes.</p>
+<p>This can make one sequence feel like:
+- note changes
+- articulation changes
+- register changes
+- instrument-family shifts</p>
+<h2>Strategy 4: Use Choke for rests and note shaping</h2>
+<p>If your trigger pattern is dense, use Choke to create implied rests and tighter phrasing. This keeps a pitched line from turning into a wash.</p>
+<h2>Strategy 5: Layer with a stable oscillator</h2>
+<p>A very effective method:
+- Use Dinky’s Taiko for the characterful, percussive pitched layer
+- Layer a normal VCO/sub underneath for exact pitch grounding</p>
+<p>This gives you:
+- stable tonal center
+- wild, animated attack from the Taiko
+- stronger melodic readability in a mix</p>
+<hr />
+<h2>What kinds of melodic roles it does best</h2>
+<p>Dinky’s Taiko is especially good for:</p>
+<ul>
+<li><strong>pitched percussion hooks</strong></li>
+<li><strong>electro tom melodies</strong></li>
+<li><strong>industrial bass motifs</strong></li>
+<li><strong>metallic ostinatos</strong></li>
+<li><strong>alien marimba-like lines</strong></li>
+<li><strong>formant percussive stabs</strong></li>
+<li><strong>atonal or modal melodic fragments</strong></li>
+</ul>
+<p>It is less ideal as:</p>
+<ul>
+<li>a keyboard-tracked lead</li>
+<li>a traditional subtractive monosynth voice</li>
+<li>a harmonically exact tonal bass over multiple octaves</li>
+</ul>
+<hr />
+<h2>Example “musical” patch recipes</h2>
+<h2>Patch A: Electro tom riff</h2>
+<ul>
+<li>Trigger sequencer to Trigger</li>
+<li>CV sequencer to Start Freq</li>
+<li>Mix near oscillator</li>
+<li>Wave in sine/low-overtone region</li>
+<li>End Freq slightly below Start</li>
+<li>Speed low</li>
+<li>Release medium</li>
+<li>Accent on every 4th step</li>
+</ul>
+<p><strong>Use for:</strong> classic electro, breaks, machine funk.</p>
+<h2>Patch B: Industrial tuned stab</h2>
+<ul>
+<li>Trigger on 16ths with gaps</li>
+<li>Sequenced CV to Start Freq</li>
+<li>Random stepped CV lightly mixed into Wave</li>
+<li>End Freq above Start</li>
+<li>Speed medium-high</li>
+<li>Release short</li>
+<li>EQ slightly low</li>
+</ul>
+<p><strong>Use for:</strong> techno, EBM, warehouse patterns.</p>
+<h2>Patch C: Bell melody</h2>
+<ul>
+<li>Sparse trigger rhythm</li>
+<li>Start Freq high</li>
+<li>End Freq close to Start</li>
+<li>Speed medium</li>
+<li>Release long</li>
+<li>Wave bright but not noisy</li>
+<li>Reverb after output</li>
+</ul>
+<p><strong>Use for:</strong> ambient, IDM, soundtrack textures.</p>
+<h2>Patch D: Pseudo-bass voice</h2>
+<ul>
+<li>Mix fully oscillator</li>
+<li>Low EQ emphasis</li>
+<li>Start Freq in low range</li>
+<li>End Freq slightly below</li>
+<li>Speed low-medium</li>
+<li>Short release</li>
+<li>Sequence by ear over a small range</li>
+<li>Filter after output if needed</li>
+</ul>
+<p><strong>Use for:</strong> raw bassline foundations with percussive attack.</p>
+<hr />
+<h2>Final take</h2>
+<p>Dinky’s Taiko is a <strong>drum voice first</strong>, but it’s one of those Eurorack modules that becomes much more interesting when treated as a <strong>triggered, snapshot-based digital percussion oscillator</strong>. Its melodic strength comes from:</p>
+<ul>
+<li>sequenced <strong>Start Freq</strong></li>
+<li>contour from <strong>End Freq</strong> and <strong>Speed</strong></li>
+<li>timbral identity from <strong>Wave</strong></li>
+<li>phrase control from <strong>Accent</strong> and <strong>Choke</strong></li>
+<li>external sequencing/utilities to tame the CV range</li>
+</ul>
+<p>If you approach it as a source of <strong>pitched percussive motifs</strong> rather than exact notes, it can produce highly musical results and distinctive melodic layers that a conventional VCO often wouldn’t.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

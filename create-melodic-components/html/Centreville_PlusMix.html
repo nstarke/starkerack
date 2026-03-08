@@ -1,0 +1,328 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Centreville_PlusMix</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Centreville — PlusMix</h1>
+<ul>
+<li><a href="../../manuals/PlusMix _ centrevillage.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://centrevillage.net/products/PlusMix.html">Manual / Product Page PDF Source</a></p>
+<h1>centrevillage PlusMix — melodic use analysis</h1>
+<p>The attached manual describes <strong>PlusMix</strong>, a <strong>2HP unity mixer with gate-controlled switching</strong>.<br />
+It is small, but very useful for building <strong>melodic variation, transposition, phrase selection, and pitch recombination</strong> in a Eurorack system.</p>
+<h2>What the module does</h2>
+<h3>Inputs and outputs</h3>
+<ul>
+<li><strong>Inputs</strong></li>
+<li><code>BASE</code></li>
+<li><code>PLS1</code></li>
+<li><code>PLS2</code></li>
+<li><code>SW1</code> gate input</li>
+<li><code>SW2</code> gate input</li>
+<li><strong>Output</strong></li>
+<li><code>MIX</code></li>
+</ul>
+<h3>Core behavior</h3>
+<ul>
+<li><code>BASE</code> is <strong>always present</strong> at the output.</li>
+<li><code>PLS1</code> is added to the mix only when its gate logic condition is true.</li>
+<li><code>PLS2</code> is added to the mix only when its gate logic condition is true.</li>
+</ul>
+<h3>Gate logic</h3>
+<p>Each switched layer has:
+- a gate input (<code>SW1</code>, <code>SW2</code>)
+- a polarity switch (<code>SW1PL</code>, <code>SW2PL</code>)</p>
+<p>A <code>PLS</code> signal is mixed when:
+- the corresponding gate is <strong>HIGH</strong> and the polarity switch is set to <strong>H</strong>, or
+- the corresponding gate is <strong>LOW</strong> and the polarity switch is set to <strong>L</strong></p>
+<p>So each added signal can be made active on:
+- gate high
+- or gate low</p>
+<h3>Normalization</h3>
+<ul>
+<li><code>SW1</code> is normalized to <strong>+5V</strong></li>
+<li><code>SW2</code> is normalized to <strong>SW1</strong></li>
+</ul>
+<p>This means:
+- with nothing patched to <code>SW1</code> or <code>SW2</code>, the polarity switches act like <strong>manual on/off selectors</strong>
+- with a gate patched only to <code>SW1</code>, both <code>PLS1</code> and <code>PLS2</code> can follow that gate unless <code>SW2</code> is separately patched</p>
+<hr />
+<h2>Why this is musically important for melody</h2>
+<p>Because PlusMix is a <strong>precision CV mixer</strong>, it is especially useful for <strong>pitch CV</strong>.<br />
+That means you can combine voltages representing notes, intervals, or transpositions without the slop that would make melodies go out of tune.</p>
+<p>In practice, that makes PlusMix great for:</p>
+<ul>
+<li><strong>adding intervals to a base melody</strong></li>
+<li><strong>switching transpositions in and out</strong></li>
+<li><strong>creating A/B melodic variants</strong></li>
+<li><strong>building call-and-response phrases</strong></li>
+<li><strong>adding octave jumps conditionally</strong></li>
+<li><strong>making rhythmic melodic accents from gates</strong></li>
+<li><strong>recombining multiple pitch sources into one melodic line</strong></li>
+</ul>
+<hr />
+<h2>Best melodic roles for PlusMix</h2>
+<h2>1. Conditional transposition mixer</h2>
+<p>Use <code>BASE</code> for your main pitch sequence, and use <code>PLS1</code>/<code>PLS2</code> for interval offsets.</p>
+<p>Example:
+- <code>BASE</code> = main sequencer pitch
+- <code>PLS1</code> = +1V octave transpose
+- <code>PLS2</code> = +0.583V approximate perfect fifth if your source can generate exact interval CV
+- <code>MIX</code> → oscillator 1V/oct</p>
+<p>Then use gates into <code>SW1</code> and <code>SW2</code> to decide when those intervals are added.</p>
+<p>Result:
+- melody plays normally sometimes
+- jumps up an octave on selected steps
+- adds another interval on other steps
+- can combine both for larger jumps</p>
+<p>This is one of the most direct ways to create <strong>melodic contour variation</strong> from a static sequence.</p>
+<hr />
+<h2>2. Phrase variation from gate patterns</h2>
+<p>Feed the same melodic base into <code>BASE</code>, then patch offset voltages or alternate melodic fragments into <code>PLS1</code> and <code>PLS2</code>.</p>
+<p>Example:
+- <code>BASE</code> = 8-step sequence
+- <code>PLS1</code> = small offset, like +2 semitones
+- <code>PLS2</code> = another offset, like -3 semitones
+- <code>SW1</code> = gate pattern from a trigger sequencer
+- <code>SW2</code> = slower gate or clock division</p>
+<p>Result:
+- certain notes are pushed upward
+- certain notes are pulled downward
+- repeated patterns become evolving phrases</p>
+<p>This creates <strong>motivic development</strong> without needing a second full sequencer.</p>
+<hr />
+<h2>3. Manual performance transposer</h2>
+<p>Because of the normalization, if no gates are patched:
+- <code>SW1PL</code> and <code>SW2PL</code> become manual enable/disable switches for <code>PLS1</code> and <code>PLS2</code></p>
+<p>Example:
+- <code>BASE</code> = running melody
+- <code>PLS1</code> = +12 semitones
+- <code>PLS2</code> = +7 semitones</p>
+<p>Now the two switches become immediate performance controls:
+- enable octave
+- enable fifth
+- enable both for a larger harmonic lift</p>
+<p>This is excellent for:
+- live arrangement
+- moving between verse/chorus
+- introducing fills
+- changing melodic register on the fly</p>
+<hr />
+<h2>4. Gate-defined note accents</h2>
+<p>Use a rhythmic gate source to add pitch only on selected steps.</p>
+<p>Example:
+- <code>BASE</code> = root note sequence
+- <code>PLS1</code> = +2 semitones
+- <code>SW1</code> = snare-related trigger pattern or Euclidean rhythm</p>
+<p>Result:
+- the melody “leans” into accented notes only when the gate is present</p>
+<p>This is useful for:
+- syncopated hooks
+- acid-style step accents
+- dynamic lead lines with repeating structure</p>
+<hr />
+<h2>5. Recombining quantized pitch sources</h2>
+<p>PlusMix can combine several pre-shaped CV sources into one line.</p>
+<p>Example:
+- <code>BASE</code> = slow quantized melody
+- <code>PLS1</code> = stepped random voltages scaled to chord tones
+- <code>PLS2</code> = manual offset from a precision adder, keyboard, or fixed voltage source</p>
+<p>Use gate inputs to bring these layers in and out.</p>
+<p>Result:
+- one coherent melodic output with controlled variation
+- a hybrid between sequencing and performance patching</p>
+<hr />
+<h1>How to use it with other modules to build melodic components</h1>
+<p>The manual only covers PlusMix, but in a normal Eurorack melodic patch it pairs especially well with the following module types:</p>
+<h2>With a sequencer</h2>
+<p>Use the sequencer as the main pitch source.</p>
+<p>Patch:
+- sequencer pitch → <code>BASE</code>
+- fixed voltage / second sequencer row / transpose CV → <code>PLS1</code>
+- another offset or phrase row → <code>PLS2</code>
+- sequencer gates / trigger track → <code>SW1</code>, <code>SW2</code>
+- <code>MIX</code> → quantizer or directly to oscillator</p>
+<p>Musical result:
+- one sequence becomes multiple melodic variants
+- you can derive several phrases from one pitch lane</p>
+<p>If exact tuning matters, it is often best to:
+- either feed quantized offsets into PlusMix
+- or send <code>MIX</code> into a <strong>quantizer</strong> afterward</p>
+<hr />
+<h2>With a quantizer</h2>
+<p>This is one of the strongest pairings.</p>
+<p>Patch:
+- melodic CV and interval offsets into <code>BASE/PLS1/PLS2</code>
+- <code>MIX</code> → quantizer → oscillator</p>
+<p>Why:
+- PlusMix creates combinations of voltages
+- the quantizer snaps the result to a scale</p>
+<p>Musical result:
+- controlled melodic branching
+- gate-switched note changes that remain in key
+- easy creation of arpeggio-like and modal patterns</p>
+<p>This setup turns PlusMix into a kind of <strong>melody decision matrix</strong>.</p>
+<hr />
+<h2>With clock dividers or logic modules</h2>
+<p>Since the <code>PLS</code> inputs are controlled by gates, any module producing related rhythms can drive melodic structure.</p>
+<p>Patch:
+- divided clock to <code>SW1</code>
+- inverted or offset rhythm to <code>SW2</code></p>
+<p>Result:
+- one transposition happens every 2 bars
+- another happens every offbeat or every fourth note
+- melody develops in longer cycles</p>
+<p>This is very effective for:
+- generative melodies
+- evolving minimalism
+- polyrhythmic transposition</p>
+<hr />
+<h2>With sequential switches or gate sequencers</h2>
+<p>A gate sequencer can decide exactly which notes get altered.</p>
+<p>Patch:
+- gate sequencer channels → <code>SW1</code>, <code>SW2</code>
+- offsets at <code>PLS1</code>, <code>PLS2</code></p>
+<p>Result:
+- deterministic melodic editing on a per-step basis
+- very efficient for creating:
+  - passing tones
+  - octave pickups
+  - phrase-end lifts
+  - recurring motifs</p>
+<hr />
+<h2>With envelopes and VCAs in parallel</h2>
+<p>Use PlusMix for pitch variation while related gates also trigger articulation changes.</p>
+<p>Example:
+- <code>SW1</code> gate adds +12 semitones to pitch
+- same gate also opens a brighter VCA/filter envelope</p>
+<p>Result:
+- when melody jumps, timbre also changes
+- leads sound more intentional and expressive</p>
+<p>That is a strong compositional trick: <strong>pitch accents aligned with timbral accents</strong>.</p>
+<hr />
+<h2>With sample &amp; hold or random voltage</h2>
+<p>Patch a stable melody into <code>BASE</code> and use random or semi-random voltages as occasional additions.</p>
+<p>Patch:
+- <code>BASE</code> = core melody
+- <code>PLS1</code> = sample &amp; hold voltage attenuated to a small interval range
+- <code>SW1</code> = sparse random gate</p>
+<p>Result:
+- occasional melodic decorations
+- controlled unpredictability
+- very useful for ambient, IDM, and generative patches</p>
+<p>For tonal music, a quantizer after <code>MIX</code> is especially recommended.</p>
+<hr />
+<h1>Practical melodic patch ideas</h1>
+<h2>Patch 1: Two-level transposing lead</h2>
+<p><strong>Goal:</strong> create a lead that changes shape over time.</p>
+<p>Patch:
+- sequencer pitch → <code>BASE</code>
+- fixed +1V → <code>PLS1</code>
+- fixed +0.167V or +0.333V style interval source → <code>PLS2</code>
+- slower gate pattern → <code>SW1</code>
+- faster accent gate → <code>SW2</code>
+- <code>MIX</code> → quantizer → oscillator</p>
+<p>What happens:
+- the base melody is always present
+- some notes jump an octave
+- others are nudged into another interval
+- some notes combine both offsets</p>
+<p>Use:
+- techno leads
+- modular arpeggios
+- melodic electro sequences</p>
+<hr />
+<h2>Patch 2: Verse/chorus melody switcher</h2>
+<p><strong>Goal:</strong> create structural change from one melodic line.</p>
+<p>Patch:
+- main melody CV → <code>BASE</code>
+- chorus transpose amount → <code>PLS1</code>
+- ending phrase lift → <code>PLS2</code>
+- manual or arranged gate → <code>SW1</code>
+- phrase-end gate → <code>SW2</code></p>
+<p>What happens:
+- verse plays dry
+- chorus activates a transposition layer
+- phrase endings gain an extra lift</p>
+<p>This works very well in live performance because the module is immediate and compact.</p>
+<hr />
+<h2>Patch 3: Generative melodic mutation</h2>
+<p><strong>Goal:</strong> one melody that evolves without losing identity.</p>
+<p>Patch:
+- quantized sequencer → <code>BASE</code>
+- random stepped CV, attenuated → <code>PLS1</code>
+- fixed interval → <code>PLS2</code>
+- Euclidean rhythm → <code>SW1</code>
+- clock divider → <code>SW2</code>
+- <code>MIX</code> → quantizer → oscillator</p>
+<p>What happens:
+- most notes follow the original melody
+- some are altered by random decoration
+- some receive predictable structural transposition
+- the line stays coherent but never static</p>
+<hr />
+<h2>Patch 4: Manual harmonic lift for live sets</h2>
+<p><strong>Goal:</strong> hands-on melodic arrangement.</p>
+<p>Patch:
+- sequence → <code>BASE</code>
+- +7 semitone equivalent CV → <code>PLS1</code>
+- +12 semitone CV → <code>PLS2</code>
+- leave <code>SW1</code> and <code>SW2</code> unpatched
+- use <code>SW1PL</code> and <code>SW2PL</code> manually</p>
+<p>What happens:
+- switch 1 adds harmonic lift
+- switch 2 adds octave lift
+- both together create a stronger section change</p>
+<p>This is simple but highly playable.</p>
+<hr />
+<h1>Strengths of the module for melody</h1>
+<h2>Very compact</h2>
+<p>At <strong>2HP</strong>, it adds melodic decision-making without eating valuable space.</p>
+<h2>Good for pitch CV</h2>
+<p>The manual specifically notes <strong>high-precision CV mixing</strong>, which is critical for melodic use.</p>
+<h2>Gate-controlled variation</h2>
+<p>Instead of just mixing everything all the time, you can make melodic additions happen only on chosen steps.</p>
+<h2>Manual + patch programmable</h2>
+<p>It works both as:
+- a hands-on performance tool
+- and a fully patch-controlled melodic utility</p>
+<hr />
+<h1>Limitations to keep in mind</h1>
+<h2>It is a unity mixer, not an attenuating mixer</h2>
+<p>The manual describes it as a <strong>unity mixer</strong>, so the incoming levels are summed as given.<br />
+That means interval sizes must already be correct before entering <code>PLS1</code> or <code>PLS2</code>.</p>
+<p>If you want exact semitone intervals, use:
+- precision voltage sources
+- quantized pitch rows
+- precision offset generators
+- or a quantizer after the mix</p>
+<h2>Only two switchable add layers</h2>
+<p>You get:
+- one always-on base
+- two conditional additions</p>
+<p>That is powerful, but still intentionally simple.</p>
+<h2>No built-in quantization</h2>
+<p>For melodic tonal work, a quantizer after the output may be the best companion.</p>
+<hr />
+<h1>Bottom line</h1>
+<p><strong>PlusMix is a small but extremely musical utility for pitch-CV composition.</strong><br />
+Its best melodic use is to take a stable pitch line at <code>BASE</code> and then use <code>PLS1</code> and <code>PLS2</code> as <strong>conditional interval or phrase additions</strong>, controlled by gates.</p>
+<p>Used with sequencers, quantizers, gate sequencers, logic, and fixed-voltage sources, it can create:</p>
+<ul>
+<li>transposed note accents</li>
+<li>alternate phrase shapes</li>
+<li>octave jumps</li>
+<li>evolving generative melodies</li>
+<li>manual arrangement changes</li>
+<li>precise pitch remixing</li>
+</ul>
+<p>In a melodic Eurorack patch, think of it as a <strong>gate-addressed pitch recombiner</strong>:<br />
+a way to turn one melody into several related melodies without losing coherence.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-160-2</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-160-2</h1>
+<ul>
+<li><a href="../../manuals/A-160-2.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a1602.htm">Manual PDF / Product Page: Doepfer A-160-2 Clock/Trigger Divider II</a></p>
+<h1>Using the Doepfer A-160-2 to Create Melodic Components</h1>
+<p>The attached manual covers the <strong>Doepfer A-160-2 Clock/Trigger Divider II</strong>. This is not a pitch generator by itself, but as a Eurorack musician, I’d say it’s extremely useful for building <strong>melodic structure</strong>, especially when combined with sequencers, quantizers, switches, sample &amp; hold, logic, clocked modulation, and envelope/VCA voice chains.</p>
+<h2>What the A-160-2 does</h2>
+<p>The A-160-2 takes a clock/trigger/gate input and generates <strong>seven divided outputs</strong>. It offers three division sets:</p>
+<ul>
+<li><strong>Powers of two:</strong> 2, 4, 8, 16, 32, 64, 128</li>
+<li><strong>Prime numbers:</strong> 2, 3, 5, 7, 11, 13, 17</li>
+<li><strong>Integers:</strong> 2, 3, 4, 5, 6, 7, 8</li>
+</ul>
+<p>It also gives you:</p>
+<ul>
+<li><strong>Gate mode</strong></li>
+<li><strong>Trigger mode</strong></li>
+<li><strong>Reset input</strong></li>
+<li>Configurable:</li>
+<li>clock edge behavior</li>
+<li>reset behavior</li>
+<li>output polarity</li>
+</ul>
+<p>So musically, this is a <strong>rhythmic structure generator</strong> that can become a <strong>melody organizer</strong>.</p>
+<hr />
+<h2>Important musical idea</h2>
+<p>A clock divider doesn’t directly output notes, but it can control:</p>
+<ul>
+<li><strong>when notes happen</strong></li>
+<li><strong>when a sequencer advances</strong></li>
+<li><strong>when pitch is sampled</strong></li>
+<li><strong>when transpositions occur</strong></li>
+<li><strong>when phrase resets happen</strong></li>
+<li><strong>when alternate voices or intervals are introduced</strong></li>
+</ul>
+<p>That makes it very powerful for melodic composition.</p>
+<hr />
+<h2>Best ways to use it for melody</h2>
+<h2>1. Drive sequencers at different rates</h2>
+<p>One of the most immediate uses is to patch different divider outputs to different sequencers or sequencer functions.</p>
+<h3>Example</h3>
+<ul>
+<li>Master clock → A-160-2 clock input</li>
+<li><code>/2</code> → main sequencer clock</li>
+<li><code>/5</code> → transposition sequencer clock</li>
+<li><code>/16</code> → reset or phrase change</li>
+<li>Pitch sequencer CV → quantizer → oscillator 1V/oct</li>
+</ul>
+<h3>Result</h3>
+<p>Your main melody advances steadily, but the transposition layer changes more slowly and at a different cycle length. If you use the <strong>prime division mode</strong>, the interaction becomes less repetitive and can create long evolving melodic phrases.</p>
+<h3>Why it works</h3>
+<p>Melody is often more interesting when:
+- note steps happen at one rate
+- harmonic movement happens at another
+- phrase resets happen at yet another</p>
+<p>The A-160-2 makes these timing relationships easy.</p>
+<hr />
+<h2>2. Create melody with sample &amp; hold</h2>
+<p>If you have a <strong>sample and hold</strong> and any CV source, the divider becomes a melodic trigger source.</p>
+<h3>Patch</h3>
+<ul>
+<li>Random CV, noise, or slow modulation → S&amp;H input</li>
+<li>A-160-2 output (for example <code>/3</code> or <code>/5</code>) → S&amp;H trigger</li>
+<li>S&amp;H output → quantizer → oscillator pitch</li>
+</ul>
+<h3>Result</h3>
+<p>The divider determines when a new note is chosen.</p>
+<h3>Musical advantage</h3>
+<p>Different divider outputs produce different note densities:
+- <code>/2</code> = more active melodic movement
+- <code>/7</code> or <code>/11</code> = sparse, phrase-like note updates
+- prime-number divisions = less obvious looping</p>
+<p>You can also use <strong>multiple divider outputs</strong>:
+- <code>/2</code> triggers the VCA envelope
+- <code>/5</code> updates the S&amp;H pitch
+- <code>/16</code> resets a modulation source</p>
+<p>That gives repeated rhythmic notes with slower-changing melodic content.</p>
+<hr />
+<h2>3. Build “melody over ostinato” structures</h2>
+<p>A really musical use is separating <strong>note articulation</strong> from <strong>pitch change</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Fast clock → A-160-2</li>
+<li><code>/2</code> → envelope trigger for every note attack</li>
+<li><code>/8</code> → S&amp;H or sequencer advance for pitch changes</li>
+<li>Quantized pitch CV → oscillator</li>
+</ul>
+<h3>Result</h3>
+<p>You hear an ostinato rhythm where each pitch repeats several times before changing.</p>
+<p>This is great for:
+- Berlin-school sequences
+- minimal techno arps
+- generative tonal lines
+- basslines with internal rhythmic consistency</p>
+<hr />
+<h2>4. Use prime divisions for long melodic cycles</h2>
+<p>The <strong>prime number division mode</strong> is especially musical.</p>
+<p>Available outputs:
+- 2
+- 3
+- 5
+- 7
+- 11
+- 13
+- 17</p>
+<p>If you use these to control different melodic events, the full pattern takes a long time to repeat.</p>
+<h3>Example</h3>
+<ul>
+<li><code>/3</code> → sequencer A advance</li>
+<li><code>/5</code> → sequencer B advance</li>
+<li><code>/7</code> → switch between two pitch sources</li>
+<li><code>/11</code> → transposition event</li>
+<li><code>/17</code> → reset</li>
+</ul>
+<h3>Result</h3>
+<p>The melody evolves slowly and unpredictably, but still remains synchronized to the master clock.</p>
+<p>This is one of the best uses of the module for generative melody.</p>
+<hr />
+<h2>5. Switch between pitch sources</h2>
+<p>If you have a <strong>sequential switch</strong>, <strong>VC switch</strong>, or <strong>addressed switch</strong>, the A-160-2 can choose when different pitch streams become active.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer 1 pitch → switch input 1</li>
+<li>Sequencer 2 pitch → switch input 2</li>
+<li>Quantized random voltage → switch input 3</li>
+<li>A-160-2 divided outputs → switch clock / advance / control logic</li>
+</ul>
+<h3>Result</h3>
+<p>A melodic line can alternate between:
+- repeated sequenced phrases
+- random notes
+- transposed variations</p>
+<p>For example:
+- <code>/4</code> advances the switch
+- <code>/16</code> resets the switch
+- <code>/3</code> clocks one sequencer
+- <code>/5</code> clocks another</p>
+<p>The melody becomes structured but non-repetitive.</p>
+<hr />
+<h2>6. Use trigger mode for shorter note events</h2>
+<p>The manual notes two output styles:</p>
+<ul>
+<li><strong>Gate mode:</strong> acts like a normal divider</li>
+<li><strong>Trigger mode:</strong> outputs are ANDed with the clock signal, so pulse width depends on incoming clock pulse width</li>
+</ul>
+<h3>Melodic use</h3>
+<p>Trigger mode is useful when you want:
+- short note articulations
+- precise re-triggering
+- sharper stepped melodic changes
+- cleaner interaction with envelope generators</p>
+<p>If the divided signal is used to:
+- advance a sequencer
+- trigger a quantized S&amp;H
+- ping an envelope</p>
+<p>then <strong>Trigger mode</strong> can produce more percussive melodic patterns.</p>
+<h3>Gate mode</h3>
+<p>Gate mode is better when you want:
+- sustained notes
+- longer held stages
+- drones with periodic pitch changes
+- tied-note phrasing</p>
+<hr />
+<h2>7. Use reset for phrasing</h2>
+<p>The <strong>reset input</strong> is a big deal musically.</p>
+<p>Whenever reset is received, all outputs go to defined states depending on the selected mode. That lets you force phrases to restart in a controlled way.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>Bar reset from master sequencer → A-160-2 reset</li>
+<li><code>/16</code> from another divider → reset</li>
+<li>Manual gate button → reset for live performance</li>
+<li>End-of-cycle from envelope or function generator → reset</li>
+</ul>
+<h3>Musical result</h3>
+<p>You can make generated melodies feel intentional:
+- 16-step phrases
+- 8-bar cycles
+- repeating motifs with internal variation
+- periodic return to “home”</p>
+<p>Without reset, generative patches can drift endlessly. With reset, they become compositional.</p>
+<hr />
+<h2>8. Generate transposition events</h2>
+<p>Another powerful melodic technique is using divider outputs to trigger <strong>precision adders</strong>, <strong>offset changes</strong>, or <strong>secondary quantized voltages</strong>.</p>
+<h3>Example</h3>
+<ul>
+<li>Main sequencer → quantizer → oscillator pitch</li>
+<li><code>/8</code> → trigger S&amp;H sampling a slow CV</li>
+<li>S&amp;H output → precision adder with main pitch</li>
+<li><code>/32</code> → reset transposition sequencer</li>
+</ul>
+<h3>Result</h3>
+<p>The basic melody continues, but every 8 clocks it is transposed by a new interval.</p>
+<p>This is especially effective if the sampled CV is quantized to:
+- octaves
+- fifths
+- chord tones
+- modal scale degrees</p>
+<p>The A-160-2 becomes a phrase-level harmonic controller.</p>
+<hr />
+<h2>9. Make canon / counterpoint lines</h2>
+<p>Because you get several divisions simultaneously, you can create multiple melodic voices derived from one clock.</p>
+<h3>Patch</h3>
+<ul>
+<li><code>/2</code> → sequencer 1 clock</li>
+<li><code>/4</code> → sequencer 2 clock</li>
+<li><code>/8</code> → sequencer 3 clock</li>
+</ul>
+<p>Each sequencer controls a different oscillator, or one sequencer controls pitch while others control transposition or articulation.</p>
+<h3>Result</h3>
+<p>You get voices moving at related but different speeds:
+- lead line
+- slower counterline
+- very slow bass movement</p>
+<p>This is a great way to create:
+- canon-like textures
+- phase music
+- layered ambient melodies
+- polyrhythmic tonal structures</p>
+<hr />
+<h2>10. Use inverted output mode creatively</h2>
+<p>The manual mentions a jumper for <strong>output polarity</strong>:
+- positive = normal outputs
+- negative = all outputs inverted</p>
+<p>This matters if you’re using the outputs not only for triggers, but also for:
+- clocking modules that react to edges
+- logic combinations
+- gate-controlled switches
+- burst generators
+- sequential routing</p>
+<h3>Melodic application</h3>
+<p>Inverted gates can create:
+- complementary phrase structures
+- rests where notes previously occurred
+- alternate clocking for a second voice
+- anti-phase articulation between melody and harmony</p>
+<p>For example:
+- normal <code>/4</code> triggers voice 1
+- inverted <code>/4</code> triggers voice 2 envelope or switch state</p>
+<p>That can produce call-and-response motion.</p>
+<hr />
+<h2>11. Pair with logic for richer melodic behavior</h2>
+<p>The A-160-2 becomes much more melodic when paired with logic modules:
+- AND
+- OR
+- XOR
+- flip-flops
+- comparators</p>
+<h3>Example</h3>
+<ul>
+<li><code>/3</code> and <code>/5</code> → AND logic → trigger melodic accent note</li>
+<li><code>/2</code> and <code>/7</code> → XOR → alternate phrase trigger</li>
+<li><code>/11</code> → reset one sequencer</li>
+<li><code>/13</code> → switch transposition source</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of simple repetition, you get conditional melodic events:
+- occasional grace notes
+- phrase accents
+- long-form motif changes
+- irregular but synchronized harmonic shifts</p>
+<hr />
+<h2>12. Clock modulation sources that affect pitch</h2>
+<p>Melody doesn’t only come from sequencers. It also comes from modulation routed into pitch.</p>
+<h3>Patch</h3>
+<ul>
+<li>A-160-2 output → clock a stepped CV source or function generator</li>
+<li>Modulation source → attenuator</li>
+<li>Attenuated CV → quantizer or pitch adder</li>
+<li>Main sequencer pitch + modulation → oscillator</li>
+</ul>
+<h3>Result</h3>
+<p>The melodic contour shifts periodically:
+- every 3 notes a small bend
+- every 7 notes a new register
+- every 16 notes a phrase lift</p>
+<p>This is a subtle but expressive way to make melodies feel alive.</p>
+<hr />
+<h2>Specific patch recipes</h2>
+<h2>Patch 1: Simple evolving melody</h2>
+<p><strong>Needs:</strong> A-160-2, clock, random or looping CV, sample &amp; hold, quantizer, oscillator, envelope, VCA</p>
+<ul>
+<li>Clock → A-160-2 clock in</li>
+<li><code>/4</code> → S&amp;H trigger</li>
+<li>Random CV → S&amp;H input</li>
+<li>S&amp;H out → quantizer → oscillator pitch</li>
+<li><code>/2</code> → envelope trigger</li>
+<li>Envelope → VCA CV</li>
+<li>Oscillator → VCA → output</li>
+</ul>
+<p><strong>What happens:</strong><br />
+A new pitch is selected every 4 clock pulses, but notes articulate every 2 pulses. This creates repeating rhythmic notes with slower pitch movement.</p>
+<hr />
+<h2>Patch 2: Prime-based generative tonal line</h2>
+<p><strong>Needs:</strong> A-160-2, two sequencers or one sequencer + quantized random source, quantizer, precision adder</p>
+<p>Set A-160-2 to <strong>prime mode</strong>.</p>
+<ul>
+<li><code>/3</code> → main sequencer clock</li>
+<li><code>/5</code> → transposition sequencer clock</li>
+<li>Main sequencer CV → precision adder input A</li>
+<li>Transposition CV → precision adder input B</li>
+<li>Adder output → quantizer → oscillator</li>
+<li><code>/17</code> → reset both sequencers or A-160-2</li>
+</ul>
+<p><strong>What happens:</strong><br />
+The melody and its transposition evolve on different prime-length cycles, producing long non-repeating melodic structures.</p>
+<hr />
+<h2>Patch 3: Two-voice melodic counterpoint</h2>
+<p><strong>Needs:</strong> A-160-2, two voices, two pitch sources or one source plus octave shifter</p>
+<ul>
+<li><code>/2</code> → voice 1 envelope/sequencer clock</li>
+<li><code>/4</code> → voice 2 envelope/sequencer clock</li>
+<li>Same pitch sequence to both voices, but:</li>
+<li>voice 2 transposed by 5th or octave</li>
+<li><code>/8</code> → reset or switch chord tone source</li>
+</ul>
+<p><strong>What happens:</strong><br />
+Voice 1 is active and agile; voice 2 moves more slowly, creating harmonic/melodic interplay.</p>
+<hr />
+<h2>Patch 4: Melodic switching pattern</h2>
+<p><strong>Needs:</strong> A-160-2, 3 pitch sources, sequential switch, quantizer</p>
+<ul>
+<li>Pitch source A = sequencer</li>
+<li>Pitch source B = random stepped CV</li>
+<li>Pitch source C = slow LFO through quantizer</li>
+<li>All into switch inputs</li>
+<li>A-160-2 <code>/4</code> → switch advance</li>
+<li>A-160-2 <code>/16</code> → switch reset</li>
+<li>Switch out → oscillator pitch</li>
+<li><code>/2</code> → note trigger</li>
+</ul>
+<p><strong>What happens:</strong><br />
+The pitch source itself changes over time, creating sections in the melody.</p>
+<hr />
+<h2>Things to keep in mind from the manual</h2>
+<h2>1. Pulse width matters in Trigger mode</h2>
+<p>Because Trigger mode is ANDed with the incoming clock, the incoming clock pulse width affects the output pulse width. If your source clock has extremely narrow pulses, your melodic triggers may become very short.</p>
+<h2>2. Reset configuration is jumper-based</h2>
+<p>Reset can be:
+- level-triggered or edge-triggered
+- positive or negative</p>
+<p>That matters if your system reset source behaves unusually.</p>
+<h2>3. Clock edge can be selected</h2>
+<p>You can choose whether rising or falling edge drives the output changes. This is useful for timing feel:
+- one edge may make the sequence feel slightly more “on the beat”
+- the other can offset interaction with envelopes, switches, or sequencers</p>
+<h2>4. A-161 is not compatible</h2>
+<p>The manual explicitly says the <strong>A-161 cannot be connected</strong> to the A-160-2, because this module is conceptually different from the original A-160.</p>
+<hr />
+<h2>Best companion modules for melodic use</h2>
+<p>The A-160-2 works especially well with:</p>
+<ul>
+<li>
+<p><strong>Quantizers</strong><br />
+  To turn sampled or modulated voltages into musical notes</p>
+</li>
+<li>
+<p><strong>Sample &amp; Hold / Track &amp; Hold</strong><br />
+  For clocked pitch selection</p>
+</li>
+<li>
+<p><strong>CV sequencers</strong><br />
+  For note patterns and transpositions</p>
+</li>
+<li>
+<p><strong>Sequential switches</strong><br />
+  For alternating between melodic sources</p>
+</li>
+<li>
+<p><strong>Logic modules</strong><br />
+  For more complex phrase structures</p>
+</li>
+<li>
+<p><strong>Precision adders / mixers</strong><br />
+  For interval layering and harmonic movement</p>
+</li>
+<li>
+<p><strong>Envelope generators + VCAs</strong><br />
+  For note articulation</p>
+</li>
+<li>
+<p><strong>Clock generators / master transport modules</strong><br />
+  To define global tempo and resets</p>
+</li>
+</ul>
+<hr />
+<h2>Overall musical verdict</h2>
+<p>The <strong>Doepfer A-160-2</strong> is best thought of as a <strong>melodic timing brain</strong>, not a note source. Its strength is in organizing time relationships that create:</p>
+<ul>
+<li>repeating motifs</li>
+<li>polymetric melodies</li>
+<li>transposition cycles</li>
+<li>generative phrase movement</li>
+<li>layered counterpoint</li>
+<li>controlled long-form evolution</li>
+</ul>
+<p>The <strong>prime division mode</strong> is especially valuable if you want melodies that feel organic and slow to repeat, while the <strong>reset input</strong> lets you keep the patch musically coherent.</p>
+<p>If you want, I can also turn this into:
+1. a <strong>set of concrete patch diagrams</strong>,<br />
+2. a <strong>“best companion modules” shopping list</strong>, or<br />
+3. a <strong>genre-focused guide</strong> for techno, ambient, Berlin school, or generative melodic patching.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

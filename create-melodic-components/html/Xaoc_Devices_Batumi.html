@@ -1,0 +1,529 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Xaoc_Devices_Batumi</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Xaoc Devices — Batumi</h1>
+<ul>
+<li><a href="../../manuals/xaoc_batumi2_poti2_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://xaocdevices.com/manuals/xaoc_batumi2_poti2_manual.pdf">Batumi II &amp; Poti II Manual (Xaoc Devices)</a></p>
+<h1>Using Xaoc Batumi II + Poti II to create melodic material</h1>
+<p>Batumi II is “just” a quad LFO on paper, but in practice it can be a <strong>4-channel modulation brain</strong> that easily produces <strong>pitch movement, stepped note patterns, clock-related sequences, pseudo-counterpoint, and audio-rate melodic voices</strong>. Poti II turns it into a more performance-friendly melodic tool by adding <strong>per-channel attenuation, per-channel assignable ASGN waveform choice, and waveform-shape CV control</strong>.</p>
+<h2>What matters musically</h2>
+<p>From the manual, the key features for melody-making are:</p>
+<ul>
+<li><strong>4 channels</strong> of oscillation/modulation</li>
+<li>Each channel outputs simultaneously:</li>
+<li><strong>Sine</strong></li>
+<li><strong>ASGN</strong> waveform</li>
+<li><strong>Rect</strong></li>
+<li><strong>ASGN choices</strong>:</li>
+<li>triangle</li>
+<li>downward saw</li>
+<li>upward saw</li>
+<li>trapezoid</li>
+<li>stepped random</li>
+<li>smooth random</li>
+<li>Modes:</li>
+<li><strong>Free</strong></li>
+<li><strong>Phase</strong></li>
+<li><strong>Divide</strong></li>
+<li><strong>Mult</strong></li>
+<li><strong>Wide range</strong>:</li>
+<li>LFO rates up to <strong>audio rate</strong></li>
+<li><strong>1V/oct tracking</strong> on CV inputs</li>
+<li><strong>Reset/sync per channel</strong></li>
+<li>In external sync mode, channels can become <strong>clock divisions</strong></li>
+<li>With <strong>Poti II</strong>:</li>
+<li>attenuate pitch/rate CV</li>
+<li>attenuate sine/asgn outputs</li>
+<li>select <strong>different ASGN waveform per channel</strong></li>
+<li>shape CV can modulate:<ul>
+<li>sine = wavefolding</li>
+<li>asgn = waveform switching</li>
+<li>rect = pulse width</li>
+</ul>
+</li>
+</ul>
+<p>So the module can function as:</p>
+<ol>
+<li><strong>4 independent pitch CV sources</strong></li>
+<li><strong>A bank of related melodic modulators</strong></li>
+<li><strong>A clock-derived sequencer substitute</strong></li>
+<li><strong>A harmonic oscillator bank</strong></li>
+<li><strong>A canon/fugue engine</strong> via phase offsets and synced random</li>
+<li><strong>A melody source plus rhythmic gates</strong> from the rect outs</li>
+</ol>
+<hr />
+<h1>The core idea: Batumi as a melodic source</h1>
+<p>Batumi II does not quantize by itself, so for conventional tonal melody you’ll usually patch it through a:</p>
+<ul>
+<li><strong>quantizer</strong></li>
+<li>precision adder</li>
+<li>sample &amp; hold / track &amp; hold</li>
+<li>sequential switch</li>
+<li>clock divider / trigger source</li>
+<li>envelope + VCA + oscillator voice</li>
+</ul>
+<p>Typical melodic patch flow:</p>
+<p><strong>Batumi output → quantizer → oscillator 1V/oct</strong></p>
+<p>And often simultaneously:</p>
+<p><strong>Batumi rect out → envelope trigger / LPG / clock input</strong></p>
+<p>This is where Batumi becomes very musical: one channel can create the pitch contour, while its rect output or another channel controls when notes happen.</p>
+<hr />
+<h1>Best waveform choices for melody</h1>
+<h2>1. Stepped random ASGN</h2>
+<p>This is the most direct route to notes.</p>
+<ul>
+<li>Patch <strong>ASGN out</strong> with waveform set to <strong>step-random</strong></li>
+<li>Send to a <strong>quantizer</strong></li>
+<li>Clock note events using:</li>
+<li>that same channel’s <strong>rect out</strong></li>
+<li>or an external trigger stream</li>
+<li>Result: evolving random melodies</li>
+</ul>
+<p>Musically:
+- In <strong>free mode</strong>, each random channel is independent, so you get <strong>multiple unrelated melodic lines</strong>
+- In <strong>phase/divide/mult</strong>, the random outputs are related, so you get <strong>themed variations</strong> rather than chaos</p>
+<h2>2. Smooth random ASGN</h2>
+<p>Great for “wandering” melodies.</p>
+<ul>
+<li>Smooth random into a quantizer gives gliding voltages forced into scale notes</li>
+<li>Excellent for ambient or generative lead lines</li>
+<li>Add sample &amp; hold after it if you want more discrete note steps</li>
+</ul>
+<h2>3. Triangle / saw / trapezoid</h2>
+<p>These are excellent for <strong>repeating scalar patterns</strong>.</p>
+<p>When quantized:
+- <strong>Triangle</strong> = up/down melodic motion
+- <strong>Upward saw</strong> = rising ramps with sudden reset
+- <strong>Downward saw</strong> = descending ramps
+- <strong>Trapezoid</strong> = repeated held notes with quick transitions</p>
+<p>These produce very usable sequence-like shapes once quantized.</p>
+<h2>4. Sine</h2>
+<p>Sine into a quantizer can be surprisingly musical:
+- smoother revisiting of nearby notes
+- cyclical basslines
+- nice for slow transposition patterns</p>
+<hr />
+<h1>The four modes and how they help with melody</h1>
+<h2>1. Free mode: four independent melodic sources</h2>
+<p>In <strong>free mode</strong>, all four channels are independent. This is ideal for:</p>
+<ul>
+<li>four separate quantized melodies</li>
+<li>pitch CV + gate pattern + transposition + ornament</li>
+<li>one module driving an entire small generative patch</li>
+</ul>
+<h3>Melodic uses</h3>
+<ul>
+<li><strong>Channel A</strong>: stepped random → quantizer → lead pitch</li>
+<li><strong>Channel B</strong>: slow triangle → precision adder transpose input</li>
+<li><strong>Channel C</strong>: rect out → clock a sample &amp; hold or envelope</li>
+<li><strong>Channel D</strong>: smooth random → filter cutoff or second voice pitch</li>
+</ul>
+<p>Because Batumi tracks <strong>1V/oct</strong>, you can also treat a channel as an oscillator at audio rate. That opens another trick:</p>
+<ul>
+<li>Use <strong>A</strong> as audio oscillator</li>
+<li>Use <strong>B/C/D</strong> as slow melodic modulators affecting pitch, fold, filter, or FM depth</li>
+</ul>
+<h3>Strong patch idea: 4-voice generative ensemble</h3>
+<ul>
+<li>Set all four channels to <strong>step-random</strong></li>
+<li>Quantize each to the same scale</li>
+<li>Use each rect output as its own gate/trigger source</li>
+<li>Send to 4 voices or to a voice allocator / switch</li>
+<li>Adjust each channel speed independently</li>
+</ul>
+<p>This makes Batumi feel like a compact algorithmic sequencer.</p>
+<hr />
+<h2>2. Phase mode: canon, fugue, and melodic imitation</h2>
+<p>In <strong>phase mode</strong>, channels B/C/D follow channel A’s frequency but are <strong>phase shifted</strong> relative to it.</p>
+<p>This is one of the most musically special features.</p>
+<h3>Why it matters for melody</h3>
+<p>In this mode, the manual says the random waves are <strong>copies of channel A’s random sequence, delayed by phase amount</strong>. That means you can create:</p>
+<ul>
+<li>melodic imitation</li>
+<li>canons</li>
+<li>staggered repetitions</li>
+<li>“same tune, different entrance point”</li>
+<li>tightly related counterpoint</li>
+</ul>
+<p>This is gold for melodic composition.</p>
+<h3>Patch: Fugue machine</h3>
+<ul>
+<li>Set ASGN to <strong>step-random</strong></li>
+<li>Put Batumi in <strong>phase mode</strong></li>
+<li>Quantize outputs of A/B/C/D separately</li>
+<li>Set phase offsets on B/C/D to different values</li>
+<li>Use similar or divided gate streams for note articulation</li>
+</ul>
+<p>Result:
+- the same underlying note stream appears at different time offsets
+- sounds like canon/counterpoint rather than random unrelated notes</p>
+<h3>Patch: rotating arpeggio</h3>
+<ul>
+<li>Use <strong>triangle</strong> or <strong>saw</strong> as the source waveform</li>
+<li>Quantize all channels</li>
+<li>Set phase offsets to 90°, 180°, 270°</li>
+<li>Each channel becomes a shifted version of the same contour</li>
+</ul>
+<p>Use with:
+- one voice and a sequential switch
+- or multiple oscillators for interlocking harmony</p>
+<h3>Advanced note</h3>
+<p>The manual mentions <strong>deep phase modulation</strong> can radically deform the waveform and even act like FM at audio rates. In melodic use, that means:
+- a simple source contour can morph into more complex note shapes before quantization
+- subtle CV on phase can create <strong>variation without losing structure</strong></p>
+<hr />
+<h2>3. Divide mode: rhythmic melodic hierarchy</h2>
+<p>In <strong>divide mode</strong>, B/C/D become integer subdivisions of A:
+- 1, 2, 3, 4, 5, 8, 16, 32</p>
+<p>This is amazing for <strong>tempo-locked melody layers</strong>.</p>
+<h3>Melodic consequence</h3>
+<p>All channels are related to A, but slower. So you can patch:</p>
+<ul>
+<li><strong>A</strong> = fast melody</li>
+<li><strong>B</strong> = slower bassline</li>
+<li><strong>C</strong> = even slower transposition source</li>
+<li><strong>D</strong> = ultra-slow phrase-level movement</li>
+</ul>
+<h3>Patch: melody + bass + phrase transpose</h3>
+<ul>
+<li>Channel A ASGN step-random → quantizer → lead</li>
+<li>Channel B ASGN step-random → quantizer → bass</li>
+<li>Channel C triangle → quantizer or precision adder transpose</li>
+<li>Channel D rect → reset a sequencer every long cycle</li>
+</ul>
+<p>Because divide mode keeps things related, the whole patch feels coherent.</p>
+<h3>Why the random mode is useful here</h3>
+<p>The manual says divided random channels are <strong>downsampled copies</strong> of channel A’s random sequence. So if A is a fast random note stream, B/C/D become slower extractions of that same source. Musically this creates:</p>
+<ul>
+<li>motif at different time scales</li>
+<li>phrase-level unity</li>
+<li>less “everything independent” chaos</li>
+</ul>
+<p>This is ideal for generative music where you want a family resemblance across voices.</p>
+<hr />
+<h2>4. Mult mode: embellishment, ornament, upper voices</h2>
+<p>In <strong>mult mode</strong>, B/C/D become integer multiples of A.</p>
+<p>That means:
+- one base motion in A
+- faster related motions in the other channels</p>
+<h3>Great melodic uses</h3>
+<ul>
+<li>ornament around a main line</li>
+<li>ratcheting note motion</li>
+<li>high-register companion lines</li>
+<li>harmonic overtone-like pitch movement if run at audio rate</li>
+</ul>
+<h3>Patch: lead with ornament voices</h3>
+<ul>
+<li>A = slow quantized contour for main lead</li>
+<li>B = x2 related line</li>
+<li>C = x3 related line</li>
+<li>D = x4 or x5 related line</li>
+<li>Quantize them all to the same scale</li>
+</ul>
+<p>Result:
+- upper voices move more rapidly but remain tied to the same underlying cycle</p>
+<h3>Random in mult mode</h3>
+<p>The manual says random sequences are <strong>upsampled</strong> relative to A, sharing values periodically. That means:
+- the faster channels reuse material from A
+- good for decorations and variations around a motif</p>
+<p>This makes mult mode very useful for:
+- grace-note-like melodic behavior
+- dense top-line texture over a slower foundation</p>
+<hr />
+<h1>Poti II: why it matters for melodic control</h1>
+<p>Poti II makes Batumi much more useful as a melody tool.</p>
+<h2>1. Output attenuation</h2>
+<p>This is extremely important because quantizers respond strongly to voltage range.</p>
+<p>With Poti II, you can reduce output amplitude for each channel:
+- narrow melodic range
+- keep notes within one octave
+- create voice-dependent contours</p>
+<p>Example:
+- Channel A wide range = lead
+- Channel B attenuated = bassline with small movement
+- Channel C tiny range = subtle transposition CV</p>
+<p>Without attenuation, some Batumi outputs may jump too widely for practical tonal melodies.</p>
+<h2>2. Per-channel ASGN waveform selection</h2>
+<p>This is huge.</p>
+<p>You can choose different ASGN waveforms per channel:
+- A = stepped random
+- B = triangle
+- C = upward saw
+- D = smooth random</p>
+<p>Now Batumi becomes a <strong>mixed melodic ecosystem</strong> instead of four copies of the same waveform type.</p>
+<h2>3. Shape CV inputs</h2>
+<p>The shape inputs are extremely playable for melody generation.</p>
+<p>Per channel, shape CV can affect one selected destination:</p>
+<h3>Sine: wavefolding</h3>
+<p>If you quantize folded sine motion, you get:
+- more complex repeated note patterns
+- symmetry breaking
+- pseudo-arpeggiated shapes from a simple cycle</p>
+<h3>ASGN: waveform switching</h3>
+<p>This is especially strong for melodic work.</p>
+<p>If shape CV is assigned to ASGN:
+- external CV can switch among waveforms
+- the melodic contour can jump between triangle, saw, trapezoid, random, etc.</p>
+<p>That means one melodic line can morph between:
+- ordered
+- ramping
+- held
+- random</p>
+<p>Great for arrangement and variation.</p>
+<h3>Rect: pulse-width modulation</h3>
+<p>This does not directly create pitch, but it changes gate timing/duty behavior, which affects note length and rhythmic phrasing if rect is used as a gate source.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Simple generative melody</h2>
+<p><strong>Goal:</strong> one evolving tonal line</p>
+<ul>
+<li>Batumi in <strong>free mode</strong></li>
+<li>Channel A ASGN set to <strong>step-random</strong></li>
+<li>A ASGN → quantizer → oscillator pitch</li>
+<li>A RECT → envelope trigger</li>
+<li>Envelope → VCA → oscillator</li>
+</ul>
+<p>Optional:
+- Poti II attenuate A ASGN to keep melody within a narrower range
+- Slow modulation into A FRQ CV for phrase speed changes</p>
+<p>Why it works:
+- stepped random provides note selection
+- rect provides timing
+- quantizer keeps it musical</p>
+<hr />
+<h2>Patch 2: Canon melody</h2>
+<p><strong>Goal:</strong> related voices with delayed entrances</p>
+<ul>
+<li>Batumi in <strong>phase mode</strong></li>
+<li>ASGN = <strong>step-random</strong></li>
+<li>A/B/C/D ASGN → separate quantizer channels or multiple quantizer inputs</li>
+<li>Set B/C/D to different phase offsets</li>
+<li>Use rects or external triggers to articulate voices</li>
+</ul>
+<p>Result:
+- the same sequence appears staggered in time
+- ideal for minimalist or contrapuntal music</p>
+<p>This is one of the best “melodic identity” uses of Batumi II.</p>
+<hr />
+<h2>Patch 3: Bassline + lead from one source family</h2>
+<p><strong>Goal:</strong> coherent two-part composition</p>
+<ul>
+<li>Batumi in <strong>divide mode</strong></li>
+<li>A = medium-fast stepped random to lead quantizer</li>
+<li>B = divide by 2 or 4 to bass quantizer</li>
+<li>C = triangle, attenuated, to transpose the bass or lead by a few scale steps</li>
+<li>D RECT = phrase reset trigger somewhere else in the patch</li>
+</ul>
+<p>Result:
+- lead and bass feel related because they derive from shared timing/material</p>
+<hr />
+<h2>Patch 4: Arpeggiator from continuous waves</h2>
+<p><strong>Goal:</strong> sequencer-like melodic loops without a sequencer</p>
+<ul>
+<li>Batumi in <strong>phase mode</strong> or <strong>free mode</strong></li>
+<li>Use <strong>triangle</strong> or <strong>saw</strong> outputs</li>
+<li>Quantize outputs</li>
+<li>Clock a sample &amp; hold from rect or external trigger if you want discrete note changes</li>
+</ul>
+<p>Options:
+- Triangle gives pendulum-style arps
+- Saw gives rising or falling arps
+- Trapezoid gives repeated held notes</p>
+<hr />
+<h2>Patch 5: Ornament engine</h2>
+<p><strong>Goal:</strong> primary melody plus embellishment</p>
+<ul>
+<li>Batumi in <strong>mult mode</strong></li>
+<li>A ASGN → quantizer → main pitch</li>
+<li>B/C ASGN → quantizer → secondary voices at x2 / x3</li>
+<li>D sine or rect modulates filter, LPG, or wavefolder</li>
+</ul>
+<p>This can sound like:
+- one melody with ornamentation
+- clustered lines
+- baroque-style decorations
+- shimmer on top of a slower line</p>
+<hr />
+<h2>Patch 6: Batumi as four VCOs for harmonic melody</h2>
+<p>Because Batumi II goes to <strong>audio rate</strong> and supports <strong>1V/oct</strong>, it can be used as a bank of oscillators.</p>
+<h3>Patch</h3>
+<ul>
+<li>Put channels in <strong>phase</strong>, <strong>divide</strong>, or <strong>mult</strong></li>
+<li>Feed pitch CV to the frq input(s)</li>
+<li>Take sine or asgn outputs as audio</li>
+<li>Mix channels</li>
+</ul>
+<h3>Melodic applications</h3>
+<ul>
+<li><strong>Phase mode</strong>: detuned/phase-shifted unison or chord-like movement</li>
+<li><strong>Divide mode</strong>: subharmonic relationships for bass and drones</li>
+<li><strong>Mult mode</strong>: harmonic interval / overtone-like melodic stacks</li>
+</ul>
+<p>If you send a keyboard or sequencer CV to channel A:
+- in divide/mult, other channels become related pitch structures
+- not equal-tempered harmony automatically, but very rich for experimental melody</p>
+<hr />
+<h1>Sync-based melodic strategies</h1>
+<p>Batumi’s <strong>reset/sync</strong> behavior is very useful when you want melody tied to song tempo.</p>
+<h2>Reset mode</h2>
+<ul>
+<li>incoming trigger resets phase</li>
+<li>useful for restarting melodic contours at bar lines</li>
+<li>good for keeping looping note curves aligned with the groove</li>
+</ul>
+<p>Example:
+- A saw → quantizer → pitch
+- send a bar-reset trigger to A reset
+- melody restarts every measure</p>
+<h2>Sync mode</h2>
+<ul>
+<li>Batumi adapts to external clock period</li>
+<li>sliders then select <strong>division factors</strong></li>
+<li>in non-free modes, only channel A can sync to external tempo</li>
+</ul>
+<p>This effectively lets Batumi become a <strong>clock-relative melodic generator</strong>.</p>
+<h3>Patch: clocked note divisions</h3>
+<ul>
+<li>External clock into A sync</li>
+<li>A/B/C/D outputs to quantizers or modulation destinations</li>
+<li>Use the resulting divided cycle lengths as phrase lengths</li>
+</ul>
+<p>This is excellent for:
+- tempo-locked ambient melodies
+- self-playing Berlin-school style structures
+- polymetric note streams</p>
+<hr />
+<h1>How to get more “musical” melodies from Batumi</h1>
+<h2>Use a quantizer</h2>
+<p>This is the big one. Batumi makes voltages; the quantizer makes notes.</p>
+<p>Good scale choices:
+- pentatonic for instant consonance
+- dorian/aeolian for melodic ambient lines
+- chromatic for experimental lines</p>
+<h2>Limit voltage range with Poti II</h2>
+<p>Attenuation is your friend. Smaller voltage ranges mean:
+- fewer leaps
+- more motif coherence
+- basslines that stay in register</p>
+<h2>Combine with sample &amp; hold</h2>
+<p>Continuous shapes become stepped note sequences when sampled.</p>
+<p>Examples:
+- triangle + S&amp;H = repeating scalar melody
+- smooth random + S&amp;H = wandering but articulated line
+- phase-shifted channels sampled by same clock = related parallel melodies</p>
+<h2>Use rect outputs as note triggers</h2>
+<p>Every channel provides its own rect output. This can drive:
+- envelopes
+- logic
+- clocking
+- sample &amp; hold</p>
+<p>So one Batumi channel can generate both:
+- note voltage
+- note timing</p>
+<h2>Use channel relationships intentionally</h2>
+<ul>
+<li><strong>Free</strong> = independence</li>
+<li><strong>Phase</strong> = imitation/canon</li>
+<li><strong>Divide</strong> = structural hierarchy</li>
+<li><strong>Mult</strong> = embellishment/density</li>
+</ul>
+<p>That gives you compositional roles, not just modulation modes.</p>
+<hr />
+<h1>Best pairings with other Eurorack modules</h1>
+<p>These modules really shine with:</p>
+<ul>
+<li><strong>Quantizer</strong></li>
+<li>Intellijel Scales, Ornament &amp; Crime, ADDAC quantizers, etc.</li>
+<li><strong>Sample &amp; hold / T&amp;H</strong></li>
+<li><strong>Precision adder</strong></li>
+<li><strong>Sequential switch</strong></li>
+<li><strong>Logic / clock divider</strong></li>
+<li><strong>Envelope + VCA or LPG</strong></li>
+<li><strong>Oscillator / voice module</strong></li>
+<li><strong>Mixer</strong></li>
+<li><strong>Comparator</strong> for deriving extra gates from smooth shapes</li>
+</ul>
+<p>Especially powerful combinations:</p>
+<h2>Batumi + quantizer + switch</h2>
+<p>Four channels become four phrase sources; the switch chooses which phrase is active.</p>
+<h2>Batumi + quantizer + precision adder</h2>
+<p>One channel makes note motion, another makes transposition, another makes phrase-length movement.</p>
+<h2>Batumi + chord oscillator / multi-voice synth</h2>
+<p>Use multiple Batumi outputs to animate root, inversion, spread, or parallel pitch lines.</p>
+<hr />
+<h1>Performance-oriented melodic ideas</h1>
+<h2>Morph from ordered to chaotic</h2>
+<p>Using Poti II per-channel ASGN selection and shape CV:
+- start with triangle/saw for regular melody
+- morph into stepped random
+- then into smooth random
+- return to structured shapes</p>
+<p>This feels like moving from composition to improvisation.</p>
+<h2>Bring voices in by channel role</h2>
+<ul>
+<li>A = main melody</li>
+<li>B = delayed imitation</li>
+<li>C = bass</li>
+<li>D = ornament</li>
+</ul>
+<p>Because all are on one module, this is easy to perform as a “mini ensemble.”</p>
+<h2>Use resets for phrase boundaries</h2>
+<p>Manual resets into channels create controlled re-alignments:
+- all voices land together
+- then drift through their own relationships
+- then rejoin</p>
+<p>Very musical for live generative sets.</p>
+<hr />
+<h1>A few especially strong melodic concepts from the manual</h1>
+<h2>1. Phase-mode random as delayed copies</h2>
+<p>This is probably the standout melodic feature.
+It enables:
+- canon
+- fugue-like structures
+- offset repetition
+- related motif streams</p>
+<h2>2. Divide/mult random as derived versions of one sequence</h2>
+<p>This gives:
+- coherent family resemblance
+- phrase hierarchy
+- ornament vs foundation behavior</p>
+<h2>3. Audio-rate operation with 1V/oct</h2>
+<p>Batumi can cross from modulation into sound generation, so a patch can use the same module for:
+- pitch CV generation
+- audio oscillation
+- internal self-modulation
+- rhythmic gating</p>
+<p>That makes it unusually rich for melodic composition.</p>
+<hr />
+<h1>Bottom line</h1>
+<p><strong>Batumi II + Poti II can absolutely be used as a melodic composition tool, not only as an LFO.</strong><br />
+Its strongest melodic use cases are:</p>
+<ul>
+<li><strong>random quantized melodies</strong></li>
+<li><strong>phase-shifted canons</strong></li>
+<li><strong>clock-related bass/lead hierarchies</strong></li>
+<li><strong>ornamented multi-speed related lines</strong></li>
+<li><strong>audio-rate harmonic or quasi-harmonic voices</strong></li>
+<li><strong>self-playing patches where one module supplies pitch, timing, and phrase structure</strong></li>
+</ul>
+<p>If I were using it specifically for melodic work, I’d think of the modes like this:</p>
+<ul>
+<li><strong>Free</strong> = 4 independent composers</li>
+<li><strong>Phase</strong> = 1 melody, 3 imitators</li>
+<li><strong>Divide</strong> = 1 fast idea, 3 slower structural layers</li>
+<li><strong>Mult</strong> = 1 core idea, 3 embellishers</li>
+</ul>
+<p>And Poti II makes the difference between “interesting modulation” and <strong>usable melodic control</strong>, mainly because of attenuation and per-channel waveform assignment.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

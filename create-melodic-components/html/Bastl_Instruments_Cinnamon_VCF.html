@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bastl_Instruments_Cinnamon_VCF</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Bastl Instruments — Cinnamon VCF</h1>
+<ul>
+<li><a href="../../manuals/manual-cinnamon-web-v1.4.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="about:blank">Manual PDF</a></p>
+<h1>Bastl Cinnamon — using it for melodic components</h1>
+<p>Based on the attached manual, the module here is:</p>
+<ul>
+<li><strong>Bastl Cinnamon</strong> — a <strong>state-variable filter</strong> that can also <strong>self-oscillate as a sine/special waveform oscillator</strong></li>
+</ul>
+<p>This means Cinnamon is not just a tone-shaping filter. It can act as a <strong>melodic voice source</strong> when driven into self-oscillation, and it can also shape other oscillators into more animated melodic lines.</p>
+<h2>What Cinnamon does well melodically</h2>
+<p>Relevant functions from the manual:</p>
+<ul>
+<li><strong>V/Oct input</strong> for pitch control</li>
+<li><strong>Cutoff control</strong> sets the oscillation frequency</li>
+<li><strong>Resonance</strong> at maximum makes it <strong>self-oscillate</strong></li>
+<li><strong>LP / BP / HP outputs</strong> provide phase-shifted outputs</li>
+<li><strong>Character switches</strong> alter the resonance response and self-oscillating waveform</li>
+<li><strong>Drive + Input Level</strong> strongly affect tone when filtering external audio</li>
+<li><strong>FM CV input with attenuator</strong> for modulation of cutoff</li>
+</ul>
+<p>Important caveat from the manual:</p>
+<ul>
+<li><strong>V/Oct tracking works reliably when the Character switches are off</strong></li>
+<li>The <strong>Character switches may disrupt tracking</strong></li>
+</ul>
+<p>So for the most stable melodic use, start with:</p>
+<ul>
+<li><strong>Resonance high enough to self-oscillate</strong></li>
+<li><strong>Character switches off</strong></li>
+<li>Send sequencer pitch CV to <strong>V/Oct</strong></li>
+<li>Take audio from <strong>LP</strong>, <strong>BP</strong>, or <strong>HP</strong></li>
+</ul>
+<hr />
+<h1>Main melodic use cases</h1>
+<h2>1. Cinnamon as a sine oscillator voice</h2>
+<p>This is the most direct melodic patch.</p>
+<h3>Patch</h3>
+<ul>
+<li>Set <strong>Resonance</strong> fully clockwise until it self-oscillates</li>
+<li>Keep <strong>Character switches off</strong> for best pitch tracking</li>
+<li>Send sequencer or keyboard CV to <strong>V/Oct</strong></li>
+<li>Use <strong>Cutoff</strong> to tune the base pitch range</li>
+<li>Patch one output to your VCA/mixer:</li>
+<li><strong>LP</strong> = sine-like, 0°</li>
+<li><strong>BP</strong> = phase-shifted, 90°</li>
+<li><strong>HP</strong> = phase-shifted, 180°</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>Clean, minimal melodic tones</li>
+<li>Great for:</li>
+<li>basslines</li>
+<li>sine leads</li>
+<li>sub melodies</li>
+<li>tuned percussion</li>
+</ul>
+<h3>Tip</h3>
+<p>Because the outputs are phase-related versions of the self-oscillation, you can mult them for interesting stereo or layered patches if your system allows.</p>
+<hr />
+<h2>2. Cinnamon as a character oscillator for rougher melodies</h2>
+<p>The manual notes that the <strong>Character switches change waveform when self-oscillating</strong>.</p>
+<h3>Patch</h3>
+<p>Start from the self-oscillating patch above, then:</p>
+<ul>
+<li>Engage the <strong>upper Character switch</strong> for a sharper, edgy waveform</li>
+<li>Engage the <strong>lower Character switch</strong> for a saw-like character</li>
+<li>Try one or both while sequencing pitch</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>More aggressive or harmonically rich melodic material</li>
+<li>Better for:</li>
+<li>acid-like lines</li>
+<li>cutting leads</li>
+<li>unstable, expressive melodies</li>
+<li>industrial or experimental sequences</li>
+</ul>
+<h3>Caution</h3>
+<p>These switches can <strong>disrupt V/Oct tracking</strong>, so this mode is often best for:</p>
+<ul>
+<li>short repeating sequences</li>
+<li>drone melodies</li>
+<li>looser intonation</li>
+<li>recording and tuning by ear</li>
+</ul>
+<hr />
+<h2>3. FM-style animated melodic lines</h2>
+<p>Cinnamon has a second CV input for cutoff/frequency modulation with an <strong>attenuator</strong>.</p>
+<h3>Patch</h3>
+<p>In self-oscillation mode:</p>
+<ul>
+<li>Pitch CV to <strong>V/Oct</strong></li>
+<li>Send an LFO, envelope, or another oscillator to the <strong>FM/right CV input</strong></li>
+<li>Use the <strong>Attenuator</strong> to control modulation amount</li>
+</ul>
+<h3>Musical result</h3>
+<p>Depending on modulation source:</p>
+<ul>
+<li><strong>Envelope to FM input</strong>:</li>
+<li>per-note pitch sweeps</li>
+<li>plucky attacks</li>
+<li>punchy bass articulation</li>
+<li><strong>LFO to FM input</strong>:</li>
+<li>vibrato</li>
+<li>slow melodic drift</li>
+<li><strong>Audio-rate oscillator to FM input</strong>:</li>
+<li>clangorous or metallic tones</li>
+<li>animated leads</li>
+<li>unstable bell-like melodic colors</li>
+</ul>
+<h3>Best practice</h3>
+<p>For tonal melodies, keep FM amount low at first. Cinnamon can get wild quickly.</p>
+<hr />
+<h2>4. Filtering another oscillator into a melodic voice</h2>
+<p>If you already have another VCO in the rack, Cinnamon becomes a strong melodic sculptor.</p>
+<h3>Patch</h3>
+<ul>
+<li>Patch oscillator audio into <strong>Input</strong></li>
+<li>Use <strong>Input Level</strong> to set gain</li>
+<li>Use <strong>Drive</strong> on/off to control saturation</li>
+<li>Send sequencer melody to the other oscillator’s pitch</li>
+<li>Modulate Cinnamon’s cutoff with:</li>
+<li>envelope</li>
+<li>sequencer CV</li>
+<li>random stepped voltage</li>
+<li>keyboard CV</li>
+<li>Take one or more outputs: <strong>LP</strong>, <strong>BP</strong>, <strong>HP</strong></li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li><strong>LP</strong>: rounded bass/lead shaping</li>
+<li><strong>BP</strong>: vocal, nasal melodic emphasis</li>
+<li><strong>HP</strong>: thinner, cutting melodic parts</li>
+</ul>
+<p>Because Cinnamon is a state-variable filter, the three outputs are especially useful for creating complementary melodic layers from one source.</p>
+<hr />
+<h1>How to use the outputs musically</h1>
+<h2>Low-pass output</h2>
+<ul>
+<li>Best for:</li>
+<li>warm bass</li>
+<li>smooth leads</li>
+<li>sub-heavy melodic lines</li>
+<li>In self-oscillation:</li>
+<li>closest to a pure sine feel</li>
+</ul>
+<h2>Band-pass output</h2>
+<ul>
+<li>Best for:</li>
+<li>focused melodic mids</li>
+<li>plucks</li>
+<li>“talking” or nasal lead lines</li>
+<li>Excellent when cutoff is sequenced rhythmically</li>
+</ul>
+<h2>High-pass output</h2>
+<ul>
+<li>Best for:</li>
+<li>bright melodic accents</li>
+<li>thin cutting counter-melodies</li>
+<li>removing low-end clutter</li>
+</ul>
+<p>A very useful strategy is to treat the outputs as <strong>three tonal perspectives of the same pitch movement</strong>.</p>
+<hr />
+<h1>Drive and Input Level as melodic tools</h1>
+<p>The manual emphasizes that the filter response is <strong>highly affected by input level</strong>.</p>
+<h2>With Drive off</h2>
+<ul>
+<li>Input gain ranges from <strong>0 to 2</strong></li>
+<li>More controllable</li>
+<li>Better for cleaner filtering of melodic content</li>
+</ul>
+<h2>With Drive on</h2>
+<ul>
+<li>Input gain ranges from <strong>0 to 10</strong></li>
+<li>Easily overdrives the filter input</li>
+<li>Great for:</li>
+<li>acid bass</li>
+<li>distorted leads</li>
+<li>harmonically enhanced arpeggios</li>
+</ul>
+<h3>Melodic application</h3>
+<p>If you send a simple waveform from another oscillator into Cinnamon:</p>
+<ul>
+<li>low gain = smoother tone</li>
+<li>high gain = richer harmonics</li>
+<li>high gain + Character switches = dramatic timbral movement across a melody</li>
+</ul>
+<p>This is especially good when a simple sequence needs more personality without changing notes.</p>
+<hr />
+<h1>Strong melodic patch ideas</h1>
+<h2>Patch 1: Pure sine bassline</h2>
+<ul>
+<li>Resonance max</li>
+<li>Character switches off</li>
+<li>Sequencer CV to V/Oct</li>
+<li>LP out to VCA</li>
+<li>Envelope to VCA</li>
+</ul>
+<p><strong>Result:</strong> stable, round bass voice</p>
+<hr />
+<h2>Patch 2: Dirty resonant lead</h2>
+<ul>
+<li>External oscillator into Input</li>
+<li>Drive on</li>
+<li>Input Level fairly high</li>
+<li>Resonance medium-high</li>
+<li>Sequenced envelope to FM/right CV</li>
+<li>BP out to mixer</li>
+</ul>
+<p><strong>Result:</strong> expressive, biting lead with pronounced vowel-like motion</p>
+<hr />
+<h2>Patch 3: Lo-fi tuned percussion</h2>
+<ul>
+<li>Self-oscillation on</li>
+<li>Sequence to V/Oct</li>
+<li>Short envelope into FM/right CV for pitch blip</li>
+<li>Character switch on for rougher waveform</li>
+<li>Fast VCA envelope after output</li>
+</ul>
+<p><strong>Result:</strong> toms, bleeps, synthetic marimba-like phrases</p>
+<hr />
+<h2>Patch 4: Dual-layer melody from one filter</h2>
+<ul>
+<li>Self-oscillation on</li>
+<li>Pitch sequence to V/Oct</li>
+<li>LP out to one VCA/voice channel</li>
+<li>BP or HP out to another VCA/voice channel</li>
+<li>Different envelopes on each</li>
+</ul>
+<p><strong>Result:</strong> one pitch source producing two coordinated melodic layers</p>
+<hr />
+<h2>Patch 5: Acid-style sequence</h2>
+<ul>
+<li>Saw or pulse oscillator into Input</li>
+<li>Drive on</li>
+<li>Resonance high</li>
+<li>Sequencer runs melody to oscillator pitch</li>
+<li>Envelope or accent CV to FM/right CV</li>
+<li>LP output to VCA/mixer</li>
+</ul>
+<p><strong>Result:</strong> animated squelchy sequence with strong note articulation</p>
+<hr />
+<h1>Best practices for melodic tuning</h1>
+<p>From the manual, the <strong>rear trimmer</strong> adjusts <strong>V/Oct tracking</strong>.</p>
+<h2>Use this if:</h2>
+<ul>
+<li>You want Cinnamon to play more accurately across several octaves in self-oscillation mode</li>
+<li>You mainly use it as an oscillator rather than just a filter</li>
+</ul>
+<h2>For best pitch stability</h2>
+<ul>
+<li>Keep <strong>Character switches off</strong></li>
+<li>Let the module warm up</li>
+<li>Tune using the <strong>Cutoff</strong> knob</li>
+<li>Use the <strong>trimmer</strong> only if necessary and carefully</li>
+</ul>
+<hr />
+<h1>Most useful “together” interactions inside the module</h1>
+<p>Since only one module manual was provided, the key “used together” relationships are the internal functions of Cinnamon itself:</p>
+<ul>
+<li><strong>V/Oct + self-oscillation</strong> = oscillator voice</li>
+<li><strong>FM input + attenuator</strong> = melodic articulation and vibrato</li>
+<li><strong>Character switches + resonance</strong> = alternate oscillator timbres</li>
+<li><strong>Drive + Input Level + filter core</strong> = harmonically rich external melodic processing</li>
+<li><strong>LP/BP/HP outputs together</strong> = layered melodic voicings</li>
+</ul>
+<p>So Cinnamon can cover multiple melodic roles in a Eurorack patch:</p>
+<ol>
+<li><strong>Primary oscillator</strong></li>
+<li><strong>Timbre shaper for another oscillator</strong></li>
+<li><strong>Secondary tuned sine/special-tone voice</strong></li>
+<li><strong>Source of layered melodic outputs</strong></li>
+<li><strong>Experimental pitched resonant voice</strong></li>
+</ol>
+<hr />
+<h1>Bottom line</h1>
+<p><strong>Bastl Cinnamon</strong> is unusually useful for melody because it is both:</p>
+<ul>
+<li>a <strong>filter for shaping pitched sources</strong>, and</li>
+<li>a <strong>trackable self-oscillating sound source</strong></li>
+</ul>
+<p>If you want the cleanest melodic behavior, use it as a self-oscillating sine oscillator with:</p>
+<ul>
+<li><strong>Resonance max</strong></li>
+<li><strong>V/Oct input</strong></li>
+<li><strong>Character off</strong></li>
+</ul>
+<p>If you want more personality, use:</p>
+<ul>
+<li><strong>Character switches</strong></li>
+<li><strong>FM modulation</strong></li>
+<li><strong>Drive + Input Level</strong></li>
+</ul>
+<p>That shifts it from accurate pitch utility into expressive, unstable, and very musical territory.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

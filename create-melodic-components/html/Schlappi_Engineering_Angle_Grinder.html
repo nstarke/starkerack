@@ -1,0 +1,484 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Schlappi_Engineering_Angle_Grinder</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Schlappi Engineering — Angle Grinder</h1>
+<ul>
+<li><a href="../../manuals/angle_grinder_manual_20181022.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Angle Grinder Manual PDF</a></p>
+<h1>Schläppi Engineering Angle Grinder — melodic use analysis</h1>
+<p>The attached manual is for <strong>one module</strong>: <strong>Schläppi Engineering Angle Grinder</strong>.<br />
+So rather than “how these modules can be used together,” the useful framing here is:</p>
+<ul>
+<li>how the <strong>internal sections</strong> of Angle Grinder work together</li>
+<li>how to patch it with the rest of a Eurorack system to create <strong>melodic material</strong></li>
+<li>what kinds of <strong>pitched roles</strong> it can play in a musical patch</li>
+</ul>
+<hr />
+<h2>What Angle Grinder is, musically</h2>
+<p>Angle Grinder is not just a weird distortion/filter. It is really <strong>three melodic-capable tools in one</strong>:</p>
+<ol>
+<li><strong>Quadrature sine VCO / LFO</strong></li>
+<li><strong>State-variable-ish filter</strong></li>
+<li><strong>Voltage-controlled waveshaper / nonlinear feedback processor</strong></li>
+</ol>
+<p>That makes it useful for melody in several different ways:</p>
+<ul>
+<li>as a <strong>primary oscillator</strong> with 1V/oct tracking</li>
+<li>as a <strong>companion oscillator</strong> for phase-related voices</li>
+<li>as a <strong>harmonic animation source</strong> for otherwise plain waveforms</li>
+<li>as a <strong>filter voice</strong> that can be “played” by resonance/feedback behavior</li>
+<li>as a <strong>subtle or aggressive timbral layer</strong> that follows melodic pitch</li>
+</ul>
+<p>The big concept of the module is the interaction between:</p>
+<ul>
+<li><strong>SPIN</strong> = the oscillator/filter core</li>
+<li><strong>GRIND</strong> = comparator + VCA + subtractive waveshaping/feedback network</li>
+</ul>
+<p>This interaction is what turns a simple pitched tone into something alive and musically rich.</p>
+<hr />
+<h2>Key manual takeaways for melodic patching</h2>
+<p>From the manual:</p>
+<ul>
+<li><strong>Tracks 4+ octaves at the V/OCT input</strong></li>
+<li><strong>High range:</strong> about <strong>10 Hz to over 20 kHz</strong></li>
+<li><strong>Low range:</strong> about <strong>0.3 Hz to over 600 Hz</strong></li>
+<li><strong>Four phase-related outputs</strong>:</li>
+<li>in oscillator mode: <strong>0°, 90°, 180°, 270°</strong></li>
+<li>in filter mode: <strong>Low Pass, Band Pass, High Pass, Inverted Band Pass</strong></li>
+<li><strong>Sine outputs</strong> are <strong>5 Vpp</strong></li>
+<li><strong>GRIND/filter outputs can get much hotter</strong>, up to around <strong>22 Vpp</strong></li>
+<li><strong>FM1</strong> can be linear or exponential via rear jumper</li>
+<li><strong>FM2</strong> is additional exponential pitch CV</li>
+<li><strong>INJECT</strong> can feed SPIN directly, bypassing GRIND</li>
+<li><strong>FM1 is normalled to GRIND OUT</strong>, which matters a lot for tuning</li>
+</ul>
+<p>That last point is especially important for melodic use:<br />
+if you want clean pitch tracking, <strong>turn FM1 down unless you intentionally want self-modulated chaos</strong>.</p>
+<hr />
+<h1>How the two sections work together for melody</h1>
+<h2>1. SPIN as the pitch source</h2>
+<p>SPIN is a <strong>quadrature sine oscillator</strong>, which means it produces four sine waves at the same frequency but shifted by 90° relative to each other.</p>
+<p>For melody, this gives you:</p>
+<ul>
+<li>a <strong>clean fundamental tone</strong></li>
+<li>four related outputs that can be:</li>
+<li>mixed for different timbres</li>
+<li>sent to different VCAs/filters</li>
+<li>used as phase-offset modulation sources</li>
+<li>treated as separate “voices” that still feel unified</li>
+</ul>
+<p>Because it tracks 1V/oct over several octaves, SPIN can absolutely serve as a <strong>pitched melodic oscillator</strong>.</p>
+<h3>Strong melodic use cases</h3>
+<ul>
+<li>lead voice</li>
+<li>bass voice</li>
+<li>tuned FM source</li>
+<li>chord-ish layered sine stack through further processing</li>
+<li>quadrature modulation source for animated stereo melodic patches</li>
+</ul>
+<hr />
+<h2>2. GRIND as harmonic sculptor</h2>
+<p>GRIND compares the SPIN phases against an input, creates square-ish control shapes, and subtracts them from the input. In plain musical terms:</p>
+<ul>
+<li>it can turn simple tones into <strong>edgy, metallic, vocal, pyramidal, stepped, or tearing waveforms</strong></li>
+<li>it can create <strong>harmonic complexity that still follows pitch</strong></li>
+<li>it can act like a <strong>voltage-controlled timbre engine</strong></li>
+</ul>
+<p>This is exactly the kind of thing that makes a melody feel expressive rather than static.</p>
+<p>For melodic composition, GRIND is especially good at:</p>
+<ul>
+<li>adding controllable overtone motion to a pitched oscillator</li>
+<li>creating brighter transients on note attacks</li>
+<li>evolving a bassline from sine to snarling shape</li>
+<li>producing unstable but repeatable timbres when under CV control</li>
+</ul>
+<hr />
+<h2>3. GRIND→SPIN as “playable instability”</h2>
+<p>The <strong>GRIND -&gt; SPIN</strong> control feeds the GRIND output back into the oscillator/filter core.</p>
+<p>This is the musical magic zone.</p>
+<p>At low amounts:
+- subtle enrichment
+- dynamic asymmetry
+- controlled growl</p>
+<p>At medium amounts:
+- animated harmonic movement
+- unstable but still pitch-centered tones
+- pseudo-resonant behavior</p>
+<p>At high amounts:
+- the oscillator can be overwhelmed and shift toward <strong>filter-like behavior</strong>
+- tones can become noisy, percussive, or semi-chaotic
+- pitch may become less stable, but this can be musically great for accents and transitions</p>
+<p>For melody, this means you can treat GRIND-&gt;SPIN as a <strong>timbre-performance control</strong>:
+- lower for stable notes
+- higher for choruses, fills, or dramatic phrases</p>
+<hr />
+<h1>Best melodic roles for Angle Grinder</h1>
+<h2>A. Primary melodic oscillator</h2>
+<p>This is the most straightforward use.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequencer 1V/oct → <strong>V/OCT</strong></li>
+<li>Envelope → VCA controlling audio level downstream</li>
+<li>Take <strong>0° output</strong> or <strong>GRIND OUT</strong> as main audio</li>
+<li>Keep <strong>FM1 down</strong></li>
+<li>Tune with <strong>SPIN</strong> and <strong>FINE</strong></li>
+<li>Use <strong>GRIND sliders</strong> for timbre shaping</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>Clean sine-based melodies if you use SPIN outputs directly</li>
+<li>Rich, animated leads or basses if you use GRIND OUT</li>
+</ul>
+<h3>Why it works</h3>
+<p>You get pitch stability from SPIN and character from GRIND.</p>
+<hr />
+<h2>B. Melodic oscillator with animated timbre</h2>
+<p>Because each GRIND lane has its own slider and CV input, you can move the harmonic structure over time.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequencer → <strong>V/OCT</strong></li>
+<li>Slow envelope/LFO/sequence rows → one or more <strong>GRIND CV inputs</strong></li>
+<li>Main audio from <strong>OUT</strong></li>
+<li>Optionally use a separate envelope to control final VCA</li>
+</ul>
+<h3>Musical result</h3>
+<p>Each note can have:
+- different brightness
+- different edge
+- different attack contour
+- timbral movement across a phrase</p>
+<p>This is ideal for:
+- acid-adjacent leads
+- morphing basslines
+- synthetic plucks with internal animation</p>
+<hr />
+<h2>C. Dual-role melody + modulation source</h2>
+<p>Since SPIN has four phase outputs, you can use one as audio and others as modulation tied to the same pitch.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>1V/oct → V/OCT</li>
+<li><strong>0° output</strong> → audio path</li>
+<li><strong>90° / 180° / 270° outputs</strong> → modulate:</li>
+<li>panning</li>
+<li>wavefolder symmetry</li>
+<li>filter cutoff</li>
+<li>VCA level on parallel voice</li>
+</ul>
+<h3>Musical result</h3>
+<p>The melody itself drives its own movement.<br />
+This creates very coherent patches where:
+- every note has internal motion
+- stereo shifts feel locked to the pitch
+- supporting modulation feels musically related rather than arbitrary</p>
+<p>This is one of the most special melodic uses of Angle Grinder.</p>
+<hr />
+<h2>D. Melodic filtering / pingable timbre voice</h2>
+<p>When SPIN is damped or sufficiently disrupted by GRIND feedback/input, it behaves more like a filter core.</p>
+<p>With the right external oscillator, Angle Grinder becomes a very unusual <strong>melodic filter voice</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a tuned VCO or harmonically rich source into <strong>IN</strong></li>
+<li>Turn <strong>GRIND -&gt; SPIN</strong> clockwise</li>
+<li>Add some <strong>DAMPING</strong></li>
+<li>Use the SPIN outputs as:</li>
+<li>low pass</li>
+<li>band pass</li>
+<li>high pass</li>
+<li>inverted band pass</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>moving resonant tones</li>
+<li>formant-like melodic filtering</li>
+<li>unstable but expressive spectral shifts</li>
+<li>pseudo-physical or vocal textures</li>
+</ul>
+<p>This works great when the melody is carried by another oscillator and Angle Grinder becomes the <strong>character voice</strong>.</p>
+<hr />
+<h2>E. Soft-sync melodic voice with INJECT</h2>
+<p>The <strong>INJECT</strong> jack directly hits the SPIN core and can be AC- or DC-coupled.<br />
+The manual says AC mode is default and acts like a <strong>soft sync-like effect</strong>, especially with square or saw input.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequencer → V/OCT on Angle Grinder</li>
+<li>Another oscillator’s saw or square → <strong>INJECT</strong></li>
+<li>Main audio from SPIN output or GRIND OUT</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>stable pitch with reset-like articulation</li>
+<li>animated sync-ish harmonics</li>
+<li>sharper melodic presence without standard hard-sync harshness</li>
+</ul>
+<p>This is excellent for:
+- leads
+- sync bass
+- aggressive arpeggios</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>1. Clean sine lead</h2>
+<p><strong>Goal:</strong> pure, stable melodic line</p>
+<p><strong>Patch</strong>
+- Sequencer → V/OCT
+- 0° output → VCA → mixer
+- Envelope → VCA CV
+- FM1 fully down
+- GRIND sliders down or unused
+- DAMPING low / oscillator mode active</p>
+<p><strong>Result</strong>
+- very pure sine lead or bass
+- good for sub lines, FM carrier duty, or minimal melodies</p>
+<hr />
+<h2>2. Animated bass voice</h2>
+<p><strong>Goal:</strong> bassline that moves harmonically while staying pitch-centered</p>
+<p><strong>Patch</strong>
+- Sequencer → V/OCT
+- OUT → lowpass filter or LPG → VCA
+- One envelope or sequencer lane → GRIND CV 1
+- Another modulation source → GRIND CV 2
+- Keep GRIND-&gt;SPIN low to medium
+- Use one or two sliders up</p>
+<p><strong>Result</strong>
+- bass with evolving edge
+- can move from rounded to biting across a phrase
+- especially good for techno, EBM, industrial, electro</p>
+<hr />
+<h2>3. Phase-based stereo melody</h2>
+<p><strong>Goal:</strong> wide melodic voice from one oscillator</p>
+<p><strong>Patch</strong>
+- Sequencer → V/OCT
+- 0° output → left voice chain
+- 180° output → right voice chain
+- Or 90° and 270° to two VCAs/panners
+- Use same envelope for both, or offset them slightly</p>
+<p><strong>Result</strong>
+- natural stereo spread
+- strong mono relationship but lively width
+- beautiful for drones, ambient melodies, and glassy tuned textures</p>
+<hr />
+<h2>4. Four-note articulated patch from one pitch source</h2>
+<p><strong>Goal:</strong> one melodic line driving a complex ensemble feel</p>
+<p><strong>Patch</strong>
+- Sequencer → V/OCT
+- Send 0°, 90°, 180°, 270° to four different destinations:
+  - four VCAs
+  - four filters
+  - four wavefolders
+- Modulate each destination differently
+- Mix them back together</p>
+<p><strong>Result</strong>
+- one pitch source, but layered motion
+- pseudo-ensemble or rotating timbre cloud
+- excellent for melodic ostinatos</p>
+<hr />
+<h2>5. Harmonic melody processor</h2>
+<p><strong>Goal:</strong> use Angle Grinder to transform another melodic oscillator</p>
+<p><strong>Patch</strong>
+- External oscillator carrying the melody → IN
+- Set SPIN to LFO or audio rate depending desired effect
+- Listen to OUT
+- Modulate GRIND sliders/CV
+- Keep GRIND-&gt;SPIN low for processing, higher for feedback complexity</p>
+<p><strong>Result</strong>
+- supersaw-like shimmer at low internal rates
+- metallic sidebands and tearing overtones at audio rates
+- melody remains recognizable but gets a distinct synthetic personality</p>
+<p>This is especially powerful when you already have a favorite VCO but want a more original melodic timbre.</p>
+<hr />
+<h2>6. Filtered melody with nonlinear resonance</h2>
+<p><strong>Goal:</strong> melodic line with unstable resonant animation</p>
+<p><strong>Patch</strong>
+- External VCO → IN
+- Use GRIND-&gt;SPIN at medium-high setting
+- Add DAMPING to move away from pure oscillation
+- Take LP/BP/HP outputs from SPIN
+- Sequence/filter the external VCO as normal</p>
+<p><strong>Result</strong>
+- animated filtering that feels halfway between a filter, resonator, and feedback network
+- great for leads that need movement without adding many extra modules</p>
+<hr />
+<h2>7. Self-voicing chaotic melody</h2>
+<p><strong>Goal:</strong> unstable but tunable lead voice</p>
+<p><strong>Patch</strong>
+- Sequencer → V/OCT
+- No input patched, or experiment with IN turned up as manual suggests
+- Use OUT as audio
+- Raise one or more GRIND sliders
+- Explore GRIND-&gt;SPIN and DAMPING carefully
+- FM1 down unless intentionally using self-feedback FM</p>
+<p><strong>Result</strong>
+- highly characterful, almost broken-waveform tones
+- can sound like sync, folding, PWM, and comparator distortion all at once
+- great for aggressive hooks and industrial melody lines</p>
+<hr />
+<h1>How to keep it melodic instead of chaotic</h1>
+<p>Angle Grinder can go wild quickly. If your goal is melody, these practices help a lot.</p>
+<h2>1. Turn FM1 down for pitch tracking</h2>
+<p>The manual explicitly warns that <strong>FM1 is normalled to GRIND OUT</strong>.<br />
+So if nothing is plugged in and FM1 is up, the oscillator is self-modulating.</p>
+<p>That is fun, but not ideal if you want:
+- precise tuning
+- consistent intervals
+- stable bass</p>
+<p>So for melodic work:
+- <strong>start with FM1 fully CCW</strong></p>
+<hr />
+<h2>2. Start from SPIN outputs, then add GRIND</h2>
+<p>If you need a reliable melodic basis:</p>
+<ol>
+<li>get the pitch right on 0° output</li>
+<li>confirm tracking</li>
+<li>then bring in GRIND OUT or feedback</li>
+</ol>
+<p>This prevents losing the musical center too early.</p>
+<hr />
+<h2>3. Use fewer sliders first</h2>
+<p>The manual’s oscilloscope examples show that each slider introduces a distinct shaping contribution, and combinations get more complex.</p>
+<p>For melody:
+- begin with <strong>one slider</strong>
+- then try <strong>two adjacent sliders</strong>
+- only then go to all four</p>
+<p>This keeps the overtone structure more readable.</p>
+<hr />
+<h2>4. Use GRIND-&gt;SPIN like a macro performance control</h2>
+<p>Instead of setting it high all the time, automate or perform it.</p>
+<p>Best use:
+- lower during verse
+- rise during fill
+- spike for transitions
+- pull back for pitch clarity</p>
+<hr />
+<h2>5. Separate “pitch CV” from “timbre CV”</h2>
+<p>Use:
+- <strong>V/OCT / FM2</strong> for pitch-related control
+- <strong>GRIND CV inputs</strong> for timbre-related control</p>
+<p>This makes the module much easier to compose with.</p>
+<hr />
+<h1>Where Angle Grinder shines in melodic genres</h1>
+<h2>Excellent for</h2>
+<ul>
+<li>industrial techno</li>
+<li>EBM</li>
+<li>electro</li>
+<li>dark ambient</li>
+<li>experimental pop</li>
+<li>IDM</li>
+<li>cinematic tension music</li>
+<li>acid-adjacent bass and lead work</li>
+<li>noise-informed but tonal music</li>
+</ul>
+<h2>Less naturally suited for</h2>
+<ul>
+<li>very pristine traditional subtractive lead patches</li>
+<li>ultra-precise tonal polyphony</li>
+<li>delicate, perfectly repeatable analog sweet-spot patching</li>
+</ul>
+<p>It can still do subtler work, but its personality is in <strong>animated nonlinearity</strong>.</p>
+<hr />
+<h1>Best musical pairings in a wider Eurorack system</h1>
+<p>Even though only one module manual was attached, Angle Grinder pairs especially well with:</p>
+<h2>Sequencers</h2>
+<p>For obvious melodic use:
+- 1V/oct lines
+- sequenced timbre CV to GRIND lanes
+- transposition and accent tracks</p>
+<h2>VCAs / LPGs</h2>
+<p>Essential to shape notes dynamically after the often-hot outputs.</p>
+<h2>Envelopes</h2>
+<p>Very useful for:
+- note articulation
+- per-note grind animation
+- feedback depth changes</p>
+<h2>Filters</h2>
+<p>If using GRIND OUT as a main oscillator, a downstream filter can tame or spotlight specific overtones.</p>
+<h2>Wavefolders / distortion</h2>
+<p>Angle Grinder already shapes heavily, but subtle extra processing can create very rich leads.</p>
+<h2>Delays / reverbs</h2>
+<p>The phase outputs into stereo effects can sound huge and highly musical.</p>
+<h2>Precision adder / quantizer</h2>
+<p>Helpful if you want to keep complex Angle Grinder patches locked into tonal material.</p>
+<hr />
+<h1>Most musically useful outputs for melody</h1>
+<h2>0° output</h2>
+<ul>
+<li>best starting point for pitch</li>
+<li>cleanest reference</li>
+<li>ideal for tuning and stable melodic work</li>
+</ul>
+<h2>90° / 180° / 270°</h2>
+<ul>
+<li>alternate voices</li>
+<li>stereo companions</li>
+<li>modulation tied to pitch</li>
+<li>parallel processing</li>
+</ul>
+<h2>OUT / GRIND OUT</h2>
+<ul>
+<li>most characterful melodic audio output</li>
+<li>best for aggressive basses and leads</li>
+<li>can get very hot; attenuate if needed</li>
+</ul>
+<h2>Filter outputs when in filter behavior</h2>
+<ul>
+<li>best for spectral melodies</li>
+<li>unusual formants</li>
+<li>feedback-rich tonal coloration</li>
+</ul>
+<hr />
+<h1>Three high-value melodic workflows</h1>
+<h2>Workflow 1: Stable melody, unstable timbre</h2>
+<ul>
+<li>Pitch from V/OCT</li>
+<li>Audio from GRIND OUT</li>
+<li>FM1 off</li>
+<li>Moderate slider use</li>
+<li>GRIND CV animated by envelopes/LFOs</li>
+</ul>
+<p>This is probably the most generally useful mode.</p>
+<h2>Workflow 2: One oscillator, many related voices</h2>
+<ul>
+<li>Use multiple SPIN outputs in parallel</li>
+<li>Different processing per phase</li>
+<li>Common pitch sequence</li>
+</ul>
+<p>This is excellent for stereo and layered arrangements.</p>
+<h2>Workflow 3: External melody into Angle Grinder processor</h2>
+<ul>
+<li>Use another VCO for the main melody</li>
+<li>Feed it to IN</li>
+<li>Use Angle Grinder as wave-transformer/filter-feedback network</li>
+</ul>
+<p>This is the best option if you want Angle Grinder’s character without relying on it as the only pitch source.</p>
+<hr />
+<h1>Bottom line</h1>
+<p><strong>Angle Grinder is absolutely capable of creating melodic components</strong>, but it is most rewarding when treated as a <strong>performance-oriented timbral oscillator/filter hybrid</strong> rather than a plain voice.</p>
+<p>Its strongest melodic uses are:</p>
+<ul>
+<li><strong>quadrature sine VCO</strong> for tuned melodic lines</li>
+<li><strong>animated waveshaper</strong> for expressive bass and lead timbres</li>
+<li><strong>phase-related multi-output source</strong> for stereo or layered melodic structures</li>
+<li><strong>soft-sync / injected oscillator</strong> for sharper harmonic articulation</li>
+<li><strong>nonlinear filter/resonator</strong> for spectral melodic processing</li>
+</ul>
+<p>If you want clean melody, start simple:
+- V/OCT in
+- FM1 down
+- monitor 0° output
+- add GRIND gradually</p>
+<p>If you want memorable melody, lean into what makes Angle Grinder special:
+- CV the GRIND lanes
+- exploit the four phases
+- perform GRIND-&gt;SPIN
+- use INJECT and feedback as compositional tools</p>
+<p>It is a module that can make a sequence sound less like “notes from an oscillator” and more like a <strong>living mechanical voice</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mutable_Instruments_Braids</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Mutable Instruments — Braids</h1>
+<ul>
+<li><a href="../../manuals/Manual - Mutable Instruments Braids Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://mutable-instruments.net/modules/braids/manual/">Mutable Instruments Braids Manual (v1.8)</a></p>
+<h1>Using Braids to Create Melodic Parts</h1>
+<p>Based on the attached manual, this module is <strong>Mutable Instruments Braids</strong>, a <strong>digital macro-oscillator</strong> designed to generate a wide range of pitched sound sources. For melodic work, Braids can serve as the <strong>main voice generator</strong> in a Eurorack patch, with its internal tools handling a surprising amount of articulation, pitch organization, and timbral movement.</p>
+<h2>What Braids contributes melodically</h2>
+<p>Braids is especially strong for melody because it combines:</p>
+<ul>
+<li><strong>1V/Oct pitch tracking</strong> via the <strong>V/OCT</strong> input</li>
+<li><strong>45 synthesis models</strong> covering analog-style, FM, additive, wavetable, physical modeling, noise, and percussion-like tones</li>
+<li>Two musically useful macro controls:</li>
+<li><strong>TIMBRE</strong></li>
+<li><strong>COLOR</strong></li>
+<li>A <strong>TRIG input</strong> that can:</li>
+<li>excite physical models</li>
+<li>reset oscillator phase</li>
+<li>trigger an <strong>internal AD envelope</strong></li>
+<li>Built-in utilities for melodic control:</li>
+<li><strong>quantizer/scales</strong></li>
+<li><strong>root note selection</strong></li>
+<li><strong>octave transpose</strong></li>
+<li>coarse/fine tuning</li>
+<li>trigger source options</li>
+</ul>
+<p>In practice, that means Braids can be patched as a complete melodic voice or as the tone source at the center of a larger melodic patch.</p>
+<hr />
+<h2>Core melodic patch roles</h2>
+<h2>1. Braids as a classic lead or bass oscillator</h2>
+<p>The most direct use is:</p>
+<ul>
+<li>Send a sequencer or keyboard CV to <strong>V/OCT</strong></li>
+<li>Send gates/triggers to <strong>TRIG</strong></li>
+<li>Take audio from <strong>OUT</strong></li>
+<li>Shape amplitude externally with a VCA/envelope, or use Braids’ internal envelope options</li>
+</ul>
+<p>Good melodic models for this role include:</p>
+<ul>
+<li><strong>CSAW</strong> for warm animated saw tones</li>
+<li><strong>triangle/saw/square/pulse morphing model</strong> for subtractive-style leads</li>
+<li><strong>dephased saw + PWM square blend</strong> for richer mono lines</li>
+<li><strong>FOLD</strong> for more modern harmonically animated melodies</li>
+<li><strong>HARM</strong> for additive, organ-like or spectral lines</li>
+<li><strong>WTBL / WMAP / WLIN / WTx4</strong> for wavetable melodies</li>
+<li><strong>FM / FBFM / WTFM</strong> for glassy, metallic, or aggressive melodic voices</li>
+<li><strong>VOWL / VFOF / VOSM</strong> for vocal, formant-rich lead lines</li>
+</ul>
+<p>This is the easiest path to melodic content: Braids becomes your oscillator, and the external sequencer determines the notes.</p>
+<hr />
+<h2>2. Braids as a self-contained plucked or struck melodic voice</h2>
+<p>Several models respond directly to triggers and produce naturally articulated notes:</p>
+<ul>
+<li><strong>PLUK</strong> — plucked string</li>
+<li><strong>BOWD</strong> — bowed string</li>
+<li><strong>BLOW / FLUTE</strong> — wind-style tones</li>
+<li><strong>BELL</strong> — struck bell</li>
+<li><strong>DRUM / KICK / SNAR / CYMB</strong> — more percussive, but still pitch-usable in some contexts</li>
+</ul>
+<p>For melodic use:</p>
+<ul>
+<li>Sequence pitch into <strong>V/OCT</strong></li>
+<li>Send triggers into <strong>TRIG</strong></li>
+<li>Choose a model like <strong>PLUK</strong> or <strong>BELL</strong></li>
+<li>Use <strong>TIMBRE</strong> and <strong>COLOR</strong> to vary damping, position, inharmonicity, or brightness</li>
+</ul>
+<p>This works very well for:</p>
+<ul>
+<li>arpeggios</li>
+<li>mallet-style melodic lines</li>
+<li>pseudo-acoustic sequences</li>
+<li>generative melodies</li>
+</ul>
+<p>One particularly useful feature from the manual is <strong>TSRC = AUTO</strong>, where Braids can generate triggers when the incoming pitch changes by more than a semitone. That means if your pitch sequencer does not provide a gate output, Braids can still re-articulate notes for physical models and envelope behavior.</p>
+<hr />
+<h2>3. Braids as a melodic voice with internal modulation animation</h2>
+<p>Braids includes an <strong>internal AD envelope generator</strong> assignable to:</p>
+<ul>
+<li><strong>FM</strong></li>
+<li><strong>TIMBRE</strong></li>
+<li><strong>COLOR</strong></li>
+<li><strong>VCA</strong></li>
+</ul>
+<p>This is a big deal for melodic patching because it allows per-note articulation without requiring as many external modules.</p>
+<p>Menu parameters include:</p>
+<ul>
+<li><strong>ATT</strong> and <strong>DEC</strong> for envelope times</li>
+<li><strong>FM / TIM / COL / VCA</strong> modulation amounts from the internal AD</li>
+</ul>
+<p>This enables:</p>
+<ul>
+<li>plucky attacks on basslines</li>
+<li>timbre sweeps on each note</li>
+<li>dynamic vowel/formant movement</li>
+<li>internal amplitude contouring</li>
+<li>per-note FM bursts for punchier melodic transients</li>
+</ul>
+<h3>Example melodic use</h3>
+<p>Use a wavetable or FM model, send pitch CV to <strong>V/OCT</strong>, gate to <strong>TRIG</strong>, then:</p>
+<ul>
+<li>set some <strong>VCA</strong> envelope amount for amplitude shaping</li>
+<li>add <strong>TIMBRE</strong> envelope amount for brightness attack</li>
+<li>optionally add a little <strong>FM</strong> envelope for punch</li>
+</ul>
+<p>Now Braids behaves much more like a fully articulated synth voice.</p>
+<hr />
+<h2>4. Braids as a quantized melodic oscillator</h2>
+<p>The <strong>QNTZ</strong> option lets Braids quantize incoming V/OCT CV to:</p>
+<ul>
+<li>semitones</li>
+<li>specific scales</li>
+<li>or no quantization</li>
+</ul>
+<p>And <strong>ROOT</strong> sets the root note.</p>
+<p>This is extremely useful if you are feeding Braids from:</p>
+<ul>
+<li>random voltages</li>
+<li>a sequencer with imperfect tuning</li>
+<li>a slow modulation source repurposed as melody</li>
+<li>pressure or joystick CV</li>
+<li>sample-and-hold</li>
+</ul>
+<p>So even if the incoming CV is loose or experimental, Braids can force it into a musically coherent scale. That makes it excellent for:</p>
+<ul>
+<li>generative melodies</li>
+<li>modal lines</li>
+<li>constrained improvisation</li>
+<li>melodic textures from modulation sources</li>
+</ul>
+<hr />
+<h2>5. Braids as a chord or interval-based melodic source</h2>
+<p>Some models are especially useful for harmonically rich melodic lines:</p>
+<ul>
+<li><strong>/|/|x3, -_-_x3, /\x3, SIx3</strong>: 3 oscillators with interval snapping</li>
+<li><strong>WTx4</strong>: 4-voice wavetable chord structures</li>
+<li><strong>RING</strong>: interval relationships between sine oscillators</li>
+<li><strong>HARM</strong>: harmonic distribution around a center frequency</li>
+<li><strong>SYN-x</strong> sync models with interval control</li>
+</ul>
+<p>These can be used to create:</p>
+<ul>
+<li>harmonized melodies</li>
+<li>octave/fifth stacked basslines</li>
+<li>chord-like mono sequences</li>
+<li>pseudo-paraphonic riffs</li>
+</ul>
+<p>The manual notes that some of these models quantize TIMBRE/COLOR relationships to musically useful intervals like octaves and fifths, which makes them especially practical for tonal melodic writing.</p>
+<hr />
+<h2>Best synthesis models for different melodic jobs</h2>
+<h2>Warm analog-style melodies</h2>
+<p>Use:</p>
+<ul>
+<li><strong>CSAW</strong></li>
+<li>waveform morphing triangle/saw/square/pulse model</li>
+<li>dephased saw/PWM blend</li>
+<li><strong>/|/|/|/|</strong> swarm saw</li>
+</ul>
+<p>These are ideal for:</p>
+<ul>
+<li>basslines</li>
+<li>classic leads</li>
+<li>sequenced arps</li>
+<li>Berlin-school style patterns</li>
+</ul>
+<h2>Evolving digital melodies</h2>
+<p>Use:</p>
+<ul>
+<li><strong>WTBL</strong></li>
+<li><strong>WMAP</strong></li>
+<li><strong>WLIN</strong></li>
+<li><strong>WTx4</strong></li>
+<li><strong>FOLD</strong></li>
+</ul>
+<p>Great for:</p>
+<ul>
+<li>modern electronica</li>
+<li>ambient sequences</li>
+<li>melodic drones with note definition</li>
+<li>shimmering arpeggios</li>
+</ul>
+<h2>Expressive or vocal melodies</h2>
+<p>Use:</p>
+<ul>
+<li><strong>VOWL</strong></li>
+<li><strong>VFOF</strong></li>
+<li><strong>VOSM</strong></li>
+</ul>
+<p>Excellent for:</p>
+<ul>
+<li>singing lead lines</li>
+<li>human-like phrasing</li>
+<li>strange synthetic hooks</li>
+</ul>
+<h2>Metallic, glassy, or complex melodies</h2>
+<p>Use:</p>
+<ul>
+<li><strong>FM</strong></li>
+<li><strong>FBFM</strong></li>
+<li><strong>WTFM</strong></li>
+<li><strong>BELL</strong></li>
+</ul>
+<p>Best for:</p>
+<ul>
+<li>IDM-style melodic sequences</li>
+<li>clangorous motifs</li>
+<li>bell arpeggios</li>
+<li>percussive tuned riffs</li>
+</ul>
+<h2>Acoustic-inspired melodic patches</h2>
+<p>Use:</p>
+<ul>
+<li><strong>PLUK</strong></li>
+<li><strong>BOWD</strong></li>
+<li><strong>BLOW</strong></li>
+<li><strong>FLUTE</strong></li>
+</ul>
+<p>These models are ideal when you want:</p>
+<ul>
+<li>string-like ostinatos</li>
+<li>flute-like melodies</li>
+<li>plucked patterns</li>
+<li>semi-natural solo voices</li>
+</ul>
+<hr />
+<h2>Important patching strategies for melodic music</h2>
+<h2>A. Use TRIG for note definition</h2>
+<p>The <strong>TRIG</strong> input is central to making melodies feel intentional.</p>
+<p>Depending on the model, it:</p>
+<ul>
+<li>excites physical models</li>
+<li>resets phase for consistent transients</li>
+<li>triggers the internal AD envelope</li>
+</ul>
+<p>So even for non-physical models, using a trigger sequence helps a melodic line sound more rhythmically defined and less smeared.</p>
+<hr />
+<h2>B. Modulate TIMBRE with CV for phrase variation</h2>
+<p>Braids gives <strong>TIMBRE CV input</strong> plus attenuverter control. This is one of the best ways to make melodies breathe.</p>
+<p>Examples:</p>
+<ul>
+<li>an envelope into TIMBRE CV for brightness per note</li>
+<li>a slow LFO into TIMBRE CV for phrase evolution</li>
+<li>stepped random into TIMBRE CV for variation on repeated sequences</li>
+</ul>
+<p>Because TIMBRE usually controls the main timbral evolution, this adds expressiveness without changing pitch.</p>
+<hr />
+<h2>C. Use COLOR as the second melodic-expression lane</h2>
+<p><strong>COLOR</strong> is often the “character” control:
+- symmetry
+- detune
+- formant shift
+- oscillator ratio
+- wavetable selection
+- pluck position
+- brightness</p>
+<p>For melodic patching, COLOR is great for:
+- phrase-level variation
+- changing harmonic emphasis every bar
+- morphing a melody from soft to edgy
+- shifting between related timbral states while the pitch pattern stays the same</p>
+<hr />
+<h2>D. Quantize experimental CV sources</h2>
+<p>Because Braids has internal <strong>QNTZ</strong>, you can feed it unusual sources and still get usable melodic material:</p>
+<ul>
+<li>random voltage</li>
+<li>smooth LFO</li>
+<li>chaotic CV</li>
+<li>manually swept control voltage</li>
+</ul>
+<p>This is one of the strongest “musician-friendly” features in the manual for generating melodies from nontraditional control sources.</p>
+<hr />
+<h2>E. Use OCTV and RANG to place Braids correctly in the mix</h2>
+<p>The manual includes:</p>
+<ul>
+<li><strong>OCTV</strong> for octave transposition</li>
+<li><strong>RANG</strong>:</li>
+<li><strong>EXT</strong></li>
+<li><strong>FREE</strong></li>
+<li><strong>XTND</strong></li>
+<li><strong>440</strong></li>
+</ul>
+<p>These matter melodically because they determine whether Braids behaves like:</p>
+<ul>
+<li>a bass voice</li>
+<li>a midrange lead</li>
+<li>a bright arpeggio source</li>
+<li>a drone oscillator</li>
+</ul>
+<p>If you are not feeding external pitch CV, <strong>FREE</strong> is recommended by the manual because it centers the coarse tuning around <strong>C3</strong>, which is more musically practical.</p>
+<hr />
+<h2>Example melodic patch ideas</h2>
+<h2>1. Simple sequenced lead</h2>
+<ul>
+<li>Sequencer pitch CV → <strong>V/OCT</strong></li>
+<li>Sequencer gate → <strong>TRIG</strong></li>
+<li>Braids model: <strong>CSAW</strong> or <strong>WTBL</strong></li>
+<li>OUT → VCA/filter/audio path</li>
+</ul>
+<p>Set the internal AD envelope to modulate:
+- a little <strong>VCA</strong>
+- some <strong>TIMBRE</strong></p>
+<p>Result: a playable, articulate mono lead.</p>
+<hr />
+<h2>2. Plucked arpeggio voice</h2>
+<ul>
+<li>Arpeggiator CV → <strong>V/OCT</strong></li>
+<li>Clocked trigger → <strong>TRIG</strong></li>
+<li>Model: <strong>PLUK</strong></li>
+<li>Adjust <strong>TIMBRE</strong> for damping</li>
+<li>Adjust <strong>COLOR</strong> for pluck position</li>
+</ul>
+<p>This creates a compact melodic voice with very little external support required.</p>
+<hr />
+<h2>3. Vocal hook generator</h2>
+<ul>
+<li>Keyboard/sequencer CV → <strong>V/OCT</strong></li>
+<li>Gate → <strong>TRIG</strong></li>
+<li>Model: <strong>VOWL</strong> or <strong>VFOF</strong></li>
+<li>Slow CV → <strong>COLOR</strong></li>
+<li>Envelope or stepped CV → <strong>TIMBRE</strong></li>
+</ul>
+<p>Result: vowel-shifting melodic phrases that feel animated and expressive.</p>
+<hr />
+<h2>4. Quantized generative melody</h2>
+<ul>
+<li>Random stepped CV → <strong>V/OCT</strong></li>
+<li>Enable <strong>QNTZ</strong></li>
+<li>Set <strong>ROOT</strong></li>
+<li>Set <strong>TSRC = AUTO</strong> if no gate source is available</li>
+<li>Use <strong>BELL</strong>, <strong>PLUK</strong>, or <strong>WTBL</strong></li>
+</ul>
+<p>This is excellent for ambient or generative melodic systems.</p>
+<hr />
+<h2>5. Chord-rich bassline or riff</h2>
+<ul>
+<li>Sequencer CV → <strong>V/OCT</strong></li>
+<li>Gate → <strong>TRIG</strong></li>
+<li>Model: <strong>WTx4</strong> or one of the <strong>x3 oscillator</strong> models</li>
+<li>Use <strong>COLOR</strong> to choose harmonic relation/chord structure</li>
+<li>Use <strong>TIMBRE</strong> for interval movement</li>
+</ul>
+<p>This gives a single melodic line a harmonized or stacked quality.</p>
+<hr />
+<h2>6. FM melodic percussion</h2>
+<ul>
+<li>Pitch CV → <strong>V/OCT</strong></li>
+<li>Trigger → <strong>TRIG</strong></li>
+<li>Model: <strong>FM</strong>, <strong>FBFM</strong>, or <strong>BELL</strong></li>
+<li>Short internal envelope to <strong>VCA</strong> and <strong>TIMBRE</strong></li>
+</ul>
+<p>Perfect for tuned sequences, metallic ostinatos, or hybrid melody/percussion lines.</p>
+<hr />
+<h2>How Braids works with other modules in a melodic system</h2>
+<p>Even though only Braids is shown in the provided manual, it naturally pairs with standard Eurorack building blocks:</p>
+<ul>
+<li><strong>Sequencer</strong>: sends notes to V/OCT and gates to TRIG</li>
+<li><strong>Quantizer</strong>: optional, though Braids can do this internally</li>
+<li><strong>Envelope/VCA</strong>: for more traditional amplitude shaping</li>
+<li><strong>Filter</strong>: useful with brighter analog or wavetable models</li>
+<li><strong>LFO/function generator</strong>: modulates TIMBRE or COLOR</li>
+<li><strong>Clock/random source</strong>: for generative melodies</li>
+<li><strong>MIDI-to-CV interface</strong>: turns Braids into a keyboard-playable melodic voice</li>
+</ul>
+<p>Braids can reduce the number of external modules needed because:
+- it has many synthesis flavors inside one module
+- it has its own triggerable envelope routing
+- it includes quantization
+- some models already behave like complete struck or blown instruments</p>
+<hr />
+<h2>Most melody-friendly strengths from the manual</h2>
+<p>The manual suggests Braids is especially effective melodically because it offers:</p>
+<ul>
+<li>reliable pitch control with calibration support</li>
+<li>many oscillator types under one panel</li>
+<li>trigger-based articulation</li>
+<li>built-in quantization and scales</li>
+<li>internal envelope modulation</li>
+<li>physical and vocal models for more characterful note sequences</li>
+<li>chord/interval and wavetable models for harmonically rich melodies</li>
+</ul>
+<p>In short: <strong>Braids is not just a raw oscillator; it is a flexible melodic voice engine.</strong></p>
+<hr />
+<h2>Practical recommendations</h2>
+<p>If your goal is melodic writing, start with these approaches:</p>
+<ol>
+<li><strong>For classic melodies:</strong> use <strong>CSAW</strong>, waveform morphing, or swarm saw models  </li>
+<li><strong>For expressive digital leads:</strong> use <strong>WTBL</strong>, <strong>WMAP</strong>, or <strong>FOLD</strong>  </li>
+<li><strong>For plucks and mallets:</strong> use <strong>PLUK</strong> or <strong>BELL</strong>  </li>
+<li><strong>For vocal hooks:</strong> use <strong>VOWL</strong> or <strong>VFOF</strong>  </li>
+<li><strong>For complex harmonized lines:</strong> use <strong>WTx4</strong> or the <strong>x3 oscillator</strong> models  </li>
+<li><strong>For generative tonal melodies:</strong> enable <strong>QNTZ</strong> and <strong>TSRC AUTO</strong></li>
+</ol>
+<p>If you want, I can also turn this into:
+- a <strong>“best Braids models by genre” guide</strong>
+- a <strong>set of concrete melodic patch recipes</strong>
+- or a <strong>Braids cheat sheet table</strong> with each model and how to use it musically.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

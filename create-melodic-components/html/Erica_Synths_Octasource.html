@@ -1,0 +1,458 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erica_Synths_Octasource</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erica Synths — Octasource</h1>
+<ul>
+<li><a href="../../manuals/black_octasource_manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1><a href="https://www.ericasynths.lv/media/Black_Octasource_manual.pdf">Erica Synths Black Octasource Manual (PDF)</a></h1>
+<h2>Erica Synths Black Octasource: using it for melodic duties in a Eurorack patch</h2>
+<p>The attached manual is for the <strong>Erica Synths Black Octasource</strong>, an advanced multi-output LFO/modulation source. By itself, it is <strong>not a sound source or quantizer</strong>, so it does not directly generate “notes” in the traditional V/Oct sense unless you patch it cleverly into pitch destinations. But in a melodic Eurorack system, it can be extremely powerful as the <strong>motion engine</strong> behind melody, harmony, phrasing, and variation.</p>
+<h2>What the module does musically</h2>
+<p>The Black Octasource provides:</p>
+<ul>
+<li><strong>8 simultaneous outputs</strong></li>
+<li>Either:</li>
+<li><strong>one waveform phase-shifted across 8 outputs</strong> in <strong>SINGLE</strong> mode, or</li>
+<li><strong>8 different waveforms simultaneously</strong> in <strong>MULTI</strong> mode</li>
+<li><strong>Rate control</strong></li>
+<li><strong>Clock sync</strong></li>
+<li><strong>Wave morphing</strong></li>
+<li><strong>CV control of wave selection</strong></li>
+<li><strong>CV control of phase distribution</strong></li>
+<li><strong>FM/rate modulation</strong></li>
+<li><strong>Freeze function</strong> at 12 o’clock on the Rate knob</li>
+</ul>
+<p>This means it works beautifully as a <strong>central modulation hub</strong> for:</p>
+<ul>
+<li>melodic pitch animation</li>
+<li>transposition</li>
+<li>interval generation</li>
+<li>call-and-response lines</li>
+<li>canon/round-like phase melodies</li>
+<li>harmonic movement across several voices</li>
+<li>clock-synced phrase development</li>
+</ul>
+<hr />
+<h2>Core idea: how an LFO becomes melodic</h2>
+<p>A module like this becomes melodic when you patch its outputs to things such as:</p>
+<ul>
+<li><strong>VCO 1V/Oct inputs</strong> for stepped or limited pitch movement</li>
+<li><strong>quantizer inputs</strong></li>
+<li><strong>sequential switch inputs</strong></li>
+<li><strong>precision adders / transposers</strong></li>
+<li><strong>filter cutoff</strong> for pitch-tracked timbral melody</li>
+<li><strong>wavefolder / FM index / LPG CV</strong> to create contour that feels melodic</li>
+<li><strong>envelope decay / VCA level</strong> to shape phrase accents</li>
+</ul>
+<p>If you have a <strong>quantizer</strong>, the Octasource becomes much more directly useful for melody. Without one, it still creates melodic contours, drones that move harmonically, or pseudo-melodies if attenuated carefully.</p>
+<hr />
+<h2>Important functions from the manual</h2>
+<h2>1. SINGLE mode: one waveform, 8 phase-shifted outputs</h2>
+<p>In <strong>SINGLE</strong> mode:</p>
+<ul>
+<li>all 8 outputs carry the <strong>same waveform</strong></li>
+<li>each output is shifted in phase by <strong>45 degrees</strong></li>
+<li>the <strong>PHASE CV</strong> input can alter the phase relationship</li>
+</ul>
+<h3>Musical result</h3>
+<p>This is ideal for:</p>
+<ul>
+<li><strong>8 related melodic CV lines</strong></li>
+<li>staggered note events</li>
+<li>multi-voice canons</li>
+<li>harmonic swells where each oscillator or voice moves similarly but at different times</li>
+</ul>
+<h3>Example melodic use</h3>
+<p>Patch:</p>
+<ul>
+<li>Output 1 → Quantizer A → VCO A 1V/Oct</li>
+<li>Output 3 → Quantizer B → VCO B 1V/Oct</li>
+<li>Output 5 → Quantizer C → VCO C 1V/Oct</li>
+<li>Output 7 → Quantizer D → VCO D 1V/Oct</li>
+</ul>
+<p>Now all voices derive from the same shape, but each enters at a different point in the cycle. This creates:</p>
+<ul>
+<li>rotating chord tones</li>
+<li>arpeggio offsets</li>
+<li>melodic imitation between voices</li>
+</ul>
+<p>If all voices are clocked by the same gate source, you get <strong>phase-related counterpoint</strong>.</p>
+<hr />
+<h2>2. MULTI mode: 8 different waveforms at once</h2>
+<p>In <strong>MULTI</strong> mode:</p>
+<ul>
+<li>all 8 outputs provide <strong>different waveforms simultaneously</strong></li>
+<li>the <strong>WAVE</strong> knob shifts waveforms from one output to another</li>
+</ul>
+<h3>Musical result</h3>
+<p>This is great when you want one module to supply:</p>
+<ul>
+<li>one CV for pitch</li>
+<li>one for transposition</li>
+<li>one for envelope time</li>
+<li>one for filter movement</li>
+<li>one for wavefold amount</li>
+<li>one for trigger probability or comparator input</li>
+<li>one for stereo movement</li>
+<li>one for sequence variation</li>
+</ul>
+<h3>Example melodic use</h3>
+<p>Patch:</p>
+<ul>
+<li>Output 1 (sine-like) → quantizer → lead pitch</li>
+<li>Output 2 (triangle-ish) → quantizer → bass pitch</li>
+<li>Output 3 (pulse/S&amp;H-like) → transposition CV for the lead</li>
+<li>Output 4 → filter cutoff on bass voice</li>
+<li>Output 5 → VCA CV attenuation of a second modulation source</li>
+<li>Output 6 → decay time on envelope</li>
+<li>Output 7 → FM index on lead oscillator</li>
+<li>Output 8 → effect send or stereo pan</li>
+</ul>
+<p>Now the entire melodic patch evolves from a single synchronized source.</p>
+<hr />
+<h2>3. Wave morphing as melodic contour design</h2>
+<p>The manual lists these principal waves:</p>
+<ul>
+<li>sine</li>
+<li>ramp</li>
+<li>inverted absolute sine</li>
+<li>triangle</li>
+<li>pulse</li>
+<li>absolute sine</li>
+<li>saw</li>
+<li>sample &amp; hold</li>
+</ul>
+<p>And there are <strong>in-between morphed waveforms</strong>.</p>
+<h3>Why this matters melodically</h3>
+<p>Wave shape strongly affects melodic feel:</p>
+<ul>
+<li><strong>Sine</strong>: smooth, gliding, cyclic pitch movement</li>
+<li><strong>Triangle</strong>: regular up/down scalar motion</li>
+<li><strong>Ramp / saw</strong>: repeating rises or falls that feel sequencer-like</li>
+<li><strong>Pulse</strong>: octave/interval jumps when quantized</li>
+<li><strong>S&amp;H</strong>: random melodies</li>
+<li><strong>Absolute-value shapes</strong>: repeated mirrored phrases, useful for symmetrical melodies</li>
+</ul>
+<p>A quantizer will turn these shapes into scales and note patterns. Even without a quantizer, attenuated waveforms can create subtle pitch inflection.</p>
+<hr />
+<h2>4. Clock sync for rhythmic melody</h2>
+<p>The <strong>SYNC</strong> input lets you synchronize the LFO to an external clock.</p>
+<p>The manual notes:
+- when synchronized, the <strong>RATE</strong> knob has no effect
+- except at the <strong>freeze</strong> position</p>
+<h3>Musical use</h3>
+<p>This is crucial for melodic composition because it ties modulation to tempo.</p>
+<p>Patch a master clock into SYNC, then use Octasource outputs to drive:</p>
+<ul>
+<li>quantized pitch CV</li>
+<li>rhythmic transpositions</li>
+<li>filter accents</li>
+<li>phrase-length macro modulation</li>
+</ul>
+<p>This gives you melodies that are:</p>
+<ul>
+<li>repeatable</li>
+<li>bar-aligned</li>
+<li>easy to layer with drums and sequencers</li>
+</ul>
+<h3>Example</h3>
+<p>If your clock is 16th notes or a divided bar clock, Octasource can become a <strong>phrase LFO</strong>:</p>
+<ul>
+<li>one cycle per bar = melodic contour over one measure</li>
+<li>one cycle every 4 bars = slow harmonic drift</li>
+<li>one cycle per beat = rhythmic repeated pitch figure</li>
+</ul>
+<hr />
+<h2>5. Rate knob and freeze function</h2>
+<p>The large <strong>RATE</strong> knob behaves unusually:</p>
+<ul>
+<li><strong>12 o’clock</strong> = <strong>freeze</strong></li>
+<li>clockwise increases frequency and phase progresses <strong>CW</strong></li>
+<li>counterclockwise increases frequency and phase progresses <strong>CCW</strong></li>
+</ul>
+<h3>Musical importance</h3>
+<p>The freeze function is excellent for melody performance.</p>
+<p>If you are using Octasource to generate pitch-related CV, freezing the LFO effectively captures the current melodic/harmonic state. This lets you:</p>
+<ul>
+<li>hold a chord</li>
+<li>lock a transposition</li>
+<li>stop a melodic contour at a useful note cluster</li>
+<li>perform “pause” moments live</li>
+</ul>
+<h3>Performance trick</h3>
+<p>Use Octasource outputs to control several quantized voices, then:
+- let the modulation evolve
+- set the Rate knob to 12 o’clock
+- freeze the current voltages</p>
+<p>You’ve now “sampled” a harmonic frame or chord voicing from a moving modulation field.</p>
+<hr />
+<h2>6. Phase CV for interval and voicing movement</h2>
+<p>The <strong>PHASE CV</strong> input changes the phase shift of each output.</p>
+<p>Manual note:
+- at <strong>0V</strong>, outputs are evenly shifted by <strong>45 degrees</strong>
+- CV changes phase shift within a <strong>45-degree window</strong> for each output</p>
+<h3>Musical use</h3>
+<p>This is one of the most interesting melodic features.</p>
+<p>If several outputs are patched to:
+- multiple quantizers
+- multiple oscillators
+- or pitch plus transposition destinations</p>
+<p>then PHASE CV can dynamically alter the relationship between voices.</p>
+<p>This can produce:</p>
+<ul>
+<li>changing voicings</li>
+<li>melody-to-harmony transformations</li>
+<li>widening/narrowing interval structures</li>
+<li>canon lines that tighten or spread apart</li>
+</ul>
+<h3>Example patch</h3>
+<ul>
+<li>Outputs 1–4 → four quantizers → four oscillators</li>
+<li>Common gate source to all envelopes</li>
+<li>Slow envelope or another LFO into <strong>PHASE CV</strong></li>
+</ul>
+<p>Result:
+- The harmonic spacing between voices shifts over time
+- The chord pattern breathes and reorganizes
+- Voices feel related but not static</p>
+<p>This is very effective for generative ambient melody.</p>
+<hr />
+<h2>7. Wave CV for melodic mutation</h2>
+<p>The <strong>WAVE CV</strong> input lets you control waveform selection with external CV.</p>
+<h3>Musical use</h3>
+<p>If waveform determines melodic contour, then WAVE CV becomes a <strong>meta-sequencer</strong> for phrase shape.</p>
+<p>For example:
+- a slow envelope changes the waveform every phrase
+- a random source nudges between triangle, pulse, and S&amp;H areas
+- one Octasource output self-patched into WAVE CV causes recursive motion</p>
+<h3>Results</h3>
+<p>This can create:
+- evolving motifs
+- melody variation without changing the clock
+- smooth-to-stepped phrase transitions
+- controlled randomization</p>
+<hr />
+<h2>8. FM input and FM level: tempo and phrase modulation</h2>
+<p>The module has:
+- <strong>FM IN</strong>
+- <strong>FM LEVEL</strong> attenuator</p>
+<p>This modulates the LFO rate.</p>
+<h3>Musical use</h3>
+<p>When Octasource is driving pitch, modulating its speed changes how quickly melodic motion unfolds.</p>
+<p>This is useful for:
+- accelerando/ritardando-like pitch cycles
+- phrase compression/expansion
+- ratcheting feel if used with comparators or gates downstream
+- making one melody line “push” another</p>
+<h3>Example</h3>
+<ul>
+<li>Envelope from your voice → FM IN</li>
+<li>Each note slightly modulates the Octasource speed</li>
+<li>The melodic modulation breathes with the performance</li>
+</ul>
+<p>Or:
+- clocked random → FM IN
+- phrase length changes unpredictably but musically</p>
+<hr />
+<h2>9. Bipolar vs unipolar outputs</h2>
+<p>The manual says the Octasource defaults to <strong>bipolar outputs</strong>:
+- <strong>-5V to +5V</strong></p>
+<p>It also supports <strong>unipolar outputs</strong>:
+- <strong>0V to +5V</strong></p>
+<p>To switch:
+- set <strong>Rate</strong> to <strong>12 o’clock</strong>
+- flip <strong>Multi/Single</strong> switch <strong>6 times</strong></p>
+<p>LED behavior confirms the mode.</p>
+<h3>Why this matters for melody</h3>
+<p>This is very important when patching to pitch.</p>
+<ul>
+<li><strong>Bipolar</strong> output is useful for modulation around a center pitch</li>
+<li><strong>Unipolar</strong> output is often easier for:</li>
+<li>quantizers</li>
+<li>transposition inputs</li>
+<li>melodic sequencing</li>
+<li>VCO pitch control with less unwanted downward swing</li>
+</ul>
+<h3>Recommendation</h3>
+<p>For melodic CV:
+- try <strong>unipolar mode</strong> first if going directly into quantizers or precision adders
+- use <strong>bipolar mode</strong> for vibrato, centered pitch drift, or transposition around a root note</p>
+<hr />
+<h1>Practical melodic patch ideas</h1>
+<h2>1. Quantized rotating canon</h2>
+<p>Best with: 2–4 oscillators, quantizers, envelopes, VCA</p>
+<p>Patch:
+- Octasource in <strong>SINGLE</strong>
+- Sync to master clock
+- Outputs 1, 3, 5, 7 → quantizers → 1V/Oct on 4 oscillators
+- Same gate pattern to all voices
+- Mix voices in different octaves</p>
+<p>Result:
+- one shared contour
+- different phase positions
+- interlocking melodic lines</p>
+<p>This sounds like:
+- canon
+- minimalist phase music
+- rotating arpeggios</p>
+<hr />
+<h2>2. One-module harmonic ecosystem</h2>
+<p>Best with: one lead voice, one bass voice, one chord voice</p>
+<p>Patch in <strong>MULTI</strong>:
+- Out 1 → quantizer → lead pitch
+- Out 2 → quantizer → bass pitch
+- Out 3 → chord voice transposition
+- Out 4 → lead filter cutoff
+- Out 5 → bass envelope decay
+- Out 6 → VCA level modulation on chord voice
+- Out 7 → effect depth
+- Out 8 → panning CV</p>
+<p>Result:
+- the whole musical system moves together
+- melody and timbre stay related
+- very coherent generative composition</p>
+<hr />
+<h2>3. Sample-and-hold melody source</h2>
+<p>Patch:
+- Set waveform near <strong>S&amp;H</strong>
+- Output → quantizer → oscillator pitch
+- Clock the voice separately with triggers/gates
+- Sync Octasource to your master clock</p>
+<p>Result:
+- random but tempo-locked melodies
+- with WAVE CV you can morph between random and smooth phrases</p>
+<p>This is excellent for:
+- Berlin-school lines
+- ambient generative leads
+- evolving acid-like motifs</p>
+<hr />
+<h2>4. Chord generator via multiple quantizers</h2>
+<p>Patch:
+- SINGLE mode
+- Outputs 1–4 → separate quantizers all set to same scale
+- Quantizers → 4 oscillators
+- Mix as a chord stack
+- Slow CV into PHASE CV</p>
+<p>Result:
+- not fixed chords in the traditional sense, but moving scale-related harmonies
+- can sound like suspended chord clouds or modal parallel motion</p>
+<hr />
+<h2>5. Transposition matrix</h2>
+<p>If you already have a sequencer:
+- sequencer pitch CV → main oscillator
+- Octasource output → precision adder or quantizer transpose input
+- another Octasource output → filter cutoff
+- another → envelope decay</p>
+<p>Result:
+- your existing melody gets periodic or evolving transposition
+- phrase-level structure emerges from the LFO network</p>
+<p>This is one of the best uses in a performance-oriented rack.</p>
+<hr />
+<h2>6. Freeze-to-compose</h2>
+<p>Patch a generative setup where Octasource controls:
+- 2 or 3 pitch paths
+- a filter
+- a VCA or LPG</p>
+<p>Let it run, and when it hits a beautiful harmonic moment:
+- move Rate to <strong>12 o’clock</strong></p>
+<p>Now the system holds that exact harmonic “snapshot.”</p>
+<p>This is great live for:
+- turning motion into a drone chord
+- creating breakdowns
+- capturing motifs to build a track section around</p>
+<hr />
+<h1>Best companions for the Black Octasource in melodic systems</h1>
+<p>To get the most melodic value from this module, pair it with:</p>
+<ul>
+<li>
+<p><strong>Quantizer</strong><br />
+  Converts complex CV shapes into musical notes/scales</p>
+</li>
+<li>
+<p><strong>Precision adder / transposer</strong><br />
+  Lets Octasource add interval motion to a written sequence</p>
+</li>
+<li>
+<p><strong>Multiple VCOs / voices</strong><br />
+  Makes use of the 8 simultaneous outputs</p>
+</li>
+<li>
+<p><strong>Sequential switch</strong><br />
+  Cycles among outputs for pseudo-sequencing</p>
+</li>
+<li>
+<p><strong>Sample &amp; hold / track &amp; hold</strong><br />
+  Captures moving CV into discrete note events</p>
+</li>
+<li>
+<p><strong>Clock divider / multiplier</strong><br />
+  Gives musical timing divisions to SYNC and downstream triggers</p>
+</li>
+<li>
+<p><strong>Comparators / window comparators</strong><br />
+  Turn LFO shapes into melodic gate logic</p>
+</li>
+<li>
+<p><strong>VCAs / attenuverters</strong><br />
+  Essential for scaling pitch modulation into useful note ranges</p>
+</li>
+</ul>
+<hr />
+<h1>Things to watch out for</h1>
+<h2>Output amplitude</h2>
+<p>The outputs are <strong>10 Vpp</strong>, so in bipolar mode that is substantial for pitch. You’ll often want:</p>
+<ul>
+<li>attenuation</li>
+<li>offset</li>
+<li>quantization</li>
+</ul>
+<p>before sending the signal to oscillator pitch.</p>
+<h2>LFO range</h2>
+<p>The rate is:
+- <strong>0.03 Hz to 30 Hz</strong></p>
+<p>That means it is primarily an LFO/modulation source, not an audio-rate oscillator. So think:
+- phrase generator
+- modulation sequencer
+- harmonic animator</p>
+<p>rather than direct oscillator FM audio source.</p>
+<h2>Sync behavior</h2>
+<p>When synced, the Rate knob won’t affect speed except at freeze, so timing will come from your clock source.</p>
+<hr />
+<h1>Best musical roles for this module</h1>
+<p>The Black Octasource is especially strong at:</p>
+<ul>
+<li><strong>generative melody</strong></li>
+<li><strong>phase-based polyphony</strong></li>
+<li><strong>related modulations across many voices</strong></li>
+<li><strong>slow harmonic evolution</strong></li>
+<li><strong>clock-synced melodic animation</strong></li>
+<li><strong>live performance freezing of harmonic states</strong></li>
+</ul>
+<p>It is less about writing exact note-by-note sequences, and more about creating a <strong>living melodic field</strong> that can be shaped into notes with quantizers and voice architecture.</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>Erica Synths Black Octasource</strong> is best understood as a <strong>master melodic modulation engine</strong> rather than a traditional sequencer. It excels at creating:</p>
+<ul>
+<li>interrelated pitch curves</li>
+<li>phase-shifted melodic lines</li>
+<li>synchronized harmonic motion</li>
+<li>evolving transpositions</li>
+<li>random-to-structured phrase morphing</li>
+</ul>
+<p>If you combine it with:
+- a quantizer,
+- a few oscillators,
+- envelopes/VCAs,
+- and maybe a precision adder,</p>
+<p>it can become the core of a very rich melodic Eurorack patch—especially for generative, minimal, ambient, Berlin-school, and experimental tonal music.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

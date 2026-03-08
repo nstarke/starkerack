@@ -1,0 +1,380 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Comb</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Comb</h1>
+<ul>
+<li><a href="../../manuals/Comb_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Using the Comb module to create melodic material</h1>
+<p>Based on the manual, this is a <strong>2hp Comb</strong> module: an <strong>IIR peaking comb filter</strong> with:</p>
+<ul>
+<li><strong>Audio input / output</strong></li>
+<li><strong>FREQ</strong> control and CV</li>
+<li><strong>RES</strong> control and CV</li>
+<li><strong>DAMP</strong> control and CV</li>
+<li>Ability to go into <strong>self-oscillation</strong></li>
+<li>A <strong>dampening filter in the feedback path</strong></li>
+</ul>
+<p>That means it can work not just as a tone-shaping effect, but as a <strong>pitched resonator</strong>, a <strong>self-oscillating voice</strong>, or a <strong>melodic exciter/filter</strong> when paired with other Eurorack modules.</p>
+<hr />
+<h2>What the module does musically</h2>
+<p>A comb filter imposes a series of harmonic peaks onto incoming audio using a very short delay line. In practice, this gives you a few musically useful behaviors:</p>
+<ol>
+<li><strong>Resonant pitch emphasis</strong></li>
+<li>The <strong>FREQ</strong> control sets the comb’s cutoff, which the manual describes as <strong>inversely proportional to delay time</strong>.</li>
+<li>Example from the manual: <strong>500 Hz = 2 ms delay</strong>.</li>
+<li>
+<p>As you tune FREQ, the harmonic spacing changes, often producing a perceived pitch.</p>
+</li>
+<li>
+<p><strong>Feedback-based ringing</strong></p>
+</li>
+<li><strong>RES</strong> increases feedback in the delay line.</li>
+<li>
+<p>At high settings, the module can <strong>self-oscillate</strong>, meaning it can generate a tone on its own or sustain resonant tones from tiny transients.</p>
+</li>
+<li>
+<p><strong>Brightness and decay shaping</strong></p>
+</li>
+<li><strong>DAMP</strong> controls a <strong>1-pole filter in the feedback path</strong>.</li>
+<li>More dampening = darker, more muted resonance.</li>
+<li>Less dampening = brighter, more extended upper harmonics.</li>
+</ol>
+<p>So in a patch, Comb is ideal for turning:
+- clicks into notes,
+- noise into strings,
+- simple oscillators into tuned harmonic material,
+- modulation into animated melodic textures.</p>
+<hr />
+<h2>Important module details from the manual</h2>
+<h3>I/O and CV</h3>
+<ul>
+<li><strong>IN</strong>: audio input, <strong>10 Vpp</strong></li>
+<li><strong>OUT</strong>: audio output, <strong>10 Vpp</strong></li>
+<li><strong>FREQ CV</strong>: ±5 V</li>
+<li><strong>RES CV</strong>: ±5 V</li>
+<li><strong>DAMP CV</strong>: ±5 V</li>
+</ul>
+<h3>Controls</h3>
+<ul>
+<li><strong>FREQ</strong></li>
+<li>Sets cutoff frequency / comb tuning</li>
+<li>Lower delay time = higher frequency</li>
+<li><strong>RES</strong></li>
+<li>Sets feedback amount</li>
+<li>Controls strength of resonant peaks</li>
+<li><strong>DAMP</strong></li>
+<li>Controls cutoff of the filter in the feedback path</li>
+<li>Left = darker / more damped</li>
+<li>Right = brighter / less damped</li>
+</ul>
+<hr />
+<h1>How to use it for melodic components</h1>
+<h2>1. Turn impulses into pitched notes</h2>
+<p>This is the most direct “melodic” use of a comb filter.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a <strong>triggered click</strong>, short envelope pop, or sharp transient into <strong>IN</strong></li>
+<li>Raise <strong>RES</strong> until the comb rings audibly</li>
+<li>Tune <strong>FREQ</strong> to the desired pitch area</li>
+<li>Adjust <strong>DAMP</strong> to shape how bright or natural the ring sounds</li>
+</ul>
+<h3>Result</h3>
+<p>Each transient excites the filter like striking a string or resonant body. This creates:
+- plucked tones
+- tuned percussion
+- pseudo-karplus voices
+- melodic pings</p>
+<h3>Best companion modules</h3>
+<p>Use with:
+- trigger source / sequencer
+- envelope with very short attack/decay
+- VCA or transient generator
+- noise source for more “string” texture</p>
+<h3>Musical use</h3>
+<p>Sequence the transient source rhythmically, and use CV into <strong>FREQ</strong> to change the note for each step. This gives you a playable resonator voice.</p>
+<hr />
+<h2>2. Use self-oscillation as a sine-like melodic voice</h2>
+<p>Since the manual states the module is <strong>capable of self oscillation</strong>, you can use it as a sound source.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Leave <strong>IN</strong> unpatched or feed a tiny amount of noise/transient</li>
+<li>Increase <strong>RES</strong> until the module begins to ring or self-oscillate</li>
+<li>Tune <strong>FREQ</strong> by ear</li>
+<li>Use <strong>FREQ CV</strong> from a sequencer or quantizer</li>
+</ul>
+<h3>Result</h3>
+<p>You can get a pitched tone that behaves like a resonant oscillator. Depending on settings, it may be:
+- sine-like
+- hollow
+- metallic
+- unstable in a musically interesting way</p>
+<h3>Melodic role</h3>
+<p>This works well for:
+- lead lines
+- drones with pitch motion
+- ghost melodies
+- tuned feedback voices</p>
+<h3>Tip</h3>
+<p>Because comb filters are not always calibrated for precise <strong>1V/oct</strong> tracking, treat this as an <strong>experimental pitched voice</strong> unless you confirm stable scaling in your system. A quantizer before the CV input can still help create musical intervals.</p>
+<hr />
+<h2>3. Karplus-Strong style plucked string patches</h2>
+<p>The manual specifically hints at “lustrous string sounds from white noise,” which is exactly where a comb filter shines.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Patch <strong>white noise</strong> or a very short burst of noise into <strong>IN</strong></li>
+<li>Trigger the noise with a VCA or low-pass gate</li>
+<li>Set <strong>RES</strong> fairly high</li>
+<li>Tune <strong>FREQ</strong> to the perceived note</li>
+<li>Use <strong>DAMP</strong> to control how bright or muted the string feels</li>
+</ul>
+<h3>Result</h3>
+<p>You get a synthetic plucked-string or harp-like voice.</p>
+<h3>How to make it melodic</h3>
+<ul>
+<li>Send sequenced CV into <strong>FREQ CV</strong></li>
+<li>Trigger one short burst per note</li>
+<li>Use different DAMP values per phrase for articulation</li>
+</ul>
+<h3>Performance angle</h3>
+<ul>
+<li>Lower <strong>DAMP</strong> (more dark) = muted plucks</li>
+<li>Higher <strong>DAMP</strong> (brighter) = sharper, more metallic strings</li>
+<li>Modulating <strong>DAMP</strong> per note gives a very expressive melodic line</li>
+</ul>
+<hr />
+<h2>4. Process an oscillator into harmonically animated melodies</h2>
+<p>Comb can also reshape an already-pitched oscillator into something more complex.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Patch a VCO waveform into <strong>IN</strong></li>
+<li>Sequence the VCO normally for pitch</li>
+<li>Use Comb after the oscillator</li>
+<li>Sweep or sequence <strong>FREQ</strong> independently</li>
+<li>Add modulation to <strong>RES</strong> or <strong>DAMP</strong></li>
+</ul>
+<h3>Result</h3>
+<p>This creates:
+- phaser-like thickening at subtle settings
+- tuned harmonic reinforcement
+- metallic doubling
+- shifting overtone emphasis</p>
+<h3>Why this is useful melodically</h3>
+<p>The base oscillator carries the note, while Comb adds a second layer of pitch-related coloration. This can make simple sequences feel:
+- more animated
+- more acoustic
+- more vocal
+- more “played”</p>
+<h3>Strong use cases</h3>
+<ul>
+<li>basslines needing edge</li>
+<li>leads needing shimmer</li>
+<li>arpeggios with moving overtones</li>
+<li>drones that bloom into chords of harmonics</li>
+</ul>
+<hr />
+<h2>5. Create melodic percussion</h2>
+<p>Comb is excellent for tuned percussion because it naturally rings at a frequency related to the delay time.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Feed short triggers, clicks, or filtered noise into <strong>IN</strong></li>
+<li>Moderate to high <strong>RES</strong></li>
+<li>Tune <strong>FREQ</strong> to notes in a scale</li>
+<li>Keep <strong>DAMP</strong> lower for wood-like sounds or higher for metallic sounds</li>
+</ul>
+<h3>Result</h3>
+<p>You can create:
+- tuned toms
+- claves
+- mallet tones
+- synthetic marimba / string-hit timbres</p>
+<h3>Musical benefit</h3>
+<p>This is especially useful if you want a rhythm track that also contributes pitch content.</p>
+<hr />
+<h2>6. Use CV modulation to animate melodies</h2>
+<p>The module has CV over all three important parameters, which makes it much more than a static filter.</p>
+<h2>FREQ CV for melodic motion</h2>
+<p>Patch:
+- sequencer CV
+- quantized random
+- sample &amp; hold
+- slow envelope
+- keyboard CV</p>
+<p>Use it for:
+- changing notes
+- glides and bends
+- subtle detuning around a fixed center
+- pseudo-arpeggiation</p>
+<h2>RES CV for articulation</h2>
+<p>Patch envelopes or velocity-like CV into <strong>RES CV</strong>.</p>
+<p>Use it for:
+- stronger resonance on accented notes
+- notes that bloom into feedback
+- dynamic contrast between dry and singing tones</p>
+<h2>DAMP CV for timbral phrasing</h2>
+<p>Patch an envelope, LFO, or sequencer lane into <strong>DAMP CV</strong>.</p>
+<p>Use it for:
+- brighter attacks, darker tails
+- alternating muted/open notes
+- evolving harmonics over a phrase</p>
+<p>This is especially effective for making repeating sequences feel alive.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Plucked string sequencer</h2>
+<p><strong>Goal:</strong> melodic plucks</p>
+<p><strong>Patch</strong>
+- Noise source → VCA → <strong>Comb IN</strong>
+- Trigger sequencer → envelope → VCA CV
+- Pitch CV sequencer → <strong>FREQ CV</strong>
+- <strong>Comb OUT</strong> → mixer / VCA / effect</p>
+<p><strong>Settings</strong>
+- <strong>RES</strong>: high but below runaway oscillation
+- <strong>DAMP</strong>: middle to high
+- <strong>FREQ</strong>: set to a useful note range</p>
+<p><strong>Sound</strong>
+- Harp-like
+- Koto-like
+- Synthetic string plucks</p>
+<hr />
+<h2>Patch 2: Self-oscillating lead</h2>
+<p><strong>Goal:</strong> use Comb as a voice</p>
+<p><strong>Patch</strong>
+- Minimal excitation or none at input
+- Raise <strong>RES</strong> until self-oscillation starts
+- Sequencer / quantizer CV → <strong>FREQ CV</strong>
+- Optional envelope or VCA after output</p>
+<p><strong>Settings</strong>
+- <strong>RES</strong>: very high
+- <strong>DAMP</strong>: to taste
+- <strong>FREQ</strong>: tuned by ear</p>
+<p><strong>Sound</strong>
+- Hollow sine-ish lead
+- Fragile resonant melody
+- Feedback flute / wire tone</p>
+<hr />
+<h2>Patch 3: Tuned percussion line</h2>
+<p><strong>Goal:</strong> rhythm and melody at once</p>
+<p><strong>Patch</strong>
+- Trigger pulse or click source → <strong>IN</strong>
+- Sequencer CV → <strong>FREQ CV</strong>
+- Accent envelope → <strong>RES CV</strong>
+- Output → reverb</p>
+<p><strong>Settings</strong>
+- <strong>RES</strong>: medium-high
+- <strong>DAMP</strong>: lower for darker percussion, higher for metallic ringing</p>
+<p><strong>Sound</strong>
+- Tuned pings
+- Bellish percussion
+- Resonant hits that imply a melody</p>
+<hr />
+<h2>Patch 4: Harmonic enhancer for a bassline</h2>
+<p><strong>Goal:</strong> enrich a simple mono sequence</p>
+<p><strong>Patch</strong>
+- VCO → <strong>Comb IN</strong>
+- Pitch sequencer → VCO
+- Slow LFO or secondary sequencer → <strong>FREQ CV</strong>
+- Envelope or accent CV → <strong>DAMP CV</strong></p>
+<p><strong>Settings</strong>
+- <strong>RES</strong>: low to medium for subtlety
+- <strong>DAMP</strong>: medium
+- <strong>FREQ</strong>: tuned to support the bass register</p>
+<p><strong>Sound</strong>
+- Thicker bass
+- Moving harmonics
+- Phaser/physical resonance hybrid</p>
+<hr />
+<h2>Patch 5: Noise-to-melody texture</h2>
+<p><strong>Goal:</strong> convert noise into playable pitched texture</p>
+<p><strong>Patch</strong>
+- White noise → <strong>IN</strong>
+- Quantized CV → <strong>FREQ CV</strong>
+- Slow modulation → <strong>DAMP CV</strong>
+- Gate-controlled VCA before or after Comb</p>
+<p><strong>Settings</strong>
+- <strong>RES</strong>: high
+- <strong>DAMP</strong>: experiment from dark to bright</p>
+<p><strong>Sound</strong>
+- Bowed/string-cloud textures
+- Shimmering melodic beds
+- Atmospheric tonal textures</p>
+<hr />
+<h1>How it fits in a larger melodic Eurorack system</h1>
+<p>Comb works especially well in these roles:</p>
+<h2>As a voice</h2>
+<p>If pushed into self-oscillation or excited by transients, it can become:
+- a lead
+- a pluck voice
+- a tuned drone</p>
+<h2>As a resonator</h2>
+<p>Placed after:
+- noise
+- impulses
+- short envelopes
+- percussive clicks</p>
+<p>…it becomes a melodic resonant body.</p>
+<h2>As a harmonic processor</h2>
+<p>Placed after an oscillator, sampler, or drum voice, it adds:
+- pitch-focused coloration
+- ringing overtone structures
+- animated resonance</p>
+<hr />
+<h1>Strengths for melody</h1>
+<p>From the manual, the most important melodic strengths are:</p>
+<ul>
+<li><strong>Self oscillation</strong> means it can generate tones</li>
+<li><strong>FREQ CV</strong> means you can sequence or modulate its pitch center</li>
+<li><strong>RES CV</strong> means you can shape note intensity and sustain</li>
+<li><strong>DAMP CV</strong> means you can articulate timbre over time</li>
+<li><strong>Feedback path filtering</strong> makes it more expressive and acoustic-feeling than a plain static comb</li>
+</ul>
+<hr />
+<h1>Limitations and expectations</h1>
+<p>A few practical points:</p>
+<ul>
+<li>The manual does <strong>not</strong> specify precision pitch tracking, so don’t assume perfect oscillator behavior.</li>
+<li>It may work best for:</li>
+<li>tuned-by-ear melodic lines</li>
+<li>quantized approximate pitches</li>
+<li>resonant/acoustic melodic parts</li>
+<li>experimental tonal textures</li>
+<li>For very controlled tonal music, pair it with:</li>
+<li>a quantizer</li>
+<li>attenuator/offset on pitch CV</li>
+<li>stable transient source</li>
+<li>VCA for note articulation</li>
+</ul>
+<hr />
+<h1>Best “used together” scenarios</h1>
+<p>Since only one module manual is attached here, I can only analyze <strong>Comb</strong> directly. But in a typical melodic Eurorack setup, this module works especially well together with:</p>
+<ul>
+<li><strong>Sequencer</strong> → for pitch changes into FREQ CV</li>
+<li><strong>Quantizer</strong> → to constrain comb tuning to scales</li>
+<li><strong>Noise source</strong> → to excite string-like resonances</li>
+<li><strong>Trigger / gate source</strong> → to create note events</li>
+<li><strong>Envelope + VCA</strong> → to shape excitation and output dynamics</li>
+<li><strong>LFO / random CV</strong> → for evolving harmonic movement</li>
+<li><strong>Reverb / delay</strong> → to turn resonant plucks into lush melodic atmospheres</li>
+</ul>
+<p>If you upload the other module manuals too, I can give you a much more specific <strong>module-by-module combined patching guide</strong> for creating basslines, leads, plucks, drones, arps, and chord-like textures from the whole set.</p>
+<hr />
+<h2>Quick takeaway</h2>
+<p>The <strong>2hp Comb</strong> is very effective for melodic work when used as:</p>
+<ul>
+<li>a <strong>pitched resonator</strong> for triggers/noise</li>
+<li>a <strong>self-oscillating voice</strong></li>
+<li>a <strong>Karplus-style plucked string generator</strong></li>
+<li>a <strong>harmonic enhancer</strong> for existing melodic lines</li>
+</ul>
+<p>For melody, the key move is:<br />
+<strong>excite it with short sounds, tune with FREQ, sustain with RES, and shape brightness/decay with DAMP.</strong></p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

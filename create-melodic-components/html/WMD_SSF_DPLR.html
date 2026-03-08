@@ -1,0 +1,356 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>WMD_SSF_DPLR</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>WMD SSF — DPLR</h1>
+<ul>
+<li><a href="../../manuals/DPLRmanual1.3.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>WMD/SSF DPLR — using it for melodic components</h1>
+<p>The DPLR is a <strong>dual/stereo delay</strong> that can do much more than simple echo. From the manual, the key musical features are:</p>
+<ul>
+<li><strong>Delay time:</strong> 40 ms to 700 ms</li>
+<li><strong>Two related delay outputs:</strong> A and B</li>
+<li><strong>Spread control:</strong> offsets B relative to A</li>
+<li><strong>Regen:</strong> feedback amount</li>
+<li><strong>Amount:</strong> wet level mixed with dry</li>
+<li><strong>XTALK modes:</strong> cross-coupled feedback between A and B</li>
+<li><strong>Filter modes:</strong> 4 low-pass flavors, from noisy/bright to darker/smoother</li>
+<li><strong>CV over delay, spread, and regen</strong></li>
+</ul>
+<p>Because delay times fall into short rhythmic territory, DPLR is especially useful for creating <strong>pitched rhythmic lines, canon-style repeats, ping-pong melodies, and self-generating melodic motifs</strong>.</p>
+<h2>What this module contributes melodically</h2>
+<p>A delay is not a pitch source by itself, but in a Eurorack patch it can become a <strong>melody multiplier</strong>:</p>
+<ul>
+<li>it turns one note into a <strong>rhythmic phrase</strong></li>
+<li>it creates <strong>call-and-response</strong> between left/right or A/B outputs</li>
+<li>it can generate <strong>interlocking note patterns</strong></li>
+<li>high feedback and short times can create <strong>resonant pseudo-pitched material</strong></li>
+<li>modulation of delay/spread can animate a static melodic line into evolving counterpoint</li>
+</ul>
+<h2>Important controls from a musical perspective</h2>
+<h2>1. Delay Amount</h2>
+<p>Sets the base delay time for the input signal.</p>
+<p>Musically:
+- <strong>Short settings</strong>: tight slapback, comb-like coloration, pseudo-resonant tones
+- <strong>Medium settings</strong>: rhythmic repeats that reinforce sequenced notes
+- <strong>Long settings</strong>: spacious canons and staggered melodic echoes</p>
+<h2>2. Spread (B)</h2>
+<p>Offsets the B delay relative to A.</p>
+<p>Musically this is huge:
+- A can be your “main repeat”
+- B can become an <strong>offbeat echo</strong>
+- Different A/B timings create <strong>polyrhythmic melodic reflections</strong>
+- In stereo, this becomes a <strong>ping-pong phrase generator</strong></p>
+<h2>3. Regen</h2>
+<p>Sets feedback.</p>
+<p>Musically:
+- low regen = one or two supportive echoes
+- medium regen = repeating motifs
+- high regen = self-developing phrases and near-looping melodic cells</p>
+<h2>4. Amount</h2>
+<p>Wet/dry balance.</p>
+<p>The manual notes this is <strong>100% dry mixed with wet delay, max gain of 2</strong>. So you can keep the original melodic line present while adding delayed harmonizing rhythm behind it.</p>
+<h2>5. XTALK modes</h2>
+<p>These are especially creative. XTALK determines how much of A feeds B and B feeds A in the feedback path.</p>
+<p>Musically:
+- no XTALK = two more independent delays
+- some XTALK = melodic information “bleeds” between channels
+- high XTALK = repeating phrases migrate between outputs, creating <strong>countermelody</strong>
+- with stereo voices, this can feel like a melodic line is being reinterpreted each repeat</p>
+<h2>6. Filter modes</h2>
+<p>The four low-pass levels shape the repeats.</p>
+<p>Musically:
+- lighter filtering = brighter, more articulated melodic echoes
+- heavier filtering = distant, background, dubby melodic tails
+- filtering helps place repeats behind the main voice so they support melody instead of cluttering it</p>
+<hr />
+<h1>Best melodic use cases</h1>
+<h2>1. Turn a simple sequence into a fuller phrase</h2>
+<p>Patch a mono melodic voice into <strong>IN</strong>, then use:</p>
+<ul>
+<li><strong>OUT A</strong> as the main delayed phrase</li>
+<li><strong>OUT B</strong> as a second offset phrase via <strong>SPREAD</strong></li>
+</ul>
+<p>If your original sequence is sparse, DPLR can make it feel like a more complex composition by adding delayed “answer” notes.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequencer → oscillator → VCA/filter voice → DPLR IN</li>
+<li>Set <strong>DELAY</strong> to an eighth note-ish repeat by ear</li>
+<li>Set <strong>SPREAD</strong> to a dotted or slightly offset timing</li>
+<li>Keep <strong>REGEN</strong> low to medium</li>
+<li>Mix dry signal with OUT A and OUT B</li>
+</ul>
+<p>Result:
+- original note
+- repeat on A
+- offset repeat on B
+- together these create a melodic lattice</p>
+<p>This works especially well for:
+- arpeggios
+- plucked voices
+- mallet/percussive synth tones
+- short acid lines</p>
+<hr />
+<h2>2. Create stereo ping-pong melodies</h2>
+<p>The manual explicitly mentions <strong>left/right ping-pong</strong> via Spread.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Put a mono melodic line into DPLR</li>
+<li>Send <strong>OUT A</strong> left and <strong>OUT B</strong> right</li>
+<li>Set a noticeable <strong>SPREAD</strong></li>
+<li>Raise <strong>XTALK</strong> to moderate levels</li>
+<li>Set moderate <strong>REGEN</strong></li>
+</ul>
+<p>Result:
+- notes bounce between speakers
+- repeats cross-feed
+- the melody sounds wider and more active without changing the source sequence</p>
+<p>This is excellent for:
+- lead lines
+- sequenced plucks
+- ambient bell melodies</p>
+<hr />
+<h2>3. Build counterpoint from one voice</h2>
+<p>Because A and B can differ in timing and feed each other, DPLR can turn one melody into <strong>quasi-counterpoint</strong>.</p>
+<h3>How</h3>
+<ul>
+<li>Use a melody with rests or space</li>
+<li>Set A for a medium repeat</li>
+<li>Set B slightly longer or shorter via Spread</li>
+<li>Add moderate XTALK</li>
+<li>Add some feedback</li>
+</ul>
+<p>Result:
+- the same note material reappears at different times
+- overlapping delays create the illusion of a second and third line
+- if the source melody is simple, the delayed voices can sound like composed accompaniment</p>
+<p>This is especially effective with:
+- modal sequences
+- pentatonic patterns
+- slow generative melodies</p>
+<hr />
+<h2>4. Pseudo-harmonic layering</h2>
+<p>DPLR does not shift pitch, but rhythmic offset can imply harmony if your source line moves melodically.</p>
+<p>For example:
+- play a sequence with notes changing every step
+- set delay so repeats land under later notes
+- the old note and new note overlap</p>
+<p>That overlap creates:
+- intervals
+- suspended tones
+- moving harmonic tension</p>
+<p>This is a classic way to get richer melodic/harmonic material from a single monophonic source.</p>
+<p>Best settings:
+- moderate wet mix
+- short to medium delay
+- moderate spread
+- low to moderate feedback</p>
+<hr />
+<h2>5. Karplus-adjacent resonant behavior</h2>
+<p>At shorter times and higher feedback, delays can move toward resonant/plucked territory.</p>
+<p>While the manual gives a minimum of <strong>40 ms</strong>, which is longer than classic Karplus-Strong string synthesis, you can still use short delay/feedback behavior for:
+- tuned rhythmic resonance
+- metallic pulse thickening
+- note emphasis</p>
+<p>This is less about exact pitch and more about turning a transient melodic line into a resonant percussive melody.</p>
+<p>Try:
+- short envelope plucks into DPLR
+- short delay
+- higher regen
+- brighter filter mode first, then darker modes</p>
+<hr />
+<h1>CV patching ideas for melodic animation</h1>
+<p>The manual confirms CV over:
+- <strong>DLY CV</strong>
+- <strong>SPRD CV</strong>
+- <strong>RGN CV</strong></p>
+<p>These inputs make DPLR much more than a static effect.</p>
+<h2>Modulate delay time slowly</h2>
+<p>Patch a slow LFO, stepped random, or envelope to <strong>DLY CV</strong>.</p>
+<p>Musical result:
+- delayed phrases breathe and stretch
+- static sequences become evolving melodic textures
+- subtle modulation gives chorus-like motion
+- stronger modulation gives smeared, tape-like pitch movement on repeats</p>
+<p>Best for:
+- ambient melodies
+- generative minimalism
+- dub techno sequences</p>
+<h2>Modulate spread for moving stereo rhythm</h2>
+<p>Patch an LFO or clocked stepped CV to <strong>SPRD CV</strong>.</p>
+<p>Musical result:
+- B output changes relationship to A over time
+- offbeat echoes shift around the groove
+- stereo phrases become less predictable
+- great for turning one ostinato into several rhythmic variants</p>
+<h2>Modulate regen for phrase density</h2>
+<p>Patch an envelope, random CV, or sequencer lane to <strong>RGN CV</strong>.</p>
+<p>Musical result:
+- some notes get one repeat, others bloom into many
+- accents become melodic trails
+- certain steps in a sequence can become “important” by leaving longer delay tails</p>
+<p>This is one of the best ways to make a melody feel alive.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Recipe 1: Echo harmonizer feel</h2>
+<p>Goal: make a simple melody feel harmonized</p>
+<ul>
+<li>Voice output → DPLR IN</li>
+<li>Dry voice to mixer center</li>
+<li>OUT A and OUT B to stereo mixer</li>
+<li>Delay around short/medium</li>
+<li>Spread slightly offset</li>
+<li>Regen low</li>
+<li>Amount medium</li>
+<li>Filter moderate</li>
+</ul>
+<p>Why it works:
+repeats overlap with later notes, creating intervallic interplay.</p>
+<hr />
+<h2>Recipe 2: Canon machine</h2>
+<p>Goal: one sequence becomes a round</p>
+<ul>
+<li>Feed a sparse melody or quantized random sequence to a voice</li>
+<li>Voice → DPLR IN</li>
+<li>Delay around one beat or near-beat by ear</li>
+<li>Spread to a second rhythmic value</li>
+<li>Regen medium</li>
+<li>XTALK medium-high</li>
+</ul>
+<p>Why it works:
+the same phrase returns in staggered time, almost like multiple players entering one after another.</p>
+<hr />
+<h2>Recipe 3: Generative ambient melody cloud</h2>
+<p>Goal: evolving melodic wash from minimal material</p>
+<ul>
+<li>Use a slow random or 4–8 step melody</li>
+<li>Send to a soft voice: sine/triangle/FM bell/pluck</li>
+<li>Voice → DPLR</li>
+<li>Set longer delay</li>
+<li>Spread moderate</li>
+<li>Regen medium-high</li>
+<li>Filter darker</li>
+<li>Slowly modulate DLY CV and SPRD CV with separate slow sources</li>
+</ul>
+<p>Why it works:
+repeats smear into a melodic environment while preserving enough note definition to still feel tonal.</p>
+<hr />
+<h2>Recipe 4: Ping-pong lead enhancement</h2>
+<p>Goal: widen a lead without losing the main melody</p>
+<ul>
+<li>Main lead voice → DPLR</li>
+<li>Delay set fairly short</li>
+<li>Spread clearly audible</li>
+<li>Regen low-medium</li>
+<li>XTALK low-medium</li>
+<li>Dry voice louder than wet</li>
+</ul>
+<p>Why it works:
+you keep the lead upfront while echoes create stereo motion and melodic reinforcement.</p>
+<hr />
+<h1>How XTALK changes melodic behavior</h1>
+<p>This is the most distinctive feature on DPLR.</p>
+<p>The manual says XTALK affects the <strong>source of the regen signal</strong>, moving from:
+- <strong>RED</strong> = A→A and B→B
+toward more crossfed feedback:
+- more of A feeds B
+- more of B feeds A</p>
+<p>For melody, this means:</p>
+<h2>Low XTALK</h2>
+<ul>
+<li>cleaner repeats</li>
+<li>predictable A/B timing</li>
+<li>good for precise rhythmic accompaniment</li>
+</ul>
+<h2>Medium XTALK</h2>
+<ul>
+<li>notes begin to migrate across outputs</li>
+<li>more interlocking pattern behavior</li>
+<li>good for stereo melodies and counterpoint</li>
+</ul>
+<h2>High XTALK</h2>
+<ul>
+<li>feedback paths become more entangled</li>
+<li>phrases become less linear and more emergent</li>
+<li>good for generative and dubby melodic systems</li>
+</ul>
+<p>If you want “composed” sounding echoes, stay lower.
+If you want “self-creating” melodic interplay, raise XTALK.</p>
+<hr />
+<h1>Filter choices for melody</h1>
+<p>The filter modes matter because delays can easily crowd a melodic patch.</p>
+<p>Use:
+- <strong>lighter filtering</strong> for crisp rhythmic repeats, arps, and plucks
+- <strong>heavier filtering</strong> for supportive background echoes behind a main melody</p>
+<p>A good rule:
+- bright source + busy sequence = use more filtering
+- simple sparse melody = use less filtering</p>
+<hr />
+<h1>Best companion modules for melodic use</h1>
+<p>If you’re asking how this module can be used together with others for melodic work, DPLR pairs especially well with:</p>
+<h2>Sequencers</h2>
+<p>Any step sequencer or quantized random source
+- creates note material for DPLR to elaborate</p>
+<h2>Quantizers</h2>
+<p>Useful if your melodic source is random or semi-random
+- DPLR then turns quantized notes into richer phrases</p>
+<h2>Function generators / envelopes</h2>
+<ul>
+<li>strike plucks</li>
+<li>modulate regen for accents</li>
+<li>sweep delay time subtly</li>
+</ul>
+<h2>VCAs and mixers</h2>
+<p>Essential for controlling dry/wet relationship and stereo placement.</p>
+<h2>Filters / LPGs</h2>
+<p>Excellent before DPLR
+- short filtered plucks create very clear delayed melodic structures</p>
+<h2>Stereo output modules</h2>
+<p>To fully enjoy the A/B spatial behavior.</p>
+<hr />
+<h1>Musical strategies</h1>
+<h2>Use sparse source material</h2>
+<p>DPLR shines when the input melody has room. Too many notes can blur into clutter.</p>
+<h2>Let repeats land between notes</h2>
+<p>Tune delay and spread by ear so echoes fill gaps instead of landing exactly on every new note.</p>
+<h2>Use feedback selectively</h2>
+<p>Too much feedback can overwhelm tonal clarity. For melodic work, moderate settings often feel most musical.</p>
+<h2>Use darker filtering for accompaniment</h2>
+<p>If the delay is meant to support rather than dominate, darker repeats sit better.</p>
+<h2>Modulate one parameter at a time</h2>
+<ul>
+<li>delay for temporal drift</li>
+<li>spread for stereo rhythm</li>
+<li>regen for phrase emphasis</li>
+</ul>
+<p>This keeps the melodic result intelligible.</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>WMD/SSF DPLR</strong> is best understood as a <strong>melodic phrase expander</strong> rather than just an effect. It can:</p>
+<ul>
+<li>turn a single melodic line into layered rhythmic counterpoint</li>
+<li>create stereo ping-pong note patterns</li>
+<li>overlap notes into implied harmony</li>
+<li>produce canon/round-like structures</li>
+<li>evolve a simple sequence into a generative melodic texture</li>
+</ul>
+<p>Its most musically distinctive feature is the combination of:
+- <strong>A/B delay structure</strong>
+- <strong>Spread</strong>
+- <strong>XTALK cross-coupled feedback</strong>
+- <strong>CV control over delay, spread, and regen</strong></p>
+<p>That makes it especially strong for:
+- ambient melody design
+- dubby sequenced leads
+- plucked arpeggios
+- self-evolving generative music</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

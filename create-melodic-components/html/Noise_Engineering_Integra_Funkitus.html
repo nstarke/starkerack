@@ -1,0 +1,332 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Integra_Funkitus</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Integra Funkitus</h1>
+<ul>
+<li><a href="../../manuals/Integra Funkitus - Noise Engineering Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.noiseengineering.us/if/">Manual PDF / Documentation</a></p>
+<h1>Noise Engineering Integra Funkitus: using it for melodic components</h1>
+<p>Integra Funkitus is <strong>not a pitch/CV sequencer</strong>. It is a <strong>4-channel rhythm modifier</strong> that takes up to four gate streams and transforms them using probability or logic. So its role in a melodic patch is to create the <strong>timing structure</strong> that drives melody: when notes happen, which voice fires, when accents occur, and how several melodic lanes interact.</p>
+<h2>What the module does</h2>
+<ul>
+<li><strong>4 gate inputs</strong>, triggered by signals over <strong>2 V</strong></li>
+<li><strong>4 gate outputs</strong> at <strong>6 V</strong></li>
+<li><strong>3 modes</strong></li>
+<li><strong>Trigger</strong></li>
+<li><strong>Gate</strong></li>
+<li><strong>Logic</strong></li>
+<li><strong>4 CV inputs</strong> for the modification knobs</li>
+<li><strong>Burn</strong> control to combine all inputs into all outputs for instant fills/dense activity</li>
+</ul>
+<h2>Why it matters melodically</h2>
+<p>Melody in modular is usually built from:
+1. <strong>Pitch CV source</strong> — sequencer, quantizer, sample-and-hold, keyboard, random CV
+2. <strong>Gate/trigger structure</strong> — determines when notes are played
+3. <strong>Envelope/VCA or LPG</strong> — shapes the note
+4. Optional <strong>switching / logic / accents / transposition</strong></p>
+<p>Integra Funkitus handles step 2 extremely well, and indirectly influences phrasing so strongly that it can make a simple pitch source feel musical and evolving.</p>
+<hr />
+<h1>How the three modes support melody</h1>
+<h2>1. Trigger mode: probabilistic note generation</h2>
+<p>In <strong>Trigger mode</strong>, each knob sets the probability that an incoming <strong>rising edge</strong> passes to the output. The <strong>falling edge always happens</strong>.</p>
+<h3>Musical use</h3>
+<p>This is ideal when your melodic voice expects <strong>clean triggers</strong> to fire:
+- envelopes
+- function generators
+- trigger inputs on sequential switches
+- sample-and-hold clocks
+- quantizer sample/advance inputs</p>
+<h3>Melodic applications</h3>
+<ul>
+<li>Create <strong>probabilistic note omissions</strong> from a steady clock or sequence</li>
+<li>Turn a rigid sequence into a more human or generative melody</li>
+<li>Derive several related melodic rhythms from one master pattern</li>
+<li>Clock a sample-and-hold irregularly so new pitches occur only on selected beats</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Input 1: steady 16th-note trigger pattern</li>
+<li>Output 1 in Trigger mode: send to envelope for a pluck voice</li>
+<li>Pitch source: 8-step sequencer or quantized random CV</li>
+</ul>
+<p>Result: same pitch sequence, but notes only occur when IF allows triggers through, creating melodic syncopation.</p>
+<hr />
+<h2>2. Gate mode: changing note lengths and phrasing</h2>
+<p>In <strong>Gate mode</strong>, probability applies to <strong>both rising and falling edges</strong>. This means gates can stay high longer when a falling edge is skipped.</p>
+<h3>Musical use</h3>
+<p>This is especially good for melodic lines where <strong>duration matters</strong>, not just note onset.</p>
+<h3>Melodic applications</h3>
+<ul>
+<li>Produce <strong>variable note lengths</strong></li>
+<li>Create <strong>legato-like phrases</strong></li>
+<li>Hold VCAs, LPGs, or envelopes open longer for sustained notes</li>
+<li>Feed outputs to sequencers that advance on gate transitions for unusual phrase timing</li>
+<li>Drive slew/portamento or envelope retrigger behavior differently than Trigger mode</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Input 2: regular 8th-note gate pattern</li>
+<li>Output 2 in Gate mode: to envelope gate input of a bass voice</li>
+<li>Same pitch CV on every step, or a quantized sequence</li>
+</ul>
+<p>Result: some notes become tied together, producing longer tones and more melodic contour without touching pitch.</p>
+<hr />
+<h2>3. Logic mode: combining rhythmic sources into melodic structures</h2>
+<p>In <strong>Logic mode</strong>, each knob determines which input channels are combined into the corresponding output. Fully counterclockwise, the output matches its own input; as you turn the knob, other parts are added/combined; fully clockwise acts as a <strong>mute</strong>.</p>
+<p>The manual describes this as generalized logic combinations for four inputs.</p>
+<h3>Musical use</h3>
+<p>This is the most compositionally powerful mode for melody because it lets you create <strong>derived rhythmic lanes</strong> from multiple sources.</p>
+<h3>Melodic applications</h3>
+<ul>
+<li>Make one pitch source play several different <strong>interlocking note rhythms</strong></li>
+<li>Use different outputs to trigger:</li>
+<li>separate melodic voices</li>
+<li>octave layers</li>
+<li>harmonized voices</li>
+<li>transposition events</li>
+<li>ratchets or ornamentation</li>
+<li>Build call-and-response phrasing by combining or isolating rhythmic streams</li>
+<li>Generate accent, sustain, and melody clocks from the same source material</li>
+</ul>
+<h3>Example</h3>
+<p>Inputs:
+- In 1: sparse kick-like rhythm
+- In 2: syncopated snare-like rhythm
+- In 3: dense hi-hat pattern
+- In 4: occasional fill trigger</p>
+<p>Outputs:
+- Out 1: pluck melody trigger
+- Out 2: bass trigger
+- Out 3: sample-and-hold clock for pitch changes
+- Out 4: trigger for transposition, sequential switch advance, or accent envelope</p>
+<p>Result: percussive logic becomes <strong>melodic counterpoint</strong>.</p>
+<hr />
+<h1>Best ways to use Integra Funkitus in melodic patches</h1>
+<h2>A. Generate melodies from a single pitch source</h2>
+<p>Use one pitch sequence and multiple rhythm outputs.</p>
+<h3>Patch</h3>
+<ul>
+<li>One CV sequencer or quantized random source -&gt; mult to several oscillators / voices</li>
+<li>Four rhythmic sources -&gt; IF inputs</li>
+<li>IF outputs -&gt; separate envelopes / VCAs for different voices</li>
+</ul>
+<h3>Result</h3>
+<p>Each voice shares related pitch material, but rhythm makes them feel like independent melodic parts.</p>
+<p>This is great for:
+- canon-like textures
+- layered arps
+- bass + lead + high pluck arrangements</p>
+<hr />
+<h2>B. Use IF to clock sample-and-hold for pitch creation</h2>
+<p>One of the strongest melodic uses is to place IF between a clock source and a <strong>sample-and-hold</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Random CV or slow modulation -&gt; S&amp;H input</li>
+<li>Rhythm source(s) -&gt; IF input(s)</li>
+<li>IF output -&gt; S&amp;H clock</li>
+<li>S&amp;H output -&gt; quantizer -&gt; oscillator pitch</li>
+</ul>
+<h3>Result</h3>
+<p>IF decides <strong>when a new note is chosen</strong>.<br />
+Different modes produce different melodic feels:
+- <strong>Trigger mode</strong>: skipped notes, sparse melodies
+- <strong>Gate mode</strong>: occasional held notes / fewer pitch changes
+- <strong>Logic mode</strong>: structured, pattern-derived melodic movement</p>
+<hr />
+<h2>C. Drive a sequential switch for melodic rearrangement</h2>
+<p>If you have a sequential switch, IF can create non-obvious note orderings.</p>
+<h3>Patch</h3>
+<ul>
+<li>Several fixed voltages / sequence rows / chord tones -&gt; switch inputs</li>
+<li>IF output -&gt; switch advance</li>
+<li>Switch output -&gt; quantizer or oscillator pitch</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of sequencing pitch directly, you sequence <strong>selection events</strong>. IF turns rhythms into note-order changes.</p>
+<p>This is especially effective when:
+- one IF output drives note trigger
+- another IF output drives switch advance
+- another IF output drives octave jump or transposition</p>
+<hr />
+<h2>D. Create harmony by splitting rhythmic roles</h2>
+<p>Use IF outputs for different harmonic functions.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Output 1 -&gt; root note voice</li>
+<li>Output 2 -&gt; fifth or upper harmony voice</li>
+<li>Output 3 -&gt; transposition trigger</li>
+<li>Output 4 -&gt; ornament voice or echo voice</li>
+</ul>
+<p>If all voices share a quantizer or tonal source, the rhythmic separation from IF creates melodic interplay with minimal patch complexity.</p>
+<hr />
+<h2>E. Use Burn as a melodic fill generator</h2>
+<p>The <strong>Burn</strong> function combines all inputs into all outputs.</p>
+<h3>Musical effect</h3>
+<p>For melody, this can act like:
+- a fill button
+- phrase climax
+- burst of ornamentation
+- temporary densification of an arpeggio or sequence</p>
+<h3>Patch idea</h3>
+<p>Normally:
+- sparse IF outputs trigger a few selective notes</p>
+<p>During Burn:
+- all outputs get much denser activity
+- can trigger extra melodic layers, pitch changes, or transposition events</p>
+<p>This is useful for transitions between:
+- verse/chorus
+- pattern A/B
+- buildup/drop</p>
+<hr />
+<h1>Concrete melodic patch recipes</h1>
+<h2>1. Probabilistic arpeggio</h2>
+<h3>You need</h3>
+<ul>
+<li>clock</li>
+<li>gate sequencer or trigger pattern source</li>
+<li>Integra Funkitus</li>
+<li>sample-and-hold or sequencer</li>
+<li>quantizer</li>
+<li>oscillator</li>
+<li>envelope + VCA/LPG</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Clocked trigger pattern -&gt; IF input 1</li>
+<li>IF in Trigger mode</li>
+<li>IF output 1 -&gt; S&amp;H clock and/or envelope trigger</li>
+<li>Random CV or stepped CV -&gt; S&amp;H input</li>
+<li>S&amp;H -&gt; quantizer -&gt; oscillator pitch</li>
+</ul>
+<h3>What happens</h3>
+<p>Not every clock produces a note, so the melody becomes selectively sparse and musical.</p>
+<hr />
+<h2>2. Legato bassline generator</h2>
+<h3>Patch</h3>
+<ul>
+<li>Regular gate pattern -&gt; IF input 1</li>
+<li>Set IF to Gate mode</li>
+<li>IF output 1 -&gt; envelope gate of bass voice</li>
+<li>Sequencer or quantized CV -&gt; oscillator pitch</li>
+</ul>
+<h3>What happens</h3>
+<p>Some note-offs are skipped, creating tied or extended notes. The bassline feels more alive and less grid-locked.</p>
+<hr />
+<h2>3. Interlocking duet from drum rhythms</h2>
+<h3>Patch</h3>
+<ul>
+<li>4 drum trigger patterns -&gt; IF inputs 1–4</li>
+<li>IF in Logic mode</li>
+<li>Output 1 -&gt; envelope of low melodic voice</li>
+<li>Output 2 -&gt; envelope of high melodic voice</li>
+<li>Shared quantized pitch source, or two related pitch sources</li>
+</ul>
+<h3>What happens</h3>
+<p>Drum-derived logic creates two interwoven melodic lines. Great for techno, IDM, electro, or generative patches.</p>
+<hr />
+<h2>4. Melody plus transposition lane</h2>
+<h3>Patch</h3>
+<ul>
+<li>Main rhythm -&gt; IF input 1</li>
+<li>Accent rhythm -&gt; IF input 2</li>
+<li>Fill rhythm -&gt; IF input 3</li>
+<li>IF in Logic or Trigger mode</li>
+<li>Output 1 -&gt; melodic envelope trigger</li>
+<li>Output 2 -&gt; trigger precision adder/transposition switch</li>
+<li>Output 3 -&gt; reset/advance sequencer or trigger auxiliary ornament voice</li>
+</ul>
+<h3>What happens</h3>
+<p>The melody itself and its harmonic movement become rhythmically linked but not identical.</p>
+<hr />
+<h2>5. Multi-voice canon patch</h2>
+<h3>Patch</h3>
+<ul>
+<li>Feed four related clocks or trigger streams into IF</li>
+<li>Send outputs 1–4 to four envelopes controlling four voices</li>
+<li>Pitch source options:</li>
+<li>same quantized CV to all voices</li>
+<li>same CV with different octave offsets</li>
+<li>one sequencer row plus precision adders</li>
+</ul>
+<h3>What happens</h3>
+<p>You get a tightly related but rhythmically diverging ensemble from a small amount of pitch material.</p>
+<hr />
+<h1>CV control for evolving melodic timing</h1>
+<p>Each channel has a <strong>CV input for the modification knob</strong>, and when patched the knob becomes an attenuator.</p>
+<p>This is extremely useful for melodic movement because you can animate:
+- trigger probability
+- gate probability
+- logic selection amount</p>
+<h2>Good CV sources</h2>
+<ul>
+<li>slow LFO</li>
+<li>stepped random</li>
+<li>envelope from another phrase</li>
+<li>sequencer row</li>
+<li>pressure/touch controller</li>
+<li>manual offset from a performance module</li>
+</ul>
+<h2>Musical results</h2>
+<ul>
+<li>melody density changes over time</li>
+<li>note duration breathes</li>
+<li>logic combinations morph between sections</li>
+<li>one static pitch sequence feels composed and arranged</li>
+</ul>
+<hr />
+<h1>Strengths in a melodic system</h1>
+<p>Integra Funkitus is best thought of as a <strong>melodic phrasing engine</strong>, not a note generator.</p>
+<p>It is especially strong when paired with:
+- quantizers
+- sample-and-hold
+- CV sequencers
+- switches
+- precision adders
+- envelopes/LPGs
+- multi-voice oscillator setups</p>
+<p>It excels at:
+- creating note events
+- removing note events
+- extending note lengths
+- deriving multiple related melodic lines
+- turning percussion logic into melodic logic</p>
+<hr />
+<h1>Limitations</h1>
+<p>Based on the manual:
+- It does <strong>not generate pitch CV</strong>
+- It does <strong>not quantize</strong>
+- It does <strong>not store sequences</strong>
+- It works on <strong>gate/rhythm structure only</strong></p>
+<p>So if you're asking whether it can make melody by itself: <strong>not directly</strong>.<br />
+If you're asking whether it can make a melodic system far more expressive: <strong>absolutely</strong>.</p>
+<hr />
+<h1>Best overall melodic use case</h1>
+<p>A very effective setup is:</p>
+<ol>
+<li>Several clocks or rhythm patterns into IF  </li>
+<li>IF outputs used to:</li>
+<li>trigger envelopes</li>
+<li>clock sample-and-hold</li>
+<li>advance switches</li>
+<li>trigger transpositions</li>
+<li>Quantizer keeps all voltages musical</li>
+<li>One or more oscillators turn those events into notes</li>
+</ol>
+<p>That gives you melody with:
+- variation
+- phrasing
+- rests
+- sustain differences
+- structural fills
+- inter-voice interplay</p>
+<p>In short, <strong>Integra Funkitus is a rhythm intelligence module for melodic patching</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

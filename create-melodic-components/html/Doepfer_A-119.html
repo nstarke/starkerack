@@ -1,0 +1,424 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-119</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-119</h1>
+<ul>
+<li><a href="../../manuals/A119_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Doepfer A-119 Ext. Input / Envelope Follower — using it for melodic patching</h1>
+<p>The attached manual is for the <strong>Doepfer A-119 External Input / Envelope Follower</strong>.<br />
+This module is not a pitch source by itself, but it is very useful for building <strong>melodic components</strong> when combined with oscillators, filters, VCAs, envelopes, slews, comparators, sequencers, quantizers, and clocking modules.</p>
+<h2>What the A-119 does</h2>
+<p>The manual describes three main functions:</p>
+<ul>
+<li><strong>Preamp</strong></li>
+<li><strong>Asym. In</strong> for line-level signals</li>
+<li><strong>Symm. In</strong> for mic/instrument-level signals</li>
+<li><strong>Envelope follower</strong></li>
+<li>Creates a CV proportional to input amplitude at <strong>Env. Out</strong></li>
+<li><strong>Comparator / gate extractor</strong></li>
+<li>Creates a gate at <strong>Gate Out</strong> when the signal exceeds the <strong>Threshold</strong></li>
+</ul>
+<p>It also provides:</p>
+<ul>
+<li><strong>Audio Out</strong> of the amplified incoming signal</li>
+<li><strong>Overload LED</strong></li>
+<li>Envelope and gate indication LEDs</li>
+</ul>
+<h2>Why this matters melodically</h2>
+<p>In a Eurorack system, melody usually needs some combination of:</p>
+<ul>
+<li><strong>pitch CV</strong></li>
+<li><strong>gates/triggers</strong></li>
+<li><strong>dynamic articulation</strong></li>
+<li><strong>timbral movement</strong></li>
+</ul>
+<p>The A-119 directly gives you:</p>
+<ul>
+<li><strong>gates</strong> from external sound events</li>
+<li><strong>dynamic CV</strong> from external amplitude</li>
+<li><strong>amplified audio</strong> that can enter the modular signal path</li>
+</ul>
+<p>That means it can convert an external performance source into control information for melodic patches.</p>
+<hr />
+<h1>Core melodic uses</h1>
+<h2>1. Turn external rhythm into note triggers</h2>
+<p>The manual explains that <strong>Gate Out</strong> goes high whenever the input envelope exceeds the threshold.<br />
+This is the most immediate melodic use.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Plug voice, drum loop, guitar, or percussion into <strong>Asym. In</strong> or <strong>Symm. In</strong></li>
+<li>Set <strong>Gain</strong> so the signal is healthy but not constantly overloading</li>
+<li>Adjust <strong>Threshold</strong> so only desired events produce gates</li>
+<li>Send <strong>Gate Out</strong> to:</li>
+<li>an envelope generator gate input</li>
+<li>a sequencer clock/advance input</li>
+<li>a sample-and-hold trigger</li>
+<li>a logic module driving melodic events</li>
+</ul>
+<h3>Melodic result</h3>
+<p>Each transient or phrase in the external audio can:</p>
+<ul>
+<li>trigger a note</li>
+<li>advance a sequence</li>
+<li>articulate a bassline</li>
+<li>create call-and-response between external performer and modular voice</li>
+</ul>
+<p>This is one of the strongest ways to make melody from the A-119:<br />
+<strong>the external source becomes the phrasing engine</strong>.</p>
+<hr />
+<h2>2. Use the envelope follower as melodic expression CV</h2>
+<p>The <strong>Env. Out</strong> follows the loudness contour of the input signal.<br />
+That gives you a continuously varying CV based on how hard you sing, play, or feed audio.</p>
+<h3>Good destinations for melody-related modulation</h3>
+<p>Patch <strong>Env. Out</strong> to:</p>
+<ul>
+<li><strong>VCO pitch FM attenuated lightly</strong> for expressive pitch bend</li>
+<li><strong>quantizer input</strong> for stepped melodic motion</li>
+<li><strong>filter cutoff</strong> to shape note brightness</li>
+<li><strong>VCA CV</strong> for dynamics</li>
+<li><strong>wavefolder amount</strong> for intensity-linked harmonics</li>
+<li><strong>sequencer transpose input</strong></li>
+<li><strong>precision adder / offset + quantizer</strong> chain for controllable note generation</li>
+</ul>
+<h3>Melodic result</h3>
+<p>Your input dynamics can become:</p>
+<ul>
+<li>note accents</li>
+<li>melodic rises and falls</li>
+<li>transposition gestures</li>
+<li>phrase-based modulation</li>
+</ul>
+<p>Because the envelope is tied to amplitude rather than pitch, it works especially well for <strong>expression</strong>, <strong>contour</strong>, and <strong>phrase shaping</strong>.</p>
+<hr />
+<h2>3. Build melodies from speech or singing contours</h2>
+<p>The A-119 does <strong>not</strong> track pitch.<br />
+But the manual’s “singing synth” example shows that it works well with voice as a control/audio source.</p>
+<h3>Practical melodic strategy</h3>
+<p>Use a microphone into <strong>Symm. In</strong>:</p>
+<ul>
+<li><strong>Gate Out</strong> triggers an envelope or sequencer advance</li>
+<li><strong>Env. Out</strong> modulates:</li>
+<li>quantizer input</li>
+<li>sequencer transpose</li>
+<li>filter or VCA</li>
+<li><strong>Audio Out</strong> can be mixed, filtered, ring modulated, or otherwise processed in parallel</li>
+</ul>
+<h3>Result</h3>
+<p>Your voice controls the <strong>shape and articulation</strong> of a melody, even if the actual pitch is generated elsewhere.</p>
+<p>This is ideal for:</p>
+<ul>
+<li>vocal-controlled synth lines</li>
+<li>talking synth patches</li>
+<li>phrase-synced arpeggios</li>
+<li>responsive lead patches</li>
+</ul>
+<hr />
+<h1>Best companion modules for melodic patching</h1>
+<p>Since you asked how these modules can be used together to create melodic components, here are the most effective pairings with the A-119.</p>
+<h2>A-119 + VCO</h2>
+<p>Use the A-119 to control when and how notes happen, while the VCO provides the actual pitch.</p>
+<h3>Patch</h3>
+<ul>
+<li>External source -&gt; <strong>A-119 input</strong></li>
+<li><strong>Gate Out</strong> -&gt; ADSR gate</li>
+<li>ADSR -&gt; VCA CV</li>
+<li>VCO -&gt; VCF/VCA -&gt; output</li>
+<li><strong>Env. Out</strong> -&gt; slight pitch modulation or filter cutoff</li>
+</ul>
+<h3>Melodic role</h3>
+<p>The external source becomes the articulation layer for the oscillator melody.</p>
+<hr />
+<h2>A-119 + Quantizer</h2>
+<p>This is one of the best melodic combinations.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>Env. Out</strong> -&gt; attenuator/offset -&gt; quantizer input</li>
+<li>quantizer output -&gt; VCO 1V/oct</li>
+<li><strong>Gate Out</strong> -&gt; envelope trigger or sample-and-hold clock</li>
+</ul>
+<h3>Melodic role</h3>
+<p>The amplitude contour of the external sound becomes stepped notes in a scale.</p>
+<h3>Tips</h3>
+<ul>
+<li>Use attenuation before the quantizer for musically useful note ranges</li>
+<li>Add offset so the melody sits in the right register</li>
+<li>Use slower source material for more stable notes</li>
+</ul>
+<p>This turns the A-119 into a kind of <strong>gesture-to-melody converter</strong>.</p>
+<hr />
+<h2>A-119 + Sample &amp; Hold</h2>
+<p>This creates cleaner discrete melodies from complex audio.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>Env. Out</strong> -&gt; sample &amp; hold input</li>
+<li><strong>Gate Out</strong> -&gt; sample &amp; hold trigger</li>
+<li>sample &amp; hold output -&gt; quantizer -&gt; VCO pitch</li>
+</ul>
+<h3>Melodic role</h3>
+<p>Whenever the input crosses threshold, the current envelope level is sampled as a note value.</p>
+<h3>Result</h3>
+<ul>
+<li>Percussive input produces stepped melodies</li>
+<li>Speech produces irregular melodic phrases</li>
+<li>Guitar attacks can generate playable note patterns</li>
+</ul>
+<p>This is one of the most musically useful ways to derive melodic material from the A-119.</p>
+<hr />
+<h2>A-119 + Slew limiter</h2>
+<p>The manual specifically mentions using an <strong>A-170 slew limiter</strong> for smoothing.</p>
+<h3>Two important melodic uses</h3>
+<h4>A. Smoothing low-frequency envelope artifacts</h4>
+<p>The manual notes that with input frequencies below 50 Hz, extra smoothing may help.</p>
+<h4>B. Turning stepped CV into legato melodic movement</h4>
+<p>If you sample/hold the envelope and then slew it slightly before quantizing or after quantizing, you can get:</p>
+<ul>
+<li>portamento-like motion</li>
+<li>softer melodic transitions</li>
+<li>fewer clicks when using gate-derived articulation</li>
+</ul>
+<hr />
+<h2>A-119 + Envelope generator + VCA</h2>
+<p>This is the most direct “play the modular from external sound” setup.</p>
+<h3>Patch</h3>
+<ul>
+<li>External signal -&gt; A-119</li>
+<li><strong>Gate Out</strong> -&gt; ADSR gate</li>
+<li>ADSR -&gt; VCA CV</li>
+<li>VCO -&gt; VCF -&gt; VCA</li>
+<li><strong>Env. Out</strong> -&gt; VCF cutoff or oscillator FM amount</li>
+</ul>
+<h3>Melodic role</h3>
+<p>The melody source may be a sequence or keyboard, but the external signal determines <strong>when</strong> the notes speak and <strong>how expressive</strong> they are.</p>
+<p>This is great for:
+- rhythm guitar driving synth notes
+- drum loop articulating a sequence
+- speech opening melodic stabs</p>
+<hr />
+<h2>A-119 + Sequencer / clocked melody source</h2>
+<p>Use gate extraction to advance notes from any sequence.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>Gate Out</strong> -&gt; sequencer clock</li>
+<li>sequencer CV -&gt; VCO pitch</li>
+<li>A-119 <strong>Env. Out</strong> -&gt; transpose / filter / accent</li>
+</ul>
+<h3>Melodic role</h3>
+<p>External audio becomes the timing source for melody.</p>
+<h3>Result</h3>
+<ul>
+<li>Beatboxing can drive a bassline</li>
+<li>picked guitar can advance an arpeggio</li>
+<li>chopped vocal can clock a lead line</li>
+</ul>
+<p>This produces very musical “humanized” melodies.</p>
+<hr />
+<h2>A-119 + Ring mod / audio processor in a melodic chain</h2>
+<p>The manual gives a ring modulator example and explains using the envelope to “squelch” the ring mod output via a VCA.</p>
+<h3>Melodic takeaway</h3>
+<p>Even though ring modulation is often timbral rather than melodic, you can use the A-119 to keep note articulation tied to the external signal.</p>
+<h3>Patch</h3>
+<ul>
+<li>External audio -&gt; A-119</li>
+<li>A-119 audio out -&gt; ring mod input</li>
+<li>VCO sine -&gt; other ring mod input</li>
+<li>A-119 envelope or smoothed gate -&gt; VCA controlling ring mod output</li>
+</ul>
+<h3>Melodic role</h3>
+<p>The VCO can be tuned melodically while the external sound provides dynamic articulation.</p>
+<p>This is good for:
+- tuned metallic leads
+- voice-controlled melodic textures
+- hybrid acoustic/synth phrases</p>
+<hr />
+<h1>Patch recipes for melodic components</h1>
+<h2>1. External percussion to quantized melody</h2>
+<p>A very effective melodic patch.</p>
+<h3>Patch</h3>
+<ul>
+<li>Drum loop -&gt; A-119 Asym. In</li>
+<li>Set threshold so kicks/snares produce clear gates</li>
+<li><strong>Env. Out</strong> -&gt; attenuator -&gt; sample &amp; hold input</li>
+<li><strong>Gate Out</strong> -&gt; sample &amp; hold trigger</li>
+<li>sample &amp; hold -&gt; quantizer</li>
+<li>quantizer -&gt; VCO 1V/oct</li>
+<li>VCO -&gt; VCA</li>
+<li><strong>Gate Out</strong> -&gt; envelope -&gt; VCA CV</li>
+</ul>
+<h3>What happens</h3>
+<p>Each detected hit generates:
+- a new note
+- a matching articulation</p>
+<h3>Sound</h3>
+<p>A groove-derived melody tightly connected to the source rhythm.</p>
+<hr />
+<h2>2. Voice-controlled lead synth</h2>
+<h3>Patch</h3>
+<ul>
+<li>Mic -&gt; <strong>Symm. In</strong></li>
+<li><strong>Gate Out</strong> -&gt; ADSR gate</li>
+<li>ADSR -&gt; VCA CV</li>
+<li><strong>Env. Out</strong> -&gt; attenuator -&gt; quantizer -&gt; VCO pitch</li>
+<li>VCO -&gt; filter -&gt; VCA</li>
+<li>A-119 <strong>Audio Out</strong> optionally into a parallel effect path</li>
+</ul>
+<h3>What happens</h3>
+<p>Your singing loudness and phrasing shape the synth line.</p>
+<h3>Sound</h3>
+<p>Organic, vocal-like melody generation.</p>
+<hr />
+<h2>3. Guitar attack drives arpeggio</h2>
+<h3>Patch</h3>
+<ul>
+<li>Guitar -&gt; <strong>Symm. In</strong></li>
+<li><strong>Gate Out</strong> -&gt; clock input of sequencer/arpeggiator</li>
+<li>sequencer CV -&gt; oscillator pitch</li>
+<li><strong>Env. Out</strong> -&gt; transpose amount or filter cutoff</li>
+<li>oscillator -&gt; VCA</li>
+<li><strong>Gate Out</strong> -&gt; envelope -&gt; VCA</li>
+</ul>
+<h3>What happens</h3>
+<p>Each picked note steps the sequence forward.</p>
+<h3>Sound</h3>
+<p>The guitar “plays” the synth melody rhythmically.</p>
+<hr />
+<h2>4. Ducking-based counter-melody</h2>
+<p>The manual includes a ducking example. You can adapt it melodically.</p>
+<h3>Patch</h3>
+<ul>
+<li>External audio -&gt; A-119</li>
+<li>Internal melodic voice through VCA</li>
+<li><strong>Env. Out</strong> -&gt; inverter -&gt; VCA CV for internal melody</li>
+</ul>
+<h3>What happens</h3>
+<p>When the external signal is present, the internal melody ducks.</p>
+<h3>Musical use</h3>
+<p>This creates:
+- responsive call-and-response
+- space for live voice/instrument
+- dynamic interaction between melodic layers</p>
+<hr />
+<h2>5. Singing synth / subharmonic melody</h2>
+<p>The manual’s “singing synth” patch uses the voice with a divider/sub-octave path.</p>
+<h3>Melodic extension</h3>
+<p>Instead of only using the source as raw audio:
+- mic -&gt; A-119
+- <strong>Gate Out</strong> -&gt; envelope
+- <strong>Env. Out</strong> -&gt; filter movement or quantized transpose
+- A-115/suboctave or oscillator stack -&gt; VCA/filter chain</p>
+<h3>Sound</h3>
+<p>A vocal-driven melodic synth with strong tracking of phrasing, not pitch.</p>
+<hr />
+<h1>Important operational details from the manual</h1>
+<h2>Input choice matters</h2>
+<ul>
+<li><strong>Asym. In</strong>: line-level/unbalanced</li>
+<li><strong>Symm. In</strong>: mic/instrument-level/balanced, much more gain available</li>
+</ul>
+<p>The manual notes the gain ranges:
+- unbalanced input: about <strong>0–20</strong>
+- balanced input: about <strong>0–500</strong></p>
+<p>So for melody extraction from:
+- drum machines / mixers / line outputs: use <strong>Asym. In</strong>
+- mic / guitar: use <strong>Symm. In</strong></p>
+<h2>Use only one input at a time</h2>
+<p>The manual explicitly warns there is only one gain control for both inputs.<br />
+If both are used, they are mixed in a <strong>1:25 ratio</strong>.</p>
+<p>For predictable melodic control, use just one source at a time.</p>
+<h2>Watch the overload LED</h2>
+<p>If the preamp overloads, your envelope and gate behavior can become less controllable.</p>
+<p>For melodic patches, stable tracking is important:
+- increase gain until response is strong
+- back off if overload is constant
+- then set threshold carefully</p>
+<h2>Threshold is the key to musicality</h2>
+<p>The <strong>Threshold</strong> control determines what counts as an event.</p>
+<p>This affects whether your melody is:
+- dense
+- sparse
+- stable
+- noisy
+- rhythmically locked</p>
+<p>In practice:
+- low threshold = more triggers, more chaotic note generation
+- high threshold = fewer, more deliberate notes</p>
+<hr />
+<h1>Limitations to understand</h1>
+<h2>It is not a pitch tracker</h2>
+<p>The A-119 does not extract 1V/oct pitch from incoming audio.<br />
+So it will not turn singing directly into correctly tracked note CV.</p>
+<p>Instead, it gives:
+- <strong>amplitude-following CV</strong>
+- <strong>gate extraction</strong>
+- <strong>audio amplification</strong></p>
+<p>To get stronger melodic behavior, pair it with:
+- quantizer
+- sample &amp; hold
+- sequencer
+- precision adder
+- slew
+- envelope/VCA chain</p>
+<h2>Envelope output is better for contour than exact notes</h2>
+<p>By itself, <strong>Env. Out</strong> is not musically scaled. It is a raw control voltage.<br />
+To use it melodically, shape it with:
+- attenuation
+- offset
+- quantization
+- sampling
+- inversion</p>
+<p>That is where the real melodic patching comes from.</p>
+<hr />
+<h1>Most musical combinations, ranked</h1>
+<h2>Best for immediate melody</h2>
+<ol>
+<li><strong>A-119 + Sample &amp; Hold + Quantizer + VCO</strong></li>
+<li><strong>A-119 + Sequencer clock input + VCO</strong></li>
+<li><strong>A-119 + ADSR/VCA + existing pitch source</strong></li>
+<li><strong>A-119 + Ring mod + VCA for tuned textures</strong></li>
+<li><strong>A-119 + Inverter/VCA for ducking and counterpoint</strong></li>
+</ol>
+<hr />
+<h1>Practical performance tips</h1>
+<h2>For tighter melodic triggers</h2>
+<p>Use percussive or clearly articulated input.</p>
+<h2>For smoother melodic CV</h2>
+<p>Use slower, sustained sources like:
+- voice
+- bowed strings
+- pads
+- legato guitar</p>
+<h2>For controlled note ranges</h2>
+<p>Always attenuate <strong>Env. Out</strong> before it reaches a quantizer or pitch input.</p>
+<h2>For expressive phrasing</h2>
+<p>Use:
+- <strong>Gate Out</strong> for note onset
+- <strong>Env. Out</strong> for accent, timbre, or transpose</p>
+<p>That combination gives the most natural musical behavior.</p>
+<hr />
+<h1>Conclusion</h1>
+<p>The <strong>Doepfer A-119</strong> is best thought of as a <strong>bridge from external sound into melodic control</strong>.<br />
+It does not generate pitch on its own, but it is excellent for:</p>
+<ul>
+<li>extracting gates from live or recorded audio</li>
+<li>deriving expressive CV from dynamics</li>
+<li>bringing external sound up to modular level</li>
+<li>making external performance drive melodic sequencing and articulation</li>
+</ul>
+<p>If you combine it with standard melodic modules like a <strong>VCO, quantizer, sample &amp; hold, sequencer, ADSR, VCA, and slew limiter</strong>, it becomes a very powerful tool for:</p>
+<ul>
+<li>voice-controlled synth lines</li>
+<li>rhythm-driven melodies</li>
+<li>guitar-triggered sequences</li>
+<li>dynamic transposition</li>
+<li>expressive hybrid acoustic/modular patches</li>
+</ul>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

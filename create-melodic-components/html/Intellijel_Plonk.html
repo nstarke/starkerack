@@ -1,0 +1,549 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Intellijel_Plonk</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Intellijel — Plonk</h1>
+<ul>
+<li><a href="../../manuals/plonk_manual_v1.16_2020.11.08.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1><a href="https://intellijel.com/downloads/manuals/Plonk_Manual_1.16_2020.11.08.pdf">Intellijel Plonk Manual (English, Firmware 1.16)</a></h1>
+<h2>Using Plonk to create melodic components in a Eurorack system</h2>
+<p>Plonk is primarily presented as a <strong>physical-modeling percussion synthesizer</strong>, but the manual makes it clear that it can also do <strong>pitched percussion, string-like tones, basses, guitar-like sounds, marimba/vibes, and other tonal material</strong>. That makes it very usable for melodic roles, not just drums.</p>
+<p>Because only one module manual is attached here, I’ll analyze <strong>how Plonk itself can function as a melodic voice</strong>, and how its inputs/modulation architecture let it interact with the rest of a Eurorack system to produce musical lines, tuned parts, and expressive melodic gestures.</p>
+<hr />
+<h2>1. Why Plonk works well for melody</h2>
+<p>Plonk has several features that make it more than a drum module:</p>
+<ul>
+<li><strong>1V/oct PITCH input</strong></li>
+<li><strong>Base pitch control</strong> with octave and optional quantization</li>
+<li><strong>Resonator models</strong> that include:</li>
+<li>String</li>
+<li>Beam</li>
+<li>Marimba</li>
+<li>Drumhead</li>
+<li>Membrane</li>
+<li>Plate</li>
+<li><strong>Internal pitch envelope</strong> for attack transients or pitch sweeps</li>
+<li><strong>2-voice polyphony</strong></li>
+<li><strong>Velocity input</strong></li>
+<li><strong>Assignable X, Y, and MOD modulation destinations</strong></li>
+<li><strong>Preset storage and preset stepping/morphing</strong></li>
+</ul>
+<p>That means Plonk can act like:</p>
+<ul>
+<li>a tuned mallet instrument</li>
+<li>a plucked string synth</li>
+<li>a metallic bell/chime voice</li>
+<li>a bass voice</li>
+<li>a semi-polyphonic melodic percussion voice</li>
+<li>a morphing “kit-to-melody” voice</li>
+</ul>
+<hr />
+<h2>2. Core patch for melody</h2>
+<h3>Basic melodic patch</h3>
+<p>Use Plonk like a standard tonal voice:</p>
+<ul>
+<li>Sequencer <strong>pitch CV</strong> → <strong>PITCH</strong></li>
+<li>Sequencer <strong>gate</strong> → <strong>TRIG</strong></li>
+<li>Optional accent/velocity CV → <strong>VEL</strong></li>
+<li><strong>OUT</strong> → mixer / VCA / effects / output</li>
+</ul>
+<h3>Good starting settings</h3>
+<p>From the manual and from practical use:</p>
+<ul>
+<li>Set <strong>PITCH knob</strong> around noon</li>
+<li>Set a suitable <strong>Octave</strong> in the PITCH menu</li>
+<li>Turn <strong>Quantize</strong> on if you want semitone stepping from the front-panel pitch knob</li>
+<li>Set <strong>DECAY</strong> fairly high for sustained melodic notes</li>
+<li>Choose a resonator better suited to pitch:</li>
+<li><strong>String</strong> for plucks/bass/guitar-like sounds</li>
+<li><strong>Marimba</strong> for tonal percussion</li>
+<li><strong>Beam</strong> for bells and woody struck tones</li>
+<li><strong>Plate</strong> for metallic melodic material</li>
+</ul>
+<hr />
+<h2>3. Best resonator types for melodic use</h2>
+<h2>String</h2>
+<p>Best for:
+- plucked melodies
+- basslines
+- pseudo-guitar parts
+- bowed/sustained textures when using noise exciter creatively</p>
+<p>How to use it:
+- Use more <strong>mallet</strong> than noise for a plucked attack
+- Adjust <strong>Resonator Position</strong> to shape harmonic content
+- Use <strong>Resonator Tone</strong> to shift material feel from softer to brighter
+- Try moderate <strong>Resonator Decay</strong> for plucks, longer for sustained tones
+- Add a little <strong>Pitch Envelope Amount</strong> for a natural pluck transient</p>
+<p>Musically:
+- Great for arpeggios
+- Works very well for modal or minimalist melodic lines
+- Can become a bass voice with shorter decay and lower octave</p>
+<hr />
+<h2>Marimba</h2>
+<p>Best for:
+- mallet melodies
+- ostinatos
+- tuned percussion patterns
+- marimba/vibraphone-like phrases</p>
+<p>How to use it:
+- Blend <strong>mallet</strong> and <strong>noise</strong> depending on how much attack detail you want
+- Use <strong>Mallet Stiffness</strong> to sharpen or soften articulation
+- Keep <strong>Inharmonicity</strong> moderate for more recognizably pitched notes
+- Use longer <strong>Resonator Decay</strong> for vibes-like ringing</p>
+<p>Musically:
+- Excellent for repeating melodic figures
+- Great with probability-based triggers or polyrhythmic sequencers
+- Very strong for West African / minimal / gamelan-inspired melodic percussion</p>
+<hr />
+<h2>Beam</h2>
+<p>Best for:
+- bells
+- claves/chimes
+- tuned wood/metal struck melodies</p>
+<p>How to use it:
+- Use stiffer mallet settings
+- Higher tone values often produce more metallic/glassy material feel
+- Slight inharmonicity gives lovely bell-like complexity
+- Moderate decay helps preserve pitch clarity</p>
+<p>Musically:
+- Strong for sparse melodic punctuation
+- Great for upper-register motifs
+- Useful in ambient and generative patches</p>
+<hr />
+<h2>Plate</h2>
+<p>Best for:
+- metallic tuned sounds
+- gong-like pitches
+- shimmering upper-register melodic parts</p>
+<p>How to use it:
+- Plate can get very inharmonic fast, so for stronger pitch identity keep modulation restrained
+- Use <strong>Low Cut</strong> to clear mud and emphasize upper partials
+- Works well with long decays and external reverb</p>
+<p>Musically:
+- Excellent for evolving melodic layers
+- More about color and atmosphere than strict tonal precision</p>
+<hr />
+<h2>Drumhead / Membrane</h2>
+<p>These are less obvious for melody, but still useful.</p>
+<p>Best for:
+- tom-like tuned lines
+- electronic tuned percussion
+- hybrid melodic-drum sequences</p>
+<p>Musically:
+- Great if you want melody that still feels percussive and rhythmic
+- Particularly useful in techno, IDM, electro, and experimental music</p>
+<hr />
+<h2>4. Exciter design for melodic articulation</h2>
+<p>Plonk’s melody isn’t only about pitch; it’s also about <strong>how notes speak</strong>.</p>
+<h2>Mallet exciter</h2>
+<p>Use for:
+- clean attacks
+- plucked and struck notes
+- more traditional melodic articulation</p>
+<h3>Mallet Stiffness</h3>
+<ul>
+<li>Higher stiffness = sharper transient, more click/definition</li>
+<li>Lower stiffness = rounder attack</li>
+</ul>
+<p>For melody:
+- Use <strong>lower to medium stiffness</strong> for warm marimba/plucked tones
+- Use <strong>higher stiffness</strong> for bells, claves, or articulate sequenced lines</p>
+<hr />
+<h2>Noise exciter</h2>
+<p>Use for:
+- breathiness
+- scrape/bow textures
+- snare-like articulation
+- noisy attack emphasis</p>
+<p>Key parameters:
+- <strong>Noise Attack</strong>
+- <strong>Noise Decay</strong>
+- <strong>Noise Density</strong>
+- <strong>Noise LP/HP filters</strong>
+- <strong>Noise Envelope Type</strong></p>
+<p>For melodic use:
+- Short filtered noise adds realism to attacks
+- Medium density plus envelope shaping can suggest bowing or friction
+- AHR mode can make longer, sustained articulated tones</p>
+<h3>Nice trick</h3>
+<p>For expressive melodic lines:
+- Use a little noise mixed with mallet
+- Route velocity to excite the note more dynamically
+- This makes notes feel more like performance gestures than static synth tones</p>
+<hr />
+<h2>5. Pitch behavior and tuning</h2>
+<h2>PITCH input</h2>
+<p>Plonk accepts <strong>1 V/oct</strong> at the <strong>PITCH</strong> input. This is the main path for melodic sequencing.</p>
+<p>Important note from the manual:
+- Pitch is updated <strong>only while the TRIG input is high</strong>
+- If you want true audio-rate or continuous pitch modulation, use <strong>X, Y, or MOD assigned to R Pitch</strong></p>
+<p>This matters a lot musically:</p>
+<h3>For normal sequenced melodies</h3>
+<ul>
+<li>Use standard gate + pitch sequencing into TRIG and PITCH</li>
+</ul>
+<h3>For vibrato / pitch bends / FM-like movement</h3>
+<ul>
+<li>Assign <strong>R Pitch</strong> to <strong>MOD</strong> (or X/Y if available in your workflow)</li>
+<li>Then patch:</li>
+<li>LFO for vibrato</li>
+<li>envelope for pitch bend</li>
+<li>random CV for unstable acoustic behavior</li>
+<li>oscillator for FM-like clangorous tones</li>
+</ul>
+<p>This is one of the most important “melodic unlocks” in the module.</p>
+<hr />
+<h2>6. Velocity makes melodies expressive</h2>
+<p>The <strong>VEL</strong> input can operate in three modes:</p>
+<ul>
+<li><strong>accent</strong></li>
+<li><strong>dynamics</strong></li>
+<li><strong>volume</strong></li>
+</ul>
+<h2>Best options for melodic work</h2>
+<h3>Dynamics mode</h3>
+<p>This is the most performance-oriented melodic setting.</p>
+<p>It makes the <strong>strength of the exciter proportional to input voltage</strong>. That means:
+- harder notes feel brighter/more forceful
+- softer notes feel gentler
+- repeated notes become expressive</p>
+<p>Use this with:
+- MIDI-to-CV velocity output
+- sequencer accent lane
+- manually programmed CV contour</p>
+<h3>Volume mode</h3>
+<p>Useful when you want:
+- tremolo
+- amplitude contouring
+- fade-ins/outs
+- more conventional amplitude phrasing</p>
+<h3>Accent mode</h3>
+<p>Simple and effective for:
+- alternating strong/weak notes
+- rhythmic emphasis in melodic percussion lines</p>
+<hr />
+<h2>7. X and Y controls are extremely useful for melodic macros</h2>
+<p>Plonk lets you assign <strong>X</strong> and <strong>Y</strong> to a large range of exciter/object parameters. These act as macro controls and can also receive CV.</p>
+<p>This is ideal for melody because you can tie expressive changes to performance movement.</p>
+<h2>Strong melodic destinations for X/Y</h2>
+<h3>R Tone</h3>
+<p>Great for opening/closing timbral brightness across a melody.</p>
+<h3>R Position</h3>
+<p>Changes where the resonator is “struck,” altering partial balance.
+This can make a repeating melody feel alive.</p>
+<h3>Mallet:Noise</h3>
+<p>Morphs between plucked/struck and noisy/frictional articulations.</p>
+<h3>M Stiffness</h3>
+<p>Adds articulation variation across notes.</p>
+<h3>R Inharmonic</h3>
+<p>Very useful for moving between:
+- clear pitch
+- bell-like complexity
+- abstract metallicity</p>
+<h3>R PEnv Amt</h3>
+<p>Controls how much pitch attack transient happens.
+Excellent for expressive plucks and kicks-to-bass hybrids.</p>
+<h3>Saturation / Bitcrusher</h3>
+<p>Useful if you want melodic lines to move from clean to aggressive.</p>
+<hr />
+<h2>8. MOD input opens advanced melodic behavior</h2>
+<p>The <strong>MOD</strong> input is especially powerful because it can do more than simple parameter modulation.</p>
+<h2>A. Use MOD for R Pitch</h2>
+<p>One of the best melodic setups:
+- Assign MOD destination to <strong>R Pitch</strong>
+- Send an LFO or envelope into MOD</p>
+<p>This creates:
+- vibrato
+- pitch bends
+- expressive attacks
+- pseudo-FM tones
+- unstable acoustic drift</p>
+<p>For melodic realism, subtle modulation here is gold.</p>
+<hr />
+<h2>B. Preset Step for melodic kits and multisamples-in-spirit</h2>
+<p><strong>Preset Step</strong> lets Plonk switch presets based on incoming CV at MOD whenever a trigger is received.</p>
+<p>This means one pitch/gate sequence can produce:
+- different resonator/exciter structures per note
+- alternating melodic timbres
+- pseudo-multisampled tonal sets
+- melodic “kits” where different notes in a line have different instrument identities</p>
+<p>For example:
+- preset 20 = woody marimba
+- preset 21 = metallic bell
+- preset 22 = muted string
+- preset 23 = noisy attack pluck</p>
+<p>Then use CV into MOD to select among them before each note.</p>
+<p>Musically, this is amazing for:
+- call-and-response within one melodic sequence
+- phrase-based variation
+- different timbres across scale degrees
+- generative melodic orchestration</p>
+<hr />
+<h2>C. Morph between presets</h2>
+<p>This is one of Plonk’s best features for melody.</p>
+<p>When MOD is set to <strong>Morph</strong>, incoming CV blends between:
+- the current preset
+- another destination preset</p>
+<p>This does <strong>not</strong> morph resonator type, but it <strong>does</strong> morph the other exciter and object parameters.</p>
+<p>This is ideal for:
+- evolving melodic phrases
+- changing a motif from muted to bright
+- moving from mallet to noisy articulation
+- slowly transforming a bassline into a bell sequence</p>
+<p>Patch ideas:
+- slow triangle LFO into MOD for cyclical timbral movement
+- envelope into MOD for note-dependent timbre shaping
+- random stepped CV into MOD for per-note changes
+- pressure/manual controller into MOD for expressive live performance</p>
+<hr />
+<h2>D. Randomize</h2>
+<p>Randomize is more experimental, but still melodic if used carefully.</p>
+<p>A trigger at MOD with destination set to <strong>Randomize</strong> randomizes most exciter/object parameters.</p>
+<p>Use with caution for melody:
+- can create fresh timbres
+- may reduce pitch clarity depending on resulting resonator settings</p>
+<p>Best use:
+- randomize until you find a compelling tonal voice
+- save it as a preset
+- build a melodic bank from curated random discoveries</p>
+<hr />
+<h2>9. 2-voice polyphony helps melodic phrasing</h2>
+<p>Plonk is <strong>duophonic</strong>.</p>
+<p>That means:
+- one note can ring while another begins
+- melodic phrases can overlap
+- long decays don’t always get cut off by the next note</p>
+<p>This is especially useful for:
+- marimba rolls
+- bell/chime melodies
+- legato-ish plucked lines
+- ambient melodic ostinatos</p>
+<h2>Polyphony setting</h2>
+<ul>
+<li><strong>1 voice</strong>: new note chokes previous note</li>
+<li><strong>2 voices</strong>: previous note continues ringing</li>
+</ul>
+<p>For melodic applications:</p>
+<h3>Use 1 voice when:</h3>
+<ul>
+<li>you want clean basslines</li>
+<li>you want tight mono articulation</li>
+<li>you want old notes cut off like a synth voice</li>
+</ul>
+<h3>Use 2 voices when:</h3>
+<ul>
+<li>you want natural resonance overlap</li>
+<li>you want idiomatic percussion melodies</li>
+<li>you want richer ambient/tuned percussion textures</li>
+</ul>
+<hr />
+<h2>10. Presets as melodic instruments, not fixed sounds</h2>
+<p>The manual emphasizes that Plonk presets behave differently from standard synth patches because the <strong>panel knobs remain live</strong>.</p>
+<p>This is very important musically.</p>
+<p>A preset on Plonk is better thought of as:
+- an <strong>instrument model</strong>
+- a performance-ready timbral state
+- a family of sounds rather than one exact sound</p>
+<p>For melody, this is a strength.</p>
+<p>You can load a melodic preset, then perform with:
+- <strong>DECAY</strong> for phrase length
+- <strong>X/Y</strong> for articulation and timbre
+- <strong>VEL</strong> for dynamics
+- <strong>MOD</strong> for morphing or pitch behavior</p>
+<p>So one preset can cover:
+- muted notes
+- accented notes
+- bright notes
+- sustained notes
+- unstable/animated notes</p>
+<p>That makes Plonk unusually expressive for melodic composition.</p>
+<hr />
+<h2>11. Good melodic patch recipes</h2>
+<h2>A. Marimba lead</h2>
+<ul>
+<li>Resonator: <strong>Marimba</strong></li>
+<li>Mix: mostly <strong>Mallet</strong></li>
+<li>Mallet Stiffness: medium</li>
+<li>Resonator Decay: medium-long</li>
+<li>R Tone: medium-high</li>
+<li>Polyphony: 2</li>
+<li>VEL Mode: <strong>dynamics</strong></li>
+</ul>
+<p>Patch:
+- Sequencer pitch → PITCH
+- Gate → TRIG
+- Accent/velocity CV → VEL
+- Slow LFO → X assigned to R Tone</p>
+<p>Result:
+- expressive tuned percussion melody
+- subtle tone drift over time</p>
+<hr />
+<h2>B. Plucked bass</h2>
+<ul>
+<li>Resonator: <strong>String</strong></li>
+<li>Mix: mostly mallet</li>
+<li>Resonator Decay: short-medium</li>
+<li>Resonator Position: off-center</li>
+<li>Pitch Env Amount: slight positive</li>
+<li>Pitch Env Decay: short</li>
+<li>Polyphony: 1</li>
+</ul>
+<p>Patch:
+- Bass sequencer CV → PITCH
+- Gate → TRIG
+- Envelope or accent lane → VEL
+- MOD assigned to R Pitch with tiny envelope modulation for bite</p>
+<p>Result:
+- physical-modeled bass pluck
+- very musical in minimal techno, electro, downtempo</p>
+<hr />
+<h2>C. Bell sequence</h2>
+<ul>
+<li>Resonator: <strong>Beam</strong> or <strong>Plate</strong></li>
+<li>Mix: stiff mallet with a little noise</li>
+<li>R Tone: high</li>
+<li>Inharmonicity: slight positive</li>
+<li>Decay: long</li>
+<li>Polyphony: 2</li>
+</ul>
+<p>Patch:
+- Sequencer → pitch and trig
+- Random stepped CV → X assigned to R Position
+- Slow LFO → Y assigned to R Tone</p>
+<p>Result:
+- evolving tuned bell melody
+- ideal for ambient / generative music</p>
+<hr />
+<h2>D. Hybrid melodic drumline</h2>
+<ul>
+<li>Resonator: <strong>Drumhead</strong> or <strong>Membrane</strong></li>
+<li>Tune to a scale via PITCH input</li>
+<li>Decay: medium</li>
+<li>Noise mixed in moderately</li>
+<li>Velocity active</li>
+</ul>
+<p>Patch:
+- Melodic sequencer → PITCH/TRIG
+- Accent lane → VEL
+- MOD set to Preset Step across a few tuned percussive presets</p>
+<p>Result:
+- line blurs between melody and rhythm
+- especially good for IDM, tribal, experimental techno</p>
+<hr />
+<h2>E. Morphing lead voice</h2>
+<ul>
+<li>Create preset A: muted woody pluck</li>
+<li>Create preset B: bright metallic pluck</li>
+<li>MOD destination: <strong>Morph</strong></li>
+<li>Choose preset B as morph target</li>
+<li>Slow or performance CV → MOD</li>
+</ul>
+<p>Result:
+- one sequence evolves through a phrase
+- highly expressive for live sets</p>
+<hr />
+<h2>12. Practical sequencing advice</h2>
+<h2>Gate timing</h2>
+<p>The manual notes:
+- gate must be at least <strong>1 ms</strong>
+- pitch is sampled while <strong>TRIG is high</strong>
+- if your sequencer sends gate before pitch has stabilized, use <strong>Gate Delay</strong> in Global Config</p>
+<p>For melodic accuracy:
+- keep Gate Delay low by default
+- raise it only if notes are coming out wrong in pitch</p>
+<p>This is especially relevant with quirky analog sequencers or some MIDI-CV interfaces.</p>
+<hr />
+<h2>Quantization strategy</h2>
+<p>Plonk’s internal quantize affects the <strong>PITCH knob</strong>, not external pitch CV in the same way a dedicated quantizer module would.</p>
+<p>For melodies:
+- use an external quantized sequencer or quantizer if you need strict scales
+- use Plonk’s pitch menu mainly to set <strong>base octave</strong> and knob behavior</p>
+<hr />
+<h2>13. Sound design advice for clearer melodic pitch</h2>
+<p>Physical modeling can become very complex. If you want a melodic part to read clearly in a mix:</p>
+<ul>
+<li>prefer <strong>String</strong>, <strong>Marimba</strong>, or <strong>Beam</strong></li>
+<li>keep <strong>Inharmonicity</strong> moderate</li>
+<li>don’t overdo noise mix</li>
+<li>use <strong>Low Cut</strong> if the sound is muddy</li>
+<li>adjust <strong>Resonator Position</strong> to emphasize useful partials</li>
+<li>use moderate decay for fast passages</li>
+<li>shorten pitch envelope decay if attacks feel too bent or kick-like</li>
+<li>avoid extreme bitcrushing if pitch clarity matters</li>
+</ul>
+<p>If you want more abstract melodic color:
+- increase inharmonicity
+- use Plate
+- add noise
+- modulate R Tone and Position
+- use Morph between contrasting presets</p>
+<hr />
+<h2>14. Best roles Plonk can play in melodic music</h2>
+<p>Plonk can serve as:</p>
+<h3>Primary melodic voice</h3>
+<p>For:
+- marimba lines
+- plucked leads
+- bell melodies
+- physical-model bass</p>
+<h3>Secondary countermelody</h3>
+<p>Its percussive onset helps it cut through mixes without occupying huge sustained harmonic space.</p>
+<h3>Tuned percussion layer</h3>
+<p>Excellent for doubling melodic lines with rhythmic identity.</p>
+<h3>Generative melodic texture</h3>
+<p>With polyphony, morphing, preset stepping, and modulation, Plonk excels at semi-autonomous melodic movement.</p>
+<h3>Bass/percussion hybrid</h3>
+<p>One of the most interesting uses:
+- tune it melodically
+- keep it punchy
+- let it function as both rhythmic and tonal foundation</p>
+<hr />
+<h2>15. Bottom line</h2>
+<p>Plonk is not just a drum module. It’s a <strong>highly expressive physical-modeling melodic voice</strong> disguised as percussion.</p>
+<p>Its strongest melodic advantages are:</p>
+<ul>
+<li>proper <strong>1V/oct tracking</strong></li>
+<li><strong>pitched resonator models</strong></li>
+<li><strong>velocity response</strong></li>
+<li><strong>macro modulation via X/Y</strong></li>
+<li><strong>R Pitch modulation for vibrato and bends</strong></li>
+<li><strong>2-voice polyphony</strong></li>
+<li><strong>preset morphing and stepping</strong> for phrase-level timbral movement</li>
+</ul>
+<p>If you build patches around <strong>String, Marimba, Beam, and Plate</strong>, and treat exciter design as articulation rather than just “drum attack,” Plonk becomes a very musical source for:</p>
+<ul>
+<li>basslines</li>
+<li>mallet melodies</li>
+<li>bells/chimes</li>
+<li>plucks</li>
+<li>hybrid acoustic/electronic lead voices</li>
+<li>evolving generative melodic parts</li>
+</ul>
+<hr />
+<h2>Suggested “together” use in a larger Eurorack patch</h2>
+<p>Even though only Plonk is included here, in a broader Eurorack system it pairs especially well with:</p>
+<ul>
+<li><strong>pitch sequencers</strong> for melodic CV</li>
+<li><strong>quantizers</strong> for tonal control</li>
+<li><strong>clocked modulation</strong> for timbral motion</li>
+<li><strong>MIDI-CV interfaces</strong> with velocity output</li>
+<li><strong>function generators / envelopes</strong> into MOD or X/Y</li>
+<li><strong>LFOs</strong> for vibrato and morphing</li>
+<li><strong>random stepped CV</strong> for preset selection or articulation changes</li>
+<li><strong>reverb/delay</strong> for bell and plate-based melodic textures</li>
+<li><strong>mixers/VCAs</strong> for final phrasing and layering</li>
+</ul>
+<p>If you want, I can also turn this into:
+1. a <strong>set of specific melodic patch recipes</strong>,<br />
+2. a <strong>genre-based guide</strong> (techno, ambient, IDM, house, electro), or<br />
+3. a <strong>parameter cheat sheet for tuning Plonk into bass, mallet, bell, and lead roles</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

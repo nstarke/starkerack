@@ -1,0 +1,369 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_EG</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — EG</h1>
+<ul>
+<li><a href="../../manuals/EG_Manual-7ja4.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Using the 2hp EG to Create Melodic Components</h1>
+<p>The attached manual describes the <strong>2hp EG</strong>, a compact <strong>two-stage envelope generator</strong>. On its own, EG does not generate pitch or sound, but in a Eurorack system it is very useful for shaping melodic events by controlling:</p>
+<ul>
+<li><strong>VCA amplitude</strong> for note articulation</li>
+<li><strong>filter cutoff</strong> for timbral melody movement</li>
+<li><strong>oscillator pitch</strong> for pitch envelopes</li>
+<li><strong>wavefolder / FM depth / effect parameters</strong> for animated melodic phrasing</li>
+</ul>
+<p>Because this module has:
+- <strong>trigger/gate input</strong>
+- <strong>attack and decay CV</strong>
+- <strong>linear/exponential response switching</strong>
+- <strong>output attenuation</strong>
+- <strong>0–10V envelope output</strong>
+- <strong>very wide time range: 3 ms to 11 minutes per stage</strong></p>
+<p>it can be used as a highly flexible modulation source for melodic patching.</p>
+<hr />
+<h2>Manual Summary</h2>
+<h3>Main functions</h3>
+<ul>
+<li><strong>TRIG input</strong>: accepts trigger or gate signals, threshold <strong>2.5V</strong></li>
+<li><strong>ATTACK CV input</strong>: 0–5V control over attack time</li>
+<li><strong>ATTACK knob</strong>: sets rise time</li>
+<li><strong>DECAY CV input</strong>: 0–5V control over decay time</li>
+<li><strong>DECAY knob</strong>: sets fall time</li>
+<li><strong>RESPONSE toggle</strong>:</li>
+<li><strong>Up = Linear</strong></li>
+<li><strong>Down = Exponential</strong></li>
+<li><strong>AMP knob</strong>: attenuates output from <strong>0V to 10V</strong></li>
+<li><strong>OUT</strong>: envelope output</li>
+<li><strong>LED</strong>: visual indication of envelope activity</li>
+</ul>
+<h3>Specs</h3>
+<ul>
+<li><strong>2hp</strong></li>
+<li><strong>45 mm deep</strong></li>
+<li><strong>+12V: 26mA</strong></li>
+<li><strong>-12V: 7mA</strong></li>
+</ul>
+<hr />
+<h1>What This Module Contributes to Melody</h1>
+<p>A melodic part usually needs a few things:</p>
+<ol>
+<li><strong>Pitch information</strong></li>
+<li><strong>Timing / note triggers</strong></li>
+<li><strong>Articulation / dynamics</strong></li>
+<li><strong>Timbre movement</strong></li>
+</ol>
+<p>The <strong>EG</strong> covers items <strong>3 and 4</strong> directly, and can also contribute to <strong>1</strong> indirectly by modulating pitch-sensitive inputs.</p>
+<p>So when used with:
+- a <strong>sequencer</strong>
+- a <strong>quantizer</strong>
+- an <strong>oscillator</strong>
+- a <strong>VCA</strong>
+- optionally a <strong>filter</strong></p>
+<p>the EG becomes the part of the system that makes notes feel musical rather than mechanical.</p>
+<hr />
+<h1>Best Ways to Use EG for Melodic Patches</h1>
+<h2>1. Classic note envelope for a melodic voice</h2>
+<p>This is the most direct use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer/gate output → <strong>EG TRIG</strong></li>
+<li>Oscillator audio → <strong>VCA input</strong></li>
+<li><strong>EG OUT</strong> → <strong>VCA CV input</strong></li>
+<li>Sequencer pitch CV → oscillator 1V/oct</li>
+</ul>
+<h3>Result</h3>
+<p>Each trigger creates an attack-decay contour controlling note volume. This gives every note a defined beginning and end.</p>
+<h3>Musical use</h3>
+<ul>
+<li><strong>Fast attack, medium decay</strong>: plucky synth lines</li>
+<li><strong>Fast attack, long decay</strong>: ringing melodic notes</li>
+<li><strong>Slow attack, medium decay</strong>: swelling lead lines</li>
+</ul>
+<h3>Tips</h3>
+<ul>
+<li>Use <strong>exponential mode</strong> for more natural, punchy note shapes</li>
+<li>Use <strong>linear mode</strong> for more even, synthetic-sounding articulation</li>
+<li>Use the <strong>AMP knob</strong> to match your VCA’s preferred CV range</li>
+</ul>
+<hr />
+<h2>2. Create plucks and percussive melodies</h2>
+<p>EG is especially strong for short attack/decay envelopes.</p>
+<h3>Patch</h3>
+<ul>
+<li>Trigger sequencer → <strong>TRIG</strong></li>
+<li><strong>EG OUT</strong> → VCA CV</li>
+<li>Optional: mult <strong>EG OUT</strong> to filter cutoff CV</li>
+</ul>
+<h3>Settings</h3>
+<ul>
+<li><strong>Attack</strong>: near minimum</li>
+<li><strong>Decay</strong>: short to medium</li>
+<li><strong>Response</strong>: exponential</li>
+<li><strong>AMP</strong>: to taste</li>
+</ul>
+<h3>Result</h3>
+<p>A plucked synth voice with strong transient definition.</p>
+<h3>Why it works</h3>
+<p>The manual states each stage can go as short as <strong>3 ms</strong>, which is ideal for:
+- acid-like plucks
+- marimba-like synth tones
+- arpeggios
+- short bass melodies</p>
+<hr />
+<h2>3. Use the same envelope for both loudness and brightness</h2>
+<p>A very musical approach is to send the same envelope to both VCA and filter.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>EG OUT</strong> → VCA CV</li>
+<li>Mult <strong>EG OUT</strong> → filter cutoff CV attenuator/input</li>
+</ul>
+<h3>Result</h3>
+<p>Every note opens in both amplitude and timbre at once, making simple pitch sequences sound expressive.</p>
+<h3>Musical effect</h3>
+<ul>
+<li>Short decay = tight, muted notes</li>
+<li>Longer decay = brighter, singing phrases</li>
+<li>Exponential response = more acoustic-like contour</li>
+<li>Linear response = more electronic/precise movement</li>
+</ul>
+<p>This is one of the best ways to turn a plain sequence into a melodic phrase.</p>
+<hr />
+<h2>4. Add pitch envelopes for melodic accent</h2>
+<p>Because <strong>EG outputs 0–10V</strong>, it can be used carefully to modulate oscillator pitch.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>EG OUT</strong> → attenuator or pitch modulation input on oscillator</li>
+<li>Trigger source → <strong>TRIG</strong></li>
+</ul>
+<h3>Result</h3>
+<p>At note onset, pitch briefly rises or falls depending on modulation polarity and routing.</p>
+<h3>Uses</h3>
+<ul>
+<li>subtle attack bend on lead notes</li>
+<li>kick-drum-like pitch drops</li>
+<li>expressive acid-style accents</li>
+<li>ornamentation at the beginning of notes</li>
+</ul>
+<h3>Important note</h3>
+<p>The raw envelope range is large, so for pitch modulation you usually want <strong>heavy attenuation</strong> before the oscillator pitch input unless the oscillator has a very small-depth FM/mod input.</p>
+<hr />
+<h2>5. Animate melodic phrasing with CV over attack and decay</h2>
+<p>A standout feature of EG is <strong>CV over both attack and decay</strong>.</p>
+<p>This means another modulation source can vary articulation over time, so your melody breathes and evolves.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>Slow LFO → <strong>ATTACK CV</strong></li>
+<li>Random stepped CV → <strong>DECAY CV</strong></li>
+<li>Sequencer row / modulation lane → <strong>ATTACK CV</strong> or <strong>DECAY CV</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Different notes can have:
+- different lengths
+- different sharpness
+- different emotional character</p>
+<h3>Musical examples</h3>
+<ul>
+<li>ascending notes with longer attack</li>
+<li>accented notes with longer decay</li>
+<li>randomized phrasing in generative melodies</li>
+<li>evolving ambient melody contours</li>
+</ul>
+<h3>Why this is powerful</h3>
+<p>Even with a fixed pitch sequence, changing envelope shape creates the perception of a more composed, expressive melody.</p>
+<hr />
+<h2>6. Turn gates into dynamic note lengths</h2>
+<p>Since EG responds to <strong>trigger or gate signals</strong>, you can use rhythmic gate streams to articulate melodic lines.</p>
+<h3>Patch</h3>
+<ul>
+<li>Gate sequencer / keyboard gate → <strong>TRIG</strong></li>
+<li><strong>EG OUT</strong> → VCA CV</li>
+</ul>
+<h3>Result</h3>
+<p>The EG converts timing information into shaped note gestures.</p>
+<p>If your sequencer produces different rhythmic patterns, the envelope can turn them into:
+- short stabs
+- swelling notes
+- legato-like overlaps, depending on settings downstream</p>
+<p>This is especially useful when melodic interest comes from rhythm more than pitch complexity.</p>
+<hr />
+<h2>7. Make melodic accents in a sequence</h2>
+<p>Use EG on only part of a patch to create dynamic note emphasis.</p>
+<h3>Patch</h3>
+<ul>
+<li>Main sequence runs normally</li>
+<li>Accent trigger pattern → <strong>EG TRIG</strong></li>
+<li><strong>EG OUT</strong> → filter cutoff CV or wavefolder amount</li>
+</ul>
+<h3>Result</h3>
+<p>Only accented steps receive extra brightness or harmonic intensity.</p>
+<h3>Musical use</h3>
+<p>This is excellent for:
+- techno sequences
+- acid lines
+- bass melodies
+- repeating ostinatos that need variation</p>
+<p>Instead of changing the pitch, you change the <strong>expression</strong> of selected notes.</p>
+<hr />
+<h2>8. Use long envelopes for slow melodic motion</h2>
+<p>The manual gives a maximum stage length of <strong>11 minutes per stage</strong>, which is unusually long.</p>
+<h3>Patch</h3>
+<ul>
+<li>Occasional trigger source → <strong>TRIG</strong></li>
+<li><strong>EG OUT</strong> → oscillator FM depth, filter cutoff, or wave shaping amount</li>
+</ul>
+<h3>Result</h3>
+<p>Extremely slow rises and falls can shape an ambient melodic texture over long time spans.</p>
+<h3>Musical uses</h3>
+<ul>
+<li>evolving drones with slow pitch color changes</li>
+<li>gradual opening of harmonics during a melodic layer</li>
+<li>long-form phrasing in ambient or generative pieces</li>
+</ul>
+<p>This makes EG useful not only for note-level articulation, but also for macro-level melodic development.</p>
+<hr />
+<h1>Linear vs Exponential: Which to Use for Melody</h1>
+<p>The response toggle is one of the most musically significant controls.</p>
+<h2>Linear</h2>
+<p>Best for:
+- precise, synthetic shapes
+- even modulation sweeps
+- patching to pitch or parameter CV where you want predictable movement</p>
+<h3>Sound</h3>
+<p>More neutral, straight, and controlled.</p>
+<h2>Exponential</h2>
+<p>Best for:
+- plucks
+- natural-feeling note articulation
+- punchy melodic accents
+- VCA and filter shaping</p>
+<h3>Sound</h3>
+<p>More lively and “acoustic” in feel, with stronger perceived transients.</p>
+<h3>Practical advice</h3>
+<p>For most melodic voice articulation:
+- start with <strong>exponential</strong>
+- switch to <strong>linear</strong> if you want a cleaner or less punchy contour</p>
+<hr />
+<h1>Example Melodic Patches</h1>
+<h2>Patch 1: Basic synth lead</h2>
+<ul>
+<li>Pitch sequencer → oscillator 1V/oct</li>
+<li>Gate sequencer → <strong>EG TRIG</strong></li>
+<li>Oscillator → filter → VCA</li>
+<li><strong>EG OUT</strong> → VCA CV</li>
+<li>Optional mult of <strong>EG OUT</strong> → filter CV</li>
+</ul>
+<p><strong>Suggested settings</strong>
+- Attack: low
+- Decay: medium
+- Response: exponential
+- AMP: around 50–75%</p>
+<p><strong>Result</strong>
+Playable, expressive mono lead voice.</p>
+<hr />
+<h2>Patch 2: Plucked sequence</h2>
+<ul>
+<li>Sequencer pitch CV → oscillator</li>
+<li>Clocked trigger pattern → <strong>EG TRIG</strong></li>
+<li>Oscillator → LPG or VCA</li>
+<li><strong>EG OUT</strong> → LPG/VCA CV</li>
+</ul>
+<p><strong>Suggested settings</strong>
+- Attack: minimum
+- Decay: short
+- Response: exponential</p>
+<p><strong>Result</strong>
+Tight, melodic plucks ideal for arps and basslines.</p>
+<hr />
+<h2>Patch 3: Evolving ambient melody</h2>
+<ul>
+<li>Quantized random CV → oscillator pitch</li>
+<li>Sparse trigger stream → <strong>EG TRIG</strong></li>
+<li><strong>EG OUT</strong> → VCA CV</li>
+<li>Slow LFO → <strong>DECAY CV</strong></li>
+<li>Optional second slow CV → <strong>ATTACK CV</strong></li>
+</ul>
+<p><strong>Suggested settings</strong>
+- Attack: medium to long
+- Decay: long
+- Response: linear for smoothness</p>
+<p><strong>Result</strong>
+Melodic notes with constantly shifting articulation, ideal for ambient or generative music.</p>
+<hr />
+<h2>Patch 4: Acid-style melodic accenting</h2>
+<ul>
+<li>Pitch sequencer → VCO</li>
+<li>Main gate sequence → VCA envelope elsewhere or same EG</li>
+<li>Accent trigger pattern → <strong>EG TRIG</strong></li>
+<li><strong>EG OUT</strong> → filter cutoff CV and slight pitch mod</li>
+</ul>
+<p><strong>Suggested settings</strong>
+- Attack: very short
+- Decay: short-medium
+- Response: exponential</p>
+<p><strong>Result</strong>
+Selected notes snap brighter and slightly bend, creating animated acid-like phrasing.</p>
+<hr />
+<h1>Strengths of This Module in a Melodic System</h1>
+<h2>1. Tiny footprint</h2>
+<p>At <strong>2hp</strong>, it adds expressive control without consuming valuable rack space.</p>
+<h2>2. Extremely wide timing range</h2>
+<p>From <strong>very fast transient shaping</strong> to <strong>ultra-slow phrase development</strong>.</p>
+<h2>3. CV control over both attack and decay</h2>
+<p>This is especially helpful for melodic variation and generative patching.</p>
+<h2>4. Useful output attenuation</h2>
+<p>The built-in <strong>AMP</strong> control makes it easier to dial modulation depth without needing another attenuator in some patches.</p>
+<h2>5. Switchable contour type</h2>
+<p>Linear/exponential switching gives you two very different articulation feels from one compact module.</p>
+<hr />
+<h1>Limitations to Keep in Mind</h1>
+<p>Based on the manual, this is a <strong>two-stage attack-decay envelope</strong>, so:</p>
+<ul>
+<li>there is <strong>no sustain stage</strong></li>
+<li>it is not a full ADSR</li>
+<li>it is best for:</li>
+<li>plucks</li>
+<li>simple note articulation</li>
+<li>triggered or gated shapes</li>
+<li>modulation gestures</li>
+</ul>
+<p>For sustained keyboard-style melodic phrasing, another envelope type might be better, but for sequenced melodic lines this AD design is often perfect.</p>
+<hr />
+<h1>Best Companion Modules</h1>
+<p>To build full melodic functionality around EG, pair it with:</p>
+<ul>
+<li><strong>oscillator</strong> for pitch generation</li>
+<li><strong>sequencer</strong> or <strong>keyboard controller</strong> for notes</li>
+<li><strong>quantizer</strong> if using random CV melodically</li>
+<li><strong>VCA</strong> for amplitude shaping</li>
+<li><strong>filter</strong> for timbral shaping</li>
+<li><strong>mixer/attenuator</strong> for controlling modulation depth</li>
+<li><strong>clocked trigger source</strong> for rhythmic articulation</li>
+</ul>
+<hr />
+<h1>Bottom Line</h1>
+<p>The <strong>2hp EG</strong> is a compact but powerful tool for making melodic patches feel alive. It does not create melody by itself, but it is excellent for shaping the expressive side of melody:</p>
+<ul>
+<li><strong>how notes start</strong></li>
+<li><strong>how long they bloom</strong></li>
+<li><strong>how bright they feel</strong></li>
+<li><strong>how accents behave</strong></li>
+<li><strong>how phrases evolve over time</strong></li>
+</ul>
+<p>If used with a sequencer, oscillator, VCA, and optionally a filter, it can produce:
+- plucked melodies
+- expressive leads
+- accented basslines
+- evolving ambient phrases
+- generative articulation changes</p>
+<p>Its biggest melodic strengths are the <strong>wide time range</strong>, <strong>CV over attack/decay</strong>, and <strong>linear/exponential switch</strong>, all of which help transform simple note sequences into more musical performances.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>
