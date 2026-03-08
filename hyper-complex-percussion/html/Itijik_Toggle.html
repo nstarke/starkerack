@@ -1,0 +1,409 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Itijik_Toggle</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Itijik — Toggle</h1>
+<ul>
+<li><a href="../../manuals/toggle.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>itijik Toggle for dense, hyper-complex percussion</h1>
+<p>The <strong>itijik Toggle</strong> is basically <strong>4 independent gate flip-flops</strong>, each with:</p>
+<ul>
+<li><strong>SET</strong> = force ON</li>
+<li><strong>RST</strong> = force OFF</li>
+<li><strong>CLK</strong> = toggle state each pulse</li>
+<li><strong>OUT</strong> = main gate output</li>
+<li><strong>VERT</strong> = inverted output, <em>unless</em> something is patched into <strong>IN</strong></li>
+<li><strong>IN</strong> = external logic input for the inverter side; patching here breaks the normal inversion from OUT</li>
+</ul>
+<p>That makes it deceptively powerful for <strong>rhythm generation</strong>, especially if you want:</p>
+<ul>
+<li>evolving gate patterns</li>
+<li>odd-length phrases</li>
+<li>interlocking percussion</li>
+<li>pseudo-clock division with memory</li>
+<li>mirrored/inverted rhythms</li>
+<li>polyrhythmic trigger structures</li>
+<li>manual or sequencer-controlled pattern mutation</li>
+</ul>
+<hr />
+<h2>What the module is best at rhythmically</h2>
+<p>This is not a traditional trigger sequencer. It is more like a <strong>logic-based pattern state machine</strong>. Each channel remembers whether it is ON or OFF, and pulses can:</p>
+<ul>
+<li>turn it on,</li>
+<li>turn it off,</li>
+<li>or flip its state.</li>
+</ul>
+<p>That means you can create percussion structures that are <strong>stateful</strong>, not just repetitive clock divisions.</p>
+<p>For drums, that’s useful because you can build:</p>
+<ul>
+<li>kick patterns that only switch on at certain structural moments</li>
+<li>snares that alternate phrase-by-phrase</li>
+<li>hats that flip between dense and sparse modes</li>
+<li>accents that appear only after specific reset conditions</li>
+<li>polymetric loops where different channels re-align only after long cycle lengths</li>
+</ul>
+<hr />
+<h1>Core patch ideas</h1>
+<h2>1. Basic alternating percussion lane</h2>
+<p><strong>Goal:</strong> turn one trigger stream into alternating hits.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send a steady trigger clock into <strong>CLK</strong> on one Toggle section.</li>
+<li>Take <strong>OUT</strong> to one percussion voice, like a kick.</li>
+<li>Take <strong>VERT</strong> to another percussion voice, like a snare or closed hat.</li>
+</ul>
+<h3>Result</h3>
+<p>Each incoming pulse flips the state:
+- hit 1: OUT high, VERT low
+- hit 2: OUT low, VERT high
+- hit 3: OUT high, VERT low
+- etc.</p>
+<p>This gives you a simple <strong>alternating 1-0-1-0 logic rhythm</strong>.<br />
+Very useful for creating <strong>interlocking voices</strong> from a single source.</p>
+<h3>Make it better</h3>
+<p>Feed a <strong>faster clock</strong> to the percussion envelope/VCA, and use Toggle outputs as enable gates or accent gates. This gives structured alternation without losing speed.</p>
+<hr />
+<h2>2. Build odd-length rhythmic cycles</h2>
+<p><strong>Goal:</strong> create patterns that imply unusual meters like 5, 7, 9, 11.</p>
+<h3>Patch</h3>
+<ul>
+<li>Use an external trigger sequencer, clock divider, or logic source that emits pulses in an odd count cycle.</li>
+<li>Send that pattern into <strong>CLK</strong>.</li>
+<li>Use <strong>RST</strong> to force the phrase back to a known state every larger bar cycle.</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>A 5-step trigger pattern clocks Toggle A.</li>
+<li>Reset it every 16 master steps.</li>
+</ul>
+<p>Because Toggle changes state only when clocked, the output becomes a <strong>derived pattern with memory</strong>, not just a copy of the 5-step pulse train.</p>
+<p>This works beautifully for:
+- <strong>5 against 4</strong>
+- <strong>7 against 8</strong>
+- <strong>3 against 5 against 4</strong></p>
+<p>The key is that the channel holds its state between pulses, so silences matter as much as hits.</p>
+<hr />
+<h2>3. Polyrhythmic drum routing</h2>
+<p><strong>Goal:</strong> derive multiple related but non-identical drum streams from one clock ecosystem.</p>
+<h3>Patch</h3>
+<p>Use the 4 channels like this:</p>
+<ul>
+<li><strong>Channel 1:</strong> CLK from a /3 pulse stream</li>
+<li><strong>Channel 2:</strong> CLK from a /5 pulse stream</li>
+<li><strong>Channel 3:</strong> CLK from a /7 pulse stream</li>
+<li><strong>Channel 4:</strong> CLK from a manually programmed irregular trigger stream</li>
+</ul>
+<p>Then patch:
+- <strong>OUTs</strong> to kick, snare, tom, rim
+- <strong>VERTs</strong> to accent inputs, alternate voices, open hats, or burst generators</p>
+<h3>Result</h3>
+<p>Each lane toggles according to a different periodicity.<br />
+Because each lane is binary-state based rather than simple pulse copying, the combination produces <strong>long composite cycles</strong> and rhythmic density fast.</p>
+<p>This is excellent for <strong>polyrhythmic percussion forests</strong>.</p>
+<hr />
+<h2>4. Use SET and RST as phrase controls</h2>
+<p><strong>Goal:</strong> create sections, fills, and structural changes.</p>
+<p>The magic of Toggle is not just the clock input. <strong>SET</strong> and <strong>RST</strong> let you impose larger-scale form.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send fast or medium rhythm pulses into <strong>CLK</strong>.</li>
+<li>Send a slower structural pulse into <strong>SET</strong>.</li>
+<li>Send another phrase-ending pulse into <strong>RST</strong>.</li>
+</ul>
+<h3>Example</h3>
+<p>For a snare lane:
+- <strong>CLK</strong> gets irregular triggers from a Euclidean sequencer.
+- <strong>SET</strong> gets a pulse at the start of every 8 bars.
+- <strong>RST</strong> gets a pulse every 3 bars.</p>
+<p>Now the lane is constantly being pushed into and out of active states by overlapping phrase structures.</p>
+<p>This yields:
+- sections where the lane becomes dense
+- sections where it drops out
+- non-obvious phrase lengths
+- long-form rhythmic evolution</p>
+<p>This is especially strong for <strong>complicated time signatures</strong> because you can reset against different bar lengths than the clocks generating activity.</p>
+<hr />
+<h2>5. Generate mirrored percussion with OUT and VERT</h2>
+<p>As long as <strong>IN is unpatched</strong>, <strong>VERT</strong> is the inverse of <strong>OUT</strong>.</p>
+<p>That means every channel can create:
+- a main rhythm
+- and its logical opposite</p>
+<h3>Drum use</h3>
+<ul>
+<li>OUT → closed hat</li>
+<li>VERT → open hat</li>
+<li>or OUT → kick trigger</li>
+<li>VERT → clap enable</li>
+</ul>
+<p>If one voice sounds on the high states and the other on the low states, you get tightly interlocked parts with no overlap unless you intentionally shape them that way.</p>
+<p>This is incredibly useful for:
+- call-and-response hats
+- alternating hand percussion
+- ghost note logic
+- negative-space rhythms</p>
+<p>A lot of “hyper-complex” rhythm comes not from more notes, but from <strong>intelligent use of absence</strong>. VERT is perfect for that.</p>
+<hr />
+<h2>6. Break the normalization for conditional logic</h2>
+<p>The <strong>IN</strong> jack is where things get more advanced.</p>
+<p>Per the manual:
+- if nothing is in <strong>IN</strong>, <strong>VERT</strong> is just the inversion of <strong>OUT</strong>
+- if you patch <strong>IN</strong>, you break that normalization
+- then <strong>VERT</strong> responds to the logic at <strong>IN</strong></p>
+<p>Specifically:
+- signal present / high at IN → VERT low
+- no signal or low at IN → VERT high</p>
+<p>So VERT becomes a kind of <strong>independent inverted logic output</strong> for whatever you patch into IN.</p>
+<h3>Why this matters</h3>
+<p>Now one channel can act like:
+- a flip-flop on <strong>OUT</strong>
+- and a separate inverted gate processor on <strong>VERT</strong></p>
+<h3>Use case</h3>
+<p>Patch:
+- irregular trigger/gate pattern into <strong>IN</strong>
+- use <strong>OUT</strong> as your flip-flop rhythm
+- use <strong>VERT</strong> as the “not-that-pattern” stream</p>
+<p>This lets one section support two related but distinct rhythmic functions.</p>
+<h3>Drum examples</h3>
+<ul>
+<li>OUT → kick pattern state</li>
+<li>VERT → hat suppression or clap window</li>
+<li>OUT → burst generator enable</li>
+<li>VERT → alternate burst source enable</li>
+</ul>
+<hr />
+<h1>Advanced strategies for hyper-complex percussion</h1>
+<h2>7. Clock toggling instead of direct triggering</h2>
+<p>Instead of sending Toggle outputs directly to drum voices, use them to <strong>gate other clocks</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Fast clock or ratchet source → VCA, logic AND, sequential switch, or gate combiner</li>
+<li>Toggle OUT → control whether that fast stream passes</li>
+<li>Toggle VERT → control another stream</li>
+</ul>
+<h3>Result</h3>
+<p>Toggle becomes a <strong>density controller</strong>.</p>
+<p>For example:
+- a 1/16 clock is only allowed through when OUT is high
+- a triplet clock is only allowed through when VERT is high</p>
+<p>Now your percussion doesn’t just alternate hits; it alternates <strong>whole rhythmic behaviors</strong>.</p>
+<p>This is one of the best ways to get into:
+- hyper-detailed hats
+- shifting ratchets
+- polymetric fills
+- unstable but repeatable groove structures</p>
+<hr />
+<h2>8. Create long least-common-multiple cycles</h2>
+<p>To get very long evolving percussion loops, make each Toggle channel operate on a different cycle length.</p>
+<h3>Example setup</h3>
+<ul>
+<li>Ch1 CLK from /3</li>
+<li>Ch2 CLK from /4</li>
+<li>Ch3 CLK from /5</li>
+<li>Ch4 CLK from /7</li>
+</ul>
+<p>Then use different reset intervals:
+- Ch1 RST every 16 steps
+- Ch2 RST every 15 steps
+- Ch3 RST every 14 steps
+- Ch4 RST every 21 steps</p>
+<p>The interactions can take a very long time to fully repeat.</p>
+<p>Then use:
+- OUTs for primary drum triggers
+- VERTs for accents, mutes, or fill gates</p>
+<p>This creates exactly the kind of <strong>dense, mathematically rich percussion architecture</strong> used in advanced modular rhythm systems.</p>
+<hr />
+<h2>9. Use resets to impose asymmetric meter</h2>
+<p>A great way to imply unusual time signatures is to let the underlying pulse run steadily, but reset different rhythmic states at asymmetrical times.</p>
+<h3>Example</h3>
+<p>Master clock at 16ths.</p>
+<ul>
+<li>Toggle A clocks every 2 steps, reset every 7 steps</li>
+<li>Toggle B clocks every 3 steps, reset every 10 steps</li>
+<li>Toggle C clocks every 5 steps, reset every 16 steps</li>
+<li>Toggle D clocks from a hand-programmed fill stream, reset every 13 steps</li>
+</ul>
+<p>Even though the base clock is regular, the state resets create <strong>phrase asymmetry</strong> that feels like:
+- 7/8
+- 5/4
+- 11/8
+- mixed meter</p>
+<p>This is a very modular-friendly way to get complex signatures without needing a dedicated time-signature sequencer.</p>
+<hr />
+<h2>10. Patch fills with SET bursts</h2>
+<p>Because <strong>SET</strong> forces the state high, it’s perfect for injecting accents and fills.</p>
+<h3>Patch</h3>
+<ul>
+<li>Irregular burst or manual trigger → SET</li>
+<li>Regular clock division → CLK</li>
+<li>Periodic reset pulse → RST</li>
+</ul>
+<h3>Effect</h3>
+<p>Whenever SET gets hit, that lane is forced active immediately, regardless of where it was.</p>
+<p>You can use this for:
+- fill entry points
+- guaranteed downbeat accents
+- sudden activation of dense subdivisions
+- “drop in” percussion behavior</p>
+<p>For example:
+- OUT enables snare rolls
+- VERT enables sparse rim clicks
+- a burst into SET suddenly flips the section into high-energy mode</p>
+<hr />
+<h2>11. Self-referential cross-patching</h2>
+<p>If your system has enough utilities, Toggle gets very interesting when channels influence each other.</p>
+<h3>Example</h3>
+<ul>
+<li>Ch1 OUT clocks Ch2</li>
+<li>Ch2 VERT resets Ch3</li>
+<li>Ch3 OUT sets Ch4</li>
+<li>Ch4 VERT resets Ch1</li>
+</ul>
+<p>This can create semi-chaotic but bounded rhythmic systems.</p>
+<p>More practical version:
+- Ch1 = kick state machine
+- Ch2 = snare alternator
+- Ch3 = hat density gate
+- Ch4 = fill activator</p>
+<p>Then use outputs from one to set/reset another at strategic phrase points.</p>
+<p>This gives you <strong>emergent percussion structures</strong> rather than manually written sequences.</p>
+<hr />
+<h1>Example performance patches</h1>
+<h2>Patch 1: 4-voice polymetric drum machine</h2>
+<h3>Sources needed</h3>
+<ul>
+<li>master clock</li>
+<li>clock divider or trigger sequencer</li>
+<li>4 drum voices</li>
+</ul>
+<h3>Connections</h3>
+<ul>
+<li>Ch1 CLK ← /4</li>
+<li>Ch2 CLK ← /5</li>
+<li>Ch3 CLK ← /7</li>
+<li>
+<p>Ch4 CLK ← irregular trigger pattern</p>
+</li>
+<li>
+<p>Ch1 OUT → kick</p>
+</li>
+<li>Ch1 VERT → kick accent or sub hit</li>
+<li>Ch2 OUT → snare</li>
+<li>Ch2 VERT → clap</li>
+<li>Ch3 OUT → closed hat</li>
+<li>Ch3 VERT → open hat</li>
+<li>Ch4 OUT → percussion voice</li>
+<li>Ch4 VERT → burst or metallic accent</li>
+</ul>
+<p>Then patch:
+- global bar reset to some RST inputs
+- a different slower phrase pulse to some SET inputs</p>
+<h3>Result</h3>
+<p>A highly interlocked percussion patch with long-cycle variation and clear voice relationships.</p>
+<hr />
+<h2>Patch 2: Complex hats and accents</h2>
+<h3>Connections</h3>
+<ul>
+<li>Fast 16th clock → Ch1 CLK</li>
+<li>Every 5th pulse → Ch1 SET</li>
+<li>
+<p>Every 7th pulse → Ch1 RST</p>
+</li>
+<li>
+<p>Ch1 OUT → closed hat trigger enable</p>
+</li>
+<li>Ch1 VERT → open hat trigger enable</li>
+</ul>
+<p>Then:
+- patch a fast trigger stream through VCAs or logic under control of OUT/VERT</p>
+<h3>Result</h3>
+<p>The hats alternate between dense and sparse behaviors according to competing 5- and 7-step structures. This quickly becomes intricate and non-obvious.</p>
+<hr />
+<h2>Patch 3: Mixed-meter percussion skeleton</h2>
+<h3>Connections</h3>
+<ul>
+<li>Ch1 CLK ← pulse pattern representing 3</li>
+<li>Ch2 CLK ← pulse pattern representing 4</li>
+<li>Ch3 CLK ← pulse pattern representing 5</li>
+<li>Ch4 CLK ← pulse pattern representing 7</li>
+</ul>
+<p>Use:
+- SET pulses at phrase beginnings
+- RST pulses at different bar lengths</p>
+<p>Map outputs to:
+- kick, snare, low tom, high percussion</p>
+<h3>Result</h3>
+<p>You get a rhythm network that naturally suggests:
+- 3 over 4
+- 5 over 4
+- 7 over 8
+- changing composite meters</p>
+<hr />
+<h1>Best practices</h1>
+<h2>Start from known states</h2>
+<p>Because this is a flip-flop module, initial state matters. Use <strong>RST</strong> or <strong>SET</strong> to establish predictable behavior at the beginning of a patch or performance.</p>
+<h2>Use it as control logic, not only triggers</h2>
+<p>It often works best when controlling:
+- mutes
+- enables
+- accent inputs
+- burst activity
+- switch addressing
+- probability windows</p>
+<p>rather than directly striking every drum.</p>
+<h2>Pair with:</h2>
+<ul>
+<li>clock dividers/multipliers</li>
+<li>Euclidean trigger generators</li>
+<li>logic modules</li>
+<li>burst generators</li>
+<li>sequential switches</li>
+<li>VCAs for gate control</li>
+<li>comparators and random gates</li>
+</ul>
+<h2>Exploit VERT constantly</h2>
+<p>The normalled inversion is one of the most musically useful features on the module. A lot of complex percussion can come from one rhythm and its inverse.</p>
+<h2>Use different reset lengths</h2>
+<p>This is one of the fastest ways to make patterns feel “composed” and asymmetrical.</p>
+<hr />
+<h1>Practical rhythmic mindset</h1>
+<p>For <strong>densely rhythmic, hyper-complex percussion</strong>, think of Toggle as a module for:</p>
+<ul>
+<li><strong>state</strong></li>
+<li><strong>alternation</strong></li>
+<li><strong>inversion</strong></li>
+<li><strong>phrase forcing</strong></li>
+<li><strong>structural interference</strong></li>
+</ul>
+<p>Rather than asking “what trigger pattern does it output?”, ask:</p>
+<ul>
+<li>when is this lane active?</li>
+<li>when is it silenced?</li>
+<li>when does it invert?</li>
+<li>what other lane is its opposite?</li>
+<li>what pulse stream can force it into a new phase?</li>
+</ul>
+<p>That is where the module gets deep.</p>
+<hr />
+<h1>A strong recipe for your goal</h1>
+<p>If your goal is <strong>complex percussion with polyrhythms and odd meter</strong>, try this workflow:</p>
+<ol>
+<li>Create 3–4 independent pulse streams with different lengths: 3, 5, 7, 11.</li>
+<li>Send them to different <strong>CLK</strong> inputs.</li>
+<li>Use slower, mismatched pulses on <strong>SET</strong> and <strong>RST</strong>.</li>
+<li>Use <strong>OUT</strong> for main hits.</li>
+<li>Use <strong>VERT</strong> for complementary hits, accents, or mutes.</li>
+<li>Use some outputs to gate dense clocks rather than directly trigger drums.</li>
+<li>Reset selected channels only occasionally to preserve long-form evolution.</li>
+</ol>
+<p>That will get you into very rich territory very quickly.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Itijik_Toggle</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Itijik — Toggle</h1>
+<ul>
+<li><a href="../../manuals/toggle.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Itijik Toggle — Cheat Sheet</h1>
+<h2>What it is</h2>
+<p>A <strong>quad flip-flop / logic utility</strong> for Eurorack.<br />
+It gives you <strong>4 identical sections</strong>, each with:
+- <strong>SET</strong>
+- <strong>RST</strong>
+- <strong>CLK</strong>
+- <strong>IN</strong>
+- <strong>OUT</strong>
+- <strong>VERT</strong></p>
+<p>Core idea:
+- <strong>OUT</strong> is the flip-flop output.
+- <strong>VERT</strong> is the inverted output <strong>unless</strong> you patch something into <strong>IN</strong>, which breaks that normalization.</p>
+<h2>Power / Installation</h2>
+<ul>
+<li><strong>+12V:</strong> 37 mA</li>
+<li><strong>-12V:</strong> 34 mA</li>
+<li>10-pin ribbon on module: <strong>red stripe to -12V</strong> (bottom of module)</li>
+<li>16-pin ribbon on bus board: <strong>red stripe to negative side</strong></li>
+</ul>
+<h2>How each section works</h2>
+<p>Each of the 4 sections is identical.</p>
+<h3>Basic behavior</h3>
+<ul>
+<li>Send a pulse/gate to <strong>SET</strong> → <strong>OUT goes HIGH</strong></li>
+<li>Send a pulse/gate to <strong>RST</strong> → <strong>OUT goes LOW</strong></li>
+<li>Send a pulse/gate to <strong>CLK</strong> → <strong>OUT toggles</strong></li>
+<li>If <strong>IN is unpatched</strong>, <strong>VERT = inverse of OUT</strong></li>
+</ul>
+<h3>IN jack behavior</h3>
+<ul>
+<li>Patching <strong>IN</strong> breaks the normal connection from <strong>OUT</strong> to <strong>IN</strong></li>
+<li><strong>VERT</strong> becomes the inversion of the <strong>IN</strong> signal instead of OUT</li>
+<li>So:</li>
+<li><strong>IN HIGH</strong> → <strong>VERT LOW</strong></li>
+<li><strong>IN LOW or no signal present at IN</strong> → <strong>VERT HIGH</strong></li>
+</ul>
+<h2>Fast patch ideas</h2>
+<ul>
+<li><strong>Clock divider by 2 / toggle gate</strong></li>
+<li>Patch a trigger stream to <strong>CLK</strong></li>
+<li>Take output from <strong>OUT</strong></li>
+<li>
+<p>Each pulse flips the state</p>
+</li>
+<li>
+<p><strong>Manual state logic source</strong></p>
+</li>
+<li>Use <strong>SET</strong> and <strong>RST</strong> from two different trigger sources</li>
+<li>
+<p>Great for rhythmic state changes</p>
+</li>
+<li>
+<p><strong>Complementary gates</strong></p>
+</li>
+<li>Leave <strong>IN unpatched</strong></li>
+<li>
+<p>Take <strong>OUT</strong> and <strong>VERT</strong> as opposite logic signals</p>
+</li>
+<li>
+<p><strong>Standalone inverter</strong></p>
+</li>
+<li>Patch a gate into <strong>IN</strong></li>
+<li>Take inverted gate from <strong>VERT</strong></li>
+</ul>
+<hr />
+<h2>Jack Reference</h2>
+<h3>Inputs per section</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Notes</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SET</strong></td>
+<td>Forces <strong>OUT HIGH</strong> on received pulse/gate</td>
+<td>Also forces <strong>VERT LOW</strong> if <strong>IN</strong> is unpatched</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>RST</strong></td>
+<td>Forces <strong>OUT LOW</strong> on received pulse/gate</td>
+<td>Also forces <strong>VERT HIGH</strong> if <strong>IN</strong> is unpatched</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>CLK</strong></td>
+<td>Toggles <strong>OUT</strong> on each received pulse/gate</td>
+<td>Also toggles <strong>VERT</strong> if <strong>IN</strong> is unpatched</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>IN</strong></td>
+<td>Logic input for inverter</td>
+<td>Breaks normalization from <strong>OUT</strong> to <strong>IN</strong> when patched</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>Outputs per section</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Function</th>
+<th>Notes</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OUT</strong></td>
+<td>Main flip-flop output</td>
+<td>Normalized to <strong>IN</strong> for inversion when IN is unpatched</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>VERT</strong></td>
+<td>Inverted logic output</td>
+<td>Inverts <strong>OUT</strong> if <strong>IN</strong> unpatched; otherwise inverts <strong>IN</strong></td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Controls / Indicators</h2>
+<h3>Controls</h3>
+<ul>
+<li><strong>No knobs</strong></li>
+<li><strong>No buttons</strong></li>
+<li><strong>No sliders</strong></li>
+<li><strong>No toggle switches</strong></li>
+</ul>
+<h3>Indicators</h3>
+<ul>
+<li><strong>LEDs for OUT and VERT</strong> on each section to show logic state</li>
+</ul>
+<h2>Important normalization</h2>
+<ul>
+<li><strong>No cable in IN:</strong><br />
+<strong>VERT = NOT(OUT)</strong></li>
+<li><strong>Cable in IN:</strong><br />
+<strong>VERT = NOT(IN)</strong><br />
+  and the OUT-to-IN normalization is disconnected</li>
+</ul>
+<h2>Good to know</h2>
+<p>The manual does <strong>not specify exact logic voltage thresholds or output voltage levels</strong>, so treat all pulse/gate voltages as <strong>unspecified by manufacturer</strong> in this document.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

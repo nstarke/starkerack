@@ -1,0 +1,674 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Itijik_Toggle</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Itijik — Toggle</h1>
+<ul>
+<li><a href="../../manuals/toggle.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Itijik Toggle — using a quad flip-flop to turn loops into full songs</h1>
+<p>The <strong>Itijik Toggle</strong> is deceptively simple: four independent <strong>flip-flops</strong>, each with:</p>
+<ul>
+<li><strong>SET</strong> input</li>
+<li><strong>RST</strong> input</li>
+<li><strong>CLK</strong> input</li>
+<li><strong>IN</strong> input</li>
+<li><strong>OUT</strong> output</li>
+<li><strong>VERT</strong> output</li>
+</ul>
+<p>Its core job is to <strong>remember state</strong>. That makes it extremely useful for solving one of the hardest eurorack problems:</p>
+<blockquote>
+<p>how to move from “interesting loop” to “structured arrangement”</p>
+</blockquote>
+<p>A lot of modules generate events, rhythms, melodies, and modulation. Fewer modules let you define <strong>sections</strong>, <strong>mute states</strong>, <strong>entry/exit conditions</strong>, <strong>phrase changes</strong>, and <strong>performance logic</strong>. Toggle does exactly that.</p>
+<hr />
+<h2>What the module does musically</h2>
+<p>Each channel is basically a <strong>latching logic state</strong>:</p>
+<ul>
+<li><strong>SET</strong> forces the channel ON</li>
+<li><strong>RST</strong> forces it OFF</li>
+<li><strong>CLK</strong> toggles between ON and OFF</li>
+<li><strong>OUT</strong> gives the state</li>
+<li><strong>VERT</strong> gives the inverted state, as long as nothing is patched to <strong>IN</strong></li>
+</ul>
+<p>If <strong>IN</strong> is patched, <strong>VERT</strong> becomes an inverter for the signal at <strong>IN</strong> instead of just inverting <strong>OUT</strong>.</p>
+<p>In song-building terms, that means each section can become:</p>
+<ul>
+<li>a <strong>mute/unmute memory</strong></li>
+<li>an <strong>A/B section switch</strong></li>
+<li>a <strong>phrase enable</strong></li>
+<li>a <strong>fill trigger gate</strong></li>
+<li>a <strong>transposition state</strong></li>
+<li>a <strong>clock divider by 2</strong>-style structural pulse source when clocked regularly</li>
+<li>a <strong>scene bit</strong> in a larger arrangement logic patch</li>
+</ul>
+<p>This is not a sound source module. It’s a <strong>song form module</strong>.</p>
+<hr />
+<h1>Why Toggle is powerful for full-length songs</h1>
+<p>In a typical modular patch, everything is “always happening.” Toggle gives you persistent conditions, which are essential for arrangement:</p>
+<ul>
+<li>Verse on / chorus off</li>
+<li>Drums active / fills inactive</li>
+<li>Bass muted for intro</li>
+<li>Melody only every 8 bars</li>
+<li>Open hi-hats enabled after breakdown</li>
+<li>Sequencer B selected only during chorus</li>
+<li>Reverb swell only in transition</li>
+<li>Ratchets only during fills</li>
+<li>Clock path switched between sparse and dense divisions</li>
+</ul>
+<p>That turns looping material into <strong>sections over time</strong>.</p>
+<hr />
+<h1>Important behaviors from the manual</h1>
+<h2>1. Flip-flop behavior</h2>
+<p>Each of the four sections can store one binary state.</p>
+<ul>
+<li>Send a pulse to <strong>SET</strong> → <code>OUT = HIGH</code></li>
+<li>Send a pulse to <strong>RST</strong> → <code>OUT = LOW</code></li>
+<li>Send a pulse to <strong>CLK</strong> → toggles <code>OUT</code></li>
+</ul>
+<p>This is excellent for:
+- turning tracks on/off
+- alternating sections
+- creating phrase-level switches</p>
+<h2>2. OUT normalized to IN</h2>
+<p>If nothing is plugged into <strong>IN</strong>, the <strong>VERT</strong> output is the inversion of <strong>OUT</strong>.</p>
+<p>So by default:
+- <code>OUT</code> and <code>VERT</code> are complementary
+- one can represent <strong>Section A</strong>
+- the other can represent <strong>Section B</strong></p>
+<p>That’s immediately useful for song structures.</p>
+<h2>3. IN breaks normalization</h2>
+<p>If you patch something into <strong>IN</strong>, <strong>VERT</strong> becomes the inverse of that incoming signal instead.</p>
+<p>That means each channel can also be used as a standalone <strong>logic inverter</strong>, in addition to the flip-flop role.</p>
+<hr />
+<h1>The big idea: use Toggle as an arrangement brain</h1>
+<p>The module shines when paired with:</p>
+<ul>
+<li><strong>clock dividers</strong></li>
+<li><strong>trigger sequencers</strong></li>
+<li><strong>sequential switches</strong></li>
+<li><strong>VCAs</strong></li>
+<li><strong>mute modules</strong></li>
+<li><strong>logic modules</strong></li>
+<li><strong>sequential voltage sources</strong></li>
+<li><strong>precision adders</strong></li>
+<li><strong>envelope generators</strong></li>
+<li><strong>switches</strong></li>
+<li><strong>burst generators</strong></li>
+<li><strong>samplers</strong></li>
+<li><strong>drum voices</strong></li>
+</ul>
+<p>Think of each flip-flop as a <strong>song-level decision layer</strong> sitting above your rhythm and melody generators.</p>
+<hr />
+<h1>Patch strategies for building full songs</h1>
+<h2>1. Section mutes: intro, verse, chorus, breakdown</h2>
+<p>This is the most immediate use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Use one Toggle channel per musical layer:</li>
+<li>Channel 1 = kick/bass enable</li>
+<li>Channel 2 = hats/percussion enable</li>
+<li>Channel 3 = melody/arp enable</li>
+<li>Channel 4 = FX/drone enable</li>
+<li>Send each <strong>OUT</strong> to:</li>
+<li>a VCA CV input</li>
+<li>a mute module</li>
+<li>a logic AND with trigger streams</li>
+<li>a switch that allows/disallows clocks or triggers</li>
+</ul>
+<h3>Example arrangement</h3>
+<ul>
+<li><strong>Intro</strong>: only drone and sparse percussion ON</li>
+<li><strong>Verse</strong>: kick, bass, hats ON</li>
+<li><strong>Chorus</strong>: melody and extra percussion ON</li>
+<li><strong>Breakdown</strong>: bass OFF, FX ON, kick sparse</li>
+<li><strong>Final chorus</strong>: everything ON</li>
+</ul>
+<h3>How to control it</h3>
+<ul>
+<li>Manual button/gate controller to <strong>SET/RST</strong></li>
+<li>Trigger sequencer programmed for bar-level pulses</li>
+<li>Clock divider sending pulses every 16 or 32 bars into different states</li>
+</ul>
+<h3>Why it works</h3>
+<p>Instead of re-patching a loop, you’re creating <strong>arranged entrances and exits</strong>.</p>
+<hr />
+<h2>2. Use OUT and VERT as A/B section selectors</h2>
+<p>Because <strong>VERT</strong> is the inverse of <strong>OUT</strong> when <strong>IN</strong> is unused, each Toggle channel naturally creates a complementary pair.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>OUT</strong> opens VCA or switch for <strong>Verse sequencer</strong></li>
+<li><strong>VERT</strong> opens VCA or switch for <strong>Chorus sequencer</strong></li>
+</ul>
+<p>Or:</p>
+<ul>
+<li><strong>OUT</strong> selects bassline A</li>
+<li><strong>VERT</strong> selects bassline B</li>
+</ul>
+<p>Or:</p>
+<ul>
+<li><strong>OUT</strong> routes clock to sparse rhythm</li>
+<li><strong>VERT</strong> routes clock to dense rhythm</li>
+</ul>
+<h3>Result</h3>
+<p>One pulse at <strong>CLK</strong> can flip the whole patch between two arrangement states.</p>
+<h3>Song use</h3>
+<ul>
+<li>alternate between:</li>
+<li>A/B drum patterns</li>
+<li>root-note bass / transposed bass</li>
+<li>dry voice / effected voice</li>
+<li>closed hats / open hats</li>
+<li>straight groove / fill groove</li>
+</ul>
+<p>This is one of the best ways to create recognizable song sections from minimal material.</p>
+<hr />
+<h2>3. Bar-counted section changes with clock dividers</h2>
+<p>A great way to build song form is to let sections change only after long time divisions.</p>
+<h3>Patch</h3>
+<ul>
+<li>Master clock → clock divider</li>
+<li>Divider outputs:</li>
+<li>/16 = every 4 bars</li>
+<li>/32 = every 8 bars</li>
+<li>/64 = every 16 bars</li>
+<li>Send selected division pulses to Toggle <strong>CLK</strong>, <strong>SET</strong>, or <strong>RST</strong></li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li><code>/64</code> into Channel 1 <strong>CLK</strong>: switches between Verse and Chorus every 16 bars</li>
+<li><code>/128</code> into Channel 2 <strong>SET</strong>: enables melody every 32 bars</li>
+<li><code>/96</code> or manually programmed pulse into Channel 3 <strong>RST</strong>: disables percussion before breakdown</li>
+</ul>
+<h3>Combined with switches</h3>
+<p>Use the Toggle output to switch between:
+- two melodic sequences
+- two trigger patterns
+- two modulation sources</p>
+<h3>Result</h3>
+<p>Your patch self-arranges over longer musical timescales.</p>
+<hr />
+<h2>4. Structured drum fills</h2>
+<p>One common issue: a loop has groove, but no transitions.</p>
+<p>Toggle is excellent for <strong>fill windows</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Main drum triggers go through one path</li>
+<li>Fill triggers go through another path</li>
+<li>Use one Toggle channel to enable fill logic only at transition points</li>
+</ul>
+<p>For example:
+- <strong>OUT</strong> opens VCA/logic path for normal snare pattern
+- <strong>VERT</strong> opens VCA/logic path for fill generator</p>
+<p>Or:
+- main rhythm is always present
+- Toggle <strong>OUT</strong> enables burst generator, ratchet, or alternate trigger stream for the last bar of every 8-bar phrase</p>
+<h3>Control source ideas</h3>
+<ul>
+<li>a bar counter module</li>
+<li>a clock divider into logic comparator</li>
+<li>manual gate button for live performance</li>
+<li>trigger sequencer with a pulse every 8th bar</li>
+</ul>
+<h3>Result</h3>
+<p>Instant “end-of-phrase” energy that makes a patch feel composed instead of looped.</p>
+<hr />
+<h2>5. Bassline entry/exit and breakdown control</h2>
+<p>Bass is often the strongest way to define sections.</p>
+<h3>Patch</h3>
+<ul>
+<li>Bass trigger/gate stream → logic AND</li>
+<li>Toggle <strong>OUT</strong> → second input of the AND</li>
+<li>AND output → bass envelope or sequencer advance gate</li>
+</ul>
+<p>When the Toggle state is high, bass plays.
+When low, the bassline stops.</p>
+<h3>More advanced variation</h3>
+<p>Use:
+- <strong>OUT</strong> to enable bass trigger stream
+- <strong>VERT</strong> to enable a bass drone or sub-oscillator sustain</p>
+<p>So you can alternate between:
+- active bassline
+- held sub texture</p>
+<h3>Song structure example</h3>
+<ul>
+<li>intro: sub drone only</li>
+<li>verse: bassline enters</li>
+<li>breakdown: bassline drops out</li>
+<li>final section: bassline plus octave double</li>
+</ul>
+<hr />
+<h2>6. Melody/lead reveal across a song</h2>
+<p>Leads often sound best when introduced gradually.</p>
+<h3>Patch</h3>
+<ul>
+<li>Main melody sequencer always running</li>
+<li>Its gate output is passed through a VCA, logic gate, or switched path controlled by Toggle</li>
+<li>Another Toggle channel controls extra ornamentation:</li>
+<li>ratchets</li>
+<li>octave jumps</li>
+<li>delay send</li>
+<li>quantizer transposition</li>
+</ul>
+<h3>Section strategy</h3>
+<ul>
+<li>Verse: melody muted</li>
+<li>Pre-chorus: melody appears lightly</li>
+<li>Chorus: melody plus octave harmonization</li>
+<li>Outro: melody removed again</li>
+</ul>
+<p>Toggle gives you persistent states so the melody doesn’t merely flicker on single triggers—it stays arranged over phrases.</p>
+<hr />
+<h2>7. Switching between sequencers for true song sections</h2>
+<p>This is one of the most powerful uses.</p>
+<h3>Patch</h3>
+<p>Use Toggle with:
+- a sequential switch
+- an A/B switch
+- a precision adder
+- a switched clock path</p>
+<h3>Method 1: Switch pitch sequences</h3>
+<ul>
+<li>Sequencer A = verse notes</li>
+<li>Sequencer B = chorus notes</li>
+<li>Toggle <strong>OUT/VERT</strong> selects which sequence reaches the oscillator</li>
+</ul>
+<h3>Method 2: Switch trigger streams</h3>
+<ul>
+<li>Trigger pattern A = restrained groove</li>
+<li>Trigger pattern B = busier chorus groove</li>
+</ul>
+<h3>Method 3: Switch sequencer clocking</h3>
+<ul>
+<li>Same sequencer, but:</li>
+<li><strong>OUT</strong> = slower clock</li>
+<li><strong>VERT</strong> = faster clock or ratcheted clock</li>
+</ul>
+<h3>Why it helps</h3>
+<p>You preserve thematic coherence while creating distinct song parts.</p>
+<hr />
+<h2>8. Automatic call-and-response arrangements</h2>
+<p>Because OUT and VERT are opposites, one section can play when the other rests.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>Bassline active on <strong>OUT</strong></li>
+<li>Lead active on <strong>VERT</strong></li>
+</ul>
+<p>Or:
+- Percussion bus A on <strong>OUT</strong>
+- Percussion bus B on <strong>VERT</strong></p>
+<p>Or:
+- Chord stab envelope on <strong>OUT</strong>
+- Vocal/sample trigger on <strong>VERT</strong></p>
+<h3>Result</h3>
+<p>A patch breathes naturally because not everything is talking at once.</p>
+<p>This is a huge ingredient in full-song feel.</p>
+<hr />
+<h2>9. Create phrase memory with SET and RST</h2>
+<p>The separate <strong>SET</strong> and <strong>RST</strong> inputs are important. They let you impose deterministic arrangement control.</p>
+<p>This is better than only toggling, because you can ensure the system lands in a known song state.</p>
+<h3>Patch</h3>
+<p>Use a trigger sequencer, gate sequencer, or manual controller to send:
+- <strong>SET</strong> at bar 1 of chorus
+- <strong>RST</strong> at bar 17 for breakdown
+- <strong>SET</strong> again at bar 25 for final section</p>
+<h3>Why it matters</h3>
+<p>With simple toggle logic, if you lose track of state, your arrangement can flip unpredictably.
+With <strong>SET/RST</strong>, you can explicitly command:
+- “drums ON now”
+- “melody OFF now”
+- “chorus pattern active now”</p>
+<p>That makes it much more useful for repeatable songs and live sets.</p>
+<hr />
+<h2>10. Use it as a divide-by-2 phrase source</h2>
+<p>If you clock a flip-flop with a steady pulse, its output toggles every pulse.</p>
+<p>That means each channel can effectively act like a <strong>half-speed state alternator</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Clock divider /16 into Toggle <strong>CLK</strong></li>
+<li><strong>OUT</strong> changes state every 16-beat event</li>
+<li>Use that to alternate:</li>
+<li>two hi-hat patterns</li>
+<li>two bass articulations</li>
+<li>two effect sends</li>
+<li>two chord voicings</li>
+</ul>
+<h3>Result</h3>
+<p>Alternation over bars creates evolving phrases.</p>
+<p>This is one of the easiest ways to escape a static loop.</p>
+<hr />
+<h2>11. Build a scene system with all four channels</h2>
+<p>With four flip-flops, you can think in terms of <strong>four arrangement bits</strong>.</p>
+<p>Each channel controls one domain:
+- Ch1 = drums density
+- Ch2 = bass on/off
+- Ch3 = melody on/off
+- Ch4 = FX/wash on/off</p>
+<p>Then create scenes such as:</p>
+<table>
+<thead>
+<tr>
+<th>Scene</th>
+<th style="text-align: right;">Drums</th>
+<th style="text-align: right;">Bass</th>
+<th style="text-align: right;">Melody</th>
+<th style="text-align: right;">FX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intro</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Verse</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Chorus</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Breakdown</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Finale</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<h3>How to execute</h3>
+<p>Use:
+- manual gate buttons
+- preset manager outputs
+- trigger sequencer rows
+- clock-divided pulses plus logic</p>
+<p>This effectively turns Toggle into a <strong>mini arrangement matrix</strong>.</p>
+<hr />
+<h1>Best module pairings for songwriting</h1>
+<h2>With trigger sequencers</h2>
+<p>Examples: Varigate-style modules, Grids-style modules, Euclidean trigger modules</p>
+<p>Use Toggle outputs to:
+- mute rows
+- switch patterns
+- enable fills
+- route alternate trigger streams</p>
+<p>This makes drums evolve over minutes, not just bars.</p>
+<hr />
+<h2>With clock dividers and multipliers</h2>
+<p>Examples: Pamela’s-style clocks, 4ms dividers, logic clocks</p>
+<p>Use long divisions to:
+- trigger section changes
+- open transitions
+- alternate A/B patterns
+- set structure every 8, 16, or 32 bars</p>
+<p>This is probably the most direct route to autonomous arrangement.</p>
+<hr />
+<h2>With logic modules</h2>
+<p>Examples: AND/OR/XOR/compare modules</p>
+<p>Toggle becomes even stronger when combined with logic.</p>
+<h3>Example</h3>
+<ul>
+<li>Trigger stream AND Toggle OUT = rhythm only when section enabled</li>
+<li>Trigger stream AND VERT = alternate rhythm in opposite section</li>
+<li>OUT OR manual button = performer can force a part on</li>
+<li>OUT XOR another pulse stream = create changing rhythmic variants</li>
+</ul>
+<p>Logic plus Toggle is arrangement gold.</p>
+<hr />
+<h2>With VCAs</h2>
+<p>A very musical use:
+- Toggle <strong>OUT</strong> controls CV opening a VCA for audio or modulation</p>
+<p>This works for:
+- muting voices cleanly
+- enabling modulation only in certain sections
+- opening reverb sends for transitions
+- bringing in parallel distortion only in chorus</p>
+<p>Song structure often comes down to selective energy and texture. VCAs make that smooth.</p>
+<hr />
+<h2>With switches</h2>
+<p>Sequential switches or A/B switches are one of the best companions.</p>
+<p>Use Toggle to choose:
+- sequence A vs B
+- clean vs processed signal
+- clock source 1 vs 2
+- envelope A vs B
+- modulation source A vs B</p>
+<p>This creates true section contrast while keeping the patch compact.</p>
+<hr />
+<h2>With precision adders and quantizers</h2>
+<p>Use Toggle outputs to apply transposition only in certain sections.</p>
+<h3>Example</h3>
+<ul>
+<li>Toggle OUT opens a VCA or switch feeding +7 semitones into a precision adder</li>
+<li>Chorus suddenly lifts harmonically</li>
+<li>RST returns to root for verse</li>
+</ul>
+<p>This is a great songwriting move:
+same sequence, new section identity.</p>
+<hr />
+<h2>With samplers or loopers</h2>
+<p>If you use sample players, granular modules, or loopers:
+- Toggle can enable a vocal chop only in chorus
+- activate alternate sample banks during fills
+- switch between dry loop and resampled texture</p>
+<p>This gives modular tracks a more linear, record-like progression.</p>
+<hr />
+<h1>Concrete full-song patch examples</h1>
+<h2>Patch 1: Techno arrangement engine</h2>
+<h3>Modules involved</h3>
+<ul>
+<li>master clock</li>
+<li>clock divider</li>
+<li>drum trigger sequencer</li>
+<li>bass sequencer</li>
+<li>lead sequencer</li>
+<li>VCAs / logic AND</li>
+<li>Itijik Toggle</li>
+</ul>
+<h3>Toggle assignment</h3>
+<ul>
+<li><strong>Ch1</strong>: kick/bass section enable</li>
+<li><strong>Ch2</strong>: hats/percussion enable</li>
+<li><strong>Ch3</strong>: lead enable</li>
+<li><strong>Ch4</strong>: fill mode</li>
+</ul>
+<h3>Structure</h3>
+<ul>
+<li>Bars 1–16: Ch2 ON only, sparse hats/percussion</li>
+<li>Bars 17–32: Ch1 ON, bass and kick enter</li>
+<li>Bars 33–48: Ch3 ON, lead enters</li>
+<li>Bars 49–56: Ch1 OFF, breakdown</li>
+<li>Bars 57–64: Ch1/2/3 ON, Ch4 ON for fills</li>
+</ul>
+<h3>How</h3>
+<p>Use divider outputs and/or a trigger sequencer to send:
+- SET and RST pulses at section boundaries
+- CLK for alternating fill states</p>
+<p>This yields a complete track arc from one patch.</p>
+<hr />
+<h2>Patch 2: Generative ambient song form</h2>
+<h3>Modules involved</h3>
+<ul>
+<li>slow clock</li>
+<li>random melody source</li>
+<li>quantizer</li>
+<li>drone voice</li>
+<li>plucked voice</li>
+<li>effect send VCAs</li>
+<li>Toggle</li>
+</ul>
+<h3>Toggle assignment</h3>
+<ul>
+<li><strong>Ch1</strong>: drone swell enable</li>
+<li><strong>Ch2</strong>: pluck voice enable</li>
+<li><strong>Ch3</strong>: delay/reverb send</li>
+<li><strong>Ch4</strong>: transposition state</li>
+</ul>
+<h3>Use</h3>
+<ul>
+<li>OUT of Ch4 applies transposition to quantized melody</li>
+<li>VERT of Ch4 keeps root version active otherwise</li>
+<li>Ch2 only comes in every few long phrases</li>
+<li>Ch3 engages large spatial effects in transitions</li>
+</ul>
+<h3>Result</h3>
+<p>Even a generative patch can have:
+- intro atmosphere
+- melodic emergence
+- harmonic lift
+- spacious breakdown
+- return to core theme</p>
+<hr />
+<h2>Patch 3: Live-performance song builder</h2>
+<h3>Modules involved</h3>
+<ul>
+<li>pressure pad or gate button controller</li>
+<li>drums</li>
+<li>bass voice</li>
+<li>melodic voice</li>
+<li>FX chain</li>
+<li>Toggle</li>
+</ul>
+<h3>Assignment</h3>
+<ul>
+<li>Ch1 = drums</li>
+<li>Ch2 = bass</li>
+<li>Ch3 = melody</li>
+<li>Ch4 = FX wash</li>
+</ul>
+<h3>Performance method</h3>
+<ul>
+<li>Tap <strong>SET</strong> to bring parts in</li>
+<li>Tap <strong>RST</strong> to strip them away</li>
+<li>Use <strong>CLK</strong> for quick alternating A/B sections</li>
+<li>Use <strong>VERT</strong> to automatically open complementary elements</li>
+</ul>
+<h3>Why it works live</h3>
+<p>You can improvise arrangement while keeping states stable.
+A part stays on until you explicitly change it.</p>
+<p>That’s far better than trying to maintain song form with only momentary triggers.</p>
+<hr />
+<h1>Advanced ideas</h1>
+<h2>1. Chorus lift via inversion</h2>
+<p>Patch <strong>OUT</strong> to one path and <strong>VERT</strong> to another:
+- OUT = dry bass
+- VERT = octave-up bass through distortion</p>
+<p>Or:
+- OUT = closed hats
+- VERT = open hats</p>
+<p>Now a single section change flips multiple arrangement dimensions at once.</p>
+<hr />
+<h2>2. Transition-only modulation</h2>
+<p>Use Toggle to enable an LFO, random source, or envelope only during selected sections.</p>
+<p>Examples:
+- filter wobble only in breakdown
+- delay feedback rise only in fills
+- FM depth increase only in finale</p>
+<p>Modulation arrangement is just as important as note arrangement.</p>
+<hr />
+<h2>3. Rhythmic density control</h2>
+<p>Patch one rhythm source to normal triggers, another to denser triggers.
+Use Toggle to switch or gate between them.</p>
+<p>This can create:
+- verse = sparse
+- chorus = dense
+- breakdown = almost empty
+- final chorus = densest</p>
+<p>That’s classic song energy shaping.</p>
+<hr />
+<h2>4. Manual plus automatic hybrid control</h2>
+<p>Use:
+- bar clock divider for automatic section suggestions
+- manual buttons to override with SET/RST</p>
+<p>This is a great performance approach:
+the patch has structure, but you remain the arranger.</p>
+<hr />
+<h1>Practical songwriting tips with this module</h1>
+<h2>Think in phrases, not events</h2>
+<p>Don’t use Toggle just to flip every beat.
+Use it on:
+- 4-bar
+- 8-bar
+- 16-bar
+- 32-bar</p>
+<p>timescales.</p>
+<p>That’s where songs live.</p>
+<h2>Dedicate channels to musical roles</h2>
+<p>A very effective setup is:
+- one channel for rhythm density
+- one for bass presence
+- one for melodic presence
+- one for effects/transitions</p>
+<h2>Use SET/RST for reliability</h2>
+<p>If you want repeatable structure, prefer explicit section commands over pure toggle behavior.</p>
+<h2>Pair with mute-able VCAs or logic ANDs</h2>
+<p>This makes the module feel like a true arrangement console.</p>
+<h2>Use VERT constantly</h2>
+<p>The complementary output is one of the best features here.
+It gives you immediate A/B structure without needing another inverter.</p>
+<hr />
+<h1>Limitations to keep in mind</h1>
+<p>Toggle does not by itself:
+- count bars
+- save presets
+- sequence arrangements
+- mix audio
+- create sound</p>
+<p>It becomes a songwriting tool when paired with:
+- timing modules
+- logic
+- switches
+- VCAs
+- sequencers</p>
+<p>So think of it as a <strong>structural control hub</strong>, not a standalone arranger.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Itijik Toggle</strong> is an excellent module for making <strong>full-length songs</strong> because it adds something many modular rigs lack: <strong>persistent binary state</strong>.</p>
+<p>That means you can create:</p>
+<ul>
+<li>intros</li>
+<li>verses</li>
+<li>choruses</li>
+<li>breakdowns</li>
+<li>fills</li>
+<li>returns</li>
+<li>finales</li>
+</ul>
+<p>by controlling when parts are active, which sequences are selected, how dense rhythms become, and when effects or transpositions appear.</p>
+<p>Its strongest songwriting uses are:</p>
+<ol>
+<li><strong>muting/unmuting parts over phrases</strong></li>
+<li><strong>switching A/B patterns with OUT and VERT</strong></li>
+<li><strong>creating deterministic section changes with SET/RST</strong></li>
+<li><strong>building fills and transitions</strong></li>
+<li><strong>acting as a central arrangement brain above your sequencers</strong></li>
+</ol>
+<p>If your modular patches already make great loops, Toggle is the kind of module that helps turn those loops into <strong>tracks</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

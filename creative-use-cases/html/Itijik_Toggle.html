@@ -1,0 +1,486 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Itijik_Toggle</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Itijik — Toggle</h1>
+<ul>
+<li><a href="../../manuals/toggle.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF</a></p>
+<h1>Itijik Toggle — creative patch ideas and combo suggestions</h1>
+<p>This module is a <strong>quad flip-flop with a normalized inverter per channel</strong>. In practice, that makes it a compact bank of:</p>
+<ul>
+<li><strong>4 gate toggles / state memories</strong></li>
+<li><strong>4 manual-free logic inverters</strong> via the <code>VERT</code> outputs</li>
+<li><strong>4 simple clock dividers by 2</strong> when hit with regular clocks</li>
+<li><strong>4 gate conditioners / event routers</strong></li>
+<li><strong>4 places to derive complementary rhythms</strong> from one source</li>
+</ul>
+<p>The key trick is this:</p>
+<ul>
+<li><code>CLK</code> toggles <code>OUT</code></li>
+<li><code>SET</code> forces <code>OUT</code> high</li>
+<li><code>RST</code> forces <code>OUT</code> low</li>
+<li><code>VERT</code> is normally the inverse of <code>OUT</code></li>
+<li>plugging something into <code>IN</code> breaks that normalization, so <code>VERT</code> becomes an inverter for whatever you patch into <code>IN</code></li>
+</ul>
+<p>That means each section can be either:</p>
+<ol>
+<li>a <strong>flip-flop with complementary outputs</strong>, or  </li>
+<li>a <strong>standalone logic inverter</strong></li>
+</ol>
+<p>That’s extremely useful in a patch.</p>
+<hr />
+<h2>What Toggle is especially good at</h2>
+<p>Before getting into combinations, here are the main musical jobs it excels at:</p>
+<ul>
+<li><strong>Turning pulses into alternating on/off states</strong></li>
+<li><strong>Creating complementary gate streams</strong></li>
+<li><strong>Remembering events</strong></li>
+<li><strong>Switching between two structural states</strong></li>
+<li><strong>Deriving “anti-rhythms” from a rhythm</strong></li>
+<li><strong>Converting trigger streams into longer-held gates</strong></li>
+<li><strong>Building patch logic without a dedicated logic module</strong></li>
+<li><strong>Driving mutes, resets, fill states, and performance macros</strong></li>
+</ul>
+<hr />
+<h1>Best module pairings</h1>
+<h2>1. With clock sources / trigger sequencers</h2>
+<p><strong>Examples:</strong> Pamela’s Pro Workout, Tempi, 4ms QCD, Noise Engineering Horologic Solum, trigger lanes from Metropolix, Eloquencer, Circadian Rhythms</p>
+<p>This is probably the most obvious and powerful pairing.</p>
+<h3>Ideas</h3>
+<ul>
+<li>Send a steady clock to <code>CLK</code> for one channel: <code>OUT</code> becomes a <strong>divide-by-2 square gate</strong></li>
+<li>Use <code>OUT</code> and <code>VERT</code> to create <strong>alternating rhythmic layers</strong></li>
+<li>Feed irregular trigger patterns into <code>CLK</code> to get <strong>stateful rhythms</strong> that depend on event history instead of simple multiplication/division</li>
+</ul>
+<h3>Patch example: alternating drum voices</h3>
+<ul>
+<li>Clock source → <code>CLK</code></li>
+<li><code>OUT</code> → kick trigger input</li>
+<li><code>VERT</code> → closed hat trigger input</li>
+</ul>
+<p>Now kick and hat alternate every pulse.<br />
+Run those through VCAs or logic afterward for more dynamic behavior.</p>
+<h3>Patch example: fills every other bar</h3>
+<ul>
+<li>Bar clock / phrase pulse → <code>CLK</code></li>
+<li><code>OUT</code> → open a VCA for fill triggers</li>
+<li><code>VERT</code> → open the “normal groove” lane</li>
+</ul>
+<p>This gives you a simple A/B phrase alternation.</p>
+<hr />
+<h2>2. With sequential switches</h2>
+<p><strong>Examples:</strong> Doepfer A-151, Joranalogue Switch 4, Boss Bow Two, Erica Sequential Switch, Verbos Sequence Selector</p>
+<p>Flip-flops and switches are fantastic together.</p>
+<h3>Why it works</h3>
+<p>Use Toggle to decide <strong>when a switch changes role</strong> or <strong>which structural layer is active</strong>.</p>
+<h3>Patch example: melody every other phrase</h3>
+<ul>
+<li>Phrase clock → Toggle <code>CLK</code></li>
+<li>Toggle <code>OUT</code> → A-151 advance or reset logic</li>
+<li>Toggle <code>VERT</code> → gate a second voice or route a second CV lane</li>
+</ul>
+<h3>Patch example: A/B/A/B modulation routing</h3>
+<ul>
+<li>LFO bank into switch inputs</li>
+<li>Toggle channel controls whether the switch is addressed or reset</li>
+<li>Complementary <code>OUT</code>/<code>VERT</code> can drive two switch control inputs or VCAs for cross-routed modulation</li>
+</ul>
+<p>This makes long-form structure from simple clocks.</p>
+<hr />
+<h2>3. With logic modules</h2>
+<p><strong>Examples:</strong> Joranalogue Compare 2, Doepfer A-166, Klavis Logica XT, Intellijel Plog, Bastl Little Nerd, Vice Virga, Mystic Circuits Ana/XOR</p>
+<p>Toggle gets much more interesting when mixed with Boolean logic.</p>
+<h3>Ideas</h3>
+<ul>
+<li>Use <code>OUT</code> and <code>VERT</code> as complementary logic sources into <strong>AND/OR/XOR</strong></li>
+<li>Combine a trigger stream with a latched state for <strong>conditional rhythms</strong></li>
+<li>Use <code>SET</code> and <code>RST</code> from different event sources to create a patch that “remembers” which event happened last</li>
+</ul>
+<h3>Patch example: last-event-wins rhythm memory</h3>
+<ul>
+<li>Euclidean rhythm A → <code>SET</code></li>
+<li>Euclidean rhythm B → <code>RST</code></li>
+<li><code>OUT</code> = “A currently dominates”</li>
+<li><code>VERT</code> = “B currently dominates”</li>
+</ul>
+<p>Then use those outputs to enable different voices or modulation buses.</p>
+<h3>Patch example: XOR accents</h3>
+<ul>
+<li>Toggle <code>OUT</code> + another trigger sequence into XOR</li>
+<li>Use result for accent or ratchet triggers</li>
+</ul>
+<p>This can create more complex rhythmic behavior than simple divisions.</p>
+<hr />
+<h2>4. With VCAs</h2>
+<p><strong>Examples:</strong> Veils, Quad VCA, ALM Tangle Quartet, Intellijel Quad VCA, Happy Nerding 3xVCA</p>
+<p>VCAs turn Toggle from “logic utility” into a <strong>patch structure controller</strong>.</p>
+<h3>Patch example: alternating modulation destinations</h3>
+<ul>
+<li>LFO → mult to two VCAs</li>
+<li>Toggle <code>OUT</code> opens VCA 1</li>
+<li>Toggle <code>VERT</code> opens VCA 2</li>
+<li>VCA 1 → filter FM</li>
+<li>VCA 2 → wavefolder CV</li>
+</ul>
+<p>One clock pulse now flips where the modulation goes.</p>
+<h3>Patch example: pseudo mute groups</h3>
+<ul>
+<li>Drum triggers through VCAs or logic-controlled VCAs</li>
+<li><code>OUT</code> opens one rhythmic lane</li>
+<li><code>VERT</code> opens another</li>
+</ul>
+<p>You get performance-friendly contrast with a single clocked toggle.</p>
+<hr />
+<h2>5. With envelope generators and function generators</h2>
+<p><strong>Examples:</strong> Maths, Function, Contour 1, Zadar, Quadrax, Delta-V, Pip Slope</p>
+<p>This is great for turning trigger sequences into alternating articulation states.</p>
+<h3>Patch example: alternating envelope shapes</h3>
+<ul>
+<li>One trigger source goes to two envelopes</li>
+<li>Toggle <code>OUT</code> triggers envelope A</li>
+<li>Toggle <code>VERT</code> triggers envelope B</li>
+<li>Envelope A = short pluck</li>
+<li>Envelope B = long decay</li>
+</ul>
+<p>Now a single rhythm alternates between two articulations.</p>
+<h3>Patch example: attack/release mode changes</h3>
+<p>Use Toggle outputs to gate which envelope reaches a VCA or LPG. This creates phrasing that feels intentional and arranged.</p>
+<hr />
+<h2>6. With drum modules / percussion voices</h2>
+<p><strong>Examples:</strong> Basimilus Iteritas Alter, WMD Crucible, Tiptop drum voices, SSF Entity, Noise Engineering drum modules, sample players</p>
+<p>Toggle is excellent for percussion structure.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>Alternate two drum voices from one trigger stream</li>
+<li>Use <code>SET</code>/<code>RST</code> for fills and break states</li>
+<li>Invert accent patterns using <code>VERT</code></li>
+</ul>
+<h3>Patch example: breakbeat mutator</h3>
+<ul>
+<li>Main trigger clock → <code>CLK</code></li>
+<li><code>OUT</code> → snare lane enable</li>
+<li><code>VERT</code> → percussion lane enable</li>
+<li>Manual or sequenced pulse to <code>SET</code> at phrase start</li>
+<li>Different pulse to <code>RST</code> at phrase end</li>
+</ul>
+<p>This lets you force known states at structural boundaries.</p>
+<hr />
+<h2>7. With sample &amp; hold / random modules</h2>
+<p><strong>Examples:</strong> Mutable Marbles, Wogglebug, SSF Ultra-Random, Turing Machine, Sapèl, Orbit 3, Ochd + S&amp;H, Nano Rand</p>
+<p>This pairing is very musical because Toggle can impose <strong>binary order</strong> on random material.</p>
+<h3>Patch example: random only every other beat</h3>
+<ul>
+<li>Random trigger source → <code>CLK</code></li>
+<li><code>OUT</code> opens a VCA carrying random CV to pitch</li>
+<li><code>VERT</code> opens a slewed or quantized alternative source</li>
+</ul>
+<p>Result: random and stable phrases alternate.</p>
+<h3>Patch example: controlled chaos gate</h3>
+<ul>
+<li>Random pulse source → <code>SET</code></li>
+<li>Master reset pulse → <code>RST</code></li>
+<li>Use <code>OUT</code> to indicate “chaos mode active”</li>
+</ul>
+<p>That state can control feedback amount, modulation depth, sample rate reduction, etc.</p>
+<hr />
+<h2>8. With quantizers and melodic sequencers</h2>
+<p><strong>Examples:</strong> uScale, Scales, O_C, Bard Quartet, Metropolix, René, Pressure Points + quantizer</p>
+<p>Toggle is not a pitch module, but it’s excellent for <strong>phrase logic</strong>.</p>
+<h3>Patch example: two-sequence alternator</h3>
+<ul>
+<li>Sequencer A and B each go through separate VCAs or switches</li>
+<li>Toggle <code>OUT</code> selects sequence A</li>
+<li>Toggle <code>VERT</code> selects sequence B</li>
+<li>Clock Toggle from bar or phrase pulse</li>
+</ul>
+<p>You get instant verse/chorus melodic alternation.</p>
+<h3>Patch example: melodic answer phrases</h3>
+<ul>
+<li>Main melody trigger → <code>CLK</code></li>
+<li><code>OUT</code> opens quantized melody lane</li>
+<li><code>VERT</code> opens transposed response lane</li>
+</ul>
+<p>This creates call-and-response behavior.</p>
+<hr />
+<h2>9. With burst generators / ratchets</h2>
+<p><strong>Examples:</strong> Quadrax burst mode, Pamela’s ratchets, Noise Engineering Integra Solum / related trigger tools, 4ms PEG, Befaco Burst</p>
+<h3>Patch example: ratchets every other hit</h3>
+<ul>
+<li>Trigger stream → <code>CLK</code></li>
+<li><code>OUT</code> → ratchet trigger enable</li>
+<li><code>VERT</code> → straight trigger lane</li>
+</ul>
+<p>Now only alternating hits ratchet.</p>
+<h3>Patch example: phrase-end drama</h3>
+<ul>
+<li>End-of-bar pulse → <code>SET</code></li>
+<li>Next downbeat → <code>RST</code></li>
+<li>While <code>OUT</code> is high, burst generator is active</li>
+</ul>
+<p>This creates a fill window during the final part of a phrase.</p>
+<hr />
+<h2>10. With comparators / gate extractors</h2>
+<p><strong>Examples:</strong> Joranalogue Compare 2, Doepfer comparator utilities, envelope followers, threshold extractors</p>
+<p>These combinations let Toggle respond to <strong>analog events</strong>.</p>
+<h3>Patch example: dynamics-driven state switching</h3>
+<ul>
+<li>Envelope follower from drum loop or external input → comparator</li>
+<li>Comparator pulse → <code>CLK</code> or <code>SET</code></li>
+<li>Toggle state then controls another layer</li>
+</ul>
+<p>So the patch changes state when the source material crosses a threshold.</p>
+<h3>Patch example: sidechain-controlled alternation</h3>
+<ul>
+<li>Kick envelope threshold crossing → <code>CLK</code></li>
+<li><code>OUT</code> and <code>VERT</code> then alternate modulation destinations or voice access</li>
+</ul>
+<hr />
+<h2>11. With manual gate controllers / touch controllers</h2>
+<p><strong>Examples:</strong> Pressure Points, 0-CTRL gate outs, manual buttons, gate keyboards, Tetrapad, controllers with trigger outputs</p>
+<h3>Patch example: playable latching performance state</h3>
+<ul>
+<li>Button/touch gate → <code>CLK</code></li>
+<li><code>OUT</code> = “section A active”</li>
+<li><code>VERT</code> = “section B active”</li>
+</ul>
+<p>Or use dedicated buttons:
+- button 1 → <code>SET</code>
+- button 2 → <code>RST</code></p>
+<p>This gives you a super immediate performance control layer for mutes, transpositions, modulation buses, effect sends, etc.</p>
+<hr />
+<h2>12. With effects and feedback systems</h2>
+<p><strong>Examples:</strong> Mimeophon, Magneto, Data Bender, FX Aid, feedback mixers, filters, wavefolders</p>
+<p>Toggle is very useful for controlling <strong>when feedback or effect routing is active</strong>.</p>
+<h3>Patch example: alternating dry/wet phrases</h3>
+<ul>
+<li>Audio path split to dry and FX return VCAs</li>
+<li>Toggle <code>OUT</code> opens dry emphasis</li>
+<li>Toggle <code>VERT</code> opens wet emphasis</li>
+</ul>
+<h3>Patch example: controlled feedback danger</h3>
+<ul>
+<li><code>OUT</code> opens feedback path</li>
+<li><code>RST</code> receives a safety reset pulse every bar</li>
+</ul>
+<p>You can flirt with unstable feedback but force the system back to safe territory periodically.</p>
+<hr />
+<h1>Clever uses of the <code>IN</code> jack and <code>VERT</code> output</h1>
+<p>The normalization is a big deal and easy to overlook.</p>
+<h2>1. Free inverter bank</h2>
+<p>When you patch something into <code>IN</code>, <code>VERT</code> becomes the inversion of that signal instead of the inversion of <code>OUT</code>.</p>
+<p>That means Toggle can act as:
+- <strong>four logic inverters</strong>
+- <strong>four complementary gate generators</strong>
+- <strong>a way to derive opposite mute logic</strong></p>
+<h3>Example</h3>
+<ul>
+<li>Trigger sequence into <code>IN</code></li>
+<li><code>VERT</code> → another voice</li>
+</ul>
+<p>Now one voice gets the original sequence, and another can get the opposite logic behavior downstream.</p>
+<p>This is especially useful if another module wants “not this gate”.</p>
+<hr />
+<h2>2. Dual-purpose channel</h2>
+<p>A single channel can be used as either:
+- a flip-flop state source, or
+- an inverter</p>
+<p>So in one patch:
+- channels 1–2 = state machines
+- channels 3–4 = logic inversion for clocks, mutes, accents, reset conditioning</p>
+<p>That makes it a very space-efficient “boring but magic” module.</p>
+<hr />
+<h1>Patch ideas by musical goal</h1>
+<h2>For techno</h2>
+<ul>
+<li>Use one channel as divide-by-2 for kick variations</li>
+<li>Another to alternate closed/open hats</li>
+<li>Another for fill activation every 8 or 16 beats</li>
+<li>Another as an inverter for accent logic into percussion FM depth</li>
+</ul>
+<p>Good pairing:
+- Pamela’s Pro Workout
+- Basimilus Iteritas Alter
+- Quad VCA
+- A-151
+- Compare 2 / logic module</p>
+<hr />
+<h2>For generative ambient</h2>
+<ul>
+<li>Use slow clocks into <code>CLK</code></li>
+<li>Use <code>OUT</code>/<code>VERT</code> to alternate between two slow modulation ecosystems</li>
+<li><code>SET</code> and <code>RST</code> come from random comparators or thresholded CV events</li>
+<li>Send outputs to VCAs controlling reverb send, filter opening, chord source selection, or delay feedback</li>
+</ul>
+<p>Good pairing:
+- Marbles / Turing Machine
+- Ochd / Batumi
+- Quad VCA
+- Sequential switch
+- Quantizer
+- long-envelope generators</p>
+<hr />
+<h2>For IDM / broken rhythm</h2>
+<ul>
+<li>Clock channels from non-uniform trigger streams</li>
+<li>Cross-patch <code>OUT</code> of one channel to <code>SET</code> or <code>RST</code> of another</li>
+<li>Use <code>VERT</code> outputs as anti-rhythms into XOR/AND logic</li>
+<li>Route results into burst generators and sample players</li>
+</ul>
+<p>Good pairing:
+- logic module
+- burst generator
+- random trigger source
+- clock manipulator
+- switch
+- drum sampler</p>
+<hr />
+<h2>For live performance systems</h2>
+<ul>
+<li>Use channels as persistent mute/scene states</li>
+<li>Manual triggers to <code>SET</code>/<code>RST</code></li>
+<li><code>OUT</code> and <code>VERT</code> drive two halves of your system</li>
+<li>Phrase clocks periodically reset things to known states</li>
+</ul>
+<p>Good pairing:
+- manual gate controller
+- VCAs
+- mutes/switches
+- clock source
+- sequencer with gate outs</p>
+<hr />
+<h1>Advanced patch concepts</h1>
+<h2>1. Cross-coupled state network</h2>
+<p>Use multiple channels to affect each other.</p>
+<h3>Example</h3>
+<ul>
+<li>Ch1 <code>OUT</code> → Ch2 <code>SET</code></li>
+<li>Ch2 <code>OUT</code> → Ch3 <code>RST</code></li>
+<li>Ch3 <code>VERT</code> → Ch1 <code>CLK</code></li>
+</ul>
+<p>Now the system has memory and can evolve in semi-unpredictable ways depending on initial conditions and incoming clocks.</p>
+<p>This gets especially good when the driving clocks are not simple divisions.</p>
+<hr />
+<h2>2. State-based arrangement engine</h2>
+<p>Think of each channel as one “arrangement bit”.</p>
+<ul>
+<li>Ch1 = drums on/off state</li>
+<li>Ch2 = bass active/inactive</li>
+<li>Ch3 = FX send active/inactive</li>
+<li>Ch4 = fill mode active/inactive</li>
+</ul>
+<p>Drive <code>SET</code>/<code>RST</code> from sequencer gates, manual buttons, or end-of-cycle signals.<br />
+Then use the outputs to open VCAs, enable switches, or trigger logic.</p>
+<p>You’ve basically built a mini patch-state controller.</p>
+<hr />
+<h2>3. Event memory from two competing sources</h2>
+<p>Because <code>SET</code> and <code>RST</code> force state, you can encode “which thing happened most recently.”</p>
+<h3>Example</h3>
+<ul>
+<li>Envelope threshold from voice A → <code>SET</code></li>
+<li>Envelope threshold from voice B → <code>RST</code></li>
+</ul>
+<p><code>OUT</code> now represents whether A or B was the last dominant event.<br />
+That can drive panning, ducking, modulation focus, or voice allocation.</p>
+<hr />
+<h2>4. Alternating probability lanes</h2>
+<p>Pair Toggle with probabilistic triggers.</p>
+<ul>
+<li>Probabilistic trigger stream → <code>CLK</code></li>
+<li><code>OUT</code> enables sparse sequence</li>
+<li><code>VERT</code> enables dense sequence</li>
+</ul>
+<p>Because the trigger arrivals themselves are probabilistic, the alternation feels less mechanical than a straight divider.</p>
+<hr />
+<h1>Specific module recommendations</h1>
+<h2>Excellent specific pairings</h2>
+<ul>
+<li><strong>ALM Pamela’s Pro Workout</strong> — clocks, odd divisions, logic-like gating, phrase control</li>
+<li><strong>Doepfer A-151</strong> — simple but powerful routing partner</li>
+<li><strong>Joranalogue Compare 2</strong> — thresholds, logic, comparators; very strong with Toggle</li>
+<li><strong>Intellijel Quad VCA / Mutable Veils</strong> — convert logic states into audible structure</li>
+<li><strong>Xaoc Batumi / Instruō Øchd</strong> — modulation sources to route or alternate</li>
+<li><strong>Mutable Marbles / Turing Machine</strong> — random with binary structure</li>
+<li><strong>Noise Engineering Numeric Repetitor / trigger sequencers</strong> — lots of pattern material to condition</li>
+<li><strong>Doepfer A-166 or Klavis Logica XT</strong> — make the most of complementary outputs</li>
+<li><strong>Quadrax / Maths</strong> — alternating envelopes and burst/fill logic</li>
+<li><strong>Boss Bow Two / switched routing modules</strong> — patch-state changes become very performable</li>
+</ul>
+<h2>Generic module types that pair well</h2>
+<ul>
+<li>clock generator</li>
+<li>trigger sequencer</li>
+<li>logic module</li>
+<li>sequential switch</li>
+<li>VCAs</li>
+<li>envelope generator</li>
+<li>burst generator</li>
+<li>random source</li>
+<li>comparator</li>
+<li>quantizer</li>
+<li>drum voices</li>
+<li>manual gate controller</li>
+<li>effect send/return mixer</li>
+</ul>
+<hr />
+<h1>A few simple “instant win” patches</h1>
+<h2>Instant patch 1: alternating hats</h2>
+<ul>
+<li>steady 16th clock → <code>CLK</code></li>
+<li><code>OUT</code> → closed hat</li>
+<li><code>VERT</code> → open hat</li>
+</ul>
+<h2>Instant patch 2: every-other-bar bass variation</h2>
+<ul>
+<li>bar pulse → <code>CLK</code></li>
+<li><code>OUT</code> opens primary bass modulation</li>
+<li><code>VERT</code> opens alternate modulation or transposition</li>
+</ul>
+<h2>Instant patch 3: fill latch</h2>
+<ul>
+<li>fill button → <code>SET</code></li>
+<li>next phrase start → <code>RST</code></li>
+<li><code>OUT</code> enables ratchets, bursts, or delay feedback</li>
+</ul>
+<h2>Instant patch 4: free inverter utility</h2>
+<ul>
+<li>trigger pattern → <code>IN</code></li>
+<li><code>VERT</code> → complementary logic for another lane</li>
+</ul>
+<h2>Instant patch 5: memory of competing generators</h2>
+<ul>
+<li>random trigger A → <code>SET</code></li>
+<li>random trigger B → <code>RST</code></li>
+<li><code>OUT</code> and <code>VERT</code> control two different voices</li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>Itijik Toggle is deceptively simple, but it’s one of those modules that can make a whole system feel more intentional. It excels at:</p>
+<ul>
+<li><strong>alternation</strong></li>
+<li><strong>state memory</strong></li>
+<li><strong>complementary gate creation</strong></li>
+<li><strong>arrangement logic</strong></li>
+<li><strong>converting raw triggers into structure</strong></li>
+</ul>
+<p>It becomes especially powerful when paired with:</p>
+<ul>
+<li><strong>clocks</strong></li>
+<li><strong>logic</strong></li>
+<li><strong>VCAs</strong></li>
+<li><strong>switches</strong></li>
+<li><strong>random sources</strong></li>
+<li><strong>manual performance controls</strong></li>
+</ul>
+<p>If you want, I can also give you:
+1. <strong>10 concrete patch recipes</strong> using specific popular Eurorack modules, or<br />
+2. <strong>a small “system design” plan</strong> showing what kind of case pairs best with Toggle.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>
