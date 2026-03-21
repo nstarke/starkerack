@@ -1,0 +1,659 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Fancyyyyy_K-Accumulator_Digital_Complex_Oscillator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Fancyyyyy — K-Accumulator Digital Complex Oscillator</h1>
+<ul>
+<li><a href="../../manuals/K_ACCUMULATOR_Quickstart_v1.02.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://fancysynthesis.net">Manual PDF</a></p>
+<h1>K-ACCUMULATOR modulation ideas for distorted percussion, basslines, and haunted pads</h1>
+<p>K-ACCUMULATOR is unusually rich because it is not just “an oscillator with some FM.” It is a whole internal ecosystem:</p>
+<ul>
+<li>main OSC with multiple waveshaping domains</li>
+<li>Mod oscillator for PM/XPM behavior</li>
+<li>UFG as envelope/LFO/audio oscillator</li>
+<li>Δ–∑ pattern generator for stepped/smoothed modulation</li>
+<li>internal normalled routing to many CV inputs</li>
+</ul>
+<p>That means the best sounds usually come from <strong>stacking small modulations in several places at once</strong>, not maxing one knob.</p>
+<p>A useful mindset:</p>
+<ol>
+<li>Start from <strong>Centre</strong></li>
+<li>Choose a <strong>Morph mode</strong></li>
+<li>Pick one internal mod source:</li>
+<li><strong>UFG</strong> for organic motion, envelopes, pulses</li>
+<li><strong>Δ–∑</strong> for stepped instability and evolving sequences</li>
+<li>Add one external CV if desired</li>
+<li>Use <strong>Stretch</strong> and <strong>Damped/Pulsar</strong> as “make it strange” controls</li>
+</ol>
+<hr />
+<h2>First: the best general modulation strategies</h2>
+<h2>1. Use the internal normalisations aggressively</h2>
+<p>On the OSC section, the CV inputs/attenuverters are internally normalled from either:</p>
+<ul>
+<li><strong>UFG</strong> when the LED is unlit</li>
+<li><strong>Δ–∑</strong> when the LED is lit</li>
+</ul>
+<p>So even without patching cables, you can modulate:</p>
+<ul>
+<li>Shift</li>
+<li>Depth</li>
+<li>Shape</li>
+<li>Morph</li>
+<li>1V/TZ</li>
+</ul>
+<p>This is the fastest way to find complex timbres.</p>
+<h3>Great default trick</h3>
+<ul>
+<li>Set <strong>one waveshaper attenuverter positive</strong></li>
+<li>Set <strong>another slightly negative</strong></li>
+<li>Feed one from <strong>UFG</strong></li>
+<li>Feed the other from <strong>Δ–∑</strong></li>
+</ul>
+<p>This creates counter-motion inside the oscillator, which often sounds much more alive than moving everything in the same direction.</p>
+<hr />
+<h2>2. Morph slowly, shape quickly</h2>
+<p>The Morph system is continuous, but the character of the controls changes depending on which path you’re on.</p>
+<h3>Best approach</h3>
+<ul>
+<li>Use <strong>Morph</strong> as a slow macro movement</li>
+<li>Use <strong>Shift/Depth/Shape</strong> as faster or performance controls</li>
+</ul>
+<p>This works because:
+- Morph changes the topology
+- Shift/Depth/Shape exploit the current topology</p>
+<p>For performance, try:
+- slow Δ–∑ or UFG to Morph
+- manual performance on Depth and Shape
+- light modulation on Shift</p>
+<hr />
+<h2>3. Use small modulation depths first</h2>
+<p>This module seems designed so that <strong>small amounts of modulation can produce large spectral changes</strong>. Especially in:</p>
+<ul>
+<li>XPM / XPM2</li>
+<li>FBPM2</li>
+<li>high Damped/Pulsar settings</li>
+<li>high Stretch with active shaping</li>
+</ul>
+<p>For punchy results:
+- keep attenuverters around 9–10 o’clock or 2–3 o’clock first
+- only push further once the base patch is good</p>
+<hr />
+<h1>Best Morph modes by sound goal</h1>
+<h2>For distorted percussion</h2>
+<p>Best starting modes:</p>
+<ul>
+<li><strong>FBPM</strong>: stable, clear, sine-to-saw distortion</li>
+<li><strong>2OP</strong>: controlled mod-oscillator aggression</li>
+<li><strong>FBPM2</strong>: chaotic and nasty</li>
+<li><strong>Asym</strong>: brittle, granular, clicky, unusual</li>
+</ul>
+<h2>For dubstep / DnB bass</h2>
+<p>Best starting modes:</p>
+<ul>
+<li><strong>XPM</strong>: filthy but still playable</li>
+<li><strong>XPM2</strong>: more separated controls, highly designable</li>
+<li><strong>2OP2</strong>: good for “speaking” basses</li>
+<li><strong>FBPM</strong> with Stretch: great for reese-adjacent spectral tearing</li>
+</ul>
+<h2>For haunted pads</h2>
+<p>Best starting modes:</p>
+<ul>
+<li><strong>FMNT</strong>: formant-like, vocal, airy</li>
+<li><strong>2OP</strong>: smooth animated harmonic motion</li>
+<li><strong>Asym</strong>: eerie and unstable if used gently</li>
+<li><strong>XPM</strong> at low depth: slowly evolving spectral bloom</li>
+</ul>
+<hr />
+<h1>Distorted percussive sounds</h1>
+<p>These patches lean on <strong>UFG as envelope/pulse source</strong> and <strong>Damped/Pulsar</strong> for internal sync/amplitude shaping.</p>
+<h2>Patch idea 1: metallic distorted kick / tom</h2>
+<h3>Goal</h3>
+<p>A low fundamental with a sharp distorted transient and internal pitch snap.</p>
+<h3>Setup</h3>
+<ul>
+<li>Start from <strong>Centre</strong></li>
+<li>Route <strong>Root to OSC</strong></li>
+<li>Set OSC frequency low</li>
+<li>Set Morph to <strong>FBPM</strong> or <strong>2OP</strong></li>
+<li>Turn up <strong>Damped/Pulsar</strong> to medium-high</li>
+<li>Set <strong>UFG Time</strong> to sub-audio, single-shot or looping slowly</li>
+<li>Use <strong>raised cosine or exponential-ish UFG shape</strong></li>
+<li>Add a bit of <strong>Depth</strong></li>
+<li>Add a little <strong>Shape</strong></li>
+<li>Keep <strong>Stretch</strong> low at first</li>
+</ul>
+<h3>Modulation ideas</h3>
+<ul>
+<li>Send <strong>UFG to 1V/TZ</strong> with positive attenuverter for a pitch envelope</li>
+<li>Send <strong>UFG to Depth</strong> lightly for attack-only distortion bloom</li>
+<li>Send <strong>Δ–∑ to Shape</strong> very lightly for changing attack character each hit</li>
+</ul>
+<h3>Why it works</h3>
+<ul>
+<li>Damped/Pulsar gives sync plus AM, making the transient more percussive</li>
+<li>1V/TZ from UFG gives the classic downward pitch strike</li>
+<li>FBPM/2OP gives controlled harmonic smear without losing impact</li>
+</ul>
+<h3>Push it further</h3>
+<ul>
+<li>In <strong>2OP</strong>, tune Mod to a non-octave harmonic</li>
+<li>Add slight <strong>Detune</strong></li>
+<li>Increase <strong>Shape</strong></li>
+<li>Add a touch of <strong>Stretch</strong> for weird overtone tearing while preserving low pitch</li>
+</ul>
+<p>This can move from kick/tom into broken industrial drum territory.</p>
+<hr />
+<h2>Patch idea 2: snare / clap / noise-burst style percussion</h2>
+<h3>Setup</h3>
+<ul>
+<li>Morph to <strong>Asym</strong> or <strong>FBPM2</strong></li>
+<li>Root/OSC in midrange</li>
+<li>UFG in triggered one-shot mode</li>
+<li><strong>Damped/Pulsar</strong> high</li>
+<li><strong>Depth</strong> medium</li>
+<li><strong>Shape</strong> medium to high</li>
+<li><strong>Shift</strong> low to medium</li>
+</ul>
+<h3>Modulation ideas</h3>
+<ul>
+<li>UFG to <strong>Damped/Pulsar CV</strong> if available externally, or just perform manually</li>
+<li>Δ–∑ to <strong>Morph</strong> lightly</li>
+<li>Δ–∑ to <strong>Shift</strong> or <strong>Shape</strong></li>
+<li>Mod oscillator tuned to inharmonic interval with slight detune</li>
+</ul>
+<h3>Result</h3>
+<p>You’ll get:
+- noisy broadband crack
+- unstable upper harmonics
+- changing “snare wires” texture if Δ–∑ is moving Shape or Morph</p>
+<h3>Performance move</h3>
+<p>Shorten UFG Time and increase Damped/Pulsar toward max:
+- lower values = papery percussion
+- higher values = hard synced tearing snap</p>
+<hr />
+<h2>Patch idea 3: glitch hats and digital shards</h2>
+<h3>Setup</h3>
+<ul>
+<li>High OSC frequency</li>
+<li>Morph in <strong>Asym</strong>, <strong>XPM2</strong>, or <strong>FBPM2</strong></li>
+<li>UFG as high-speed trigger or audio-rate modulator</li>
+<li>Very little low end</li>
+<li>Shape and Shift active</li>
+<li>Stretch moderate</li>
+</ul>
+<h3>Modulation ideas</h3>
+<ul>
+<li>Δ–∑ to <strong>1V/TZ</strong> for stepped micro-pitch chatter</li>
+<li>UFG to <strong>Depth</strong></li>
+<li>Morph lightly modulated</li>
+<li>Mod tracking OSC, harmonic above center, Order biased toward odd harmonics</li>
+</ul>
+<h3>Why it works</h3>
+<p>At high frequencies, the PM/folding/stretch interactions create hat-like sidebands and digital splatter.</p>
+<hr />
+<h1>Dubstep / drum &amp; bass basslines</h1>
+<p>K-ACCUMULATOR seems excellent for bass because it can keep a strong root while heavily altering upper harmonics.</p>
+<h2>Core bass design principle</h2>
+<p>For basses, start by protecting the fundamental:</p>
+<ul>
+<li>Keep the fundamental low and stable</li>
+<li>Use <strong>Stretch</strong> to move harmonics while keeping the root</li>
+<li>Use <strong>Shift</strong> for harmonic blending</li>
+<li>Use <strong>Depth/Shape</strong> for aggression</li>
+<li>Use <strong>Morph</strong> and Mod tuning for vowel/talking motion</li>
+</ul>
+<hr />
+<h2>Patch idea 4: modern talking neuro bass</h2>
+<h3>Setup</h3>
+<ul>
+<li>Start from Centre</li>
+<li>Route <strong>Root to OSC</strong></li>
+<li>Quantize if you want a playable scale</li>
+<li>Morph to <strong>XPM</strong> or <strong>XPM2</strong></li>
+<li>Tune main OSC low</li>
+<li>Set Mod to track <strong>OSC</strong></li>
+<li>Harmonic above center, around 2nd–5th harmonic region</li>
+<li>Add slight <strong>Detune</strong></li>
+</ul>
+<h3>Sound design</h3>
+<ul>
+<li><strong>Depth</strong> = PM intensity</li>
+<li><strong>Shape</strong> = extra fold or XPM index depending on mode</li>
+<li><strong>Shift</strong> = harmonic emphasis / damping depending on mode</li>
+<li><strong>Stretch</strong> = medium</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li><strong>Δ–∑ to Morph</strong> lightly</li>
+<li><strong>UFG to Shift</strong> or <strong>Shape</strong></li>
+<li><strong>Δ–∑ to 1V/TZ</strong> for sequenced pitch</li>
+<li>Use <strong>Scale quantisation</strong> for locked riffs</li>
+<li>Set <strong>Q.Trig on</strong> with Root tracking and scale active for auto-arpeggiated behavior</li>
+</ul>
+<h3>Best movement recipe</h3>
+<ul>
+<li>slow UFG to one timbre axis</li>
+<li>stepped Δ–∑ to another</li>
+<li>manual performance on Morph</li>
+</ul>
+<p>This gives the classic “talking / yawing / barking” bass behavior.</p>
+<hr />
+<h2>Patch idea 5: reese-ish tearing bass</h2>
+<h3>Setup</h3>
+<ul>
+<li>Morph to <strong>FBPM</strong>, <strong>2OP</strong>, or <strong>XPM</strong></li>
+<li>Low OSC frequency</li>
+<li>Mod tracks OSC</li>
+<li>Harmonic set close to fundamental or low harmonic</li>
+<li><strong>Detune</strong> slightly off center</li>
+<li><strong>Depth</strong> medium</li>
+<li><strong>Shape</strong> low-medium</li>
+<li><strong>Stretch</strong> medium-high</li>
+</ul>
+<h3>Why this is strong here</h3>
+<p>Detune affects both:
+- Mod oscillator relationship
+- harmonic wavefolder animation</p>
+<p>That means one control can create moving internal beating and tearing.</p>
+<h3>Modulation ideas</h3>
+<ul>
+<li>Slow UFG to <strong>Detune</strong> externally if possible</li>
+<li>Δ–∑ to <strong>Stretch</strong> or <strong>Shape</strong></li>
+<li>UFG to <strong>Depth</strong></li>
+<li>external slow LFO to Morph</li>
+</ul>
+<h3>Character</h3>
+<ul>
+<li>mild detune = thick reese</li>
+<li>more stretch = spectral ripping</li>
+<li>more depth = aggressive, metallic edge</li>
+<li>morph toward XPM = more vocal and unstable</li>
+</ul>
+<hr />
+<h2>Patch idea 6: wobble bass that avoids sounding generic</h2>
+<p>Instead of only modulating filter cutoff externally, use the internal structure.</p>
+<h3>Setup</h3>
+<ul>
+<li>Morph in <strong>2OP2</strong> or <strong>XPM2</strong></li>
+<li>Root to OSC</li>
+<li>Mod tracks OSC</li>
+<li>Set a useful harmonic relation</li>
+<li>Damped/Pulsar low to medium</li>
+<li>Stretch medium</li>
+<li>Shape medium</li>
+</ul>
+<h3>Modulation routing</h3>
+<ul>
+<li>UFG looping in tempo-synced LFO range</li>
+<li>UFG to <strong>Depth</strong></li>
+<li>UFG or Δ–∑ to <strong>Morph</strong></li>
+<li>opposite-polarity modulation to <strong>Shift</strong></li>
+<li>Δ–∑ to <strong>1V/TZ</strong> for phrase movement</li>
+</ul>
+<h3>Trick</h3>
+<p>Use <strong>Skew</strong> and <strong>Shape</strong> on the UFG to alter how the wobble feels:
+- ramp = aggressive forward lurch
+- triangle/linear = even sweep
+- raised cosine = rounded breathing
+- exponential = punchy “grab”</p>
+<p>This makes the bass movement feel less like a standard LFO/filter wobble and more like spectral articulation.</p>
+<hr />
+<h2>Patch idea 7: sub bass with violent top layer</h2>
+<h3>Setup</h3>
+<ul>
+<li>Keep OSC tuned low</li>
+<li>Use moderate <strong>Depth</strong></li>
+<li>Low-medium <strong>Shape</strong></li>
+<li>Moderate-high <strong>Stretch</strong></li>
+<li>Morph in <strong>FBPM</strong> or <strong>2OP</strong></li>
+<li>Damped/Pulsar low</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Δ–∑ to <strong>Shift</strong></li>
+<li>UFG to <strong>Shape</strong></li>
+<li>very light Morph modulation</li>
+<li>quantized pitch via Root/Scale</li>
+</ul>
+<h3>Why it works</h3>
+<p>Stretch can move harmonics while keeping the fundamental stable, which is perfect for bass music where the sub must stay anchored while the top end mutates.</p>
+<hr />
+<h1>Haunted atmospheric pads</h1>
+<p>This module is stereo by design at the main sine/cosine outputs, so it should excel at spatial pads.</p>
+<h2>Main pad strategy</h2>
+<p>For pads:
+- use the stereo sine/cosine outs as a pair
+- keep modulation slow
+- use small modulation amounts
+- let several parameters drift independently
+- avoid too much Damped/Pulsar unless you want tremolo/pulsar texture</p>
+<hr />
+<h2>Patch idea 8: ghost choir pad</h2>
+<h3>Setup</h3>
+<ul>
+<li>Start at Centre</li>
+<li>Morph to <strong>FMNT</strong></li>
+<li>Root to OSC and maybe UFG too</li>
+<li>Tune to low-mid register</li>
+<li>Depth low-medium</li>
+<li>Shift low</li>
+<li>Shape low-medium</li>
+<li>Stretch low</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>UFG looping slowly</li>
+<li>UFG to <strong>Depth</strong></li>
+<li>Δ–∑ smoothed and very light to <strong>Morph</strong></li>
+<li>Δ–∑ or slow external CV to <strong>Shift</strong></li>
+<li>Mod oscillator tuned to a consonant ratio or scale degree</li>
+</ul>
+<h3>Why it works</h3>
+<p>FMNT uses raised-cosine AM and PM to create formant-like spectra, so small modulations create vocal/choir movement without needing filters.</p>
+<h3>Extra haunting move</h3>
+<p>Use <strong>Just Intonation</strong> scales and scan scale choices around center/right side for less familiar harmonic spacing.</p>
+<hr />
+<h2>Patch idea 9: drifting horror pad</h2>
+<h3>Setup</h3>
+<ul>
+<li>Morph to <strong>Asym</strong> or low-depth <strong>XPM</strong></li>
+<li>Main pitch fairly low</li>
+<li>Mod tracks Root or OSC</li>
+<li>Harmonic set to a strange interval</li>
+<li>Detune slightly off center</li>
+<li>Stretch low-medium</li>
+<li>Damped/Pulsar very low or off</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Δ–∑ clocked slowly by UFG</li>
+<li>Increase <strong>Smooth</strong> on Δ–∑ so it glides</li>
+<li>Route Δ–∑ to <strong>Morph</strong> and/or <strong>1V/TZ</strong> lightly</li>
+<li>Route UFG to <strong>Shape</strong> with shallow amount</li>
+<li>Use negative modulation on one parameter and positive on another</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>unstable harmonic fog</li>
+<li>slight melodic drift</li>
+<li>quasi-organic spectral breathing</li>
+<li>eerie tonal asymmetry</li>
+</ul>
+<hr />
+<h2>Patch idea 10: pulsar-cloud ambient wash</h2>
+<h3>Setup</h3>
+<ul>
+<li>Morph to <strong>FMNT</strong> or <strong>2OP</strong></li>
+<li>UFG in looping mode at slow to medium rate</li>
+<li><strong>Damped/Pulsar</strong> medium-high</li>
+<li>OSC in mid register</li>
+<li>Shape low-medium</li>
+<li>Depth low-medium</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Use UFG as the pulsar window via Damped/Pulsar</li>
+<li>Slowly modulate <strong>UFG Shape</strong> and <strong>Skew</strong></li>
+<li>Δ–∑ to <strong>Morph</strong> lightly</li>
+<li>Δ–∑ Smooth above halfway for flowing transitions</li>
+<li>Stretch a little to separate upper harmonics from the root</li>
+</ul>
+<h3>Why it works</h3>
+<p>The manual explicitly describes UFG as:
+- modulation source
+- pulsar window generator
+- clock for Δ–∑</p>
+<p>When all three are linked, you get self-coherent motion that feels composed rather than random.</p>
+<hr />
+<h1>Specific advanced tricks</h1>
+<h2>1. Use Q.Trig for self-generating rhythmic bass/arps</h2>
+<p>If:
+- Root is routed to OSC
+- a scale is enabled
+- Q.Trig is active</p>
+<p>then a trigger is sent to UFG whenever oscillator frequency crosses a quantizer threshold.</p>
+<h3>Try this</h3>
+<ul>
+<li>Patch an LFO or Δ–∑ into <strong>1V/TZ</strong></li>
+<li>Set <strong>Damped/Pulsar</strong> high</li>
+<li>Put UFG in non-looping mode</li>
+</ul>
+<p>Now pitch movement can generate rhythmic triggers/envelopes internally. This is great for:
+- bubbling bass sequences
+- auto-arpeggiation
+- semi-chaotic percussion</p>
+<hr />
+<h2>2. Use external audio into Ext. Sync/Track</h2>
+<p>The external input can do:
+- sync
+- pitch tracking</p>
+<h3>Creative uses</h3>
+<ul>
+<li>Feed a drum loop, voice, or another oscillator</li>
+<li>In <strong>Track</strong> mode, the OSC follows incoming pitch but keeps its own timbre system</li>
+<li>Then use Morph/Depth/Shape/Stretch on that tracked pitch</li>
+</ul>
+<p>This can make:
+- voice-following demonic drones
+- bass that tracks external riffs but becomes alien
+- percussion locked to another sound source’s motion</p>
+<p>For haunted material, feed vocals or field recordings with pitch content.</p>
+<hr />
+<h2>3. Audio-rate UFG modulation</h2>
+<p>The UFG tracks into audio rate and has anti-aliased output.</p>
+<h3>Try</h3>
+<ul>
+<li>set UFG to audio rate</li>
+<li>route it internally to Shift, Depth, Shape, or 1V/TZ</li>
+<li>use small attenuation</li>
+</ul>
+<p>This will add a more “synth-operator” quality than simple LFO motion:
+- buzzy bass articulation
+- metallic percussion
+- animated formants in pads</p>
+<hr />
+<h2>4. Δ–∑ as both sequencer and timbre source</h2>
+<p>The Δ–∑ is more interesting than a normal random sequencer because:
+- it derives from delta-sigma encoding of Mod
+- has non-destructive mutation
+- can be stepped or smoothed
+- behaves differently at audio rates</p>
+<h3>Good uses</h3>
+<ul>
+<li>to <strong>1V/TZ</strong> for riffs</li>
+<li>to <strong>Morph</strong> for evolving timbral structure</li>
+<li>to <strong>Shape</strong> or <strong>Shift</strong> for note-by-note articulation changes</li>
+</ul>
+<h3>Best trick</h3>
+<p>Lock a good sequence with <strong>Chance at minimum</strong>, then:
+- raise Chance temporarily for mutations
+- drop it back to restore the original</p>
+<p>This is perfect for live basslines: controlled chaos with a reset point.</p>
+<hr />
+<h1>Practical recipe sets</h1>
+<h2>Recipe A: distorted industrial kick</h2>
+<ul>
+<li>Morph: FBPM</li>
+<li>OSC low</li>
+<li>UFG: one-shot, fast decay shape</li>
+<li>UFG → 1V/TZ positive</li>
+<li>UFG → Depth slight</li>
+<li>Damped/Pulsar: medium-high</li>
+<li>Shape: low-medium</li>
+<li>Stretch: low</li>
+<li>Optional Δ–∑ → Shape tiny amount</li>
+</ul>
+<hr />
+<h2>Recipe B: snarling neuro bass</h2>
+<ul>
+<li>Morph: XPM2</li>
+<li>Mod tracks OSC</li>
+<li>Harmonic: 2nd–4th region</li>
+<li>Detune: slight</li>
+<li>Depth: medium-high</li>
+<li>Shift: low-medium</li>
+<li>Shape: medium</li>
+<li>Stretch: medium</li>
+<li>Δ–∑ → Morph</li>
+<li>UFG → Depth or Shift</li>
+<li>Root scale quantized for riffs</li>
+</ul>
+<hr />
+<h2>Recipe C: reese with spectral tear</h2>
+<ul>
+<li>Morph: 2OP or FBPM</li>
+<li>Mod tracks OSC</li>
+<li>Harmonic near fundamental</li>
+<li>Detune slightly off center</li>
+<li>Depth medium</li>
+<li>Shape low</li>
+<li>Stretch medium-high</li>
+<li>slow UFG to Shape</li>
+<li>slow Δ–∑ to Shift</li>
+<li>external saturation after module if desired</li>
+</ul>
+<hr />
+<h2>Recipe D: haunted choir</h2>
+<ul>
+<li>Morph: FMNT</li>
+<li>stereo outs to reverb</li>
+<li>Depth low-medium</li>
+<li>Shape low</li>
+<li>Shift low</li>
+<li>slow UFG → Depth</li>
+<li>smoothed Δ–∑ → Morph tiny amount</li>
+<li>JI scale selected</li>
+<li>slight Detune</li>
+</ul>
+<hr />
+<h2>Recipe E: broken alien hats</h2>
+<ul>
+<li>Morph: Asym or FBPM2</li>
+<li>OSC high</li>
+<li>Damped/Pulsar high</li>
+<li>UFG triggered quickly</li>
+<li>Shape medium-high</li>
+<li>Shift medium</li>
+<li>Δ–∑ → 1V/TZ tiny</li>
+<li>Mod high harmonic with odd spread</li>
+<li>Stretch moderate</li>
+</ul>
+<hr />
+<h1>Best control interactions to explore</h1>
+<h2>Shift + Stretch</h2>
+<p>This is one of the most unique pairings on the module.</p>
+<ul>
+<li><strong>Shift</strong> introduces blended harmonic frequency shifting</li>
+<li><strong>Stretch</strong> frequency-shifts generated harmonics while holding the fundamental</li>
+</ul>
+<p>Use this for:
+- basses with stable sub and moving top
+- metallic percussion
+- widening, detuned-feeling pads without destabilizing pitch</p>
+<hr />
+<h2>Depth + Shape</h2>
+<p>Usually the most immediate “distortion pair.”</p>
+<ul>
+<li><strong>Depth</strong> often introduces PM with damping</li>
+<li><strong>Shape</strong> often introduces harmonic wavefolding</li>
+</ul>
+<p>Use:
+- more Depth for internal pressure/aggression
+- more Shape for visible folds/edges</p>
+<p>On percussion:
+- modulate Depth with UFG envelope
+- leave Shape more static</p>
+<p>On bass:
+- modulate Shape slowly
+- play Depth manually</p>
+<hr />
+<h2>Damped/Pulsar + UFG Time/Shape/Skew</h2>
+<p>This is your secret weapon for percussive and animated sound.</p>
+<ul>
+<li>Time = rate or envelope length</li>
+<li>Shape = contour character</li>
+<li>Skew = asymmetry/pulse geometry</li>
+<li>Damped/Pulsar = how much that contour invades the OSC</li>
+</ul>
+<p>This can create:
+- kicks
+- plucks
+- tremolo clouds
+- hard-sync tearing
+- pseudo-granular pulses</p>
+<hr />
+<h2>Harmonic + Order + Detune on Mod</h2>
+<p>This cluster determines how “intelligent” the mod oscillator relationship feels.</p>
+<h3>Suggestions</h3>
+<ul>
+<li><strong>Order near center</strong>: more blended harmonic behavior</li>
+<li><strong>Order toward odd/even</strong>: more selective overtone families</li>
+<li><strong>Order max</strong>: scale-locked or integer-ratio behavior</li>
+<li><strong>Detune slight</strong>: movement and growl</li>
+<li><strong>Detune larger</strong>: instability and tearing</li>
+</ul>
+<p>Excellent for bass and evolving pads.</p>
+<hr />
+<h1>If I were patching it for your three goals</h1>
+<h2>1. Distorted percussion starter patch</h2>
+<ul>
+<li>Morph: FBPM2</li>
+<li>OSC: low-mid</li>
+<li>UFG: triggered one-shot</li>
+<li>Damped/Pulsar: 2–4 o’clock</li>
+<li>UFG to 1V/TZ positive</li>
+<li>UFG to Depth slight</li>
+<li>Δ–∑ to Shape tiny</li>
+<li>Mod detuned inharmonically</li>
+</ul>
+<h2>2. Dubstep / DnB bass starter patch</h2>
+<ul>
+<li>Morph: XPM2</li>
+<li>Root quantized</li>
+<li>Δ–∑ to 1V/TZ</li>
+<li>UFG looped in tempo</li>
+<li>UFG to Shift</li>
+<li>Δ–∑ to Morph</li>
+<li>Stretch up until the top starts talking</li>
+<li>Shape to taste</li>
+<li>Detune slightly off center</li>
+</ul>
+<h2>3. Haunted pad starter patch</h2>
+<ul>
+<li>Morph: FMNT</li>
+<li>stereo outs hard left/right</li>
+<li>UFG slow looping</li>
+<li>UFG to Depth light</li>
+<li>smoothed Δ–∑ to Morph very light</li>
+<li>Shift barely on</li>
+<li>Shape barely on</li>
+<li>JI scale</li>
+<li>huge reverb after</li>
+</ul>
+<hr />
+<h1>Final advice</h1>
+<p>K-ACCUMULATOR seems to reward this exact workflow:</p>
+<ol>
+<li>Return to <strong>Centre</strong></li>
+<li>Pick a <strong>Morph mode</strong> for the general voice</li>
+<li>Add <strong>one</strong> shaper</li>
+<li>Add <strong>one</strong> modulation source</li>
+<li>Add <strong>Stretch</strong></li>
+<li>Add <strong>Damped/Pulsar</strong></li>
+<li>Only then start moving Mod harmonic relationships</li>
+</ol>
+<p>That order tends to preserve intention while still getting into wild territory.</p>
+<p>If you want, I can also turn this into:
+- a <strong>cheat sheet by panel section</strong>
+- <strong>10 exact knob-position patches</strong>
+- or a <strong>performance-oriented patch guide</strong> for techno / dubstep / ambient sets.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

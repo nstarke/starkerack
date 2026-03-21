@@ -1,0 +1,623 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Fancyyyyy_K-Accumulator_Digital_Complex_Oscillator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Fancyyyyy — K-Accumulator Digital Complex Oscillator</h1>
+<ul>
+<li><a href="../../manuals/K_ACCUMULATOR_Quickstart_v1.02.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://fancysynthesis.net">Manual PDF</a></p>
+<h1>K-ACCUMULATOR Cheat Sheet</h1>
+<h2>What it is</h2>
+<p>A <strong>complex digital oscillator voice</strong> built around:
+- <strong>Main OSC</strong> with stereo <strong>sine/cosine outputs</strong>
+- <strong>Mod oscillator</strong> for PM / harmonic relationships
+- <strong>UFG</strong> = function generator / oscillator / modulation source
+- <strong>Δ–∑</strong> = stepped/smoothed pattern generator
+- <strong>Root</strong> pitch system tying sections together</p>
+<p>Best mindset: start from <strong>Centre</strong> (pure sine/cosine), then add <strong>Shift / Depth / Shape / Stretch / Damped-Pulsar</strong> one at a time.</p>
+<hr />
+<h2>Fast Start</h2>
+<h3>Centre state</h3>
+<p>To get back to a clean reference sound:
+- Center <strong>all attenuverters</strong>
+- <strong>Damped/Pulsar</strong> fully CCW
+- <strong>Stretch</strong> fully CCW
+- <strong>Shift / Depth / Shape</strong> fully CCW</p>
+<p>This always gives <strong>pure sine + cosine</strong> at the main outputs.</p>
+<h3>First moves</h3>
+<ol>
+<li>Patch <strong>Sine out</strong> and <strong>Cosine out</strong> to L/R mixer inputs.</li>
+<li>Use <strong>Freq.</strong> to set oscillator pitch.</li>
+<li>Raise <strong>Shift</strong> for blended harmonic frequency shifting.</li>
+<li>Raise <strong>Depth</strong> for self-feedback phase-mod distortion.</li>
+<li>Raise <strong>Shape</strong> for harmonic wavefolding.</li>
+<li>Turn <strong>Mod Detune</strong> to animate the folder.</li>
+<li>Add <strong>Stretch</strong> to shift generated harmonics while keeping the fundamental fixed.</li>
+<li>Raise a waveshaper CV attenuverter to let <strong>UFG</strong> or <strong>Δ–∑</strong> modulate it.</li>
+<li>Raise <strong>Damped/Pulsar</strong> for sync + AM from the UFG.</li>
+<li>Use <strong>1V/TZ</strong> attenuverter to bring in <strong>Δ–∑</strong> pitch motion.</li>
+</ol>
+<hr />
+<h2>Core Concepts</h2>
+<h3>Root system</h3>
+<p>The <strong>Root</strong> section sets the tuning reference for:
+- OSC
+- UFG
+- Mod oscillator</p>
+<p>You can quantize Root to:
+- <strong>12-TET</strong>
+- <strong>Just Intonation</strong></p>
+<h3>Morph system</h3>
+<p>The <strong>Morph encoder</strong> moves through a matrix of waveshaping topologies, not separate engines.</p>
+<p><strong>Good beginner route:</strong> stay on the <strong>left-hand path</strong>:
+- <strong>FMNT → FBPM → 2OP → XPM → Asym</strong>
+This path keeps control meanings more consistent.</p>
+<h3>OSC control meanings in most modes</h3>
+<ul>
+<li><strong>Shift</strong> = harmonic frequency shifting</li>
+<li><strong>Depth</strong> = phase modulation / PM amount</li>
+<li><strong>Shape</strong> = wavefolding</li>
+</ul>
+<hr />
+<h2>Best Practical Patches</h2>
+<h3>1. Pure stereo oscillator</h3>
+<ul>
+<li>Go to <strong>Centre</strong></li>
+<li>Patch <strong>Sine</strong> + <strong>Cosine</strong></li>
+<li>Tune with <strong>Freq.</strong></li>
+<li>Optional: route <strong>Root</strong> to OSC for quantized pitch</li>
+</ul>
+<h3>2. Animated harmonic tone</h3>
+<ul>
+<li>Start at Centre</li>
+<li>Raise <strong>Shift</strong></li>
+<li>Raise <strong>Shape</strong></li>
+<li>Turn <strong>Mod Detune</strong></li>
+<li>Add a little <strong>Stretch</strong></li>
+</ul>
+<h3>3. West-coast-ish complex tone</h3>
+<ul>
+<li>Morph to <strong>2OP</strong> or <strong>XPM</strong></li>
+<li>Raise <strong>Depth</strong></li>
+<li>Set Mod <strong>Order</strong> near center or higher</li>
+<li>Use <strong>Harmonic</strong> for ratio</li>
+<li>Fine-tune with <strong>Detune</strong></li>
+</ul>
+<h3>4. Percussive / pulsar voice</h3>
+<ul>
+<li>Raise <strong>Damped/Pulsar</strong></li>
+<li>Set <strong>UFG Time</strong> to sub-audio</li>
+<li>Trigger UFG</li>
+<li>Shape UFG with <strong>Skew</strong> and <strong>Shape</strong></li>
+<li>Patch OSC outputs to LPG/VCA/filter as desired</li>
+</ul>
+<h3>5. Quantized melodic sequence</h3>
+<ul>
+<li>Route <strong>Root</strong> to OSC</li>
+<li>Enable <strong>Scale</strong></li>
+<li>Use <strong>Δ–∑</strong> into OSC via normalled modulation or external patching</li>
+<li>Use <strong>Chance / Length / Smooth</strong> to evolve sequence</li>
+<li>Turn on <strong>Q.Trig</strong> for threshold-triggered UFG behavior</li>
+</ul>
+<h3>6. External audio tracking</h3>
+<ul>
+<li>Patch external waveform into <strong>Ext. Sync/Track</strong></li>
+<li>Set button to <strong>Track</strong></li>
+<li>K-ACCUMULATOR follows pitch and outputs shaped sine/cosine</li>
+<li>Works well for square waves, weird but recognizable with voice/material</li>
+</ul>
+<hr />
+<h2>Morph Modes Reference</h2>
+<h3>Poles</h3>
+<ul>
+<li><strong>FMNT (green)</strong>: formant-like AM + PM</li>
+<li><strong>Asym (yellow)</strong>: asymmetric PM/AM, granular pulse-train-like spectra</li>
+</ul>
+<h3>Left-hand path</h3>
+<ul>
+<li><strong>FBPM (green)</strong>: self-feedback PM, sine-to-saw style distortion</li>
+<li><strong>2OP (yellow)</strong>: Mod oscillator PMs OSC</li>
+<li><strong>XPM (red)</strong>: cross-phase modulation feedback</li>
+</ul>
+<h3>Right-hand path</h3>
+<ul>
+<li><strong>FBPM2 (green)</strong>: chaotic self-feedback / subharmonic latching</li>
+<li><strong>2OP2 (yellow)</strong>: separated self-mod vs Mod PM</li>
+<li><strong>XPM2 (red)</strong>: fully separated XPM controls</li>
+</ul>
+<h3>Color meaning</h3>
+<ul>
+<li><strong>Green</strong> = self-feedback PM only</li>
+<li><strong>Yellow</strong> = Mod oscillator PM added</li>
+<li><strong>Red</strong> = cross-feedback between oscillators</li>
+</ul>
+<hr />
+<h1>Controls Reference</h1>
+<h2>1. Root Section</h2>
+<h3>Knobs / Buttons</h3>
+<ul>
+<li><strong>Root knob</strong></li>
+<li>Sets root frequency</li>
+<li>Mode selected by <strong>CRS/FIN/OCT</strong> button</li>
+<li><strong>CRS/FIN/OCT button</strong></li>
+<li>Cycles:<ul>
+<li>coarse</li>
+<li>fine</li>
+<li>octave</li>
+</ul>
+</li>
+<li>Soft-pickup behavior</li>
+<li><strong>Scale knob</strong></li>
+<li>Selects one of 21 scales in current tuning system</li>
+<li><strong>TET/JI button</strong></li>
+<li>Toggles <strong>12-TET / Just Intonation</strong></li>
+<li><strong>Root Send button</strong></li>
+<li>Routes Root to:<ul>
+<li>OSC only</li>
+<li>OSC + UFG</li>
+<li>UFG only</li>
+<li>neither</li>
+</ul>
+</li>
+</ul>
+<h3>Jack</h3>
+<ul>
+<li><strong>1V input</strong></li>
+<li>1V/Oct calibrated input for Root pitch</li>
+<li><strong>Voltage range: not stated in quick-start manual</strong></li>
+</ul>
+<hr />
+<h2>2. OSC Section</h2>
+<h3>Outputs</h3>
+<ul>
+<li><strong>Main Sine output</strong></li>
+<li>Waveshaped sine output</li>
+<li>Intended as stereo pair with cosine</li>
+<li><strong>Output voltage range: not stated in quick-start manual</strong></li>
+<li><strong>Main Cosine output</strong></li>
+<li>Waveshaped cosine output</li>
+<li><strong>Output voltage range: not stated in quick-start manual</strong></li>
+</ul>
+<h3>Knobs / Buttons</h3>
+<ul>
+<li><strong>Freq.</strong></li>
+<li>Main oscillator frequency</li>
+<li><strong>Q.Trig button</strong></li>
+<li>Sends trigger to UFG when oscillator crosses quantizer thresholds</li>
+<li>Requires Root tracking + scale</li>
+<li><strong>Stretch</strong></li>
+<li>Harmonic stretching / harmonic-only shifting</li>
+<li><strong>Damped/Pulsar</strong></li>
+<li>Amount of damped sync + AM from UFG or external source</li>
+<li><strong>Ext. Sync/Track button</strong></li>
+<li>Cycles:<ul>
+<li>Sync</li>
+<li>Track</li>
+<li>Off</li>
+</ul>
+</li>
+<li><strong>Shift</strong></li>
+<li>Waveshaping control</li>
+<li><strong>Depth</strong></li>
+<li>Waveshaping control</li>
+<li><strong>Shape</strong></li>
+<li>Waveshaping control</li>
+<li><strong>Morph encoder</strong></li>
+<li>Selects morph position</li>
+<li>Press = coarse/fine</li>
+<li>Double-press = snap to nearest position</li>
+</ul>
+<h3>Jacks</h3>
+<ul>
+<li><strong>Ext. Sync/Track input</strong></li>
+<li>External sync source or pitch tracking source</li>
+<li><strong>Voltage/audio range: not stated</strong></li>
+<li><strong>TZPM input</strong></li>
+<li>External AC-coupled through-zero phase modulation</li>
+<li><strong>Voltage range: not stated</strong></li>
+<li><strong>1V/TZ input</strong></li>
+<li>Auto-detecting pitch CV / through-zero FM input</li>
+<li>Stepped/slower CV treated as DC-coupled 1V/Oct</li>
+<li>Audio-rate treated as AC-coupled TZFM</li>
+<li><strong>Voltage range: not stated</strong></li>
+<li><strong>Shift CV input</strong></li>
+<li>CV for Shift</li>
+<li>Normalled from UFG or Δ–∑</li>
+<li><strong>Voltage range: not stated</strong></li>
+<li><strong>Depth CV input</strong></li>
+<li>CV for Depth</li>
+<li>Normalled from UFG or Δ–∑</li>
+<li><strong>Voltage range: not stated</strong></li>
+<li><strong>Shape CV input</strong></li>
+<li>CV for Shape</li>
+<li>Normalled from UFG or Δ–∑</li>
+<li><strong>Voltage range: not stated</strong></li>
+<li><strong>Morph CV input</strong></li>
+<li>CV for morph position</li>
+<li><strong>Voltage range: not stated</strong></li>
+<li><strong>Damped/Pulsar CV input</strong></li>
+<li>CV over damped sync/pulsar amount</li>
+<li><strong>Voltage range: not stated</strong></li>
+</ul>
+<h3>Attenuverters / mini-controls</h3>
+<ul>
+<li><strong>1V/TZ attenuverter</strong></li>
+<li><strong>Shift attenuverter</strong></li>
+<li><strong>Depth attenuverter</strong></li>
+<li><strong>Shape attenuverter</strong></li>
+<li><strong>Morph CV attenuverter</strong></li>
+<li>These have:</li>
+<li>midpoint deadzone</li>
+<li>exponential response</li>
+<li>Bottom-row source select buttons:</li>
+<li>LED lit = <strong>Δ–∑</strong> normalled</li>
+<li>LED unlit = <strong>UFG</strong> normalled</li>
+<li>cable inserted overrides normalization</li>
+</ul>
+<hr />
+<h2>3. Mod Section</h2>
+<h3>Knobs / Buttons</h3>
+<ul>
+<li><strong>Harmonic</strong></li>
+<li>Sets Mod oscillator ratio/offset relative to tracked source</li>
+<li><strong>Order</strong></li>
+<li>Sets Harmonic behavior:<ul>
+<li>min = free pitch offset</li>
+<li>center = blended harmonics above, free below</li>
+<li>CW = odd-harmonic emphasis</li>
+<li>CCW = even-harmonic emphasis</li>
+<li>max = quantized to current scale / integer ratios</li>
+</ul>
+</li>
+<li><strong>Detune</strong></li>
+<li>Detunes Mod from tracked frequency</li>
+<li>Also animates main harmonic folder behavior</li>
+<li><strong>OSC/UFG button</strong></li>
+<li>Selects Mod tracking source:<ul>
+<li>OSC</li>
+<li>UFG</li>
+<li>none lit = Root</li>
+</ul>
+</li>
+</ul>
+<h3>Jack</h3>
+<ul>
+<li><strong>HMX/TZ CV input</strong></li>
+<li>CV for Harmonic / TZ-related behavior</li>
+<li>Tracks 1V/Oct in free-pitch mode at full attenuverter</li>
+<li><strong>Voltage range: not stated</strong></li>
+</ul>
+<h3>Attenuverter</h3>
+<ul>
+<li><strong>HMX/TZ attenuverter</strong></li>
+</ul>
+<h3>Outputs</h3>
+<ul>
+<li><strong>No dedicated Mod audio output shown in quick-start</strong></li>
+</ul>
+<hr />
+<h2>4. UFG Section</h2>
+<h3>Outputs</h3>
+<ul>
+<li><strong>Function output</strong></li>
+<li>Anti-aliased function waveform</li>
+<li><strong>Output voltage range: not stated</strong></li>
+<li><strong>Gate output</strong></li>
+<li>Gate/pulse output, pulse width set by Skew</li>
+<li><strong>Output voltage range: not stated</strong></li>
+</ul>
+<h3>Knobs / Switches / Buttons</h3>
+<ul>
+<li><strong>Loop/Trig 3-position switch</strong></li>
+<li>Up = toggle looping</li>
+<li>Middle = single-shot triggered externally</li>
+<li>Down = momentary manual trigger</li>
+<li><strong>Time</strong></li>
+<li>UFG rate/frequency</li>
+<li><strong>Skew</strong></li>
+<li>Rise/fall asymmetry and gate pulse width</li>
+<li><strong>Shape</strong></li>
+<li>Morphs linear / sine / exponential / raised cosine</li>
+<li><strong>Type button</strong></li>
+<li>4 trigger response modes:<ul>
+<li>hard sync with subharmonic locking</li>
+<li>sync reversal</li>
+<li>sustain + hard sync</li>
+<li>sustain + sync reversal</li>
+</ul>
+</li>
+</ul>
+<h3>Jacks</h3>
+<ul>
+<li><strong>Time CV input</strong></li>
+<li>1V/Oct tracking</li>
+<li>Unpatched: random walk available through attenuverter</li>
+<li><strong>Voltage range: not stated</strong></li>
+<li><strong>Skew CV input</strong></li>
+<li>Unpatched: Δ–∑ normalled here</li>
+<li><strong>Voltage range: not stated</strong></li>
+<li><strong>1V input</strong></li>
+<li>1V/Oct input for UFG frequency</li>
+<li><strong>Voltage range: not stated</strong></li>
+<li><strong>TZFM input</strong></li>
+<li>AC-coupled through-zero FM</li>
+<li><strong>Voltage range: not stated</strong></li>
+<li><strong>Trig input</strong></li>
+<li>External trigger/gate input across full frequency range</li>
+<li><strong>Voltage range: not stated</strong></li>
+</ul>
+<h3>Attenuverters</h3>
+<ul>
+<li><strong>Time CV attenuverter</strong></li>
+<li><strong>Skew CV attenuverter</strong></li>
+</ul>
+<hr />
+<h2>5. Δ–∑ Section</h2>
+<h3>Output</h3>
+<ul>
+<li><strong>Δ–∑ output</strong></li>
+<li>Stepped or smoothed pattern CV</li>
+<li>Good for pitch, PM, TZFM, or modulation</li>
+<li><strong>Output voltage range: not stated</strong></li>
+</ul>
+<h3>Knobs / Switch</h3>
+<ul>
+<li><strong>Chance</strong></li>
+<li>Probability of new values entering sequence</li>
+<li>min = locked loop</li>
+<li>max = fully renewed</li>
+<li><strong>Length</strong></li>
+<li>Zooms pattern length from 2–16 steps</li>
+<li>center deadzone = 8 steps</li>
+<li><strong>Smooth</strong></li>
+<li>Glide/filter amount</li>
+<li><strong>Pattern switch</strong></li>
+<li>Right = enter new value at current step</li>
+<li>Left = restore previous value</li>
+<li>Hold right = overwrite pattern</li>
+<li>Hold left = double-length pattern</li>
+</ul>
+<h3>Jack</h3>
+<ul>
+<li><strong>Clock input</strong></li>
+<li>External clock breaks UFG normalization</li>
+<li><strong>Voltage range: not stated</strong></li>
+</ul>
+<hr />
+<h1>Jack Summary</h1>
+<h2>Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OSC</td>
+<td>Sine Out</td>
+<td>Main waveshaped sine</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>OSC</td>
+<td>Cosine Out</td>
+<td>Main waveshaped cosine</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>UFG</td>
+<td>Function Out</td>
+<td>Anti-aliased function waveform</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>UFG</td>
+<td>Gate Out</td>
+<td>Gate/pulse output</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>Δ–∑</td>
+<td>Δ–∑ Out</td>
+<td>Stepped/smoothed pattern CV</td>
+<td>Not stated</td>
+</tr>
+</tbody>
+</table>
+<h2>Inputs</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Jack</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Root</td>
+<td>1V In</td>
+<td>Root pitch CV, 1V/Oct calibrated</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>OSC</td>
+<td>Ext. Sync/Track In</td>
+<td>External sync or pitch tracking</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>OSC</td>
+<td>TZPM In</td>
+<td>AC-coupled through-zero PM</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>OSC</td>
+<td>1V/TZ In</td>
+<td>Pitch CV or TZFM, auto-detected</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>OSC</td>
+<td>Damped/Pulsar CV In</td>
+<td>CV over damped sync / pulsar amount</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>OSC</td>
+<td>Shift CV In</td>
+<td>Shift modulation</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>OSC</td>
+<td>Depth CV In</td>
+<td>Depth modulation</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>OSC</td>
+<td>Shape CV In</td>
+<td>Shape modulation</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>OSC</td>
+<td>Morph CV In</td>
+<td>Morph modulation</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>Mod</td>
+<td>HMX/TZ In</td>
+<td>Harmonic modulation / 1V tracking in free mode</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>UFG</td>
+<td>Time CV In</td>
+<td>Rate CV / 1V tracking</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>UFG</td>
+<td>Skew CV In</td>
+<td>Skew modulation</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>UFG</td>
+<td>1V In</td>
+<td>UFG pitch CV</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>UFG</td>
+<td>TZFM In</td>
+<td>AC-coupled through-zero FM</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>UFG</td>
+<td>Trig In</td>
+<td>Trigger/gate input</td>
+<td>Not stated</td>
+</tr>
+<tr>
+<td>Δ–∑</td>
+<td>Clock In</td>
+<td>External clock</td>
+<td>Not stated</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>Control Summary</h1>
+<h2>Knobs</h2>
+<ul>
+<li>Root</li>
+<li>Scale</li>
+<li>Freq.</li>
+<li>Stretch</li>
+<li>Damped/Pulsar</li>
+<li>Shift</li>
+<li>Depth</li>
+<li>Shape</li>
+<li>Morph</li>
+<li>Harmonic</li>
+<li>Order</li>
+<li>Detune</li>
+<li>Time</li>
+<li>Skew</li>
+<li>UFG Shape</li>
+<li>Chance</li>
+<li>Length</li>
+<li>Smooth</li>
+</ul>
+<h2>Attenuverters / mini-pots</h2>
+<ul>
+<li>Root 1V attenuverter</li>
+<li>OSC 1V/TZ attenuverter</li>
+<li>Shift attenuverter</li>
+<li>Depth attenuverter</li>
+<li>Shape attenuverter</li>
+<li>Morph CV attenuverter</li>
+<li>Mod HMX/TZ attenuverter</li>
+<li>UFG Time CV attenuverter</li>
+<li>UFG Skew CV attenuverter</li>
+</ul>
+<h2>Buttons / push functions</h2>
+<ul>
+<li>CRS/FIN/OCT</li>
+<li>TET/JI</li>
+<li>Root Send</li>
+<li>Q.Trig</li>
+<li>Ext. Sync/Track</li>
+<li>Morph encoder press</li>
+<li>Morph encoder double-press</li>
+<li>OSC/UFG (Mod source)</li>
+<li>UFG Type</li>
+</ul>
+<h2>Switches / toggles</h2>
+<ul>
+<li>UFG Loop/Trig 3-position switch</li>
+<li>Δ–∑ Pattern momentary switch</li>
+</ul>
+<hr />
+<h1>Important Behaviors / Gotchas</h1>
+<ul>
+<li><strong>Centre</strong> is your reset point. Learn it.</li>
+<li>Many OSC CV inputs are <strong>internally normalled</strong> to <strong>UFG or Δ–∑</strong>.</li>
+<li>OSC bottom-row source buttons:</li>
+<li><strong>LED lit = Δ–∑</strong></li>
+<li><strong>LED off = UFG</strong></li>
+<li><strong>1V/TZ input auto-detects</strong> slow CV vs audio-rate input.</li>
+<li><strong>Stretch only works when waveshaping is active.</strong></li>
+<li><strong>Detune</strong> affects both Mod pitch relationship and folder animation feel.</li>
+<li><strong>Q.Trig</strong> only works meaningfully when quantized Root tracking is active.</li>
+<li><strong>Δ–∑</strong> edits are <strong>non-destructive</strong> at minimum Chance.</li>
+</ul>
+<hr />
+<h1>Missing Technical Data</h1>
+<p>The quick-start manual does <strong>not specify actual voltage ranges</strong> for CV inputs or outputs. It only explicitly states:
+- some inputs are <strong>1V/Oct calibrated</strong>
+- some are <strong>AC-coupled</strong>
+- some are <strong>through-zero</strong>
+- some are <strong>normalled internally</strong></p>
+<p>For exact voltage ranges, a full technical manual would be needed.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

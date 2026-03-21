@@ -1,0 +1,659 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Making_Sound_Machines_DivSkip</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Making Sound Machines — DivSkip</h1>
+<ul>
+<li><a href="../../manuals/SKORPION_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://wmdevices.com/cdn/shop/files/Skorpion_Manual_Rev1.00.pdf">Manual PDF</a></p>
+<h1>WMD Skorpion — Creative Patch Ideas and Pairings</h1>
+<p>Skorpion is much more than a wavefolder. Reading the manual closely, it behaves like a <strong>threshold-analyzed waveform reanimation system</strong> with:</p>
+<ul>
+<li>8 comparator thresholds</li>
+<li>a vector core that slews toward a target</li>
+<li>selectable target behavior</li>
+<li>per-segment target sequencing</li>
+<li>feedback-based slope shaping</li>
+<li>stereo widening/delay</li>
+<li>a surprisingly deep internal modulation system</li>
+<li>lots of derived outputs for self-patching and ecosystem integration</li>
+</ul>
+<p>That means it sits somewhere between:</p>
+<ul>
+<li>wavefolder</li>
+<li>comparator bank</li>
+<li>segmented function generator</li>
+<li>waveshaper</li>
+<li>stereo processor</li>
+<li>control voltage extractor</li>
+<li>weird oscillator core companion</li>
+</ul>
+<p>So the most interesting use of Skorpion is often <strong>not</strong> “audio in, more harmonics out,” but rather:
+- <strong>using the thresholds as a control structure</strong>
+- <strong>using the TRGTs as a sequence engine</strong>
+- <strong>using the auxiliary outputs as modulation infrastructure</strong>
+- <strong>using external modules to animate target, halt, fold, and shape in coordinated ways</strong></p>
+<hr />
+<h2>Best companion module types</h2>
+<p>These are the module categories that pair especially well with Skorpion:</p>
+<ol>
+<li><strong>Clean analog VCOs</strong></li>
+<li>Sine/triangle sources let you hear the threshold behavior clearly.</li>
+<li>
+<p>Examples: Intellijel Dixie II+, Joranalogue Generate 3, Doepfer A-110-1, AJH VCOs</p>
+</li>
+<li>
+<p><strong>Complex or unstable sound sources</strong></p>
+</li>
+<li>Wavetables, drum voices, feedback oscillators, or physical modeling voices create rich threshold crossing behavior.</li>
+<li>
+<p>Examples: Noise Engineering voices, Make Noise DPO, Instruō Cs-L, Mutable Plaits, SSF Zephyr</p>
+</li>
+<li>
+<p><strong>Function generators / envelopes</strong></p>
+</li>
+<li>Great for animating FOLD, SHIFT, TARGET, HALT, or OUTPUT.</li>
+<li>
+<p>Examples: Make Noise Maths, Joranalogue Contour 1, Frap Tools Falistri, Befaco Rampage</p>
+</li>
+<li>
+<p><strong>Matrix mixers / CV mixers / attenuverters</strong></p>
+</li>
+<li>Essential because Skorpion is a self-modulation playground.</li>
+<li>
+<p>Examples: Doepfer A-138m, Happy Nerding 3xMIA, Frap Tools 321, Mutable Shades</p>
+</li>
+<li>
+<p><strong>Sequential switches / comparators / logic</strong></p>
+</li>
+<li>Excellent for exploiting G(IN&gt;0), ±G(DIR), COUNT, and DAC outputs.</li>
+<li>
+<p>Examples: Doepfer A-151, Joranalogue Compare 2, Noise Engineering Vice Virga, Klavis Two Bits</p>
+</li>
+<li>
+<p><strong>VCAs</strong></p>
+</li>
+<li>Needed to dynamically control feedback and self-patching intensity.</li>
+<li>
+<p>Examples: Intellijel Quad VCA, Mutable Veils, Xaoc Tallin, ALM Tangle Quartet</p>
+</li>
+<li>
+<p><strong>Filters / resonators</strong></p>
+</li>
+<li>Because Skorpion can get aggressive quickly; filtering after or before it is powerful.</li>
+<li>
+<p>Examples: Xaoc Belgrad, Bastl Ikarie, Rossum Linnaeus, QPAS, Doepfer SEM filter</p>
+</li>
+<li>
+<p><strong>Delays / reverbs / granular modules</strong></p>
+</li>
+<li>Since Skorpion already creates complex transient-rich material, time-based modules make it explode into atmosphere.</li>
+<li>
+<p>Examples: Mimeophon, Magneto, Nautilus, Desmodus Versio, Arbhar, Beads</p>
+</li>
+<li>
+<p><strong>Oscilloscope / tuner / analyzer</strong></p>
+</li>
+<li>Seriously useful here. This module’s behavior is easier to understand visually.</li>
+<li>Examples: Mordax Data, O’Tool+</li>
+</ol>
+<hr />
+<h1>How to think about Skorpion musically</h1>
+<p>A useful way to approach it:</p>
+<ul>
+<li><strong>FOLD</strong> = how hard the signal engages the threshold structure</li>
+<li><strong>SHIFT</strong> = asymmetry / bias / pseudo-frequency-shift-like motion</li>
+<li><strong>SLOPE</strong> = the “speed” and harmonic density of the output core</li>
+<li><strong>TARGET</strong> = what the vector core is trying to become</li>
+<li><strong>SHAPE</strong> = nonlinear behavior / feedback law</li>
+<li><strong>THLD sliders</strong> = where folding events occur</li>
+<li><strong>TRGT sliders</strong> = per-segment destination/slope sequence</li>
+<li><strong>HALT</strong> = freeze motion for rhythmic or stepped artifacts</li>
+<li><strong>OUTPUT</strong> = dry/wet/wide stereo animator</li>
+</ul>
+<p>This makes Skorpion ideal for:
+- animated timbral sequencing
+- stereo sound design
+- pseudo-resynthesis
+- patch-programmable distortion
+- CV generation from audio</p>
+<hr />
+<h1>Creative patch ideas</h1>
+<h2>1. Precision animated wavefolder voice</h2>
+<p><strong>Pair with:</strong> clean VCO, envelope, VCA, filter</p>
+<h3>Patch</h3>
+<ul>
+<li>VCO sine or triangle → <strong>IN</strong></li>
+<li>1V/OCT sequence → VCO and <strong>Skorpion 1V/OCT</strong></li>
+<li>Envelope → VCA for amplitude</li>
+<li>Slow LFO → <strong>SHIFT</strong></li>
+<li>Another envelope or velocity CV → <strong>FOLD</strong></li>
+<li>OUT L/R → stereo mixer</li>
+</ul>
+<h3>Why it works</h3>
+<p>The manual notes that <strong>1V/OCT controls slope and is necessary for equal timbre across notes</strong>, so Skorpion can track musically more consistently than many wavefolders. This makes it unusually good as part of a melodic voice rather than just an effect.</p>
+<h3>Extra move</h3>
+<ul>
+<li>Set <strong>EQUALIZE THLDs ON</strong> for more classic wavefolder behavior.</li>
+<li>Then switch it off and manually spread thresholds for more formant-like uneven spectra.</li>
+</ul>
+<hr />
+<h2>2. Use it as a “comparator sequenced timbre engine”</h2>
+<p><strong>Pair with:</strong> any oscillator, clocked modulation, quantizer optionally</p>
+<h3>Patch</h3>
+<ul>
+<li>Put <strong>TARGET</strong> to <strong>SLIDERs</strong></li>
+<li>Hold spring toggle left and set the <strong>TRGTs</strong> to a pattern of voltages</li>
+<li>Feed a harmonically changing oscillator or chord mixture into <strong>IN</strong></li>
+<li>Use <strong>TARGET ORDER</strong>:</li>
+<li><strong>SEQ</strong> for count-based target stepping</li>
+<li><strong>TIED</strong> for “most recently crossed threshold” behavior</li>
+</ul>
+<h3>Why it works</h3>
+<p>Every threshold crossing can select or influence a different target. So the incoming waveform isn’t just being folded — it is effectively <strong>navigating a table of destination voltages</strong>. That’s way beyond standard wavefolding.</p>
+<h3>Pairing suggestion</h3>
+<ul>
+<li>Put a <strong>quantizer</strong> after the <strong>TRGTs output</strong> and use it elsewhere in your patch.</li>
+<li>Or use <strong>TRGTs output</strong> to modulate another oscillator’s FM index or filter cutoff.</li>
+</ul>
+<hr />
+<h2>3. Audio-rate CV extractor / control bus generator</h2>
+<p><strong>Pair with:</strong> logic, sequential switch, percussion modules, LPGs</p>
+<p>Skorpion’s lower jack row is gold:
+- <strong>ABS(IN)</strong>
+- <strong>G(IN&gt;0)</strong>
+- <strong>TRGTs</strong>
+- <strong>DIFF</strong>
+- <strong>±G(DIR)</strong>
+- <strong>COUNT</strong>
+- <strong>DAC</strong>
+- <strong>DELAY</strong></p>
+<h3>Patch concept</h3>
+<p>Use one audio source into Skorpion, but use the aux outputs to drive the rest of your rack.</p>
+<h3>Example</h3>
+<ul>
+<li>Drum loop or percussion oscillator → <strong>IN</strong></li>
+<li><strong>G(IN&gt;0)</strong> → trigger percussion accents or logic</li>
+<li><strong>COUNT</strong> → filter cutoff staircase</li>
+<li><strong>DAC</strong> → oscillator FM amount</li>
+<li><strong>DIFF</strong> → wavefolder amount on a second voice</li>
+<li><strong>±G(DIR)</strong> → panner or bipolar CV destination</li>
+<li><strong>ABS(IN)</strong> → VCA CV or LPG strike level</li>
+</ul>
+<h3>Why it works</h3>
+<p>Skorpion effectively turns one sound into a <strong>family of musically related control signals</strong>. This is amazing for coherent patches where everything “breathes” with one source.</p>
+<hr />
+<h2>4. Stereo psychoacoustic lead processor</h2>
+<p><strong>Pair with:</strong> mono synth voice, stereo mixer, reverb</p>
+<h3>Patch</h3>
+<ul>
+<li>Mono lead voice → <strong>IN</strong></li>
+<li>Set OUTPUT around noon and above</li>
+<li>Toggle <strong>OUTPUT SWITCH</strong> between:</li>
+<li><strong>DC</strong> for raw width</li>
+<li><strong>FILTERS</strong> for centered low end and widened highs</li>
+<li>OUT L/R → stereo reverb</li>
+</ul>
+<h3>Why it works</h3>
+<p>The manual explains the <strong>WIDE</strong> section introduces a very short delay plus optional mid/side filtering. That makes Skorpion an excellent <strong>stereoizer</strong> even before getting extreme with fold/shaping.</p>
+<h3>Nice companion modules</h3>
+<ul>
+<li>Stereo reverb: Desmodus Versio, Erbe-Verb, FX Aid Pro</li>
+<li>Stereo mixer: Worng, Toppobrillo, Cosmotronic mixer systems</li>
+</ul>
+<hr />
+<h2>5. Metallic percussion from halted segments</h2>
+<p><strong>Pair with:</strong> trigger source, envelope generator, noise or sine source</p>
+<h3>Patch</h3>
+<ul>
+<li>Sine or short-decay sound → <strong>IN</strong></li>
+<li>Set <strong>TARGET</strong> to <strong>SLIDERs</strong></li>
+<li>Set some TRGT sliders fully down to 0</li>
+<li>Turn <strong>HALT IF TARG=0</strong> on</li>
+<li>Use a sequencer or random CV to animate thresholds or target mod</li>
+<li>Optionally use <strong>SYNC HARD</strong></li>
+</ul>
+<h3>Why it works</h3>
+<p>The manual states that when a target is 0 and this mode is enabled, the vector core can <strong>halt for just that segment</strong>, creating square/flat regions. This can generate jagged, percussive, digitally fractured tones.</p>
+<h3>Extra spice</h3>
+<ul>
+<li>Patch <strong>±G(DIR)</strong> or <strong>COUNT</strong> into <strong>HALT</strong> through a VCA for intermittent freezing.</li>
+<li>Great with LPGs after Skorpion.</li>
+</ul>
+<hr />
+<h2>6. Drum loop destroyer / re-animator</h2>
+<p><strong>Pair with:</strong> sample player, breakbeat source, envelope follower, filterbank</p>
+<h3>Patch</h3>
+<ul>
+<li>Drum loop or hi-hat pattern → <strong>IN</strong></li>
+<li><strong>SYNC HARD</strong> on for aggressive resets, or <strong>SOFT</strong> for smoother contour following</li>
+<li>Modulate <strong>FOLD</strong> and <strong>SHIFT</strong> slowly</li>
+<li>Use <strong>DRY IF NO THLDs</strong> on if modulating heavily, so signal remains present</li>
+<li>WIDE output to stereo mixer</li>
+</ul>
+<h3>Why it works</h3>
+<p>The manual specifically mentions fast switching from cymbals and handling complex signals well. Skorpion seems excellent on transient-rich audio.</p>
+<h3>Pairing recommendations</h3>
+<ul>
+<li>Any sample player: Squid Salmple, Bitbox, Assimil8or</li>
+<li>Envelope follower before or after to create closed-loop modulation</li>
+<li>Filterbank for spectral emphasis after Skorpion</li>
+</ul>
+<hr />
+<h2>7. “Pseudo frequency shifting” motion using SHIFT</h2>
+<p><strong>Pair with:</strong> slow LFO, random source, stereo delays</p>
+<h3>Patch</h3>
+<ul>
+<li>Sustained saw or sine drone → <strong>IN</strong></li>
+<li>Keep <strong>SHIFT</strong> near noon, modulate slowly with triangle/random</li>
+<li>Moderate <strong>FOLD</strong></li>
+<li>Experiment with <strong>SHAPE = DIR</strong>, <strong>OUT</strong>, or <strong>DIFF</strong></li>
+<li>OUTPUT into WIDE region</li>
+</ul>
+<h3>Why it works</h3>
+<p>The manual explicitly notes: <strong>slow modulation of SHIFT produces a frequency shift effect</strong>. It’s not true frequency shifting, but it gives spectral drift and asymmetry movement that feels similar.</p>
+<h3>Great companion modules</h3>
+<ul>
+<li>Slow random CV: Triple Sloths, Sapèl, Wogglebug, Marbles</li>
+<li>Stereo delay/reverb after Skorpion for moving cloud textures</li>
+</ul>
+<hr />
+<h2>8. Self-modulated chaos patch</h2>
+<p><strong>Pair with:</strong> mixer/attenuverter, VCA, optional limiter</p>
+<p>Skorpion invites self-patching.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li><strong>DIFF</strong> → <strong>SHAPE CV</strong></li>
+<li><strong>COUNT</strong> → <strong>FOLD CV</strong></li>
+<li><strong>DAC</strong> → <strong>SHIFT CV</strong></li>
+<li><strong>DELAY</strong> → <strong>SHAPE source = DELAY</strong></li>
+<li><strong>TRGTs out</strong> → <strong>TARGET CV</strong></li>
+<li><strong>±G(DIR)</strong> → external VCA that controls amount of one of the above</li>
+</ul>
+<h3>Why it works</h3>
+<p>The module already exposes internal logic and trajectory-related signals. Feeding them back through attenuation gives evolving, nonlinear behavior that can go from organic to feral.</p>
+<h3>Important</h3>
+<p>Use attenuverters or VCAs. Raw self-patching may jump to extremes quickly.</p>
+<h3>Best helper modules</h3>
+<ul>
+<li>Happy Nerding 3xMIA</li>
+<li>Frap Tools 321</li>
+<li>Intellijel Quad VCA</li>
+<li>Doepfer matrix mixer</li>
+</ul>
+<hr />
+<h2>9. Segment-by-segment waveshaping with TRGTs as a wavetable</h2>
+<p><strong>Pair with:</strong> VCO, clock divider, sequencer, sample-and-hold</p>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator → <strong>IN</strong></li>
+<li><strong>TARGET</strong> toward <strong>SLIDERs</strong></li>
+<li>Hold left and set a custom 8-step TRGT pattern</li>
+<li>Set <strong>TARGET ORDER</strong> to <strong>SEQ</strong></li>
+<li>Modulate threshold positions so the active count changes dynamically</li>
+</ul>
+<h3>Why it works</h3>
+<p>The TRGT sliders effectively form a <strong>voltage table</strong> that can be addressed by threshold crossings. You can think of this as a kind of analog “wavetable by threshold state.”</p>
+<h3>Extended version</h3>
+<ul>
+<li>Send <strong>TRGTs output</strong> to a precision adder or quantizer</li>
+<li>Use the same sequence to drive pitch-related changes elsewhere, tying timbre and harmony together</li>
+</ul>
+<hr />
+<h2>10. Use Skorpion as an oscillator companion, not the main effect</h2>
+<p><strong>Pair with:</strong> thru-zero FM oscillator, sub-oscillator, LPG</p>
+<h3>Patch</h3>
+<ul>
+<li>Main oscillator goes dry to mixer</li>
+<li>Duplicate same oscillator to <strong>Skorpion IN</strong></li>
+<li>Process only Skorpion path</li>
+<li>Use <strong>OUTPUT</strong> to blend dry/wet/wide</li>
+<li>Tune the processed channel lower in mix and stereo spread it</li>
+</ul>
+<h3>Why it works</h3>
+<p>Since Skorpion doesn’t simply amplify the original into folds, it can act like a <strong>parallel synthetic overtone layer</strong>. Blending processed and dry paths creates unusually rich and mix-friendly tones.</p>
+<h3>Great sources</h3>
+<ul>
+<li>TZFM oscillator like Generate 3 or Rubicon 2</li>
+<li>A pure sine carrier is especially strong here</li>
+</ul>
+<hr />
+<h2>11. Cross-synthesis using external CLIP input</h2>
+<p><strong>Pair with:</strong> second oscillator, drum voice, speech/sample source</p>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator A → <strong>IN</strong></li>
+<li>Oscillator B or drum/sample voice → <strong>CLIP</strong></li>
+<li>Turn <strong>TARGET</strong> toward <strong>CLP</strong></li>
+<li>Optionally patch modulation into <strong>TRGT MOD</strong></li>
+</ul>
+<h3>Why it works</h3>
+<p>The manual says the input normally goes to CLIP, but you can override it. This lets one signal determine how another signal’s target behavior is clipped/overlaid. That’s a pretty unusual cross-modulation route.</p>
+<h3>Good pairing sources</h3>
+<ul>
+<li>Spoken word sample into CLIP</li>
+<li>Kick drum into CLIP while a bass tone goes into IN</li>
+<li>Another VCO at a harmonic or inharmonic interval</li>
+</ul>
+<p>This can create vocalized, sync-like, or punctuated timbres.</p>
+<hr />
+<h2>12. Rhythmic gating and animation from direction outputs</h2>
+<p><strong>Pair with:</strong> logic, VCAs, switches, panners</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>±G(DIR)</strong> → bipolar CV for panner</li>
+<li><strong>G(IN&gt;0)</strong> → trigger envelope</li>
+<li><strong>COUNT</strong> → switch address or logic threshold</li>
+<li><strong>DAC</strong> → slew limiter input or offset generator</li>
+</ul>
+<h3>Why it works</h3>
+<p>Skorpion reveals the <strong>movement state</strong> of the vector core. That means you can synchronize other events to whether its internal waveform is rising/falling, above/below zero, or how many thresholds are currently active.</p>
+<h3>Result</h3>
+<p>A whole patch can be rhythmically “played” by Skorpion’s internal motion rather than by clocks alone.</p>
+<hr />
+<h2>13. Audio-to-CV articulation extractor</h2>
+<p><strong>Pair with:</strong> envelope follower, LPG, filter, resonator</p>
+<h3>Patch</h3>
+<ul>
+<li>Voice, field recording, or acoustic instrument through preamp → <strong>IN</strong></li>
+<li>Use:</li>
+<li><strong>ABS(IN)</strong> as a rough excitation contour</li>
+<li><strong>G(IN&gt;0)</strong> as polarity-derived gate</li>
+<li><strong>COUNT</strong> for brightness control</li>
+<li><strong>DIFF</strong> for resonator excitation</li>
+<li>Send those to other modules while also using OUT L/R as audio</li>
+</ul>
+<h3>Why it works</h3>
+<p>Skorpion can derive <strong>structure</strong> from incoming audio, not just transform tone. This makes it useful in hybrid/acoustic modular setups.</p>
+<h3>Strong companions</h3>
+<ul>
+<li>Preamp/external input module</li>
+<li>Resonator: Rings, Sealegs resonant modes, QPAS pinging, 4ms ensembles</li>
+</ul>
+<hr />
+<h2>14. Threshold-LFO macro performance patch</h2>
+<p><strong>Pair with:</strong> keyboard controller, gate source, sequencer</p>
+<p>The internal macro section is easy to overlook but very powerful.</p>
+<h3>Patch</h3>
+<ul>
+<li>Use the <strong>MACRO ENV</strong> gate from external keyboard or sequencer</li>
+<li>Program:</li>
+<li>threshold LFO amount</li>
+<li>threshold LFO rate</li>
+<li>FOLD/SLOPE/SHIFT/SHAPE macro modulation</li>
+<li>Build a performance patch where each note opens a whole moving timbral ecosystem</li>
+</ul>
+<h3>Why it works</h3>
+<p>All LFOs are amplitude-controlled by the macro envelope and <strong>reset on each gate</strong>, so repeated notes can have <strong>consistent animated timbre articulation</strong>. That is very performable.</p>
+<h3>Musical use</h3>
+<p>This is ideal for:
+- animated leads
+- evolving bass
+- repeatable IDM percussion
+- “same note, new motion” phrasing</p>
+<hr />
+<h2>15. Patch it with a filter before and after</h2>
+<p><strong>Pair with:</strong> multimode filter(s)</p>
+<h3>Before Skorpion</h3>
+<p>Filtering before changes which parts of the source cross thresholds.</p>
+<h3>After Skorpion</h3>
+<p>Filtering after sculpts the newly generated harmonics.</p>
+<h3>Example chain</h3>
+<ul>
+<li>VCO → bandpass filter → Skorpion → lowpass filter → stereo FX</li>
+</ul>
+<h3>Why it works</h3>
+<p>Because Skorpion responds strongly to waveform geometry, <strong>pre-filtering</strong> is as meaningful as post-filtering.</p>
+<h3>Especially good</h3>
+<ul>
+<li>Bandpass or notch before Skorpion</li>
+<li>LPG or resonant lowpass after it</li>
+</ul>
+<hr />
+<h2>16. Use DELAY output as a modulation source</h2>
+<p><strong>Pair with:</strong> VCA, filter FM, panning, phase modulation destination</p>
+<p>The manual notes the <strong>DELAY</strong> output is tied to the WIDE portion of the output control and changes delay time/modulation depending on the knob position.</p>
+<h3>Patch</h3>
+<ul>
+<li>Bring OUTPUT above noon so DELAY becomes active</li>
+<li><strong>DELAY output</strong> → SHAPE CV, filter cutoff, or panner</li>
+<li>Audio out still goes to stereo path</li>
+</ul>
+<h3>Why it works</h3>
+<p>This gives you a delayed/modulated copy of Skorpion’s motion as a CV/audio source. Very useful for internal “echo modulation.”</p>
+<hr />
+<h2>17. Make it a weird CV processor for non-audio signals</h2>
+<p><strong>Pair with:</strong> sequencers, stepped CV, envelopes, joystick</p>
+<p>You do not have to feed only audio into Skorpion.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>Envelope or LFO → <strong>IN</strong></li>
+<li>Use threshold crossings to create staircase, folded, or halted control trajectories</li>
+<li>Output to:</li>
+<li>filter FM</li>
+<li>wavetable position</li>
+<li>panning</li>
+<li>granular position</li>
+</ul>
+<h3>Why it works</h3>
+<p>Skorpion’s vector core and threshold system can turn simple CV into:
+- segmented envelopes
+- staircase hybrids
+- asymmetrical modulation
+- direction-aware control signals</p>
+<p>This is one of the most underused ways to exploit it.</p>
+<hr />
+<h1>Specific pairing ideas by module</h1>
+<h2>With Make Noise Maths</h2>
+<ul>
+<li>Use channels 2/3 as attenuation for self-patching Skorpion outputs back into CV inputs</li>
+<li>Use Maths envelopes to modulate HALT, SHIFT, and FOLD</li>
+<li>Feed <strong>DIFF</strong> or <strong>COUNT</strong> into Maths for slewed derived CV</li>
+</ul>
+<h2>With Joranalogue Generate 3</h2>
+<ul>
+<li>Very clean source for hearing threshold topology</li>
+<li>Use Generate 3’s phase/routing options to feed Skorpion harmonically precise material</li>
+<li>Patch Skorpion <strong>TRGTs</strong> or <strong>DAC</strong> back into Generate 3’s FM index or phase modulation</li>
+</ul>
+<h2>With Mimeophon</h2>
+<ul>
+<li>Use Skorpion for primary stereo widening, then Mimeophon for larger spatial extension</li>
+<li>DELAY output can modulate Mimeophon color or zone</li>
+</ul>
+<h2>With Xaoc Belgrad</h2>
+<ul>
+<li>Belgrad before Skorpion for focused band emphasis</li>
+<li>Belgrad after Skorpion to tune the harmonic chaos into vocal resonances</li>
+</ul>
+<h2>With Mutable Rings / resonator-type modules</h2>
+<ul>
+<li>Use <strong>DIFF</strong>, <strong>COUNT</strong>, or <strong>ABS(IN)</strong> to excite/modulate resonator parameters</li>
+<li>Use Skorpion output as exciter audio for metallic, animated resonances</li>
+</ul>
+<h2>With random modules like Marbles / Sapèl / Wogglebug</h2>
+<ul>
+<li>Randomly modulate threshold equalization on/off via jack</li>
+<li>Animate SHIFT and TARGET subtly</li>
+<li>Use stepped randomness on TRGT MOD for spectral jumps</li>
+</ul>
+<h2>With matrix mixer</h2>
+<p>Probably one of the best utilities for Skorpion.
+- Route <strong>COUNT</strong>, <strong>DAC</strong>, <strong>DIFF</strong>, <strong>TRGTs</strong>, and <strong>DELAY</strong> into a matrix mixer
+- Send blended versions back to <strong>FOLD</strong>, <strong>SHIFT</strong>, <strong>SHAPE</strong>, and <strong>TARGET</strong>
+- This creates deeply connected feedback ecosystems</p>
+<hr />
+<h1>Particularly strong self-patching ideas</h1>
+<h2>Self-patch 1: DIFF into SHAPE</h2>
+<ul>
+<li>Set SHAPE source to <strong>DIFF</strong></li>
+<li>Also patch <strong>DIFF out</strong> externally through attenuation back into <strong>SHAPE CV</strong></li>
+<li>Result: edgy, spiky, unstable harmonic emphasis</li>
+</ul>
+<h2>Self-patch 2: COUNT into FOLD</h2>
+<ul>
+<li>COUNT is a staircase based on active thresholds</li>
+<li>Feed it gently into FOLD CV</li>
+<li>Result: more threshold activity begets more fold intensity</li>
+</ul>
+<h2>Self-patch 3: DAC into SHIFT</h2>
+<ul>
+<li>Weighted threshold count gives more nuanced asymmetry changes</li>
+<li>Result: continuously morphing asymmetry tied to comparator state</li>
+</ul>
+<h2>Self-patch 4: DELAY into TRGT MOD</h2>
+<ul>
+<li>Great for ghosted, smeared target behavior</li>
+<li>Especially effective in stereo/wide settings</li>
+</ul>
+<h2>Self-patch 5: G(IN&gt;0) or ±G(DIR) into external switch</h2>
+<ul>
+<li>Switch between two modulation sources feeding FOLD or TARGET</li>
+<li>Result: waveform-dependent timbral branching</li>
+</ul>
+<hr />
+<h1>Modes and switches worth exploiting</h1>
+<h2>EQUALIZE THLDs</h2>
+<p>This is not just convenience. It is a tonal mode switch.</p>
+<ul>
+<li><strong>ON</strong>: more classic, orderly, predictable fold intervals</li>
+<li><strong>OFF</strong>: irregular threshold spacing = speech-like, formant-like, broken spectra</li>
+<li><strong>CV controlled</strong>: ideal for switching between orderly and unruly states mid-performance</li>
+</ul>
+<p>Use a gate sequencer, logic output, or random gate here.</p>
+<hr />
+<h2>DRY IF NO THLDs</h2>
+<p>Useful when:
+- heavily modulating FOLD
+- processing dynamic material
+- wanting continuity rather than dropout</p>
+<p>This can make Skorpion act more like a morphing timbre processor than a hard-effect box.</p>
+<hr />
+<h2>SYNC soft vs hard</h2>
+<ul>
+<li><strong>SOFT</strong>: smoother, more “rubbery” and less clicky</li>
+<li><strong>HARD</strong>: sharper resets, more aggressive and percussive</li>
+<li><strong>X</strong>: freer motion, often more organic</li>
+</ul>
+<p>Good idea: modulate related parameters while manually changing SYNC mode during performance.</p>
+<hr />
+<h2>TARGET ORDER: SEQ vs TIED</h2>
+<p>This is one of the most musically consequential switches.</p>
+<ul>
+<li><strong>SEQ</strong> = active-threshold count selects target<br />
+  Feels more like addressable sequence behavior</li>
+<li><strong>TIED</strong> = most recently crossed threshold selects target<br />
+  Feels more event-driven and contour-sensitive</li>
+</ul>
+<p>Use:
+- <strong>SEQ</strong> for repeatable timbral sequences
+- <strong>TIED</strong> for expressive, waveform-reactive articulation</p>
+<hr />
+<h1>Patch recipes by musical goal</h1>
+<h2>For bass</h2>
+<ul>
+<li>Sine/triangle in</li>
+<li>1V/OCT patched</li>
+<li>EQUALIZE THLDs on</li>
+<li>TARGET around 5V or slight CLIP</li>
+<li>mild SHAPE from OUT</li>
+<li>FILTERS mode on output</li>
+<li>low wet/wide blend</li>
+</ul>
+<h2>For harsh industrial leads</h2>
+<ul>
+<li>Saw or wavetable in</li>
+<li>TARGET to SLIDERs</li>
+<li>SHAPE source = DIFF</li>
+<li>SYNC HARD</li>
+<li>modulate SHIFT and TRGT MOD</li>
+<li>output into saturation or reverb</li>
+</ul>
+<h2>For evolving drones</h2>
+<ul>
+<li>Slow LFO/random into SHIFT, SHAPE, TARGET</li>
+<li>SHAPE source = DELAY or OUT</li>
+<li>wide stereo output</li>
+<li>post-process with reverb/granular</li>
+</ul>
+<h2>For percussion</h2>
+<ul>
+<li>short sine burst or click into IN</li>
+<li>TARGET sliders with some zero stages</li>
+<li>HALT IF TARG=0 on</li>
+<li>SYNC HARD</li>
+<li>use COUNT or DIFF elsewhere in patch for coherent percussion CV</li>
+</ul>
+<h2>For generative patches</h2>
+<ul>
+<li>use macro envelope + threshold LFOs</li>
+<li>self-patch aux outputs through matrix mixer</li>
+<li>route TRGTs output to other modules</li>
+<li>randomize equalize/sync/target behavior externally</li>
+</ul>
+<hr />
+<h1>A few “hidden gem” uses from the manual</h1>
+<h2>1. TRGTs output as its own sequencer</h2>
+<p>This is easy to miss. The TRGTs are not just internal. Use them externally as:
+- 8-step wavetable-ish source
+- sequencer for filter cutoff
+- modulation lane tied to threshold events</p>
+<h2>2. ABS(IN) output</h2>
+<p>Full-wave rectified input is super useful for:
+- unipolar envelope-like behavior
+- modulation from bipolar oscillators
+- driving VCAs or LPGs</p>
+<h2>3. COUNT vs DAC</h2>
+<p>These are related but distinct:
+- <strong>COUNT</strong> = equal 0.5V steps
+- <strong>DAC</strong> = weighted threshold contributions</p>
+<p>COUNT is rhythmic and obvious. DAC is subtler and more “encoded.”</p>
+<h2>4. CLIP external override</h2>
+<p>This turns Skorpion into a cross-processor, not just a folder.</p>
+<h2>5. Non-audio-rate modulation on thresholds</h2>
+<p>Threshold modulation can radically alter where folds occur. This is one of the most powerful and least conventional aspects of the module.</p>
+<hr />
+<h1>Recommended support rack around Skorpion</h1>
+<p>If you wanted to build a mini ecosystem around it, I’d suggest:</p>
+<ul>
+<li><strong>1 precise analog oscillator</strong></li>
+<li><strong>1 weird digital/noisy oscillator or sample source</strong></li>
+<li><strong>1 dual function generator</strong></li>
+<li><strong>1 matrix mixer</strong></li>
+<li><strong>1 quad VCA</strong></li>
+<li><strong>1 multimode filter</strong></li>
+<li><strong>1 stereo reverb/delay</strong></li>
+<li><strong>1 random/stepped CV source</strong></li>
+<li><strong>1 logic/switch module</strong></li>
+</ul>
+<p>That setup would let Skorpion operate as:
+- voice processor
+- modulation extractor
+- stereo timbre designer
+- self-patched chaos engine
+- cross-modulation hub</p>
+<hr />
+<h1>Final thoughts</h1>
+<p>Skorpion rewards treating it less like a conventional wavefolder and more like a <strong>threshold-addressed analog computation module for sound and CV</strong>. The deepest patches come from:</p>
+<ul>
+<li>modulating the threshold structure</li>
+<li>using TRGTs as an addressable voltage table</li>
+<li>self-patching the auxiliary outputs</li>
+<li>leveraging external VCAs/mixers to control feedback paths</li>
+<li>processing non-sine, nontraditional sources</li>
+<li>using stereo width as part of the composition, not just a finishing effect</li>
+</ul>
+<p>If you want, I can also provide:
+1. <strong>10 beginner-friendly Skorpion patches</strong>
+2. <strong>10 advanced self-patching feedback patches</strong>
+3. <strong>a “best companion modules by brand” list</strong>
+4. <strong>a compact performance cheat sheet for this module</strong></p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

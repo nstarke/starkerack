@@ -1,0 +1,709 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Making_Sound_Machines_DivSkip</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Making Sound Machines — DivSkip</h1>
+<ul>
+<li><a href="../../manuals/SKORPION_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.wmddevices.com/products/skorpion">Manual PDF</a></p>
+<h1>WMD Skorpion: using one wild wavefolder to build full-length songs</h1>
+<p>Skorpion is not just a “make sound gnarly” module. Reading the manual closely, it’s really a <strong>wavefolder + dynamic comparator network + target sequencer + modulation source bank + stereo widener + self-patch lab</strong>. That means it can do much more than timbral sweetening inside a loop. It can become a <strong>section-generator</strong>, <strong>arrangement pivot</strong>, and <strong>performance instrument</strong> for turning a cool 8-bar patch into an actual track.</p>
+<p>Below is a practical song-focused analysis.</p>
+<hr />
+<h2>Why Skorpion is unusually good for song structure</h2>
+<p>A lot of Eurorack wavefolders are “set and forget” tone modules. Skorpion is different because it has:</p>
+<ul>
+<li><strong>8 thresholds (THLDs)</strong> that define where folds happen</li>
+<li><strong>8 targets (TRGTs)</strong> that act like a voltage sequencer tied to threshold activity</li>
+<li><strong>macro modulation</strong> with attack/sustain/release behavior</li>
+<li>multiple <strong>aux outputs</strong> that can drive the rest of your system:</li>
+<li><code>TRGTs</code></li>
+<li><code>COUNT</code></li>
+<li><code>DAC</code></li>
+<li><code>DIFF</code></li>
+<li><code>ABS(IN)</code></li>
+<li><code>G(IN&gt;0)</code></li>
+<li><code>±G(DIR)</code></li>
+<li><code>DELAY</code></li>
+<li>an <strong>OUTPUT</strong> control that morphs:</li>
+<li>dry → wet</li>
+<li>wet → wide</li>
+<li><strong>sync</strong>, <strong>halt</strong>, and <strong>dry if no thresholds</strong> behavior</li>
+</ul>
+<p>That means Skorpion can control:
+1. <strong>Timbre</strong>
+2. <strong>Dynamics of timbral change over time</strong>
+3. <strong>Stereo width / perceived scale</strong>
+4. <strong>Modulation exported to other modules</strong>
+5. <strong>Section contrast</strong></p>
+<p>Those five things are exactly what’s usually missing when a patch sounds cool but doesn’t become a song.</p>
+<hr />
+<h1>Core song-making concept</h1>
+<p>Think of Skorpion as a <strong>scene transformer</strong>:</p>
+<ul>
+<li>same pitch sequence in</li>
+<li>same rhythm in</li>
+<li>but different <strong>threshold maps</strong>, <strong>targets</strong>, <strong>shape feedback</strong>, <strong>stereo width</strong>, and <strong>macro envelope states</strong></li>
+<li>output feels like a new verse, chorus, breakdown, or bridge</li>
+</ul>
+<p>So instead of asking:</p>
+<blockquote>
+<p>“How do I make a whole song from one riff?”</p>
+</blockquote>
+<p>Ask:</p>
+<blockquote>
+<p>“How do I use Skorpion to create 4–6 clearly different states of the same source material?”</p>
+</blockquote>
+<p>That is where it shines.</p>
+<hr />
+<h1>What Skorpion contributes in a full arrangement</h1>
+<h2>1. Sectional timbre evolution</h2>
+<p>Use Skorpion to make one line evolve from:
+- nearly dry intro
+- lightly folded verse
+- aggressive harmonically rich chorus
+- halted/square-ish breakdown
+- wide stereo outro</p>
+<p>Because <code>FOLD</code>, <code>SLOPE</code>, <code>SHIFT</code>, <code>SHAPE</code>, <code>TARGET</code>, <code>OUTPUT</code>, <code>SYNC</code>, and threshold behavior interact, you get much more than “more distortion.”</p>
+<h2>2. Arrangement modulation source</h2>
+<p>The bottom-row outputs are perfect for sending “what Skorpion is doing” into:
+- filters
+- VCAs
+- delay feedback
+- reverb size
+- sequential switches
+- clock dividers / logic
+- transposition
+- percussion accents</p>
+<p>So one lead voice processed by Skorpion can also drive the movement of your drums, bass, and ambience.</p>
+<h2>3. Contrast without repatching</h2>
+<p>The sliders store threshold and target profiles. Since settings are saved, and the spring toggle exposes different contexts, Skorpion can act like a <strong>performable timbral score</strong>. You can build recurring section identities.</p>
+<h2>4. Stereo expansion for bigger choruses</h2>
+<p>The <code>OUTPUT</code> control and delay/wide circuitry are very useful for song form:
+- mono-ish verse
+- wider pre-chorus
+- big chorus
+- dry breakdown
+- wide return</p>
+<p>This is huge for making sections read as “song sections” instead of just parameter changes.</p>
+<hr />
+<h1>Best roles for Skorpion in a song</h1>
+<h2>A. Main lead voice transformer</h2>
+<p>Patch a VCO or complex melody through it and let Skorpion define section changes.</p>
+<p>Best when you want:
+- evolving hooks
+- recurring motif with different emotional states
+- performance-oriented transitions</p>
+<h2>B. Bass enhancer that becomes a section marker</h2>
+<p>With restraint, Skorpion can make bass go from:
+- round and dry
+- clipped and articulate
+- folded and aggressive
+- asymmetrical and unstable</p>
+<p>Use <code>OUTPUT SWITCH</code> in <code>FILTERS</code> mode to keep low end centered while widening upper harmonics.</p>
+<h2>C. Drum bus or percussion mangler</h2>
+<p>Feeding percussion into <code>IN</code>, especially with <code>SYNC</code>, <code>CLIP</code>, <code>DIFF</code>, and <code>COUNT</code> outputs, can create sections ranging from tight and punchy to metallic and chaotic.</p>
+<h2>D. Modulation hub</h2>
+<p>Even if the audio output is secondary, Skorpion can generate rich control voltages tied to audio activity. This is powerful for arrangement because audio-derived modulation feels musically coherent.</p>
+<hr />
+<h1>Modules that pair especially well for making songs</h1>
+<p>Skorpion becomes much more “song-capable” when paired with:</p>
+<h2>Sequencers</h2>
+<ul>
+<li>melodic sequencer</li>
+<li>trigger sequencer</li>
+<li>CV recorder</li>
+<li>sequential switch</li>
+</ul>
+<p>Use these to create recurring forms and recallable sections.</p>
+<h2>VCAs / mixers</h2>
+<p>Essential for:
+- automating dry/wet blends externally
+- muting voices for arrangement
+- sidechaining modulations
+- fading Skorpion-derived aux outputs in and out</p>
+<h2>Clock and logic</h2>
+<p>Use Skorpion outputs like <code>G(IN&gt;0)</code> or <code>±G(DIR)</code> with:
+- logic modules
+- clock dividers
+- comparators
+- trigger routers</p>
+<p>This creates section-dependent rhythmic variation.</p>
+<h2>Filters</h2>
+<p>Skorpion is harmonically dense; pairing it with a filter lets you:
+- restrain verses
+- open choruses
+- create breakdowns by emphasizing different bands</p>
+<h2>Envelopes / function generators</h2>
+<p>Skorpion’s internal macro section is great, but external envelopes can:
+- reshape transitions
+- control output VCA
+- sweep filter cutoff
+- animate <code>FOLD</code>, <code>SHIFT</code>, or <code>OUTPUT</code></p>
+<h2>Samplers / loopers</h2>
+<p>Excellent for full-song construction:
+- sample a Skorpion texture
+- use that sample as a recurring motif
+- reintroduce transformed versions across the arrangement</p>
+<h2>Reverb / delay</h2>
+<p>Skorpion already adds width, but external spatial FX are crucial for section contrast:
+- dry verse
+- long reverb in bridge
+- feedback bloom in outro</p>
+<h2>Performance mixer</h2>
+<p>A proper mixer is where songs happen. Skorpion can create section identity, but the mixer makes it read as composition.</p>
+<hr />
+<h1>Important manual features that matter for songwriting</h1>
+<h2>1. OUTPUT knob: dry ↔ wet ↔ wide</h2>
+<p>This is one of the most song-useful controls on the module.</p>
+<ul>
+<li>lower half: blend dry and processed</li>
+<li>upper half: blend processed into stereo widened version</li>
+</ul>
+<h3>Song use:</h3>
+<ul>
+<li><strong>Intro:</strong> mostly dry</li>
+<li><strong>Verse:</strong> a little wet</li>
+<li><strong>Pre-chorus:</strong> more wet, start widening</li>
+<li><strong>Chorus:</strong> wide</li>
+<li><strong>Breakdown:</strong> pull back toward dry</li>
+<li><strong>Final chorus:</strong> full wide</li>
+</ul>
+<p>This single control can act like an arrangement macro.</p>
+<hr />
+<h2>2. Macro envelope</h2>
+<p>The macro envelope controls the amplitude of internal LFOs. It can be gated from the toggle or <code>MACRO ENV</code> jack. Attack and release can be very long.</p>
+<h3>Song use:</h3>
+<p>This is ideal for <strong>section transitions</strong>:
+- long attack into chorus
+- long release into outro
+- slow morph over 16 or 32 bars
+- repeated swells tied to phrase boundaries</p>
+<p>Because it globally fades internal modulation, it feels like the patch “comes alive” or “calms down” over time.</p>
+<hr />
+<h2>3. THLDs and TRGTs</h2>
+<p>These are the heart of Skorpion’s compositional potential.</p>
+<h3>THLDs</h3>
+<p>Control where folds occur.</p>
+<h3>TRGTs</h3>
+<p>Define destination voltages for the vector core; essentially a threshold-driven voltage sequence.</p>
+<h3>Song use:</h3>
+<p>You can create different timbral identities by changing:
+- threshold distribution
+- target order (<code>SEQ</code> vs <code>TIED</code>)
+- target mode (<code>5V</code>, <code>CLIP</code>, <code>SLIDERs</code>)</p>
+<p>This means one melody can behave like:
+- smooth and stable in verse
+- jagged and sequenced in chorus
+- frozen/square-like in breakdown</p>
+<hr />
+<h2>4. SHAPE sources</h2>
+<p>The <code>SHAPE</code> control can modulate slope from:
+- <code>IN</code>
+- <code>OUT</code>
+- <code>DELAY</code>
+- <code>COUNT</code>
+- <code>DIFF</code>
+- <code>TRGTs</code>
+- <code>DAC</code>
+- <code>DIR</code></p>
+<h3>Song use:</h3>
+<p>Different shape sources can define section mood:</p>
+<ul>
+<li><code>OUT</code>: more self-interacting, organic, “alive”</li>
+<li><code>DIFF</code>: harsh, spiky, intense</li>
+<li><code>TRGTs</code>: segmented, sequence-like, structured</li>
+<li><code>COUNT</code>: rhythmic staircase feel</li>
+<li><code>DELAY</code>: smeared, animated stereo motion</li>
+</ul>
+<p>You can reserve specific shape-source choices for specific sections.</p>
+<hr />
+<h2>5. DRY IF NO THLDs</h2>
+<p>If no thresholds are active, output becomes dry signal tracking input.</p>
+<h3>Song use:</h3>
+<p>This is excellent for <strong>safe performance modulation</strong>. You can heavily animate <code>FOLD</code> or thresholds without risking dead sections. It helps transitions stay musical.</p>
+<hr />
+<h2>6. HALT IF TARG=0 and HALT jack</h2>
+<p>This can stop the vector core for portions of the waveform or entirely.</p>
+<h3>Song use:</h3>
+<p>This is a breakdown tool.
+Use it to create:
+- gated, square-ish static timbres
+- dramatic holds
+- rhythmic freezes
+- “drop” moments before chorus re-entry</p>
+<p>At audio rate modulation it can get very aggressive.</p>
+<hr />
+<h2>7. SYNC soft/hard</h2>
+<p>Resetting at input zero crossings changes the behavior significantly.</p>
+<h3>Song use:</h3>
+<ul>
+<li><strong>SOFT sync</strong>: smoother, more controlled phrase sections</li>
+<li><strong>HARD sync</strong>: more abrupt, aggressive, chorus/drop sound</li>
+<li><strong>No sync</strong>: freer, more unstable intros/bridges</li>
+</ul>
+<p>Changing sync mode between sections is underrated.</p>
+<hr />
+<h1>Five concrete full-song strategies</h1>
+<h2>Strategy 1: One riff, four sections</h2>
+<p>This is the most direct way to turn a loop into a song.</p>
+<h3>Patch</h3>
+<ul>
+<li>VCO → Skorpion <code>IN</code></li>
+<li>Skorpion <code>OUT L/R</code> → mixer</li>
+<li>Sequencer → VCO pitch</li>
+<li>Envelope/VCA after Skorpion or before depending on taste</li>
+<li>External clock to your sequencer</li>
+<li>Optional filter after Skorpion</li>
+</ul>
+<h3>Build 4 section states</h3>
+<h4>Intro</h4>
+<ul>
+<li><code>OUTPUT</code> near dry</li>
+<li><code>FOLD</code> low</li>
+<li><code>SHAPE</code> near noon</li>
+<li><code>TARGET</code> toward <code>CLIP</code> or mild setting</li>
+<li><code>SYNC</code> soft or off</li>
+<li><code>WIDE</code> low</li>
+</ul>
+<h4>Verse</h4>
+<ul>
+<li>moderate <code>FOLD</code></li>
+<li>asymmetry via slight <code>SHIFT</code></li>
+<li>modest <code>SHAPE</code> from <code>OUT</code></li>
+<li>threshold pattern sparse</li>
+<li>narrow stereo</li>
+</ul>
+<h4>Chorus</h4>
+<ul>
+<li>increase <code>SLOPE</code></li>
+<li>increase <code>FOLD</code></li>
+<li><code>TARGET</code> toward <code>SLIDERs</code></li>
+<li>richer TRGT values</li>
+<li><code>SHAPE</code> from <code>TRGTs</code>, <code>COUNT</code>, or <code>DIFF</code></li>
+<li><code>OUTPUT</code> into wide region</li>
+</ul>
+<h4>Breakdown</h4>
+<ul>
+<li><code>HALT IF TARG=0</code> enabled</li>
+<li>some TRGT sliders at zero</li>
+<li>less width</li>
+<li>maybe <code>SYNC</code> hard</li>
+<li>more square/static segments</li>
+</ul>
+<p>Now the same melodic line yields a full arrangement.</p>
+<hr />
+<h2>Strategy 2: Use Skorpion as the song’s modulation brain</h2>
+<p>Instead of only using the audio output, use the aux outputs to animate the whole patch.</p>
+<h3>Very useful outputs</h3>
+<ul>
+<li><code>COUNT</code>: 0–4V staircase, each active threshold adds 0.5V</li>
+<li><code>DAC</code>: weighted threshold count</li>
+<li><code>TRGTs</code>: target sequencer CV</li>
+<li><code>DIFF</code>: difference between target and actual vector position</li>
+<li><code>ABS(IN)</code>: full-wave rectified input</li>
+<li><code>G(IN&gt;0)</code>: polarity gate</li>
+<li><code>±G(DIR)</code>: direction gate</li>
+<li><code>DELAY</code>: delayed stereo signal source</li>
+</ul>
+<h3>Example system patch</h3>
+<ul>
+<li><code>COUNT</code> → filter cutoff on pads</li>
+<li><code>DAC</code> → reverb decay or send amount</li>
+<li><code>TRGTs</code> → transpose a bassline or modulate oscillator FM depth</li>
+<li><code>DIFF</code> → percussion VCA for metallic accents</li>
+<li><code>G(IN&gt;0)</code> → clock a switch between hi-hat patterns</li>
+<li><code>±G(DIR)</code> → pan modulation or alternate drum voices</li>
+</ul>
+<h3>Song result</h3>
+<p>Your lead voice and the rest of the arrangement evolve together. This is how patches stop sounding like isolated loops.</p>
+<hr />
+<h2>Strategy 3: Verse/chorus via stereo width and harmonic density</h2>
+<p>A classic arrangement trick is:
+- verse = narrow and less bright
+- chorus = wide and harmonically rich</p>
+<p>Skorpion is excellent for that by itself.</p>
+<h3>Patch</h3>
+<ul>
+<li>Bass voice through Skorpion or lead through Skorpion</li>
+<li><code>OUT SWITCH</code> to <code>FILTERS</code> mode</li>
+<li><code>OUT L/R</code> to main mix</li>
+</ul>
+<h3>Arrangement</h3>
+<ul>
+<li><strong>Verse:</strong> output just below noon, mostly wet but not wide</li>
+<li><strong>Pre:</strong> cross noon and start introducing delay-based width</li>
+<li><strong>Chorus:</strong> 1–3 o’clock or more, wide engaged</li>
+<li><strong>Bridge:</strong> pull width down, change shape source</li>
+<li><strong>Final chorus:</strong> return to widest setting</li>
+</ul>
+<p>This gives very obvious macro song form.</p>
+<hr />
+<h2>Strategy 4: Make a bridge by changing what clips to what</h2>
+<p>The <code>CLIP</code> input is very interesting: input normally clips to itself, but another signal can replace it.</p>
+<h3>Patch</h3>
+<ul>
+<li>Main melody oscillator → <code>IN</code></li>
+<li>Percussion loop / second oscillator / noise source → <code>CLIP</code></li>
+<li>Modulate <code>TARGET</code> and/or <code>TRGT MOD</code></li>
+</ul>
+<h3>Song use</h3>
+<p>For a bridge or middle section:
+- use a different <code>CLIP</code> source than the main voice
+- your lead becomes overlaid/interrupted by another rhythm or melodic contour
+- feels like a new harmonic environment without changing the sequencer drastically</p>
+<p>This is excellent for:
+- industrial
+- techno
+- experimental
+- electro-acoustic transitions</p>
+<hr />
+<h2>Strategy 5: Build long-form evolving sections with Macro Env</h2>
+<p>The internal modulation system is probably the most song-specific feature in the manual.</p>
+<h3>Macro setup ideas</h3>
+<ul>
+<li>slider 1: long attack, e.g. 16–64 bars</li>
+<li>slider 2: long release, e.g. 8–32 bars</li>
+<li>slider 3: threshold LFO amount moderate</li>
+<li>slider 4: threshold LFO rate slow</li>
+<li>sliders 5–8:</li>
+<li>FOLD = LFO</li>
+<li>SLOPE = ENV</li>
+<li>SHIFT = slow LFO</li>
+<li>SHAPE = ENV</li>
+</ul>
+<p>Then trigger <code>MACRO ENV</code> from:
+- a manual gate for performance
+- an end-of-phrase trigger
+- a song sequencer section pulse</p>
+<h3>Result</h3>
+<p>A section can slowly “open up” over minutes, then collapse back. This is extremely useful for ambient, techno, kosmische, and soundtrack structures.</p>
+<hr />
+<h1>Specific song roles by genre</h1>
+<h2>Techno</h2>
+<p>Skorpion can carry a lot of the arrangement alone.</p>
+<h3>Good uses</h3>
+<ul>
+<li>acid/bassline wavefolding with increasing <code>SLOPE</code></li>
+<li>percussion through <code>CLIP</code> for industrial transitions</li>
+<li><code>COUNT</code> or <code>DAC</code> controlling filter or send levels</li>
+<li><code>OUTPUT</code> widening for drops/returns</li>
+<li><code>DIFF</code> into FM amount on another oscillator for tension</li>
+</ul>
+<h3>Song form</h3>
+<ul>
+<li>32-bar intro: dry/minimal</li>
+<li>32-bar groove: mild folding</li>
+<li>16-bar build: macro env opens SHAPE and thresholds</li>
+<li>drop: hard sync, wide output, high fold</li>
+<li>break: halt segments + reduced kick</li>
+<li>return: same riff, new target profile</li>
+</ul>
+<hr />
+<h2>Ambient / drone</h2>
+<p>Skorpion is more than capable of slow-form composition.</p>
+<h3>Good uses</h3>
+<ul>
+<li>slow <code>MACRO ENV</code></li>
+<li>sparse thresholds, equalized thresholds on/off</li>
+<li><code>SHAPE</code> from <code>DELAY</code> or <code>OUT</code></li>
+<li><code>TRGTs</code> output to modulate reverb or filter banks</li>
+<li><code>ABS(IN)</code> and <code>DIFF</code> for subtle motion elsewhere</li>
+</ul>
+<h3>Song form</h3>
+<ul>
+<li>establish clean tone</li>
+<li>gradually animate threshold motion</li>
+<li>widen output over long time</li>
+<li>introduce asymmetry via <code>SHIFT</code></li>
+<li>bridge through alternate <code>CLIP</code></li>
+<li>resolve back to dry-ish center</li>
+</ul>
+<hr />
+<h2>IDM / experimental</h2>
+<p>This module was born for this.</p>
+<h3>Good uses</h3>
+<ul>
+<li>switch <code>TARGET ORDER</code> between <code>SEQ</code> and <code>TIED</code></li>
+<li>use <code>HALT IF TARG=0</code></li>
+<li>self-patch <code>DIFF</code>, <code>COUNT</code>, <code>TRGTs</code></li>
+<li>feed rhythmic signals into <code>CLIP</code></li>
+<li>use <code>G(IN&gt;0)</code> or <code>±G(DIR)</code> as pseudo-rhythm generators</li>
+</ul>
+<h3>Song form</h3>
+<ul>
+<li>repeat motif</li>
+<li>mutate by target order</li>
+<li>bridge with halt or hard sync</li>
+<li>recontextualize same sequence with different threshold maps</li>
+<li>make returns feel earned by pulling back to a simpler state</li>
+</ul>
+<hr />
+<h2>Pop / melodic electronic</h2>
+<p>Skorpion can still work, but with restraint.</p>
+<h3>Good uses</h3>
+<ul>
+<li>use as controlled harmonic sweetener</li>
+<li>automate <code>OUTPUT</code> for chorus size</li>
+<li>use <code>FILTERS</code> mode to preserve center low end</li>
+<li>keep <code>SHIFT</code> moderate</li>
+<li>use <code>TRGTs</code> for subtle phrase variation rather than chaos</li>
+</ul>
+<h3>Song form</h3>
+<ul>
+<li>intro: nearly dry pluck</li>
+<li>verse: slight fold</li>
+<li>pre-chorus: shape starts moving</li>
+<li>chorus: wider, richer harmonics</li>
+<li>post-chorus hook: use <code>DELAY</code> output separately</li>
+<li>bridge: more asymmetry or alternate clip source</li>
+<li>final chorus: widest and brightest</li>
+</ul>
+<hr />
+<h1>Self-patching ideas that help with arrangement</h1>
+<p>Skorpion’s outputs make it especially suitable for self-patching. These often create section-changing behavior.</p>
+<h2>1. <code>COUNT</code> → <code>SHAPE CV</code></h2>
+<p>More active thresholds create more shape modulation.
+- section effect: density grows with fold complexity</p>
+<h2>2. <code>TRGTs</code> → <code>SHIFT CV</code></h2>
+<p>Each threshold-crossing state changes symmetry.
+- section effect: verse/chorus phrasing becomes more vocal-like</p>
+<h2>3. <code>DIFF</code> → <code>FOLD CV</code></h2>
+<p>Aggressive unstable feedback.
+- section effect: use only for builds or climaxes</p>
+<h2>4. <code>ABS(IN)</code> → external filter cutoff</h2>
+<p>Amplitude-following brightness.
+- section effect: makes part sit forward without extra envelopes</p>
+<h2>5. <code>±G(DIR)</code> → switch between two effects sends</h2>
+<ul>
+<li>up direction sends to delay</li>
+<li>down direction sends to reverb</li>
+<li>section effect: moving stereo phrases and responsive ambience</li>
+</ul>
+<h2>6. <code>DELAY</code> output → another voice’s FM or wavefolder input</h2>
+<ul>
+<li>section effect: chorus-like interdependence across voices</li>
+</ul>
+<hr />
+<h1>Building an actual full song: practical templates</h1>
+<h2>Template 1: “Single-voice song”</h2>
+<p>Great when you want to compose with minimal modules.</p>
+<h3>Modules</h3>
+<ul>
+<li>1 oscillator</li>
+<li>1 sequencer</li>
+<li>1 envelope</li>
+<li>1 VCA</li>
+<li>Skorpion</li>
+<li>reverb</li>
+<li>mixer</li>
+</ul>
+<h3>Structure</h3>
+<ol>
+<li><strong>Intro</strong><br />
+   Dry or near-dry oscillator through Skorpion, low fold.</li>
+<li><strong>Verse</strong><br />
+   Add moderate fold, slight shift asymmetry.</li>
+<li><strong>Pre-chorus</strong><br />
+   Bring in Macro Env, slowly increase threshold motion.</li>
+<li><strong>Chorus</strong><br />
+   Wider output, higher slope, shape from <code>OUT</code> or <code>TRGTs</code>.</li>
+<li><strong>Breakdown</strong><br />
+   Lower wet, enable halting behavior with zero targets.</li>
+<li><strong>Final chorus</strong><br />
+   Return to widest, richest state.</li>
+<li><strong>Outro</strong><br />
+   Long Macro Env release, pull output toward dry.</li>
+</ol>
+<p>This works because the timbral arc itself becomes the song.</p>
+<hr />
+<h2>Template 2: “Skorpion-centered trio”</h2>
+<p>A classic full arrangement with bass, lead, and drums.</p>
+<h3>Modules</h3>
+<ul>
+<li>Bass voice</li>
+<li>Lead voice</li>
+<li>Drum system</li>
+<li>master sequencer</li>
+<li>Skorpion</li>
+<li>filter</li>
+<li>mixer with sends</li>
+<li>delay/reverb</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Lead voice → Skorpion</li>
+<li><code>COUNT</code> → bass filter cutoff</li>
+<li><code>TRGTs</code> → drum accent CV or percussion pitch</li>
+<li><code>DIFF</code> → FX send level</li>
+<li><code>G(IN&gt;0)</code> → trigger logic for percussion variation</li>
+<li><code>OUT L/R</code> → stereo mix</li>
+</ul>
+<h3>Why this works</h3>
+<p>Now the lead timbre drives bass articulation and drum movement. That creates “arranged coherence,” which is often missing in modular jams.</p>
+<hr />
+<h2>Template 3: “Bass through Skorpion, melody elsewhere”</h2>
+<p>Useful if you want stronger section contrast while keeping lead stable.</p>
+<h3>Patch</h3>
+<ul>
+<li>Bass oscillator/filter/VCA → Skorpion</li>
+<li>Melody voice straight to mixer</li>
+<li><code>DAC</code> or <code>COUNT</code> from Skorpion → melody filter or FM index</li>
+<li><code>DELAY</code> out → send FX or sidechain modulation destination</li>
+</ul>
+<h3>Song result</h3>
+<p>The bass becomes the emotional engine of the arrangement:
+- dry/tight verse bass
+- distorted chorus bass
+- halted breakdown bass
+- wide harmonic final section</p>
+<p>Meanwhile the melody provides continuity.</p>
+<hr />
+<h2>Template 4: “Skorpion as bridge machine”</h2>
+<p>Sometimes a patch already has a great verse and chorus, but no bridge.</p>
+<h3>Bridge recipe</h3>
+<ul>
+<li>change <code>TARGET ORDER</code> from <code>SEQ</code> to <code>TIED</code> or vice versa</li>
+<li>feed a new signal into <code>CLIP</code></li>
+<li>switch <code>SHAPE SOURCE</code> to <code>DIFF</code> or <code>DELAY</code></li>
+<li>reduce <code>OUTPUT</code> width temporarily</li>
+<li>engage <code>HALT IF TARG=0</code></li>
+<li>use macro env to slowly restore previous state</li>
+</ul>
+<p>This gives a middle section that feels related but distinct.</p>
+<hr />
+<h1>How to avoid “cool modular loop syndrome” with Skorpion</h1>
+<h2>1. Assign one parameter per section identity</h2>
+<p>Do not wiggle everything at once. Decide:
+- verse = target mode
+- chorus = width
+- breakdown = halt
+- bridge = clip source
+- outro = macro release</p>
+<p>Section meaning becomes clearer.</p>
+<h2>2. Use recurrence</h2>
+<p>A full song needs return. If chorus 1 used:
+- <code>TARGET</code> toward sliders
+- <code>OUTPUT</code> wide
+- <code>SHAPE</code> from <code>OUT</code></p>
+<p>then chorus 2 should recall that, even if bigger.</p>
+<h2>3. Exploit dry/wet contrast</h2>
+<p>People underestimate how musical it is to simply reduce processing. A dry return after complexity feels like composition, not just less modulation.</p>
+<h2>4. Let Skorpion modulate other voices</h2>
+<p>This is one of the biggest takeaways from the manual. The aux outs are not extras; they are your arrangement glue.</p>
+<h2>5. Use long times</h2>
+<p>Macro attack/release up to 600 seconds is enormous. That’s an invitation to think in phrases, sections, and movements, not just bar loops.</p>
+<hr />
+<h1>A few especially strong patch ideas for songwriting</h1>
+<h2>Patch idea: Chorus opener</h2>
+<ul>
+<li>lead voice → Skorpion</li>
+<li>Macro Env triggered every 16 bars</li>
+<li>FOLD LFO enabled</li>
+<li>SHAPE ENV enabled</li>
+<li>OUTPUT CV from a slow rising envelope</li>
+<li><code>FILTERS</code> mode on output switch</li>
+</ul>
+<p>Effect: each chorus blooms wider and brighter while lows stay centered.</p>
+<hr />
+<h2>Patch idea: Breakdown freeze</h2>
+<ul>
+<li>some TRGT sliders set to zero</li>
+<li><code>HALT IF TARG=0</code> enabled</li>
+<li>lower <code>OUTPUT</code> toward wet but not wide</li>
+<li><code>SYNC</code> hard</li>
+<li><code>DIFF</code> → external LPG or VCA for clicks/textures</li>
+</ul>
+<p>Effect: waveform stalls in certain segments, making a rigid broken shape perfect for a stripped-down breakdown.</p>
+<hr />
+<h2>Patch idea: Bass-to-lead handoff</h2>
+<ul>
+<li>bass through Skorpion in verse</li>
+<li><code>TRGTs</code> output modulates a second oscillator’s timbre</li>
+<li>in chorus, mute bass processing down and raise second oscillator</li>
+<li>both are linked because the lead inherits the bass’s threshold-driven motion</li>
+</ul>
+<p>Effect: continuity across sections without repetition.</p>
+<hr />
+<h2>Patch idea: Skorpion-generated percussion accents</h2>
+<ul>
+<li>percussive audio to <code>IN</code></li>
+<li><code>G(IN&gt;0)</code> and <code>COUNT</code> used for logic/comparator-triggered accents</li>
+<li><code>DIFF</code> to strike resonant filter ping or LPG</li>
+<li><code>OUT L/R</code> lightly mixed under drums</li>
+</ul>
+<p>Effect: the drum bus generates related percussion events, creating arranged fills and transitions.</p>
+<hr />
+<h1>Limitations and how to work around them</h1>
+<h2>Limitation: easy to get lost in complexity</h2>
+<p>Skorpion can do so much that sections may blur together.</p>
+<h3>Workaround</h3>
+<p>Use a notebook or patch sheet:
+- Intro settings
+- Verse settings
+- Chorus settings
+- Bridge settings</p>
+<p>Treat it like recallable performance composition.</p>
+<h2>Limitation: can overpower a mix</h2>
+<p>It produces lots of harmonics and width.</p>
+<h3>Workaround</h3>
+<ul>
+<li>use <code>OUTPUT SWITCH</code> in <code>FILTERS</code> mode</li>
+<li>keep bass centered</li>
+<li>use external EQ/filter</li>
+<li>automate dry/wet rather than leaving it full</li>
+</ul>
+<h2>Limitation: modulation can become constant motion</h2>
+<p>Too much internal LFO activity can flatten the arrangement because everything is always “active.”</p>
+<h3>Workaround</h3>
+<p>Use <code>MACRO ENV</code> strategically so modulation appears only in selected sections.</p>
+<hr />
+<h1>Best overall mindset</h1>
+<p>The big compositional lesson from this manual is:</p>
+<p><strong>Don’t use Skorpion only as a sound enhancer. Use it as a section designer and modulation narrator.</strong></p>
+<p>If you do that, it can help solve one of the hardest Eurorack problems: making a patch tell a story over several minutes.</p>
+<p>A strong approach is:</p>
+<ul>
+<li>choose one core riff or motif</li>
+<li>route it through Skorpion</li>
+<li>define 4–5 recognizable Skorpion “states”</li>
+<li>export Skorpion aux CVs to move the rest of your system</li>
+<li>use OUTPUT width and Macro Env for transitions</li>
+<li>return to earlier states for song-level repetition</li>
+</ul>
+<p>That turns “cool loop” into “full-length piece.”</p>
+<hr />
+<h1>Quick song-building checklist with Skorpion</h1>
+<h2>Use Skorpion for:</h2>
+<ul>
+<li><strong>intro/chorus width contrast</strong></li>
+<li><strong>verse/chorus timbral contrast</strong></li>
+<li><strong>bridge via alternate CLIP source</strong></li>
+<li><strong>breakdowns via HALT / zero targets</strong></li>
+<li><strong>builds via Macro Env</strong></li>
+<li><strong>arrangement glue via COUNT / DAC / TRGTs / DIFF</strong></li>
+<li><strong>returns via saved threshold/target identities</strong></li>
+</ul>
+<h2>Pair with:</h2>
+<ul>
+<li>sequencer</li>
+<li>VCAs</li>
+<li>filter</li>
+<li>effects</li>
+<li>logic/switching</li>
+<li>mixer</li>
+<li>sampler/recorder if you want structure beyond live patching</li>
+</ul>
+<hr />
+<p>If you want, I can also turn this into:
+1. a <strong>10-patch cookbook for full-song composition with Skorpion</strong>, or<br />
+2. a <strong>section-by-section techno / ambient / IDM patch plan</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Fancyyyyy_K-Accumulator_Digital_Complex_Oscillator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Fancyyyyy — K-Accumulator Digital Complex Oscillator</h1>
+<ul>
+<li><a href="../../manuals/K_ACCUMULATOR_Quickstart_v1.02.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://fancysynthesis.net">Manual PDF</a></p>
+<h1>Using K-ACCUMULATOR for dense rhythmic / hyper-complex percussion</h1>
+<p>K-ACCUMULATOR is unusually good for percussion because it is not just an oscillator. From the quick-start, it combines:</p>
+<ul>
+<li>a main oscillator with deep internal waveshaping</li>
+<li>a Mod oscillator for PM/XPM relationships</li>
+<li>a UFG function generator that can run sub-audio to audio</li>
+<li>a Δ–∑ pattern generator clocked by the UFG</li>
+<li>a Root/scale system tying pitch relationships together</li>
+</ul>
+<p>That means one module can act like:</p>
+<ul>
+<li>sound source</li>
+<li>envelope/pulsar engine</li>
+<li>internal clock</li>
+<li>pattern sequencer</li>
+<li>modulation generator</li>
+<li>pseudo-random variation source</li>
+</ul>
+<p>If your goal is <strong>densely rhythmic, polyrhythmic, asymmetrical percussion</strong>, this module wants to be patched as a <strong>self-contained percussion ecosystem</strong> and then externally mixed/processed.</p>
+<hr />
+<h2>Core idea</h2>
+<p>For percussion on K-ACCUMULATOR, the most important controls are:</p>
+<ul>
+<li><strong>Damped/Pulsar</strong>: gives you sync + amplitude modulation from the UFG into the OSC</li>
+<li><strong>UFG Time / Loop / Trigger modes</strong>: defines rhythmic pulse behavior</li>
+<li><strong>Δ–∑</strong>: creates stepped or slewed evolving patterns</li>
+<li><strong>1V/TZ attenuverter on OSC</strong>: lets Δ–∑ become pitch/percussion contour</li>
+<li><strong>Morph / Shift / Depth / Shape / Stretch</strong>: turns basic hits into metallic, snappy, woody, noisy, tearing, or formant percussion</li>
+<li><strong>Mod Harmonic / Order / Detune</strong>: controls overtone relations and “struck object” character</li>
+</ul>
+<p>The fastest route to percussive complexity is:</p>
+<ol>
+<li>Put <strong>UFG in sub-audio</strong></li>
+<li>Raise <strong>Damped/Pulsar</strong></li>
+<li>Use <strong>Δ–∑</strong> to animate oscillator pitch or timbre</li>
+<li>Use <strong>Morph modes</strong> with PM/XPM for metallic/transient-rich attacks</li>
+<li>Exploit <strong>different rates and pattern lengths</strong> for internal polyrhythm</li>
+</ol>
+<hr />
+<h1>1. Start with a percussion voice</h1>
+<h2>Basic struck/percussive patch</h2>
+<p>Start near Centre, then:</p>
+<ul>
+<li>Main sine/cosine outs to stereo mixer</li>
+<li>Set <strong>Stretch, Shift, Depth, Shape low</strong></li>
+<li>Set <strong>UFG Time</strong> to sub-audio</li>
+<li>Turn up <strong>Damped/Pulsar</strong></li>
+<li>Put <strong>UFG in Loop</strong> mode</li>
+</ul>
+<p>What happens:</p>
+<ul>
+<li>The UFG becomes a repeating pulse/window source</li>
+<li>OSC gets synced and amplitude-modulated by the UFG</li>
+<li>At higher Damped/Pulsar settings, it moves from subtle motion to hard rhythmic gating/sync</li>
+<li>This creates the basis for kick/tom/woodblock/metal hit behavior</li>
+</ul>
+<h3>Good starting sound zones</h3>
+<ul>
+<li><strong>FMNT / FBPM</strong>: cleaner struck tones, drum body, toms, claves</li>
+<li><strong>2OP / XPM</strong>: brighter metallic percussion, zaps, aggro hats</li>
+<li><strong>Asym</strong>: granular, crispy, pulse-train percussion, great for hats and digital hand percussion</li>
+<li><strong>FBPM2 / XPM2</strong>: unstable, chaotic, broken-machine percussion</li>
+</ul>
+<hr />
+<h1>2. Make the UFG your master rhythm engine</h1>
+<p>The manual says the UFG is simultaneously:</p>
+<ul>
+<li>main modulation source for OSC</li>
+<li>pulsar window generator</li>
+<li>clock source for Δ–∑</li>
+</ul>
+<p>So the first advanced trick is: <strong>think of UFG as your drummer’s hands</strong>.</p>
+<h2>Rhythmic functions of UFG</h2>
+<h3>A. Looping sub-audio pulses</h3>
+<p>Set:
+- <strong>Loop on</strong>
+- <strong>Time</strong> in sub-audio
+- <strong>Skew</strong> off-center
+- <strong>Shape</strong> somewhere between linear and raised cosine</p>
+<p>This creates repeating envelopes or pulse trains.</p>
+<p>Use:
+- <strong>Raised cosine-ish shapes</strong> for rounded hand-drum envelopes
+- <strong>Exponential-ish shapes</strong> for sharper attacks
+- <strong>Extreme Skew</strong> for asymmetrical attack/decay timing</p>
+<p>That asymmetry is important because it creates rhythmic “lean” even before sequencing.</p>
+<h3>B. Use trigger response modes for rhythmic behavior</h3>
+<p>The UFG’s trigger Type cycles through:
+- hard sync with subharmonic locking
+- sync reversal
+- sustain + hard sync
+- sustain + sync reversal</p>
+<p>These are extremely useful for complex rhythms if you feed the UFG an external clock or trigger stream.</p>
+<h4>Practical uses:</h4>
+<ul>
+<li><strong>Hard sync with subharmonic locking</strong>: stable but strange rhythmic subdivisions</li>
+<li><strong>Sync reversal</strong>: creates back-spinning envelope motion, ideal for irregular accents</li>
+<li><strong>Sustain modes</strong>: turn gates into variable-length percussive windows</li>
+</ul>
+<p>If you have an external clock source, send it to <strong>UFG Trig</strong> and let the UFG generate a differently-shaped rhythm than the incoming clock.</p>
+<p>This is how you get <strong>one pulse stream implying another meter</strong>.</p>
+<hr />
+<h1>3. Use Δ–∑ for evolving percussion patterns</h1>
+<p>The Δ–∑ is the secret weapon for complex rhythm.</p>
+<p>Per the manual, it is:</p>
+<ul>
+<li>internally clocked by the UFG</li>
+<li>a stepped/smoothed pattern generator</li>
+<li>non-destructive</li>
+<li>variable in chance, length, and smoothness</li>
+</ul>
+<p>This means you can make a loop, destabilize it, then return to it.</p>
+<h2>Best percussion use cases for Δ–∑</h2>
+<h3>A. Pitch sequence into OSC 1V/TZ</h3>
+<p>Turn up the OSC <strong>1V/TZ attenuverter</strong> so Δ–∑ modulates pitch.</p>
+<p>This yields:
+- tuned kick/tom sequences
+- pseudo-melodic drum lines
+- stepped attack transients
+- broken electro percussion</p>
+<p>If Scale quantization is on, you can get tuned percussion. If not, it gets more raw and drum-machine-like.</p>
+<h3>B. Timbre sequence via internal normals</h3>
+<p>The OSC section says its CV inputs/attenuverters are normalled from either <strong>UFG or Δ–∑</strong>, selectable by the button beside each CV jack.</p>
+<p>This is huge.</p>
+<p>For each OSC modulation destination:
+- <strong>Shift</strong>
+- <strong>Depth</strong>
+- <strong>Shape</strong>
+- <strong>Morph</strong></p>
+<p>you can choose whether the normalled source is:
+- <strong>UFG</strong> or
+- <strong>Δ–∑</strong></p>
+<p>So you can assign:</p>
+<ul>
+<li>Δ–∑ to <strong>Shape</strong> for changing fold amount step-by-step</li>
+<li>UFG to <strong>Depth</strong> for cyclic transient motion</li>
+<li>Δ–∑ to <strong>Morph</strong> for algorithmic timbre switching</li>
+<li>UFG to <strong>Shift</strong> for repeated harmonic sweep per hit</li>
+</ul>
+<p>That means each hit can have:
+- its own pitch
+- its own timbre
+- its own transient profile</p>
+<p>without external modulation.</p>
+<hr />
+<h1>4. Building polyrhythm from internal mismatches</h1>
+<p>K-ACCUMULATOR doesn’t advertise “polyrhythm mode” explicitly, but it absolutely supports polyrhythmic thinking because different sections can imply different periodicities.</p>
+<h2>Method 1: UFG period vs Δ–∑ pattern length</h2>
+<p>Since Δ–∑ is clocked by UFG, the simplest route is to change <strong>Δ–∑ Length</strong> while keeping UFG steady.</p>
+<p>For example:
+- UFG pulse cycle = steady quarter-note-ish clock
+- Δ–∑ Length = 5 steps</p>
+<p>Now your pitch/timbre pattern cycles every 5 pulses while the pulse engine cycles every 4, 8, or whatever your phrase implies.</p>
+<p>This gives:
+- 5 over 4
+- 5 over 8
+- asymmetrical repeating percussion phrases</p>
+<h3>Suggested Length settings</h3>
+<ul>
+<li><strong>3 steps</strong> for tresillo-like implied patterning</li>
+<li><strong>5 steps</strong> for classic rotating asymmetry</li>
+<li><strong>7 steps</strong> for long “never quite repeating” cycles</li>
+<li><strong>15 or 16 steps</strong> for larger phrase structures</li>
+</ul>
+<p>Because Length zooms into a section of the pattern based on current step, changing it live can create rotating metric illusions.</p>
+<h2>Method 2: Mod oscillator harmonic ratios</h2>
+<p>Set Mod oscillator to track:
+- OSC
+- UFG
+- or Root</p>
+<p>Then use <strong>Harmonic</strong> and <strong>Order</strong> to get integer or near-integer relationships.</p>
+<p>Examples:
+- Mod at 3x or 5x harmonic relation can create spectra that imply different rhythmic densities when used in PM/XPM modes
+- Slight detune creates beating that acts like micro-rhythm
+- Even/odd harmonic spread changes the “grid feel” of transients</p>
+<p>For metallic percussion, these spectral relationships can feel like nested tuplets.</p>
+<h2>Method 3: Q.Trig for threshold-derived rhythmic events</h2>
+<p>The OSC has <strong>Q.Trig</strong>:</p>
+<blockquote>
+<p>sends a trigger to the UFG each time oscillator frequency crosses a quantizer threshold</p>
+</blockquote>
+<p>This is weird and powerful.</p>
+<p>If:
+- OSC tracks Root
+- a scale is enabled
+- pitch is being modulated by Δ–∑ or external CV</p>
+<p>then the oscillator crossing scale thresholds can re-trigger UFG activity.</p>
+<p>This effectively converts melodic/pitch movement into rhythm.</p>
+<p>That means:
+- more pitch movement = more trigger density
+- scale choice changes where triggers occur
+- nonuniform quantized intervals create irregular trigger spacing</p>
+<p>This is fantastic for <strong>algorithmic percussion bursts</strong> and <strong>rhythms derived from tuning structure rather than clock divisions</strong>.</p>
+<hr />
+<h1>5. Complex time signatures and asymmetrical phrase design</h1>
+<p>For complex meter, think in layers:</p>
+<ul>
+<li><strong>UFG</strong> = beat pulse or sub-beat engine</li>
+<li><strong>Δ–∑ Length</strong> = phrase length</li>
+<li><strong>Chance</strong> = controlled mutation</li>
+<li><strong>Pattern edit switch</strong> = manual insertion of accents</li>
+<li><strong>Morph modulation</strong> = orchestrational variation</li>
+<li><strong>Scale / Root</strong> = tuned drum framework</li>
+</ul>
+<h2>Example: 7/8-ish percussion system</h2>
+<p>Patch:
+- UFG looping in sub-audio as the hit engine
+- Damped/Pulsar fairly high
+- Δ–∑ to OSC 1V/TZ
+- Δ–∑ Length set to <strong>7</strong>
+- Smooth low
+- Chance near minimum</p>
+<p>Result:
+- 7-step recurring percussion phrase</p>
+<p>Then:
+- assign Δ–∑ to <strong>Shape</strong>
+- assign UFG to <strong>Depth</strong>
+- put Morph around <strong>2OP or XPM</strong></p>
+<p>Now each of the 7 steps has:
+- distinct pitch
+- distinct fold
+- cyclic PM transient behavior</p>
+<p>That gets you asymmetrical meter with complex per-step articulation.</p>
+<h2>Example: 5 against 4</h2>
+<p>Use an external 4-pulse bar clock to trigger or sync UFG, but keep Δ–∑ at <strong>Length 5</strong>.</p>
+<p>Result:
+- hit engine anchored to 4
+- internal pitch/timbre cycle rotates every 5</p>
+<p>This is a classic polyrhythmic setup.</p>
+<h2>Example: 11-step machine groove</h2>
+<ul>
+<li>UFG as constant pulse source</li>
+<li>Δ–∑ Length = 11</li>
+<li>Chance low but not zero</li>
+<li>Smooth medium</li>
+<li>Morph CV from Δ–∑ slightly positive</li>
+<li>Shift CV from UFG slightly negative/positive depending taste</li>
+</ul>
+<p>You get an 11-hit phrase where:
+- pitch steps recur every 11
+- timbre slowly transforms
+- glides create smeared transitions and flams</p>
+<hr />
+<h1>6. Use Chance non-destructively for “controlled breakbeats”</h1>
+<p>The manual’s Δ–∑ Chance behavior is ideal for evolving percussion:</p>
+<ul>
+<li>at minimum = locked loop</li>
+<li>increasing Chance = progressively injects new values</li>
+<li>returning to minimum restores original pattern</li>
+</ul>
+<p>This is gold for live rhythmic mutation.</p>
+<h2>Performance strategy</h2>
+<ol>
+<li>Build a tight core groove with Chance at minimum</li>
+<li>Raise Chance during transitions or fills</li>
+<li>Lower back to minimum to “snap home” to the original groove</li>
+</ol>
+<p>This gives the feeling of:
+- fills
+- improvisation
+- controlled breakage
+- return to meter</p>
+<p>without losing the underlying pattern.</p>
+<p>For hyper-complex percussion, use this as your <strong>fill generator</strong> instead of programming separate fill patterns.</p>
+<hr />
+<h1>7. Smooth as glide, filter, and drum smear</h1>
+<p>Δ–∑ Smooth behaves differently depending on rate:</p>
+<ul>
+<li>sub-audio: glide between steps</li>
+<li>audio-rate: filtering / limiting of value changes</li>
+</ul>
+<p>For percussion, this is useful in several ways.</p>
+<h2>Low Smooth</h2>
+<ul>
+<li>crisp stepped drum pitches</li>
+<li>strong attack identity</li>
+<li>machine-like sequencing</li>
+</ul>
+<h2>Medium Smooth</h2>
+<ul>
+<li>bends between hits</li>
+<li>talking drum / electro tom feel</li>
+<li>slurred percussion lines</li>
+<li>pseudo-flams when driving PM-related parameters</li>
+</ul>
+<h2>High Smooth</h2>
+<ul>
+<li>less distinct step changes</li>
+<li>more continuous modulation</li>
+<li>useful when driving Morph/Shape for swarming percussion textures</li>
+</ul>
+<p>At audio-ish modulation rates, Smooth can produce filtered-control behavior that makes fast patterns less clicky and more liquid.</p>
+<hr />
+<h1>8. Best Morph modes for percussion</h1>
+<h2>FMNT</h2>
+<p>Good for:
+- formant toms
+- vocal-ish congas
+- tuned hand percussion
+- soft but articulate attacks</p>
+<p>Use:
+- Depth for bandwidth/body
+- Shape for damping feel
+- Shift for harmonic emphasis</p>
+<h2>FBPM</h2>
+<p>Good for:
+- kicks
+- toms
+- woodblock-ish attacks
+- sine-to-saw drum tone sweeps</p>
+<p>Use:
+- Depth for body distortion
+- Shape for extra fold edge
+- Stretch for harmonic separation</p>
+<h2>2OP</h2>
+<p>Good for:
+- metallic percussion
+- digital claves
+- bells
+- struck membrane + overtone interaction</p>
+<h2>XPM</h2>
+<p>Good for:
+- aggressive industrial hits
+- clangs
+- high-density metallic patterns
+- unstable upper transients</p>
+<h2>Asym</h2>
+<p>Good for:
+- hats
+- ticks
+- crisp digital percussion
+- grainy attacks
+- sparse pulse-train clusters</p>
+<h2>FBPM2 / 2OP2 / XPM2</h2>
+<p>Good for:
+- broken machine patterns
+- chaotic fills
+- unstable subharmonic percussion
+- very animated transient structures</p>
+<p>If you want “hyper complex percussion,” spend a lot of time in:
+- <strong>Asym</strong>
+- <strong>XPM</strong>
+- <strong>XPM2</strong>
+- <strong>FBPM2</strong></p>
+<hr />
+<h1>9. Patches for specific rhythmic goals</h1>
+<h2>Patch 1: Rotating metallic 5-over-4 percussion</h2>
+<p><strong>Goal:</strong> polyrhythmic metallic line</p>
+<ul>
+<li>UFG in Loop, sub-audio</li>
+<li>Damped/Pulsar at 60–80%</li>
+<li>Morph at <strong>2OP</strong> or <strong>XPM</strong></li>
+<li>OSC 1V/TZ attenuverter up, using Δ–∑ normal</li>
+<li>Δ–∑ Length = 5</li>
+<li>Chance very low</li>
+<li>Smooth low</li>
+<li>Mod tracks OSC</li>
+<li>Harmonic above center, Order near quantized/harmonic behavior</li>
+<li>Small Detune offset</li>
+</ul>
+<p>Why it works:
+- 5-step pitch cycle rotates against the pulse frame
+- PM gives metallic attack
+- slight detune creates moving overtone rhythm</p>
+<h2>Patch 2: 7-step asym hat engine</h2>
+<p><strong>Goal:</strong> asymmetrical hi-hat / digital shaker pattern</p>
+<ul>
+<li>Morph to <strong>Asym</strong></li>
+<li>UFG fast sub-audio</li>
+<li>Damped/Pulsar high</li>
+<li>Δ–∑ Length = 7</li>
+<li>Δ–∑ normalled to Shape or Morph attenuverter</li>
+<li>Smooth low to medium</li>
+<li>Shift moderate</li>
+<li>Depth moderate</li>
+<li>Shape moderate-high</li>
+<li>Mod tracks UFG, harmonic at a high ratio</li>
+</ul>
+<p>Why it works:
+- Asym already favors pulse-train-like spectra
+- 7-step timbre cycle produces non-square-bar hat phrasing
+- tracking Mod to UFG ties timbre density to rhythm engine</p>
+<h2>Patch 3: Chaotic fill generator</h2>
+<p><strong>Goal:</strong> fill bursts that return to a stable groove</p>
+<ul>
+<li>Build a stable pattern first in FBPM or XPM</li>
+<li>Δ–∑ Chance at minimum</li>
+<li>Length = 8 or 16</li>
+<li>During fill, raise Chance to 50–90%</li>
+<li>Increase Morph CV amount from Δ–∑</li>
+<li>Switch to <strong>FBPM2</strong> or <strong>XPM2</strong></li>
+<li>Optionally raise Smooth a bit</li>
+</ul>
+<p>Then return:
+- Lower Chance back to minimum
+- Double-press Morph encoder to snap to nearest morph position if needed
+- Reduce Morph modulation</p>
+<p>Why it works:
+- non-destructive Chance means chaos is temporary
+- right-hand morph path adds unstable modulation structures
+- returning Chance to minimum recalls the original loop</p>
+<h2>Patch 4: Quantizer-threshold trigger percussion</h2>
+<p><strong>Goal:</strong> rhythm generated by pitch movement</p>
+<ul>
+<li>Route Root to OSC</li>
+<li>Enable a scale</li>
+<li>Turn on <strong>Q.Trig</strong></li>
+<li>Feed stepped/sliding sequence to OSC 1V/TZ, ideally from Δ–∑ or external CV</li>
+<li>UFG not looping, or configured to respond clearly to triggers</li>
+<li>Damped/Pulsar high enough for obvious envelope/gating effect</li>
+</ul>
+<p>Now UFG events occur when oscillator pitch crosses quantizer thresholds.</p>
+<p>Why it works:
+- rhythm depends on interval crossing, not fixed step grid
+- unusual scales create unusual rhythmic density
+- glides and stepped values create different trigger behavior</p>
+<p>This is excellent for nonstandard meters and “intelligent chaos.”</p>
+<hr />
+<h1>10. How to imply multiple simultaneous rhythms from one voice</h1>
+<p>Since this is one module, you often won’t have separate drum voices internally. So create <strong>perceived layers</strong> instead.</p>
+<h2>Layering strategies</h2>
+<h3>Stereo split</h3>
+<p>The main outputs are sine/cosine stereo pair. Use them as:
+- left = body / drum shell
+- right = transient / overtone image</p>
+<p>Then process externally:
+- one side through saturation/compression
+- other side through HPF or reverb</p>
+<p>This can feel like two related percussion voices.</p>
+<h3>Alternating timbral accents</h3>
+<p>Use Δ–∑ on:
+- pitch and Shape
+or
+- Morph and Depth</p>
+<p>Some hits become:
+- low / round
+others:
+- sharp / metallic</p>
+<p>That creates the impression of kick-snare-hat interplay from one oscillator line.</p>
+<h3>Mod detune as microtiming feel</h3>
+<p>Slight Mod detune in PM modes creates shifting beating and transient instability. This reads like internal swing or tuplet texture even if the trigger grid is steady.</p>
+<hr />
+<h1>11. External patching ideas for even more complexity</h1>
+<p>The manual suggests plenty internally, but for serious percussion systems, combine K-ACCUMULATOR with outside tools.</p>
+<h2>Best pairings</h2>
+<h3>Clock divider / multiplier</h3>
+<p>Feed UFG Trig or Δ–∑ Clock externally with odd divisions:
+- /3
+- /5
+- /7
+- x3
+- x5</p>
+<p>Now K-ACCUMULATOR’s internal pattern logic sits on top of external odd meters.</p>
+<h3>Sequential switch</h3>
+<p>Use the sine/cosine outputs and switch processing chains every few beats.</p>
+<h3>Logic module</h3>
+<p>Take an external rhythm and use it to trigger UFG in one of the sync/reversal modes. Logic-combined clocks are great here.</p>
+<h3>VCA / LPG</h3>
+<p>Especially for TZFM into UFG or external amplitude sculpting. The manual specifically notes external VCA before UFG TZFM for wavefolder-like patches.</p>
+<h3>Filter / resonator</h3>
+<p>K-ACCUMULATOR can make raw drum matter; a resonant filter or resonator can help separate kick/snare/hat zones.</p>
+<hr />
+<h1>12. A practical workflow for writing complex percussion with it</h1>
+<h2>Workflow A: Compose the meter first</h2>
+<ol>
+<li>Set UFG pulse rate to your desired subdivision</li>
+<li>Set Δ–∑ Length to odd values: 5, 7, 11</li>
+<li>Lock Chance at minimum</li>
+<li>Edit pattern with Pattern switch</li>
+<li>Only then add Morph modulation and PM complexity</li>
+</ol>
+<p>This gives deliberate odd-meter structure.</p>
+<h2>Workflow B: Compose the texture first</h2>
+<ol>
+<li>Find a killer percussion timbre in XPM / Asym / FBPM2</li>
+<li>Set Damped/Pulsar until it grooves</li>
+<li>Use Δ–∑ for pitch and Morph modulation</li>
+<li>Tune Length and Chance until a rhythmic cycle emerges</li>
+</ol>
+<p>This gives more experimental/IDM outcomes.</p>
+<h2>Workflow C: Performance mutation</h2>
+<ol>
+<li>Keep one stable base patch</li>
+<li>Use only these for performance:</li>
+<li>Chance</li>
+<li>Length</li>
+<li>Morph position</li>
+<li>Damped/Pulsar</li>
+<li>Smooth</li>
+<li>Return to locked states frequently</li>
+</ol>
+<p>This is best for live hyper-rhythmic improvisation.</p>
+<hr />
+<h1>13. Recommended parameter habits for “hyper-complex percussion”</h1>
+<p>If that specific aesthetic is the target, here are the habits I’d emphasize:</p>
+<h2>Use odd lengths constantly</h2>
+<ul>
+<li>5, 7, 11, 13</li>
+<li>combine with stable UFG pulse base</li>
+</ul>
+<h2>Keep Chance just above zero often</h2>
+<p>Not total randomness—just enough mutation to prevent exact repetition.</p>
+<h2>Use right-hand morph path for fills</h2>
+<ul>
+<li>FBPM2</li>
+<li>2OP2</li>
+<li>XPM2</li>
+</ul>
+<h2>Use Asym for hat families</h2>
+<p>Especially when you want pointillistic upper percussion.</p>
+<h2>Use moderate Smooth, not always zero</h2>
+<p>A little slew makes lines feel alive and less step-grid-rigid.</p>
+<h2>Detune the Mod subtly</h2>
+<p>Tiny offsets can create huge movement in PM percussion.</p>
+<h2>Exploit Root/Scale selectively</h2>
+<p>Quantized tuned percussion can make chaotic rhythms still sound musically anchored.</p>
+<hr />
+<h1>14. A few “recipe” settings</h1>
+<h2>Broken electro kick</h2>
+<ul>
+<li>Morph: FBPM</li>
+<li>Damped/Pulsar: high</li>
+<li>UFG Time: slow/sub-audio</li>
+<li>Depth: medium-high</li>
+<li>Shape: low-medium</li>
+<li>Stretch: low</li>
+<li>Δ–∑ to 1V/TZ lightly</li>
+<li>Smooth: low</li>
+</ul>
+<h2>Metallic snare cluster</h2>
+<ul>
+<li>Morph: XPM</li>
+<li>Mod tracks OSC</li>
+<li>Harmonic: above center</li>
+<li>Order: near harmonic/quantized region</li>
+<li>Detune: slight</li>
+<li>Damped/Pulsar: medium-high</li>
+<li>Δ–∑ to Shape or Depth</li>
+<li>Length: 5 or 7</li>
+</ul>
+<h2>Digital hat spray</h2>
+<ul>
+<li>Morph: Asym</li>
+<li>UFG fast sub-audio</li>
+<li>Damped/Pulsar: high</li>
+<li>Shape: medium-high</li>
+<li>Shift: medium</li>
+<li>Δ–∑ Length: 7</li>
+<li>Chance: low-medium</li>
+<li>Smooth: low</li>
+</ul>
+<h2>Machine fill / broken memory</h2>
+<ul>
+<li>Morph: XPM2</li>
+<li>Chance: high temporarily</li>
+<li>Length: modulate between 5 and 8</li>
+<li>Smooth: medium</li>
+<li>Detune: slight</li>
+<li>Return Chance to minimum to recover groove</li>
+</ul>
+<hr />
+<h1>15. Best conceptual takeaway</h1>
+<p>To get <strong>densely rhythmic hyper-complex percussion</strong> out of K-ACCUMULATOR, don’t treat it like a normal oscillator with occasional modulation.</p>
+<p>Treat it as:</p>
+<ul>
+<li><strong>UFG = pulse engine</strong></li>
+<li><strong>Δ–∑ = phrase mutation and odd-length sequencer</strong></li>
+<li><strong>OSC = drum body/transient generator</strong></li>
+<li><strong>Mod = overtone/metallic structure</strong></li>
+<li><strong>Morph = percussion topology selector</strong></li>
+<li><strong>Damped/Pulsar = the “drum articulation” control</strong></li>
+</ul>
+<p>If you build around that mindset, this module can generate:</p>
+<ul>
+<li>rotating odd-meter drum cycles</li>
+<li>self-mutating percussion phrases</li>
+<li>metallic PM polyrhythms</li>
+<li>unstable fills that snap back to the groove</li>
+<li>complex rhythmic illusions from threshold triggers, pattern length, and harmonic detune</li>
+</ul>
+<p>If you want, I can also make you:
+1. a <strong>set of 10 concrete patch recipes</strong> for IDM/glitch percussion,
+2. a <strong>techno-focused patch sheet</strong>,
+3. or a <strong>“one-module polyrhythm performance workflow”</strong> for K-ACCUMULATOR.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

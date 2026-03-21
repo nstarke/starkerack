@@ -1,0 +1,396 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>WMD_Skorpion</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>WMD — Skorpion</h1>
+<ul>
+<li><a href="../../manuals/SKORPION_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://wmdevices.com/products/skorpion">Manual PDF</a></p>
+<h1>WMD Skorpion — Cheat Sheet</h1>
+<h2>What it is</h2>
+<p>A <strong>stereo wavefolder / waveform processor</strong> built around a “vector core.”<br />
+Instead of simply clipping/amplifying, Skorpion analyzes the <strong>IN</strong> signal against <strong>8 threshold comparators</strong> and reverses the vector core direction when thresholds are crossed. Result: highly controllable, animated folding with sequencing, feedback shaping, stereo widening, and lots of self-patching options.</p>
+<hr />
+<h2>Fast Start</h2>
+<ol>
+<li>Patch audio to <strong>IN</strong></li>
+<li>Patch <strong>OUT L</strong> and/or <strong>OUT R</strong> to your mixer</li>
+<li>Set:</li>
+<li><strong>OUTPUT</strong> around noon or below for mostly wet mono-ish folding</li>
+<li><strong>FOLD</strong> to taste</li>
+<li><strong>SLOPE</strong> up for brighter/more harmonics</li>
+<li><strong>SHIFT</strong> at noon for symmetry</li>
+<li><strong>TARGET</strong> to <strong>5V</strong> for hard/square-ish folding, or toward <strong>CLIP</strong> / <strong>SLIDERS</strong> for more complex behavior</li>
+<li>Move the <strong>8 sliders</strong> in default mode to set fold thresholds</li>
+<li>Experiment with:</li>
+<li><strong>SHAPE</strong> + shape source switch</li>
+<li><strong>SYNC</strong></li>
+<li><strong>EQUALIZE THLDs</strong></li>
+<li><strong>TARGET ORDER</strong></li>
+<li><strong>OUTPUT FILTERS/DC</strong></li>
+</ol>
+<hr />
+<h1>Core Controls</h1>
+<h2>Knobs</h2>
+<h3>FOLD</h3>
+<p>Amount of wavefolding; effectively amplifies the input against the threshold stack.<br />
+- CV controllable via <strong>FOLD CV jack</strong> + attenuverter</p>
+<h3>SLOPE</h3>
+<p>Rate of change of the vector core. Higher = faster movement = more harmonic content.<br />
+- CV controllable via <strong>SLOPE CV jack</strong> + attenuverter
+- <strong>1V/OCT</strong> also affects slope for pitch-consistent timbre</p>
+<h3>SHIFT</h3>
+<p>Offsets the input signal against the comparators for asymmetry.<br />
+- Noon = ~0V shift
+- Slow modulation can create frequency-shift-like motion
+- CV controllable via <strong>SHIFT CV jack</strong> + attenuverter</p>
+<h3>SHAPE</h3>
+<p>Modulates the slope using selected feedback/modulation source.<br />
+- Noon = no feedback
+- CV controllable via <strong>SHAPE CV jack</strong> + attenuverter</p>
+<h3>TARGET</h3>
+<p>Sets vector core destination voltage:
+- <strong>5V</strong>: static 5V, more square-like
+- <strong>CLIP</strong>: target follows clip/input waveform
+- <strong>SLIDERS</strong>: uses 8 target slider voltages as sequenced destinations
+- CV controllable via <strong>TARGET CV jack</strong></p>
+<h3>OUTPUT</h3>
+<p>Crossfade/width control:
+- Lower half: <strong>DRY ↔ WET</strong>
+- Upper half: <strong>WET ↔ WIDE</strong>
+- CV controllable via <strong>OUTPUT CV jack</strong> + attenuverter</p>
+<hr />
+<h2>Switches / Toggles</h2>
+<h3>EQUALIZE THLDs (3-position)</h3>
+<p>Forces equal threshold spacing, making it behave more like a classic wavefolder. LED on = equalized.
+- <strong>ON</strong>: always equalized; jack ignored
+- <strong>XOR (middle)</strong>: equalized unless jack is high
+- <strong>JACK</strong>: off unless jack is high</p>
+<h3>DRY IF NO THLDs</h3>
+<p>If no thresholds are active, output becomes dry/following input. Useful when heavily modulating FOLD so you still get signal.</p>
+<h3>SYNC (3-position)</h3>
+<p>Resets vector core at <strong>IN</strong> zero crossings.
+- <strong>SOFT</strong>: ramps toward 0V at current slope
+- <strong>X</strong>: off
+- <strong>HARD</strong>: fast reset to 0V</p>
+<h3>OUTPUT SWITCH</h3>
+<ul>
+<li><strong>DC</strong>: direct signal, no output filtering</li>
+<li><strong>FILTERS</strong>: low end (&lt;240Hz) centered; highs (&gt;240Hz) delayed / widened by mid-side network</li>
+</ul>
+<h3>TARGET ORDER</h3>
+<p>How slider targets are selected:
+- <strong>SEQ</strong>: by count of active thresholds
+- <strong>TIED</strong>: by most recently crossed threshold</p>
+<h3>SHAPE SYM switch</h3>
+<p>For the SHAPE circuit:
+- <strong>SYM</strong>: symmetric modulation for positive/negative waveform halves
+- otherwise asymmetrical behavior</p>
+<h3>TRGT MOD SYM / ASYM</h3>
+<p>For <strong>TRGT MOD</strong> input:
+- <strong>SYM</strong>: full-wave rectified; symmetric effect
+- <strong>ASYM</strong>: passes direct; asymmetric effect</p>
+<h3>HALT IF TARG=0</h3>
+<p>If a target slider is at 0, this can halt motion during that segment for square/pause-like segments. Normals to HALT behavior.</p>
+<h3>Spring Toggle</h3>
+<p>Multi-function center-off momentary switch next to sliders:
+- <strong>Center</strong>: threshold editing
+- <strong>Hold left</strong>: edit <strong>TRGTs</strong>
+- <strong>Hold right</strong>: after ~1 sec enters <strong>MACRO SETUP</strong>
+- <strong>Tap right</strong>: toggles Macro Envelope on/off</p>
+<hr />
+<h1>Sliders</h1>
+<h2>Default mode: THLDs</h2>
+<p>The 8 sliders set the <strong>8 threshold voltages</strong> where folds occur.<br />
+LED brightness shows threshold voltage.</p>
+<h2>Hold left: TRGTs</h2>
+<p>The 8 sliders set the <strong>8 target voltages</strong> used when TARGET points toward <strong>SLIDERS</strong> and/or SHAPE source uses <strong>TRGTs</strong>.</p>
+<h2>Hold right: MACRO SETUP</h2>
+<p>With spring toggle held right, sliders control:</p>
+<ol>
+<li><strong>Macro Env Attack</strong> — 50ms to 600s  </li>
+<li><strong>Macro Env Release</strong> — 500ms to 600s  </li>
+<li><strong>THLD LFO Amount</strong>  </li>
+<li><strong>THLD LFO Rate</strong> — 0.0016Hz to 6Hz  </li>
+<li><strong>FOLD normal modulation</strong>  </li>
+<li><strong>SLOPE normal modulation</strong>  </li>
+<li><strong>SHIFT normal modulation</strong>  </li>
+<li><strong>SHAPE normal modulation</strong></li>
+</ol>
+<p>For sliders 5–8:
+- quick <strong>top→bottom</strong> gesture = <strong>LFO mode</strong>
+- quick <strong>bottom→top</strong> gesture = <strong>ENV mode</strong></p>
+<p>Modes:
+- <strong>LFO</strong>: 0.0016Hz to 6Hz, unipolar, amplitude controlled by Macro Envelope
+- <strong>ENV</strong>: 50ms to 600s envelope, gated by Macro Env gate</p>
+<hr />
+<h1>Shape Sources</h1>
+<p>The SHAPE source rotary switch selects what modulates the slope:</p>
+<ul>
+<li><strong>IN</strong> — direct input</li>
+<li><strong>OUT</strong> — output feedback; log/exp-like behavior</li>
+<li><strong>DELAY</strong> — delayed signal from width circuit</li>
+<li><strong>COUNT</strong> — staircase count of active thresholds</li>
+<li><strong>DIFF</strong> — target minus current vector position; harsh/spiky</li>
+<li><strong>TRGTs</strong> — use target sequencer per-segment</li>
+<li><strong>DAC</strong> — weighted version of threshold count, subtler than COUNT</li>
+<li><strong>DIR</strong> — ±5V direction signal</li>
+</ul>
+<hr />
+<h1>Input Jacks Reference</h1>
+<blockquote>
+<p>From manual specs:
+- <strong>IN nominal range:</strong> ±5V
+- <strong>1V/OCT impedance:</strong> 3MΩ
+- <strong>TRGT MOD impedance:</strong> 20kΩ
+- <strong>All other CV/Gate inputs:</strong> 220kΩ
+- Audio/CV inputs support audio-rate modulation unless noted</p>
+</blockquote>
+<h2>Audio / Main CV Inputs</h2>
+<h3>IN</h3>
+<p>Main audio input.<br />
+- <strong>Nominal range:</strong> <strong>±5V</strong>
+- <strong>Impedance:</strong> 100kΩ</p>
+<h3>1V/OCT</h3>
+<p>Controls slope for note-consistent timbre across pitches.<br />
+- <strong>Voltage range:</strong> not explicitly stated; standard 1V/oct CV expected</p>
+<h3>FOLD CV</h3>
+<p>CV for Fold amount via attenuverter.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>SLOPE CV</h3>
+<p>CV for Slope amount via attenuverter.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>SHIFT CV</h3>
+<p>CV for Shift amount via attenuverter.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>SHAPE CV</h3>
+<p>CV for Shape amount via attenuverter.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>TARGET CV</h3>
+<p>CV for Target control.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>OUTPUT CV</h3>
+<p>CV for Dry/Wet/Wide output control.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<hr />
+<h2>Threshold / Target / Logic Inputs</h2>
+<h3>THLDs/</h3>
+<p>Weighted global threshold CV input affecting all thresholds:
+- THLD1 gets CV ÷ 128
+- THLD2 gets CV ÷ 64
+- THLD3 gets CV ÷ 32
+- THLD4 gets CV ÷ 16
+- THLD5 gets CV ÷ 8
+- THLD6 gets CV ÷ 4
+- THLD7 gets CV ÷ 2
+- THLD8 gets CV ÷ 1
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>THLD1</h3>
+<p>Direct CV input for first threshold.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>EQ THLDs</h3>
+<p>Controls threshold equalization depending on switch setting.<br />
+- High gate enables/disables equalization depending on switch mode
+- <strong>Voltage range:</strong> not explicitly stated; treat as gate/CV input</p>
+<h3>TRGTs</h3>
+<p>Global CV input that modulates all targets simultaneously.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>TRGT MOD</h3>
+<p>Directly influences TARGET output; can be symmetrical or asymmetrical.<br />
+- <strong>Voltage range:</strong> not explicitly stated
+- <strong>Impedance:</strong> 20kΩ</p>
+<h3>CLIP</h3>
+<p>Overrides the normal clip source (normally IN).<br />
+Use another signal to define clipping/overlay target behavior.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>HALT</h3>
+<p>Stops vector core movement and holds current voltage. Audio-rate modulatable.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>MACRO ENV</h3>
+<p>Gate input for Macro Envelope.<br />
+- <strong>Voltage range:</strong> not explicitly stated; gate expected</p>
+<hr />
+<h1>Output Jacks Reference</h1>
+<blockquote>
+<p>All outputs: <strong>1kΩ impedance</strong></p>
+</blockquote>
+<h3>OUT L</h3>
+<p>Main left audio output.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>OUT R</h3>
+<p>Main right audio output.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>DELAY</h3>
+<p>Delayed waveform from the WIDE processing section.
+- No output if OUTPUT is below noon
+- Fades in from ~12:00 to 12:30
+- Delay increases to ~3:00, then adds slower modulation up to full CW
+- Delay time spec:
+  - <strong>80µs to 1.8ms</strong> during fade-in region
+  - <strong>8.2ms</strong> by around 2:15
+  - <strong>max 14.4ms ±3ms</strong> at 2Hz modulation rate
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>ABS(IN)</h3>
+<p>Full-wave rectified version of IN.<br />
+- For modulation or patch utility
+- <strong>Voltage range:</strong> derived from IN; not explicitly stated</p>
+<h3>G(IN&gt;0)</h3>
+<p>Gate derived from input polarity:
+- <strong>0V</strong> when IN &lt; 0V
+- <strong>+5V</strong> when IN &gt; 0V</p>
+<h3>TRGTs OUT</h3>
+<p>Direct output of the target sequencer.<br />
+Useful as modulation source or 8-step wavetable-like oscillator control.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>DIFF</h3>
+<p>Difference between target voltage and current vector-core voltage.<br />
+Always slopes toward 0V; high harmonic content.<br />
+- <strong>Voltage range:</strong> not explicitly stated</p>
+<h3>±G(DIR)</h3>
+<p>Bipolar direction gate:
+- <strong>+5V</strong> when vector core rises
+- <strong>-5V</strong> when vector core falls</p>
+<h3>COUNT/</h3>
+<p>Staircase output based on number of active thresholds:
+- <strong>0V to 4V</strong>
+- each active threshold adds <strong>0.5V</strong></p>
+<h3>DAC</h3>
+<p>Weighted version of threshold count:
+- <strong>Full scale:</strong> <strong>0V to 4V</strong>
+- THLD1 = 1/256 FS
+- THLD2 = 1/128 FS
+- THLD3 = 1/64 FS
+- THLD4 = 1/32 FS
+- THLD5 = 1/16 FS
+- THLD6 = 1/8 FS
+- THLD7 = 1/4 FS
+- THLD8 = 1/2 FS</p>
+<hr />
+<h1>LEDs / Indicators</h1>
+<h3>Threshold Slider LEDs</h3>
+<p>Show current slider value in the active context:
+- THLDs
+- TRGTs
+- Macro setup values/modulation state</p>
+<h3>EQUALIZE THLDs LED</h3>
+<p>On when thresholds are equalized.</p>
+<h3>MACRO ENV LED</h3>
+<ul>
+<li><strong>Red</strong>: Macro gate is on</li>
+<li><strong>Blue</strong>: Macro envelope level fading in/out</li>
+</ul>
+<hr />
+<h1>Important Voltage / Timing Specs</h1>
+<h2>Explicit ranges from manual</h2>
+<ul>
+<li><strong>IN nominal range:</strong> <strong>±5V</strong></li>
+<li><strong>G(IN&gt;0):</strong> <strong>0V / +5V</strong></li>
+<li><strong>±G(DIR):</strong> <strong>-5V / +5V</strong></li>
+<li><strong>COUNT/:</strong> <strong>0–4V</strong></li>
+<li><strong>DAC:</strong> <strong>0–4V</strong></li>
+<li><strong>LFO rates:</strong> <strong>0.0016Hz to 6Hz</strong></li>
+<li><strong>Envelope times:</strong> <strong>50ms to 600s</strong></li>
+<li><strong>Macro env release:</strong> <strong>500ms to 600s</strong></li>
+<li><strong>Mid-side crossover:</strong> <strong>240Hz</strong></li>
+<li><strong>Max slew rate:</strong> <strong>0.4V/µs</strong></li>
+<li><strong>Delay:</strong> <strong>80µs to 14.4ms max</strong> depending on OUTPUT position</li>
+</ul>
+<h2>Not explicitly specified in the manual</h2>
+<p>The manual does <strong>not</strong> give exact voltage ranges for these CV inputs/outputs:
+- FOLD CV
+- SLOPE CV
+- SHIFT CV
+- SHAPE CV
+- TARGET CV
+- OUTPUT CV
+- THLDs/
+- THLD1
+- EQ THLDs
+- TRGTs input
+- TRGT MOD
+- CLIP
+- HALT
+- MACRO ENV
+- OUT L / OUT R
+- TRGTs OUT
+- DIFF
+- DELAY output amplitude</p>
+<hr />
+<h1>Practical Patch Tips</h1>
+<h2>1. Classic-ish wavefolder</h2>
+<ul>
+<li>Enable <strong>EQUALIZE THLDs</strong></li>
+<li>Set <strong>TARGET</strong> near <strong>5V</strong></li>
+<li>Use modest <strong>FOLD</strong></li>
+<li>Keep <strong>SHIFT</strong> near noon</li>
+<li><strong>SYNC</strong> off or soft</li>
+</ul>
+<h2>2. Animated stereo timbre</h2>
+<ul>
+<li>Set <strong>OUTPUT</strong> above noon toward <strong>WIDE</strong></li>
+<li>Use <strong>FILTERS</strong> mode</li>
+<li>Patch <strong>DELAY</strong> somewhere else too</li>
+<li>Modulate <strong>SHIFT</strong> or <strong>SHAPE</strong></li>
+</ul>
+<h2>3. Sequenced folding</h2>
+<ul>
+<li>Hold left and set <strong>TRGT sliders</strong></li>
+<li>Put <strong>TARGET</strong> toward <strong>SLIDERS</strong></li>
+<li>Flip <strong>TARGET ORDER</strong> between <strong>SEQ</strong> and <strong>TIED</strong></li>
+<li>Result: each threshold crossing picks a different destination voltage</li>
+</ul>
+<h2>4. Aggressive / broken digital-ish tones</h2>
+<ul>
+<li>SHAPE source = <strong>DIFF</strong> or <strong>OUT</strong></li>
+<li>Increase <strong>SLOPE</strong></li>
+<li>Try <strong>HARD SYNC</strong></li>
+<li>Use <strong>HALT IF TARG=0</strong></li>
+<li>Patch <strong>±G(DIR)</strong>, <strong>COUNT/</strong>, or <strong>DAC</strong> back into CV inputs</li>
+</ul>
+<h2>5. Stable pitched use</h2>
+<ul>
+<li>Feed pitch to <strong>1V/OCT</strong></li>
+<li>Keep <strong>SHIFT</strong> centered</li>
+<li>Use <strong>SYNC</strong> if needed for more repeatable resets</li>
+<li>Use <strong>TARGET = 5V</strong> for more consistent/firm folded shapes</li>
+</ul>
+<h2>6. “Always audible” setup</h2>
+<ul>
+<li>Turn on <strong>DRY IF NO THLDs</strong></li>
+<li>Good when modulating <strong>FOLD</strong> deeply and folds may disappear</li>
+</ul>
+<hr />
+<h1>Workflow Notes</h1>
+<ul>
+<li><strong>Default slider mode</strong> = thresholds</li>
+<li><strong>Hold left</strong> = edit targets</li>
+<li><strong>Hold right</strong> = macro setup</li>
+<li>Settings save after <strong>1 minute of inactivity</strong></li>
+<li><strong>Macro Env</strong> is always <strong>OFF on power-up</strong></li>
+</ul>
+<hr />
+<h1>One-Page Mental Model</h1>
+<ul>
+<li><strong>IN</strong> is analyzed by 8 thresholds</li>
+<li>Each threshold crossing flips vector-core direction</li>
+<li><strong>FOLD</strong> = how hard input hits thresholds</li>
+<li><strong>SLOPE</strong> = brightness / speed / harmonic density</li>
+<li><strong>SHIFT</strong> = asymmetry</li>
+<li><strong>TARGET</strong> = where the vector wants to go</li>
+<li><strong>SHAPE</strong> = bends slope using feedback/modulation source</li>
+<li><strong>OUTPUT</strong> = dry/wet/wide stereo treatment</li>
+<li>Sliders are either:</li>
+<li>thresholds,</li>
+<li>target sequencer,</li>
+<li>or macro modulation setup</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

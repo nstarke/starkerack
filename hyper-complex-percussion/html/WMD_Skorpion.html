@@ -1,0 +1,581 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>WMD_Skorpion</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>WMD — Skorpion</h1>
+<ul>
+<li><a href="../../manuals/SKORPION_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://wmdevices.com/cdn/shop/files/Skorpion_Manual_Rev1.00.pdf">Skorpion Manual PDF (WMD)</a></p>
+<h1>Using WMD Skorpion for densely rhythmic, hyper-complex percussion</h1>
+<p>Skorpion is not just a wavefolder. Based on the manual, it is a <strong>comparator-driven waveform reanimation core</strong> with:
+- 8 threshold crossings
+- target sequencing
+- internal macro modulation
+- many derived outputs (<code>COUNT</code>, <code>DAC</code>, <code>DIFF</code>, <code>TRGTs</code>, <code>G(IN&gt;0)</code>, <code>±G(DIR)</code>, <code>DELAY</code>, <code>ABS(IN)</code>)</p>
+<p>That makes it unusually good for <strong>creating percussion logic, event extraction, pseudo-sequencing, and self-modulating rhythmic timbre changes</strong>. If your goal is dense rhythmic music with polyrhythms and complicated patterns, Skorpion can act as:</p>
+<ol>
+<li><strong>A percussion voice</strong></li>
+<li><strong>A rhythm extractor from incoming audio/CV</strong></li>
+<li><strong>A modulation generator for other percussion modules</strong></li>
+<li><strong>A self-patched rhythm machine</strong></li>
+<li><strong>A stereo transient shaper for complex drum motion</strong></li>
+</ol>
+<h2>Core idea</h2>
+<p>The most important thing to understand is this:</p>
+<ul>
+<li>The input at <code>IN</code> is analyzed by <strong>8 comparators</strong> set by the slider thresholds.</li>
+<li>Each threshold crossing changes the behavior of the <strong>vector core</strong>.</li>
+<li>The number/order of active thresholds can generate stepped and logic-like outputs:</li>
+<li><code>COUNT</code>: staircase, 0–4V, +0.5V per active threshold</li>
+<li><code>DAC</code>: weighted threshold state output</li>
+<li><code>TRGTs</code>: target sequencer output</li>
+<li><code>±G(DIR)</code>: up/down gate</li>
+<li><code>G(IN&gt;0)</code>: polarity gate</li>
+<li><code>DIFF</code>: difference between target and current state, rich in transients/harmonics</li>
+</ul>
+<p>For percussion, this means Skorpion can transform a single clocked source, oscillator, envelope, drum loop, or modulation waveform into <strong>many correlated but non-identical rhythmic streams</strong>.</p>
+<hr />
+<h1>Best ways to use Skorpion for complex percussion</h1>
+<h2>1. Feed it rhythms, not just tones</h2>
+<p>Most people will patch an oscillator into a wavefolder. For your goals, also try feeding Skorpion:</p>
+<ul>
+<li>trigger trains</li>
+<li>gates</li>
+<li>stepped CV</li>
+<li>envelope shapes</li>
+<li>drum loops</li>
+<li>bursts</li>
+<li>ratchets</li>
+<li>clock-divided square waves</li>
+<li>mixed clocks from several channels</li>
+<li>tom/kick/snare audio</li>
+<li>noise bursts shaped by VCAs</li>
+</ul>
+<p>Because thresholds create events whenever the input crosses them, <strong>complex incoming modulation becomes rhythmically decoded</strong> into different outputs.</p>
+<h3>Excellent input sources</h3>
+<ul>
+<li>a swung clock square wave</li>
+<li>a polygonal LFO</li>
+<li>an envelope cycling at a non-integer relation to the main tempo</li>
+<li>mixed trigger/gate patterns run through a slew</li>
+<li>a percussion bus</li>
+<li>a sequence of accent envelopes</li>
+<li>an audio oscillator FM’d by clock divisions</li>
+</ul>
+<p>This gives you <strong>rhythmic density from threshold crossings</strong> rather than just from trigger programming.</p>
+<hr />
+<h2>2. Use the sliders as a rhythmic event map</h2>
+<p>The 8 sliders define where folds/events occur. For percussion use, think of them less as “tone settings” and more as:</p>
+<ul>
+<li><strong>timing density zones</strong></li>
+<li><strong>accent decision points</strong></li>
+<li><strong>probability-like contour markers</strong></li>
+<li><strong>subdivision extractors</strong></li>
+</ul>
+<h3>Practical approach</h3>
+<p>Set thresholds unevenly:
+- cluster 3 sliders near center
+- spread 2 far apart
+- keep a couple near extremes</p>
+<p>This creates uneven crossing behavior, so one input waveform yields <strong>nonuniform event spacing</strong>. That’s ideal for:
+- additive-feeling rhythms
+- quasi-Euclidean accents
+- asymmetrical percussion phrases
+- “7 over 5 over 4” style movement</p>
+<h3>Equalized thresholds vs uneven thresholds</h3>
+<p>The <code>EQUALIZE THLDs</code> switch is crucial:</p>
+<ul>
+<li><strong>ON</strong>: equal threshold spacing, more classic wavefolder, more regular rhythmic subdivisions</li>
+<li><strong>OFF/JACK-controlled</strong>: manually uneven thresholds, more asymmetrical and human/alien rhythmic structures</li>
+</ul>
+<p>For your use case:
+- use <strong>equalized thresholds</strong> when you want machine-like subdivisions
+- use <strong>uneven slider spacing</strong> when you want weird metric phrasing and polymetric irregularity</p>
+<hr />
+<h2>3. Use <code>TARGET</code> and <code>TRGTs</code> as an 8-step micro-rhythm sequencer</h2>
+<p>The manual states the <code>TRGTs</code> form an <strong>8-step voltage controlled sequencer</strong>. This is huge for percussion.</p>
+<h3>Use case</h3>
+<p>Set <code>TARGET</code> to <code>SLIDERs</code> and define 8 target voltages while holding the spring toggle left. Now each threshold crossing selects a target.</p>
+<p>With <code>TARGET ORDER</code>:
+- <strong>SEQ</strong>: target chosen by count of active thresholds
+- <strong>TIED</strong>: target chosen by most recently crossed threshold</p>
+<p>These two modes can radically change rhythmic behavior.</p>
+<h3>Why this matters rhythmically</h3>
+<p>Each threshold crossing doesn’t just fold the waveform — it can also shift the vector core toward a different destination voltage. This creates:
+- segmented transient profiles
+- repeating-but-not-repeating accent contours
+- ordered or last-event-dependent phrases</p>
+<h3>Percussion strategy</h3>
+<p>Use <code>TRGTs</code> for:
+- per-hit brightness variation
+- pseudo-accent sequencing
+- changing the shape of each fold segment
+- control output to modulate another module’s decay, pitch, or filter cutoff</p>
+<p>You can patch the <code>TRGTs</code> output to:
+- LPG CV
+- VCA CV
+- filter FM
+- decay CV on a drum voice
+- sample select on a sampler
+- clocked switch address</p>
+<p>That gives you <strong>threshold-derived sequencing</strong>, which is excellent for dense percussion ecosystems.</p>
+<hr />
+<h2>4. Use <code>COUNT</code> and <code>DAC</code> outputs as rhythm translators</h2>
+<p>These are especially useful for complicated patterns.</p>
+<h2><code>COUNT</code></h2>
+<ul>
+<li>staircase from 0–4V</li>
+<li>each active threshold adds 0.5V</li>
+</ul>
+<p>This gives you a crude but very musical <strong>activity meter</strong>.</p>
+<h3>Great uses</h3>
+<p>Patch <code>COUNT</code> to:
+- a comparator to create new trigger streams
+- a quantizer then oscillator for tuned percussion
+- a VCA controlling noise amount per hit
+- decay CV on hats/snare
+- probability/logic thresholding module</p>
+<p>If your input is moving irregularly across thresholds, <code>COUNT</code> becomes a <strong>meta-rhythm CV</strong> representing pattern density.</p>
+<h2><code>DAC</code></h2>
+<p>Weighted threshold-state output, more subtle than <code>COUNT</code>.</p>
+<p>This is better when you want:
+- finer accent nuances
+- pseudo-melody tied to rhythm
+- less staircase bluntness
+- more unstable but controlled modulation</p>
+<h3>Rhythmic use</h3>
+<p>Patch <code>DAC</code> to:
+- kick pitch for non-repeating body tones
+- snare noise color
+- FM index on metallic percussion
+- clocked switch crossfade amount
+- a comparator to derive irregular derived gates</p>
+<p><code>DAC</code> often works better than <code>COUNT</code> when you want <strong>microvariation inside fast percussion runs</strong>.</p>
+<hr />
+<h2>5. Use <code>DIFF</code> as a transient percussion source</h2>
+<p>The manual says <code>DIFF</code> is the difference between target voltage and the vector core, and it slopes toward 0V. It is usually very high in harmonic content.</p>
+<p>That description screams:
+- clicks
+- spikes
+- snares
+- zaps
+- glitch hats
+- transient layers</p>
+<h3>Patch ideas</h3>
+<ul>
+<li><code>DIFF</code> → VCA/LPG → mixer as a click layer</li>
+<li><code>DIFF</code> → filter → short envelope/VCA for hats</li>
+<li><code>DIFF</code> → wavefolder/distortion → metallic percussion</li>
+<li><code>DIFF</code> → resonator for tuned impulse percussion</li>
+<li><code>DIFF</code> → comparator → trigger extractor</li>
+</ul>
+<p>For dense rhythmic music, <code>DIFF</code> can be the “micro-hit generator” while <code>OUTL/OUTR</code> supply body and motion.</p>
+<h3>Tip</h3>
+<p>Set <code>SHAPE</code> to <code>DIFF</code> source for even harsher, spikier timbres.</p>
+<hr />
+<h2>6. Exploit <code>SYNC</code> to lock complexity to musical timing</h2>
+<p><code>SYNC</code> resets the vector core at zero crossings of the input:
+- <code>SOFT</code>: ramps toward 0V at current slope
+- <code>X</code>: no sync
+- <code>HARD</code>: fast reset to 0V</p>
+<p>For percussion, <code>SYNC</code> is how you choose between:
+- tightly repeatable attacks
+- semi-chaotic evolving hits
+- glitched retrigger behavior</p>
+<h3>Recommended uses</h3>
+<ul>
+<li><strong>HARD sync</strong> for precise, repeatable transient-heavy drum patterns</li>
+<li><strong>SOFT sync</strong> for more elastic, loping, less robotic rhythms</li>
+<li><strong>No sync</strong> for drifting polymetric behavior and unstable phrase lengths</li>
+</ul>
+<p>If using clock-related inputs, <code>HARD</code> often makes Skorpion act more like a controllable percussion synthesizer.
+If using long LFOs or mixed audio-rate modulation, disabling sync often creates <strong>long-form polymetric drift</strong>.</p>
+<hr />
+<h2>7. Use <code>SHIFT</code> for asymmetry and phrase rotation</h2>
+<p><code>SHIFT</code> pushes the input up/down against the comparators and creates asymmetry. The manual even notes slow modulation can produce a frequency-shift effect.</p>
+<p>For rhythmic work, <code>SHIFT</code> is one of your best controls because it changes <strong>which thresholds are crossed and when</strong>.</p>
+<p>That means modulating <code>SHIFT</code> can:
+- reorder accent structures
+- create left/right phrase imbalance
+- alter rhythmic density without changing clock speed
+- make repeated loops mutate over time</p>
+<h3>Patch concept</h3>
+<p>Use a slow odd-cycle modulation source to <code>SHIFT</code>:
+- 5-step sequencer against a 4-beat loop
+- 7-beat envelope cycle
+- clock-divided triangle not synced to bar length</p>
+<p>This creates <strong>phrase rotation</strong>, where the same input material yields different threshold activations over time.</p>
+<p>For hyper-complex percussion, this is gold.</p>
+<hr />
+<h2>8. Use <code>SHAPE</code> as a timbral rhythm multiplier</h2>
+<p><code>SHAPE</code> modulates slope using feedback sources:
+- <code>IN</code>
+- <code>OUT</code>
+- <code>DELAY</code>
+- <code>COUNT</code>
+- <code>DIFF</code>
+- <code>TRGTs</code>
+- <code>DAC</code>
+- <code>DIR</code></p>
+<p>This is one of the most powerful sections for complex percussion.</p>
+<h2>Best rhythmic <code>SHAPE</code> sources</h2>
+<h3><code>COUNT</code></h3>
+<p>Makes timbre depend on how many thresholds are active.
+- More activity = more harmonic or contour change
+- Great for density-sensitive percussion</p>
+<h3><code>TRGTs</code></h3>
+<p>Each segment gets its own shape behavior.
+- Excellent for sequenced hit articulation
+- Makes each threshold region behave like a different drum articulation</p>
+<h3><code>DIFF</code></h3>
+<p>Aggressive and spiky.
+- Best for glitch percussion, digital-sounding hats, tearing snares</p>
+<h3><code>DIR</code></h3>
+<p>Uses direction signal.
+- Creates skewed up/down behavior
+- Good for alternating hit character, almost like built-in call/response</p>
+<h3><code>OUT</code></h3>
+<p>Feedback from output.
+- More organic/log/exp behavior
+- Good for toms, wooden percussion, body-rich hits</p>
+<h3><code>DELAY</code></h3>
+<p>Only active when OUTPUT is between noon and fully clockwise.
+- Gives moving stereo/phase/tap-like articulation
+- Great for swarming percussion fields</p>
+<hr />
+<h2>9. Use <code>HALT</code> for ratcheting, stutters, and broken-grid timing</h2>
+<p><code>HALT</code> stops the vector core at its current voltage. Audio-rate modulatable.</p>
+<p>This is one of the most interesting performance/rhythm inputs.</p>
+<h3>What it can do</h3>
+<ul>
+<li>freeze a transient mid-motion</li>
+<li>create gated terraces in the waveform</li>
+<li>produce abrupt chokes</li>
+<li>impose externally clocked interruptions onto the fold motion</li>
+</ul>
+<h3>Rhythmic uses</h3>
+<p>Patch a trigger/gate pattern into <code>HALT</code>:
+- short bursts produce chopped transients
+- irregular gate lengths create stop/start drum contours
+- Euclidean trigger streams create punctuated rhythmic lockups
+- a high-rate square clock gives granular tearing textures</p>
+<h3><code>HALT IF TARG=0</code></h3>
+<p>When enabled, any target set to zero can halt movement for just that segment.</p>
+<p>This is perfect for:
+- inserting rests into timbral motion
+- creating pseudo-square segments
+- turning parts of the cycle into “dead air” or held plateaus
+- building syncopation into the fold structure itself</p>
+<p>For percussion, set some <code>TRGTs</code> fully down and enable <code>HALT IF TARG=0</code>. Now some threshold events become <strong>frozen nodes</strong>, like rests or held accents inside the waveform.</p>
+<hr />
+<h2>10. Use <code>DRY IF NO THLDs</code> to preserve groove under heavy modulation</h2>
+<p>If no thresholds are active, this forces dry signal output and the vector core tries to follow <code>IN</code>.</p>
+<p>This matters when heavily modulating <code>FOLD</code> or <code>SHIFT</code>. Without it, your patch may occasionally drop into low-activity or silent zones. With it:
+- the groove keeps speaking
+- sparse moments remain useful
+- modulation can be extreme without losing the pulse</p>
+<p>For live rhythmic work, this is often worth enabling.</p>
+<hr />
+<h1>Specific patch strategies for complex rhythmic music</h1>
+<h2>Patch 1: Polyrhythmic percussion synthesizer voice</h2>
+<h3>Goal</h3>
+<p>One Skorpion voice producing evolving drum-like patterns with internal asymmetry.</p>
+<h3>Patch</h3>
+<ul>
+<li>Clocked envelope or triangle VCO → <code>IN</code></li>
+<li>Set thresholds unevenly</li>
+<li><code>TARGET</code> → <code>SLIDERs</code></li>
+<li>Program <code>TRGTs</code> with alternating high/low voltages</li>
+<li><code>TARGET ORDER</code> → <code>TIED</code></li>
+<li><code>SHAPE SOURCE</code> → <code>COUNT</code> or <code>TRGTs</code></li>
+<li><code>SYNC</code> → <code>HARD</code></li>
+<li><code>DIFF</code> → external VCA/filter as click layer</li>
+<li><code>OUTL/OUTR</code> → mixer</li>
+</ul>
+<h3>Result</h3>
+<p>Each threshold crossing creates a slightly different transient/body relationship. Because thresholds are uneven and target order is tied to most recent crossing, the pattern feels interdependent instead of step-sequenced.</p>
+<hr />
+<h2>Patch 2: Extract multiple percussion control streams from one source</h2>
+<h3>Goal</h3>
+<p>Turn one modulation/audio source into many related rhythms.</p>
+<h3>Patch</h3>
+<ul>
+<li>Mixed clocks + slew or a drum bus → <code>IN</code></li>
+<li><code>COUNT</code> → comparator → trigger for hats</li>
+<li><code>DAC</code> → pitch CV for tom voice</li>
+<li><code>G(IN&gt;0)</code> → trigger/gate for clap envelope</li>
+<li><code>±G(DIR)</code> → switch/select input on sequential switch</li>
+<li><code>TRGTs</code> → decay CV on snare</li>
+<li><code>DIFF</code> → audio click layer</li>
+<li><code>DELAY</code> → modulate stereo VCA or pan</li>
+</ul>
+<h3>Result</h3>
+<p>Skorpion becomes a <strong>rhythm decomposition engine</strong>. One source yields several correlated but distinct drum control streams.</p>
+<p>This is ideal for polyrhythms because everything shares a common origin but diverges in structure.</p>
+<hr />
+<h2>Patch 3: Complex time-signature phrase engine</h2>
+<h3>Goal</h3>
+<p>Create phrase cycles that feel like 5, 7, 9, or mixed meters.</p>
+<h3>Patch</h3>
+<ul>
+<li>Use an LFO/envelope cycling at a musical but not bar-aligned period into <code>IN</code></li>
+<li>Set 8 thresholds in non-even spacing</li>
+<li>Modulate <code>SHIFT</code> with a slower sequence of a different cycle length</li>
+<li><code>TARGET ORDER</code>:</li>
+<li>start with <code>SEQ</code> for structured phrase counting</li>
+<li>switch to <code>TIED</code> for more contingent behavior</li>
+<li><code>SHAPE SOURCE</code> → <code>DIR</code> or <code>DAC</code></li>
+<li><code>SYNC</code> off or <code>SOFT</code></li>
+</ul>
+<h3>Result</h3>
+<p>You get evolving phrases where the threshold crossing order itself defines the meter feel. Because the <code>SHIFT</code> modulator has a different loop length, accents “walk” against the master phrase.</p>
+<p>This is a strong route to <strong>apparent odd meters without explicit programming</strong>.</p>
+<hr />
+<h2>Patch 4: Metallic hat swarm / glitch percussion patch</h2>
+<h3>Goal</h3>
+<p>Very dense upper percussion with internal variation.</p>
+<h3>Patch</h3>
+<ul>
+<li>Fast oscillator or filtered noise burst train → <code>IN</code></li>
+<li>High <code>FOLD</code></li>
+<li>Medium/high <code>SLOPE</code></li>
+<li><code>SHAPE SOURCE</code> → <code>DIFF</code></li>
+<li><code>TARGET</code> toward <code>CLIP</code></li>
+<li>Patch something other than <code>IN</code> into <code>CLIP</code>:</li>
+<li>another drum line</li>
+<li>percussion loop</li>
+<li>burst generator</li>
+<li><code>OUTPUT</code> above noon toward <code>WIDE</code></li>
+<li><code>OUTPUT SWITCH</code> → <code>FILTERS</code></li>
+<li><code>DELAY</code> output to separate mixer channel</li>
+</ul>
+<h3>Result</h3>
+<p>Tight, metallic, shattered hats and stereo percussion spray. The alternate <code>CLIP</code> signal makes the fold target contingent on another rhythm source, creating interlocking complexity.</p>
+<hr />
+<h2>Patch 5: Self-patched pseudo-generative percussion network</h2>
+<h3>Goal</h3>
+<p>Make Skorpion recursively generate complex rhythms.</p>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator/envelope into <code>IN</code></li>
+<li><code>COUNT</code> → <code>SHIFT</code> CV</li>
+<li><code>DAC</code> → <code>SHAPE</code> CV</li>
+<li><code>TRGTs</code> → <code>TARGET</code> CV or another module controlling input level</li>
+<li><code>±G(DIR)</code> → <code>HALT</code></li>
+<li><code>ABS(IN)</code> → modulate another oscillator/FM source feeding <code>CLIP</code></li>
+<li><code>DELAY</code> → external VCA or filter on return path</li>
+</ul>
+<h3>Result</h3>
+<p>The module begins reacting to its own state. This can produce very intricate but coherent rhythmic mutation.</p>
+<p>Start with attenuators low. This patch can get wild quickly.</p>
+<hr />
+<h1>How to make real polyrhythms with Skorpion</h1>
+<p>Skorpion doesn’t directly output clock divisions, but it excels at generating <strong>event structures whose apparent rhythm depends on threshold crossing geometry</strong>.</p>
+<h2>Method 1: Different cycle lengths in modulation</h2>
+<p>Use:
+- one signal into <code>IN</code>
+- a different-period modulation into <code>SHIFT</code>
+- another different-period modulation into <code>FOLD</code> or <code>SHAPE</code></p>
+<p>Example:
+- <code>IN</code>: envelope looping every 5 beats
+- <code>SHIFT</code>: modulation every 7 beats
+- <code>MACRO ENV</code>: toggled every 4 bars
+- <code>TRGTs</code>: asymmetrical target pattern</p>
+<p>Now the crossing patterns phase against each other. This creates practical polyrhythms.</p>
+<h2>Method 2: Comparator-derived streams</h2>
+<p>Use:
+- <code>G(IN&gt;0)</code> as one binary rhythm
+- <code>±G(DIR)</code> as another directional rhythm
+- <code>COUNT</code> through external comparator for another rhythm
+- <code>DAC</code> through external comparator/window comparator for another</p>
+<p>One input becomes 3–4 derived rhythmic layers.</p>
+<h2>Method 3: Threshold geometry as meter</h2>
+<p>Uneven thresholds create uneven event spacing over a periodic input waveform. If the waveform repeats every quarter note, threshold crossings may imply:
+- 3+2+3
+- 2+2+3
+- 5+4
+- 7 against 4 feel</p>
+<p>This is a fantastic way to get <strong>odd-meter sensation from simple periodic input</strong>.</p>
+<hr />
+<h1>How to make complicated patterns feel intentional</h1>
+<p>Hyper-complex percussion can become mush unless there are layers of hierarchy. Skorpion can help structure that.</p>
+<h2>Use <code>COUNT</code> for macro accents</h2>
+<p>Patch <code>COUNT</code> to control:
+- output VCA level
+- drum bus filter cutoff
+- send amount to reverb/delay</p>
+<p>Then denser threshold states become louder/brighter.</p>
+<h2>Use <code>TRGTs</code> for phrase identity</h2>
+<p>Program 8 targets with a contour like:
+- high
+- low
+- mid
+- zero
+- high
+- low
+- zero
+- mid</p>
+<p>This creates recurring phrase landmarks.</p>
+<h2>Use <code>HALT IF TARG=0</code> for rests</h2>
+<p>Targets at zero can become built-in pauses or squares. This inserts punctuation into dense streams.</p>
+<h2>Use <code>SYNC HARD</code> for downbeat focus</h2>
+<p>If everything is getting too smeared, hard sync can restore repeatability at each input crossing cycle.</p>
+<hr />
+<h1>Using the Macro section for rhythmic evolution</h1>
+<p>Skorpion’s internal macro system is very useful for long-form complex music because it provides:
+- attack/sustain/release macro envelope
+- LFOs for thresholds
+- LFO or envelope normals for <code>FOLD</code>, <code>SLOPE</code>, <code>SHIFT</code>, <code>SHAPE</code></p>
+<h2>Why this matters</h2>
+<p>You can make a stable complex percussion patch that:
+- slowly increases threshold motion
+- gradually changes fold amount
+- introduces asymmetry over a phrase
+- brings in motion only during selected gates</p>
+<h2>Good macro setup for percussion</h2>
+<ul>
+<li>Slider 1: medium attack</li>
+<li>Slider 2: long release</li>
+<li>Slider 3: moderate THLD LFO amount</li>
+<li>Slider 4: slow THLD LFO rate</li>
+<li>Sliders 5–8:</li>
+<li><code>FOLD</code> in LFO mode</li>
+<li><code>SLOPE</code> in ENV mode</li>
+<li><code>SHIFT</code> in LFO mode</li>
+<li><code>SHAPE</code> in ENV or LFO mode</li>
+</ul>
+<p>Trigger Macro Env manually or from a phrase gate every few bars.</p>
+<h3>Result</h3>
+<p>The patch “breathes” over time while still preserving the intricate local rhythm.</p>
+<p>Because LFOs reset on each gate-on, the module can also produce <strong>repeatable complex modulation phrases</strong>, which is excellent when you want intricate music that is still performable and recallable.</p>
+<hr />
+<h1>Best parameter tendencies for percussion</h1>
+<p>These are not strict rules, but useful starting points.</p>
+<h2>For kicks / heavy thuds</h2>
+<ul>
+<li>lower <code>SLOPE</code></li>
+<li>moderate <code>FOLD</code></li>
+<li><code>TARGET</code> near <code>5V</code> or <code>SLIDERs</code></li>
+<li><code>SHAPE</code> from <code>OUT</code> or <code>DIR</code></li>
+<li><code>SYNC HARD</code></li>
+</ul>
+<h2>For snares / cracks</h2>
+<ul>
+<li>moderate/high <code>SLOPE</code></li>
+<li><code>SHAPE</code> from <code>DIFF</code></li>
+<li><code>TARGET</code> between <code>SLIDERs</code> and <code>CLIP</code></li>
+<li>use <code>DIFF</code> as parallel layer</li>
+</ul>
+<h2>For metallic hats</h2>
+<ul>
+<li>high <code>SLOPE</code></li>
+<li>high <code>FOLD</code></li>
+<li><code>SHAPE</code> from <code>DIFF</code>, <code>COUNT</code>, or <code>DELAY</code></li>
+<li><code>OUTPUT</code> in <code>WIDE</code></li>
+<li><code>FILTERS</code> switch on</li>
+</ul>
+<h2>For weird toms / rubber percussion</h2>
+<ul>
+<li>modulate <code>SHIFT</code></li>
+<li><code>SHAPE</code> from <code>OUT</code></li>
+<li><code>TARGET ORDER</code> <code>TIED</code></li>
+<li><code>SYNC SOFT</code></li>
+</ul>
+<hr />
+<h1>Performance tips for live complex rhythm making</h1>
+<h2>1. Switch <code>TARGET ORDER</code> during performance</h2>
+<ul>
+<li><code>SEQ</code> = more countable and structured</li>
+<li><code>TIED</code> = more reactive and tangled</li>
+</ul>
+<p>This can feel like moving from composed odd meter to unstable improvisational metric interplay.</p>
+<h2>2. Modulate or manually change <code>SHIFT</code></h2>
+<p>This is one of the fastest ways to rotate the rhythm without changing tempo.</p>
+<h2>3. Use <code>EQUALIZE THLDs</code> as a regularity toggle</h2>
+<ul>
+<li>equalized = grid-like</li>
+<li>uneven = broken grid</li>
+</ul>
+<p>Excellent for transitions.</p>
+<h2>4. Move between dry/wet/wide with <code>OUTPUT</code></h2>
+<ul>
+<li>below noon: keep impact and body</li>
+<li>above noon: spread and animate high-frequency content</li>
+<li>use <code>FILTERS</code> to keep low end centered</li>
+</ul>
+<p>Very useful for dense percussion mixes where the center can get overloaded.</p>
+<h2>5. Use <code>CLIP</code> as an interlock input</h2>
+<p>Patch another rhythm source into <code>CLIP</code> so one line influences the target behavior of another. This creates musical coupling between drum layers.</p>
+<hr />
+<h1>A complete advanced patch recipe</h1>
+<h2>“Hypermetric Percussion Engine”</h2>
+<h3>Inputs</h3>
+<ul>
+<li>Main sequenced envelope or oscillator → <code>IN</code></li>
+<li>Different rhythmic voice or burst source → <code>CLIP</code></li>
+<li>Slow 5-step CV → <code>SHIFT</code></li>
+<li>Faster 7-step CV → <code>FOLD</code></li>
+<li>Phrase gate every 2 or 4 bars → <code>MACRO ENV</code></li>
+</ul>
+<h3>Skorpion settings</h3>
+<ul>
+<li>Uneven thresholds</li>
+<li><code>TARGET</code> toward <code>SLIDERs</code></li>
+<li><code>TRGTs</code> programmed with highs, mids, and zeros</li>
+<li><code>HALT IF TARG=0</code> on</li>
+<li><code>TARGET ORDER</code> = <code>TIED</code></li>
+<li><code>SHAPE SOURCE</code> = <code>TRGTs</code> or <code>COUNT</code></li>
+<li><code>SYNC</code> = <code>SOFT</code></li>
+<li><code>OUTPUT</code> around 1–3 o’clock</li>
+<li><code>OUTPUT SWITCH</code> = <code>FILTERS</code></li>
+</ul>
+<h3>Outputs</h3>
+<ul>
+<li><code>OUTL/OUTR</code> = main percussion stereo voice</li>
+<li><code>DIFF</code> = transient layer</li>
+<li><code>COUNT</code> = modulate external hat decay or comparator-derived triggers</li>
+<li><code>DAC</code> = modulate pitch/brightness of another drum voice</li>
+<li><code>TRGTs</code> = control filter/resonator tuning</li>
+<li><code>DELAY</code> = separate stereo splash layer</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- internal asymmetrical subdivisions
+- phrase-level evolution
+- self-related but non-repeating percussion layers
+- stereo complexity without losing low-end center
+- emergent polyrhythm from modulation cycle mismatch</p>
+<hr />
+<h1>Summary: what Skorpion is best at for your goal</h1>
+<p>If your aim is <strong>densely rhythmic, hyper-complex percussion with polyrhythms and unusual meters</strong>, Skorpion is especially strong when used as:</p>
+<ul>
+<li>a <strong>threshold-based event shaper</strong></li>
+<li>a <strong>derived rhythm CV generator</strong></li>
+<li>a <strong>timbral sequencer</strong></li>
+<li>a <strong>self-modulating transient machine</strong></li>
+<li>a <strong>stereo percussion animator</strong></li>
+</ul>
+<p>The most powerful features for you are likely:</p>
+<ol>
+<li><strong>Uneven THLD sliders</strong> for non-grid crossing patterns  </li>
+<li><strong>TRGTs sequencer</strong> for segment-by-segment articulation  </li>
+<li><strong>COUNT / DAC outputs</strong> for derived control streams  </li>
+<li><strong>DIFF output</strong> for aggressive transient percussion  </li>
+<li><strong>SHIFT modulation</strong> for phrase rotation and asymmetry  </li>
+<li><strong>HALT / HALT IF TARG=0</strong> for stutters, rests, and hard punctuation  </li>
+<li><strong>Macro modulation</strong> for long evolving rhythmic forms  </li>
+<li><strong>WIDE/DELAY output behavior</strong> for layered stereo percussion motion  </li>
+</ol>
+<p>If you want, I can also give you:
+- <strong>10 concrete Skorpion patch recipes</strong> for IDM/glitch/tribal/polymeter
+- a <strong>system-level patch plan</strong> showing which other Eurorack modules pair best with it
+- or a <strong>“Skorpion as drum brain” workflow</strong> for building whole tracks around it</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

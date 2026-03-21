@@ -1,0 +1,525 @@
+# WMD — Skorpion
+
+- [Manual PDF](../../manuals/SKORPION_Manual.pdf)
+
+---
+
+[Manual PDF](#)
+
+# WMD Skorpion — Using It to Create Melodic Components
+
+Skorpion is not just a wavefolder. It’s really a **waveform-generation and transformation system** with built-in comparator logic, target sequencing, modulation, and stereo processing. That means it can contribute to melody in several different ways:
+
+- as a **timbre shaper** for pitched oscillators
+- as a **pitched voice** enhancer with good tracking via **1V/OCT**
+- as a **sequenced control-voltage source**
+- as a **rhythmic/melodic modulation generator**
+- as a **stereo melodic texture builder**
+
+Since only one module/manual is attached here, I’ll focus on how the **internal sections of Skorpion work together** to produce melodic material.
+
+---
+
+## 1. Big picture: why Skorpion is useful for melody
+
+At its core:
+
+- **IN** receives a waveform
+- the signal is compared against up to **8 thresholds**
+- each threshold crossing changes the behavior of the **vector core**
+- the vector core moves toward a **target voltage**
+- the movement speed is set by **SLOPE**
+- **SHAPE** bends that movement with feedback/modulation sources
+- **TRGTs** can act like an **8-step destination sequencer**
+- **1V/OCT** lets slope track pitch relationships more consistently
+
+So instead of just “distorting” a note, Skorpion can turn a simple oscillator into a **structured melodic voice** whose partials, contour, and even segment-by-segment behavior respond to pitch and threshold crossings.
+
+---
+
+## 2. Most direct melodic use: process a VCO into a playable voice
+
+### Basic patch
+- Patch a **VCO sine or triangle** into **IN**
+- Send your keyboard/sequencer pitch CV to:
+  - the VCO’s **1V/OCT**
+  - Skorpion’s **1V/OCT**
+- Take **OUT L** or **OUT R** to your mixer/VCA/filter
+
+### Why this works
+The manual notes that **1V/OCT controls slope and is necessary for equal timbre across different notes**. That is a big clue: if you want a melodic line where the character stays relatively consistent as pitch changes, you should track both the oscillator and Skorpion together.
+
+### Good starter settings
+- **FOLD**: low to medium
+- **SLOPE**: medium
+- **SHIFT**: noon
+- **TARGET**: between **CLIP** and **5V**
+- **SHAPE**: noon initially
+- **EQUALIZE THLDs**: ON for more classic, harmonically stable folding
+- **SYNC**: SOFT or HARD if you want tighter periodic behavior
+
+### Result
+You get a more playable, controlled melodic voice than wild random folding.  
+This is the best place to start if your goal is **leads, basses, or arpeggios**.
+
+---
+
+## 3. Use the thresholds and targets together as a melodic articulation system
+
+A key melodic feature of Skorpion is that the **sliders can define thresholds or targets**, and the **targets form an 8-step voltage-controlled sequencer**.
+
+### What this means musically
+Each time the input crosses thresholds, the vector core can be redirected toward a different voltage. That can make one incoming oscillator produce **different segment shapes within each cycle**, which changes perceived pitch color, attack profile, and overtone emphasis.
+
+### Patch concept: “sequenced timbre melody”
+- Send a steady pitched waveform to **IN**
+- Set **TARGET** toward **SLIDERs**
+- Hold spring toggle left and program **TRGTs**
+- Set **TARGET ORDER**:
+  - **SEQ** for ordered progression by active-threshold count
+  - **TIED** for behavior tied to the most recently crossed threshold
+
+### Musical result
+Instead of a static folded tone, each waveform cycle can move through a **mini-sequence of destination voltages**. This often sounds like:
+- animated vowel-ish leads
+- stepped harmonic changes within a note
+- pseudo-wave-table melodic movement
+
+This is especially powerful for **melodies with long sustained notes**, because the note itself contains internal motion.
+
+---
+
+## 4. Use Skorpion as a melodic CV sequencer
+
+The manual explicitly states that the **TRGTs output jack** gives direct connection to the target sequencer and can be used as:
+- an **8-step wavetable oscillator**
+- a modulation source for other parameters
+
+That means Skorpion can generate control voltages related to threshold activity.
+
+### Patch concept: derive melody from audio
+- Patch an oscillator or complex modulation source into **IN**
+- Program the **TRGT sliders** with 8 voltages
+- Patch **TRGTs OUT** to:
+  - another oscillator’s **1V/OCT** for stepped melody
+  - a quantizer, then to **1V/OCT**
+  - filter cutoff for melodic contour-like motion
+
+### Best supporting settings
+- Use **TARGET ORDER = SEQ** for more predictable progression
+- Use **EQUALIZE THLDs ON** if you want more regular threshold spacing
+- Use a simple periodic waveform at **IN** for stable repeated patterns
+- Use **SYNC** for more repeatability
+
+### Musical result
+Skorpion becomes a kind of **audio-driven step sequencer**.  
+The pitch sequence is not clocked traditionally; it is generated by the way the input crosses thresholds.
+
+This is excellent for:
+- self-playing generative melodies
+- deriving related melodic lines from one root oscillator
+- turning audio rate motion into quantizable step patterns
+
+---
+
+## 5. Use the auxiliary outputs as melodic sources
+
+Several outputs can be used to build melody or melody-adjacent modulation.
+
+## TRGTs OUT
+Best direct melodic source.
+
+Use it for:
+- pitch CV into a quantizer
+- FM index changes per threshold segment
+- transposition patterns
+
+## COUNT output
+A staircase from **0–4V**, each active threshold adding **0.5V**.
+
+Use it for:
+- quantized melodic steps
+- transposition levels
+- driving a sequential switch or quantizer
+
+Because COUNT is evenly stepped, it is often easier than TRGTs when you want **structured interval motion**.
+
+## DAC output
+A weighted version of count, like a binary-weighted aggregate of threshold states.
+
+Use it for:
+- more nuanced pseudo-melodic CV
+- irregular melodic intervals
+- probabilistic-feeling pitch movement after quantization
+
+## DIFF output
+Difference between target voltage and current vector core state. It slopes toward 0V and is harmonically rich.
+
+Use it for:
+- audio-rate FM of another oscillator
+- highly animated pitch-adjacent modulation
+- per-note transient pitch effects
+
+Not ideal as a clean pitch source, but excellent for **expressive melodic instability**.
+
+## G(IN>0) and ±G(DIR)
+These are gate/bipolar gate outputs.
+
+Use them for:
+- triggering envelopes in sync with waveform polarity
+- clocking sequencers/dividers
+- switching melodic destinations
+- transposition logic
+
+A melodic patch becomes far more interesting if pitch changes are coordinated with these gate-derived events.
+
+---
+
+## 6. Best melodic patch types
+
+## A. Stable lead voice
+**Goal:** playable lead with harmonic animation
+
+- VCO saw/triangle → **IN**
+- pitch CV → VCO **1V/OCT** and Skorpion **1V/OCT**
+- **OUT L/R** → VCA → mixer
+- **EQUALIZE THLDs ON**
+- **TARGET = 5V** or slightly toward **SLIDERs**
+- **SYNC = SOFT**
+- moderate **FOLD**
+- low/moderate **SHAPE**
+
+**Why:**  
+Equal thresholds and 1V/OCT tracking keep timbre more consistent note-to-note.
+
+---
+
+## B. Melodic bass with pulse-like articulation
+**Goal:** bassline with internal square-ish segments
+
+- Triangle VCO → **IN**
+- **HALT IF TARG=0 ON**
+- Set some **TRGT sliders** to bottom (0)
+- **TARGET** toward **SLIDERs**
+- **TARGET ORDER = TIED**
+- **SHIFT** near noon
+- **OUT** → lowpass filter/VCA
+
+**Why:**  
+When a target is 0, that segment can halt, creating square-ish plateaus. On bass notes this gives strong, punchy, melodic articulation.
+
+---
+
+## C. Audio-driven sequencer for melody
+**Goal:** turn one oscillator into pitch sequence data
+
+- Clocked or tuned VCO/LFO → **IN**
+- Program **TRGT sliders** as a pitch pattern
+- **TRGTs OUT** → quantizer → another VCO **1V/OCT**
+- Optional: **G(IN>0)** or **±G(DIR)** to trigger envelopes
+
+**Why:**  
+Threshold crossings select targets, yielding a repeating but timbrally linked melodic pattern.
+
+---
+
+## D. Counter-melody from COUNT
+**Goal:** related second voice
+
+- Main melody oscillator → **IN**
+- **COUNT OUT** → quantizer → second oscillator **1V/OCT**
+- Main processed signal from **OUT**
+- Second oscillator mixed alongside
+
+**Why:**  
+The second oscillator follows threshold-activity complexity of the first voice, producing a companion melodic line.
+
+---
+
+## E. Stereo melodic texture / pad
+**Goal:** wide evolving harmonic line
+
+- Slow melodic oscillator or sequence → **IN**
+- **OUTPUT** past noon toward **WIDE**
+- **OUTPUT SWITCH = FILTERS**
+- Add slow modulation to **SHIFT** or **SHAPE**
+- Use **DELAY OUT** as extra modulation or audio layer
+
+**Why:**  
+Skorpion’s stereoizing network and delay turn a simple melody into a spatial melodic texture, especially useful for ambient or cinematic patches.
+
+---
+
+## 7. How the controls affect melody specifically
+
+## FOLD
+This changes how strongly the input is pushed into the comparator/threshold system.
+
+For melody:
+- lower values preserve pitch clarity
+- higher values produce brighter, more aggressive harmonic intervals
+- extreme modulation can obscure pitch, but also create vocal leads
+
+Use moderate amounts if note identity matters.
+
+## SLOPE
+Very important for melodic behavior.
+
+For melody:
+- lower slope = smoother, darker, more filtered behavior
+- higher slope = brighter, more harmonically dense
+- with **1V/OCT**, slope can track pitch for more consistent timbre
+
+This is one of the most important controls for keeping the module “musical” across a melodic range.
+
+## SHIFT
+Adds asymmetry by offsetting the input against thresholds.
+
+For melody:
+- subtle shift = richer odd/even harmonic variation
+- slow modulation = frequency-shift-like movement
+- too much can destabilize symmetry and pitch feel
+
+Excellent for expressive melodic phrasing.
+
+## TARGET
+Changes where the vector core is trying to go.
+
+For melody:
+- **5V** gives more square, defined waveforms
+- **CLIP** overlays behavior with the input waveform
+- **SLIDERs** opens up sequenced internal motion
+
+For melodic purposes, this is one of the strongest “personality” controls.
+
+## SHAPE
+Feedback-based slope modulation.
+
+For melody:
+- **OUT** source can create log/exp contour shaping
+- **IN** source tracks the incoming waveform
+- **DIFF** gives harsh, transient-rich sounds
+- **TRGTs** makes segment-by-segment shaping possible
+
+If the patch is too wild, return SHAPE toward noon.
+
+---
+
+## 8. Use the macro system to animate melodies over time
+
+Skorpion’s **Macro Setup** can internally modulate:
+- thresholds
+- fold
+- slope
+- shift
+- shape
+
+The macro envelope is an attack/sustain/release envelope controlling LFO amplitude system-wide.
+
+### Why it matters for melody
+You can make each note or phrase evolve in a repeatable way without external modulation sources.
+
+### Useful ideas
+
+#### Per-note timbre bloom
+- Enable macro envelope
+- Assign an **ENV** or **LFO** to **FOLD**
+- Trigger macro via **MACRO ENV jack**
+
+Result: notes open up harmonically over time.
+
+#### Phrase evolution
+- Slow **THLD LFOs**
+- moderate **THLD LFO amount**
+- macro envelope with long attack/release
+
+Result: threshold positions drift gradually, causing recurring melodies to subtly change contour over bars.
+
+#### Dynamic articulation
+- Assign **ENV** to **SLOPE**
+- Assign **LFO** to **SHIFT**
+
+Result: each note starts one way and evolves into another, like acoustic phrasing.
+
+For melodic patches, the macro system is especially useful because it creates **repeatable motion** rather than random chaos.
+
+---
+
+## 9. Sync, dry-if-no-thresholds, and equalized thresholds: important “musicality” switches
+
+## EQUALIZE THLDs
+For melody, this is often the secret weapon.
+
+- Makes thresholds evenly spaced
+- Sounds more like a classic wavefolder
+- gives more regular, predictable overtone behavior
+
+Use this when you want:
+- tonal consistency
+- easier tuning of timbral character
+- less surprise across melodic intervals
+
+## DRY IF NO THLDs
+If no thresholds are active, output becomes the dry signal and the vector core follows input.
+
+Use this when:
+- heavily modulating FOLD
+- you want to guarantee audible signal on every note
+- you want safer live-performance melodic behavior
+
+This helps avoid patches where some notes disappear.
+
+## SYNC
+Resets the vector core at zero crossings.
+
+- **SOFT**: smoother, more natural
+- **HARD**: more precise, more aggressive
+- **X**: freer, less controlled
+
+For melodic clarity, **SOFT** or **HARD** usually helps, especially on bass or leads.
+
+---
+
+## 10. Melodic self-patching ideas
+
+Skorpion is particularly strong when self-patched.
+
+## TRGTs OUT → SHAPE CV
+This creates segment-dependent contour changes.  
+Good for animated leads.
+
+## COUNT OUT → SHIFT CV
+As more thresholds are active, asymmetry changes.  
+Good for dynamic melodic phrasing.
+
+## DAC OUT → TARGET CV
+Makes destination voltage respond to threshold-state complexity.  
+Good for pseudo-chaotic melodic motion.
+
+## ±G(DIR) → external switch or logic
+Use direction to alternate between two melodic destinations.
+
+## ABS(IN) OUT → FOLD CV or another oscillator FM
+Creates full-wave-related modulation tied to input pitch.
+
+These kinds of self-patches can produce **internally coherent melodies**, because the modulation derives from the same waveform that generates the sound.
+
+---
+
+## 11. Best external module pairings for melody
+
+Skorpion works especially well with:
+
+- **stable analog or digital VCOs**  
+  for a predictable input waveform
+
+- **quantizers**  
+  because TRGTs, COUNT, and DAC outputs become very musical once snapped to scale
+
+- **sequencers**  
+  to drive the source oscillator while Skorpion adds internal sub-structure
+
+- **VCAs and envelopes**  
+  to shape the rich outputs into articulated notes
+
+- **filters**  
+  to tame brighter settings for bass and lead work
+
+- **logic/clock utilities**  
+  to use G(IN>0) and ±G(DIR) for melodic event generation
+
+- **second oscillator**  
+  for counterpoint driven by TRGTs/COUNT/DAC
+
+---
+
+## 12. Practical melodic recipes
+
+## Recipe 1: Singing lead
+- Sine VCO into IN
+- pitch CV multed to VCO + Skorpion 1V/OCT
+- Equalize THLDs ON
+- Sync SOFT
+- Target near CLIP
+- Small SHAPE from OUT
+- Slight SHIFT modulation
+
+This gives a vocal, expressive lead with strong pitch focus.
+
+## Recipe 2: Metallic arpeggio
+- Triangle or saw into IN
+- Target to SLIDERs
+- Program alternating high/low TRGTs
+- Target order = SEQ
+- COUNT out to quantizer for second oscillator
+- Output wide with FILTERS
+
+This yields one bright animated arp plus a derived second melodic line.
+
+## Recipe 3: Bass with internal steps
+- Triangle in
+- Sync HARD
+- Slope medium-high
+- Halt if targ=0 ON
+- Some TRGT sliders at 0, others high
+- Filter after output
+
+This creates stepped, assertive bass tones.
+
+## Recipe 4: Generative melody machine
+- Cycling LFO or oscillator in
+- THLD LFO amount up
+- Slow THLD LFO rate
+- TRGTs out to quantizer
+- G(IN>0) to envelope trigger
+- Processed output mixed quietly under the quantized voice
+
+This makes Skorpion both the sound source modifier and the melodic CV engine.
+
+---
+
+## 13. Overall assessment
+
+For melodic music, Skorpion is best understood as a hybrid of:
+
+- wavefolder
+- comparator-based control system
+- vector oscillator core
+- 8-step target sequencer
+- modulation generator
+- stereo texturizer
+
+Its strongest melodic roles are:
+
+1. **tracking timbre processor for an oscillator voice**
+2. **internal sequenced waveform shaper**
+3. **source of pitch-capable stepped CV via TRGTs/COUNT/DAC**
+4. **generator of related counter-melodies and phrase modulation**
+
+If you want traditional clean subtractive melody, Skorpion is not the shortest path.  
+If you want **melodies with internal movement, harmonic articulation, and derived companion CV**, it is extremely powerful.
+
+---
+
+## Best first melodic patch to try
+If you only try one:
+
+- Oscillator → **IN**
+- pitch CV → oscillator + **Skorpion 1V/OCT**
+- **EQUALIZE THLDs ON**
+- **SYNC SOFT**
+- **TARGET** midway between **CLIP** and **SLIDERs**
+- program a simple rising/falling **TRGT** pattern
+- take **OUT L** as your main voice
+- send **COUNT OUT** to a quantizer and then to a second oscillator
+
+That gives you:
+- a main melodic voice
+- sequenced internal timbre motion
+- a derived counter-melody
+
+That’s where Skorpion really shines musically.
+
+---
+
+[Generated With Eurorack Processor](https://github.com/nstarke/eurorack-processor)

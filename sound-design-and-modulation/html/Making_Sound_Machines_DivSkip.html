@@ -1,0 +1,698 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Making_Sound_Machines_DivSkip</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Making Sound Machines — DivSkip</h1>
+<ul>
+<li><a href="../../manuals/SKORPION_Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://wmdevices.com/cdn/shop/files/Skorpion_Manual_Rev1.00.pdf">WMD Skorpion Manual (PDF)</a></p>
+<h1>WMD Skorpion modulation ideas for distorted percussion, monstrous basslines, and haunted pads</h1>
+<p>Skorpion is not just a wavefolder. It’s really a <strong>comparator-driven waveform animation system</strong> with a <strong>vector core</strong>, <strong>per-threshold behavior</strong>, <strong>target sequencing</strong>, <strong>feedback-based slope shaping</strong>, and <strong>stereo widening/delay</strong>. That means it rewards modulation much more than static knob settings.</p>
+<p>Below I’ll focus on ways to modulate it for:
+- <strong>distorted percussion</strong>
+- <strong>dubstep / DnB basslines</strong>
+- <strong>haunting atmospheric pads</strong></p>
+<p>I’ll also point out the most powerful modulation points and self-patching tricks from the manual.</p>
+<hr />
+<h1>First: what matters most for sound design on Skorpion</h1>
+<p>These are the parameters that seem to matter most when patching for movement:</p>
+<h2>1. FOLD</h2>
+<p>Controls how hard the input is amplified against the threshold stack.<br />
+This is the most immediate “more chaos / more aggression” control.</p>
+<p><strong>Best modulation use:</strong>
+- envelopes for transient punch
+- stepped CV for rhythmic changes
+- audio-rate modulation for harshness</p>
+<hr />
+<h2>2. SLOPE</h2>
+<p>Controls how fast the vector core moves. Higher slope = more harmonic content.</p>
+<p><strong>Best modulation use:</strong>
+- pitch tracking via <strong>1V/OCT</strong> for consistent timbre
+- envelopes to make attack brighter than sustain
+- LFOs for evolving harmonic motion</p>
+<p>This is one of the biggest tone controls on the module.</p>
+<hr />
+<h2>3. SHIFT</h2>
+<p>Offsets the input against thresholds and creates asymmetry.<br />
+The manual notes that <strong>slow modulation here can create a frequency shift effect</strong>.</p>
+<p><strong>Best modulation use:</strong>
+- slow triangle/sine for movement
+- envelopes for transient asymmetry
+- audio-rate modulation for unstable, tearing sounds</p>
+<p>This is especially useful for bass and pads.</p>
+<hr />
+<h2>4. TARGET</h2>
+<p>Determines where the vector core is trying to go:
+- <strong>5V</strong> = more square-like
+- <strong>CLIP</strong> = overlay with input waveform
+- <strong>SLIDERs/TRGTs</strong> = threshold-crossing sequenced voltage destinations</p>
+<p><strong>Best modulation use:</strong>
+- animated transitions between square-ish, clipping, and sequenced destinations
+- external CV into <strong>TRGT MOD</strong>
+- using <strong>TRGTs</strong> as a pseudo wavetable / contour source</p>
+<p>This is one of Skorpion’s most unique sound design dimensions.</p>
+<hr />
+<h2>5. SHAPE + SHAPE SOURCE</h2>
+<p>SHAPE modulates SLOPE using feedback and internal signals:
+- <strong>IN</strong>
+- <strong>OUT</strong>
+- <strong>DELAY</strong>
+- <strong>COUNT</strong>
+- <strong>DIFF</strong>
+- <strong>TRGTs</strong>
+- <strong>DAC</strong>
+- <strong>DIR</strong></p>
+<p>This is probably the deepest sound-design section of the module.</p>
+<p><strong>Best sources by vibe:</strong>
+- <strong>OUT</strong>: log/exp-style nonlinear feedback, great for growl
+- <strong>DIFF</strong>: spiky, harsh, very aggressive
+- <strong>COUNT</strong>: staircase modulation linked to threshold crossings
+- <strong>TRGTs</strong>: per-segment waveform shaping
+- <strong>DIR</strong>: skew and directional asymmetry
+- <strong>DELAY</strong>: animated stereo and unstable movement</p>
+<hr />
+<h2>6. THLD sliders / threshold modulation</h2>
+<p>The thresholds decide where folds happen. This is huge.</p>
+<p>You can:
+- set them manually
+- equalize them for more “classic wavefolder” behavior
+- modulate all thresholds via <strong>THLDs/</strong>
+- modulate threshold 1 directly via <strong>THLD1</strong>
+- add internal threshold LFOs with Macro Setup</p>
+<p>This is how you move from normal wavefolding into animated, comparator-chaos territory.</p>
+<hr />
+<h2>7. OUTPUT / WIDE / FILTERS / DELAY</h2>
+<p>The upper half of OUTPUT introduces widening and delay behavior.<br />
+With FILTERS on, lows remain centered and highs spread, which is excellent for bass and pads.</p>
+<p><strong>Use this for:</strong>
+- wide metallic percussion
+- basses with mono low-end and wide top
+- drifting stereo atmospheres</p>
+<hr />
+<h1>Most powerful modulation concepts on Skorpion</h1>
+<p>Before the genre patches, here are the most important general techniques.</p>
+<h2>A. Use envelopes on FOLD and SLOPE together</h2>
+<p>This creates a very “acoustic-mechanical” motion:
+- more fold at attack
+- more slope at attack
+- then both decay differently</p>
+<p>Result:
+- snappy percussion
+- basses with a bark on the transient
+- pads that bloom and then soften</p>
+<hr />
+<h2>B. Modulate SHIFT slowly for unstable spectral drift</h2>
+<p>Because SHIFT offsets the input against thresholds, it changes which folds happen and when.</p>
+<p>Result:
+- evolving timbre without sounding like a generic filter sweep
+- very good for haunted drones and living basslines</p>
+<hr />
+<h2>C. Use SHAPE source switching as a performance move</h2>
+<p>Even if the SHAPE amount stays similar, changing the source from:
+- <strong>OUT</strong> to <strong>DIFF</strong>
+- <strong>COUNT</strong> to <strong>TRGTs</strong>
+- <strong>DIR</strong> to <strong>DELAY</strong></p>
+<p>can completely recharacterize the sound.</p>
+<p>This is one of the best ways to get “multiple personalities” out of one patch.</p>
+<hr />
+<h2>D. Self-patch the auxiliary outputs</h2>
+<p>Skorpion gives you:
+- <strong>ABS(IN)</strong>
+- <strong>G(IN&gt;0)</strong>
+- <strong>TRGTs</strong>
+- <strong>DIFF</strong>
+- <strong>±G(DIR)</strong>
+- <strong>COUNT/</strong>
+- <strong>DAC</strong>
+- <strong>DELAY</strong></p>
+<p>These are perfect self-mod sources.</p>
+<p>Especially useful:
+- <strong>DIFF → SHAPE CV</strong>
+- <strong>COUNT/ or DAC → FOLD CV</strong>
+- <strong>TRGTs → SHIFT CV</strong>
+- <strong>DELAY → SHAPE or TARGET modulation</strong>
+- <strong>±G(DIR) → something external</strong>, or into utilities for rhythmic switching</p>
+<hr />
+<h2>E. Use TRGTs like a hidden sequencer</h2>
+<p>The manual explicitly says the 8 targets form an 8-step voltage-controlled sequencer.</p>
+<p>That means you can:
+- shape the folded waveform in segments
+- output TRGTs to modulate external modules
+- modulate all targets together with the <strong>TRGTs input</strong>
+- choose target order:
+  - <strong>SEQ</strong> = by count of active thresholds
+  - <strong>TIED</strong> = by most recently crossed threshold</p>
+<p>This is extremely good for bass growls and animated pads.</p>
+<hr />
+<h2>F. Use HALT strategically</h2>
+<ul>
+<li><strong>HALT jack</strong> stops the vector core at its current voltage</li>
+<li><strong>HALT IF TARG=0</strong> lets target segments freeze when their target is 0</li>
+</ul>
+<p>This can create:
+- square-like segments
+- abrupt rhythmic stutters
+- frozen spectral moments
+- gated, robotic bass articulation</p>
+<p>Very powerful for aggressive sounds.</p>
+<hr />
+<h1>Patch ideas for distorted percussion</h1>
+<hr />
+<h2>1. Broken industrial kick / tom</h2>
+<p><strong>Goal:</strong> a punchy, crushed, metallic kick or tom with folding grit.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sine or triangle oscillator into <strong>IN</strong></li>
+<li>Pitch envelope on oscillator if desired</li>
+<li>Envelope to <strong>FOLD CV</strong></li>
+<li>Short decay envelope to <strong>SLOPE CV</strong></li>
+<li>Set <strong>TARGET</strong> somewhere between <strong>5V</strong> and <strong>CLIP</strong></li>
+<li><strong>SHAPE source = DIFF</strong> or <strong>OUT</strong></li>
+<li>OUTPUT around wet, not yet too wide</li>
+</ul>
+<h3>Modulation idea</h3>
+<ul>
+<li>Make <strong>FOLD envelope</strong> slightly longer than <strong>SLOPE envelope</strong></li>
+<li>Use <strong>SHIFT</strong> slightly off noon for asymmetry</li>
+<li>Turn on <strong>SYNC = HARD</strong> for consistent attack/reset behavior</li>
+<li>Try <strong>HALT IF TARG=0</strong> with one or two targets at zero if using SLIDER target mode</li>
+</ul>
+<h3>Why it works</h3>
+<p>The attack gets fast, bright, and nonlinear, then relaxes into a lower harmonic sustain. DIFF-based shape makes the transient nasty and sharp.</p>
+<h3>Make it nastier</h3>
+<ul>
+<li>Send <strong>DIFF output</strong> back into <strong>SHAPE CV</strong></li>
+<li>Modulate <strong>TRGT MOD</strong> with a click, noise burst, or another percussion voice</li>
+<li>Use <strong>CLIP jack</strong> with a different source than the input</li>
+</ul>
+<p>Using another sound in CLIP is especially good for weird percussion because the output overlays against that foreign contour.</p>
+<hr />
+<h2>2. Snare / clap annihilator</h2>
+<p><strong>Goal:</strong> noise-heavy, crispy, tearing snare layers.</p>
+<h3>Patch</h3>
+<ul>
+<li>Noise or noise+oscillator mix into <strong>IN</strong></li>
+<li><strong>FOLD</strong> high</li>
+<li><strong>SLOPE</strong> medium-high</li>
+<li><strong>SHIFT</strong> slightly positive or negative</li>
+<li><strong>TARGET = CLIP</strong></li>
+<li>Feed a separate sharp source to <strong>CLIP</strong>, like:</li>
+<li>short square click</li>
+<li>rimshot signal</li>
+<li>another oscillator</li>
+<li><strong>SHAPE source = COUNT</strong> or <strong>DIFF</strong></li>
+<li>OUTPUT into <strong>WIDE</strong>, FILTERS on</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Envelope to <strong>FOLD</strong></li>
+<li>Fast random or stepped modulation to <strong>SHIFT</strong></li>
+<li>Threshold LFO amount via Macro Setup at subtle depth</li>
+<li>Slow modulation of <strong>OUTPUT</strong> between WET and WIDE</li>
+</ul>
+<h3>Result</h3>
+<p>The threshold-crossing behavior turns noise into ripped layers of transient detail, while stereoized highs make the snare sound wider without losing low-end center.</p>
+<hr />
+<h2>3. Hi-hats / cymbal shatter patch</h2>
+<p><strong>Goal:</strong> glitchy, metallic, animated hats.</p>
+<h3>Patch</h3>
+<ul>
+<li>Bright noise, FM metallic source, or high triangle into <strong>IN</strong></li>
+<li><strong>EQUALIZE THLDs = ON</strong> for more classic evenly-spaced folding</li>
+<li>High <strong>SLOPE</strong></li>
+<li><strong>SHAPE source = COUNT</strong> or <strong>DAC</strong></li>
+<li>OUTPUT above noon into WIDE</li>
+<li>FILTERS on</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Very short envelope to <strong>FOLD</strong></li>
+<li>Fast LFO to <strong>SHIFT</strong></li>
+<li>Slow LFO to <strong>SHAPE</strong></li>
+<li>Internal threshold LFOs enabled in Macro Setup</li>
+<li>Optional: <strong>G(IN&gt;0)</strong> or <strong>±G(DIR)</strong> to clock something external that modulates Skorpion back</li>
+</ul>
+<h3>Result</h3>
+<p>COUNT and DAC create stepped modulation tied to active thresholds, giving a metallic digital-meets-analog chatter that is excellent for hats.</p>
+<hr />
+<h2>4. Glitch percussion with HALT</h2>
+<p><strong>Goal:</strong> stop-start robotic percussion and fractured impacts.</p>
+<h3>Patch</h3>
+<ul>
+<li>Percussive source into <strong>IN</strong></li>
+<li>Patch gates or audio-rate square wave into <strong>HALT</strong></li>
+<li>Set <strong>TARGET = SLIDERs</strong></li>
+<li>Put some <strong>TRGT sliders</strong> at zero</li>
+<li>Enable <strong>HALT IF TARG=0</strong></li>
+<li>SHAPE source = <strong>TRGTs</strong> or <strong>DIR</strong></li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Modulate <strong>TARGET pot</strong></li>
+<li>Modulate <strong>THLDs/</strong> with a rhythmic CV</li>
+<li>Switch <strong>TARGET ORDER</strong> between <strong>SEQ</strong> and <strong>TIED</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The vector core freezes on certain segments, creating abrupt flat spots, gated edges, and machine-gun contour distortions.</p>
+<p>This is excellent for IDM-ish percussion or neurofunk drum mangling.</p>
+<hr />
+<h1>Patch ideas for dubstep / drum &amp; bass basslines</h1>
+<hr />
+<h2>1. Classic growl bass, but stranger</h2>
+<p><strong>Goal:</strong> a bass that snarls and changes internal shape beyond ordinary filter/FM growls.</p>
+<h3>Patch</h3>
+<ul>
+<li>Saw, square, or complex oscillator into <strong>IN</strong></li>
+<li>Patch pitch CV to oscillator and to <strong>1V/OCT</strong> on Skorpion</li>
+<li><strong>FOLD</strong> medium-high</li>
+<li><strong>SLOPE</strong> medium</li>
+<li><strong>SHIFT</strong> near noon</li>
+<li><strong>TARGET</strong> between <strong>SLIDERs</strong> and <strong>CLIP</strong></li>
+<li><strong>SHAPE source = OUT</strong></li>
+<li>OUTPUT around wet or slightly into wide with FILTERS on</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>LFO or envelope to <strong>SHIFT</strong></li>
+<li>Envelope to <strong>FOLD</strong></li>
+<li>Different envelope to <strong>SLOPE</strong></li>
+<li>Slow CV to <strong>TARGET</strong></li>
+<li>Use Macro LFO on <strong>SHAPE</strong> or <strong>SLOPE</strong></li>
+</ul>
+<h3>Why it works</h3>
+<p>1V/OCT keeps the slope behavior musically consistent across notes. OUT-based shape gives organic nonlinear feedback, which is great for talking/growling basses.</p>
+<hr />
+<h2>2. Neuro bass / tearing reese mutation</h2>
+<p><strong>Goal:</strong> moving bass with vocal tearing, internal segment changes, and asymmetry.</p>
+<h3>Patch</h3>
+<ul>
+<li>Detuned saw pair or Reese source into <strong>IN</strong></li>
+<li><strong>TARGET = SLIDERs</strong></li>
+<li>Set 8 TRGT sliders to alternating positive/low/zero-ish contour shapes</li>
+<li><strong>TARGET ORDER = TIED</strong> for more chaotic selection</li>
+<li><strong>SHAPE source = TRGTs</strong></li>
+<li><strong>SHIFT</strong> slightly offset from noon</li>
+<li>OUTPUT in FILTERS mode, slightly wide</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Slow LFO to <strong>SHIFT</strong></li>
+<li>Envelope follower or synced LFO to <strong>THLDs/</strong></li>
+<li><strong>TRGT MOD</strong> with an LFO, envelope, or external audio source</li>
+<li><strong>DIFF output → SHAPE CV</strong></li>
+<li>Optional: <strong>DELAY output → TRGT MOD</strong> or <strong>SHAPE CV</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Each threshold-crossing can push the vector core toward a different destination, while SHAPE sourced from TRGTs changes the slope segment-by-segment. This gives highly articulated, speech-like growls.</p>
+<hr />
+<h2>3. Talking wobble bass without a filter</h2>
+<p><strong>Goal:</strong> vowel-like movement using threshold and target animation rather than standard filter sweeps.</p>
+<h3>Patch</h3>
+<ul>
+<li>Rich oscillator into <strong>IN</strong></li>
+<li><strong>TARGET = SLIDERs</strong></li>
+<li>Create a non-linear TRGT pattern with valleys and peaks</li>
+<li><strong>SHAPE source = COUNT</strong> or <strong>DAC</strong></li>
+<li><strong>EQUALIZE THLDs = XOR</strong> so CV can dynamically switch equalized/non-equalized threshold behavior</li>
+<li>OUTPUT with FILTERS on</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Sync’d LFO to <strong>THLDs/</strong></li>
+<li>Another LFO to <strong>SHIFT</strong></li>
+<li>Envelope to <strong>FOLD</strong></li>
+<li>Sequencer row or stepped random to <strong>TRGTs input</strong></li>
+<li>Gate pattern into <strong>EQ THLDs jack</strong> to alternate classic wavefolder vs irregular threshold map</li>
+</ul>
+<h3>Result</h3>
+<p>The bass articulates in a vocal-ish way because threshold activation patterns change, not just brightness. Toggling equalized thresholds can sound like switching between different “mouth shapes.”</p>
+<hr />
+<h2>4. Over-the-top DnB bass stab</h2>
+<p><strong>Goal:</strong> hard transient, aggressive midrange, wide top, mono low end.</p>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator or bass chord source into <strong>IN</strong></li>
+<li>Pitch to oscillator and <strong>1V/OCT</strong></li>
+<li><strong>SYNC = HARD</strong></li>
+<li><strong>TARGET = 5V</strong> or near 5V</li>
+<li><strong>SHAPE source = DIFF</strong></li>
+<li><strong>FOLD</strong> high</li>
+<li><strong>SLOPE</strong> high</li>
+<li>OUTPUT into upper half, <strong>FILTERS</strong> engaged</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Fast decay envelope to <strong>SLOPE</strong></li>
+<li>Medium decay envelope to <strong>FOLD</strong></li>
+<li>Short accent envelope to <strong>SHIFT</strong></li>
+<li>Use <strong>COUNT/</strong> or <strong>DAC</strong> out to modulate an external VCA/filter in parallel</li>
+<li>Slow LFO on OUTPUT amount for evolving width</li>
+</ul>
+<h3>Result</h3>
+<p>Very strong square-ish, ripping attack with stable low fundamentals and stereo spread in the upper band.</p>
+<hr />
+<h2>5. Audio-rate FM-style brutality</h2>
+<p><strong>Goal:</strong> harsh, screeching, modern bass destruction.</p>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator into <strong>IN</strong></li>
+<li>Another oscillator or bright audio source into:</li>
+<li><strong>TRGT MOD</strong></li>
+<li>or <strong>SHIFT CV</strong></li>
+<li>or <strong>THLDs/</strong></li>
+<li><strong>SHAPE source = DIFF</strong> or <strong>OUT</strong></li>
+<li><strong>TARGET = CLIP</strong> or between CLIP and SLIDERs</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Audio-rate modulation to <strong>SHIFT</strong> is especially wild</li>
+<li>Audio-rate into <strong>THLDs/</strong> changes threshold map at audio speeds</li>
+<li>Audio-rate signal into <strong>CLIP</strong> replaces the clipping reference with another waveform</li>
+</ul>
+<h3>Result</h3>
+<p>Skorpion becomes a bizarre comparator/FM/wavefold hybrid. This is ideal for screaming fills, transitions, or extreme basses.</p>
+<hr />
+<h1>Patch ideas for haunting atmospheric pads</h1>
+<hr />
+<h2>1. Evolving ghost pad</h2>
+<p><strong>Goal:</strong> soft but uncanny harmonic movement, slowly shifting asymmetry, wide stereo top.</p>
+<h3>Patch</h3>
+<ul>
+<li>Slow chord, drone, or detuned oscillator stack into <strong>IN</strong></li>
+<li><strong>DRY IF NO THLDs = ON</strong></li>
+<li>Moderate <strong>FOLD</strong></li>
+<li>Lower <strong>SLOPE</strong></li>
+<li><strong>SHIFT</strong> at or near noon</li>
+<li><strong>TARGET</strong> between <strong>CLIP</strong> and <strong>SLIDERs</strong></li>
+<li><strong>SHAPE source = OUT</strong> or <strong>DELAY</strong></li>
+<li>OUTPUT in upper half, FILTERS on</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Very slow LFO to <strong>SHIFT</strong></li>
+<li>Very slow LFO to <strong>SHAPE</strong></li>
+<li>Very slow modulation to <strong>TARGET</strong></li>
+<li>Internal Macro envelope controlling threshold LFOs with long attack/release</li>
+<li>Use Macro Setup to create extremely slow movement over minutes</li>
+</ul>
+<h3>Why DRY IF NO THLDs matters</h3>
+<p>When heavily modulating FOLD or threshold conditions, it ensures you still get signal and can create gentle transitions between dry-following and folded states. That’s very useful for atmospheric work.</p>
+<hr />
+<h2>2. Haunted shimmer cloud</h2>
+<p><strong>Goal:</strong> unstable stereo bloom with delayed spectral feedback.</p>
+<h3>Patch</h3>
+<ul>
+<li>Harmonic source into <strong>IN</strong></li>
+<li><strong>OUTPUT</strong> above noon into WIDE</li>
+<li><strong>FILTERS</strong> on</li>
+<li><strong>SHAPE source = DELAY</strong></li>
+<li><strong>TARGET = CLIP</strong></li>
+<li>Use a soft source, like triangle/pulse blend or processed field recording oscillator texture</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Very slow triangle to <strong>SHIFT</strong></li>
+<li>Slow CV to <strong>OUTPUT</strong></li>
+<li>Slow random to <strong>FOLD</strong></li>
+<li>Optional: patch <strong>DELAY output</strong> externally through reverb and bring it back to <strong>CLIP</strong> or <strong>TRGT MOD</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The delay-derived shape source creates motion that feels spectral and ghostly rather than obviously LFO’d.</p>
+<hr />
+<h2>3. Segmented pad with hidden melody inside</h2>
+<p><strong>Goal:</strong> a drone where different harmonic segments emerge as thresholds are crossed.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sustained oscillator/chord into <strong>IN</strong></li>
+<li><strong>TARGET = SLIDERs</strong></li>
+<li>Set TRGT sliders to a musically related contour</li>
+<li><strong>TARGET ORDER = SEQ</strong> for more predictable motion</li>
+<li><strong>SHAPE source = TRGTs</strong></li>
+<li><strong>SLOPE</strong> moderate</li>
+<li><strong>FOLD</strong> low to medium</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Slow envelope or LFO to <strong>THLDs/</strong></li>
+<li>Slow modulation to <strong>SHIFT</strong></li>
+<li>Optional: modulate all targets using <strong>TRGTs input</strong></li>
+<li>Use Macro threshold LFOs with very slow rates</li>
+</ul>
+<h3>Result</h3>
+<p>The pad slowly animates across internal “zones,” almost like a wavetable scan controlled by threshold activity.</p>
+<hr />
+<h2>4. Frozen sorrow drone</h2>
+<p><strong>Goal:</strong> suspended, broken, nearly-static texture with occasional motion.</p>
+<h3>Patch</h3>
+<ul>
+<li>Drone source into <strong>IN</strong></li>
+<li><strong>TARGET = SLIDERs</strong></li>
+<li>Put several target sliders at zero</li>
+<li>Enable <strong>HALT IF TARG=0</strong></li>
+<li><strong>SHAPE source = DIR</strong> or <strong>OUT</strong></li>
+<li><strong>SYNC = SOFT</strong></li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Sparse gates to <strong>HALT</strong></li>
+<li>Slow CV to <strong>SHIFT</strong></li>
+<li>Very slow CV to <strong>SLOPE</strong></li>
+<li>Slight movement on <strong>THLDs/</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Parts of the waveform stall, hang, and then resume, giving eerie suspended harmonics and frozen emotional texture.</p>
+<hr />
+<h1>Best self-patching tricks</h1>
+<p>These are especially powerful on Skorpion.</p>
+<h2>1. DIFF → SHAPE CV</h2>
+<p>Probably one of the best aggressive patches.</p>
+<p><strong>Sound:</strong>
+- sharper transients
+- unstable, spiky, tearing harmonics
+- great for bass and percussion</p>
+<hr />
+<h2>2. TRGTs output → SHIFT CV</h2>
+<p>Lets the target sequencer also bias threshold crossing asymmetry.</p>
+<p><strong>Sound:</strong>
+- internal recursive animation
+- basses that seem to “talk”
+- pads with subtle contour drift</p>
+<p>Attenuate this if possible.</p>
+<hr />
+<h2>3. COUNT/ or DAC → FOLD CV</h2>
+<p>Since these reflect active thresholds, the amount of threshold activity changes fold amount.</p>
+<p><strong>Sound:</strong>
+- dynamic harmonic escalation
+- responsive growl
+- self-energizing textures</p>
+<p><strong>COUNT/</strong> is more obvious.<br />
+<strong>DAC</strong> is subtler and often more musical.</p>
+<hr />
+<h2>4. DELAY → SHAPE CV or TRGT MOD</h2>
+<p>Especially good when OUTPUT is in WIDE range.</p>
+<p><strong>Sound:</strong>
+- spectral smear
+- unstable stereo movement
+- eerie self-related animation</p>
+<p>Excellent for pads and strange percussion.</p>
+<hr />
+<h2>5. ABS(IN) → external modulation destination</h2>
+<p>Use ABS(IN) as a derived envelope-ish audio modulation source outside Skorpion, then send that back in somewhere else.</p>
+<p><strong>Good return points:</strong>
+- FOLD CV
+- SHIFT CV
+- TRGT MOD
+- THLDs/</p>
+<hr />
+<h2>6. G(IN&gt;0) or ±G(DIR) for rhythmic logic</h2>
+<p>These are great utility outputs.</p>
+<p>Use them to:
+- trigger envelopes elsewhere
+- switch CV paths
+- clock logic
+- derive rhythmic gates from the waveform itself</p>
+<p>Then route those back to Skorpion or other modules.</p>
+<hr />
+<h1>How to use the Macro Setup musically</h1>
+<p>The internal macro section is easy to overlook, but it’s very useful for “alive” patches.</p>
+<h2>Best uses for distorted percussion</h2>
+<ul>
+<li>Set short-to-medium Macro attack/release</li>
+<li>Use threshold LFO amount low-to-medium</li>
+<li>Put hardware normal modulation on <strong>FOLD</strong> and <strong>SLOPE</strong></li>
+<li>Trigger Macro ENV per hit or phrase</li>
+</ul>
+<p>This makes repeated percussion evolve slightly while staying coherent.</p>
+<hr />
+<h2>Best uses for basslines</h2>
+<ul>
+<li>Put <strong>SHIFT</strong> in LFO mode</li>
+<li>Put <strong>SHAPE</strong> in ENV mode</li>
+<li>Put <strong>SLOPE</strong> in LFO or ENV mode depending on whether you want wobble or punch</li>
+<li>Trigger Macro ENV from sequence accents</li>
+</ul>
+<p>This gives a bass patch movement even if you don’t have extra external modulators.</p>
+<hr />
+<h2>Best uses for pads</h2>
+<ul>
+<li>Long attack and release on Macro ENV</li>
+<li>Slow threshold LFO rate</li>
+<li>Subtle amount on threshold LFOs</li>
+<li>Put <strong>SHIFT</strong> and <strong>SHAPE</strong> in LFO mode</li>
+<li>Put <strong>FOLD</strong> in ENV mode if you want bloom</li>
+</ul>
+<p>The result is slow spectral emergence that feels composed rather than random.</p>
+<hr />
+<h1>Switch settings that dramatically change character</h1>
+<h2>EQUALIZE THLDs</h2>
+<ul>
+<li><strong>ON</strong>: more classic wavefolder, more predictable, good for percussion and stable basses</li>
+<li><strong>OFF / JACK-controlled</strong>: more unique irregularity, better for experimental bass/pad work</li>
+<li><strong>XOR</strong>: excellent for rhythmic switching between classic and weird</li>
+</ul>
+<hr />
+<h2>SYNC</h2>
+<ul>
+<li><strong>HARD</strong>: tight attacks, consistent bass transients, percussive precision</li>
+<li><strong>SOFT</strong>: more organic, smeared resets, nice for pads</li>
+<li><strong>X</strong>: freer, more chaotic behavior</li>
+</ul>
+<hr />
+<h2>TARGET ORDER</h2>
+<ul>
+<li><strong>SEQ</strong>: more repeatable, phrase-like, musical</li>
+<li><strong>TIED</strong>: more reactive and less predictable, good for wild basses and chaotic percussion</li>
+</ul>
+<hr />
+<h2>OUTPUT SWITCH</h2>
+<ul>
+<li><strong>DC</strong>: rawest signal</li>
+<li><strong>FILTERS</strong>: centered lows + widened highs, best for bass and spacious pads</li>
+</ul>
+<hr />
+<h1>Three complete recipe patches</h1>
+<h2>Recipe 1: “Neuro Snarl Bass”</h2>
+<ul>
+<li>Reese oscillator into IN</li>
+<li>Pitch CV also to 1V/OCT</li>
+<li>TARGET = SLIDERs</li>
+<li>TARGET ORDER = TIED</li>
+<li>SHAPE source = TRGTs</li>
+<li>SHAPE amount moderate positive</li>
+<li>FOLD medium-high</li>
+<li>SLOPE medium</li>
+<li>SHIFT slightly off noon</li>
+<li>OUTPUT in FILTERS wide mode</li>
+<li>DIFF → SHAPE CV</li>
+<li>Slow LFO → SHIFT</li>
+<li>Envelope → FOLD</li>
+<li>Envelope → SLOPE</li>
+<li>TRGT MOD from another oscillator or envelope</li>
+</ul>
+<p><strong>Result:</strong> vocal tearing, unstable phrase-like bass with stereo aggression and centered weight.</p>
+<hr />
+<h2>Recipe 2: “Destroyed Techno Percussion”</h2>
+<ul>
+<li>Sine or triangle VCO into IN</li>
+<li>Hard pitch envelope on oscillator</li>
+<li>HARD SYNC on Skorpion</li>
+<li>TARGET near 5V</li>
+<li>SHAPE source = DIFF</li>
+<li>Short env → SLOPE</li>
+<li>Slightly longer env → FOLD</li>
+<li>Random stepped CV → SHIFT</li>
+<li>CLIP fed from noise burst or another percussive source</li>
+<li>OUTPUT mostly wet</li>
+</ul>
+<p><strong>Result:</strong> industrial kick/tom/snare territory with brutal attack and strange overtone sprays.</p>
+<hr />
+<h2>Recipe 3: “Cathedral Ghost Pad”</h2>
+<ul>
+<li>Two detuned triangles/chord source into IN</li>
+<li>DRY IF NO THLDs on</li>
+<li>TARGET between CLIP and SLIDERs</li>
+<li>SHAPE source = DELAY</li>
+<li>SOFT SYNC</li>
+<li>OUTPUT wide with FILTERS</li>
+<li>Long Macro attack/release</li>
+<li>Threshold LFO amount subtle</li>
+<li>Slow LFO → SHIFT</li>
+<li>Slow LFO → TARGET</li>
+<li>DELAY → SHAPE CV</li>
+<li>External reverb after OUT L/R</li>
+</ul>
+<p><strong>Result:</strong> drifting, mournful, haunted stereo bloom with animated harmonic fog.</p>
+<hr />
+<h1>Practical tips</h1>
+<h2>Use attenuation</h2>
+<p>Skorpion seems very sensitive to modulation depth. Many of the best sounds will come from <strong>small amounts</strong> of CV, especially on:
+- SHIFT
+- SHAPE
+- THLDs/
+- TRGT MOD</p>
+<hr />
+<h2>Keep SHIFT near noon when exploring HALT</h2>
+<p>The manual specifically hints this gives best results, because SHIFT is summed with IN after FOLD.</p>
+<hr />
+<h2>Use 1V/OCT for pitched bass work</h2>
+<p>The manual notes it controls slope and is necessary for equal timbre across different notes. If you want bass patches to stay consistent across a line, patch it.</p>
+<hr />
+<h2>Don’t ignore CLIP input</h2>
+<p>This is one of the coolest features for unconventional sounds. Replacing the input-normalled clip signal with:
+- drums
+- another oscillator
+- voice
+- field recording-derived signal</p>
+<p>can radically alter the folding behavior.</p>
+<hr />
+<h2>WIDE is not just “stereo”</h2>
+<p>It also gives access to the delay behavior. Since DELAY can be used as a modulation-related source and SHAPE source, OUTPUT position can indirectly change timbre, not just width.</p>
+<hr />
+<h1>Best modulation destinations by genre</h1>
+<h2>For distorted percussion</h2>
+<ol>
+<li>FOLD</li>
+<li>SLOPE</li>
+<li>SHAPE</li>
+<li>TARGET / TRGT MOD</li>
+<li>HALT</li>
+</ol>
+<h2>For basslines</h2>
+<ol>
+<li>SHIFT</li>
+<li>SHAPE</li>
+<li>TARGET / TRGTs</li>
+<li>THLDs/</li>
+<li>OUTPUT wide/filter balance</li>
+</ol>
+<h2>For atmospheric pads</h2>
+<ol>
+<li>SHIFT slow modulation</li>
+<li>SHAPE source = DELAY / OUT / TRGTs</li>
+<li>THLD LFOs via Macro Setup</li>
+<li>TARGET slow modulation</li>
+<li>OUTPUT into WIDE with FILTERS</li>
+</ol>
+<hr />
+<h1>Final takeaway</h1>
+<p>The most unique sounds from Skorpion will usually come from <strong>modulating relationships</strong>, not just single parameters. The best pairings are:</p>
+<ul>
+<li><strong>FOLD + SLOPE</strong> for transient character</li>
+<li><strong>SHIFT + THLDs/</strong> for moving asymmetry and fold topology</li>
+<li><strong>TARGET + SHAPE source</strong> for changing the actual contour logic</li>
+<li><strong>OUTPUT/DELAY + SHAPE</strong> for spacious spectral motion</li>
+<li><strong>DIFF / COUNT / TRGTs self-patching</strong> for recursive complexity</li>
+</ul>
+<p>If you want, I can also turn this into:
+1. a <strong>quick-start cheat sheet</strong>,<br />
+2. <strong>10 specific patch recipes with knob positions</strong>, or<br />
+3. a <strong>self-patching-only guide for Skorpion</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>
