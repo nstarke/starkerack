@@ -1,0 +1,608 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>2hp_Tape</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>2hp — Tape</h1>
+<ul>
+<li><a href="../../manuals/2hp_Tape_Stop.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.twohp.com/modules/tape-stop">Manual PDF</a></p>
+<h1>2hp Tape Stop — modulation ideas for wild sound design</h1>
+<p>The <strong>2hp Tape Stop</strong> is a compact, clock-syncable tape slow-down effect. On paper it looks simple, but in a modular patch it can become a <strong>rhythmic pitch-drop generator</strong>, <strong>transient mangler</strong>, <strong>pseudo-glitch sequencer</strong>, and <strong>atmospheric smear tool</strong>.</p>
+<h2>What the module does well</h2>
+<p>From the manual:</p>
+<ul>
+<li><strong>Audio in / out</strong> for up to <strong>10Vpp</strong></li>
+<li><strong>Trig button + trig gate input</strong> starts the tape stop</li>
+<li><strong>Momentary or latching</strong> trig behavior</li>
+<li><strong>Lag knob</strong> sets stop time:</li>
+<li>free mode: <strong>instant to 4 seconds</strong></li>
+<li>clocked mode: <strong>instant, 32nd, 16th, 8th, 4th, half, whole, 2 bars, 4 bars, 8 bars, 16 bars</strong></li>
+<li><strong>Clock input</strong> syncs stop length to external clock</li>
+<li><strong>Lag CV input</strong>: <strong>-5V to +5V</strong></li>
+<li><strong>50/50 mode</strong> at boot: hold <strong>Trig</strong> while powering on for a dry/wet mix of 50%, so the dry signal remains audible during the stop</li>
+</ul>
+<p>This means the core modulation targets are:</p>
+<ol>
+<li><strong>Trig timing</strong></li>
+<li><strong>Lag amount</strong></li>
+<li><strong>Clock relationship</strong></li>
+<li><strong>Momentary vs latching behavior</strong></li>
+<li><strong>Dry/wet strategy via normal mode vs 50/50 boot mode</strong></li>
+<li><strong>Patch placement</strong> before or after other modules</li>
+</ol>
+<hr />
+<h1>How to think about modulating Tape Stop</h1>
+<p>Tape Stop is not just an effect; it is basically a <strong>temporary, nonlinear pitch and time collapse</strong>. Every trigger creates a falling-speed event. The sound you get depends on:</p>
+<ul>
+<li><strong>what audio you feed it</strong></li>
+<li><strong>when it’s triggered</strong></li>
+<li><strong>how long the slowdown lasts</strong></li>
+<li><strong>whether the slowdown is rhythmic or free</strong></li>
+<li><strong>whether you hear only wet or dry+wet together</strong></li>
+</ul>
+<h2>Main modulation approaches</h2>
+<h3>1. Trigger it rhythmically</h3>
+<p>Send clocks, gates, Euclidean patterns, ratchets, burst generators, or probabilistic triggers into <strong>TRIG IN</strong>.</p>
+<p>Result:
+- repeated tape drags
+- pitched-down attacks
+- rhythmic stutters
+- stop-start motion synced to groove</p>
+<h3>2. Modulate Lag with CV</h3>
+<p>The <strong>Lag CV input</strong> is the real secret. Modulating it with:
+- stepped random
+- envelopes
+- synced LFOs
+- sequencers
+- burst CV
+- sample and hold</p>
+<p>lets every tape stop have a different duration and character.</p>
+<p>Result:
+- unpredictable fills
+- bass phrases that “bend” differently on every note
+- pads that feel unstable and ghostly</p>
+<h3>3. Clock it</h3>
+<p>Patch a master clock to <strong>CLOCK</strong> so the Lag positions become musically related note values.</p>
+<p>Result:
+- cleaner rhythmic performance
+- repeatable drops
+- tempo-locked tape movement for dubstep/drum and bass grooves</p>
+<h3>4. Abuse placement in the chain</h3>
+<p>Try Tape Stop:
+- <strong>after distortion</strong>
+- <strong>before distortion</strong>
+- <strong>before a filter</strong>
+- <strong>after a VCA</strong>
+- <strong>inside a feedback loop</strong>
+- <strong>on a send/return</strong>
+- <strong>parallel with dry signal</strong></p>
+<p>This changes whether the pitch-drop feels:
+- smooth
+- violent
+- metallic
+- smeared
+- broken
+- huge</p>
+<hr />
+<h1>General patch tips before the genre-specific ideas</h1>
+<h2>50/50 mode is extremely useful</h2>
+<p>Booting into <strong>50/50 mode</strong> makes Tape Stop much more flexible for:
+- layered basses
+- pads
+- punchy drums that still keep their attack
+- pseudo-flanging/comb-like interactions between dry and slowing signal</p>
+<p>For sound design, I’d strongly recommend trying this first.</p>
+<h2>Best modulation sources</h2>
+<p>For the most interesting results, feed <strong>Lag CV</strong> from:</p>
+<ul>
+<li><strong>Stepped random</strong> for glitch unpredictability</li>
+<li><strong>Envelope</strong> for “longer stop on harder hit” behavior</li>
+<li><strong>Sequencer row</strong> for repeatable musical variation</li>
+<li><strong>Audio-rate or near-audio-rate CV</strong> for experimental artifacts</li>
+<li><strong>Slow triangle/S&amp;H</strong> for evolving pad movement</li>
+</ul>
+<h2>Best companion modules/functions</h2>
+<p>Even if not specifically from 2hp, Tape Stop loves:
+- <strong>distortion / wavefolder / bitcrusher</strong>
+- <strong>filter with resonance</strong>
+- <strong>VCA</strong>
+- <strong>envelope follower</strong>
+- <strong>clock divider / multiplier</strong>
+- <strong>sequential switch</strong>
+- <strong>delay / reverb</strong>
+- <strong>sampler / looper</strong>
+- <strong>parallel mixer</strong></p>
+<hr />
+<h1>1. Distorted percussive sounds</h1>
+<p>Tape Stop can turn percussion into crushed, dragging, broken impacts. The trick is to use it not just as a full stop, but as a <strong>micro-pitch-envelope destroyer</strong>.</p>
+<h2>Patch idea: broken kick drums</h2>
+<h3>Basic patch</h3>
+<ul>
+<li>Kick or percussion voice → <strong>distortion</strong> → <strong>Tape Stop IN</strong></li>
+<li>Gate pattern to kick as usual</li>
+<li>Send selected triggers or ghost notes to <strong>Tape Stop TRIG</strong></li>
+<li>Master clock to <strong>CLOCK</strong></li>
+<li>Use <strong>Lag</strong> around <strong>32nd, 16th, or 8th</strong></li>
+</ul>
+<h3>What happens</h3>
+<p>Each trigger makes the drum pitch and tail sag downward, like:
+- tape machine braking
+- overdriven speaker collapse
+- digital buffer malfunction</p>
+<h3>Make it nastier</h3>
+<ul>
+<li>Put <strong>Tape Stop before distortion</strong> for tearing, folding tails</li>
+<li>Put <strong>Tape Stop after distortion</strong> for heavier “dragging concrete” sound</li>
+<li>Modulate <strong>Lag CV</strong> with stepped random per hit</li>
+<li>Trigger Tape Stop only on every 4th or 8th hit for fills</li>
+</ul>
+<h3>Best settings</h3>
+<ul>
+<li>Short synced lag values = punchy drag</li>
+<li>Medium free lag = grotesque downward smear</li>
+<li>50/50 mode = preserves transient while tail melts</li>
+</ul>
+<h2>Patch idea: snare flam collapse</h2>
+<h3>Patch</h3>
+<ul>
+<li>Snare or noise burst → filter → VCA → Tape Stop</li>
+<li>Fast trigger sequence or ratchet to snare</li>
+<li>A second offset trigger stream to <strong>Tape Stop TRIG</strong></li>
+<li>Lag set short, clock synced</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of a normal flam, the second transient gets “reeled down” in pitch/time, producing:
+- metallic crunches
+- falling snare tails
+- broken vinyl-stop fills</p>
+<h3>Extra trick</h3>
+<p>Run a <strong>resonant bandpass filter after Tape Stop</strong> and sweep it slightly. This emphasizes different parts of the slowed noise and can sound like:
+- industrial hits
+- tortured cymbal bends
+- biomechanical percussion</p>
+<h2>Patch idea: hi-hat suction effect</h2>
+<h3>Patch</h3>
+<ul>
+<li>Closed hats or filtered noise into Tape Stop</li>
+<li>Trigger Tape Stop occasionally rather than every hit</li>
+<li>Lag around <strong>32nd or 16th</strong></li>
+<li>Add distortion after Tape Stop</li>
+</ul>
+<h3>Result</h3>
+<p>You get hats that seem to:
+- inhale
+- buckle
+- pitch dive
+- smear into gritty reverse-like wisps</p>
+<p>This is excellent for:
+- neurofunk tops
+- broken beat textures
+- post-drop fills</p>
+<h2>Patch idea: percussion bus abuse</h2>
+<p>Instead of processing individual drums, route:
+- kick + snare + hats submix → Tape Stop</p>
+<p>Then trigger Tape Stop from:
+- a sparse trigger pattern
+- a burst generator at transition points
+- manual button presses during performance</p>
+<h3>Result</h3>
+<p>Whole drum loops buckle together, which sounds more like:
+- DJ brake
+- broken reel-to-reel
+- brutal transition fill</p>
+<h3>Performance move</h3>
+<p>Use <strong>latching mode</strong> so one press starts the stop and another releases it. Great for live “oh no the mix is dying” moments.</p>
+<hr />
+<h1>2. Crazy basslines for dubstep / drum and bass</h1>
+<p>This is where Tape Stop gets especially good. Because it imposes a downward pitch-time effect on already aggressive material, it can create bass movement that sounds impossible to get from oscillators alone.</p>
+<h2>Core principle for bass</h2>
+<p>Feed Tape Stop with harmonically rich material:
+- wavetable bass
+- FM bass
+- reese bass
+- distorted sine/saw
+- sample playback
+- filtered noise layer mixed with bass</p>
+<p>Then use <strong>short, rhythmic triggers</strong> and <strong>modulated Lag</strong>.</p>
+<hr />
+<h2>Patch idea: stop-start wobble bass</h2>
+<h3>Patch</h3>
+<ul>
+<li>Oscillator(s) → filter → distortion → VCA → Tape Stop</li>
+<li>Bass sequence drives oscillator pitch/VCA</li>
+<li>Clock to Tape Stop</li>
+<li>Sync’d trigger pattern into Tape Stop TRIG on offbeats or selected steps</li>
+<li>Lag around <strong>16th, 8th, or quarter</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Instead of classic filter wobble, the bass line gets:
+- sudden downward dips
+- braked note endings
+- staggered “falling speaker cone” movement</p>
+<p>This gives a very modern:
+- dubstep stutter-drop
+- halftime bass choke
+- drum and bass phrase punctuation</p>
+<h3>Improve it</h3>
+<p>Modulate <strong>Lag CV</strong> from a sequencer row so each note has a different brake length.</p>
+<p>For example:
+- step 1 = instant
+- step 2 = 32nd
+- step 3 = 8th
+- step 4 = quarter</p>
+<p>That gives bass phrasing that feels animated and vocal.</p>
+<hr />
+<h2>Patch idea: reese bass degradation</h2>
+<h3>Patch</h3>
+<ul>
+<li>Two detuned saws or a reese source → saturation → lowpass filter → Tape Stop</li>
+<li>Clock to Tape Stop</li>
+<li>Sparse triggers to TRIG, maybe once every bar or on syncopated steps</li>
+<li>Slow modulation to Lag CV</li>
+</ul>
+<h3>Result</h3>
+<p>The reese suddenly droops and tears downward in pitch, causing moving phase relationships to collapse in an ugly, beautiful way.</p>
+<p>This can create:
+- neurofunk-like tearing
+- huge drop transitions
+- sick “engine braking” bass gestures</p>
+<h3>Advanced version</h3>
+<p>Put <strong>chorus/phaser before Tape Stop</strong>, then distortion after Tape Stop.<br />
+The modulation gets frozen and bent during the slowdown, making the reese feel alive and unstable.</p>
+<hr />
+<h2>Patch idea: one-note monster bass with changing tape envelopes</h2>
+<h3>Patch</h3>
+<ul>
+<li>Single low sine/triangle + distorted mid layer mixed together</li>
+<li>Into Tape Stop</li>
+<li>Repeating trigger pattern to TRIG every note</li>
+<li>Sequencer or sample &amp; hold to Lag CV</li>
+<li>Optional clock sync</li>
+</ul>
+<h3>Why it works</h3>
+<p>Even if pitch stays mostly constant at the oscillator, each Tape Stop event creates a different downward contour. So the bassline feels sequenced even when the note content is simple.</p>
+<h3>Great for</h3>
+<ul>
+<li>minimal dubstep</li>
+<li>rollers</li>
+<li>halftime</li>
+<li>warehouse bass motifs</li>
+</ul>
+<hr />
+<h2>Patch idea: bass growl choking through 50/50 mode</h2>
+<h3>Patch</h3>
+<ul>
+<li>Boot Tape Stop in <strong>50/50 mode</strong></li>
+<li>Bass source → Tape Stop</li>
+<li>Trigger on certain notes only</li>
+<li>Distortion and filter after Tape Stop</li>
+</ul>
+<h3>Result</h3>
+<p>Because dry and wet overlap, the slowing signal rubs against the unchanged original, creating:
+- phasey grind
+- comb-like tearing
+- dual-pitch growl
+- spectral choking</p>
+<p>This is one of the best tricks in the whole module for bass design.</p>
+<h3>Make it bigger</h3>
+<p>Mult the source:
+- one copy dry to mixer
+- one copy through Tape Stop
+- pan or EQ them differently</p>
+<p>Then automate Tape Stop only on the wet chain.</p>
+<hr />
+<h2>Patch idea: drum and bass fill generator</h2>
+<h3>Patch</h3>
+<ul>
+<li>Fast bass sequence into Tape Stop</li>
+<li>Clock from the same master tempo</li>
+<li>Send a trigger burst to Tape Stop near the end of a phrase</li>
+<li>Lag CV from random or pressure/velocity source</li>
+</ul>
+<h3>Result</h3>
+<p>The bass repeatedly brakes and re-grabs, creating frantic:
+- machine-gun tape dives
+- collapsing phrase endings
+- DJ-stop fills
+- glitch stammers</p>
+<p>Very effective before returning to a straight groove.</p>
+<hr />
+<h2>Patch idea: post-filter tape stop vs pre-filter tape stop</h2>
+<h3>Version A: filter before Tape Stop</h3>
+<p>Bass → filter → Tape Stop</p>
+<ul>
+<li>More recognizable pitch dive</li>
+<li>cleaner note identity</li>
+<li>more “musical” bass drag</li>
+</ul>
+<h3>Version B: Tape Stop before filter</h3>
+<p>Bass → Tape Stop → filter</p>
+<ul>
+<li>more unusual</li>
+<li>filter tracks the changing harmonic density after slowdown</li>
+<li>better for alien/creature basses</li>
+</ul>
+<h3>Version C: distortion after Tape Stop</h3>
+<p>Bass → Tape Stop → distortion</p>
+<ul>
+<li>harsher</li>
+<li>more aggressive top-end breakup</li>
+<li>perfect for “speaker shredding” bass</li>
+</ul>
+<hr />
+<h1>3. Haunting atmospheric pad sounds</h1>
+<p>Tape Stop is also excellent for ambient and cinematic work. If you stop thinking of it as a special effect and start thinking of it as a <strong>time-bending modulation layer</strong>, it becomes a pad haunting machine.</p>
+<h2>Patch idea: collapsing drone cloud</h2>
+<h3>Patch</h3>
+<ul>
+<li>Rich drone or chord source → Tape Stop → long reverb</li>
+<li>Slow clock or no clock</li>
+<li>Trigger Tape Stop manually or with sparse random gates</li>
+<li>Lag set medium to long</li>
+<li>Lag CV from a slow random or very slow LFO</li>
+</ul>
+<h3>Result</h3>
+<p>Your drone blooms, then slumps downward into spectral shadow. The reverb catches the slowing harmonics and turns them into:
+- ghost tails
+- sinking choirs
+- decayed tape memory
+- haunted cassette ambience</p>
+<h3>Best practice</h3>
+<p>Tape Stop before reverb usually sounds more atmospheric than after.</p>
+<hr />
+<h2>Patch idea: pad with unstable memory effect</h2>
+<h3>Patch</h3>
+<ul>
+<li>Polyphonic/chordal source or stacked oscillators → Tape Stop</li>
+<li>Boot in <strong>50/50 mode</strong></li>
+<li>Add chorus and reverb after</li>
+<li>Trigger Tape Stop rarely, with long lag times</li>
+<li>Slow CV into Lag input</li>
+</ul>
+<h3>Result</h3>
+<p>The dry pad stays stable while the wet layer drags and sags underneath it, creating:
+- detuned shadows
+- melancholic pitch droop
+- blurred memory effect
+- “the tape is dying” texture</p>
+<p>This is incredibly effective for dark ambient and cinematic intros.</p>
+<hr />
+<h2>Patch idea: clocked ambient pulses</h2>
+<h3>Patch</h3>
+<ul>
+<li>Soft pad or filtered noise chord → Tape Stop</li>
+<li>Master clock into CLOCK</li>
+<li>Trigger at long intervals, maybe every 2 or 4 bars</li>
+<li>Lag set to <strong>whole note / 2 bars / 4 bars</strong></li>
+<li>Delay and reverb after</li>
+</ul>
+<h3>Result</h3>
+<p>Huge synchronized sinking motions that feel like the whole harmonic bed is slowly falling away. Great for:
+- intro sections
+- breakdowns
+- dark liquid DnB transitions
+- soundtrack atmospheres</p>
+<hr />
+<h2>Patch idea: granular-like ghosting from short triggers</h2>
+<h3>Patch</h3>
+<ul>
+<li>Sustained pad → Tape Stop</li>
+<li>Rapid but irregular short triggers to TRIG</li>
+<li>Short lag values</li>
+<li>50/50 mode on</li>
+<li>Reverb after</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of one obvious stop, you get lots of tiny temporal pitch dips that smear into a granular-feeling texture:
+- fluttering shadows
+- degraded tape chorus
+- spectral shiver</p>
+<h3>Better with</h3>
+<ul>
+<li>slight filter modulation before Tape Stop</li>
+<li>subtle wow/flutter source upstream</li>
+<li>noise mixed into pad</li>
+</ul>
+<hr />
+<h2>Patch idea: feedback haze</h2>
+<h3>Patch</h3>
+<ul>
+<li>Pad/drone → Tape Stop → delay/reverb → mixer</li>
+<li>Send some wet signal back, carefully, into the source chain or a feedback path</li>
+<li>Trigger Tape Stop occasionally with long lag</li>
+</ul>
+<h3>Result</h3>
+<p>The slowed material accumulates in the effects tail and feedback path, causing:
+- sinking harmonic residue
+- frozen-like decays
+- eerie unstable resonances</p>
+<p>Use caution with feedback, but this can produce very unique haunted environments.</p>
+<hr />
+<h1>Best modulation sources for each sound category</h1>
+<h2>For distorted percussion</h2>
+<p>Use:
+- trigger sequencer
+- burst generator
+- clock divider
+- stepped random to Lag CV
+- accent envelope to Lag CV</p>
+<h3>Why</h3>
+<p>You want short, rhythmic, sharply contrasting stop times.</p>
+<hr />
+<h2>For dubstep / DnB bass</h2>
+<p>Use:
+- sequencer row to Lag CV
+- offbeat gate pattern to Trig
+- clock multiplier/divider at CLOCK
+- manual button for fills
+- velocity/accent CV into Lag CV</p>
+<h3>Why</h3>
+<p>You want repeatable but animated pitch-drop phrases.</p>
+<hr />
+<h2>For haunting pads</h2>
+<p>Use:
+- slow random voltages
+- long LFOs
+- sparse probabilistic triggers
+- very slow external clock divisions
+- manual latching mode</p>
+<h3>Why</h3>
+<p>You want irregular, evolving temporal collapse rather than obvious rhythmic effect.</p>
+<hr />
+<h1>Creative techniques that go beyond the manual</h1>
+<h2>1. Audio-rate or fast CV into Lag</h2>
+<p>The manual specifies <strong>-5V to +5V</strong> for Lag CV. If your system allows it, try feeding:
+- oscillator
+- fast LFO
+- chaotic CV</p>
+<p>into Lag CV.</p>
+<p>You may get unusual, unstable behavior depending on the internal response of the module. It may not track “cleanly,” but that’s often the point.</p>
+<p>Potential result:
+- sputtering tape lengths
+- unstable glitch edges
+- bizarre transient warping</p>
+<h2>2. Trigger from derived envelopes</h2>
+<p>Use an envelope follower or comparator on incoming audio to trigger Tape Stop only when the source exceeds a threshold.</p>
+<p>This makes Tape Stop react dynamically to:
+- loud drum hits
+- bass accents
+- performance intensity</p>
+<p>Result:
+- responsive, semi-self-playing destruction</p>
+<h2>3. Sequential switch between trigger patterns</h2>
+<p>Feed multiple different trigger sources into a switch, then route the selected one to Tape Stop TRIG.</p>
+<p>Example sources:
+- straight 8ths
+- ratchets
+- random gates
+- manual gate button</p>
+<p>Result:
+- evolving rhythmic braking styles without changing your main patch</p>
+<h2>4. Use latching mode as a tension generator</h2>
+<p>In <strong>latching mode</strong>, one trigger starts the tape stop and another ends it.</p>
+<p>Try:
+- starting a long stop right before a drop
+- letting the signal sink into near-failure
+- releasing it exactly on the 1</p>
+<p>This is especially effective on:
+- drum buses
+- reese basses
+- pad swells
+- transitions</p>
+<h2>5. Put Tape Stop on parallel sends</h2>
+<p>Instead of inserting it inline:
+- mult source
+- dry path to mixer
+- wet path through Tape Stop
+- optionally through extra distortion/filter/reverb</p>
+<p>Then blend manually or with VCAs.</p>
+<p>This gives much more control and often sounds bigger than the insert approach.</p>
+<hr />
+<h1>Specific patch recipes</h1>
+<h2>Recipe 1: distorted industrial kick</h2>
+<ul>
+<li>Kick voice → wavefolder/distortion → Tape Stop → VCA</li>
+<li>Clock to Tape Stop</li>
+<li>Trigger kick every quarter note</li>
+<li>Trigger Tape Stop on every 4th kick only</li>
+<li>Lag at 16th or 8th</li>
+<li>Random CV to Lag</li>
+</ul>
+<p><strong>Sound:</strong> collapsing, tearing kick tail with brutal texture.</p>
+<hr />
+<h2>Recipe 2: dubstep bass choke</h2>
+<ul>
+<li>Wavetable oscillator + sub → filter → distortion → Tape Stop</li>
+<li>Trigger bass notes from sequencer</li>
+<li>Trigger Tape Stop on selected syncopated notes</li>
+<li>Clock sync on</li>
+<li>Sequenced CV to Lag</li>
+<li>50/50 mode enabled</li>
+</ul>
+<p><strong>Sound:</strong> vocal, choking, dual-pitch bass phrases.</p>
+<hr />
+<h2>Recipe 3: neuro reese brake</h2>
+<ul>
+<li>Dual detuned saws → chorus → saturation → Tape Stop → notch filter → distortion</li>
+<li>Sparse triggers to Tape Stop</li>
+<li>Long-ish lag values</li>
+<li>Manual extra triggers for fills</li>
+</ul>
+<p><strong>Sound:</strong> tearing reese with sudden engine-brake dive.</p>
+<hr />
+<h2>Recipe 4: haunted cassette pad</h2>
+<ul>
+<li>Chord source → subtle saturation → Tape Stop → chorus → huge reverb</li>
+<li>50/50 mode enabled</li>
+<li>Slow random CV to Lag</li>
+<li>Very sparse trigger pattern</li>
+</ul>
+<p><strong>Sound:</strong> fading memory, unstable harmonic shadow, ghostly ambience.</p>
+<hr />
+<h2>Recipe 5: broken drum bus transition</h2>
+<ul>
+<li>Drum submix → Tape Stop → compressor/clipping</li>
+<li>Latching mode</li>
+<li>Clock sync enabled</li>
+<li>Start stop one beat before transition</li>
+<li>Release on downbeat</li>
+</ul>
+<p><strong>Sound:</strong> whole groove buckles and snaps back dramatically.</p>
+<hr />
+<h1>Practical performance advice</h1>
+<h2>Use the Trig button live</h2>
+<p>The front panel <strong>Trig button</strong> is a real performance weapon:
+- tap it for sudden DJ-stop gestures
+- hold it in momentary mode for manual “slow and release”
+- use latching mode for big transitions</p>
+<h2>Keep one hand on Lag</h2>
+<p>The Lag knob defines whether the effect is:
+- a tiny pitch dip
+- a rhythmic brake
+- a dramatic collapse
+- a long ambient sink</p>
+<p>Sweeping this in performance is often more musical than static settings.</p>
+<h2>Don’t overuse it</h2>
+<p>Tape Stop is very characterful. A few strategically placed events often sound better than constant triggering, especially in bass music.</p>
+<hr />
+<h1>Best use cases by style</h1>
+<h2>For distorted percussion</h2>
+<p>Best settings:
+- clocked
+- short lag
+- random or accent-based lag CV
+- distortion before and/or after</p>
+<h2>For dubstep / DnB bass</h2>
+<p>Best settings:
+- clocked
+- sequenced lag CV
+- syncopated trig pattern
+- 50/50 mode
+- rich harmonic bass input</p>
+<h2>For haunting pads</h2>
+<p>Best settings:
+- long lag
+- sparse triggers
+- slow random lag CV
+- reverb after Tape Stop
+- 50/50 mode or parallel mixing</p>
+<hr />
+<h1>Final take</h1>
+<p>The <strong>2hp Tape Stop</strong> is most interesting when you stop treating it like a one-shot novelty and start using it as a <strong>rhythmic pitch-collapse modulator</strong>.</p>
+<p>If you want:
+- <strong>distorted percussion</strong>, use short clocked stops on transient-heavy material and vary Lag per hit
+- <strong>dubstep/DnB basslines</strong>, sequence the Lag CV and trigger the module selectively for choked, falling bass phrases
+- <strong>haunting pads</strong>, use long sparse triggers with 50/50 mode and huge reverb after the module</p>
+<p>The big unlock is this:</p>
+<blockquote>
+<p><strong>Trig creates the event, Lag defines the contour, Clock makes it musical, and signal-chain placement determines whether it sounds smooth, violent, or spectral.</strong></p>
+</blockquote>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,667 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Humble_Audio_Quad_Operator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Humble Audio — Quad Operator</h1>
+<ul>
+<li><a href="../../manuals/Quad Operator Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.dropbox.com/paper/doc/print/JsIQoU7GbeAboEJku9ZgE?print=true">Quad Operator Manual PDF</a></p>
+<h1>Humble Audio Quad Operator: creative patch ideas and module pairings</h1>
+<p>The <strong>Humble Audio Quad Operator</strong> is basically a <strong>4-operator digital FM voice / oscillator bank / modulation matrix</strong> with a very unusual Eurorack-friendly workflow:</p>
+<ul>
+<li>4 operators with <strong>independent outputs</strong></li>
+<li>each operator can be <strong>locked</strong> to harmonic integer ratios or set <strong>free</strong> as an independent oscillator</li>
+<li>variable waveshape per operator: <strong>sine → triangle → square → saw</strong></li>
+<li>per-operator <strong>gain CV</strong> acts like a built-in VCA for both output level <strong>and FM send intensity</strong></li>
+<li>full FM routing via <strong>modulation matrix</strong>, including <strong>self-modulation</strong></li>
+<li>external <strong>AR FM input</strong> with its own gain and sends</li>
+<li><strong>reset input</strong> for phase reset</li>
+<li><strong>LFO mode</strong></li>
+<li>optional <strong>Algo expander</strong> for storing/crossfading matrix states</li>
+</ul>
+<p>That means this module is not just “an FM oscillator.” It can be:</p>
+<ul>
+<li>a classic 4-op FM voice</li>
+<li>a 4-oscillator drone lab</li>
+<li>a phase-locked complex LFO generator</li>
+<li>a modulation matrix processor for external audio</li>
+<li>a chaotic feedback network</li>
+<li>a quad voice source for stereo or quadraphonic patching</li>
+</ul>
+<p>Below are the most interesting ways I’d use it with other Eurorack modules.</p>
+<hr />
+<h2>1. Use it as a classic FM voice, but animate the operator index with VCAs and envelopes</h2>
+<p>One of the coolest things in the manual is that <strong>Gain CV affects both output level and how strongly an operator modulates other operators via its sends</strong>. That means each operator already behaves somewhat like an FM operator with a built-in VCA.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Keep all operators in <strong>lock</strong></li>
+<li>Start with <strong>sine shapes</strong></li>
+<li>Set one operator as the audible carrier</li>
+<li>Use 1–3 other operators as modulators</li>
+<li>Patch <strong>envelopes</strong> into the <strong>Gain CV</strong> inputs of the modulators</li>
+<li>Take the carrier output to a <strong>VCA/filter/effects chain</strong></li>
+</ul>
+<h3>Why this is powerful</h3>
+<p>This gives you <strong>DX-style evolving FM index</strong> behavior without extra routing complexity. Instead of just static timbre, you can make attacks bright and metallic, then decay into purer tones.</p>
+<h3>Great companion modules</h3>
+<ul>
+<li><strong>Quad envelope generators</strong>: Intellijel Quadrax, Xaoc Zadar, Frap Falistri</li>
+<li><strong>VCAs</strong> if you want additional shaping after the operator outputs: Veils, A-132-3, Mutable Veils clones</li>
+<li><strong>Precision pitch sequencer</strong>: Metropolix, Rene, Oxi One, Bloom, or any quantized CV source</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>electric pianos</li>
+<li>marimbas</li>
+<li>bells</li>
+<li>basses with sharp transient bite</li>
+<li>glassy plucks</li>
+</ul>
+<hr />
+<h2>2. Build “algorithm morphing” patches with switches, mute matrices, or the Algo expander</h2>
+<p>The modulation matrix means you can create your own FM algorithms instead of being stuck with Yamaha-style presets. The <strong>Algo expander</strong> makes this much more performable by storing and crossfading matrix states.</p>
+<h3>If you have the Algo expander</h3>
+<p>Use saved algorithms as:
+- <strong>A:</strong> simple 2-op bass
+- <strong>B:</strong> stacked 4-op metallic bell
+- <strong>C:</strong> self-modulated noise/percussion</p>
+<p>Then crossfade between them during a sequence.</p>
+<h3>If you don’t have the expander</h3>
+<p>You can still emulate “algorithm changes” by pairing Quad Operator with:
+- a <strong>sequential switch</strong>
+- CV-addressable attenuators
+- mute matrix modules
+- CV preset modules</p>
+<h3>Good companion modules</h3>
+<ul>
+<li><strong>Sequential switches</strong>: Doepfer A-151, Joranalogue Step 8, Erica Sequential Switch</li>
+<li><strong>CV preset/scene modules</strong>: Verbos Voltage Multistage, Acid Rain Maestro, Make Noise Pressure Points + Brains style setup, Malekko Varigate + voltage memories</li>
+<li><strong>Mute/performance mixers</strong>: Happy Nerding 3xMIA, WMD SSM if available used, Bastl Aikido for amplitude interaction</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>one-note timbral progression</li>
+<li>algorithm morphing leads</li>
+<li>morphing percussion kits</li>
+<li>evolving drones that feel “composed”</li>
+</ul>
+<hr />
+<h2>3. Treat it as a 4-voice oscillator bank in free mode</h2>
+<p>The manual explicitly says in <strong>free state</strong> each operator becomes its own oscillator, with ratio knob as coarse tuning and ratio CV as <strong>1V/oct</strong>.</p>
+<p>That’s huge.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Put all 4 operators in <strong>free</strong></li>
+<li>Tune them to chord tones or intervals</li>
+<li>Send separate pitch CVs or related sequences</li>
+<li>Use each output independently</li>
+</ul>
+<h3>Pair it with</h3>
+<ul>
+<li><strong>4-channel quantizer</strong>: Ornament &amp; Crime, ADDAC quantizer, Instruo Harmonaig for harmonic relation</li>
+<li><strong>4 VCAs / LPGs</strong></li>
+<li><strong>4 envelopes</strong></li>
+<li><strong>4-channel panner or mixer</strong></li>
+</ul>
+<h3>Interesting ways to use it</h3>
+<h4>A. Chord machine</h4>
+<ul>
+<li>Tune ops to root/third/fifth/seventh</li>
+<li>Use slight detune differences</li>
+<li>Modulate shape independently</li>
+<li>Mix to stereo</li>
+</ul>
+<h4>B. Four-part counterpoint</h4>
+<ul>
+<li>Separate sequencers or clock divisions to each operator</li>
+<li>Minimal FM between them for interaction</li>
+</ul>
+<h4>C. Pseudo-paraphonic voice</h4>
+<ul>
+<li>Same pitch source to all four, slightly offset tuning and different shapes</li>
+<li>Mix for a super oscillator / organ stack</li>
+</ul>
+<h3>Good companion modules</h3>
+<ul>
+<li><strong>Mixers/panners</strong>: Happy Nerding PanMix, Worng SoundStage, Intellijel Mixup + stereo FX</li>
+<li><strong>Quad VCA</strong>: Intellijel Quad VCA, Veils</li>
+<li><strong>Polyphonic sequencers</strong>: Flame Chord Machine, Sinfonion ecosystem, Oxi Coral/sequencing ecosystem, Hermod+</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>organ-like clusters</li>
+<li>harmonic drones</li>
+<li>stacked techno leads</li>
+<li>four-voice minimalist patches</li>
+</ul>
+<hr />
+<h2>4. Use LFO mode as a phase-locked complex modulation generator</h2>
+<p>The manual notes <strong>LFO mode</strong> and <strong>reset</strong> make it useful as a modulation source. This is one of the most underrated uses.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Switch to <strong>LFO</strong></li>
+<li>Keep operators in <strong>lock</strong></li>
+<li>Use integer ratios for rhythmic relationships</li>
+<li>Send operator outputs to:</li>
+<li>filter cutoff</li>
+<li>wavefolder symmetry</li>
+<li>stereo panning</li>
+<li>delay time</li>
+<li>reverb size</li>
+<li>VCA amplitude</li>
+<li>Use <strong>reset</strong> from a clock or trigger so all modulation restarts in sync</li>
+</ul>
+<h3>Why this is special</h3>
+<p>You get <strong>phase-coherent, related modulation signals</strong>. Much more structured than using a bunch of unrelated LFOs.</p>
+<h3>Pair with</h3>
+<ul>
+<li>filters</li>
+<li>stereo processors</li>
+<li>resonators</li>
+<li>vector mixers</li>
+<li>matrix mixers</li>
+<li>clock/reset utilities</li>
+</ul>
+<h3>Great companion modules</h3>
+<ul>
+<li><strong>Clock/reset</strong>: Pamela’s Pro Workout, Tempi, 4ms QCD</li>
+<li><strong>Targets for modulation</strong>:</li>
+<li>filter: QPAS, Three Sisters, Belgrad, Ikarie</li>
+<li>effects: Mimeophon, FX Aid, Magneto, Beads, Data Bender</li>
+<li>panning: XAOC Ostrawa, Happy Nerding PanMix, Worng LRMSMSLR</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>locked polyrhythmic movement</li>
+<li>repeating evolving stereo gestures</li>
+<li>synchronized modulation for live sets</li>
+<li>“one module animates the whole patch”</li>
+</ul>
+<hr />
+<h2>5. Feed external oscillators or whole submixes into the AR FM input</h2>
+<p>A major feature here is the dedicated <strong>AR FM input</strong> with gain and modulation sends to all operators. This lets you use <strong>anything in the rack</strong> as an FM modulator.</p>
+<h3>Great signal sources for AR FM</h3>
+<ul>
+<li>a second oscillator</li>
+<li>noise</li>
+<li>a filtered drum loop/submix</li>
+<li>resonator output</li>
+<li>wavefolder output</li>
+<li>another operator output for feedback structures</li>
+<li>speech/sample playback</li>
+<li>another digital oscillator with harmonic content</li>
+</ul>
+<h3>Patch concept</h3>
+<ul>
+<li>Patch an external oscillator into <strong>AR FM</strong></li>
+<li>Set gain so clipping LED barely flickers or intentionally clips</li>
+<li>Send AR FM to 1–4 operators at varying amounts</li>
+<li>Mix operator outputs</li>
+</ul>
+<h3>Pair with these module types</h3>
+<h4>Analog VCOs</h4>
+<p>FM from a stable analog sine/triangle can sound smoother.
+- Dixie II+, STO, ZPO, AJH oscillators, A-110 variants</p>
+<h4>Complex/digital oscillators</h4>
+<p>Feeding rich harmonics into AR FM gets gnarlier fast.
+- Plaits, Odessa, Ensemble Oscillator, Piston Honda, Loquelic Iteritas, Shapeshifter</p>
+<h4>Sample/drum modules</h4>
+<p>Audio-rate drum signals used as modulators = wild transient spectra.
+- Assimil8or, Bitbox, Squid Salmple, sample player submixes</p>
+<h3>Musical result</h3>
+<ul>
+<li>hybrid analog/digital FM</li>
+<li>speech-modulated metallic textures</li>
+<li>percussion-imprinted drones</li>
+<li>aggressive industrial tones</li>
+</ul>
+<hr />
+<h2>6. Create controlled feedback patches</h2>
+<p>The manual specifically hints at <strong>feedback patches with lock mode operators</strong> and external AR FM. This is absolutely where the module gets special.</p>
+<h3>Safe feedback recipe</h3>
+<ul>
+<li>Keep operators in <strong>lock</strong></li>
+<li>Start with low modulation send values</li>
+<li>Patch one operator output into an external processor:</li>
+<li>VCA</li>
+<li>filter</li>
+<li>wavefolder</li>
+<li>delay with short time</li>
+<li>Feed that processor output back into <strong>AR FM</strong></li>
+<li>Use Gain AR FM to control feedback intensity</li>
+</ul>
+<h3>Better yet</h3>
+<p>Insert something in the loop to make the feedback “playable”:
+- <strong>VCA</strong> for voltage-controlled feedback amount
+- <strong>filter</strong> to tune feedback emphasis
+- <strong>wavefolder</strong> for nonlinear feedback coloration
+- <strong>frequency shifter/ring mod</strong> for inharmonic mayhem
+- <strong>delay</strong> for Karplus-adjacent metallic recursion</p>
+<h3>Great companion modules</h3>
+<ul>
+<li><strong>VCA</strong>: Tallin, Quad VCA, Blinds</li>
+<li><strong>Filter</strong>: Doepfer SEM, Bastl Ikarie, QPAS, SSF Stereo Dipole</li>
+<li><strong>Wavefolder</strong>: Bifold, Fold 6, Serge-style folders</li>
+<li><strong>Frequency shifter/ring mod</strong>: Frap Fumana? no, better: Doepfer A-126-2 frequency shifter, Xaoc Koszalin, ring mod modules</li>
+<li><strong>Limiter/saturator</strong> in feedback path: tanh[3], L-1, Instruo tràigh in support role, or just a mixer with saturation</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>metallic drones</li>
+<li>unstable machine tones</li>
+<li>pseudo-physical modeling</li>
+<li>screaming but controllable feedback leads</li>
+</ul>
+<hr />
+<h2>7. Use self-modulation per operator for “single-operator wavefolding-like” tones</h2>
+<p>Because each operator can modulate <strong>itself</strong>, you can create tones that blur the line between FM, PM-feel, and nonlinear distortion.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Choose one operator as audio output</li>
+<li>Turn up its own modulation send</li>
+<li>Keep others off at first</li>
+<li>Sweep shape from sine toward brighter waves</li>
+<li>Modulate gain CV with an envelope or LFO</li>
+</ul>
+<h3>Pair with</h3>
+<ul>
+<li>envelope followers</li>
+<li>random stepped CV</li>
+<li>performance macro controls</li>
+</ul>
+<h3>Why it works</h3>
+<p>Self-mod FM often gives:
+- sharpened transients
+- buzzy edge
+- tearing digital tones
+- unstable pseudo-wavefolding behavior</p>
+<h3>Good pairings</h3>
+<ul>
+<li><strong>Random source</strong>: Wogglebug, Marbles, Sapel, Chance</li>
+<li><strong>Envelope source</strong>: Maths, Quadrax, Zadar</li>
+<li><strong>Macro attenuverters</strong>: 3xMIA, MISO, Quadratt</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>acid-adjacent basses</li>
+<li>glitch percussion</li>
+<li>ripping drones</li>
+<li>animated monosynth leads</li>
+</ul>
+<hr />
+<h2>8. Use operator outputs as both sound sources and modulation sources elsewhere</h2>
+<p>Because each operator has its own output, you don’t have to think of “carriers” and “modulators” only internally. Any operator can also leave the module and modulate something else.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Build an FM patch internally</li>
+<li>Take one or more operator outputs externally to modulate:</li>
+<li>filter FM</li>
+<li>wavefolder CV</li>
+<li>VCA AM</li>
+<li>delay clock/position</li>
+<li>resonator excitation</li>
+<li>Still use another operator as the main audio voice</li>
+</ul>
+<h3>Pair with</h3>
+<ul>
+<li>analog filters with FM input</li>
+<li>wavefolders</li>
+<li>LPGs</li>
+<li>resonators</li>
+<li>granular effects</li>
+</ul>
+<h3>Great module matches</h3>
+<ul>
+<li><strong>Resonators</strong>: Rings, Res-4, 4ms SMR, Any physical modeling voice</li>
+<li><strong>Wavefolders</strong>: Bifold, Toppobrillo folder, Serge style</li>
+<li><strong>Low-pass gates</strong>: Optomix, LxD, Natural Gate</li>
+<li><strong>Audio-rate capable filters</strong>: Joranalogue Filter 8, Belgrad, Morgasmatron</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>deeply interlocked patches</li>
+<li>one source creating multiple correlated layers</li>
+<li>acoustic-ish metallic behavior</li>
+<li>animated timbral ecosystems</li>
+</ul>
+<hr />
+<h2>9. Make percussion without needing a traditional drum module</h2>
+<p>FM is excellent for percussion, and Quad Operator’s matrix makes it easy to build multiple drum families from one patch.</p>
+<h3>Patch concepts</h3>
+<h4>Kick</h4>
+<ul>
+<li>One operator as sine carrier</li>
+<li>Slight pitch envelope via <strong>LF FM</strong></li>
+<li>very little mod for thump</li>
+<li>optional self-mod for click</li>
+</ul>
+<h4>Snare</h4>
+<ul>
+<li>one or two operators inharmonic or self-modulated</li>
+<li>one sine/triangle for body</li>
+<li>one brighter operator for noise-ish snap</li>
+</ul>
+<h4>Tom/conga</h4>
+<ul>
+<li>lock state, integer ratio modulator</li>
+<li>envelope on modulator gain CV</li>
+<li>medium decay</li>
+</ul>
+<h4>Hat/cymbal</h4>
+<ul>
+<li>multiple operators with square/saw shapes</li>
+<li>free state or detuned lock ratios</li>
+<li>more inharmonic modulation</li>
+</ul>
+<h3>Great companion modules</h3>
+<ul>
+<li><strong>Fast envelopes</strong>: Maths, Quadrax, Zadar, Function Junction</li>
+<li><strong>Trigger sequencers</strong>: Pam’s, Steppy, Grids, Numeric Repetitor</li>
+<li><strong>Transient shapers / LPGs / VCAs</strong></li>
+<li><strong>Compressor/saturation</strong> after the mix</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>all-FM drum voice</li>
+<li>metallic percussion banks</li>
+<li>techno hats and zaps</li>
+<li>electro toms and laser hits</li>
+</ul>
+<hr />
+<h2>10. Build stereo and spatial FM patches</h2>
+<p>Since you have four outs, you can distribute operators in stereo or even surround/quad setups.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Use two operators as left-side voices, two as right-side voices</li>
+<li>Cross-modulate asymmetrically</li>
+<li>Pan outputs with CV</li>
+<li>Send different operators to different effects chains</li>
+</ul>
+<h3>Companion modules</h3>
+<ul>
+<li><strong>Stereo panners</strong>: PanMix, Planar 2, Jumble Henge, SoundStage</li>
+<li><strong>Dual/stereo filters</strong></li>
+<li><strong>Stereo delays/reverbs</strong></li>
+</ul>
+<h3>Fun variations</h3>
+<ul>
+<li>Left channel = harmonic operators in lock</li>
+<li>Right channel = detuned/free operators</li>
+<li>Modulate shape differently per side</li>
+<li>Reset modulation periodically for rhythmic image collapse/rebuild</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>animated stereo metallic fields</li>
+<li>“orbiting” FM swarms</li>
+<li>immersive drones</li>
+<li>performance-friendly wide leads</li>
+</ul>
+<hr />
+<h2>11. Pair it with precision utilities for harmonic FM that stays musical</h2>
+<p>The manual is clear: if you want harmonic results, use:
+- <strong>VCO mode</strong>
+- <strong>lock state</strong>
+- <strong>detune at noon</strong>
+- <strong>sine waves</strong>
+- <strong>mod sends low to start</strong></p>
+<p>To really exploit this musically, pair it with precision tools.</p>
+<h3>Best utility companions</h3>
+<ul>
+<li><strong>Precision adder</strong></li>
+<li><strong>Buffered mult</strong></li>
+<li><strong>Quantizer</strong></li>
+<li><strong>Offset/attenuverter</strong></li>
+<li><strong>Oscilloscope/tuner</strong></li>
+</ul>
+<h3>Recommendations</h3>
+<ul>
+<li>Buffered mult: Links, Buff Mult, etc.</li>
+<li>Quantizer: O_c, Scales, Bard Quartet</li>
+<li>Utility: 3xMIA, Quadratt, MISO</li>
+<li>Visualizer: Mordax Data, O’Tool</li>
+</ul>
+<h3>Why this matters</h3>
+<p>FM gets messy fast. Precision support modules let you:
+- keep pitch stable
+- dial exact intervals
+- reproduce patches
+- intentionally move between harmonic and inharmonic territories</p>
+<hr />
+<h2>12. Use free/lock switching as a compositional gesture</h2>
+<p>The switch per operator is not just setup—it’s performable.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Start with all operators in <strong>lock</strong></li>
+<li>Build a stable harmonic patch</li>
+<li>Flip one operator to <strong>free</strong></li>
+<li>Now it becomes an independently tunable oscillator, but still connected by modulation</li>
+<li>Sequence or retune it for controlled destabilization</li>
+</ul>
+<h3>Pair with</h3>
+<ul>
+<li>external quantizer to free operators</li>
+<li>manual controller</li>
+<li>sequential CV sources</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>harmonic patch “breaking apart”</li>
+<li>evolving from chord to chaos</li>
+<li>tonal center with one rogue voice</li>
+<li>live improvisation transitions</li>
+</ul>
+<hr />
+<h2>13. Use it as a modulation source for wavetable, filterbank, or spectral modules</h2>
+<p>Because outputs can be audio or CV-rate in LFO mode, Quad Operator pairs beautifully with modules that reward <strong>multiple related modulations</strong>.</p>
+<h3>Excellent destinations</h3>
+<ul>
+<li>filter banks</li>
+<li>spectral processors</li>
+<li>scan mixers</li>
+<li>wavetable position inputs</li>
+<li>granular parameter CVs</li>
+</ul>
+<h3>Specific pairings</h3>
+<ul>
+<li><strong>Rossum Morpheus</strong>: multi-axis evolving FM-derived modulation is incredible here</li>
+<li><strong>XAOC Odessa/Hel</strong>: use Quad Operator as spectral animation CV source or external audio interplay</li>
+<li><strong>4ms SMR</strong>: use operators to animate bands or excite resonances</li>
+<li><strong>Mutable Frames / scan mixers</strong>: use related LFOs for coordinated movement</li>
+<li><strong>Morphagene / granular modules</strong>: synchronized but different modulation on slide/gene/size/varispeed</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>structured complexity</li>
+<li>very “composed” modulation</li>
+<li>repeating-but-not-repetitive motion</li>
+<li>digital ecosystem sounds</li>
+</ul>
+<hr />
+<h2>14. Cross-patch with another FM oscillator for a larger operator network</h2>
+<p>Quad Operator gets especially wild when combined with another FM-capable oscillator or voice.</p>
+<h3>Ideal partners</h3>
+<ul>
+<li>Make Noise <strong>DPO</strong></li>
+<li>Intellijel <strong>Rubicon 2</strong></li>
+<li>Instruo <strong>Cs-L</strong></li>
+<li>Yamaha-ish digital sources like <strong>Akemie’s Castle</strong></li>
+<li>any clean sine-capable oscillator</li>
+</ul>
+<h3>Patch ideas</h3>
+<h4>A. External master modulator</h4>
+<p>Use a second VCO into AR FM to drive all operators from one external source.</p>
+<h4>B. Carrier extraction</h4>
+<p>Use Quad Operator as a 4-op modulator bank and another oscillator as the audible carrier elsewhere.</p>
+<h4>C. Cross-feedback duet</h4>
+<p>Patch one Quad operator into the second oscillator’s FM input, then return that oscillator to AR FM.</p>
+<h3>Musical result</h3>
+<ul>
+<li>larger FM networks</li>
+<li>hybrid analog/digital complexity</li>
+<li>more organic beating and drift</li>
+<li>massive drones</li>
+</ul>
+<hr />
+<h2>15. Use the reset input for repeatable transients and “sequenced timbre”</h2>
+<p>Reset is easy to overlook, but very powerful.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Send a trigger or gate pattern into <strong>Reset</strong></li>
+<li>Especially useful in <strong>LFO mode</strong> or for short percussive FM phrases</li>
+<li>Every note or bar begins with the same phase relationship</li>
+</ul>
+<h3>Why that matters</h3>
+<p>FM can sound wildly different depending on phase start. Resetting:
+- tightens attacks
+- makes percussive patches more repeatable
+- makes modulation patterns line up rhythmically</p>
+<h3>Pair with</h3>
+<ul>
+<li>trigger sequencer</li>
+<li>clock divider</li>
+<li>burst generator</li>
+</ul>
+<h3>Great modules</h3>
+<ul>
+<li>Pam’s</li>
+<li>Temps Utile</li>
+<li>Marbles gates</li>
+<li>logic modules for irregular resets</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>repeatable digital plucks</li>
+<li>sequenced timbre loops</li>
+<li>more punchy percussion</li>
+<li>synchronized modulation choreography</li>
+</ul>
+<hr />
+<h2>16. Pair with matrix mixers and feedback utilities for “meta-FM”</h2>
+<p>If you like deep patching, put the Quad Operator into a larger patch-programmable network.</p>
+<h3>Modules that shine here</h3>
+<ul>
+<li><strong>Matrix mixer</strong>: A-138m, Instruo Lion, AI Synthesis Matrix Mixer, Livestock Maze if available</li>
+<li><strong>Polarizer/attenuverter</strong></li>
+<li><strong>Feedback/route processors</strong></li>
+<li><strong>Comparators and logic</strong></li>
+</ul>
+<h3>Patch concept</h3>
+<ul>
+<li>Take 2–4 operator outputs into a matrix mixer</li>
+<li>Route combinations to:</li>
+<li>AR FM</li>
+<li>filter FM</li>
+<li>wavefolder CV</li>
+<li>VCA CV</li>
+<li>Send external audio back into the matrix</li>
+<li>Use attenuation to control chaos</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>recursive patches</li>
+<li>cybernetic drones</li>
+<li>self-playing systems</li>
+<li>“instrument as ecosystem” behavior</li>
+</ul>
+<hr />
+<h2>17. Best module categories to pair with Quad Operator</h2>
+<p>If you want a shopping/prioritization list, these are the most synergistic companions.</p>
+<h3>Highest-value pairings</h3>
+<ol>
+<li><strong>Quad envelopes</strong></li>
+<li><strong>Quad VCA / CV processor</strong></li>
+<li><strong>Precision quantizer</strong></li>
+<li><strong>Stereo mixer/panner</strong></li>
+<li><strong>Filter with good audio-rate FM response</strong></li>
+<li><strong>Wavefolder or saturation</strong></li>
+<li><strong>Delay/reverb for metallic FM tails</strong></li>
+<li><strong>External oscillator for AR FM</strong></li>
+<li><strong>Clock/reset source</strong></li>
+<li><strong>Matrix mixer</strong></li>
+</ol>
+<hr />
+<h2>18. A few complete patch recipes</h2>
+<h2>Patch 1: Glass electric piano</h2>
+<ul>
+<li>All operators in lock</li>
+<li>All shapes sine</li>
+<li>Op 1 = main output</li>
+<li>Op 2 modulates Op 1 moderately</li>
+<li>Op 3 modulates Op 2 lightly</li>
+<li>Envelope to Gain CV of Op 2 and Op 3 with fast decay</li>
+<li>Slight detune on Op 2 or Op 3</li>
+<li>Output to stereo chorus/reverb</li>
+</ul>
+<p><strong>Add-on modules:</strong> Quadrax, FX Aid, stereo mixer</p>
+<hr />
+<h2>Patch 2: Metallic drone organism</h2>
+<ul>
+<li>Ops 1–3 in lock, Op 4 free</li>
+<li>Op 4 slowly tuned against the others</li>
+<li>Self-mod on Op 2 and Op 4</li>
+<li>Op 1 output to main mixer</li>
+<li>Op 3 through filter into AR FM as feedback path</li>
+<li>Slow random CV to shapes and gains</li>
+<li>Heavy reverb after stereo mix</li>
+</ul>
+<p><strong>Add-on modules:</strong> random source, filter, VCA, reverb</p>
+<hr />
+<h2>Patch 3: Quad phase-locked modulation brain</h2>
+<ul>
+<li>LFO mode</li>
+<li>All operators locked at different integer ratios</li>
+<li>Reset from master clock every 1 or 2 bars</li>
+<li>Op 1 modulates filter cutoff</li>
+<li>Op 2 modulates stereo pan</li>
+<li>Op 3 modulates delay feedback</li>
+<li>Op 4 modulates wavefolder symmetry</li>
+<li>Main audio comes from another oscillator or voice</li>
+</ul>
+<p><strong>Add-on modules:</strong> Pam’s, stereo effect chain, filter, panner</p>
+<hr />
+<h2>Patch 4: Industrial percussion lab</h2>
+<ul>
+<li>VCO mode</li>
+<li>Op 1 = kick/tom body</li>
+<li>Op 2 and Op 3 = noisy/metallic modulators</li>
+<li>Op 4 free/self-mod for clank</li>
+<li>Triggered envelopes to gain CVs</li>
+<li>Reset per hit or per pattern</li>
+<li>Distortion and compressor after mix</li>
+</ul>
+<p><strong>Add-on modules:</strong> trigger sequencer, envelopes, distortion, compressor</p>
+<hr />
+<h2>Patch 5: Harmonic chord swarm</h2>
+<ul>
+<li>All ops free</li>
+<li>Tune to 1–3–5–7 chord tones</li>
+<li>Slightly different shapes</li>
+<li>Slow independent LFO to gain CVs</li>
+<li>Pan each output differently</li>
+<li>Send only one or two operators into internal FM matrix for subtle coupling</li>
+</ul>
+<p><strong>Add-on modules:</strong> quantizer, panner, modulation sources, reverb</p>
+<hr />
+<h2>Final thoughts</h2>
+<p>The most important insight from the manual is this:</p>
+<p><strong>Quad Operator is at its best when you think of it as a network, not a single oscillator.</strong></p>
+<p>The magic comes from:
+- animating <strong>Gain CV</strong>
+- exploiting <strong>lock vs free</strong>
+- using the <strong>AR FM input</strong> as a bridge to the rest of the rack
+- treating the <strong>4 outputs</strong> as independent voices or modulation sources
+- using <strong>reset</strong> and <strong>LFO mode</strong> for structured, phase-related modulation</p>
+<p>If you want, I can also turn this into:
+1. a <strong>“best companion modules by budget” list</strong>,<br />
+2. a <strong>set of techno/ambient/experimental patch recipes</strong>, or<br />
+3. a <strong>signal-flow diagram cheat sheet</strong> for Quad Operator patching.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

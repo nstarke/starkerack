@@ -1,0 +1,577 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Humble_Audio_Quad_Operator_Algo_Extension</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Humble Audio — Quad Operator Algo Extension</h1>
+<ul>
+<li><a href="../../manuals/Quad Operator Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1><a href="https://www.dropbox.com/paper/doc/print/JsIQoU7GbeAboEJku9ZgE?print=true">Quad Operator Manual PDF</a></h1>
+<h2>Humble Audio Quad Operator: modulation ideas for aggressive percussion, basslines, and pads</h2>
+<p>The <strong>Quad Operator</strong> is a very modulation-friendly digital FM oscillator bank. The big takeaway from the manual is:</p>
+<ul>
+<li>it has <strong>4 operators</strong></li>
+<li>each operator can be <strong>locked</strong> to harmonic integer ratios or set <strong>free</strong> as an independent oscillator</li>
+<li>each operator has:</li>
+<li><strong>ratio</strong></li>
+<li><strong>detune</strong></li>
+<li><strong>shape</strong> (sine → triangle → square → saw)</li>
+<li><strong>gain CV</strong></li>
+<li><strong>mod sends to all 4 operators</strong>, including itself</li>
+<li>there is also an <strong>external AR FM input</strong> with its own gain and modulation sends</li>
+<li>operator outputs are available individually</li>
+<li>there is a <strong>reset input</strong> for phase reset</li>
+<li>in <strong>LFO mode</strong>, the whole thing can become a complex, phase-locked modulation source</li>
+</ul>
+<p>This means the module is best thought of as a <strong>4-voice FM network with VCAs on each modulator</strong>, plus an extra external modulator path. That makes it excellent for animated timbre design.</p>
+<hr />
+<h1>First: how to think about modulation on Quad Operator</h1>
+<h2>1. Gain CV is more important than it first appears</h2>
+<p>Per the manual, <strong>Gain CV affects both output level and how intensely that operator modulates other operators via its sends</strong>.</p>
+<p>That is huge.</p>
+<p>So if Operator 2 is modulating Operator 1, then modulating <strong>Gain 2 CV</strong> does two things at once:</p>
+<ul>
+<li>changes how much of Op 2 you hear at its output</li>
+<li>changes how hard Op 2 is FM-ing its destinations</li>
+</ul>
+<p>In practice, that gives you <strong>dynamic FM index control</strong>, which is one of the key ingredients for:</p>
+<ul>
+<li>punchy percussion</li>
+<li>talking/reese bass motion</li>
+<li>evolving pads</li>
+</ul>
+<p>If you patch envelopes, gates, stepped CV, random, or LFOs into Gain CVs, the FM network becomes alive.</p>
+<h2>2. Lock vs Free is the core harmonic/inharmonic switch</h2>
+<p>Use:</p>
+<ul>
+<li><strong>Lock mode</strong> for stable, musical, harmonic FM</li>
+<li><strong>Free mode</strong> for dissonance, beating, drifting, metallic chaos</li>
+</ul>
+<p>A great trick is mixing both:
+- keep the audible carrier in <strong>lock</strong>
+- put one modulator in <strong>free</strong>
+- use small amounts of free operator modulation for unstable, dirty sidebands</p>
+<p>That often gives the sweet spot between tone and destruction.</p>
+<h2>3. Shape modulation is a hidden aggression control</h2>
+<p>Because the operators morph from <strong>sine to triangle to square to saw</strong>, modulating shape changes overtone density before FM even happens.</p>
+<p>General rule:
+- <strong>sine</strong> = cleaner, classic FM, glassy, more stable pitch
+- <strong>triangle</strong> = slightly richer
+- <strong>square/saw</strong> = more harmonics, more grit, more alias-like edge, more chaotic modulation results</p>
+<p>If you want:
+- <strong>hard percussion</strong>: shape modulation on modulators
+- <strong>bass brutality</strong>: animate carrier or main modulator shape between triangle/square/saw
+- <strong>pads</strong>: very slow shape motion, usually staying on sine/triangle side</p>
+<h2>4. The AR FM input is your wildcard</h2>
+<p>The AR FM input can take an external audio-rate signal and has:
+- input gain
+- clipping LED
+- gain CV
+- its own sends to all operators</p>
+<p>This is where things can get especially unique. Feed it:
+- a noise source
+- a filtered oscillator
+- a phase-locked copy of one Quad Operator output
+- a wavefolder output
+- a drum loop/transient source
+- another digital oscillator</p>
+<p>Then use the AR FM sends as a parallel external modulator layer.</p>
+<p>The manual explicitly suggests feedback-style patching with locked operators. That means this input is ideal for:
+- screaming bass feedback
+- broken percussion transients
+- unstable evolving drones</p>
+<h2>5. Reset is great for percussion and rhythmic modulation</h2>
+<p>The <strong>Reset CV</strong> resets all operator phases. The manual notes it is especially useful when using the module as a modulation source, but it's also very useful for sound generation.</p>
+<p>For percussive sounds:
+- send a trigger or gate to reset on each hit
+- this makes transients more repeatable and punchy</p>
+<p>For bass:
+- reset on note onset for a more consistent attack</p>
+<p>For pads:
+- usually avoid hard reset every note unless you want synthetic “same-start” character</p>
+<hr />
+<h1>Best modulation sources to pair with Quad Operator</h1>
+<p>The most effective external modulators for this module are:</p>
+<ul>
+<li><strong>snappy envelopes</strong> into Gain CV</li>
+<li><strong>slow LFOs</strong> into Shape CV</li>
+<li><strong>stepped random</strong> into Ratio CV or modulator Gain CV</li>
+<li><strong>audio-rate oscillators</strong> into AR FM</li>
+<li><strong>sequencer CV</strong> into 1V/Oct and sometimes ratio CV in free mode</li>
+<li><strong>burst generators / trigger envelopes</strong> into Reset and Gain CV for percussive attacks</li>
+<li><strong>matrix mixer or CV mixer</strong> to combine envelope + LFO into a single Gain or Shape input</li>
+</ul>
+<p>If you only use one trick, use this:</p>
+<blockquote>
+<p>Patch envelopes into the Gain CVs of the operators that are doing the modulation.</p>
+</blockquote>
+<p>That gives the most musically useful results fastest.</p>
+<hr />
+<h1>Patch strategy by sound type</h1>
+<h1>1. Distorted percussive sounds</h1>
+<p>The Quad Operator is very good at synthetic percussion because FM excels at:
+- pitch snap
+- metallic overtones
+- transient-rich attacks
+- unstable inharmonic body tones</p>
+<h2>A. Digital kick / tom with ripping attack</h2>
+<h3>Setup</h3>
+<ul>
+<li>Set <strong>VCO mode</strong></li>
+<li>Use <strong>Operator 1</strong> as your main audible output</li>
+<li>Set Op 1 to <strong>lock</strong></li>
+<li>Start with:</li>
+<li>Shape 1 near <strong>sine</strong></li>
+<li>Ratio 1 = <strong>1</strong></li>
+<li>Set <strong>Operator 2</strong> to modulate Op 1</li>
+<li>Ratio 2 = <strong>2</strong> or <strong>3</strong></li>
+<li>Shape 2 = sine or triangle to start</li>
+<li>Mod 1 on row 2 up moderately</li>
+<li>Patch a <strong>fast-decay envelope</strong> to <strong>Gain 2 CV</strong></li>
+<li>Patch a separate <strong>pitch envelope</strong> to <strong>LF FM</strong> for the whole module</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>LF FM envelope gives the down-sweep pitch thunk</li>
+<li>Gain 2 envelope gives the sharp FM transient click/thwack</li>
+</ul>
+<h3>To distort it harder</h3>
+<ul>
+<li>move Shape 2 toward square or saw</li>
+<li>add a little <strong>self-modulation</strong> on Op 2</li>
+<li>push <strong>Detune 2</strong> slightly</li>
+<li>send a trigger to <strong>Reset</strong> for consistent punch</li>
+</ul>
+<h3>Variation</h3>
+<p>For toms:
+- reduce LF FM envelope depth
+- lower master tuning
+- use Ratio 2 = 1 or 2
+- slightly detune Op 2</p>
+<hr />
+<h2>B. Metallic snare / industrial hit</h2>
+<h3>Setup</h3>
+<ul>
+<li>Op 1 = audible body</li>
+<li>Op 2 and Op 3 = modulators</li>
+<li>Set Op 1 in <strong>lock</strong></li>
+<li>Set Op 2 in <strong>free</strong></li>
+<li>Set Op 3 in <strong>free</strong></li>
+<li>Op 1 shape around triangle</li>
+<li>Op 2 and 3 shapes toward square/saw</li>
+<li>Send Op 2 and Op 3 strongly to Op 1</li>
+<li>Patch different short envelopes to <strong>Gain 2 CV</strong> and <strong>Gain 3 CV</strong></li>
+</ul>
+<h3>Why it works</h3>
+<p>Locked carrier + free modulators = controllable metallic noise</p>
+<h3>To get snare-like noise</h3>
+<ul>
+<li>patch <strong>noise or another oscillator</strong> into <strong>AR FM</strong></li>
+<li>set AR FM gain fairly hot</li>
+<li>send AR FM to Op 1 moderately</li>
+<li>modulate <strong>Gain AR FM CV</strong> with a very short decay envelope</li>
+</ul>
+<p>That gives a burst of broadband attack layered on top of metallic FM body.</p>
+<h3>Tips</h3>
+<ul>
+<li>Use <strong>Reset</strong> per trigger</li>
+<li>Add a tiny amount of Op 1 self-mod for extra crack</li>
+<li>If too chaotic, move free modulators back to lock and detune slightly instead</li>
+</ul>
+<hr />
+<h2>C. Broken glitch percussion</h2>
+<h3>Setup</h3>
+<ul>
+<li>Use one operator as audio out, others as modulators</li>
+<li>Put at least one modulator in <strong>free</strong></li>
+<li>Sequence or randomly modulate:</li>
+<li>its <strong>ratio CV</strong></li>
+<li>its <strong>shape CV</strong></li>
+<li>its <strong>gain CV</strong></li>
+<li>Clock a trigger into <strong>Reset</strong></li>
+<li>Optionally send stepped random into <strong>LF FM</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Each hit resets in time but the overtone content mutates, making glitchy but rhythmic percussion.</p>
+<h3>Best modulation choices</h3>
+<ul>
+<li>random stepped CV into shape</li>
+<li>envelope into gain</li>
+<li>small random voltage into detune/ratio of a free operator</li>
+</ul>
+<hr />
+<h1>2. Crazy basslines for dubstep / drum and bass</h1>
+<p>This module is excellent for bass because FM plus waveshape morphing plus gain-controlled modulation can create:</p>
+<ul>
+<li>talking basses</li>
+<li>neuro movement</li>
+<li>reese-like beating</li>
+<li>tearing digital growl</li>
+<li>sub + mid separation</li>
+</ul>
+<p>A useful mindset is:
+- one operator for <strong>sub/fundamental</strong>
+- one or two operators for <strong>moving midrange distortion</strong>
+- one operator or AR FM for <strong>instability/texture</strong></p>
+<hr />
+<h2>A. Talking FM growl bass</h2>
+<h3>Setup</h3>
+<ul>
+<li>Op 1 = main audible carrier</li>
+<li>Op 2 = primary modulator</li>
+<li>Op 3 = secondary animated modulator</li>
+<li>All in <strong>lock</strong> initially</li>
+<li>Ratio suggestions:</li>
+<li>Op 1 = 1</li>
+<li>Op 2 = 2 or 3</li>
+<li>Op 3 = 5 or 7</li>
+<li>Shapes:</li>
+<li>Op 1 = triangle</li>
+<li>Op 2 = sine/triangle</li>
+<li>Op 3 = square/saw</li>
+<li>Mod sends:</li>
+<li>Op 2 → Op 1 moderate/high</li>
+<li>Op 3 → Op 1 low/moderate</li>
+<li>optional Op 3 → Op 2 a little</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>envelope or LFO to <strong>Gain 2 CV</strong></li>
+<li>a different LFO to <strong>Gain 3 CV</strong></li>
+<li>slow or tempo-synced LFO to <strong>Shape 1 CV</strong> or <strong>Shape 2 CV</strong></li>
+<li>sequencer to <strong>1V/Oct</strong></li>
+<li>gate/trigger to <strong>Reset</strong> on note onset</li>
+</ul>
+<h3>Why it talks</h3>
+<p>Because the FM index is changing over time, and the waveshape is also moving, the spectrum forms vowel-like shifts.</p>
+<h3>Push it further</h3>
+<ul>
+<li>put Op 3 into <strong>free</strong></li>
+<li>slightly detune it</li>
+<li>keep its modulation amount lower than Op 2</li>
+<li>now the bass gets unstable, snarling movement</li>
+</ul>
+<hr />
+<h2>B. Reese / tearing DnB bass</h2>
+<p>The classic reese usually relies on detuned oscillators. On Quad Operator, do a hybrid FM version.</p>
+<h3>Setup</h3>
+<ul>
+<li>Use <strong>Op 1 output</strong> and <strong>Op 2 output</strong> as two audible voices</li>
+<li>Put both in <strong>free</strong></li>
+<li>Tune them to nearly the same pitch</li>
+<li>Slightly detune one with its detune knob</li>
+<li>Set both shapes around saw/square-ish</li>
+<li>Use Op 3 as modulator for both</li>
+<li>Op 3 can be in lock or free</li>
+<li>Send Op 3 to both Op 1 and Op 2</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>slow LFO to <strong>Gain 3 CV</strong></li>
+<li>slow, different LFO to <strong>Shape 3 CV</strong></li>
+<li>small random or envelope to <strong>Detune/Ratio 3</strong></li>
+<li>optional envelope to <strong>LF FM</strong> for attack movement</li>
+</ul>
+<h3>Why it works</h3>
+<p>The beating between Op 1 and Op 2 makes the reese body, while Op 3 adds evolving FM tearing.</p>
+<h3>Advanced move</h3>
+<p>Send one audible operator to the left channel and the other to the right if you record or process in stereo externally.</p>
+<hr />
+<h2>C. Feedback-style savage bass using AR FM</h2>
+<p>This is one of the most unique things in the manual.</p>
+<h3>Setup</h3>
+<ul>
+<li>Keep Op 1 in <strong>lock</strong>, ratio 1 = 1</li>
+<li>Patch <strong>Op 2 output</strong> or <strong>Op 1 output</strong> into <strong>AR FM</strong></li>
+<li>Start with AR FM gain low</li>
+<li>Send <strong>AR FM</strong> to Op 1 and/or Op 2</li>
+<li>Use <strong>Gain AR FM CV</strong> with an envelope or LFO</li>
+</ul>
+<h3>Result</h3>
+<p>You get controllable pseudo-feedback FM behavior.</p>
+<h3>For dubstep brutality</h3>
+<ul>
+<li>shape carrier toward triangle/square</li>
+<li>modulate AR FM gain rhythmically</li>
+<li>reset on note triggers</li>
+<li>slightly clip the AR FM input for dirty edge</li>
+</ul>
+<p>The manual notes the clipping LED indicates distortion of the input signal. Normally you'd reduce clipping, but creatively, clipping here can be useful for nastier timbres.</p>
+<h3>Safe approach</h3>
+<p>Increase AR FM gain slowly. This patch can get extreme fast.</p>
+<hr />
+<h2>D. Wob bass without a filter</h2>
+<p>You don't actually need a filter to make “wub” motion here.</p>
+<h3>Setup</h3>
+<ul>
+<li>build a bass patch where Op 2 heavily modulates Op 1</li>
+<li>send an LFO or synced envelope into <strong>Gain 2 CV</strong></li>
+<li>send another slower LFO into <strong>Shape 1 CV</strong></li>
+<li>optional small modulation into <strong>Gain 3 CV</strong> for extra formant motion</li>
+</ul>
+<h3>Why this works</h3>
+<p>Instead of opening a filter, you're opening <strong>FM intensity</strong>, which changes spectral brightness in a very bass-music-friendly way.</p>
+<h3>Great modulation rates</h3>
+<ul>
+<li>1/4 note wobble on Gain 2</li>
+<li>slower 2- or 4-bar modulation on shape</li>
+<li>occasional random bursts on AR FM gain for fills</li>
+</ul>
+<hr />
+<h1>3. Haunting atmospheric pads</h1>
+<p>The module can absolutely do pads, but the trick is to <strong>avoid overdriving the modulation matrix too quickly</strong>.</p>
+<p>FM pads work best when:
+- ratios are mostly harmonic
+- detune is subtle
+- shapes live in sine/triangle territory
+- motion is slow and layered</p>
+<hr />
+<h2>A. Classic eerie FM pad</h2>
+<h3>Setup</h3>
+<ul>
+<li>VCO mode</li>
+<li>all operators in <strong>lock</strong></li>
+<li>Ratios:</li>
+<li>Op 1 = 1</li>
+<li>Op 2 = 2</li>
+<li>Op 3 = 3 or 4</li>
+<li>Op 4 = 5</li>
+<li>Shapes:</li>
+<li>mostly sine/triangle</li>
+<li>Use Op 1 as main output</li>
+<li>Send:</li>
+<li>Op 2 → Op 1 lightly</li>
+<li>Op 3 → Op 1 lightly</li>
+<li>Op 4 → Op 2 lightly</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>very slow LFO to <strong>Gain 2 CV</strong></li>
+<li>different slow LFO to <strong>Gain 3 CV</strong></li>
+<li>very slow LFO/random slew to <strong>Shape 1 CV</strong></li>
+<li>subtle slow modulation to <strong>Shape 3 CV</strong></li>
+<li>optional slow modulation to <strong>LF FM</strong> for ensemble-like drift</li>
+</ul>
+<h3>Result</h3>
+<p>Gentle movement in FM index creates spectral breathing without obvious rhythmic pulsing.</p>
+<hr />
+<h2>B. Haunted inharmonic drone pad</h2>
+<h3>Setup</h3>
+<ul>
+<li>Op 1 and Op 2 in <strong>lock</strong></li>
+<li>Op 3 in <strong>free</strong></li>
+<li>Op 4 in <strong>free</strong></li>
+<li>Op 1 = audible base</li>
+<li>Op 2 = harmonic support</li>
+<li>Op 3/4 = low-level spectral contamination</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>very slow random or wandering CV into <strong>Ratio 3</strong> and/or <strong>Ratio 4</strong></li>
+<li>slow LFO into <strong>Gain 3 CV</strong> and <strong>Gain 4 CV</strong></li>
+<li>subtle shape movement on Op 3/4 toward square/saw</li>
+<li>tiny detune offsets on free ops</li>
+</ul>
+<h3>Why it works</h3>
+<p>The locked operators keep a tonal center while the free operators add ghostly, shifting sidebands.</p>
+<p>This is one of the best ways to get “haunting” instead of simply “pretty.”</p>
+<hr />
+<h2>C. Pad with external texture through AR FM</h2>
+<h3>Setup</h3>
+<ul>
+<li>patch external audio into <strong>AR FM</strong>:</li>
+<li>filtered noise</li>
+<li>a field recording loop from another module</li>
+<li>another oscillator</li>
+<li>a reverb return if your system allows feedback experimentation</li>
+<li>keep AR FM gain moderate</li>
+<li>send AR FM lightly to one or two operators</li>
+<li>modulate <strong>Gain AR FM CV</strong> slowly</li>
+</ul>
+<h3>Result</h3>
+<p>The pad gets an unstable, air-filled layer that doesn't sound like standard subtractive synthesis.</p>
+<h3>Especially effective</h3>
+<p>Use a slow random CV on Gain AR FM and a separate slow LFO on Shape 1 or 2.</p>
+<hr />
+<h1>Specific modulation ideas that exploit the module well</h1>
+<h2>Modulate the modulators, not just the carriers</h2>
+<p>Because FM is exponential in perceived complexity, tiny motion on a modulator has a huge effect.</p>
+<p>Best targets:
+- Gain CV of modulator operators
+- Shape CV of modulator operators
+- Ratio CV of free-state modulators</p>
+<p>This is often more effective than modulating the audible operator directly.</p>
+<hr />
+<h2>Use self-modulation sparingly</h2>
+<p>The manual states each operator can modulate itself.</p>
+<p>Self-mod gives:
+- edge
+- buzz
+- instability
+- more complex digital grit</p>
+<p>Use cases:
+- percussion transient crack
+- bass rasp
+- drone corrosion</p>
+<p>But:
+- too much self-mod easily becomes noise</p>
+<p>Start tiny.</p>
+<hr />
+<h2>Use different envelopes on different operators</h2>
+<p>Instead of one global modulation source, try:
+- Op 2 gain envelope = fast decay
+- Op 3 gain envelope = medium decay
+- AR FM gain envelope = ultra-short click</p>
+<p>This creates layered timbral evolution like acoustic attack/body/resonance, but synthetic and brutal.</p>
+<hr />
+<h2>Animate the shape of only one operator at a time</h2>
+<p>If everything is moving at once, the sound can smear.</p>
+<p>Try:
+- static carrier shape
+- moving modulator shape</p>
+<p>or:
+- moving carrier shape
+- static FM index</p>
+<p>This makes the patch more intelligible and easier to tune musically.</p>
+<hr />
+<h2>Use free-state operators as “controlled chaos injectors”</h2>
+<p>A free operator with:
+- low gain
+- non-integer pitch
+- slowly moving shape
+- modest send level</p>
+<p>can add beautiful dirt without overwhelming the tone.</p>
+<p>This is especially useful for:
+- neuro bass
+- eerie pads
+- industrial percussion</p>
+<hr />
+<h2>Use reset for transient discipline</h2>
+<p>Even on chaotic patches, <strong>Reset</strong> can keep them playable.</p>
+<p>Use it:
+- on every drum trigger
+- on every bass note
+- every few beats for rhythmic consistency in drones</p>
+<p>Without reset, some FM attacks may vary depending on phase relationships. Sometimes that's good; sometimes it weakens the impact.</p>
+<hr />
+<h1>Concrete patch recipes</h1>
+<h2>Patch 1: Distorted FM kick</h2>
+<ul>
+<li>VCO mode</li>
+<li>Op 1 lock ratio 1, shape sine</li>
+<li>Op 2 lock ratio 2, shape triangle</li>
+<li>Op 2 → Op 1 medium</li>
+<li>envelope to Gain 2 CV</li>
+<li>pitch envelope to LF FM</li>
+<li>trigger to Reset</li>
+<li>optional AR FM with noise burst to Op 1 for click</li>
+</ul>
+<hr />
+<h2>Patch 2: Metallic industrial snare</h2>
+<ul>
+<li>Op 1 lock, ratio 1</li>
+<li>Op 2 free, higher pitch</li>
+<li>Op 3 free, different pitch</li>
+<li>Op 2 → Op 1 medium/high</li>
+<li>Op 3 → Op 1 medium</li>
+<li>short envelopes to Gain 2 and Gain 3</li>
+<li>AR FM noise burst to Op 1</li>
+<li>trigger Reset each hit</li>
+</ul>
+<hr />
+<h2>Patch 3: Neuro growl bass</h2>
+<ul>
+<li>Op 1 lock ratio 1, shape triangle</li>
+<li>Op 2 lock ratio 2 or 3, shape triangle</li>
+<li>Op 3 free, shape saw</li>
+<li>Op 2 → Op 1 high</li>
+<li>Op 3 → Op 1 low/mod</li>
+<li>envelope/LFO to Gain 2</li>
+<li>different LFO to Gain 3</li>
+<li>slow LFO to Shape 1</li>
+<li>sequencer to 1V/Oct</li>
+<li>gate to Reset</li>
+</ul>
+<hr />
+<h2>Patch 4: Feedback destroyer bass</h2>
+<ul>
+<li>Op 1 lock ratio 1</li>
+<li>patch Op 1 or Op 2 output to AR FM</li>
+<li>AR FM send to Op 1</li>
+<li>envelope or synced LFO to Gain AR FM CV</li>
+<li>slight clipping on AR FM allowed for aggression</li>
+<li>small self-mod on Op 1 for added bite</li>
+</ul>
+<hr />
+<h2>Patch 5: Ghost pad</h2>
+<ul>
+<li>all in lock except Op 4 free</li>
+<li>Op 1 = carrier</li>
+<li>Op 2 → Op 1 light</li>
+<li>Op 3 → Op 1 light</li>
+<li>Op 4 → Op 2 very light</li>
+<li>slow LFOs to Gain 2 and Gain 3</li>
+<li>very slow random to Ratio 4</li>
+<li>shapes mostly sine/triangle</li>
+<li>no hard reset, or only occasional reset</li>
+</ul>
+<hr />
+<h1>Best practices from the manual, translated into musical use</h1>
+<p>The manual warns that the module can quickly become noisy and dissonant. That's true. The musical way to work is:</p>
+<h2>For harmonic results</h2>
+<p>Start with:
+- VCO mode
+- all operators locked
+- all detunes centered
+- shapes at sine
+- all modulation sends down</p>
+<p>Then add one thing at a time:
+1. one modulator send
+2. one envelope to that modulator’s Gain CV
+3. one shape movement
+4. one free operator or AR FM layer</p>
+<p>That keeps patches intentional rather than random.</p>
+<h2>For extreme results</h2>
+<p>Break the “safe” rules by:
+- moving modulators toward square/saw
+- adding self-modulation
+- using free-state modulators
+- clipping AR FM
+- animating gain CV aggressively
+- layering multiple modulators into one carrier</p>
+<hr />
+<h1>My strongest recommendations for the sounds you asked for</h1>
+<h2>For distorted percussion</h2>
+<p>Prioritize:
+- <strong>Reset</strong>
+- <strong>envelopes into Gain CV</strong>
+- <strong>free-state modulators</strong>
+- <strong>AR FM noise/audio bursts</strong>
+- <strong>short pitch envelopes into LF FM</strong></p>
+<h2>For dubstep / DnB bass</h2>
+<p>Prioritize:
+- <strong>one stable carrier + one animated main modulator</strong>
+- <strong>Gain CV motion as your “wobble”</strong>
+- <strong>shape modulation for vocal movement</strong>
+- <strong>AR FM feedback patches</strong>
+- <strong>free operator at low level for grit</strong></p>
+<h2>For haunting pads</h2>
+<p>Prioritize:
+- <strong>lock mode with subtle ratios</strong>
+- <strong>slow Gain CV modulation</strong>
+- <strong>very slow shape modulation</strong>
+- <strong>one or two low-level free operators</strong>
+- <strong>light AR FM texturing</strong></p>
+<hr />
+<p>If you want, I can also turn this into:
+1. a <strong>set of exact knob-position starter patches</strong>, or<br />
+2. a <strong>“what to patch from common Eurorack modules” guide</strong> using envelopes, LFOs, random, filters, and VCAs.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

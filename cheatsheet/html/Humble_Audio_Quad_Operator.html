@@ -1,0 +1,416 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Humble_Audio_Quad_Operator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Humble Audio — Quad Operator</h1>
+<ul>
+<li><a href="../../manuals/Quad Operator Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.dropbox.com/paper/doc/print/JsIQoU7GbeAboEJku9ZgE?print=true">Manual PDF</a></p>
+<h1>Humble Audio Quad Operator + Algo Expander Cheat Sheet</h1>
+<h2>What it is</h2>
+<p>A 4-operator digital linear FM oscillator bank for Eurorack.</p>
+<ul>
+<li>4 operators, each with:</li>
+<li>variable waveform: <strong>sine → triangle → square → saw</strong></li>
+<li>independent output</li>
+<li>per-operator gain/VCA behavior</li>
+<li>modulation sends to any operator, including self</li>
+<li>Can run as:</li>
+<li><strong>classic ratio-locked FM voice</strong></li>
+<li><strong>4 independent oscillators</strong> in free mode</li>
+<li><strong>quad/LFO modulation source</strong></li>
+<li>Optional <strong>Algo expander</strong>:</li>
+<li>save/recall FM matrices</li>
+<li>crossfade between saved/live algorithms</li>
+</ul>
+<hr />
+<h2>Quick start</h2>
+<h3>For classic harmonic FM</h3>
+<ol>
+<li>Set <strong>VCO/LFO</strong> to <strong>VCO</strong></li>
+<li>Put all 4 operators in <strong>LOCK</strong></li>
+<li>Set all <strong>Detune</strong> knobs to <strong>12 o’clock</strong></li>
+<li>Set all <strong>Shape</strong> knobs fully CCW (<strong>sine</strong>)</li>
+<li>Set all <strong>Mod 1–4</strong> knobs fully CCW</li>
+<li>Tune with <strong>Coarse</strong> and <strong>Fine</strong></li>
+<li>Use each operator’s <strong>Ratio</strong> to choose integer harmonic relationships</li>
+<li>Turn up modulation sends gradually</li>
+</ol>
+<h3>For 4 independent oscillators</h3>
+<ol>
+<li>Put operator(s) in <strong>FREE</strong></li>
+<li>In free mode:</li>
+<li><strong>Ratio knob</strong> becomes coarse tuning</li>
+<li><strong>Ratio CV</strong> becomes <strong>1V/oct</strong> for that operator</li>
+<li>Patch from individual <strong>Op 1–4 outputs</strong></li>
+</ol>
+<h3>For modulation/LFO use</h3>
+<ol>
+<li>Set <strong>VCO/LFO</strong> to <strong>LFO</strong></li>
+<li>Use <strong>Reset</strong> to restart phase</li>
+<li>Keep operators in <strong>LOCK</strong> if you want phase-related complex modulation</li>
+</ol>
+<hr />
+<h2>Core concepts</h2>
+<h3>LOCK vs FREE</h3>
+<p><strong>LOCK</strong>
+- Operator frequency is an <strong>integer ratio</strong> of master pitch
+- Best for harmonic / classic FM sounds
+- <strong>Ratio knob</strong> selects approx <strong>x1/11 to x11</strong> in integer steps
+- <strong>1V/Oct</strong>, <strong>Coarse</strong>, and <strong>Fine</strong> affect all locked operators</p>
+<p><strong>FREE</strong>
+- Each operator becomes its own oscillator
+- <strong>Ratio knob</strong> = operator coarse tuning
+- <strong>Ratio CV</strong> = <strong>1V/oct</strong> for that operator
+- Better for independent voices or inharmonic FM</p>
+<h3>Gain behavior</h3>
+<p>Each operator’s <strong>Gain CV</strong> controls:
+- its output level
+- how strongly it modulates other operators via its sends</p>
+<p>So gain acts like a built-in VCA for both carrier level and modulation depth.</p>
+<h3>Mod matrix</h3>
+<p>Each row is a source:
+- Operator 1
+- Operator 2
+- Operator 3
+- Operator 4
+- AR FM external input</p>
+<p>Each <strong>Mod 1–4</strong> knob sends that source to the destination operator.</p>
+<p>Example:
+- In Operator 2 row, <strong>Mod 1</strong> = amount Operator 2 modulates Operator 1
+- Self-modulation is allowed</p>
+<hr />
+<h2>Front panel controls</h2>
+<h2>Master controls</h2>
+<ul>
+<li><strong>Coarse</strong></li>
+<li>Master tuning</li>
+<li>Affects all operators in <strong>LOCK</strong></li>
+<li>Exponential response over <strong>8 octaves</strong></li>
+<li><strong>Fine</strong></li>
+<li>Master fine tune</li>
+<li>Range: <strong>±6 semitones</strong></li>
+<li><strong>VCO/LFO switch</strong></li>
+<li>Sets frequency range for master tuning</li>
+<li><strong>1V/Oct input</strong></li>
+<li>Pitch CV for all operators in <strong>LOCK</strong></li>
+<li><strong>LF FM input</strong></li>
+<li>Low-frequency pitch modulation</li>
+<li>Best for vibrato, bends, envelopes</li>
+<li>Range corresponds to <strong>±6 semitones</strong></li>
+<li><strong>AR FM input</strong></li>
+<li>External audio-rate modulator input</li>
+<li><strong>Reset input</strong></li>
+<li>Resets phase of all operators</li>
+</ul>
+<hr />
+<h2>Per-operator controls</h2>
+<p>Each operator has:</p>
+<ul>
+<li><strong>Lock/Free toggle</strong></li>
+<li>LOCK = ratio-locked FM operator</li>
+<li>FREE = independent oscillator</li>
+<li><strong>Ratio knob</strong></li>
+<li>LOCK: integer ratio relative to master pitch</li>
+<li>FREE: operator coarse tuning</li>
+<li><strong>Ratio CV jack</strong></li>
+<li>LOCK: modulates ratio parameter</li>
+<li>FREE: becomes <strong>1V/oct</strong> for that operator</li>
+<li><strong>Detune knob</strong></li>
+<li>Fine tuning</li>
+<li>Range: <strong>±6 semitones</strong></li>
+<li><strong>Shape knob</strong></li>
+<li>Crossfades <strong>sine → triangle → square → saw</strong></li>
+<li><strong>Shape CV jack</strong></li>
+<li>CV over waveshape</li>
+<li><strong>Gain CV jack</strong></li>
+<li>Controls operator level and modulation intensity</li>
+<li>Normalled high, so operator is active without patching</li>
+<li><strong>Mod 1–4 knobs</strong></li>
+<li>Send this operator as FM to Operators 1–4</li>
+<li><strong>Op output jack</strong></li>
+<li>Individual output for that operator</li>
+</ul>
+<hr />
+<h2>External modulation section</h2>
+<p>For the dedicated <strong>AR FM</strong> input:</p>
+<ul>
+<li><strong>AR FM jack</strong></li>
+<li>External audio-rate modulator input</li>
+<li><strong>AR FM Gain knob</strong></li>
+<li>Adjusts external input level</li>
+<li>Set to avoid clipping</li>
+<li><strong>Clip LED</strong></li>
+<li>Red LED = external input clipping</li>
+<li><strong>Gain AR FM CV jack</strong></li>
+<li>VC over external modulation depth</li>
+<li>Normalled high</li>
+<li><strong>Mod 1–4 knobs</strong></li>
+<li>Send external AR FM source to Operators 1–4</li>
+</ul>
+<hr />
+<h2>Algo expander</h2>
+<p>Adds algorithm save/recall and crossfading of the modulation matrix.</p>
+<h3>What gets stored</h3>
+<p>Only modulation matrix values:
+- all <strong>Mod 1–4</strong> knobs for:
+  - Operator 1
+  - Operator 2
+  - Operator 3
+  - Operator 4
+  - AR FM input row</p>
+<h3>Slots</h3>
+<ul>
+<li><strong>A</strong></li>
+<li><strong>B</strong></li>
+<li><strong>C</strong></li>
+<li><strong>Live</strong> = current physical knob positions</li>
+</ul>
+<h3>Buttons / controls</h3>
+<ul>
+<li><strong>A / B / C / Live buttons</strong></li>
+<li><strong>Long press A/B/C</strong> until LED blinks twice = save to slot</li>
+<li><strong>Short press</strong> = assign slot into crossfade selection</li>
+<li><strong>Crossfade knob</strong></li>
+<li>Morph between left/right selected algorithms</li>
+<li><strong>Crossfade CV input</strong></li>
+<li>CV control of algorithm morph</li>
+</ul>
+<h3>Important behavior</h3>
+<ul>
+<li>If using only <strong>A/B/C</strong> slots, the physical <strong>Mod</strong> knob positions are ignored</li>
+<li>Double-tap <strong>Live</strong> if you want only current panel settings</li>
+</ul>
+<hr />
+<h2>Patch tips</h2>
+<h3>Simple 2-op FM voice</h3>
+<ul>
+<li>Op1 = carrier, monitor <strong>Op1 out</strong></li>
+<li>Op2 = modulator</li>
+<li>Both in <strong>LOCK</strong></li>
+<li>Op1 ratio = 1</li>
+<li>Op2 ratio = 2 or 3</li>
+<li>Op2 row: raise <strong>Mod 1</strong></li>
+<li>Keep shapes near sine for cleaner FM</li>
+</ul>
+<h3>Feedback FM</h3>
+<ul>
+<li>Use self-modulation by turning up an operator’s own destination knob</li>
+<li>Or patch an output externally and return it via <strong>AR FM</strong></li>
+</ul>
+<h3>Layered outputs</h3>
+<ul>
+<li>Since each operator has its own output, you can:</li>
+<li>mix multiple carriers</li>
+<li>process operators separately</li>
+<li>use one operator as audible carrier and others as CV/audio modulators</li>
+</ul>
+<hr />
+<h2>Voltage ranges and signal reference</h2>
+<h2>Inputs</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th style="text-align: right;">Voltage Range</th>
+<th style="text-align: right;">Normal</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Reset</strong></td>
+<td>Gate in</td>
+<td style="text-align: right;"><strong>0V / 5V</strong>, threshold ~<strong>2.5V</strong></td>
+<td style="text-align: right;">0V</td>
+<td>Phase reset for all operators</td>
+</tr>
+<tr>
+<td><strong>1V/Oct</strong></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>-1V to +5V</strong></td>
+<td style="text-align: right;">0V</td>
+<td>Master pitch for locked operators</td>
+</tr>
+<tr>
+<td><strong>LF FM</strong></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>-5V to +5V</strong></td>
+<td style="text-align: right;">0V</td>
+<td>Low-frequency pitch modulation</td>
+</tr>
+<tr>
+<td><strong>Ratio 1–4</strong></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>-5V to +5V</strong></td>
+<td style="text-align: right;">0V</td>
+<td>Ratio control in lock; <strong>1V/oct</strong> in free</td>
+</tr>
+<tr>
+<td><strong>Shape 1–4</strong></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>-5V to +5V</strong></td>
+<td style="text-align: right;">0V</td>
+<td>Wave shape modulation</td>
+</tr>
+<tr>
+<td><strong>Gain 1–4</strong></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>0V to +5V</strong></td>
+<td style="text-align: right;"><strong>+5V</strong></td>
+<td>Controls output level and FM send intensity</td>
+</tr>
+<tr>
+<td><strong>Gain AR FM</strong></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>0V to +5V</strong></td>
+<td style="text-align: right;"><strong>+5V</strong></td>
+<td>External modulation depth</td>
+</tr>
+<tr>
+<td><strong>AR FM</strong></td>
+<td>Audio in</td>
+<td style="text-align: right;"><strong>Trimmable for -5V to +5V or -10V to +10V</strong></td>
+<td style="text-align: right;">0V</td>
+<td>External audio-rate FM source</td>
+</tr>
+<tr>
+<td><strong>Algo Crossfade</strong></td>
+<td>CV in</td>
+<td style="text-align: right;">Not specified in manual</td>
+<td style="text-align: right;">—</td>
+<td>CV over algorithm crossfade</td>
+</tr>
+</tbody>
+</table>
+<h2>Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th style="text-align: right;">Voltage Range</th>
+<th style="text-align: right;">Sample Rate</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Op 1–4</strong></td>
+<td>Audio/CV out</td>
+<td style="text-align: right;"><strong>-5V to +5V</strong></td>
+<td style="text-align: right;"><strong>48 kHz</strong></td>
+<td>Individual operator outputs</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Parameter ranges</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Coarse (VCO mode)</strong></td>
+<td><strong>16.35 Hz (C0) to 2093 Hz (C7)</strong></td>
+</tr>
+<tr>
+<td><strong>Coarse (LFO mode)</strong></td>
+<td><strong>0.511 Hz (C-5) to 65.41 Hz (C2)</strong></td>
+</tr>
+<tr>
+<td><strong>Fine</strong></td>
+<td><strong>±6 semitones</strong></td>
+</tr>
+<tr>
+<td><strong>Ratio 1–4 (LOCK)</strong></td>
+<td><strong>x1/11 to x11</strong> relative to master coarse/fine</td>
+</tr>
+<tr>
+<td><strong>Ratio 1–4 (FREE, VCO)</strong></td>
+<td><strong>16.35 Hz (C0) to 2093 Hz (C7)</strong></td>
+</tr>
+<tr>
+<td><strong>Ratio 1–4 (FREE, LFO)</strong></td>
+<td><strong>0.511 Hz (C-5) to 65.41 Hz (C2)</strong></td>
+</tr>
+<tr>
+<td><strong>Detune 1–4</strong></td>
+<td><strong>±6 semitones</strong></td>
+</tr>
+<tr>
+<td><strong>Shape</strong></td>
+<td>Crossfade: <strong>sine / triangle / square / saw</strong></td>
+</tr>
+<tr>
+<td><strong>Gain 1–4</strong></td>
+<td><strong>0 to 1</strong> multiplier</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>CV scaling note</h2>
+<p>For <strong>Ratio</strong> and <strong>Shape</strong> parameters:
+- <strong>5V of CV = full knob travel</strong>
+- Bipolar CV can sweep beyond current knob setting in either direction</p>
+<hr />
+<h2>Calibration</h2>
+<p>Use if pitch tracking seems off.</p>
+<h3>Patch:</h3>
+<ul>
+<li><strong>Op1 → Ratio1</strong></li>
+<li><strong>Op2 → Ratio2</strong></li>
+<li><strong>Op3 → Ratio3</strong></li>
+<li><strong>Op4 → Ratio4</strong> and <strong>1V/Oct</strong> via <strong>unbuffered split</strong></li>
+<li>Important: use <strong>Op4</strong> for the split</li>
+</ul>
+<h3>Trigger calibration:</h3>
+<ol>
+<li>Flip Operator 1 free/lock once</li>
+<li>Flip Operator 2 free/lock once</li>
+<li>Flip Operator 3 free/lock once</li>
+<li>Flip Operator 4 free/lock once</li>
+<li>Flip <strong>VCO/LFO</strong> switch <strong>5 times quickly</strong></li>
+</ol>
+<p>Success indication:
+- Gain LEDs blink twice</p>
+<hr />
+<h2>Firmware / physical specs</h2>
+<ul>
+<li>Firmware update via <strong>micro USB</strong> on back</li>
+<li>Manual mentions firmware version <strong>1.0.4</strong></li>
+<li><strong>Quad Operator</strong></li>
+<li><strong>30 hp</strong></li>
+<li><strong>25 mm deep</strong></li>
+<li><strong>+12V: 140 mA</strong></li>
+<li><strong>-12V: 13 mA</strong></li>
+<li><strong>Algo expander</strong></li>
+<li><strong>4 hp</strong></li>
+<li><strong>25 mm deep</strong></li>
+<li><strong>+12V: 5 mA</strong></li>
+<li><strong>-12V: 0 mA</strong></li>
+</ul>
+<hr />
+<h2>Best-use summary</h2>
+<ul>
+<li>Use <strong>LOCK + sine + no detune</strong> for stable, harmonic FM</li>
+<li>Use <strong>FREE</strong> for separate oscillators or inharmonic textures</li>
+<li>Use <strong>Gain CV</strong> like a modulation VCA</li>
+<li>Use <strong>AR FM</strong> for external operators, feedback, or wild FM</li>
+<li>Use <strong>Reset</strong> in LFO mode for repeatable modulation shapes</li>
+<li>Use <strong>Algo</strong> to store and morph FM routings</li>
+</ul>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

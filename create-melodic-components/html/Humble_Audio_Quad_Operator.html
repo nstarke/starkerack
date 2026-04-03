@@ -1,0 +1,586 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Humble_Audio_Quad_Operator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Humble Audio — Quad Operator</h1>
+<ul>
+<li><a href="../../manuals/Quad Operator Manual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.dropbox.com/paper/doc/print/JsIQoU7GbeAboEJku9ZgE?print=true">Quad Operator Manual PDF</a></p>
+<h1>Humble Audio Quad Operator (+ Algo) for Melodic Eurorack Use</h1>
+<p>The <strong>Humble Audio Quad Operator</strong> is a 4-operator digital FM voice platform for Eurorack. With the <strong>Algo expander</strong>, it becomes a programmable FM algorithm morphing system. Used together, these modules are especially strong for building <strong>melodic voices, harmonic layers, animated leads, plucks, bells, basses, and evolving sequence timbres</strong>.</p>
+<h2>What these modules are</h2>
+<h3>Quad Operator</h3>
+<p>A 4-operator oscillator/FM synthesis module with:</p>
+<ul>
+<li>4 operators</li>
+<li>Variable operator waveshape:</li>
+<li>sine</li>
+<li>triangle</li>
+<li>square</li>
+<li>saw</li>
+<li>Per-operator:</li>
+<li>ratio</li>
+<li>detune</li>
+<li>shape</li>
+<li>gain CV</li>
+<li>4 modulation sends</li>
+<li>independent output</li>
+<li>Global controls:</li>
+<li>coarse / fine tune</li>
+<li>VCO/LFO mode</li>
+<li>1V/oct</li>
+<li>LF FM</li>
+<li>AR FM external mod input</li>
+<li>reset</li>
+</ul>
+<h3>Algo expander</h3>
+<p>Adds:</p>
+<ul>
+<li>3 saved FM matrix snapshots: <strong>A, B, C</strong></li>
+<li><strong>Live</strong> state</li>
+<li>Crossfade between algorithms/states</li>
+</ul>
+<p>In practice, the Algo turns the Quad Operator into a <strong>morphable FM melody engine</strong>.</p>
+<hr />
+<h1>Why they work well for melodic music</h1>
+<p>For melodic use, the key strengths are:</p>
+<ol>
+<li><strong>Operators can stay in harmonic ratios</strong></li>
+<li>In <strong>lock state</strong>, each operator follows integer multiples/divisions of the master pitch.</li>
+<li>
+<p>This is ideal for stable, tonal FM sounds.</p>
+</li>
+<li>
+<p><strong>You can treat it like one voice or several</strong></p>
+</li>
+<li>One complex FM voice</li>
+<li>Layered intervals</li>
+<li>
+<p>Four separate oscillators when operators are in <strong>free state</strong></p>
+</li>
+<li>
+<p><strong>You get timbral motion without changing pitch</strong></p>
+</li>
+<li>FM depth changes via modulation sends</li>
+<li>Shape morphing per operator</li>
+<li>
+<p>Gain CV controlling both loudness and modulation intensity</p>
+</li>
+<li>
+<p><strong>Algo adds performance-ready timbre recall</strong></p>
+</li>
+<li>Store one matrix for a mellow tone, another for a bright attack, another for a metallic variation</li>
+<li>Crossfade between them while sequenced pitch remains stable</li>
+</ol>
+<p>That makes it very good for <strong>musical, melodic phrasing</strong> instead of only harsh experimental FM.</p>
+<hr />
+<h1>The most important concept: lock vs free</h1>
+<h2>Lock state</h2>
+<p>In <strong>lock</strong>, each operator is tied to the master pitch in integer ratios from <strong>1/11 to 11x</strong>.</p>
+<p>Use this when you want:</p>
+<ul>
+<li>tuned FM voices</li>
+<li>harmonic overtones</li>
+<li>stable melodic tracking</li>
+<li>classic FM bass/lead/bell sounds</li>
+<li>chords built from related intervals</li>
+</ul>
+<p>For melodic music, this is the default mode.</p>
+<h2>Free state</h2>
+<p>In <strong>free</strong>, each operator becomes its own oscillator:</p>
+<ul>
+<li>ratio knob becomes coarse tune</li>
+<li>ratio CV becomes 1V/oct for that operator</li>
+</ul>
+<p>Use this when you want:</p>
+<ul>
+<li>4 separate melodic oscillators</li>
+<li>interval stacking by ear</li>
+<li>independent counterpoint voices</li>
+<li>drones plus a lead</li>
+<li>pseudo-paraphonic patches</li>
+</ul>
+<p>This is less naturally harmonic for FM, but very useful compositionally.</p>
+<hr />
+<h1>Best melodic workflows</h1>
+<h2>1. Use it as a single FM voice</h2>
+<p>This is the most obvious melodic application.</p>
+<h3>Basic patch</h3>
+<ul>
+<li>Sequencer pitch CV -&gt; <strong>1V/Oct</strong></li>
+<li>Gate/envelope elsewhere in rack -&gt; VCA or LPG after one chosen operator output</li>
+<li>Start with:</li>
+<li>VCO mode</li>
+<li>all operators in <strong>lock</strong></li>
+<li>detune at 12 o'clock</li>
+<li>shapes fully CCW (sine)</li>
+<li>all modulation sends off</li>
+</ul>
+<p>Then:</p>
+<ul>
+<li>Choose one operator output as your audible output</li>
+<li>Use one or more other operators primarily as modulators</li>
+<li>Increase selected modulation sends slowly</li>
+</ul>
+<h3>Result</h3>
+<p>You get:</p>
+<ul>
+<li>plucks</li>
+<li>keys</li>
+<li>FM bass</li>
+<li>glassy leads</li>
+<li>electric piano-like tones</li>
+<li>tuned percussive melody lines</li>
+</ul>
+<p>This is exactly the patch style the manual encourages for harmonic FM.</p>
+<hr />
+<h2>2. Build layered melodic intervals from multiple outputs</h2>
+<p>Because each operator has its own output, the Quad Operator can generate <strong>multiple related melodic layers</strong> from one pitch source.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Same pitch CV to Quad Operator <strong>1V/oct</strong></li>
+<li>Keep all operators in <strong>lock</strong></li>
+<li>Set ratios to musically useful values, for example:</li>
+<li>Op1 = 1</li>
+<li>Op2 = 2</li>
+<li>Op3 = 3</li>
+<li>Op4 = 4 or 1/2 depending on patch</li>
+<li>Take multiple outputs to separate VCAs/filters/mixers</li>
+</ul>
+<h3>Musical use</h3>
+<ul>
+<li>Op1 as the fundamental melody</li>
+<li>Op2 an octave-up reinforcement</li>
+<li>Op3 a fifth-ish/upper harmonic color</li>
+<li>Op4 a sub or additional color tone</li>
+</ul>
+<p>Strictly speaking these are harmonic partial relationships, not equal-tempered chord voicings. But in a mix they can function as:</p>
+<ul>
+<li>organ-like layering</li>
+<li>registral reinforcement</li>
+<li>pseudo-unison stacks</li>
+<li>overtone voices that track melody tightly</li>
+</ul>
+<p>This is very effective for <strong>melodic hooks</strong> that need presence without sounding like a simple saw oscillator.</p>
+<hr />
+<h2>3. Use one operator as the audible carrier and animate the others as hidden modulators</h2>
+<p>This is where the module becomes especially musical.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Listen only to <strong>Op1</strong></li>
+<li>Use Op2, Op3, Op4 as modulators by raising their sends into Op1</li>
+<li>Modulate their <strong>Gain CVs</strong> with envelopes or slow CV</li>
+</ul>
+<p>Because gain affects both:</p>
+<ul>
+<li>operator output level</li>
+<li>modulation intensity sent to others</li>
+</ul>
+<p>you can make the modulators “enter” dynamically.</p>
+<h3>Musical result</h3>
+<p>This creates:</p>
+<ul>
+<li>note attacks that brighten then settle</li>
+<li>velocity-like timbral articulation</li>
+<li>evolving melodies where each note has internal movement</li>
+<li>expressive basslines with attack transient complexity</li>
+</ul>
+<p>This is one of the strongest melodic uses of the Quad Operator.</p>
+<hr />
+<h1>How to make musical FM sounds instead of noise</h1>
+<p>The manual gives a very clear starting recipe. For melodic material, begin here:</p>
+<ul>
+<li><strong>VCO mode</strong></li>
+<li>all operators in <strong>lock</strong></li>
+<li>all <strong>detune</strong> at noon</li>
+<li>all <strong>shape</strong> fully counterclockwise (sine)</li>
+<li>all <strong>modulation sends</strong> fully counterclockwise</li>
+</ul>
+<p>Then add complexity one step at a time.</p>
+<h2>Good order of operations</h2>
+<ol>
+<li>Tune the root melody with <strong>coarse/fine</strong> and <strong>1V/oct</strong></li>
+<li>Set operator ratios</li>
+<li>Bring up one mod send only</li>
+<li>Add another modulator if needed</li>
+<li>Then experiment with shape changes</li>
+<li>Add slight detune last</li>
+</ol>
+<h2>Why this matters</h2>
+<p>FM gets dissonant quickly when you combine:</p>
+<ul>
+<li>non-sine waves</li>
+<li>multiple modulators</li>
+<li>detuning</li>
+<li>free-running operators</li>
+</ul>
+<p>For melodic use, restraint gives much better results.</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>A. FM lead voice</h2>
+<p><strong>Goal:</strong> expressive mono lead</p>
+<h3>Setup</h3>
+<ul>
+<li>All operators in lock</li>
+<li>Shapes = sine to slightly triangular</li>
+<li>Op1 = carrier</li>
+<li>Op2 ratio = 2</li>
+<li>Op3 ratio = 3</li>
+<li>Op4 ratio = 1 or 4 depending on brightness</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer CV -&gt; 1V/oct</li>
+<li>Gate -&gt; envelope -&gt; external VCA for Op1 output</li>
+<li>Envelope or modulation source -&gt; Gain CV on Op2 or Op3</li>
+<li>Raise Op2 -&gt; Mod1</li>
+<li>Optionally raise Op3 -&gt; Mod1 slightly</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>bright attack</li>
+<li>vocal or brass-like movement</li>
+<li>stable pitch</li>
+<li>classic melodic FM lead behavior</li>
+</ul>
+<p>If using Algo:
+- Save mellow matrix to A
+- bright lead matrix to B
+- metallic/aggressive matrix to C
+- crossfade during performance</p>
+<hr />
+<h2>B. FM bassline</h2>
+<p><strong>Goal:</strong> punchy, melodic low-end</p>
+<h3>Setup</h3>
+<ul>
+<li>All operators in lock</li>
+<li>Op1 audible</li>
+<li>Op2 ratio = 2</li>
+<li>Op3 ratio = 1</li>
+<li>Minimal modulation</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer -&gt; 1V/oct</li>
+<li>Gate -&gt; short envelope -&gt; VCA on Op1</li>
+<li>Raise Op2 -&gt; Mod1 a little</li>
+<li>Use very slight Gain CV on Op2 for attack transient</li>
+<li>Keep shapes mostly sine/triangle</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>solid low fundamental</li>
+<li>clickless but articulate attack</li>
+<li>good tracking</li>
+<li>easy to fit in a melodic sequence</li>
+</ul>
+<p>For cleaner bass, avoid too much saw/square shape.</p>
+<hr />
+<h2>C. Bell or mallet melody</h2>
+<p><strong>Goal:</strong> tuned metallic melody</p>
+<h3>Setup</h3>
+<ul>
+<li>Lock state</li>
+<li>Op1 carrier</li>
+<li>Op2 and Op3 as modulators at higher ratios</li>
+<li>Slightly more FM depth than bass/lead patch</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer -&gt; 1V/oct</li>
+<li>Fast-decay envelope -&gt; VCA for output</li>
+<li>Additional short envelope -&gt; Gain CV of modulator operator</li>
+<li>Use a somewhat higher ratio on one modulator</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>struck bell tones</li>
+<li>gamelan-like lines</li>
+<li>metallic arps</li>
+<li>digital mallet melodies</li>
+</ul>
+<p>This is a natural use case for FM and fits the Quad Operator well.</p>
+<hr />
+<h2>D. Evolving melodic timbre with Algo</h2>
+<p><strong>Goal:</strong> one sequence, multiple harmonic colors</p>
+<h3>Patch</h3>
+<ul>
+<li>Create 3 modulation matrices:</li>
+<li><strong>A</strong> = almost no FM</li>
+<li><strong>B</strong> = moderate harmonic FM</li>
+<li><strong>C</strong> = brighter/denser FM</li>
+<li>Sequence pitch into 1V/oct</li>
+<li>Listen to one operator or a mix of several outputs</li>
+<li>Move Algo crossfade manually or via CV</li>
+</ul>
+<h3>Result</h3>
+<p>The melody remains the same, but the tone evolves through:
+- pure
+- bright
+- metallic
+- dense</p>
+<p>This is excellent for:
+- verse/chorus changes
+- live transitions
+- long-form melodic techno or ambient development</p>
+<p>This is probably the most performance-friendly reason to pair Quad Operator with Algo.</p>
+<hr />
+<h2>E. Four-oscillator melodic bank</h2>
+<p><strong>Goal:</strong> multiple melodic roles from one module</p>
+<h3>Setup</h3>
+<p>Put some or all operators in <strong>free state</strong>.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>Op1 = lead</li>
+<li>Op2 = bass drone</li>
+<li>Op3 = countermelody</li>
+<li>Op4 = LFO or modulation source in LFO mode</li>
+</ul>
+<p>Since in free state:
+- ratio knob becomes coarse tune
+- ratio CV becomes 1V/oct</p>
+<p>you can patch separate pitch CVs to operators.</p>
+<h3>Result</h3>
+<p>You can use the Quad Operator as:
+- a compact 4-oscillator composition hub
+- a semi-polyphonic source
+- a layered melodic machine</p>
+<p>This is less “classic FM voice” and more “digital oscillator cluster,” but very useful musically.</p>
+<hr />
+<h1>Using the AR FM input musically</h1>
+<p>The <strong>AR FM</strong> input lets you bring in an external audio-rate signal and route it to any operators via its own modulation sends.</p>
+<p>This is a huge melodic feature.</p>
+<h2>Melodic uses for AR FM</h2>
+<h3>1. External oscillator as modulator</h3>
+<p>Patch a tuned external VCO into AR FM.</p>
+<ul>
+<li>Keep Quad Operator tracking a melody</li>
+<li>Tune external oscillator to a related interval</li>
+<li>Send AR FM to one or more operators</li>
+</ul>
+<p>Result:
+- richer sidebands
+- harmonically shifting timbre
+- cross-module FM melodies</p>
+<h3>2. Feedback-like patches</h3>
+<p>The manual specifically suggests feedback-related experimentation, especially with locked operators.</p>
+<p>Patch one Quad Operator output externally and return something into AR FM.</p>
+<p>Result:
+- more aggressive but still pitch-centered timbres
+- animated sustained notes
+- unstable but expressive melodic tones</p>
+<h3>3. Use another voice to articulate timbre</h3>
+<p>Patch a drum, another sequence, or an oscillator into AR FM.</p>
+<p>Result:
+- melody timbre reacts to external rhythm
+- pseudo-sidechain timbral sync
+- melodic line that changes character based on another voice</p>
+<p>For melodic patching, keep the AR FM gain conservative to preserve pitch clarity.</p>
+<hr />
+<h1>Shape control as a melodic tool</h1>
+<p>Each operator can morph continuously:
+- sine -&gt; triangle -&gt; square -&gt; saw</p>
+<p>This matters a lot for melodic use.</p>
+<h2>Best practices</h2>
+<h3>Sine</h3>
+<p>Best starting point for:
+- clean FM
+- harmonic patches
+- stable melodic tone</p>
+<h3>Triangle</h3>
+<p>Good for:
+- slightly richer leads
+- rounded basses
+- soft animated timbres</p>
+<h3>Square / Saw</h3>
+<p>Good for:
+- bright leads
+- edgy basses
+- harmonically dense melodic lines</p>
+<p>But with FM active, these can introduce:
+- noise
+- aliasing
+- harshness</p>
+<p>So for melodic clarity:
+- start sine
+- move brighter only when needed</p>
+<hr />
+<h1>Gain CV is secretly one of the most musical controls</h1>
+<p>The manual notes that <strong>Gain CV affects both output level and modulation intensity</strong>.</p>
+<p>That means each operator behaves somewhat like it has a built-in modulation VCA.</p>
+<h2>Why this is great for melody</h2>
+<p>You can use envelopes, LFOs, or sequencer CV to make FM depth become dynamic per note.</p>
+<p>Examples:
+- short envelope on modulator gain = percussive attack
+- slow LFO on modulator gain = timbral vibrato-like evolution
+- sequencer row into gain CV = different timbre on each step</p>
+<p>This is one of the best features for turning static pitch sequences into <strong>melodic phrases with articulation</strong>.</p>
+<hr />
+<h1>Reset input for melodic precision</h1>
+<p>The <strong>Reset CV</strong> resets all operators’ phase.</p>
+<p>For melodic music this can help with:</p>
+<ul>
+<li>consistent attack transient</li>
+<li>repeatable plucks</li>
+<li>cleaner modulation when using LFO mode</li>
+<li>phase-locked rhythmic modulation</li>
+</ul>
+<p>If your notes feel slightly inconsistent on repeated triggers, reset can tighten behavior.</p>
+<hr />
+<h1>Using VCO vs LFO mode for melodic composition</h1>
+<h2>VCO mode</h2>
+<p>Use for:
+- pitched voices
+- melodies
+- basslines
+- harmonic stacks</p>
+<h2>LFO mode</h2>
+<p>Use for:
+- phase-locked modulation sources
+- slow complex modulation of filters, wavefolders, VCAs, or FM depth
+- creating melodic animation indirectly</p>
+<p>A strong technique is:</p>
+<ul>
+<li>Put Quad Operator in <strong>LFO mode</strong></li>
+<li>Use operators as complex, related modulation sources</li>
+<li>Patch outputs to:</li>
+<li>Gain CVs</li>
+<li>Shape CVs</li>
+<li>filter cutoff</li>
+<li>external VCA level</li>
+</ul>
+<p>This won’t directly generate melody, but it can create <strong>coherent motion around a melody</strong>.</p>
+<hr />
+<h1>How Algo makes melodic performance better</h1>
+<p>Without Algo, Quad Operator is already flexible. With Algo, it becomes much easier to use in songs.</p>
+<h2>What Algo stores</h2>
+<p>It stores the modulation matrix:
+- the positions of all <strong>Mod x</strong> knobs for all 4 operators
+- and the AR FM input sends</p>
+<p>So Algo is essentially storing your FM routing/depth “algorithm.”</p>
+<h2>Musical applications</h2>
+<h3>1. Instant timbre presets for the same sequence</h3>
+<p>Store:
+- A = bass
+- B = lead
+- C = bell</p>
+<p>Then run the same melody and swap character.</p>
+<h3>2. Morphing between phrases</h3>
+<p>Crossfade from simple to complex FM over 8 or 16 bars.</p>
+<h3>3. Build song sections</h3>
+<ul>
+<li>Verse = A</li>
+<li>Chorus = B</li>
+<li>Breakdown = Live</li>
+<li>Fill = C</li>
+</ul>
+<h3>4. Animate a static drone into a melody voice</h3>
+<p>Use saved matrices as macro-structure controls.</p>
+<p>This is particularly powerful because FM patches are often hard to recreate exactly by hand.</p>
+<hr />
+<h1>Suggested melodic strategies</h1>
+<h2>Strategy 1: Start with one carrier only</h2>
+<p>Use one operator output as your main voice first. Don’t listen to all outputs at once immediately.</p>
+<h2>Strategy 2: Use simple ratios</h2>
+<p>Begin with:
+- 1
+- 2
+- 3
+- 4</p>
+<p>These usually give more musically grounded results.</p>
+<h2>Strategy 3: Keep detune subtle</h2>
+<p>The manual says detune is available even in lock mode. For melody:
+- tiny detune = warmth/motion
+- large detune = inharmonicity</p>
+<h2>Strategy 4: Add modulation one send at a time</h2>
+<p>This module can get chaotic quickly. Small send amounts go a long way.</p>
+<h2>Strategy 5: Save usable states with Algo</h2>
+<p>Once you find:
+- a sweet bass
+- a good lead
+- a bright accent</p>
+<p>save them immediately.</p>
+<hr />
+<h1>Limitations to keep in mind for melodic use</h1>
+<p>Based on the manual:</p>
+<ul>
+<li>CV inputs for most control are sampled at <strong>6 kHz</strong></li>
+<li>Audio I/O is at <strong>48 kHz</strong></li>
+<li>More overtone-rich waveshapes plus heavy FM can create aliasing/noise</li>
+<li>Free-state FM is often more inharmonic</li>
+<li>There is no built-in envelope/VCA for final amplitude shaping, so external utilities help a lot</li>
+</ul>
+<p>So for best melodic results, pair it with:
+- envelopes
+- VCAs
+- filters
+- sequencers
+- mixers</p>
+<hr />
+<h1>Best use cases in a musical rack</h1>
+<p>The Quad Operator + Algo combo is especially good for:</p>
+<ul>
+<li><strong>FM mono lead voice</strong></li>
+<li><strong>Melodic bass voice</strong></li>
+<li><strong>Bell/pluck/arpeggio generator</strong></li>
+<li><strong>Evolving techno sequence timbre source</strong></li>
+<li><strong>Harmonic drone with moving overtones</strong></li>
+<li><strong>4-oscillator melodic utility bank</strong></li>
+<li><strong>Crossfading timbral preset machine</strong></li>
+</ul>
+<p>It is less about instant “DX7 preset nostalgia” and more about a <strong>hands-on modular FM instrument</strong>.</p>
+<hr />
+<h1>Simple starter melodic patch</h1>
+<p>If I were dropping this into a patch for immediate musical payoff, I’d do this:</p>
+<h2>Patch</h2>
+<ul>
+<li>Sequencer CV -&gt; 1V/oct</li>
+<li>Gate -&gt; envelope -&gt; VCA</li>
+<li>Op1 output -&gt; VCA -&gt; mixer</li>
+<li>All operators in lock</li>
+<li>Ratios:</li>
+<li>Op1 = 1</li>
+<li>Op2 = 2</li>
+<li>Op3 = 3</li>
+<li>Op4 = 1</li>
+<li>All shapes = sine</li>
+<li>All detunes = noon</li>
+<li>Raise Op2 -&gt; Mod1 slightly</li>
+<li>Envelope or slow CV -&gt; Gain CV on Op2</li>
+<li>Save to Algo A</li>
+<li>Make a brighter version with some Op3 -&gt; Mod1 and save to B</li>
+<li>Make a metallic version with more FM and save to C</li>
+</ul>
+<h2>Outcome</h2>
+<p>You now have:
+- a playable tuned melodic FM voice
+- dynamic note articulation
+- three performable timbral states
+- crossfading between them with Algo</p>
+<p>That’s enough for an entire melodic part in a track.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Quad Operator</strong> is best understood as a <strong>modular 4-op FM engine</strong> that can be either:</p>
+<ul>
+<li>a single rich melodic voice,</li>
+<li>a bank of harmonically related oscillators,</li>
+<li>or four independent oscillators.</li>
+</ul>
+<p>The <strong>Algo expander</strong> makes it far more practical in actual music by letting you <strong>save, recall, and morph FM routing states</strong>. Together, they are very strong for melodic work because they let you separate:</p>
+<ul>
+<li><strong>pitch</strong> from</li>
+<li><strong>timbre evolution</strong></li>
+</ul>
+<p>That means a simple sequence can become expressive, articulate, and song-structured without changing the notes themselves.</p>
+<p>If you want, I can also turn this into:
+1. a <strong>patch cookbook</strong> with 10 specific melodic patches, or<br />
+2. a <strong>quick-start guide</strong> organized by genre: ambient, techno, electro, and IDM.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>
