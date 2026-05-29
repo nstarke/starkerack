@@ -1,0 +1,443 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Integra_Solum</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Integra Solum</h1>
+<ul>
+<li><a href="../../manuals/Integra Solum Manual - Noise Engineering Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.noiseengineering.us/is/">Manual PDF / Documentation</a></p>
+<h1>Noise Engineering Integra Solum: using it for melodic components</h1>
+<p>Integra Solum is not a pitch sequencer in the traditional sense, but it is very useful for creating <strong>melodic structure indirectly</strong>. It excels at generating <strong>timed trigger patterns</strong> that can drive sequencers, sample-and-holds, envelope generators, switches, quantizers, and logic modules. In other words: it is a <strong>melody organizer, rhythmized note selector, and variation source</strong>.</p>
+<h2>What the module does musically</h2>
+<p>Integra Solum is a:</p>
+<ul>
+<li><strong>dual rotating clock divider</strong></li>
+<li>with <strong>16 trigger outputs</strong> total</li>
+<li>split into <strong>two independent sections of 8 outputs</strong></li>
+<li>with:</li>
+<li>independent or normalized <strong>clock inputs</strong></li>
+<li>independent or normalized <strong>reset</strong></li>
+<li><strong>Shift/Offset</strong> rotation per side</li>
+<li>three main output behaviors:<ul>
+<li><strong>/2N</strong> = powers-of-two divisions</li>
+<li><strong>N</strong> = sequence of eight</li>
+<li><strong>/2N+1</strong> = odd divisions</li>
+</ul>
+</li>
+<li>extra <strong>Wack mode</strong> random behaviors</li>
+</ul>
+<p>This means the module gives you multiple related trigger streams from one clock, and those streams can be used to produce melodic events at different rates and in different orders.</p>
+<hr />
+<h2>Important technical details from the manual</h2>
+<ul>
+<li><strong>Clock input threshold:</strong> responds to a rising edge around <strong>3.3 V</strong></li>
+<li><strong>Output latency:</strong> about <strong>70 µs</strong></li>
+<li><strong>Trigger output voltage:</strong> approximately <strong>3.4 V trigger</strong>, outputs range <strong>0 V to 5 V</strong></li>
+<li><strong>Reset behavior:</strong> pressing Reset pauses clock processing; on release, reset occurs on the first clock after release</li>
+<li><strong>Shift/Offset:</strong> rotates the output assignment, so output 2 can become the first step, etc.</li>
+<li><strong>Inputs are normalized:</strong> one clock can drive both sides unless separate clocks are patched</li>
+</ul>
+<p>These details matter because the module is reliable as a rhythmic brain for sequencing other pitch-producing modules.</p>
+<hr />
+<h1>How it creates melody</h1>
+<p>By itself, Integra Solum does <strong>not output pitch CV</strong>. To make melody, pair it with modules that do one or more of the following:</p>
+<ul>
+<li><strong>generate pitch CV</strong></li>
+<li>sequencer</li>
+<li>quantizer</li>
+<li>random voltage source</li>
+<li>sample-and-hold</li>
+<li><strong>respond to triggers</strong></li>
+<li>sequential switch</li>
+<li>envelope</li>
+<li>burst generator</li>
+<li>trigger-to-CV modules</li>
+<li><strong>choose among notes</strong></li>
+<li>switch</li>
+<li>addressed switch</li>
+<li>quantizer scale memory</li>
+<li>precision adder with stepped voltages</li>
+</ul>
+<p>Integra Solum supplies the <strong>when</strong> and <strong>which subdivision</strong>, and another module supplies the <strong>what note</strong>.</p>
+<hr />
+<h1>Best melodic uses</h1>
+<h2>1. Triggering a pitch sequencer at different divisions</h2>
+<p>This is the most direct use.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Master clock -&gt; Integra Solum Clock</li>
+<li>One Integra Solum output -&gt; sequencer clock input</li>
+<li>Sequencer pitch CV -&gt; oscillator 1V/oct</li>
+<li>Sequencer gate/trigger or another Integra Solum output -&gt; envelope -&gt; VCA</li>
+</ul>
+<h3>Why it works</h3>
+<p>Different outputs represent different clock relationships. If you clock the sequencer from one output and articulate notes from another, you get:
+- phrase offsets
+- syncopated note advances
+- repeating but asymmetrical melodic loops</p>
+<h3>Musical result</h3>
+<ul>
+<li>slower note changes over faster articulation</li>
+<li>polyrhythmic melody phrasing</li>
+<li>melodic cycles that drift against drum clocks</li>
+</ul>
+<h3>Best modes</h3>
+<ul>
+<li><strong>/2N</strong> for stable melodic phrases with traditional divisions</li>
+<li><strong>/2N+1</strong> for longer non-even phrase structures</li>
+<li><strong>N</strong> for stepped note-order motion across 8 outputs</li>
+</ul>
+<hr />
+<h2>2. Driving a sample-and-hold into a quantizer</h2>
+<p>This is one of the strongest melodic applications.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Noise or slow chaotic CV -&gt; sample-and-hold input</li>
+<li>Integra Solum output -&gt; sample-and-hold trigger</li>
+<li>sample-and-hold output -&gt; quantizer</li>
+<li>quantizer output -&gt; oscillator pitch</li>
+<li>another Integra Solum output -&gt; envelope/VCA trigger</li>
+</ul>
+<h3>Why it works</h3>
+<p>Each trigger output can sample new voltages at different times. By changing mode and Shift, you reshape <strong>when a new note is chosen</strong>.</p>
+<h3>Musical result</h3>
+<ul>
+<li>evolving melodies from one clock source</li>
+<li>related note changes across two voices</li>
+<li>controlled randomness when quantized to a scale</li>
+</ul>
+<h3>Especially good with Wack mode</h3>
+<p>Wack mode makes this excellent for semi-random melodic lines:
+- <strong>Wack /2N</strong>: probabilistic note updates
+- <strong>Wack N</strong>: one random trigger each step, useful for sparse note selection
+- <strong>Wack /2N+1</strong>: dense randomized triggering for active generative melodies</p>
+<hr />
+<h2>3. Using the two sides as “pitch rhythm” and “articulation rhythm”</h2>
+<p>Since there are two divider sections, you can split melodic duties.</p>
+<h3>Patch idea</h3>
+<p><strong>Left side</strong>
+- clocks a sequencer or sample-and-hold for pitch changes</p>
+<p><strong>Right side</strong>
+- triggers envelopes, accents, or filter pings</p>
+<h3>Why it works</h3>
+<p>A melody is not just notes; it is also:
+- when notes change
+- when notes sound
+- when accents happen</p>
+<p>Integra Solum lets those be related but not identical.</p>
+<h3>Musical result</h3>
+<ul>
+<li>repeated notes with shifting articulation</li>
+<li>one pitch held while multiple rhythmic triggers fire</li>
+<li>accents landing on different note changes each cycle</li>
+</ul>
+<p>This is especially powerful if:
+- one side uses <strong>/2N</strong>
+- the other uses <strong>/2N+1</strong>
+- both are fed from the same normalized clock</p>
+<p>That creates long-form phrase interplay.</p>
+<hr />
+<h2>4. Rotating note selection with a sequential switch</h2>
+<p>The <strong>Shift</strong> control is very valuable for melody.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>4–8 fixed voltages or sequence rows -&gt; sequential switch inputs</li>
+<li>Integra Solum triggers -&gt; switch advance or select behavior</li>
+<li>switch output -&gt; quantizer -&gt; oscillator pitch</li>
+</ul>
+<p>or</p>
+<ul>
+<li>Multiple Integra Solum outputs -&gt; trigger different stages of a sequential switch</li>
+<li>Switch selects among several pitch sources:</li>
+<li>tuned voltages</li>
+<li>sequence rows</li>
+<li>offsets</li>
+<li>random sources</li>
+</ul>
+<h3>Why it works</h3>
+<p>Shift rotates which output occurs “first” in the cycle. That is effectively <strong>re-ordering event priority</strong> without repatching.</p>
+<h3>Musical result</h3>
+<ul>
+<li>same note set, new melodic order</li>
+<li>transposed-feeling phrase movement without changing pitches</li>
+<li>evolving ostinatos</li>
+</ul>
+<hr />
+<h2>5. Building call-and-response melodies with the two sections</h2>
+<p>Because both sides can run independently or from one normalized clock, they work well as a two-voice melodic system.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Same master clock to both sides</li>
+<li>Left side -&gt; quantized random melody voice A</li>
+<li>Right side -&gt; separate sequencer or transposed voice B</li>
+<li>Use different modes on each side</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Side A in <strong>N mode</strong></li>
+<li>Side B in <strong>/2N+1 mode</strong></li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>one voice behaves more regularly</li>
+<li>one voice behaves more oddly spaced</li>
+<li>together they create counterpoint-like phrasing</li>
+</ul>
+<p>You can also use reset strategically so both voices periodically realign.</p>
+<hr />
+<h1>Mode-by-mode melodic applications</h1>
+<h2>/2N mode</h2>
+<p>This is the classic clock divider behavior: powers of two.</p>
+<h3>Melodic use</h3>
+<ul>
+<li>phrase-length control</li>
+<li>occasional note changes</li>
+<li>stable bassline stepping</li>
+<li>long drones with periodic pitch motion</li>
+</ul>
+<h3>Good for</h3>
+<ul>
+<li>bass melodies</li>
+<li>root note changes</li>
+<li>transposition clocks</li>
+<li>structured arpeggio resets</li>
+</ul>
+<h3>Pair with</h3>
+<ul>
+<li>8-step sequencer</li>
+<li>quantizer</li>
+<li>precision adder</li>
+<li>clocked switch</li>
+</ul>
+<hr />
+<h2>N mode</h2>
+<p>The manual describes this as a <strong>sequence of eight</strong>.</p>
+<h3>Melodic use</h3>
+<p>This is useful when you want the eight outputs to behave more like a stepped progression through positions rather than just subdivisions.</p>
+<h3>Good for</h3>
+<ul>
+<li>scanning through note sources</li>
+<li>addressing a switch</li>
+<li>routing one step to one event</li>
+<li>pseudo-sequencing using trigger destinations</li>
+</ul>
+<h3>Example</h3>
+<p>Patch each output to trigger a different fixed voltage source or envelope/VCA path. This can create note-by-note melodic construction even without a normal sequencer.</p>
+<hr />
+<h2>/2N+1 mode</h2>
+<p>Odd-number divisions.</p>
+<h3>Melodic use</h3>
+<p>This is where phrases become less square and more interesting.</p>
+<h3>Good for</h3>
+<ul>
+<li>phrase lengths that take longer to repeat</li>
+<li>melodic syncopation</li>
+<li>cross-rhythm against 4/4</li>
+<li>evolving generative lines</li>
+</ul>
+<h3>Example</h3>
+<p>Use odd divisions to trigger pitch changes while even divisions trigger note articulation. The melody will “walk around” the barline before repeating.</p>
+<hr />
+<h1>Wack mode for melody</h1>
+<p>Wack mode turns Integra Solum into a strong generative melody source.</p>
+<h2>Wack /2N</h2>
+<blockquote>
+<p>probabilistic divide by two; 50% chance a trigger generates at each step</p>
+</blockquote>
+<h3>Musical use</h3>
+<p>Use this to:
+- sometimes advance a sequencer
+- sometimes resample pitch
+- create holes in a melodic line</p>
+<p>Result:
+- familiar timing density, but with variation</p>
+<hr />
+<h2>Wack N</h2>
+<blockquote>
+<p>a single random trigger is generated at each step</p>
+</blockquote>
+<h3>Musical use</h3>
+<p>This is excellent for:
+- selecting one note source among eight
+- triggering one of eight melodic events
+- animating a switch matrix</p>
+<p>Result:
+- one note/event at a time, but unpredictably chosen</p>
+<p>This can be incredibly musical if those eight destinations are:
+- eight fixed tuned voltages
+- eight transposition amounts
+- eight different sequencer rows
+- eight envelope-decay settings for note character</p>
+<hr />
+<h2>Wack /2N+1</h2>
+<blockquote>
+<p>all 8 outputs act independently, each with 50% chance of going high per input clock</p>
+</blockquote>
+<h3>Musical use</h3>
+<p>This is the most chaotic.</p>
+<p>Use it for:
+- dense generative note changes
+- layered melodic trigger clouds
+- probabilistic harmonies if multiple voices are involved</p>
+<p>Best when tamed by:
+- quantizers
+- slew
+- attenuators
+- logic
+- sample-and-hold</p>
+<hr />
+<h1>Concrete melodic patch recipes</h1>
+<h2>Patch 1: Generative lead melody</h2>
+<p><strong>Goal:</strong> a constantly changing but scale-locked lead line</p>
+<ul>
+<li>Master clock -&gt; Integra Solum clock</li>
+<li>Integra Solum output -&gt; sample-and-hold trigger</li>
+<li>Smooth random CV -&gt; sample-and-hold input</li>
+<li>sample-and-hold output -&gt; quantizer</li>
+<li>quantizer output -&gt; oscillator pitch</li>
+<li>Another Integra Solum output -&gt; envelope trigger</li>
+<li>Envelope -&gt; VCA CV</li>
+<li>Oscillator -&gt; VCA -&gt; mixer</li>
+</ul>
+<h3>Suggested settings</h3>
+<ul>
+<li>Use <strong>/2N+1</strong> or <strong>Wack /2N</strong></li>
+<li>Adjust <strong>Shift</strong> until the note-change timing feels musical</li>
+</ul>
+<h3>Result</h3>
+<p>A melodic line with recurring internal timing but non-obvious phrasing.</p>
+<hr />
+<h2>Patch 2: Bassline with accent structure</h2>
+<p><strong>Goal:</strong> stable bass notes with dynamic groove</p>
+<ul>
+<li>Integra Solum left side output -&gt; sequencer clock</li>
+<li>Sequencer CV -&gt; bass oscillator</li>
+<li>Integra Solum right side output -&gt; envelope trigger</li>
+<li>Another right-side output -&gt; accent envelope or filter ping</li>
+<li>Reset both sides from bar reset</li>
+</ul>
+<h3>Suggested settings</h3>
+<ul>
+<li>Left side: <strong>/2N</strong></li>
+<li>Right side: <strong>/2N+1</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Bass notes move predictably, but accents and articulation stay alive.</p>
+<hr />
+<h2>Patch 3: Eight-note melodic selector</h2>
+<p><strong>Goal:</strong> create melody from eight fixed notes</p>
+<ul>
+<li>Tune 8 voltage sources or use a switchable voltage bank</li>
+<li>Feed them into a sequential switch or addressed switch</li>
+<li>Integra Solum in <strong>N</strong> or <strong>Wack N</strong></li>
+<li>Outputs drive switch selection/advance or directly trigger note lanes</li>
+<li>Switch output -&gt; quantizer if needed -&gt; oscillator</li>
+</ul>
+<h3>Result</h3>
+<p>A melody made from a custom note palette, with re-ordering via Shift.</p>
+<hr />
+<h2>Patch 4: Two-voice canon / counterpoint</h2>
+<p><strong>Goal:</strong> related melodies from one clock</p>
+<ul>
+<li>One clock patched to one Clock input so it normals to both sides</li>
+<li>Side A output -&gt; sequencer A clock</li>
+<li>Side B output -&gt; sequencer B clock</li>
+<li>Each sequencer -&gt; separate oscillator</li>
+<li>Shared reset every 1 or 2 bars</li>
+</ul>
+<h3>Suggested settings</h3>
+<ul>
+<li>Side A: <strong>/2N</strong></li>
+<li>Side B: <strong>/2N+1</strong> or <strong>N</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Two voices sharing timing DNA but phrased differently.</p>
+<hr />
+<h2>Patch 5: Arpeggio reshuffler</h2>
+<p><strong>Goal:</strong> non-linear arpeggiation</p>
+<ul>
+<li>Arpeggiator or stepped CV source -&gt; quantizer</li>
+<li>Integra Solum output -&gt; sample-and-hold trigger or sequencer advance</li>
+<li>Use <strong>Shift</strong> to rotate trigger order</li>
+<li>Use another output to reset the arpeggiator/sequencer occasionally</li>
+</ul>
+<h3>Result</h3>
+<p>The same note pool produces different melodic contours depending on trigger ordering.</p>
+<hr />
+<h1>How to use reset musically</h1>
+<p>Reset is very important for melody because it controls phrase boundaries.</p>
+<p>Use reset to:
+- realign both divider sections at the start of a bar
+- force a repeating melodic form
+- create “long cycle, short resolution” structures
+- periodically bring generative patches back home</p>
+<p>Since the reset can be applied independently or normalized, you can choose whether both sides:
+- loop together
+- or drift and then reunite</p>
+<p>That makes the module very useful for <strong>structured generative melody</strong>.</p>
+<hr />
+<h1>Best companion modules for melodic work</h1>
+<p>Integra Solum pairs especially well with:</p>
+<ul>
+<li><strong>quantizers</strong></li>
+<li>to turn random/stepped CV into scales</li>
+<li><strong>sample-and-hold</strong></li>
+<li>for clocked note generation</li>
+<li><strong>sequential switches</strong></li>
+<li>to choose among note sources</li>
+<li><strong>CV sequencers</strong></li>
+<li>to create note order from triggers</li>
+<li><strong>precision adders</strong></li>
+<li>for transposition layers</li>
+<li><strong>logic modules</strong></li>
+<li>to combine trigger streams into more complex melodic clocks</li>
+<li><strong>envelopes and VCAs</strong></li>
+<li>for shaping articulation independently from pitch changes</li>
+<li><strong>clock multipliers/dividers</strong></li>
+<li>to create broader rhythmic ecosystems</li>
+</ul>
+<hr />
+<h1>Performance advice</h1>
+<h2>Use Shift as a melodic arranger</h2>
+<p>Instead of thinking of Shift as only “rotation,” think of it as:
+- phrase re-indexing
+- note-priority shifting
+- groove displacement</p>
+<p>A small shift can make the same patch sound like a different composition.</p>
+<h2>Use one side for note change, one side for note emphasis</h2>
+<p>This is one of the easiest ways to get musical, non-flat results.</p>
+<h2>Use Wack mode sparingly at first</h2>
+<p>For melody, Wack mode is best when there is also:
+- quantization
+- reset
+- some stable reference rhythm</p>
+<p>Otherwise it can become too diffuse.</p>
+<h2>Reset every few bars</h2>
+<p>This keeps generative patches from losing coherence.</p>
+<hr />
+<h1>Summary</h1>
+<p>Integra Solum is best understood as a <strong>melodic timing and structure generator</strong> rather than a direct melody source. It can create melodic components by:</p>
+<ul>
+<li>clocking sequencers at different divisions</li>
+<li>triggering sample-and-hold for quantized random notes</li>
+<li>selecting among note sources</li>
+<li>separating pitch-change timing from articulation timing</li>
+<li>creating two interrelated melodic voices</li>
+<li>adding controlled randomness with Wack mode</li>
+<li>using Shift to reorder phrase behavior</li>
+</ul>
+<p>If you combine it with a <strong>quantizer, sample-and-hold, sequencer, or sequential switch</strong>, it becomes a powerful tool for:
+- generative melodies
+- bassline variation
+- polymetric arpeggios
+- counterpoint-like dual voice motion
+- evolving melodic structures with strong rhythmic identity</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

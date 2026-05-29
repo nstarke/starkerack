@@ -1,0 +1,481 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Integra_Solum</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Integra Solum</h1>
+<ul>
+<li><a href="../../manuals/Integra Solum Manual - Noise Engineering Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.noiseengineering.us/is/">Manual / Source</a></p>
+<h1>Noise Engineering Integra Solum: modulation ideas for aggressive percussion, basslines, and dark atmospheres</h1>
+<p>Integra Solum is not a sound source by itself; it’s a <strong>dual rotating clock divider / trigger generator</strong>. That means its real power is in how it <strong>animates other modules</strong>: envelopes, LPGs, VCAs, switches, sequential switchers, filters, distortion, sample-and-holds, drum voices, and modulation sources.</p>
+<p>The module gives you:</p>
+<ul>
+<li><strong>2 independent divider sections</strong></li>
+<li><strong>8 trigger outputs per side</strong></li>
+<li><strong>independent or shared clocking/reset</strong></li>
+<li><strong>Shift/Offset rotation</strong> per side</li>
+<li><strong>3 main modes</strong></li>
+<li><code>/2N</code> = powers-of-two divisions</li>
+<li><code>N</code> = sequence of eight</li>
+<li><code>/2N+1</code> = odd divisions</li>
+<li><strong>Wack mode</strong> for randomized trigger behavior</li>
+</ul>
+<h2>Important behavior to exploit</h2>
+<p>From the manual:</p>
+<ul>
+<li>Clock responds to a rising edge around <strong>3.3 V</strong></li>
+<li>One clock can <strong>normal to both sides</strong></li>
+<li>Outputs update with about <strong>70 µs latency</strong></li>
+<li>Reset can be used to <strong>re-align patterns</strong></li>
+<li>Output triggers are about <strong>0–5 V</strong>, triggering around <strong>3.4 V</strong></li>
+<li><strong>Shift</strong> rotates which jack is considered first in the cycle</li>
+<li><strong>Wack mode</strong> changes the mode behavior:</li>
+<li><code>/2N</code> becomes <strong>probabilistic divide by two</strong></li>
+<li><code>N</code> becomes <strong>one random trigger per step</strong></li>
+<li><code>/2N+1</code> makes <strong>each output independently 50% likely</strong> on each clock</li>
+</ul>
+<p>That means this module excels at:
+- stable rhythmic scaffolding
+- rotating accents
+- bursty probabilistic events
+- clock-related modulation changes
+- controlled chaos</p>
+<hr />
+<h1>Core patching mindset</h1>
+<p>Think of Integra Solum as a <strong>rhythm brain</strong> for:
+- <strong>when a sound happens</strong>
+- <strong>when a modulation changes</strong>
+- <strong>when distortion amount jumps</strong>
+- <strong>when a filter snaps open</strong>
+- <strong>when a voice changes pitch</strong>
+- <strong>when a delay or reverb gets hit</strong></p>
+<p>For the styles you asked about, the magic is usually:</p>
+<ol>
+<li><strong>Use one side for note or drum timing</strong></li>
+<li><strong>Use the other side for modulation timing</strong></li>
+<li>Rotate one or both sides with <strong>Shift</strong></li>
+<li>Periodically <strong>Reset</strong> for phrase structure</li>
+<li>Use <strong>Wack mode</strong> selectively for controlled instability</li>
+</ol>
+<hr />
+<h1>1. Distorted percussive sounds</h1>
+<h2>A. Rotating industrial kick/snare pattern</h2>
+<h3>Patch</h3>
+<ul>
+<li>Master clock into one <strong>Clock</strong> input so both sides run</li>
+<li>Side A in <strong>N mode</strong></li>
+<li>Patch several outputs from Side A to:</li>
+<li>kick trigger</li>
+<li>snare trigger</li>
+<li>envelope trigger for a VCA’d noise burst</li>
+<li>envelope trigger for a click transient</li>
+<li>Side B in <code>/2N+1</code> or Wack <code>/2N+1</code></li>
+<li>Use Side B outputs to trigger:</li>
+<li>distortion CV changes</li>
+<li>filter envelope retriggers</li>
+<li>wavefolder strike or VCA pings</li>
+<li>a sequential switch selecting different percussion sources</li>
+</ul>
+<h3>Why it works</h3>
+<p>Side A gives a more structured pulse stream. Side B creates asymmetry and movement. If Side B controls timbre rather than note timing, your percussion sounds like it is being “re-synthesized” each hit.</p>
+<h3>Best modulation targets</h3>
+<ul>
+<li><strong>filter cutoff CV</strong></li>
+<li><strong>resonance CV</strong> in tiny amounts</li>
+<li><strong>distortion amount</strong></li>
+<li><strong>wavefolder symmetry/fold</strong></li>
+<li><strong>sample rate / bit depth</strong> on a crusher</li>
+<li><strong>decay time</strong> of percussion envelopes</li>
+<li><strong>switches</strong> that alternate between sine/noise/FM transients</li>
+</ul>
+<h3>Trick</h3>
+<p>Take one output from Side B and send it to a <strong>very fast decay envelope</strong> controlling VCA level into a distortion. Some hits slam harder, creating uneven clipped transients. That produces very alive, broken-machine percussion.</p>
+<hr />
+<h2>B. Broken DnB hats with probabilistic fill behavior</h2>
+<h3>Patch</h3>
+<ul>
+<li>Fast clock, e.g. 1/16 or faster</li>
+<li>Side A in <code>/2N</code></li>
+<li>Trigger closed hats from a faster division</li>
+<li>Trigger open hats from a slower division</li>
+<li>Put Side B in <strong>Wack <code>/2N</code></strong> or <strong>Wack <code>N</code></strong></li>
+<li>Use Side B random triggers for:</li>
+<li>extra hat accents</li>
+<li>burst generator trigger</li>
+<li>short noise stabs</li>
+<li>panning modulation envelope</li>
+</ul>
+<h3>Sound design tip</h3>
+<p>Send hats/noise through:
+- HPF
+- distortion
+- very short room reverb
+- compressor/saturator</p>
+<p>Now use Integra Solum to trigger <strong>different envelope shapes</strong> for the same noise source. That creates metallic, tearing top-end.</p>
+<h3>Trick</h3>
+<p>Patch two outputs to a <strong>logic OR</strong> or mixer before a hat trigger input. Then rotate <strong>Shift</strong>. You’ll get changing composite rhythms without repatching.</p>
+<hr />
+<h2>C. Kick with unstable “speaker-rip” attack</h2>
+<h3>Patch</h3>
+<ul>
+<li>Use a kick voice or sine oscillator with pitch envelope</li>
+<li>Side A triggers the kick</li>
+<li>Side B triggers:</li>
+<li>an extra click envelope</li>
+<li>a super-short FM envelope to the oscillator pitch or phase modulation input</li>
+<li>distortion wet/dry or drive CV</li>
+</ul>
+<h3>Best mode</h3>
+<ul>
+<li>Side A: <code>/2N</code> or <code>N</code></li>
+<li>Side B: Wack <code>N</code> or <code>/2N+1</code></li>
+</ul>
+<h3>Why it gets nasty</h3>
+<p>If the attack transient and distortion amount are triggered independently but clock-related, you get those <strong>ripped-cone</strong>, overdriven, neuro-style drum impacts.</p>
+<hr />
+<h1>2. Dubstep / drum &amp; bass bassline generation</h1>
+<p>Integra Solum won’t generate pitch directly, but it can create the <strong>event structure</strong> for bass modulation. That’s often more important than the actual oscillator.</p>
+<h2>A. Reece / neuro bass motion network</h2>
+<h3>Patch</h3>
+<p>Use one bass voice:
+- 2 detuned oscillators or a supersaw/reese source
+- lowpass or bandpass filter
+- distortion/wavefolder
+- VCA
+- maybe phaser/flanger</p>
+<h3>Timing architecture</h3>
+<ul>
+<li>Side A triggers your <strong>main amp envelope</strong></li>
+<li>Side B triggers changes to modulation destinations:</li>
+<li>sample-and-hold for filter cutoff</li>
+<li>sequential switch for different envelope depths</li>
+<li>burst or extra envelope for FM spikes</li>
+<li>logic module to combine triggers into growl phrases</li>
+</ul>
+<h3>Suggested mode setup</h3>
+<ul>
+<li>Side A in <code>N</code> for regular phrase stepping</li>
+<li>Side B in <code>/2N+1</code> for uneven modulation accents</li>
+<li>Occasionally use <strong>Wack <code>N</code></strong> for random “which step gets movement”</li>
+</ul>
+<h3>Great CV chains</h3>
+<p>Use Side B trigger outputs to trigger:
+- <strong>sample &amp; hold</strong> sampling random voltage for filter cutoff
+- <strong>track-and-hold</strong> on wavetable position
+- <strong>sequential switch</strong> choosing one of 4 modulation sources
+- <strong>envelope generator</strong> with varying decay amounts
+- <strong>clocked slew</strong> for stepped wobble contours</p>
+<h3>Result</h3>
+<p>You get bass notes that remain rhythmically anchored while their tone mutates every few steps: classic <strong>talking / snarling / neuro</strong> movement.</p>
+<hr />
+<h2>B. Half-time dubstep wobble with rotating accents</h2>
+<h3>Patch</h3>
+<ul>
+<li>Slow host clock synced to tempo</li>
+<li>Side A in <code>/2N</code></li>
+<li>Use one output for note gate / VCA envelope</li>
+<li>Use slower outputs for filter plucks and sub drops</li>
+<li>Side B in <code>N</code></li>
+<li>Patch different Side B outputs to:</li>
+<li>LFO reset</li>
+<li>envelope retrigger for filter</li>
+<li>accent VCA</li>
+<li>distortion boost</li>
+<li>delay send gate</li>
+</ul>
+<h3>Shift strategy</h3>
+<p>Turn <strong>Shift</strong> on Side B during playback. This rotates which trigger output occurs first, so the phrase changes but remains grid-locked.</p>
+<h3>Why this is especially good</h3>
+<p>Instead of modulating the bass continuously with one LFO, Integra Solum gives you <strong>discrete rhythmic gestures</strong>. That often sounds more modern and intentional in dubstep.</p>
+<h3>Patch extension</h3>
+<p>Use one trigger to <strong>reset the LFO phase</strong> on certain steps only. That creates “wobble that restarts” on selected hits, which is a strong bass design trick.</p>
+<hr />
+<h2>C. DnB rolling bass with ghost triggers</h2>
+<h3>Patch</h3>
+<ul>
+<li>Fast clock from your sequencer or Pam’s-style source</li>
+<li>Side A in <code>/2N+1</code></li>
+<li>Main bass envelope on one output</li>
+<li>Side B in <strong>Wack <code>/2N</code></strong></li>
+<li>Use Side B outputs for:</li>
+<li>short muting envelopes to chop the bass</li>
+<li>FM spikes</li>
+<li>notch filter modulation hits</li>
+<li>pitch envelope retriggers for zaps</li>
+</ul>
+<h3>Sound design stack</h3>
+<ul>
+<li>saw/reese source</li>
+<li>bandpass into distortion</li>
+<li>second filter after distortion</li>
+<li>sub sine layered underneath</li>
+<li>VCA controlled by Side A</li>
+<li>additional “interrupt” VCA controlled by Side B</li>
+</ul>
+<h3>Why it sounds DnB</h3>
+<p>The “interrupt” VCA creates those machine-gun internal articulations and ghost syncopations inside a sustained bass phrase.</p>
+<hr />
+<h2>D. Triggered modulation matrix for basses</h2>
+<p>This is one of the best uses of Integra Solum.</p>
+<h3>Patch</h3>
+<p>Take 4–6 outputs and assign each to trigger one event:
+- sample random cutoff
+- switch distortion type
+- retrigger transient envelope
+- open parallel bandpass
+- trigger short reverb send burst
+- switch oscillator sync on/off via VCA or logic</p>
+<p>Then:
+- Side A = rhythm skeleton
+- Side B = modulation decorations</p>
+<p>The bass becomes <strong>structurally repeatable but timbrally unstable</strong>, which is exactly where a lot of advanced bass music lives.</p>
+<hr />
+<h1>3. Haunting atmospheric pad sounds</h1>
+<p>Pads benefit less from many triggers directly hitting the audio path, and more from Integra Solum creating <strong>slow structural evolution</strong>.</p>
+<h2>A. Triggered pad animation</h2>
+<h3>Patch</h3>
+<p>Create a pad voice:
+- 1–3 oscillators or a drone source
+- long attack/release envelope or sustained gate
+- lowpass/bandpass filter
+- chorus/phaser/reverb/delay</p>
+<h3>Integra Solum role</h3>
+<p>Use very slow clocking.</p>
+<ul>
+<li>Side A in <code>/2N</code></li>
+<li>Trigger:</li>
+<li>long envelope retriggers</li>
+<li>filter contour pulses</li>
+<li>VCA swells</li>
+<li>reverb send accents</li>
+<li>Side B in <code>N</code> or Wack <code>N</code></li>
+<li>Trigger:</li>
+<li>sample-and-hold for subtle pitch drift</li>
+<li>random panning changes</li>
+<li>wavefolder amount changes</li>
+<li>switching among modulation routings</li>
+</ul>
+<h3>Why it works</h3>
+<p>Pads become eerie when their changes happen <strong>discretely but infrequently</strong>. Integra Solum can create those phrase-level shifts cleanly.</p>
+<hr />
+<h2>B. “Breathing haunted choir” patch</h2>
+<h3>Patch</h3>
+<ul>
+<li>Very slow master clock</li>
+<li>Side A in <code>N</code></li>
+<li>Use one output every few clocks to retrigger a <strong>long envelope</strong></li>
+<li>Use another output to briefly increase <strong>filter resonance</strong></li>
+<li>
+<p>Use another to send a burst to <strong>reverb freeze / shimmer / feedback VCA</strong></p>
+</li>
+<li>
+<p>Side B in Wack <code>N</code></p>
+</li>
+<li>Each random trigger step controls:</li>
+<li>slight FM amount burst</li>
+<li>sample-and-hold on wavetable position</li>
+<li>delayed sub-octave swell</li>
+<li>noise layer into the pad</li>
+</ul>
+<h3>Result</h3>
+<p>The pad seems to inhale, shift tone, and occasionally reveal ghost overtones.</p>
+<hr />
+<h2>C. Dark evolving drone with reset phrasing</h2>
+<h3>Patch</h3>
+<ul>
+<li>Clock Side A and Side B from the same slow clock</li>
+<li>Put one side in <code>/2N</code>, the other in <code>/2N+1</code></li>
+<li>Patch outputs to:</li>
+<li>two different envelope generators</li>
+<li>one switch selecting filter modes</li>
+<li>one strike to a resonator mixed beneath the pad</li>
+<li>one trigger to reverse or clock a delay/reverb modulation source if available</li>
+</ul>
+<p>Then periodically <strong>Reset</strong> both sides manually or from a sequencer phrase reset.</p>
+<h3>Why reset matters</h3>
+<p>Without reset, the interaction slowly drifts into long evolving forms. With periodic reset, the atmosphere gets a recurring “haunting motif.”</p>
+<hr />
+<h1>Best mode choices by goal</h1>
+<h2>For distorted percussion</h2>
+<ul>
+<li><strong><code>N</code></strong>: best for linear, stepped, rotating drum lines</li>
+<li><strong><code>/2N+1</code></strong>: best for asymmetrical industrial rhythms</li>
+<li><strong>Wack <code>/2N+1</code></strong>: best for explosive glitch percussion and metallic chaos</li>
+</ul>
+<h2>For basslines</h2>
+<ul>
+<li><strong><code>N</code></strong>: strong for phrase-locked modulation events</li>
+<li><strong><code>/2N</code></strong>: good for halftime and predictable wobble scaffolding</li>
+<li><strong>Wack <code>N</code></strong>: great for inserting random motion while keeping one event per step</li>
+<li><strong>Wack <code>/2N</code></strong>: good for unstable accents and ghost modulation</li>
+</ul>
+<h2>For pads</h2>
+<ul>
+<li><strong><code>/2N</code></strong> at slow clocks: best for broad structural breathing</li>
+<li><strong><code>N</code></strong>: useful for orderly long-form rotation</li>
+<li><strong>Wack <code>N</code></strong>: subtle haunted unpredictability</li>
+</ul>
+<hr />
+<h1>Shift/Offset performance techniques</h1>
+<p>The <strong>Shift</strong> control is one of the most musically important features.</p>
+<p>Because it rotates the outputs, you can repurpose the same patch into many patterns without moving cables.</p>
+<h2>Great uses of Shift</h2>
+<ul>
+<li>Rotate which drum gets the downbeat</li>
+<li>Move accents around a bass phrase</li>
+<li>Change which modulation occurs first in a cycle</li>
+<li>Reframe a pad’s sequence of tonal changes</li>
+</ul>
+<h2>Performance idea</h2>
+<p>Patch 4–8 outputs into a network of:
+- triggers to drums
+- modulation retriggers
+- switch advances
+- random sample clocks</p>
+<p>Then perform with only:
+- <strong>mode switch</strong>
+- <strong>Shift</strong>
+- <strong>Reset</strong></p>
+<p>This gives dramatic variation with low patch complexity.</p>
+<hr />
+<h1>Wack mode: where the weirdness lives</h1>
+<p>Wack mode is especially useful for the genres you mentioned.</p>
+<h2>Wack <code>/2N</code></h2>
+<ul>
+<li>Great for humanized or unstable accents</li>
+<li>Excellent for broken hats, ghost snares, crackle percussion</li>
+<li>Good for bass timbre changes that shouldn’t happen every cycle</li>
+</ul>
+<h2>Wack <code>N</code></h2>
+<ul>
+<li>One random trigger each step</li>
+<li>Great for selecting one of many timbral events</li>
+<li>Very useful for “one thing changes each beat” bass animation</li>
+<li>Excellent for haunted pad articulation</li>
+</ul>
+<h2>Wack <code>/2N+1</code></h2>
+<ul>
+<li>Wildest setting</li>
+<li>Dense trigger clouds</li>
+<li>Perfect for glitch percussion, FM burst clusters, reverb splashes, and chaotic control events</li>
+<li>Use with attenuated modulation or logic if it becomes too busy</li>
+</ul>
+<hr />
+<h1>Advanced patch ideas</h1>
+<h2>1. Distortion scene switching</h2>
+<p>Use Integra Solum to trigger a sequential switch that changes:
+- clean path
+- overdrive path
+- wavefold path
+- bitcrush path</p>
+<p>Same sound source, different processing per trigger = massive rhythmic timbral variation.</p>
+<h2>2. Triggered FM spikes</h2>
+<p>Take one output to a very short decay envelope controlling FM amount on an oscillator.<br />
+This is amazing for:
+- punchy kicks
+- tearing bass growls
+- ghostly pad overtones</p>
+<h2>3. Parallel percussion architecture</h2>
+<p>Use different outputs to hit:
+- body layer
+- click layer
+- noise layer
+- resonator layer</p>
+<p>Then mix them. As Shift rotates, the composite drum identity changes.</p>
+<h2>4. Bass articulation by selective muting</h2>
+<p>Instead of only triggering the bass on/off, use some Integra Solum outputs to trigger a second envelope that briefly <strong>ducks</strong> the bass with a VCA.<br />
+This creates internal syncopation and stutter-groove.</p>
+<h2>5. Reverb and delay as instruments</h2>
+<p>Trigger short envelopes that open VCAs feeding effect sends:
+- percussion trigger opens reverb send only on selected hits
+- bass trigger opens delay send only on phrase endings
+- pad trigger splashes shimmer reverb randomly</p>
+<p>This gives a very cinematic, haunted space.</p>
+<hr />
+<h1>Practical patch recipes</h1>
+<h2>Recipe 1: Neuro snare engine</h2>
+<ul>
+<li>Side A <code>N</code>: trigger snare body</li>
+<li>Another Side A out: trigger noise burst</li>
+<li>Side B Wack <code>/2N</code>: trigger distortion boost</li>
+<li>Another Side B out: trigger bandpass envelope</li>
+<li>Rotate Shift until groove locks</li>
+</ul>
+<p>Result: unstable tearing snare with changing transient aggression.</p>
+<h2>Recipe 2: Dubstep bass growl</h2>
+<ul>
+<li>Side A <code>/2N</code>: trigger amp envelope</li>
+<li>Side B <code>N</code>: trigger sample-and-hold for filter cutoff</li>
+<li>Another Side B out: trigger FM spike envelope</li>
+<li>Another Side B out: trigger delay-send accent</li>
+<li>Reset every 1 or 2 bars</li>
+</ul>
+<p>Result: consistent groove with mutating growl character.</p>
+<h2>Recipe 3: Rolling DnB reese</h2>
+<ul>
+<li>Fast clock</li>
+<li>Side A <code>/2N+1</code>: trigger VCA chopper</li>
+<li>Side B Wack <code>N</code>: one random modulation event per step</li>
+<li>Modulation events:</li>
+<li>notch sweep</li>
+<li>distortion gain jump</li>
+<li>phaser feedback rise</li>
+<li>transient pitch jab</li>
+</ul>
+<p>Result: rolling, complex, forward-moving bass texture.</p>
+<h2>Recipe 4: Haunted pad</h2>
+<ul>
+<li>Slow clock</li>
+<li>Side A <code>/2N</code>: long envelope retriggers</li>
+<li>Side B Wack <code>N</code>: random shimmer, filter swell, or pitch-drift resample</li>
+<li>Heavy reverb and stereo modulation</li>
+<li>Occasional manual Reset</li>
+</ul>
+<p>Result: drifting, ghostly, semi-repeating ambient texture.</p>
+<hr />
+<h1>Things to watch out for</h1>
+<ul>
+<li>Integra Solum outputs are <strong>triggers</strong>, not continuous CV shapes.</li>
+<li>For richer modulation, send triggers to:<ul>
+<li>envelopes</li>
+<li>function generators</li>
+<li>sample-and-holds</li>
+<li>switches</li>
+<li>logic</li>
+</ul>
+</li>
+<li>If a patch gets too chaotic, reduce complexity by:</li>
+<li>using only 2–4 outputs per side</li>
+<li>slowing the clock</li>
+<li>using reset every bar or phrase</li>
+<li>moving randomization to timbre, not note timing</li>
+<li>If your target module needs hotter gates, check whether 5 V triggers are sufficient. Usually they are in Eurorack.</li>
+</ul>
+<hr />
+<h1>Best companion modules for Integra Solum</h1>
+<p>It pairs especially well with:
+- <strong>envelope/function generators</strong>
+- <strong>VCAs</strong>
+- <strong>distortion/wavefolders</strong>
+- <strong>sample &amp; hold</strong>
+- <strong>sequential switches</strong>
+- <strong>logic modules</strong>
+- <strong>clock multipliers/dividers</strong>
+- <strong>filters with CV over resonance/cutoff</strong>
+- <strong>burst generators</strong>
+- <strong>effects with CV-able send or parameters</strong></p>
+<p>If you want, I can also give you:</p>
+<ol>
+<li>a <strong>10-patch performance cheat sheet</strong> for Integra Solum,  </li>
+<li>a <strong>genre-specific patch list</strong> for dubstep vs DnB vs dark ambient, or  </li>
+<li>a <strong>“what to patch each of the 16 outputs to” template</strong>.</li>
+</ol>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

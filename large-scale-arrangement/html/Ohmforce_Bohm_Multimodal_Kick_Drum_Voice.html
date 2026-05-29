@@ -1,0 +1,606 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ohmforce_Bohm_Multimodal_Kick_Drum_Voice</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Ohmforce — Bohm Multimodal Kick Drum Voice</h1>
+<ul>
+<li><a href="../../manuals/Bohm_Eurorack_Manual_Compiled.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://bohm-eurorack-manual.readthedocs.io/en/latest/index.html">Manual PDF / source</a></p>
+<h1>Using Bohm to build full-length songs in Eurorack</h1>
+<p>Bohm is not just a kick module in the usual “one trigger in, one thump out” sense. Based on the manual, it is really a <strong>stereo dual-voice kick system</strong> with <strong>multiple drum models</strong>, <strong>performance modes</strong>, and optional <strong>Groove</strong> and <strong>Performer</strong> expanders. That makes it useful as a <strong>structural anchor</strong> for a full track, not just a drum voice.</p>
+<p>In a Eurorack song-building context, that matters a lot: the kick often defines <strong>section changes, energy levels, drops, transitions, arrangement cues, and sidechain behavior</strong>. Bohm seems designed to help with exactly that.</p>
+<hr />
+<h2>What Bohm brings to song creation</h2>
+<p>From the manual, the important features for arrangement are:</p>
+<ul>
+<li><strong>Stereo dual-voice kick architecture</strong></li>
+<li><strong>Multiple kick “models”</strong> with different behavior</li>
+<li>Controls for:</li>
+<li>HIT</li>
+<li>VELOCITY</li>
+<li>LENGTH</li>
+<li>SUSTAIN</li>
+<li>ATTACK</li>
+<li>PITCH</li>
+<li>CURVE</li>
+<li>TRS DECAY</li>
+<li>COLOR</li>
+<li>FX</li>
+<li>TRS TONE</li>
+<li><strong>Groove expander</strong> for:</li>
+<li>secondary kick voice</li>
+<li>techno rumbles</li>
+<li>layered percussion</li>
+<li><strong>Performer expander</strong> for:</li>
+<li>DJ-style effects</li>
+<li>ducking</li>
+<li>stereo processing</li>
+<li><strong>Studio / Live Song / Jam modes</strong></li>
+</ul>
+<p>That means Bohm can cover several arrangement roles:</p>
+<ol>
+<li><strong>Main kick</strong></li>
+<li><strong>Layered low percussion</strong></li>
+<li><strong>Rumble / tail / reverb-style energy bed</strong></li>
+<li><strong>Stereo movement and transitions</strong></li>
+<li><strong>Section-by-section kick program changes</strong></li>
+<li><strong>Mix glue via ducking</strong></li>
+</ol>
+<p>For full songs, these are all crucial.</p>
+<hr />
+<h1>The key idea: use Bohm as the arrangement spine</h1>
+<p>A lot of modular patches fail to become songs because everything is equally active all the time. Bohm can help solve that if you think of it as the <strong>arrangement spine</strong>:</p>
+<ul>
+<li>Verse: lighter kick model, shorter decay</li>
+<li>Pre-chorus/build: more pitch curve, more sustain, more velocity movement</li>
+<li>Drop/chorus: heavier model, layered Groove rumble, wider Performer stereo processing</li>
+<li>Breakdown: remove main kick, keep only rumble or filtered tail</li>
+<li>Outro: simplify to dry kick with less sustain and less FX</li>
+</ul>
+<p>Instead of making one good kick patch and leaving it static for 8 minutes, use Bohm to create <strong>distinct sections</strong>.</p>
+<hr />
+<h1>Why Bohm is especially good for full songs</h1>
+<h2>1. Different models can act like different “drummers” or “machines”</h2>
+<p>The manual says each model represents a different drum-machine architecture, and the controls behave differently depending on the model.</p>
+<p>That is powerful for arrangement because changing models can create:</p>
+<ul>
+<li>classic verse/chorus contrast</li>
+<li>old-school vs modern section contrast</li>
+<li>tighter club section vs looser breakdown section</li>
+<li>dry intimate groove vs huge rave section</li>
+</ul>
+<p>In practical song terms:</p>
+<ul>
+<li><strong>Intro</strong>: select a simpler, tighter kick model</li>
+<li><strong>Main section</strong>: choose a punchier, fuller model</li>
+<li><strong>Breakdown</strong>: switch to a softer or boomier model with reduced attack</li>
+<li><strong>Final drop</strong>: return to the most aggressive model</li>
+</ul>
+<p>Even if the melodic content stays the same, these changes make the track feel like it evolves.</p>
+<hr />
+<h2>2. The secondary voice from Groove can become your arrangement engine</h2>
+<p>The Groove expander adds a <strong>secondary kick voice</strong> for <strong>techno rumbles and layered percussion</strong>.</p>
+<p>This is huge for full-length tracks because a second low-frequency rhythmic layer can function as:</p>
+<ul>
+<li>a <strong>rumble bus</strong></li>
+<li>an <strong>offbeat bass-percussion layer</strong></li>
+<li>a <strong>transitional texture</strong></li>
+<li>a <strong>chorus energy boost</strong></li>
+<li>a <strong>breakdown tail or ghost pulse</strong></li>
+</ul>
+<p>This means Bohm + Groove can support song sections like this:</p>
+<ul>
+<li><strong>Intro</strong>: dry main kick only</li>
+<li><strong>Verse</strong>: add subtle Groove layer every few bars</li>
+<li><strong>Build</strong>: automate Groove decay/tone/color for rising energy</li>
+<li><strong>Drop</strong>: full main kick + Groove rumble</li>
+<li><strong>Breakdown</strong>: mute main kick, keep only filtered Groove tail</li>
+<li><strong>Outro</strong>: remove Groove, leave dry kick again</li>
+</ul>
+<p>That alone is often enough to turn a loop into a track.</p>
+<hr />
+<h2>3. Performer gives you transitions, not just tone</h2>
+<p>Performer adds:</p>
+<ul>
+<li>DJ-style effects</li>
+<li>ducking</li>
+<li>stereo processing</li>
+</ul>
+<p>This is exactly the kind of thing many modular systems lack when trying to become “song-capable.”</p>
+<p>A great loop becomes a full track when you have:</p>
+<ul>
+<li>transitions</li>
+<li>tension/release</li>
+<li>mix-space management</li>
+<li>controlled widening/narrowing of sections</li>
+</ul>
+<p>Performer seems designed for that.</p>
+<p>You can use it for:</p>
+<ul>
+<li><strong>build-ups</strong> with widening or FX emphasis</li>
+<li><strong>drops</strong> by snapping from effected/wide to dry/centered</li>
+<li><strong>breakdowns</strong> with ducking reduced or transformed</li>
+<li><strong>returns</strong> where the kick regains authority in the mix</li>
+</ul>
+<hr />
+<h1>Practical full-song strategies with Bohm</h1>
+<h2>Strategy 1: Use Bohm programs as section presets</h2>
+<p>The manual mentions memory for <strong>system settings and up to 32 programs</strong>.</p>
+<p>That suggests one of the best song workflows:</p>
+<p>Create separate programs for sections such as:</p>
+<ol>
+<li>Intro</li>
+<li>Verse A</li>
+<li>Verse B</li>
+<li>Build</li>
+<li>Drop</li>
+<li>Breakdown</li>
+<li>Final drop</li>
+<li>Outro</li>
+</ol>
+<p>For each program, change things like:</p>
+<ul>
+<li>kick model</li>
+<li>pitch curve feel</li>
+<li>decay/sustain amount</li>
+<li>color/tone</li>
+<li>FX intensity</li>
+<li>Groove layer presence</li>
+<li>Performer stereo width or ducking behavior</li>
+</ul>
+<p>This is one of the cleanest ways to make a modular song feel intentional.</p>
+<h3>Example program map</h3>
+<ul>
+<li><strong>Program 1 – Intro</strong></li>
+<li>short kick</li>
+<li>low sustain</li>
+<li>minimal FX</li>
+<li><strong>Program 2 – Main groove</strong></li>
+<li>medium sustain</li>
+<li>stronger attack</li>
+<li>moderate color</li>
+<li><strong>Program 3 – Build</strong></li>
+<li>brighter tone</li>
+<li>longer tail</li>
+<li>increased stereo processing</li>
+<li><strong>Program 4 – Drop</strong></li>
+<li>full sustain</li>
+<li>heavier model</li>
+<li>Groove rumble active</li>
+<li><strong>Program 5 – Breakdown</strong></li>
+<li>softer attack</li>
+<li>reduced velocity</li>
+<li>tail-heavy or filtered layer</li>
+<li><strong>Program 6 – Final</strong></li>
+<li>strongest hit</li>
+<li>widest stereo</li>
+<li>aggressive ducking</li>
+</ul>
+<p>If Live Song Mode allows sequenced kick changes as the manual suggests, this becomes even more powerful.</p>
+<hr />
+<h2>Strategy 2: Build the song around density, not just note changes</h2>
+<p>In Eurorack, people often focus on changing pitch sequences to make a song. But often what works better is changing <strong>rhythmic density and envelope weight</strong>.</p>
+<p>Bohm’s controls support that directly:</p>
+<ul>
+<li><strong>LENGTH</strong> and <strong>SUSTAIN</strong>: control how much space the kick occupies</li>
+<li><strong>ATTACK</strong>: changes punch and front-edge definition</li>
+<li><strong>VELOCITY</strong>: changes groove and emphasis</li>
+<li><strong>PITCH</strong> and <strong>CURVE</strong>: shape perceived impact and style</li>
+<li><strong>COLOR / TRS TONE / FX</strong>: define mix placement and character</li>
+</ul>
+<p>For sections:</p>
+<ul>
+<li><strong>Sparse section</strong></li>
+<li>shorter length</li>
+<li>reduced sustain</li>
+<li>lower velocity variation</li>
+<li>less FX</li>
+<li><strong>Big section</strong></li>
+<li>stronger velocity</li>
+<li>longer sustain</li>
+<li>more pitch curve snap</li>
+<li>more color and stereo emphasis</li>
+</ul>
+<p>This creates arrangement contrast even if the trigger pattern stays mostly the same.</p>
+<hr />
+<h2>Strategy 3: Use Bohm to define the drop</h2>
+<p>A full song needs at least one moment where the energy clearly lands. Bohm can make that happen through controlled contrast.</p>
+<h3>Build technique</h3>
+<p>Over 8 or 16 bars:</p>
+<ul>
+<li>gradually increase:</li>
+<li>FX</li>
+<li>COLOR</li>
+<li>TRS TONE</li>
+<li>SUSTAIN</li>
+<li>optionally bring in Groove rumble</li>
+<li>narrow or remove main kick in the final bar</li>
+<li>then reintroduce full, dry, punchy kick at the drop</li>
+</ul>
+<p>This is a classic dance arrangement trick.</p>
+<h3>Modules to pair with</h3>
+<ul>
+<li><strong>Sequential switch</strong>: route different CV sources to Bohm section by section</li>
+<li><strong>CV recorder / automation module</strong>: record knob movements for build-ups</li>
+<li><strong>Clock divider / multiplier</strong>: trigger transitions every 8/16/32 bars</li>
+<li><strong>Mute module</strong>: drop the kick briefly before impact</li>
+<li><strong>Filter or EQ module</strong> after Bohm: automate low-pass/high-pass sweeps on the rumble layer</li>
+</ul>
+<hr />
+<h1>Combining Bohm with other modules for complete songs</h1>
+<h2>1. With sequencers</h2>
+<p>Bohm becomes much more song-capable when paired with a sequencer that can handle:</p>
+<ul>
+<li>pattern chaining</li>
+<li>probability</li>
+<li>mutes</li>
+<li>CV automation</li>
+<li>song mode</li>
+</ul>
+<p>Ideal pairings are modules that can:
+- send kick triggers
+- send accent/velocity CV if available in your system
+- send section-change CV or gates
+- sequence mutes for Groove and Performer behaviors</p>
+<h3>Use cases</h3>
+<ul>
+<li>Trigger Bohm with a main 4/4 pattern</li>
+<li>Use a second sequencer lane for occasional missing kicks in breakdowns</li>
+<li>Use another lane to modulate velocity or tone every 8 bars</li>
+<li>Chain patterns into a full arrangement</li>
+</ul>
+<p>If you have a sequencer with song mode, let the sequencer drive:
+- triggers
+- resets
+- section changes
+- mutes on bass, melody, and hats</p>
+<p>Then Bohm’s section programs define the drum architecture while the sequencer defines timing.</p>
+<hr />
+<h2>2. With bass voice modules</h2>
+<p>The kick and bass relationship is usually the main obstacle in turning a loop into a track. Bohm’s <strong>ducking</strong> via Performer is especially relevant here.</p>
+<h3>Good approach</h3>
+<p>Patch:
+- Bohm as your kick anchor
+- a separate bass oscillator/filter/VCA chain
+- use ducking from Performer or an external envelope follower/VCA setup</p>
+<p>Then design sections like:</p>
+<ul>
+<li><strong>Intro</strong>: kick only, no bass</li>
+<li><strong>Verse</strong>: bass enters on reduced notes</li>
+<li><strong>Drop</strong>: full bass with ducking</li>
+<li><strong>Breakdown</strong>: bass becomes more tonal, kick reduced</li>
+<li><strong>Final drop</strong>: both return, tightly ducked</li>
+</ul>
+<p>This lets the song breathe.</p>
+<h3>Bass modules that work well conceptually</h3>
+<p>Any:
+- mono synth voice
+- wavetable bass voice
+- FM bass voice
+- acid-style voice
+- resonant filter ping bass</p>
+<p>The key is not the module type, but <strong>arrangement discipline</strong>:
+don’t let bass play the same density in every section.</p>
+<hr />
+<h2>3. With melodic voices</h2>
+<p>Bohm helps songs because strong kick arrangement gives melody something to arrange against.</p>
+<p>Use Bohm section changes to cue melodic changes:</p>
+<ul>
+<li>shorter drier kick = melody can be busier</li>
+<li>heavier sustained kick = melody should simplify</li>
+<li>breakdown kick reduction = melody can expand harmonically</li>
+<li>drop kick return = melody should become hook-like and repetitive</li>
+</ul>
+<h3>Great patching concept</h3>
+<p>Use one master sequencer or clocked logic system to control:
+- Bohm triggers
+- bass sequence variation
+- melodic transpositions
+- mute states
+- effects sends</p>
+<p>That way the whole patch shifts together in sections.</p>
+<hr />
+<h2>4. With clock, logic, and utility modules</h2>
+<p>This is where songs really emerge.</p>
+<h3>Useful module types</h3>
+<ul>
+<li>clock divider</li>
+<li>logic</li>
+<li>Bernoulli gate / probability router</li>
+<li>sequential switch</li>
+<li>CV mixer / attenuator</li>
+<li>offset generator</li>
+<li>sample &amp; hold</li>
+<li>precision adder</li>
+<li>mute matrix</li>
+</ul>
+<h3>Why they matter</h3>
+<p>They let you change Bohm over longer timescales:
+- every bar
+- every 4 bars
+- every 8 bars
+- every 16 bars</p>
+<p>Instead of random moment-to-moment variation, you get <strong>structured variation</strong>.</p>
+<h3>Example</h3>
+<ul>
+<li>main trigger every quarter note</li>
+<li>every 8 bars, a sequential switch changes Bohm modulation source</li>
+<li>every 16 bars, a gate activates Groove layer</li>
+<li>every 32 bars, a programmed switch changes to another Bohm preset or mode</li>
+</ul>
+<p>That is song architecture.</p>
+<hr />
+<h2>5. With modulation sources</h2>
+<p>Bohm’s many parameters suggest it benefits from selective modulation rather than constant hands-on tweaking.</p>
+<h3>Best modulation targets for song progression</h3>
+<ul>
+<li><strong>VELOCITY</strong> for groove evolution</li>
+<li><strong>PITCH/CURVE</strong> for style shift between sections</li>
+<li><strong>SUSTAIN/LENGTH</strong> for energy scaling</li>
+<li><strong>COLOR / TONE</strong> for spectral growth in builds</li>
+<li><strong>FX</strong> for transitions</li>
+</ul>
+<h3>Best modulation source types</h3>
+<ul>
+<li>slow synced LFOs</li>
+<li>stepped CV sequencers</li>
+<li>envelope followers</li>
+<li>random with attenuation</li>
+<li>manual CV controller / fader bank</li>
+<li>pressure/touch controller for live arrangement</li>
+</ul>
+<h3>Important tip</h3>
+<p>Use <strong>small, section-aware modulation</strong>, not constant chaos.
+For songs, subtle and intentional beats interesting-but-stagnant every time.</p>
+<hr />
+<h1>Song forms Bohm can support well</h1>
+<h2>1. Techno arrangement</h2>
+<p>Bohm + Groove is especially suited for this.</p>
+<h3>Example form</h3>
+<ul>
+<li><strong>0:00–1:00 Intro</strong></li>
+<li>dry kick</li>
+<li>hats/noise slowly enter</li>
+<li>occasional Groove tail</li>
+<li><strong>1:00–2:00 Main groove</strong></li>
+<li>bass enters</li>
+<li>moderate kick sustain</li>
+<li><strong>2:00–2:30 Build</strong></li>
+<li>open hats</li>
+<li>more FX/stereo</li>
+<li>rising rumble density</li>
+<li><strong>2:30–3:30 Drop</strong></li>
+<li>full kick + rumble + bass</li>
+<li><strong>3:30–4:15 Breakdown</strong></li>
+<li>remove main kick</li>
+<li>leave rumble texture and melodic pad</li>
+<li><strong>4:15–5:30 Final drive</strong></li>
+<li>strongest Bohm model</li>
+<li>full ducking</li>
+<li>wider stereo</li>
+<li><strong>5:30–6:00 Outro</strong></li>
+<li>return to dry kick</li>
+<li>elements drop away</li>
+</ul>
+<p>Bohm’s model changes and dual-voice design map naturally to this.</p>
+<hr />
+<h2>2. Electro / IDM arrangement</h2>
+<p>Here the kick can vary more in attack, pitch curve, and timing emphasis.</p>
+<p>Use:
+- tighter, shorter models in detailed sections
+- more dramatic pitch curves in fills
+- selective Groove layering for odd phrase endings
+- Performer effects for glitch-style transitions</p>
+<p>Pair with:
+- trigger sequencer with pattern memory
+- probability logic
+- sample voice for percussion accents
+- melodic voice with phrase switching</p>
+<hr />
+<h2>3. Industrial / EBM arrangement</h2>
+<p>Bohm looks very suitable because <strong>color, tone, attack, and stereo processing</strong> can define aggression.</p>
+<p>Arrange through:
+- increasingly distorted or sharpened kick tone per section
+- secondary voice as pounding low-mid percussion
+- abrupt mute-based transitions
+- ducked synth stabs and bass sequences</p>
+<hr />
+<h2>4. Ambient / cinematic rhythm tracks</h2>
+<p>Even here Bohm can work if used more texturally.</p>
+<ul>
+<li>use softer attack</li>
+<li>longer sustain</li>
+<li>reduced trigger density</li>
+<li>Groove as sub movement rather than obvious rumble</li>
+<li>Performer stereo processing for width and space</li>
+</ul>
+<p>This supports a “slow-blooming” full track rather than club arrangement.</p>
+<hr />
+<h1>A practical patch recipe for making an actual full song</h1>
+<p>Here is a concrete modular setup.</p>
+<h2>Core modules</h2>
+<ul>
+<li><strong>Bohm</strong></li>
+<li><strong>Groove expander</strong></li>
+<li><strong>Performer expander</strong></li>
+<li>master clock</li>
+<li>sequencer with pattern chaining/song mode</li>
+<li>bass voice</li>
+<li>melodic voice</li>
+<li>hi-hat / percussion modules</li>
+<li>mixer with mutes</li>
+<li>filter or EQ</li>
+<li>reverb/delay</li>
+<li>utility modules for logic, attenuation, switching</li>
+</ul>
+<h2>Patch concept</h2>
+<h3>Bohm</h3>
+<ul>
+<li>main kick on quarter notes</li>
+<li>Groove voice layered only in selected sections</li>
+<li>Performer handling ducking/stereo/transition effects</li>
+</ul>
+<h3>Bass voice</h3>
+<ul>
+<li>sequence tied to section changes</li>
+<li>ducked against Bohm</li>
+<li>simpler in drops, more melodic in breakdowns</li>
+</ul>
+<h3>Melody voice</h3>
+<ul>
+<li>sparse hook in main sections</li>
+<li>expanded harmonic content in breakdown</li>
+</ul>
+<h3>Percussion</h3>
+<ul>
+<li>hats and claps increase through arrangement</li>
+<li>use mutes to sculpt sections</li>
+</ul>
+<h3>Utilities</h3>
+<ul>
+<li>sequential switch changes modulation destination every 16 bars</li>
+<li>clock divider activates fills every 8 bars</li>
+<li>manual fader controls FX amount and rumble intensity</li>
+</ul>
+<h2>Section plan</h2>
+<h3>Intro</h3>
+<ul>
+<li>Bohm only</li>
+<li>short decay</li>
+<li>no bass</li>
+<li>filtered hats slowly fade in</li>
+</ul>
+<h3>Verse / Groove A</h3>
+<ul>
+<li>bass enters</li>
+<li>moderate kick sustain</li>
+<li>melody absent or very minimal</li>
+</ul>
+<h3>Groove B</h3>
+<ul>
+<li>add clap/percussion</li>
+<li>increase velocity variation</li>
+<li>subtle Groove rumble</li>
+</ul>
+<h3>Build</h3>
+<ul>
+<li>raise FX and tone brightness</li>
+<li>automate longer tails</li>
+<li>reduce melodic content</li>
+<li>maybe mute kick for half a bar before drop</li>
+</ul>
+<h3>Drop</h3>
+<ul>
+<li>strongest Bohm program</li>
+<li>full bass</li>
+<li>full ducking</li>
+<li>wider stereo image</li>
+<li>main hook returns</li>
+</ul>
+<h3>Breakdown</h3>
+<ul>
+<li>remove main kick or shorten it drastically</li>
+<li>leave Groove tail or processed sub pulse</li>
+<li>melody/pads move to foreground</li>
+</ul>
+<h3>Final drop</h3>
+<ul>
+<li>biggest kick model</li>
+<li>highest contrast</li>
+<li>additional percussion layers</li>
+</ul>
+<h3>Outro</h3>
+<ul>
+<li>strip back to kick and one texture</li>
+<li>return to original dry sound</li>
+</ul>
+<p>This is a complete track architecture.</p>
+<hr />
+<h1>How to avoid the common “great loop, no song” trap</h1>
+<h2>Problem 1: everything sounds equally big all the time</h2>
+<p><strong>Fix with Bohm:</strong> reserve your longest sustain, biggest model, fullest stereo, and strongest rumble for only one or two major sections.</p>
+<h2>Problem 2: kick never changes across the track</h2>
+<p><strong>Fix with Bohm:</strong> create multiple programs with distinct attack, pitch curve, and color.</p>
+<h2>Problem 3: breakdowns feel empty instead of intentional</h2>
+<p><strong>Fix with Bohm:</strong> use Groove rumble or Performer stereo processing as a “ghost rhythm bed” when the main kick drops out.</p>
+<h2>Problem 4: bass and kick fight each other</h2>
+<p><strong>Fix with Bohm:</strong> use Performer ducking and reduce bass density in kick-heavy sections.</p>
+<h2>Problem 5: transitions are weak</h2>
+<p><strong>Fix with Bohm:</strong> automate FX, tone, stereo width, and temporary kick removal before returns.</p>
+<h2>Problem 6: modular variation is too random</h2>
+<p><strong>Fix with Bohm:</strong> use structured timing from dividers, switches, and programmed CV changes rather than free random modulation.</p>
+<hr />
+<h1>Best module pairings for Bohm in a song-focused rack</h1>
+<p>If your goal is full tracks, Bohm pairs especially well with:</p>
+<ul>
+<li><strong>Song-capable trigger/pitch sequencer</strong></li>
+<li><strong>Mute/performance mixer</strong></li>
+<li><strong>Bass voice with easy pattern recall</strong></li>
+<li><strong>Stereo processor / delay / reverb</strong></li>
+<li><strong>Clock dividers and phrase counters</strong></li>
+<li><strong>Sequential switches</strong></li>
+<li><strong>CV recorder or automation module</strong></li>
+<li><strong>Manual performance controller</strong></li>
+<li><strong>Filter/EQ for section filtering</strong></li>
+<li><strong>Looper or sampler</strong> for capturing and reintroducing material</li>
+</ul>
+<p>A very effective system is:</p>
+<ul>
+<li>Bohm = arrangement/drum spine</li>
+<li>sequencer = section timeline</li>
+<li>bass voice = weight</li>
+<li>melodic voice = hook</li>
+<li>mixer/mutes = entry/exit of parts</li>
+<li>utilities = phrase-level change logic</li>
+</ul>
+<p>That combination gets you from pattern-making to song-making.</p>
+<hr />
+<h1>Live use vs studio use</h1>
+<p>The manual mentions three modes:</p>
+<ul>
+<li><strong>Studio Mode</strong></li>
+<li><strong>Live Song Mode</strong></li>
+<li><strong>Jam Mode</strong></li>
+</ul>
+<h2>Studio Mode</h2>
+<p>Best for:
+- designing several section-specific kick programs
+- dialing exact envelope/tone differences
+- recording automation or multitrack takes</p>
+<h2>Live Song Mode</h2>
+<p>Best for:
+- chaining section changes
+- predictable arrangement progression
+- performance with deliberate transitions</p>
+<p>This is probably the mode to lean on if your issue is “I can improvise grooves but not finish songs.”</p>
+<h2>Jam Mode</h2>
+<p>Best for:
+- finding ideas
+- improvising transitions
+- discovering alternate section shapes</p>
+<p>A smart workflow is:
+1. Jam to discover interesting section contrasts
+2. Rebuild them as saved programs
+3. Arrange them in Live Song Mode
+4. Record the full performance</p>
+<hr />
+<h1>Final takeaway</h1>
+<p>Bohm can help create full-length songs because it appears to be more than a kick voice: it is a <strong>section-defining rhythmic architecture module</strong>.</p>
+<p>Its strongest song-making uses are:</p>
+<ul>
+<li>creating <strong>distinct kick identities for different sections</strong></li>
+<li>layering a <strong>secondary low percussion/rumble voice</strong> with Groove</li>
+<li>using <strong>ducking, stereo processing, and FX transitions</strong> through Performer</li>
+<li>saving <strong>multiple programs</strong> and treating them like arrangement scenes</li>
+<li>pairing it with sequencers, switches, mutes, bass voices, and utility modules to create <strong>bar-scale and phrase-scale evolution</strong></li>
+</ul>
+<p>If you use Bohm as the <strong>center of energy management</strong> in the patch, it can absolutely help turn a compelling loop into a full arrangement.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

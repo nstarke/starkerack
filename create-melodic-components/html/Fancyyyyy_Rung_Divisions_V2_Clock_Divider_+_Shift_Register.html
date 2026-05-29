@@ -1,0 +1,515 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Fancyyyyy_Rung_Divisions_V2_Clock_Divider_+_Shift_Register</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Fancyyyyy — Rung Divisions V2 Clock Divider + Shift Register</h1>
+<ul>
+<li><a href="../../manuals/RungDivisionsManual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Fancyyyyy Rung Divisions: creating melodic material</h1>
+<p>Rung Divisions is not a traditional pitch sequencer, but it is very good at generating <strong>structured melodic CV</strong> from clocks, logic, looping bit patterns, and feedback. In musical terms, it can act as:</p>
+<ul>
+<li>a <strong>melody source</strong></li>
+<li>a <strong>rhythmic melody generator</strong></li>
+<li>a <strong>counter-melody generator</strong></li>
+<li>a <strong>chaotic pitch modulator</strong></li>
+<li>a <strong>self-evolving stepped CV sequencer</strong></li>
+</ul>
+<p>Because its pitch-related outputs come from an 8-stage universal shift register, the module is especially strong for melodies that feel:</p>
+<ul>
+<li>looping but unstable</li>
+<li>rhythmic and pattern-based</li>
+<li>pseudo-random</li>
+<li>polyrhythmic</li>
+<li>contrapuntal</li>
+</ul>
+<hr />
+<h2>What in the module is useful for melody?</h2>
+<p>The manual describes three CV/gate outputs derived from the shift register:</p>
+<ul>
+<li><strong>1-Bit output</strong>: gate from the first bit, clock-width dependent</li>
+<li><strong>3-Bit output</strong>: DAC-encoded CV</li>
+<li><strong>8-Bit output</strong>: DAC-encoded CV</li>
+</ul>
+<p>Important melodic takeaway:</p>
+<ul>
+<li><strong>3-Bit and 8-Bit are the main pitch CV sources</strong></li>
+<li>they are <strong>reverse encoded</strong>, so they tend to move in <strong>contrary / contrapuntal motion</strong></li>
+<li>the <strong>Direction</strong>, <strong>Length</strong>, and <strong>Chance</strong> controls all reshape the melodic contour</li>
+<li><strong>Bus1 clocks the shift register</strong>, so your rhythmic routing directly affects the melody timing</li>
+</ul>
+<p>The outputs are listed as <strong>±5V CV</strong>, so in most systems you will usually want to:
+- attenuate,
+- offset,
+- and often <strong>quantize</strong>
+before sending to oscillator 1V/oct if you want clear tonal melodies.</p>
+<hr />
+<h2>Core musical idea</h2>
+<p>Rung Divisions works by combining:</p>
+<ol>
+<li>a <strong>clock divider</strong> (/2 to /8),</li>
+<li>two switchable <strong>bus outputs</strong> that OR-combine selected clock divisions,</li>
+<li>a <strong>universal shift register</strong> clocked from <strong>Bus1</strong>,</li>
+<li>a <strong>data input path</strong> influenced by:</li>
+<li>external Data input,</li>
+<li>XOR logic,</li>
+<li>loop point/length,</li>
+<li>direction,</li>
+<li>chance,</li>
+<li>and noise behavior.</li>
+</ol>
+<p>That means melody emerges from the interaction of:</p>
+<ul>
+<li><strong>when the register advances</strong> = Bus1 rhythm</li>
+<li><strong>what gets written into it</strong> = Data + Chance + XOR + loop logic</li>
+<li><strong>how long the phrase is</strong> = Length</li>
+<li><strong>which way it is read</strong> = Direction</li>
+<li><strong>whether it repeats or mutates</strong> = Chance</li>
+</ul>
+<p>This is ideal for melodic components that need to feel alive rather than fixed.</p>
+<hr />
+<h1>Best ways to use it for melody</h1>
+<h2>1. Use the 8-Bit output as the main pitch sequencer</h2>
+<p>This is the most straightforward melodic use.</p>
+<h3>Patch</h3>
+<ul>
+<li>Patch a master clock into <strong>Clock</strong></li>
+<li>Send one or more divisions to <strong>Bus1</strong></li>
+<li>Patch <strong>8-Bit out</strong> into:</li>
+<li>a <strong>quantizer</strong>, then</li>
+<li>oscillator <strong>1V/oct</strong></li>
+<li>Use Bus2 or one of the division outputs for envelope triggering</li>
+</ul>
+<h3>What you get</h3>
+<ul>
+<li>stepped CV phrases</li>
+<li>looping or semi-random melodies</li>
+<li>melodic patterns tied tightly to clock structure</li>
+</ul>
+<h3>Good settings</h3>
+<ul>
+<li><strong>Length = 4 to 8</strong> for phrase-like loops</li>
+<li><strong>Chance fully clockwise</strong> for locked looping motifs</li>
+<li><strong>Chance around middle</strong> for evolving phrases</li>
+<li><strong>Direction changes</strong> for phrase inversion/retrograde-like behavior</li>
+</ul>
+<h3>Why it works musically</h3>
+<p>The 8-Bit output has more gradation than the 3-Bit output, so it tends to produce richer melodic movement after quantization.</p>
+<hr />
+<h2>2. Use the 3-Bit output for simpler, motif-like melodies</h2>
+<p>The 3-Bit output gives a smaller set of voltage states, so it behaves more like a constrained melodic source.</p>
+<h3>Patch</h3>
+<ul>
+<li>Patch <strong>3-Bit out</strong> to a quantizer</li>
+<li>Quantizer to oscillator pitch</li>
+<li>Use <strong>Bus1</strong> or <strong>1-Bit</strong> to trigger envelopes</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>repetitive motifs</li>
+<li>hook-like patterns</li>
+<li>fewer pitch choices</li>
+<li>stronger rhythmic identity</li>
+</ul>
+<h3>Best use</h3>
+<p>This output is great for:
+- basslines
+- ostinatos
+- secondary melodies
+- transposition control for another sequencer</p>
+<p>Because it has fewer levels, it often sounds more intentional than the 8-Bit output even before heavy processing.</p>
+<hr />
+<h2>3. Use 3-Bit and 8-Bit together as melody + countermelody</h2>
+<p>The manual explicitly notes that the two DAC outputs are <strong>reverse encoded</strong> and produce <strong>contrapuntal motion</strong>.</p>
+<p>This is one of the strongest melodic uses of the module.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>8-Bit out</strong> → quantizer A → VCO A pitch</li>
+<li><strong>3-Bit out</strong> → quantizer B → VCO B pitch</li>
+<li>Use the same Bus trigger source for both envelopes, or separate rhythm sources</li>
+<li>Mix the two voices</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>one voice rises while the other tends to fall</li>
+<li>mirrored phrase motion</li>
+<li>natural counterpoint</li>
+<li>tightly related but non-identical lines</li>
+</ul>
+<h3>Tip</h3>
+<p>Quantize both to the same scale for tonal coherence, or to related scales/chord sets for more harmony.</p>
+<p>This is probably the most immediately “musical” patch in the manual’s ecosystem.</p>
+<hr />
+<h2>4. Let Bus1 define rhythm and melody simultaneously</h2>
+<p>Because <strong>Bus1 clocks the shift register</strong>, the same routing that creates rhythmic complexity also determines when new pitch values occur.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Select several divisions to <strong>Bus1</strong></li>
+<li>Example combinations:</li>
+<li>/2 + /5</li>
+<li>/3 + /4 + /5</li>
+<li>/2 + /7</li>
+<li>Use 8-Bit to oscillator pitch</li>
+<li>Use Bus1 or Bus2 to trigger envelopes</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>melody changes happen in polyrhythmic places</li>
+<li>phrases feel syncopated and organic</li>
+<li>pitch rhythm becomes compositionally linked to gate rhythm</li>
+</ul>
+<p>This is a big part of why Rung Divisions is musically interesting: rhythm and melody are not separate systems.</p>
+<hr />
+<h2>5. Use Bus2 or divider outs for articulation while 8-Bit handles pitch</h2>
+<p>The divider and bus outputs are useful not just as clocks but as <strong>articulation structure</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>8-Bit</strong> → quantizer → VCO pitch</li>
+<li><strong>Bus2</strong> → envelope trigger</li>
+<li>or individual divisions like <strong>/3</strong>, <strong>/5</strong>, <strong>/7</strong> → trigger different envelopes/events</li>
+</ul>
+<h3>Musical result</h3>
+<p>Even if the pitch CV is looping, changing which rhythmic stream opens the VCA makes the melody feel newly arranged.</p>
+<p>This can create:
+- accents
+- phrase segmentation
+- alternate note lengths
+- implied meter shifts</p>
+<hr />
+<h2>6. Use Chance as a melody mutation control</h2>
+<p>The manual says:</p>
+<ul>
+<li>fully clockwise: the pattern loops</li>
+<li>fully counterclockwise: data comes from XOR of front-panel data jack and loop point</li>
+<li>middle: noisy interference between data jack and loop point</li>
+</ul>
+<h3>Musical meaning</h3>
+<ul>
+<li><strong>fully clockwise</strong> = stable phrase / repeatable melody</li>
+<li><strong>mid</strong> = evolving melody with related mutations</li>
+<li><strong>counterclockwise</strong> = more unstable / generative sequence writing</li>
+</ul>
+<h3>Performance use</h3>
+<p>Treat <strong>Chance</strong> like a “composition density” control:
+- clockwise for chorus-like stable hooks
+- mid for verse variation
+- counterclockwise for breakdown / experimental movement</p>
+<h3>CV use</h3>
+<p>The manual states Chance has a CV input added to knob position, so you can:
+- modulate mutation over time
+- switch between looped and generative sections
+- use slow LFOs or envelopes to “open up” melodic uncertainty</p>
+<hr />
+<h2>7. Use Length as phrase length control</h2>
+<p>Length sets the loop point of the register and is CV-controllable.</p>
+<h3>Musical role</h3>
+<p>This is effectively your <strong>phrase length</strong> parameter.</p>
+<h3>Useful phrase lengths</h3>
+<ul>
+<li><strong>2–3</strong>: tight motifs</li>
+<li><strong>4</strong>: pop/electro style repeating units</li>
+<li><strong>5–7</strong>: asymmetrical evolving phrases</li>
+<li><strong>8</strong>: full register loop, longest repeating phrase</li>
+</ul>
+<h3>Advanced use</h3>
+<p>Modulating Length creates:
+- phrase truncation
+- phrase extension
+- shifting loop boundaries
+- rhythmic/melodic polymeter</p>
+<p>Because the manual notes that changing length can “lose” data beyond the current loop point, changing length can abruptly recast the melody. That is musically useful for fills, transitions, and variation.</p>
+<hr />
+<h2>8. Use Direction to reverse the phrase</h2>
+<p>The universal shift register can shift left or right, and the manual emphasizes that the <strong>Direction</strong> control and gate input reverse the read direction.</p>
+<h3>Musical role</h3>
+<p>This acts like:
+- retrograde playback
+- phrase inversion in feel
+- mirrored sequence movement</p>
+<h3>Patch</h3>
+<ul>
+<li>Send periodic triggers or gates to <strong>Direction CV input</strong></li>
+<li>Use a slow divider like /8, or manual button presses</li>
+</ul>
+<h3>Result</h3>
+<p>A melody can alternate between:
+- forward movement
+- backward movement
+- mirrored contour</p>
+<p>Combined with the reverse relationship between 3-Bit and 8-Bit outputs, this can create very rich two-voice writing.</p>
+<hr />
+<h2>9. Write melodies manually with the data write switch</h2>
+<p>The manual suggests using the write switch to overwrite high or low data into the shift register.</p>
+<h3>Musical use</h3>
+<p>At slow clocks, this becomes a way to <strong>perform the melody content by hand</strong>.</p>
+<h3>Patch</h3>
+<ul>
+<li>Slow clock into Clock</li>
+<li>Send clock to Bus1</li>
+<li>Set Length to 8</li>
+<li>Chance fully clockwise to loop</li>
+<li>Use the write switch to insert bits</li>
+<li>Monitor 3-Bit or 8-Bit through a quantizer</li>
+</ul>
+<h3>Result</h3>
+<p>You can manually “compose” a bit pattern and let it cycle as a melody.</p>
+<p>This is one of the best ways to get a repeatable melodic line that still feels unusual.</p>
+<hr />
+<h2>10. Use external Data input as melodic influence</h2>
+<p>Clock and Data inputs accept signals crossing 1V. The Data input is XOR-processed, which means it destabilizes and reshapes the pattern.</p>
+<h3>Good data sources for melody generation</h3>
+<ul>
+<li>noise source</li>
+<li>square wave LFO</li>
+<li>another sequencer gate row</li>
+<li>keyboard gate</li>
+<li>divider outputs from Rung Divisions itself</li>
+<li>Euclidean rhythm gate stream</li>
+<li>comparator output from another CV source</li>
+</ul>
+<h3>Musical effect</h3>
+<p>The Data input doesn’t directly input pitch; instead it influences the binary pattern that becomes pitch. That means external data acts like a <strong>melody grammar source</strong> rather than a note source.</p>
+<h3>Example</h3>
+<ul>
+<li>Patch <strong>/5</strong> or <strong>/7</strong> into Data</li>
+<li>Use <strong>/2 + /3</strong> on Bus1</li>
+<li>Send 8-Bit to quantizer</li>
+</ul>
+<p>This often yields strongly patterned but non-obvious melodic loops.</p>
+<hr />
+<h1>Strong melodic patch recipes</h1>
+<h2>Patch 1: Quantized generative lead</h2>
+<h3>Patch</h3>
+<ul>
+<li>Master clock → Clock</li>
+<li>Send <strong>/2 and /5</strong> to <strong>Bus1</strong></li>
+<li>Send <strong>/3</strong> to <strong>Bus2</strong></li>
+<li>8-Bit → quantizer → lead oscillator 1V/oct</li>
+<li>Bus2 → envelope → VCA</li>
+<li>Noise or /7 → Data input</li>
+<li>Chance around 1–2 o’clock</li>
+<li>Length 5 or 6</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>polyrhythmic note changes</li>
+<li>repeating but mutating lead line</li>
+<li>strong melodic identity with subtle variation</li>
+</ul>
+<hr />
+<h2>Patch 2: Bassline + countermelody</h2>
+<h3>Patch</h3>
+<ul>
+<li>Clock → Clock input</li>
+<li><strong>/2</strong> to Bus1</li>
+<li><strong>/3 + /5</strong> to Bus2</li>
+<li>3-Bit → quantizer → bass oscillator</li>
+<li>8-Bit → quantizer → upper voice oscillator</li>
+<li>Bus1 triggers bass envelope</li>
+<li>Bus2 triggers upper voice envelope</li>
+<li>Chance fully clockwise for locked loop</li>
+<li>Flip direction occasionally</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>stable bass ostinato</li>
+<li>related upper melody</li>
+<li>counterpoint from the reverse-encoded outputs</li>
+</ul>
+<hr />
+<h2>Patch 3: Self-evolving tonal sequence</h2>
+<h3>Patch</h3>
+<ul>
+<li>Clock → Clock</li>
+<li><strong>/2 + /7</strong> to Bus1</li>
+<li>Data input from module Noise or an external gate stream</li>
+<li>8-Bit → precision attenuator → quantizer → VCO</li>
+<li>Slow LFO → Chance CV</li>
+<li>Another slow CV → Length CV</li>
+<li>Sparse trigger source → Direction input</li>
+<li>Bus2 or /4 → envelope trigger</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>melody slowly changes phrase length, note contour, and direction</li>
+<li>useful for ambient, generative, and Berlin-school style movement</li>
+</ul>
+<hr />
+<h2>Patch 4: Manual motif writer</h2>
+<h3>Patch</h3>
+<ul>
+<li>Slow clock into Clock</li>
+<li>Clock switch/divider routing so a simple clock reaches Bus1</li>
+<li>Length = 8</li>
+<li>Chance = fully clockwise</li>
+<li>3-Bit or 8-Bit → quantizer → VCO</li>
+<li>Use write switch manually while listening</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>hand-programmed but unusual motifs</li>
+<li>easy to create loops, then reverse them with Direction</li>
+<li>very performable</li>
+</ul>
+<hr />
+<h2>Patch 5: Chaotic melody source</h2>
+<p>The manual specifically suggests feeding 3-Bit or 8-Bit back to the clock source CV input to generate chaos.</p>
+<h3>Patch</h3>
+<ul>
+<li>VCO/LFO square output → Clock</li>
+<li>8-Bit → attenuator → clock oscillator FM/CV input</li>
+<li>8-Bit also → quantizer → melodic oscillator</li>
+<li>Chance around middle</li>
+<li>Length 6–8</li>
+<li>Optional: Data from /5 or noise</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>unstable but musically correlated melody generation</li>
+<li>wandering pitch sequences</li>
+<li>strange attractor behavior</li>
+<li>good for IDM, experimental techno, abstract ambient</li>
+</ul>
+<p>The manual notes:
+- <strong>3-Bit</strong> feedback is more burst-like
+- <strong>8-Bit</strong> feedback is more random but still latches to attractors</p>
+<p>For melody, 8-Bit tends to be richer; 3-Bit tends to be more motif-ish and rhythmic.</p>
+<hr />
+<h1>How to make the output more musical</h1>
+<h2>1. Quantize it</h2>
+<p>This is the most important melodic companion module.</p>
+<p>Because the CV outputs are ±5V and derived from binary DACs, quantizing will:
+- lock notes to scales
+- turn abstract stepped voltages into usable melodies
+- reveal the phrase structure</p>
+<p>Good scale choices:
+- minor pentatonic for instant coherence
+- dorian/aeolian for moody looping phrases
+- whole tone or octatonic for more alien sequences</p>
+<hr />
+<h2>2. Attenuate before quantizing</h2>
+<p>The full ±5V range may be too wide for practical melodic use.</p>
+<p>Attenuation helps:
+- restrict register
+- emphasize local contour
+- keep the sequence in a singable range</p>
+<p>A little offset can also center the melody around a useful pitch area.</p>
+<hr />
+<h2>3. Use separate triggers for note articulation</h2>
+<p>Pitch changes do not have to equal note triggers.</p>
+<p>If you use:
+- 8-Bit for pitch
+- Bus2 or a specific divider for envelope trigger</p>
+<p>then you can create:
+- held notes over moving pitch CV
+- repeated articulations on same note
+- syncopated melodic phrasing</p>
+<p>This is where the module becomes compositionally deep.</p>
+<hr />
+<h2>4. Exploit prime divisions</h2>
+<p>The manual points out that prime divisions like <strong>/5</strong> and <strong>/7</strong> create interference-like shifting against non-prime divisions.</p>
+<p>For melody, using primes in Bus1 produces:
+- longer non-repeating apparent cycles
+- asymmetrical phrasing
+- evolving accents</p>
+<p>Very useful if you want melodies that avoid sounding like a standard 16-step sequencer.</p>
+<hr />
+<h2>5. Use Direction and Length as macro-performance controls</h2>
+<p>If performing live, these are the two strongest “musical form” controls:</p>
+<ul>
+<li><strong>Direction</strong> = phrase reversal / mirrored motion</li>
+<li><strong>Length</strong> = phrase shortening / extension</li>
+</ul>
+<p>Together they can transform the same bit content into multiple melodic identities.</p>
+<hr />
+<h1>If this is your only module plus common companions</h1>
+<p>Rung Divisions pairs especially well with:</p>
+<ul>
+<li><strong>quantizer</strong></li>
+<li><strong>oscillator</strong></li>
+<li><strong>envelope</strong></li>
+<li><strong>VCA</strong></li>
+<li><strong>clock source</strong></li>
+<li><strong>attenuverter / offset</strong></li>
+<li><strong>filter</strong></li>
+<li><strong>sample and hold</strong></li>
+<li><strong>sequential switch</strong></li>
+<li><strong>logic modules</strong></li>
+</ul>
+<h3>Most useful companion for melody</h3>
+<p>A <strong>quantizer</strong> is by far the most important.</p>
+<p>Without one, Rung Divisions is still musically interesting, but it will often feel more like abstract control voltage or noise composition than tonal melody.</p>
+<hr />
+<h1>Best musical roles in a patch</h1>
+<h2>Bass</h2>
+<p>Use:
+- 3-Bit output
+- short Length
+- Chance high
+- low clock rate
+- quantizer</p>
+<p>This gives a stable but lively bass ostinato.</p>
+<h2>Lead</h2>
+<p>Use:
+- 8-Bit
+- moderate mutation via Chance
+- direction flips
+- quantizer
+- expressive envelope triggering from Bus2</p>
+<h2>Counterpoint</h2>
+<p>Use:
+- 3-Bit and 8-Bit simultaneously
+- same scale
+- different octave ranges</p>
+<h2>Generative ambient</h2>
+<p>Use:
+- slow clocks
+- variable Length CV
+- Chance CV modulation
+- sparse Direction triggering
+- long envelopes</p>
+<h2>Chaotic experimental melody</h2>
+<p>Use:
+- feedback from 8-Bit to clock oscillator CV
+- noise/data injection
+- prime bus combinations</p>
+<hr />
+<h1>Practical summary</h1>
+<p>Rung Divisions creates melodic components by turning <strong>clocked binary patterns</strong> into <strong>stepped CV</strong>. Its most musically powerful features are:</p>
+<ul>
+<li><strong>8-Bit output</strong> for full melodic sequencing</li>
+<li><strong>3-Bit output</strong> for simpler motifs and basslines</li>
+<li><strong>reverse encoding</strong> for built-in countermelody behavior</li>
+<li><strong>Bus1 clocking</strong> for rhythm-linked melody generation</li>
+<li><strong>Chance</strong> for mutation vs looping</li>
+<li><strong>Length</strong> for phrase length</li>
+<li><strong>Direction</strong> for reversal and mirrored movement</li>
+<li><strong>Data input/XOR</strong> for external influence and instability</li>
+<li><strong>feedback</strong> for chaotic melody generation</li>
+</ul>
+<p>If you want tonal results, add a quantizer. If you want evolving musical phrases instead of fixed step sequencing, this module is excellent.</p>
+<hr />
+<h2>Recommended starting melodic patch</h2>
+<p>If you only try one patch:</p>
+<ul>
+<li>Clock → Clock</li>
+<li>/2 + /5 → Bus1</li>
+<li>/3 → Bus2</li>
+<li>Noise or /7 → Data</li>
+<li>8-Bit → attenuator → quantizer → VCO pitch</li>
+<li>Bus2 → envelope → VCA</li>
+<li>Length = 5</li>
+<li>Chance = around noon to 2 o’clock</li>
+<li>Occasionally trigger Direction</li>
+</ul>
+<p>That patch will usually give you an immediately useful evolving melody voice.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

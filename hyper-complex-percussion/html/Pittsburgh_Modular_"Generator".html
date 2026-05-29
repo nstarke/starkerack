@@ -1,0 +1,512 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Pittsburgh_Modular_&quot;Generator&quot;</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Pittsburgh Modular — "Generator"</h1>
+<ul>
+<li><a href="../../manuals/Generator - Pittsburgh Modular Synthesizers.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://pittsburghmodular.com/generator">Manual PDF / source</a></p>
+<h1>Pittsburgh Modular Generator for dense, hyper-complex percussion</h1>
+<p>The <strong>Pittsburgh Modular Generator</strong> is basically a <strong>dual analog FM percussion voice / chaotic modulation source</strong>. Based on the manual, it is especially strong for:</p>
+<ul>
+<li><strong>FM-based drum synthesis</strong></li>
+<li><strong>Metallic percussion</strong></li>
+<li><strong>Clicks, zaps, knocks, toms, woodblock-like tones</strong></li>
+<li><strong>Nintendo / zipper / atonal digital-ish artifacts</strong></li>
+<li><strong>Self-patched rhythmic modulation</strong></li>
+<li><strong>Layered pseudo-polyrhythmic motion</strong> from interacting oscillator rates</li>
+</ul>
+<p>It is <strong>not a precision melodic oscillator</strong>:
+- it uses <strong>exponential CV</strong>
+- it <strong>does not track 1V/oct</strong>
+- it is <strong>not temperature compensated</strong></p>
+<p>That makes it less ideal for strict tonal sequencing, but <strong>excellent for percussion, texture, unstable FM hits, and rhythmically animated drum voices</strong>.</p>
+<hr />
+<h2>What the module gives you for percussion</h2>
+<p>From the manual:</p>
+<ul>
+<li><strong>2 oscillators</strong></li>
+<li><strong>Oscillator 2 is internally FM’d by Generator 1 Index Out</strong></li>
+<li><strong>External FM input</strong> can be routed to either oscillator</li>
+<li><strong>Shape control</strong> continuously shifts both oscillators between triangle/square relationships</li>
+<li><strong>Index section</strong> is effectively a <strong>VCA on Generator 1 output</strong></li>
+<li><strong>Index CV</strong> allows envelopes to dynamically control the amount of Generator 1 sent to:</li>
+<li>the <strong>Index OUT</strong></li>
+<li>and therefore the <strong>internal FM amount to Oscillator 2</strong></li>
+</ul>
+<p>That means Generator is perfect for <strong>transient-controlled FM percussion</strong>, where the attack of an envelope changes not just loudness but <strong>spectral violence</strong>.</p>
+<hr />
+<h1>Core concept for complex percussion</h1>
+<p>The key to using Generator for dense rhythm is:</p>
+<ol>
+<li>Treat <strong>Generator 2</strong> as the <strong>main struck body / resonant drum tone</strong></li>
+<li>Treat <strong>Generator 1</strong> as the <strong>modulator / transient exciter</strong></li>
+<li>Use <strong>Index CV</strong> with envelopes, gates, bursts, euclidean triggers, or clock divisions to create <strong>different FM bursts per hit</strong></li>
+<li>Use the <strong>External FM input</strong> for a second modulation layer from:</li>
+<li>another oscillator</li>
+<li>clocked stepped CV</li>
+<li>a random source</li>
+<li>a trigger/gate stream</li>
+<li>even Generator 2 itself</li>
+</ol>
+<p>This gives you <strong>nested rhythmic behavior</strong>:
+- amplitude contour from your VCA/envelope
+- FM contour from Index CV
+- waveform contour from Shape modulation
+- cross-rhythm from external modulation routing</p>
+<hr />
+<h1>Important behavior to exploit</h1>
+<h2>1. Oscillator 2 is the “main percussion body”</h2>
+<p>Because <strong>Generator 2 is internally FM’d by Generator 1 Index Out</strong>, it naturally becomes the oscillator that gets the most animated timbral strikes.</p>
+<p>Use Generator 2 for:
+- main audio output
+- metallic hits
+- tom/drum cores
+- unstable bell-ish percussion
+- aggressive click-noise impacts</p>
+<h2>2. Generator 1 is both a sound source and FM driver</h2>
+<p>Generator 1 can do two jobs:
+- be heard directly via output <strong>1</strong>
+- act as the internal FM source via the <strong>Index</strong> section</p>
+<p>This is very useful for layered percussion:
+- <strong>Out 2</strong> = body
+- <strong>Index Out</strong> = transient layer / brighter attack layer / second voice
+- <strong>Out 1</strong> = pre-VCA raw modulator tone for further processing</p>
+<h2>3. The Index knob is inverted in function</h2>
+<p>The manual states:</p>
+<ul>
+<li><strong>Full left = 100% gain</strong></li>
+<li><strong>Full right = 0% gain</strong></li>
+</ul>
+<p>And:
+- turn <strong>full right</strong> to get the <strong>full effect of CV input</strong>
+- turn <strong>full left</strong> to force <strong>100% regardless of CV</strong></p>
+<p>This is crucial.</p>
+<h3>Practical meaning:</h3>
+<ul>
+<li>If you want <strong>dynamic FM per trigger</strong>, set the <strong>Index knob mostly right</strong></li>
+<li>Then patch an <strong>envelope or trigger-derived CV</strong> into <strong>Index CV</strong></li>
+<li>That way each hit can have different FM intensity</li>
+</ul>
+<p>This is one of the best features for percussion because you can make every transient uniquely sharp.</p>
+<hr />
+<h1>Best patch roles in a rhythm system</h1>
+<h2>As a dedicated percussion voice</h2>
+<p>Use it as:
+- kick-ish FM thud
+- tom
+- metallic snare layer
+- glitch percussion
+- industrial hi-hat / clang source
+- zappy fill voice</p>
+<h2>As a modulation engine for other percussion</h2>
+<p>At low or mid rates it can provide:
+- asymmetric LFO-like modulation
+- audio-rate FM bursts
+- unstable waveform modulation
+- rhythmic audio-rate CV for filter pings, LPGs, VCAs, or wavefolders</p>
+<h2>As a dual-layer percussion generator</h2>
+<p>Because you have:
+- output <strong>1</strong>
+- output <strong>2</strong>
+- <strong>Index Out</strong></p>
+<p>you can derive multiple related percussion layers from one module.</p>
+<hr />
+<h1>Patch strategies for dense rhythmic music</h1>
+<h2>1. Classic FM drum patch</h2>
+<p>This follows the spirit of the manual’s patch example.</p>
+<h3>Patch:</h3>
+<ul>
+<li>Take <strong>Output 2</strong> as your main audio</li>
+<li>Patch an <strong>envelope</strong> into <strong>Index CV</strong></li>
+<li>Set <strong>Gen 1</strong> to <strong>low</strong></li>
+<li>Set <strong>Gen 2</strong> to <strong>mid</strong></li>
+<li>Tune fine frequency knobs by ear</li>
+<li>Run <strong>Output 2</strong> into a VCA or LPG</li>
+<li>Trigger the envelope from your rhythm sequencer</li>
+</ul>
+<h3>Result:</h3>
+<ul>
+<li>short envelope = clicky/zappy</li>
+<li>medium decay = tom/conga/woodblock</li>
+<li>higher FM amount = metallic/industrial</li>
+<li>lower FM amount = more drum-like</li>
+</ul>
+<h3>Make it denser:</h3>
+<p>Use different trigger streams for:
+- the amplitude envelope
+- the Index CV envelope</p>
+<p>For example:
+- VCA envelope on a 5-step loop
+- Index envelope on a 7-step loop</p>
+<p>This creates <strong>timbral polyrhythm</strong>, even if the audible hits occur in a simpler meter.</p>
+<hr />
+<h2>2. Polyrhythmic transient vs body patch</h2>
+<p>Use separate rhythmic structures for:
+- <strong>when the sound happens</strong>
+- <strong>when the FM spikes happen</strong></p>
+<h3>Patch:</h3>
+<ul>
+<li>Main audio: <strong>Output 2</strong></li>
+<li>Envelope A to VCA: triggered every quarter-note subdivision in one meter</li>
+<li>Envelope B to <strong>Index CV</strong>: triggered by a different clock division / euclidean pattern</li>
+</ul>
+<h3>Example:</h3>
+<ul>
+<li>VCA opens on a 4-step repeating pattern</li>
+<li>Index CV fires on a 5-step euclidean pattern</li>
+</ul>
+<h3>Result:</h3>
+<p>Some hits are:
+- clean
+- some are metallic
+- some are explosive
+- some are dull</p>
+<p>This creates the feeling of <strong>complex percussion phrasing without needing a separate voice for each variation</strong>.</p>
+<hr />
+<h2>3. Audio-rate self-patched chaos percussion</h2>
+<p>The manual explicitly gives an external FM path with attenuverter and destination switch.</p>
+<h3>Patch:</h3>
+<ul>
+<li>Patch <strong>Output 2</strong> into <strong>External Input</strong></li>
+<li>Set destination switch to <strong>Generator 1</strong></li>
+<li>Listen to <strong>Index Out</strong> or <strong>Output 2</strong></li>
+<li>Modulate <strong>Index CV</strong> with envelopes</li>
+<li>Adjust the external FM attenuverter around center</li>
+</ul>
+<h3>Why it works:</h3>
+<p>Now Osc 2 modulates Osc 1 externally, while Osc 1 internally influences Osc 2 through the Index path.</p>
+<p>This creates:
+- recursive FM interaction
+- unstable attack spectra
+- pseudo-noise bursts
+- very sharp mechanical percussion</p>
+<h3>Best for:</h3>
+<ul>
+<li>glitch snares</li>
+<li>bit-crushed-sounding zaps</li>
+<li>electro percussion</li>
+<li>IDM fills</li>
+</ul>
+<hr />
+<h2>4. Three-output layered drum architecture</h2>
+<p>Generator is unusually useful because it effectively gives you multiple related outputs.</p>
+<h3>Use:</h3>
+<ul>
+<li><strong>1</strong> = raw Generator 1</li>
+<li><strong>2</strong> = Generator 2</li>
+<li><strong>Index Out</strong> = post-VCA Generator 1</li>
+</ul>
+<h3>Patch idea:</h3>
+<ul>
+<li><strong>Output 2</strong> -&gt; lowpass gate = body</li>
+<li><strong>Index Out</strong> -&gt; highpass/filter/VCA = click/attack</li>
+<li><strong>Output 1</strong> -&gt; wavefolder/distortion = noisy edge</li>
+</ul>
+<p>Trigger different VCAs/envelopes for each layer with different pattern lengths.</p>
+<h3>Result:</h3>
+<p>One module becomes a <strong>multi-layer composite drum</strong>:
+- sub/body
+- attack
+- metallic tail</p>
+<p>That is excellent for dense arrangements because one trigger can generate a very articulated hit.</p>
+<hr />
+<h2>5. Irregular meter patch</h2>
+<p>For complex time signatures, use Generator as a timbrally responsive voice rather than trying to force pitch sequences.</p>
+<h3>Example rhythm structure:</h3>
+<ul>
+<li>Main triggers in <strong>11/8</strong></li>
+<li>Index accents in <strong>7</strong></li>
+<li>Shape modulation in <strong>5</strong></li>
+<li>External FM bursts in <strong>3</strong></li>
+</ul>
+<h3>Patch:</h3>
+<ul>
+<li>Trigger envelope to VCA in 11-step pattern</li>
+<li>Trigger another envelope to <strong>Index CV</strong> in 7-step pattern</li>
+<li>Modulate <strong>Shape</strong> slowly with a 5-step sequencer or stepped random</li>
+<li>Send a clocked CV/gate source to <strong>External Input</strong> routed to Gen 1 or Gen 2 at a 3-step cycle</li>
+</ul>
+<h3>Result:</h3>
+<p>The drum voice evolves through a long composite cycle.
+Even if the hit rate is constant, the <strong>spectral identity</strong> of each hit keeps shifting, which is exactly what makes advanced rhythmic music feel alive.</p>
+<hr />
+<h1>Making it punchy and percussive</h1>
+<h2>1. Use very short envelopes into Index CV</h2>
+<p>The Index path is your friend for attack design.</p>
+<p>Short envelope into <strong>Index CV</strong> gives:
+- FM spike at the front of the sound
+- bright attack
+- percussive knock
+- “stick hit” sensation</p>
+<p>Longer envelope gives:
+- metallic tail
+- laser tom
+- unstable sustained clang</p>
+<p>For punch:
+- keep Index envelope <strong>fast attack</strong>
+- short to medium decay
+- use VCA envelope shorter than the FM decay for hard impacts</p>
+<hr />
+<h2>2. Tune oscillator ranges strategically</h2>
+<p>Manual notes:
+- 3-way range switch per oscillator
+- left = low
+- center = high
+- right = mid</p>
+<h3>Useful combinations:</h3>
+<ul>
+<li><strong>Gen1 low / Gen2 mid</strong> = strong percussion starting point</li>
+<li><strong>Gen1 low / Gen2 high</strong> = sharper metallic/hat-like</li>
+<li><strong>Gen1 mid / Gen2 low</strong> = unstable drum bass / tearing low percussion</li>
+<li><strong>Gen1 high / Gen2 high</strong> = noisy digital chirps, tiny hits, harsh ticks</li>
+</ul>
+<p>For hyper-detailed drums, don’t just think “pitch” — think:
+- body oscillator range
+- modulator oscillator range
+- ratio instability</p>
+<hr />
+<h2>3. Exploit the shape knob as a percussion macro</h2>
+<p>From the manual:
+- full left:
+  - Gen1 = square
+  - Gen2 = triangle
+- full right:
+  - Gen1 = triangle
+  - Gen2 = square</p>
+<p>That means one knob changes both oscillators in opposite ways.</p>
+<h3>For percussion:</h3>
+<ul>
+<li>more <strong>triangle</strong> = rounder, more fundamental</li>
+<li>more <strong>square</strong> = brighter, buzzier, more upper harmonics</li>
+</ul>
+<h3>Technique:</h3>
+<p>Perform or sequence the <strong>Shape</strong> knob/CV externally if possible through recording passes or manual moves:
+- left for round body with edgy modulator
+- right for buzzy body with softer modulator</p>
+<p>This is very effective for creating contrast across polyrhythms:
+- one repeating phrase with one shape area
+- another phrase with shape shifted
+- resample multiple passes</p>
+<hr />
+<h2>4. Use trigger/gate signals as FM sources</h2>
+<p>The manual says external input accepts <strong>CV and audio-rate signals</strong>.</p>
+<p>A trigger or gate patched into <strong>External Input</strong> can create abrupt frequency spikes.</p>
+<h3>Patch:</h3>
+<ul>
+<li>Clock divider or burst generator -&gt; External Input</li>
+<li>Destination to Gen1 or Gen2</li>
+<li>Use attenuverter to control polarity/amount</li>
+</ul>
+<h3>Result:</h3>
+<ul>
+<li>click injection</li>
+<li>knock transients</li>
+<li>stepped pitch smears</li>
+<li>broken-machine accents</li>
+</ul>
+<p>This is especially good for:
+- compound meters
+- ratchets
+- tuplets
+- accent systems independent of hit timing</p>
+<hr />
+<h2>5. Use the attenuverter for asymmetrical motion</h2>
+<p>The external FM control is an <strong>attenuverter</strong> and zeros at <strong>12 o’clock</strong>.</p>
+<p>This is extremely useful because:
+- positive FM amount gives one family of attacks
+- negative/inverted FM amount gives another</p>
+<p>So a rhythm source modulating external FM can feel totally different depending on polarity.</p>
+<h3>Technique:</h3>
+<p>For one section:
+- slight negative FM for woody, sucked-in attacks</p>
+<p>For another:
+- positive FM for more explosive metallic edges</p>
+<p>This gives variation without repatching.</p>
+<hr />
+<h1>How to build polyrhythms and complicated patterns with this module</h1>
+<p>Generator itself is not a trigger sequencer, so the complexity comes from <strong>how you drive it</strong>. The best method is to separate rhythm into layers:</p>
+<h2>Layer 1: hit timing</h2>
+<p>Use your main trigger sequencer for when the drum sounds.</p>
+<h2>Layer 2: timbral accents</h2>
+<p>Use a different sequencer/clock division to control:
+- Index CV
+- external FM input
+- waveform changes
+- VCA amplitude variation</p>
+<h2>Layer 3: modulation timing</h2>
+<p>Patch unrelated clocked CV into:
+- External Input
+- oscillator EXP inputs
+- downstream filter cutoff / wavefolder / VCA decay</p>
+<p>This way the ear hears:
+- one pattern as the hit structure
+- another pattern as the spectral structure
+- another as the accent structure</p>
+<p>That is how you get <strong>apparent hyper-complex rhythm</strong> from one voice.</p>
+<hr />
+<h1>Specific advanced patch recipes</h1>
+<h2>A. 5:7 metallic drum cycle</h2>
+<h3>Patch:</h3>
+<ul>
+<li>Output 2 to VCA/audio out</li>
+<li>5-step trigger pattern to amplitude envelope</li>
+<li>7-step trigger pattern to Index CV envelope</li>
+<li>Gen1 low, Gen2 mid</li>
+<li>Shape around center-right</li>
+<li>Index knob mostly right for CV responsiveness</li>
+</ul>
+<h3>Sound:</h3>
+<p>A repeating drum line where only some hits flare into metallic tones, making a composite 35-step phrase before full repetition.</p>
+<hr />
+<h2>B. 4-against-3 glitch percussion</h2>
+<h3>Patch:</h3>
+<ul>
+<li>Straight 16th-note pulse to VCA envelope</li>
+<li>Triplet clock or /3 pattern to External Input</li>
+<li>Route external FM to Gen1</li>
+<li>Patch Output 2 into External Input for partial self-mod if you want more aggression</li>
+<li>Listen to Index Out</li>
+</ul>
+<h3>Sound:</h3>
+<p>Steady pulse with rotating glitch emphasis, useful for broken techno, IDM, or footwork-style syncopation.</p>
+<hr />
+<h2>C. Complex snare from one module</h2>
+<h3>Patch:</h3>
+<ul>
+<li>Output 2 = body</li>
+<li>Index Out = crack</li>
+<li>Output 1 = noisy ring</li>
+<li>Mix all three externally</li>
+<li>Give each its own envelope/VCA/filter if possible</li>
+</ul>
+<h3>Settings:</h3>
+<ul>
+<li>Gen1 high or mid</li>
+<li>Gen2 mid</li>
+<li>Index CV short decay</li>
+<li>Shape toward square-rich side</li>
+<li>Add external trigger burst to FM input</li>
+</ul>
+<h3>Sound:</h3>
+<p>Snare-like composite with:
+- transient crack
+- metallic shell
+- noisy tail</p>
+<hr />
+<h2>D. Euclidean tom network</h2>
+<h3>Patch:</h3>
+<ul>
+<li>Euclidean pattern A triggers VCA envelope for Output 2</li>
+<li>Euclidean pattern B triggers Index CV</li>
+<li>Euclidean pattern C sends stepped CV to Gen2 EXP</li>
+<li>Shape manually set or slowly modulated</li>
+</ul>
+<h3>Sound:</h3>
+<p>Toms that seem to play independent rhythmic roles even though they come from one synthesized source.</p>
+<hr />
+<h2>E. Broken hi-hat / digital tick voice</h2>
+<h3>Settings:</h3>
+<ul>
+<li>both oscillators high</li>
+<li>shape toward square emphasis</li>
+<li>short VCA envelope</li>
+<li>short, sharp Index CV</li>
+<li>trigger/gate into external FM input</li>
+</ul>
+<h3>Sound:</h3>
+<p>Harsh, alias-like, hat/tick/chirp sounds that are perfect for fast polymetric detail layers.</p>
+<hr />
+<h1>Performance tips</h1>
+<h2>Use Output 2 and Index Out together</h2>
+<p>This is one of the best live strategies:
+- <strong>Output 2</strong> for the stable core
+- <strong>Index Out</strong> for aggression</p>
+<p>Mute/unmute or crossfade them during performance to create:
+- dry drum
+- FM-heavy accent version
+- fills
+- breakdown transitions</p>
+<h2>Ride the Index knob live</h2>
+<p>Because the Index knob changes how much Generator 1 is sent onward, it acts like a <strong>timbral intensity macro</strong>.</p>
+<p>Live movement can shift a part from:
+- woody percussion
+- to clanging FM
+- to shrieking unstable noise</p>
+<h2>Sweep the range switches for fills</h2>
+<p>Changing oscillator range between low/mid/high can produce dramatic phrase transitions:
+- low for drum fill
+- mid for tom/bell
+- high for glitch spray</p>
+<p>Very effective for end-of-bar accents.</p>
+<hr />
+<h1>Best supporting modules to pair with Generator</h1>
+<p>To get the most out of Generator for hyper-complex percussion, pair it with:</p>
+<ul>
+<li><strong>Trigger sequencer</strong> with polymeter/euclidean capability</li>
+<li><strong>Burst generator</strong></li>
+<li><strong>Clock divider / multiplier</strong></li>
+<li><strong>Multiple envelopes</strong></li>
+<li><strong>VCAs/LPGs</strong></li>
+<li><strong>Filter or resonant lowpass</strong></li>
+<li><strong>Wavefolder/distortion</strong></li>
+<li><strong>Sequential switch</strong></li>
+<li><strong>Sample and hold / stepped random</strong></li>
+<li><strong>Logic module</strong> for combining rhythms</li>
+</ul>
+<p>Especially useful:
+- one envelope for amplitude
+- one envelope for Index CV
+- one modulation source for external FM
+- one VCA or LPG after the audio output</p>
+<hr />
+<h1>Practical workflow for dense percussion tracks</h1>
+<h2>If you want “composed complexity”</h2>
+<p>Program:
+- hit pattern in one meter
+- Index accents in another
+- external FM changes in another
+- shape changes by section</p>
+<p>This gives repeatable complexity.</p>
+<h2>If you want “alive machine complexity”</h2>
+<p>Self-patch:
+- Output 2 to External Input
+- Trigger bursts to Index CV
+- Slight random CV to EXP
+- Shape near unstable sweet spots</p>
+<p>This gives organic, chaotic, evolving percussion.</p>
+<h2>If you want “punchy club percussion”</h2>
+<p>Keep it disciplined:
+- short VCA envelope
+- short Index envelope
+- low/mid oscillator settings
+- filtered Output 2 for body
+- lightly mixed Index Out for click</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>Pittsburgh Generator</strong> is excellent for <strong>dense, advanced percussion music</strong> because it combines:</p>
+<ul>
+<li><strong>2 oscillators</strong></li>
+<li><strong>internal FM routing</strong></li>
+<li><strong>external FM routing</strong></li>
+<li><strong>a CV-controlled Index/VCA stage</strong></li>
+<li><strong>shared waveform morphing</strong></li>
+</ul>
+<p>Its real strength is not conventional melody but <strong>rhythmically controlled timbral variation</strong>. For polyrhythms and complex time signatures, the best approach is to let one pattern decide <strong>when the hit occurs</strong>, and let other unrelated patterns decide:</p>
+<ul>
+<li>how much FM it gets</li>
+<li>which oscillator is disturbed</li>
+<li>how sharp the transient is</li>
+<li>how bright or square the waveform is</li>
+</ul>
+<p>That creates the illusion of many interacting percussion voices from a single module.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

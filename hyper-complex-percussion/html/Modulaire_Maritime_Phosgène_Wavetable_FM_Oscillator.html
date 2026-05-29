@@ -1,0 +1,418 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Modulaire_Maritime_Phosgène_Wavetable_FM_Oscillator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Modulaire Maritime — Phosgène Wavetable FM Oscillator</h1>
+<ul>
+<li><a href="../../manuals/Phosgène _ Modulaire Maritime.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.modulaire-maritime.com/phosg%C3%A8ne">Manual / Source</a></p>
+<h1>Modulaire Maritime Phosgène — rhythmic and hyper-complex percussion use</h1>
+<p>Phosgène is a <strong>2hp digital wavetable / FM oscillator voice</strong>, so for dense percussion it works best as a <strong>sound source</strong> that you hit, gate, frequency-modulate, fold, and switch rapidly with CV. Based on the manual, the key percussion-friendly features are:</p>
+<ul>
+<li><strong>60 wavetables</strong> in <strong>2 banks of 30</strong></li>
+<li><strong>Separate wavetable and FM outputs</strong></li>
+<li><strong>Wavefolding / waveshaping</strong></li>
+<li><strong>CV over folding / FM depth behavior</strong></li>
+<li><strong>V/Oct tracking over 8 octaves</strong></li>
+<li><strong>Octave up/down switching</strong></li>
+<li><strong>Octave displace switch</strong> for pushing wavetable octaves lower</li>
+<li><strong>100 Hz FM base</strong>, giving a darker, tighter FM character</li>
+<li><strong>11-bit lower-resolution digital tone</strong>, including useful grit/aliasing</li>
+</ul>
+<p>That combination is excellent for <strong>synthetic drums, metallic hits, digital toms, clanks, glitches, zaps, and pseudo-snare/hat material</strong>.</p>
+<hr />
+<h2>Core idea: Phosgène is not the sequencer, it is the drum engine</h2>
+<p>To get <strong>polyrhythms, odd meters, and hyper-detailed percussion</strong>, use external modules to provide:</p>
+<ul>
+<li><strong>Triggers/gates</strong></li>
+<li><strong>Envelopes</strong></li>
+<li><strong>VCAs / LPGs</strong></li>
+<li><strong>Sequenced CV</strong></li>
+<li><strong>Clock dividers / multipliers</strong></li>
+<li><strong>Logic / probability / ratchets</strong></li>
+<li><strong>Sequential switches / sample &amp; hold</strong></li>
+</ul>
+<p>Phosgène then becomes a <strong>highly mutable oscillator voice</strong> that can sound like many different percussion instruments depending on how you drive it.</p>
+<hr />
+<h1>Best patch role for Phosgène in complex percussion</h1>
+<h2>1. Turn it into a drum voice with a VCA or LPG</h2>
+<p>Because it is an oscillator, the simplest path to percussion is:</p>
+<p><strong>Phosgène output → VCA or LPG → mixer</strong></p>
+<p>Then patch:
+- <strong>Trigger pattern → envelope</strong>
+- <strong>Envelope → VCA CV</strong></p>
+<p>This gives each note a defined transient and decay.</p>
+<h3>Why this matters</h3>
+<p>Even if the raw oscillator is continuous, the VCA/LPG creates:
+- kick-like plucks
+- tom hits
+- snappy FM pings
+- clipped digital clicks
+- short metallic bursts</p>
+<p>For denser rhythmic music, use <strong>very short decay envelopes</strong> for some channels and <strong>longer decays</strong> for others so overlapping subdivisions remain readable.</p>
+<hr />
+<h2>2. Use the two outputs as two related percussion layers</h2>
+<p>The manual says wavetable and FM are available through <strong>separate outputs</strong>. That is extremely useful.</p>
+<h3>Patch concept</h3>
+<ul>
+<li><strong>Wavetable out</strong> = body / fundamental / tone</li>
+<li><strong>FM out</strong> = snap / metallic edge / noisy overtone layer</li>
+</ul>
+<p>Try:
+- Send each output to its <strong>own VCA</strong>
+- Use <strong>different envelopes</strong> on each
+- Mix them after</p>
+<h3>Example</h3>
+<ul>
+<li>Wavetable out: medium decay envelope for a tom/kick body</li>
+<li>FM out: very short envelope for click/attack</li>
+</ul>
+<p>This creates a <strong>single composite drum voice</strong> with more impact.</p>
+<p>You can also sequence them differently:
+- Wavetable on quarter-note skeleton
+- FM out on offbeats, tuplets, ratchets, or polymetric accents</p>
+<p>That yields one module behaving like <strong>two interlocked percussion voices</strong>.</p>
+<hr />
+<h1>Sound design for punchy percussion</h1>
+<h2>3. Low octaves + short envelopes = kicks and toms</h2>
+<p>The manual notes that the <strong>octave displace</strong> function pushes wavetable octaves lower. That is ideal for percussion.</p>
+<h3>For kicks</h3>
+<ul>
+<li>Use <strong>wavetable output</strong></li>
+<li>Set to a <strong>low octave</strong></li>
+<li>Enable <strong>octave displace</strong> if needed</li>
+<li>Choose a waveform with solid low content</li>
+<li>Add a <strong>pitch envelope</strong> via V/Oct input:</li>
+<li>fast attack</li>
+<li>very short downward drop</li>
+</ul>
+<p>This creates classic synthesized kick behavior.</p>
+<h3>For toms</h3>
+<ul>
+<li>Similar to kick patch, but:</li>
+<li>less pitch envelope</li>
+<li>slightly higher base pitch</li>
+<li>moderate fold amount</li>
+<li>medium-short decay</li>
+</ul>
+<p>Sequence toms across different pitches using a CV sequencer in <strong>odd step lengths</strong> like 5, 7, or 9.</p>
+<hr />
+<h2>4. FM output for metallic percussion, snares, and industrial hits</h2>
+<p>The manual’s 100 Hz FM base suggests darker, more controlled FM. That’s especially useful for:
+- industrial knocks
+- tuned metal
+- snare-like digital impacts
+- electro percussion
+- low metallic bass percussion</p>
+<h3>Patch approach</h3>
+<ul>
+<li>Use <strong>FM output</strong></li>
+<li>Set a mid or low pitch</li>
+<li>Use short VCA envelope</li>
+<li>Modulate the shared controls with stepped CV</li>
+<li>Push FM harder for harsher attacks</li>
+</ul>
+<p>For snare-adjacent sounds:
+- Mix <strong>FM output</strong> with a noise source, or
+- Use a noisier wavetable at higher fold settings</p>
+<p>Because the module has some intentional lower-resolution character, you can also lean into the grit for <strong>crunchy transient texture</strong>.</p>
+<hr />
+<h2>5. Exploit aliasing and 11-bit character for hats, clicks, and digital debris</h2>
+<p>The manual explicitly mentions:
+- noise-containing wavetables
+- more pronounced aliasing at high ranges
+- “digital trash”</p>
+<p>That is excellent for percussion.</p>
+<h3>For hats and ticks</h3>
+<ul>
+<li>Use <strong>high octave</strong></li>
+<li>Fast envelope</li>
+<li>Select brighter/noisier waves</li>
+<li>Add wavefolding</li>
+<li>Sequence with irregular trigger streams</li>
+</ul>
+<h3>For glitch percussion</h3>
+<ul>
+<li>Rapidly modulate:</li>
+<li>wave selection</li>
+<li>bank selection if available by switch/performance</li>
+<li>octave state</li>
+<li>folding amount</li>
+</ul>
+<p>If you cannot CV bank directly, you can still perform manual changes or use the module as a “featured” unstable digital percussion voice.</p>
+<p>Use this in:
+- 13-step pattern against a 16-step kick grid
+- 5-over-4 accents
+- burst generators
+- Euclidean trigger streams</p>
+<hr />
+<h1>Strategies for polyrhythms and complex patterns</h1>
+<h2>6. Use different rhythmic layers on wavetable and FM outputs</h2>
+<p>Since there are two outputs, treat them as separate voices in rhythm.</p>
+<h3>Example polymeter patch</h3>
+<ul>
+<li><strong>Wavetable output</strong> triggered by a <strong>7-step sequence</strong></li>
+<li><strong>FM output</strong> triggered by a <strong>5-step sequence</strong></li>
+<li>Master clock still in 4/4 or 11/8</li>
+</ul>
+<p>Result:
+- shifting accents
+- repeating composite cycle every 35 steps
+- strong hyper-rhythmic texture from one module</p>
+<hr />
+<h2>7. Sequence pitch separately from amplitude triggers</h2>
+<p>For complicated percussion, don’t think melodically first—think <strong>event structure</strong>.</p>
+<p>Use:
+- one sequencer for <strong>triggers</strong>
+- another sequencer for <strong>pitch CV</strong>
+- another modulation lane for <strong>wave/fold amount</strong></p>
+<h3>Good pattern lengths</h3>
+<ul>
+<li>Trigger pattern: 16</li>
+<li>Pitch sequence: 5</li>
+<li>Fold modulation: 7</li>
+<li>Accent envelope: 3 or 9</li>
+</ul>
+<p>These mismatched lengths create evolving composite phrases without requiring constant manual intervention.</p>
+<hr />
+<h2>8. Use V/Oct as a percussion animation lane</h2>
+<p>Because it tracks across <strong>8 octaves</strong>, V/Oct is not only for melody. In percussion patches it becomes a way to create:</p>
+<ul>
+<li>kick vs tom contrast</li>
+<li>tuned percussion runs</li>
+<li>pseudo-congas</li>
+<li>stuttering tonal impacts</li>
+<li>pitched accents in odd meters</li>
+</ul>
+<h3>Great use case</h3>
+<p>Program a pattern in <strong>11/8</strong> where:
+- steps 1, 4, 7, 10 = low thumps
+- intervening hits jump 1–3 octaves
+- FM layer remains constant or inversely modulated</p>
+<p>This keeps the groove asymmetrical but coherent.</p>
+<hr />
+<h2>9. Use octave jumps as accents</h2>
+<p>The module has octave switching and octave displacement. Even if not voltage-addressable, these can still be used compositionally.</p>
+<h3>Method</h3>
+<p>Set the module in a range where:
+- regular hits are mid-low
+- accented sections are manually or sequentially repatched to another octave CV region</p>
+<p>If your sequencer can send transposition CV:
+- use fixed intervals for “accent classes”
+- e.g. main hits low, ghost hits high and thin, fills very high and aliased</p>
+<p>This is especially effective in:
+- 7/8 with occasional 3-note fill
+- 5/4 with one high digital accent every second bar
+- nested 3:5:7 percussion systems</p>
+<hr />
+<h1>Advanced percussive patch ideas</h1>
+<h2>10. Composite kick/snare from one module</h2>
+<h3>Patch</h3>
+<ul>
+<li><strong>Wavetable out</strong> → VCA 1 → mixer</li>
+<li><strong>FM out</strong> → VCA 2 → mixer</li>
+</ul>
+<p>Control:
+- Envelope 1: short decay, some pitch envelope to V/Oct
+- Envelope 2: ultra-short decay, more aggressive modulation</p>
+<p>Pattern:
+- Wavetable layer on beats 1 and 3
+- FM layer on 2 and 4, plus ghost notes</p>
+<p>Result:
+- one oscillator acting like a paired drum machine voice</p>
+<p>In odd meter:
+- body layer on a 4-hit cycle
+- FM layer on a 3-hit cycle
+- creates constant phase-shifting accents</p>
+<hr />
+<h2>11. Industrial rim / clang voice</h2>
+<h3>Patch</h3>
+<ul>
+<li>FM out</li>
+<li>Mid-high pitch</li>
+<li>Very short envelope</li>
+<li>Moderate to high fold/FM tone setting</li>
+<li>Optional bandpass filter after VCA</li>
+</ul>
+<p>Sequence with:
+- sparse irregular triggers
+- probability skips
+- 5-step pattern over 4/4 kick
+- occasional ratchets</p>
+<p>This gives machine-like, hard-edged percussion suitable for industrial, IDM, broken techno, and rhythmic noise.</p>
+<hr />
+<h2>12. Digital hi-hat cluster generator</h2>
+<h3>Patch</h3>
+<ul>
+<li>High-pitched wavetable or FM output</li>
+<li>Tiny envelope decay</li>
+<li>Fast clocked modulation to wave select or fold depth</li>
+<li>Highpass filter after the VCA if available</li>
+</ul>
+<p>Then feed triggers from:
+- Euclidean pattern of 9 in 16
+- burst generator for fills
+- logic-combined clocks, e.g. /3 XOR /5</p>
+<p>The module’s aliasing and low-resolution edge help make each hat cluster sound less static.</p>
+<hr />
+<h2>13. Evolving percussion swarm</h2>
+<p>Use 3 modulation streams at once:</p>
+<ul>
+<li><strong>Trigger stream A</strong> controls amplitude</li>
+<li><strong>Stepped random CV</strong> to V/Oct</li>
+<li><strong>Slow CV</strong> to fold/waveshape amount</li>
+</ul>
+<p>Then run triggers at one length and pitch CV at another:
+- triggers in 13 steps
+- pitch in 8
+- fold modulation in 5</p>
+<p>Over time Phosgène will move through:
+- low thuds
+- hollow pings
+- metallic cracks
+- bright digital splinters</p>
+<p>Perfect for dense, self-evolving rhythmic beds.</p>
+<hr />
+<h1>How to make it more unique and percussive</h1>
+<h2>14. Add pitch envelopes</h2>
+<p>This is one of the most important techniques.</p>
+<p>Patch a snappy envelope to the <strong>V/Oct input</strong> through an attenuator.</p>
+<h3>Results</h3>
+<ul>
+<li>fast downward pitch sweep = kick, tom, zap</li>
+<li>tiny pitch spike = stronger attack</li>
+<li>medium sweep = laser percussion / electro tom</li>
+</ul>
+<p>For complicated rhythms, vary the envelope amount by accent so different hits read like different drum types.</p>
+<hr />
+<h2>15. Use very short VCAs for click extraction</h2>
+<p>Even without dedicated transient shaping, an ultra-short envelope can carve clicks and ticks from almost any oscillator setting.</p>
+<p>Try:
+- 1–10 ms decay
+- high or aliased wavetable
+- no sustain</p>
+<p>This is a great way to create:
+- microsound percussion
+- granular-seeming ticks
+- top-layer detail over slower drum patterns</p>
+<p>Use these in tuplets or odd subdivisions to make the rhythm feel hyper-detailed.</p>
+<hr />
+<h2>16. Layer filtered and unfiltered versions</h2>
+<p>Split one output:
+- one path direct
+- one path through filter/distortion/wavefolder</p>
+<p>Then mix.</p>
+<p>This gives:
+- stable low-end body
+- aggressive upper transient</p>
+<p>Especially useful when a single Phosgène hit needs to cut through dense polyrhythmic arrangements.</p>
+<hr />
+<h2>17. Use modulation as “drum type switching”</h2>
+<p>Instead of thinking “this patch is a kick,” let modulation determine whether any given trigger becomes:
+- a kick
+- a tom
+- a click
+- a metallic ping
+- a snare-like burst</p>
+<p>You do this by changing, per event:
+- pitch
+- envelope decay
+- fold amount
+- output choice
+- filtering after the module</p>
+<p>This is ideal for complex pattern music because a single voice can generate many timbral identities while staying sonically related.</p>
+<hr />
+<h1>Rhythm system ideas that work especially well</h1>
+<h2>18. 4-against-5-against-7</h2>
+<p>Use Phosgène as the bright or metallic voice in a larger drum system.</p>
+<p>Example:
+- Kick module: 4-step cycle
+- Phosgène wavetable body hits: 5-step cycle
+- Phosgène FM accents: 7-step cycle</p>
+<p>This creates a long composite loop with constant internal motion.</p>
+<hr />
+<h2>19. Odd meter phrase design</h2>
+<p>In <strong>11/8</strong>:
+- steps 1, 4, 7 = low wavetable thuds
+- steps 3, 6, 9, 11 = FM metallic ticks
+- wave/fold modulation every 5 steps</p>
+<p>This produces a phrase that feels composed rather than random.</p>
+<hr />
+<h2>20. Accent logic with probability</h2>
+<p>Use probabilistic triggers or logic to decide when the FM layer opens.</p>
+<p>For example:
+- every main trigger hits the wavetable body
+- FM layer only opens on:
+  - every 3rd trigger
+  - random 40% probability
+  - XOR of two clocks</p>
+<p>That creates unstable, intelligent-feeling complexity without overwhelming the groove.</p>
+<hr />
+<h1>Practical tips</h1>
+<h2>21. Keep low end controlled</h2>
+<p>Because Phosgène can go low and also bright through folding, separate roles carefully:
+- one patch for sub/body
+- another path for bright detail</p>
+<p>If the patch gets too dense:
+- shorten envelope decays
+- highpass the bright layer
+- reduce modulation depth on busy subdivisions</p>
+<hr />
+<h2>22. Save useful startup states</h2>
+<p>The manual says it saves:
+- Bank
+- wave
+- octave</p>
+<p>So if you find a strong percussion setup, you can keep a preferred startup configuration ready for future patches.</p>
+<p>That makes it practical as a repeatable drum voice in performance systems.</p>
+<hr />
+<h2>23. Embrace the “digital trash”</h2>
+<p>The manual explicitly frames aliasing and low-res behavior as part of the character. For hyper-complex percussion, that is a strength.</p>
+<p>Use it for:
+- tops
+- transitions
+- fills
+- machine chatter
+- broken digital strikes</p>
+<p>Don’t over-clean it unless you want a more conventional sound.</p>
+<hr />
+<h1>Best companion modules for this purpose</h1>
+<p>Phosgène becomes much stronger for rhythmic complexity when paired with:</p>
+<ul>
+<li><strong>Envelope generators</strong> with very fast attack/decay</li>
+<li><strong>VCAs</strong> or <strong>LPGs</strong></li>
+<li><strong>Clock dividers/multipliers</strong></li>
+<li><strong>Euclidean sequencers</strong></li>
+<li><strong>Trigger sequencers with independent track lengths</strong></li>
+<li><strong>Logic modules</strong></li>
+<li><strong>Sample &amp; hold / stepped random</strong></li>
+<li><strong>Sequential switches</strong></li>
+<li><strong>Filters / distortion / wavefolders</strong></li>
+<li><strong>Accent VCAs or transient shapers</strong></li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>Phosgène is very usable for <strong>dense, polyrhythmic percussion</strong> because it offers:</p>
+<ul>
+<li>low-end capable wavetable tones</li>
+<li>separate FM and wavetable outputs</li>
+<li>dark, controlled FM character</li>
+<li>folding / timbral movement</li>
+<li>wide pitch range</li>
+<li>useful digital grit and aliasing</li>
+</ul>
+<p>The best strategy is to treat it as a <strong>multi-role synthetic drum voice</strong>:
+- <strong>wavetable out</strong> for body
+- <strong>FM out</strong> for attack/metal layer
+- external envelopes and VCAs for articulation
+- independent trigger and CV sequences for polymetric evolution</p>
+<p>That will get you kicks, toms, hats, metallic impacts, clanks, glitch hits, and industrial percussion from one very small module.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

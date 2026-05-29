@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Fancyyyyy_Rung_Divisions_V2_Clock_Divider_+_Shift_Register</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Fancyyyyy — Rung Divisions V2 Clock Divider + Shift Register</h1>
+<ul>
+<li><a href="../../manuals/RungDivisionsManual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Fancyyyyy Rung Divisions — Cheat Sheet</h1>
+<h2>What it does</h2>
+<p>A <strong>clock divider + dual gate bus + universal shift register + noise source</strong>.<br />
+Best thought of as a <strong>polyrhythmic gate generator</strong> that also creates <strong>looping / random stepped CV</strong> and can run from <strong>sub-audio up to audio rate</strong>.</p>
+<p>Core idea:
+- <strong>Clock input</strong> feeds <strong>/2 to /8 dividers</strong>
+- Divider outputs are assigned to <strong>Bus1</strong> or <strong>Bus2</strong> with switches
+- <strong>Bus1 clocks the shift register</strong>
+- <strong>Data input + chance/length/direction logic</strong> determine what enters the shift register
+- Shift register produces:
+  - <strong>1-Bit gate</strong>
+  - <strong>3-Bit CV</strong>
+  - <strong>8-Bit CV</strong></p>
+<hr />
+<h2>Quick start</h2>
+<ol>
+<li>Set <strong>Length = 8</strong></li>
+<li>Set <strong>Chance fully CCW</strong></li>
+<li>Put all divider <strong>bus switches to center</strong></li>
+<li>Patch a clock to <strong>Clock</strong></li>
+<li>Send one divider output, or Clock itself, to <strong>Bus1</strong> using its switch</li>
+<li>Patch something to <strong>Data</strong> (or use manual write switch)</li>
+<li>Listen to:</li>
+<li><strong>Bus1/Bus2</strong> for gates/polyrhythms</li>
+<li><strong>1-Bit</strong> for a gate tied to the register</li>
+<li><strong>3-Bit / 8-Bit</strong> for stepped CV</li>
+<li>Turn <strong>Chance fully CW</strong> to <strong>freeze/loop</strong> the current pattern</li>
+<li>Press <strong>Direction</strong> or patch a trigger to reverse read direction</li>
+<li>Modulate <strong>Length</strong>, <strong>Chance</strong>, and <strong>Direction</strong> for evolving patterns</li>
+</ol>
+<hr />
+<h2>Main behavior</h2>
+<h3>Clock divider</h3>
+<ul>
+<li>Incoming <strong>Clock</strong> is converted to pulses when signal crosses <strong>1V</strong></li>
+<li>Generates integer divisions: <strong>/2, /3, /4, /5, /6, /7, /8</strong></li>
+<li>Divider section works from <strong>0–40 kHz</strong></li>
+<li><strong>Reset</strong> rising edge resets all counts</li>
+</ul>
+<h3>Bus system</h3>
+<ul>
+<li>Each divider (and Clock) can be routed by a <strong>3-position switch</strong>:</li>
+<li><strong>Left = Bus1</strong></li>
+<li><strong>Center = off</strong></li>
+<li><strong>Right = Bus2</strong></li>
+<li><strong>Bus outputs are OR mixes</strong></li>
+<li><strong>Bus1 clocks the shift register</strong></li>
+</ul>
+<h3>Shift register</h3>
+<ul>
+<li>Universal shift register can read in <strong>either direction</strong></li>
+<li><strong>Direction</strong> can be changed by:</li>
+<li>front panel <strong>button</strong></li>
+<li>external <strong>Direction trigger/gate</strong></li>
+<li><strong>Length</strong> sets loop point</li>
+<li><strong>Chance</strong> blends between:</li>
+<li><strong>new data</strong></li>
+<li><strong>looped data</strong></li>
+<li><strong>noisy/interference behavior</strong></li>
+<li>At <strong>Chance fully CW</strong>, the pattern <strong>loops/locks</strong></li>
+<li>At <strong>Chance fully CCW</strong>, incoming data is XOR’d with internal loop-point logic</li>
+</ul>
+<hr />
+<h2>Performance tips</h2>
+<ul>
+<li><strong>Simple looping sequence</strong>: write in bits manually, then set <strong>Chance full CW</strong></li>
+<li><strong>Pseudo-random sequence</strong>: feed pulses/noise/data into <strong>Data</strong>, set <strong>Chance around middle</strong></li>
+<li><strong>Polyrhythms</strong>: mix non-related divisions on <strong>Bus1/Bus2</strong> like <strong>/2 + /5</strong> or <strong>/3 + /7</strong></li>
+<li><strong>Audio-rate use</strong>:</li>
+<li>use divider outputs as subharmonics</li>
+<li>use <strong>3-Bit / 8-Bit</strong> as digital/noise oscillator CV/audio</li>
+<li><strong>Chaos patch</strong>:</li>
+<li>patch <strong>3-Bit</strong> or <strong>8-Bit</strong> back to clock oscillator FM/CV</li>
+<li><strong>3-Bit</strong> = more bursty</li>
+<li><strong>8-Bit</strong> = more random/strange attractor-like</li>
+</ul>
+<hr />
+<h2>Controls reference</h2>
+<h3>Knobs</h3>
+<ul>
+<li><strong>Length</strong></li>
+<li>Sets shift register loop length / loop point</li>
+<li>CV is summed with knob</li>
+<li><strong>Chance</strong></li>
+<li>Sets probability/amount of new data vs looping data</li>
+<li>Fully CW = loop/hold pattern</li>
+<li>Fully CCW = stronger influence from external data/XOR logic</li>
+<li>CV is summed with knob</li>
+</ul>
+<h3>Button / switch</h3>
+<ul>
+<li><strong>Direction button</strong></li>
+<li>Reverses shift register read direction</li>
+<li><strong>Data write switch (High / Low)</strong></li>
+<li>Manually writes high or low data into the register</li>
+</ul>
+<h3>Divider bus switches</h3>
+<p>For <strong>Clock, /2, /3, /4, /5, /6, /7, /8</strong>:
+- <strong>Left</strong> → send to <strong>Bus1</strong>
+- <strong>Center</strong> → disconnected
+- <strong>Right</strong> → send to <strong>Bus2</strong></p>
+<h3>LEDs</h3>
+<ul>
+<li><strong>8 shift register status LEDs</strong></li>
+<li>Show current register bit states</li>
+</ul>
+<h3>Rear trimmer</h3>
+<ul>
+<li><strong>Chance trim-pot</strong></li>
+<li>Sets response of Chance knob/CV</li>
+<li>Factory calibrated; usually leave alone</li>
+</ul>
+<hr />
+<h2>Jack reference</h2>
+<h2>Inputs</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th style="text-align: right;">Voltage / Threshold</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clock</strong></td>
+<td>Gate/clock input</td>
+<td style="text-align: right;">accepts any signal crossing <strong>1V</strong></td>
+<td>Master clock for divider</td>
+</tr>
+<tr>
+<td><strong>Reset</strong></td>
+<td>Gate/trigger input</td>
+<td style="text-align: right;">rising edge, <strong>700 mV minimum</strong></td>
+<td>Resets divider counts</td>
+</tr>
+<tr>
+<td><strong>Data</strong></td>
+<td>Gate/data input</td>
+<td style="text-align: right;">accepts any signal crossing <strong>1V</strong></td>
+<td>External data source for shift register</td>
+</tr>
+<tr>
+<td><strong>Direction</strong></td>
+<td>Gate/trigger input</td>
+<td style="text-align: right;">rising edge, <strong>700 mV minimum</strong></td>
+<td>Reverses shift register direction</td>
+</tr>
+<tr>
+<td><strong>Length CV</strong></td>
+<td>CV input</td>
+<td style="text-align: right;"><strong>±5V</strong> summed with knob</td>
+<td>Modulates loop point/length</td>
+</tr>
+<tr>
+<td><strong>Chance CV</strong></td>
+<td>CV input</td>
+<td style="text-align: right;"><strong>±5V</strong> summed with knob</td>
+<td>Modulates chance/loop behavior</td>
+</tr>
+</tbody>
+</table>
+<h2>Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th style="text-align: right;">Voltage Range</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>/2</strong></td>
+<td>Gate output</td>
+<td style="text-align: right;"><strong>0–7V</strong></td>
+<td>Clock divided by 2</td>
+</tr>
+<tr>
+<td><strong>/3</strong></td>
+<td>Gate output</td>
+<td style="text-align: right;"><strong>0–7V</strong></td>
+<td>Clock divided by 3</td>
+</tr>
+<tr>
+<td><strong>/4</strong></td>
+<td>Gate output</td>
+<td style="text-align: right;"><strong>0–7V</strong></td>
+<td>Clock divided by 4</td>
+</tr>
+<tr>
+<td><strong>/5</strong></td>
+<td>Gate output</td>
+<td style="text-align: right;"><strong>0–7V</strong></td>
+<td>Clock divided by 5</td>
+</tr>
+<tr>
+<td><strong>/6</strong></td>
+<td>Gate output</td>
+<td style="text-align: right;"><strong>0–7V</strong></td>
+<td>Clock divided by 6</td>
+</tr>
+<tr>
+<td><strong>/7</strong></td>
+<td>Gate output</td>
+<td style="text-align: right;"><strong>0–7V</strong></td>
+<td>Clock divided by 7</td>
+</tr>
+<tr>
+<td><strong>/8</strong></td>
+<td>Gate output</td>
+<td style="text-align: right;"><strong>0–7V</strong></td>
+<td>Clock divided by 8</td>
+</tr>
+<tr>
+<td><strong>Bus1</strong></td>
+<td>Gate bus output</td>
+<td style="text-align: right;"><strong>0–7V</strong></td>
+<td>OR mix of sources assigned left; also clocks shift register</td>
+</tr>
+<tr>
+<td><strong>Bus2</strong></td>
+<td>Gate bus output</td>
+<td style="text-align: right;"><strong>0–7V</strong></td>
+<td>OR mix of sources assigned right</td>
+</tr>
+<tr>
+<td><strong>Noise</strong></td>
+<td>Analog noise output</td>
+<td style="text-align: right;">not specified in manual</td>
+<td>Noise source</td>
+</tr>
+<tr>
+<td><strong>1-Bit</strong></td>
+<td>Gate output</td>
+<td style="text-align: right;"><strong>0–7V</strong></td>
+<td>Gate from first register bit; tracks clock pulse width</td>
+</tr>
+<tr>
+<td><strong>3-Bit</strong></td>
+<td>CV output</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>3-bit DAC CV, reverse-encoded</td>
+</tr>
+<tr>
+<td><strong>8-Bit</strong></td>
+<td>CV output</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>8-bit DAC CV, reverse-encoded</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Useful patch recipes</h2>
+<h3>1. Basic polyrhythm generator</h3>
+<ul>
+<li>Patch clock into <strong>Clock</strong></li>
+<li>Send <strong>/3</strong> and <strong>/5</strong> to <strong>Bus1</strong></li>
+<li>Send <strong>/2</strong> and <strong>/7</strong> to <strong>Bus2</strong></li>
+<li>Use <strong>Bus1</strong> and <strong>Bus2</strong> as two related but different rhythm streams</li>
+</ul>
+<h3>2. Looping stepped CV</h3>
+<ul>
+<li>Clock to <strong>Clock</strong></li>
+<li>Send one division to <strong>Bus1</strong></li>
+<li>Manually write a few highs using the <strong>Data write switch</strong></li>
+<li>Set <strong>Chance fully CW</strong></li>
+<li>Take melody CV from <strong>8-Bit</strong> or <strong>3-Bit</strong></li>
+</ul>
+<h3>3. Pseudo-random rungler style</h3>
+<ul>
+<li>Clock to <strong>Clock</strong></li>
+<li>Send a division to <strong>Bus1</strong></li>
+<li>Patch <strong>Noise</strong> or another pulse source to <strong>Data</strong></li>
+<li>Set <strong>Chance</strong> around noon</li>
+<li>Use <strong>3-Bit</strong> for melodic CV and <strong>1-Bit</strong> for gate/accent</li>
+</ul>
+<h3>4. Evolving sequence length</h3>
+<ul>
+<li>Patch slow CV to <strong>Length CV</strong></li>
+<li>Keep <strong>Chance high</strong></li>
+<li>Flip <strong>Direction</strong> occasionally</li>
+<li>Produces phrases that appear to reverse or fold</li>
+</ul>
+<h3>5. Audio-rate digital chaos</h3>
+<ul>
+<li>Audio oscillator/square into <strong>Clock</strong></li>
+<li>Patch <strong>8-Bit</strong> back to oscillator FM</li>
+<li>Use <strong>Chance</strong> to tune the amount of chaos</li>
+<li>Monitor <strong>3-Bit</strong>, <strong>8-Bit</strong>, or bus outputs as audio</li>
+</ul>
+<hr />
+<h2>Important notes</h2>
+<ul>
+<li><strong>Bus1 is the shift register clock</strong></li>
+<li>Mixing divisions with common factors may have little effect on the bus pattern</li>
+<li>Prime divisions like <strong>/5</strong> and <strong>/7</strong> create more shifting/interference-like rhythms</li>
+<li>Changing <strong>Length</strong> can “lose” stored bits if data has already passed the new loop point</li>
+<li>All major timing functions can operate at <strong>audio rate</strong></li>
+</ul>
+<hr />
+<h2>Specs</h2>
+<ul>
+<li><strong>Width:</strong> 12 hp</li>
+<li><strong>Depth:</strong> 32 mm</li>
+<li><strong>Power:</strong> +12V <strong>58 mA</strong>, -12V <strong>42 mA</strong></li>
+<li><strong>CV outputs:</strong> <strong>±5V</strong></li>
+<li><strong>Gate outputs:</strong> <strong>0–7V</strong></li>
+<li><strong>Clock/Data input sensitivity:</strong> any signal crossing <strong>1V</strong></li>
+<li><strong>Reset/Direction trigger sensitivity:</strong> rising edge, <strong>700 mV minimum</strong></li>
+<li><strong>Length/Chance CV inputs:</strong> <strong>±5V</strong> added to knob position</li>
+</ul>
+<hr />
+<h2>Installation / calibration</h2>
+<ul>
+<li>Connect power only to the header labeled <strong>POWER</strong></li>
+<li>Ribbon cable <strong>red stripe faces down</strong></li>
+<li>Module has reverse power protection</li>
+<li>Chance trim calibration procedure:</li>
+<li>send <strong>audio-rate clock</strong> into <strong>Clock</strong></li>
+<li>monitor <strong>8-Bit</strong></li>
+<li>set <strong>Chance fully CW</strong></li>
+<li>adjust trim until pattern no longer changes</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,827 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Buchla_and_Tiptop_Audio_248t</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Buchla and Tiptop Audio — 248t</h1>
+<ul>
+<li><a href="../../manuals/Buchla_&amp;_Tiptop_Audio_248t.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://tiptopaudio.com/manuals/248t/Buchla_248_Manual_1977.pdf">248t MARF Manual PDF</a></p>
+<h1>Tiptop/Buchla 248t MARF: modulation ideas for distorted percussion, basslines, and atmospheric pads</h1>
+<p>The <strong>248t MARF</strong> is not just a sequencer. It is a <strong>dual arbitrary CV/event generator</strong> with per-stage control over:</p>
+<ul>
+<li>pitch/CV</li>
+<li>timing</li>
+<li>quantization</li>
+<li>glide/slope</li>
+<li>pulse outputs</li>
+<li>stop/sustain/enable behavior</li>
+<li>stage addressing</li>
+<li>external CV substitution</li>
+</ul>
+<p>That means the most interesting results happen when you stop thinking of it as “16-step melody” and start thinking of it as a <strong>programmable modulation brain</strong>.</p>
+<p>A big strength of the 248t is that it can generate:
+- <strong>pitched CV</strong>
+- <strong>timing CV</strong>
+- <strong>gates/pulses</strong>
+- <strong>reference ramps</strong>
+- <strong>stage-addressed movement</strong>
+- <strong>externally injected CV per stage</strong></p>
+<p>Those are perfect ingredients for aggressive rhythmic sound design and evolving textures.</p>
+<hr />
+<h1>Quick mental model of what matters most</h1>
+<p>From the manual, the most creatively useful features are:</p>
+<ul>
+<li>
+<p><strong>Two independent Function Generators (FG1 and FG2)</strong><br />
+  Each can read the same 16 stages differently.</p>
+</li>
+<li>
+<p><strong>Per-stage voltage programming</strong></p>
+</li>
+<li><strong>Quantize / Continuous</strong></li>
+<li><strong>Stepped / Sloped</strong></li>
+<li><strong>Range: Full / Half / Limited</strong></li>
+<li>
+<p><strong>Source: Internal / External</strong></p>
+</li>
+<li>
+<p><strong>Per-stage timing programming</strong></p>
+</li>
+<li>selectable time ranges</li>
+<li><strong>time source can be Internal or External</strong></li>
+<li>
+<p>each stage has its own interval time slider</p>
+</li>
+<li>
+<p><strong>Per-stage operating behaviors</strong></p>
+</li>
+<li><strong>Stop</strong></li>
+<li><strong>Sustain</strong></li>
+<li><strong>Enable</strong></li>
+<li>
+<p><strong>First / Last</strong> loop points</p>
+</li>
+<li>
+<p><strong>Outputs</strong></p>
+</li>
+<li>ART pitch output</li>
+<li>analog voltage output</li>
+<li>time output</li>
+<li>pulse 1 / pulse 2</li>
+<li>all-pulses output</li>
+<li>reference output (downward ramp over stage duration)</li>
+</ul>
+<p>This gives you a module that can act like:
+- a sequencer
+- a clock divider / irregular rhythm source
+- a CV animator
+- a gated modulation matrix
+- a patch-programmable phrase generator</p>
+<hr />
+<h1>First: the best modulation mindset for the 248t</h1>
+<p>To get unique sounds, use the MARF in these three ways:</p>
+<h2>1. Use one FG for notes, the other FG for motion</h2>
+<p>For example:
+- <strong>FG1</strong> = pitch sequence to oscillator
+- <strong>FG2</strong> = filter cutoff, wavefolder amount, distortion tone, VCA decay, FM amount, sample rate, etc.</p>
+<p>This is the easiest route to aggressive bass and evolving pads.</p>
+<h2>2. Use external CV inputs A/B/C/D as “modulation layers”</h2>
+<p>The manual says a stage can use <strong>external CV instead of internal voltage/time settings</strong>. That is huge.</p>
+<p>This means stage-by-stage you can decide:
+- use the slider value
+- or swap in some external modulation source</p>
+<p>So one sequence can selectively “invite in”:
+- LFO bursts
+- random voltage
+- envelope output
+- another sequencer
+- audio-rate oscillator for chaos</p>
+<p>That’s where the MARF gets weird.</p>
+<h2>3. Program timing as much as pitch</h2>
+<p>A lot of people use sequencers only for pitch. On the MARF, <strong>time itself is compositional</strong>.</p>
+<p>Use per-stage interval time plus:
+- stop
+- sustain
+- enable
+- external time source
+- global time multiplier</p>
+<p>That creates:
+- staggered grooves
+- syncopated broken basslines
+- choking percussion
+- unstable evolving drones
+- pseudo-granular rhythmic phrasing</p>
+<hr />
+<h1>Best 248t features for your requested sound categories</h1>
+<hr />
+<h1>1. Distorted percussive sounds</h1>
+<p>For percussion, the MARF excels at making <strong>non-uniform trigger and modulation structures</strong>.</p>
+<h2>Core idea</h2>
+<p>Use the 248t to separately control:
+- when a hit happens
+- how long the hit lasts
+- what its pitch/timbre is
+- whether that hit is normal, accented, gliding, or externally modulated</p>
+<h2>Great patch architecture</h2>
+<ul>
+<li><strong>FG1 voltage out</strong> → oscillator pitch / drum voice pitch / filter ping frequency</li>
+<li><strong>Pulse 1</strong> → envelope trigger for VCA or LPG</li>
+<li><strong>Pulse 2</strong> → accent path, distortion enable, wavefolder CV, second envelope, or noise burst VCA</li>
+<li><strong>Reference output</strong> → directly to LPG CV for natural decay-ish per-hit contour</li>
+<li><strong>FG2 voltage out or time out</strong> → modulate distortion tone / filter cutoff / FM amount</li>
+</ul>
+<h2>Why this works</h2>
+<p>The manual notes:
+- each stage can have <strong>two independent pulse outputs</strong>
+- the <strong>reference output</strong> gives a <strong>downward ramp over the interval time</strong>
+- <strong>time output</strong> gives CV from the interval slider</p>
+<p>So every step can carry both <strong>rhythmic</strong> and <strong>shape</strong> information.</p>
+<hr />
+<h2>Distorted kick / tom patch</h2>
+<p>Patch:
+- sine or triangle VCO → VCA / LPG → distortion → mixer
+- FG1 voltage out → oscillator pitch
+- Pulse 1 → short envelope to VCA/LPG
+- Pulse 2 → second envelope controlling distortion drive or wavefolder
+- Reference output → exponential-ish decay destination, like filter cutoff or LPG CV
+- Use <strong>sloped</strong> stages on certain hits</p>
+<p>Programming suggestions:
+- set most stages to <strong>stepped</strong>
+- choose a few stages with <strong>sloped</strong> pitch for kick “doooom” downward pitch sweep character
+- use <strong>limited range</strong> or <strong>half range</strong> for easier tuning of drum pitches
+- assign <strong>Pulse 2</strong> only on accents
+- vary <strong>interval time</strong> per stage so hits rush and drag slightly</p>
+<p>What makes it nasty:
+- patch <strong>FG2 voltage out</strong> to FM amount on the oscillator or to distortion CV
+- make FG2 a shorter loop than FG1 using <strong>First/Last</strong>
+- this creates repeating accent polymeters over the drum cycle</p>
+<hr />
+<h2>Broken industrial snare / metallic hit</h2>
+<p>Patch:
+- noise + oscillator mixed
+- into bandpass or highpass filter
+- into VCA
+- into wavefolder or distortion</p>
+<p>Use:
+- Pulse 1 → trigger main snare envelope
+- Pulse 2 → open a second VCA for noise burst or ring mod layer
+- FG1 voltage → filter cutoff or oscillator pitch
+- FG2 voltage → wavefolder / sample rate reducer / resonance / FM depth</p>
+<p>Programming tricks:
+- set some stages to <strong>external source</strong> for voltage and feed in random CV from S&amp;H/noise
+- use <strong>quantize off</strong> for non-musical metallic filter frequencies
+- use <strong>enable</strong> on selected stages so the phrase waits for external gate conditions before continuing
+- use <strong>stop</strong> stages to create sudden stutters and chokes</p>
+<p>Very effective move:
+- send <strong>All Pulses Out</strong> to clock another sequencer or logic module that modulates distortion parameters
+- now every stage advance becomes an opportunity for secondary chaos</p>
+<hr />
+<h2>Clicks, glitches, and fractured percussion</h2>
+<p>The MARF can get very strange if you use <strong>very short time ranges</strong> and stage addressing.</p>
+<p>Patch idea:
+- set some stages to very fast timing
+- use <strong>continuous/cont stage address</strong> mode on one FG and strobe different positions
+- clock the other FG conventionally</p>
+<p>Patch:
+- FG1 pulse output → trigger ultra-short envelope
+- FG1 voltage output → VCA CV or LPG CV instead of pitch
+- oscillator/noise/audio source remains static
+- stage values become amplitude or timbre windows</p>
+<p>Result:
+- rhythmic amplitude carving
+- almost wavetable-like percussive gestures
+- jittery granular drum phrases</p>
+<p>For more destruction:
+- use <strong>external voltage source</strong> on selected stages and patch in audio-rate oscillator
+- since the stage chooses external source by programming, only certain hits go berserk</p>
+<hr />
+<h2>Percussion-specific modulation ideas</h2>
+<p>Here are especially good destinations for the MARF:</p>
+<ul>
+<li>distortion amount</li>
+<li>wavefolder symmetry/fold depth</li>
+<li>drum voice decay</li>
+<li>LPG decay</li>
+<li>filter resonance</li>
+<li>bandpass frequency</li>
+<li>FM amount</li>
+<li>noise VCA amount</li>
+<li>bitcrusher rate/depth</li>
+<li>sample rate reduction</li>
+<li>transient shaper/accent CV</li>
+<li>send amount to spring reverb or delay</li>
+</ul>
+<hr />
+<h1>2. Crazy basslines for dubstep / drum and bass</h1>
+<p>This is where the MARF is especially strong.</p>
+<p>The main recipe for modern aggressive bass:
+- stable phrase structure
+- unstable timbre movement
+- slides/glides
+- per-hit accents
+- rhythmic asymmetry
+- selective quantization
+- modulation relationships that don’t loop evenly</p>
+<p>The 248t can do all of that.</p>
+<hr />
+<h2>Core bassline strategy</h2>
+<p>Use:
+- <strong>FG1</strong> = pitch
+- <strong>FG2</strong> = timbre movement</p>
+<p>Patch:
+- FG1 voltage or ART out → main bass oscillator pitch
+- Pulse 1 → envelope or LPG trigger
+- Pulse 2 → accent envelope / distortion hit / FM burst / sub mute / re-trigger
+- FG2 voltage → filter cutoff, wavetable position, FM index, fold amount, phase mod amount, resonance, or VCA level
+- Reference output → ducking contour, LPG pluck, or sidechain-like movement
+- Time output → another timbral parameter for note-length-correlated motion</p>
+<hr />
+<h2>Use sloped stages for bass slides</h2>
+<p>From the manual:
+- <strong>Sloped/Stepped</strong> is per stage
+- slew time is based on that stage’s interval time</p>
+<p>That is gold for bass music.</p>
+<h3>Best use:</h3>
+<p>Program most bass notes as <strong>stepped</strong>, but set selected transition notes to <strong>sloped</strong>.</p>
+<p>That gives:
+- classic glide into target note
+- grotesque pitch swoops
+- “talking” bass phrase connections
+- liquid DnB lead-in notes</p>
+<h3>Extra trick:</h3>
+<p>Because slope time depends on <strong>interval time</strong>, longer stages produce longer slides.<br />
+So you can compose the groove and the slide shape together.</p>
+<p>This is a uniquely MARF behavior and it feels much more organic than global portamento.</p>
+<hr />
+<h2>Wobble without sounding generic</h2>
+<p>Instead of a normal synced LFO wobble:</p>
+<ul>
+<li>use <strong>FG2</strong> as the wobble source</li>
+<li>assign different interval times to stages</li>
+<li>mark different loop boundaries than FG1</li>
+<li>occasionally substitute external CV using A/B/C/D on certain stages</li>
+</ul>
+<p>Patch:
+- FG2 voltage → multimode filter cutoff
+- FG2 Pulse 1 → re-trigger a modulation envelope every few stages
+- FG2 time output → distortion tone or wavefolder bias</p>
+<p>Now the “wobble” is not repetitive LFO motion. It becomes a <strong>composed modulation phrase</strong>.</p>
+<p>This works especially well for:
+- reese basses
+- vowel basses
+- FM growls
+- folded sub-mid basses</p>
+<hr />
+<h2>Bass patch 1: Reese monster</h2>
+<p>Patch:
+- 2 detuned saws or PWM squares
+- into filter
+- into soft clipper / wavefolder / distortion</p>
+<p>Use:
+- FG1 quantized voltage → oscillator pitch
+- FG2 unquantized voltage → filter cutoff
+- Pulse 1 → VCA envelope
+- Pulse 2 → distortion accent CV or FM burst envelope
+- Reference out → filter decay contour</p>
+<p>Programming:
+- FG1 in <strong>half range</strong> for musical bass note programming
+- enable <strong>quantize</strong> on musical stages
+- disable quantize on occasional transitional stages if you want ugly in-between slides
+- use <strong>sloped</strong> notes selectively
+- set FG2 loop shorter or longer than FG1 using First/Last markers</p>
+<p>Result:
+- bass notes stay anchored
+- timbre cycles phase against pitch phrase
+- pattern feels alive, not 8-step preset-ish</p>
+<hr />
+<h2>Bass patch 2: Dubstep formant/growl line</h2>
+<p>Patch:
+- complex oscillator / wavetable / FM voice
+- bandpass or lowpass filter
+- wavefolder/distortion after filter
+- optional second filter for vowel movement</p>
+<p>Use MARF like this:
+- FG1 voltage → oscillator pitch
+- FG2 voltage → wavetable position or FM index
+- Time output from FG2 → filter cutoff
+- Pulse 2 → trigger short envelope to second modulation destination, like formant sweep
+- external input A → random stepped voltage
+- set selected FG2 stages to <strong>external source</strong>, so only some timbre stages use randomness</p>
+<p>Why this is powerful:
+You get a phrase that is mostly controlled and repeatable, but certain bass hits “mutate” because stage-programmed external source injects new CV.</p>
+<p>That’s excellent for:
+- neuro bass
+- metallic wobble
+- formant screaming bass
+- machine-like resampled phrases</p>
+<hr />
+<h2>Bass patch 3: Stop/start savage groove</h2>
+<p>The manual’s <strong>stop</strong>, <strong>sustain</strong>, and <strong>enable</strong> functions are killer for bass.</p>
+<h3>Stop</h3>
+<p>A stop stage waits until a start pulse arrives.</p>
+<h3>Sustain</h3>
+<p>If a gate is high at start input, the stage holds.</p>
+<h3>Enable</h3>
+<p>Stage pauses until voltage above 5V arrives at start input.</p>
+<p>These are amazing for broken rhythmic basslines.</p>
+<p>Patch:
+- FG1 runs pitch line
+- gate pattern from another sequencer, manual controller, logic module, or trigger pattern → FG1 start input
+- certain stages programmed as <strong>stop</strong> or <strong>enable</strong>
+- Pulse 1 still triggers voice
+- FG2 continues separately or is also externally controlled</p>
+<p>What happens:
+- the phrase hangs on a stage
+- then bursts forward when external rhythm allows it
+- gives gated, syncopated, “breathe and lunge” bass motion</p>
+<p>Perfect for:
+- halftime dubstep
+- techstep DnB
+- broken neuro phrases
+- pseudo-sidechained stop-go riffs</p>
+<hr />
+<h2>Best bass modulation destinations from the 248t</h2>
+<p>Try patching the MARF into:</p>
+<ul>
+<li>oscillator pitch</li>
+<li>oscillator FM index</li>
+<li>oscillator wavefold amount</li>
+<li>wavetable position</li>
+<li>filter cutoff</li>
+<li>filter resonance</li>
+<li>comb filter frequency</li>
+<li>distortion drive</li>
+<li>distortion tone</li>
+<li>VCA level</li>
+<li>sub oscillator level</li>
+<li>noise layer level</li>
+<li>phase modulation depth</li>
+<li>LPG control</li>
+<li>delay send amount</li>
+<li>chorus depth</li>
+<li>stereo spread CV</li>
+<li>feedback amount on delay/filter</li>
+</ul>
+<hr />
+<h2>Stage-address tricks for bass</h2>
+<p>The <strong>Stage Address</strong> section is especially good for advanced bass work.</p>
+<p>From the manual:
+- continuous mode sweeps through stages with the address control and stops internal clock
+- strobe loads stage corresponding to current address value
+- stage can be controlled by knob or external voltage</p>
+<p>This means the 248t can become a kind of <strong>voltage-scanned wavesequence/modulation table</strong>.</p>
+<h3>Try this:</h3>
+<ul>
+<li>program 16 stages as different timbre values, not notes</li>
+<li>set FG2 to <strong>continuous</strong></li>
+<li>patch an LFO, envelope, random CV, or audio-rate CV into external stage address</li>
+<li>use FG2 voltage out as filter/folder/FM modulation</li>
+</ul>
+<p>Now you are “scanning” a programmed modulation shape instead of just clocking steps.<br />
+That can sound like:
+- talking bass
+- tearing filter vowels
+- scanning distortion colors
+- unstable digital motion</p>
+<p>For extreme bass:
+- use envelope into stage address for attack-to-decay timbre travel
+- use audio-rate oscillator into stage address for tearing discontinuous modulation</p>
+<hr />
+<h1>3. Haunting atmospheric pad sounds</h1>
+<p>The MARF is also great for pads because it can create <strong>slow, non-uniform, semi-repeatable evolution</strong>.</p>
+<p>Pads get interesting when multiple parameters drift at different speeds with occasional structural surprises.</p>
+<p>The MARF is built for that.</p>
+<hr />
+<h2>Core pad strategy</h2>
+<p>Use very slow time ranges and separate the generators:</p>
+<ul>
+<li><strong>FG1</strong> = pitch/harmonic center</li>
+<li><strong>FG2</strong> = timbral evolution</li>
+</ul>
+<p>Patch:
+- FG1 quantized voltage → oscillator pitch or chord root CV
+- FG2 continuous voltage → filter cutoff / wavetable position / morph / FM index
+- Reference output → slow contour to LPG, filter, or reverb send
+- Time output → modulation depth, stereo width, shimmer amount, or delay feedback
+- Pulse outputs → occasional envelope resets, freeze functions, or reverb bloom triggers</p>
+<hr />
+<h2>Use long stage times and sloped movement</h2>
+<p>The manual says time can range from very short to <strong>up to 2 minutes</strong>.</p>
+<p>For pads:
+- use long intervals
+- set many stages to <strong>sloped</strong>
+- use <strong>continuous voltage</strong> rather than quantized where timbre is concerned
+- use <strong>quantized</strong> for pitch if you want harmonic clarity</p>
+<p>This gives:
+- slow glacial morphing
+- note drift
+- harmonic ambiguity
+- ghostly transitions between states</p>
+<hr />
+<h2>Pad patch 1: haunted chord bed</h2>
+<p>Patch:
+- 2 or 3 VCOs or a polyphonic voice
+- through LPG or lowpass filter
+- into long reverb and modulated delay</p>
+<p>Use:
+- FG1 voltage → pitch CV or root note transposition
+- FG2 voltage → filter cutoff
+- FG2 time output → reverb send or delay feedback
+- Reference output → subtle VCA/LPG contour
+- Pulse 1 → trigger sparse envelope or shimmer burst every few stages</p>
+<p>Programming:
+- choose a key/scale if using quantize
+- mark only a few stages with pulse outputs
+- use unequal stage times so the phrase feels unmetered
+- use <strong>First/Last</strong> loop points shorter on one FG than the other</p>
+<p>Result:
+- a pad that never quite comes back the same way
+- harmonic movement and timbral movement drift against each other</p>
+<hr />
+<h2>Pad patch 2: external-source spectral ghosting</h2>
+<p>This is one of the most powerful MARF tricks.</p>
+<p>Use stage-programmed external voltage source for timbre.</p>
+<p>Patch:
+- external input A = slow random CV
+- external input B = envelope follower from another sound
+- external input C = sine LFO
+- external input D = very slow manual CV/joystick/pressure source</p>
+<p>Set selected stages to <strong>external voltage source</strong>.<br />
+Now some stages use the programmed slider value, while others “open portals” to external modulators.</p>
+<p>Patch FG2 voltage to:
+- wavetable position
+- wavefolder symmetry
+- filter FM amount
+- reverb tone
+- granular density
+- spectral morph</p>
+<p>This creates a pad that has programmed structure but periodically becomes reactive and alive.</p>
+<p>Excellent for:
+- dark ambient
+- haunted drone
+- sci-fi beds
+- decaying tape-memory textures</p>
+<hr />
+<h2>Pad patch 3: frozen-time sustain architecture</h2>
+<p>Use <strong>sustain</strong> and <strong>enable</strong> to make pads breathe.</p>
+<p>Patch:
+- slow gate or manual controller to start input
+- selected stages programmed as <strong>sustain</strong>
+- some stages as <strong>enable</strong>
+- long interval times
+- sloped voltages</p>
+<p>What happens:
+- the pad arrives at a stage and lingers unnaturally
+- then advances only when external condition changes
+- creates suspended harmonic moments</p>
+<p>Very useful for:
+- performance-controlled drones
+- evolving soundtrack textures
+- ritual ambient structures
+- live improvisation with pressure/foot controller/keyboard gate</p>
+<hr />
+<h1>Advanced cross-modulation techniques</h1>
+<p>These are where the MARF becomes truly unique.</p>
+<hr />
+<h2>1. Use FG1 to make sound, FG2 to modulate FG1 timing indirectly</h2>
+<p>Patch:
+- FG2 output → external input selected as <strong>time source</strong> on FG1 stages
+- some stages of FG1 use internal time, some external time</p>
+<p>Now pitch phrase timing changes according to another programmed function.<br />
+This creates:
+- rushing/dragging basslines
+- unstable percussion grids
+- swelling pad evolution</p>
+<p>If external time CV is absent, the manual says it defaults to the fastest value of the selected range, so be deliberate.</p>
+<hr />
+<h2>2. Use Time Output as a hidden second sequencer</h2>
+<p>The manual states the time slider also produces CV at the <strong>time output</strong>.</p>
+<p>This means each FG really gives you:
+- pitch-like CV
+- time-derived CV
+- pulses
+- reference ramp</p>
+<p>The time sliders can therefore be programmed as a totally different contour than pitch.</p>
+<p>Great uses:
+- percussion decay sequence
+- distortion amount sequence
+- FM depth sequence
+- reverb send sequence
+- bass brightness sequence
+- pad stereo width sequence</p>
+<p>This is one of the most underused powers of the MARF.</p>
+<hr />
+<h2>3. Use All Pulses Out as a master chaos clock</h2>
+<p>Because <strong>All Pulses Out</strong> fires whenever a new stage is addressed, you can use it to drive:
+- clocked random
+- Bernoulli gates
+- logic
+- clock dividers
+- envelope followers
+- switched modulation</p>
+<p>Then route those results back into:
+- A/B/C/D external inputs
+- start inputs
+- stage addressing
+- effect CVs</p>
+<p>That creates a self-related ecosystem around the MARF.</p>
+<hr />
+<h2>4. Use mismatched cycle boundaries</h2>
+<p>Program:
+- FG1 first/last = stages 1–8
+- FG2 first/last = stages 3–13</p>
+<p>Now both generators traverse the same stored 16-stage programming space but with different cycle windows.<br />
+This gives extremely musical long-form variation without randomness.</p>
+<p>Especially good for:
+- bassline phrase evolution
+- drifting accents in percussion
+- pads that take a long time to truly repeat</p>
+<hr />
+<h2>5. Mixed quantized/unquantized stage programming</h2>
+<p>A very signature MARF trick:
+- quantize some stages
+- leave others continuous</p>
+<p>Use this for bass:
+- stable musical root notes on some stages
+- ugly in-between bent notes on transitions</p>
+<p>Use this for pads:
+- clear harmonic anchor points
+- drifting microtonal movement between them</p>
+<p>Use this for percussion:
+- discrete tuned drum hits alternating with inharmonic metallic offsets</p>
+<hr />
+<h1>Patch recipes by genre target</h1>
+<hr />
+<h2>A. Distorted percussion patch recipe</h2>
+<p><strong>Goal:</strong> industrial broken drum machine</p>
+<p>Patch:
+- VCO sine → wavefolder/distortion → LPG/VCA → mixer
+- noise → VCA → mixer
+- FG1 voltage → VCO pitch
+- Pulse 1 → LPG/VCA envelope
+- Pulse 2 → noise VCA envelope
+- Reference out → LPG CV
+- FG2 voltage → distortion drive
+- FG2 time out → filter cutoff or fold symmetry</p>
+<p>Programming:
+- short to medium time ranges
+- stage time variation for groove
+- some sloped pitch stages for tom/kick dives
+- pulse 2 only on selected accents
+- external source on a few FG2 stages using random CV</p>
+<p>Result:
+- heavy kicks/toms/snare hybrids
+- asymmetrical aggression
+- animated distortion color</p>
+<hr />
+<h2>B. Dubstep bass patch recipe</h2>
+<p><strong>Goal:</strong> snarling syncopated growl bass</p>
+<p>Patch:
+- main oscillator + sub oscillator
+- into multimode filter
+- into wavefolder/distortion
+- into VCA</p>
+<p>MARF:
+- FG1 ART/voltage → pitch
+- FG2 voltage → filter cutoff
+- FG2 time out → FM index
+- Pulse 1 → VCA envelope
+- Pulse 2 → distortion accent envelope
+- Reference out → subtle ducking or second filter contour
+- All Pulses Out → clock random source
+- random source back to external input A
+- selected FG2 stages set to external source</p>
+<p>Programming:
+- quantized bass notes in half range
+- selective sloped transitions
+- one or two stop/enable stages for dramatic hangs
+- shorter loop on FG2 than FG1</p>
+<p>Result:
+- composed but mutating growl phrases
+- classic bassline cohesion with non-repeating detail</p>
+<hr />
+<h2>C. DnB reese patch recipe</h2>
+<p><strong>Goal:</strong> rolling, tense, evolving low-end</p>
+<p>Patch:
+- two detuned saws
+- lowpass filter
+- saturation
+- chorus/flanger optional</p>
+<p>MARF:
+- FG1 quantized voltage → pitch
+- FG2 voltage → filter cutoff or chorus depth
+- Time output → distortion tone
+- Pulse 1 → short VCA envelope
+- Pulse 2 → accent envelope to resonance/FM</p>
+<p>Programming:
+- mostly short stage times
+- a few longer holds
+- occasional sloped notes into phrase endpoints
+- stop stage before drop resolution
+- external start pulses from trigger sequencer for syncopation</p>
+<p>Result:
+- rolling bass with phrase punctuation
+- long-form modulation that doesn’t sound loop-locked</p>
+<hr />
+<h2>D. Haunted pad patch recipe</h2>
+<p><strong>Goal:</strong> dark cinematic evolving texture</p>
+<p>Patch:
+- rich oscillator / wavetable source
+- LPG or gentle filter
+- large reverb
+- modulated delay</p>
+<p>MARF:
+- FG1 quantized voltage → root/transposition
+- FG2 continuous voltage → wavetable position
+- Reference output → LPG/filter contour
+- Time output → reverb send
+- Pulse 1 → shimmer burst / freeze / envelope reset
+- external inputs fed by slow random, envelope follower, sine LFO, manual CV
+- selected stages on FG2 use external source</p>
+<p>Programming:
+- long stage intervals
+- sloped on most timbral stages
+- sparse pulse programming
+- different first/last loops for the two FGs
+- sustain stages controlled by external gate</p>
+<p>Result:
+- eerily structured but fluid pad motion
+- occasional spectral intrusions from external sources
+- strong “haunted machine” quality</p>
+<hr />
+<h1>Best specific modulation destinations by sound goal</h1>
+<h2>For distorted percussion</h2>
+<p>Use MARF outputs to modulate:
+- decay time
+- pitch
+- fold depth
+- distortion drive
+- resonance
+- noise amount
+- transient level
+- LPG CV
+- sample rate
+- bit depth
+- send to spring/delay</p>
+<h2>For dubstep/DnB bass</h2>
+<p>Use MARF outputs to modulate:
+- filter cutoff
+- filter mode scan
+- FM index
+- wavefolder
+- wavetable position
+- phase modulation depth
+- distortion drive and tone
+- sub level
+- stereo width
+- comb filter frequency
+- formant/vowel filter</p>
+<h2>For atmospheric pads</h2>
+<p>Use MARF outputs to modulate:
+- cutoff
+- reverb send
+- delay feedback
+- wavetable position
+- oscillator blend
+- FM amount
+- stereo image
+- shimmer amount
+- LPG level
+- saturation tone
+- granular density/position if using sampler modules</p>
+<hr />
+<h1>Performance tips</h1>
+<h2>1. Use presets as macro-scene changes</h2>
+<p>The manual says you can save and recall <strong>12 presets</strong>.<br />
+This is extremely useful live.</p>
+<p>Create:
+- preset 1 = restrained groove
+- preset 2 = distorted variation
+- preset 3 = breakdown
+- preset 4 = drop
+- preset 5 = ambient wash</p>
+<p>Since stage data includes slider positions and settings, presets can function like song sections.</p>
+<hr />
+<h2>2. Use manual stage advance for fills</h2>
+<p>The <strong>advance</strong> control on either FG is perfect for manual performance nudges:
+- drum fill skip
+- bass phrase mutation
+- forcing unexpected pad harmonies</p>
+<hr />
+<h2>3. Use continuous stage addressing as a timbre macro</h2>
+<p>When stage address is in <strong>continuous</strong> mode, scanning stages can feel like moving through a custom wavetable of modulation states.</p>
+<p>Great live gesture:
+- patch a joystick or pressure controller to stage address external CV
+- use FG2 voltage out for filter/folder/FM
+- “play” timbre like an instrument</p>
+<hr />
+<h2>4. Keep one FG stable and abuse the other</h2>
+<p>For musical results:
+- let one FG define the recognizable musical identity
+- make the other FG do the dangerous stuff</p>
+<p>Examples:
+- stable bass notes, unstable filter motion
+- stable percussion triggers, unstable distortion color
+- stable pad root, unstable spectral movement</p>
+<p>That prevents total chaos while still sounding unique.</p>
+<hr />
+<h1>Practical “secret sauce” ideas</h1>
+<h2>Selective external source substitution</h2>
+<p>This is probably the most powerful sound-design trick in the manual.</p>
+<p>Feed A/B/C/D with:
+- random
+- envelope follower
+- audio oscillator
+- slow LFO</p>
+<p>Then on only a few stages, switch source to external.</p>
+<p>That gives:
+- occasional monstrous bass hits
+- one snare in a bar that mutates
+- pads that briefly become haunted
+- controlled unpredictability</p>
+<hr />
+<h2>Use time sliders as expression, not just duration</h2>
+<p>Because time output can be used separately, program stage times musically:
+- short notes = brighter
+- long notes = darker
+- long notes = more reverb
+- short hits = more distortion</p>
+<p>This creates strong internal phrase coherence.</p>
+<hr />
+<h2>Use limited range for bass and percussion</h2>
+<p>The manual notes:
+- <strong>Full range</strong> = 0–10V
+- <strong>Half range</strong> = 0–5V
+- <strong>Limited</strong> = 2V spans with offsets</p>
+<p>For bass, half/limited often feel better because:
+- easier to dial pitch precisely
+- less accidental huge jumps
+- more “playable” musical range</p>
+<p>For percussion:
+- limited range is excellent for tuned drum zones</p>
+<hr />
+<h2>Exploit unequal timing</h2>
+<p>The MARF’s stage times can make everything feel alive.</p>
+<p>For bass:
+- alternate short-short-long-short patterns
+- then break them with stop/enable</p>
+<p>For percussion:
+- micro-variation in stage lengths humanizes and destabilizes grooves</p>
+<p>For pads:
+- unequal long durations make the harmony feel organic and non-gridlocked</p>
+<hr />
+<h1>Best minimal starter patches</h1>
+<p>If you want immediate results, start here.</p>
+<h2>Starter 1: nasty bass</h2>
+<ul>
+<li>FG1 → pitch</li>
+<li>FG2 → filter cutoff</li>
+<li>Pulse 1 → amp envelope</li>
+<li>Pulse 2 → distortion accent</li>
+<li>use sloped notes sparingly</li>
+<li>shorter loop on FG2 than FG1</li>
+</ul>
+<h2>Starter 2: broken drums</h2>
+<ul>
+<li>FG1 → drum pitch</li>
+<li>Pulse 1 → main hit</li>
+<li>Pulse 2 → accent/noise burst</li>
+<li>Reference out → LPG decay</li>
+<li>FG2 → distortion tone</li>
+<li>program irregular stage times</li>
+</ul>
+<h2>Starter 3: haunted pad</h2>
+<ul>
+<li>FG1 → root pitch</li>
+<li>FG2 → wavetable/filter</li>
+<li>Time out → reverb send</li>
+<li>Reference out → slow LPG/filter shape</li>
+<li>long sloped stages</li>
+<li>external source on a few timbre stages</li>
+</ul>
+<hr />
+<h1>Final advice</h1>
+<p>The 248t becomes special when you combine these four concepts:</p>
+<ol>
+<li><strong>Pitch and timbre are sequenced separately</strong></li>
+<li><strong>Timing is part of composition</strong></li>
+<li><strong>Only some stages become externalized/randomized</strong></li>
+<li><strong>Loop lengths and behaviors differ between the two FGs</strong></li>
+</ol>
+<p>That combination is exactly how you get:
+- <strong>distorted percussive brutality</strong>
+- <strong>dubstep/DnB basslines with movement and attitude</strong>
+- <strong>haunting evolving pads that feel alive instead of looped</strong></p>
+<p>If you want, I can also give you:
+- <strong>3 concrete patch diagrams</strong> for these sound categories
+- a <strong>“best modules to pair with the 248t” list</strong>
+- or a <strong>stage-by-stage example program</strong> for bass, percussion, and pads.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ohmforce_Bohm_Multimodal_Kick_Drum_Voice</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Ohmforce — Bohm Multimodal Kick Drum Voice</h1>
+<ul>
+<li><a href="../../manuals/Bohm_Eurorack_Manual_Compiled.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://bohm-eurorack-manual.readthedocs.io/en/latest/index.html">Manual PDF / Source</a></p>
+<h1>Using Bohm for dense, hyper-complex percussion</h1>
+<p>Bohm is especially good for this because it is not just a single static kick voice: it is a <strong>stereo dual-voice kick system</strong> with <strong>multiple models</strong>, plus optional <strong>Groove</strong> and <strong>Performer</strong> expanders. That means you can treat it less like “just a kick” and more like a <strong>central low-end percussion engine</strong> for layered rhythmic architecture.</p>
+<h2>What the module gives you musically</h2>
+<p>From the manual, the key strengths for complex rhythm design are:</p>
+<ul>
+<li><strong>Multiple kick models</strong> with different architectures</li>
+<li><strong>Stereo dual-voice behavior</strong></li>
+<li>Controls for:</li>
+<li><strong>HIT</strong></li>
+<li><strong>VELOCITY</strong></li>
+<li><strong>LENGTH</strong></li>
+<li><strong>SUSTAIN</strong></li>
+<li><strong>ATTACK</strong></li>
+<li><strong>PITCH</strong></li>
+<li><strong>CURVE</strong></li>
+<li><strong>TRS DECAY</strong></li>
+<li><strong>COLOR</strong></li>
+<li><strong>FX</strong></li>
+<li><strong>TRS TONE</strong></li>
+<li><strong>Groove expander</strong> for a <strong>secondary kick voice</strong> suited to rumbles and layered percussion</li>
+<li><strong>Performer expander</strong> for <strong>DJ-style effects, ducking, and stereo processing</strong></li>
+<li><strong>Running modes</strong>:</li>
+<li>Studio Mode</li>
+<li>Live Song Mode</li>
+<li>Jam Mode</li>
+</ul>
+<p>This makes Bohm ideal for building <strong>nested rhythmic relationships</strong> rather than a simple 4-on-the-floor kick.</p>
+<hr />
+<h1>Core strategy: think of Bohm as 3 percussion roles</h1>
+<p>Use Bohm in three layers:</p>
+<ol>
+<li><strong>Primary pulse</strong></li>
+<li>The main downbeat anchor</li>
+<li>
+<p>Shorter, punchy, more defined</p>
+</li>
+<li>
+<p><strong>Secondary low percussion</strong></p>
+</li>
+<li>Off-beat thumps, ghost kicks, tom-like low hits</li>
+<li>
+<p>Can come from alternate models or Groove voice</p>
+</li>
+<li>
+<p><strong>Spatial/rumbled rhythmic tail</strong></p>
+</li>
+<li>Longer decays, stereo motion, FX, ducking</li>
+<li>Creates density between primary hits</li>
+</ol>
+<p>If you patch and sequence those layers independently, you can create the impression of a whole percussion section from one kick-centered ecosystem.</p>
+<hr />
+<h1>Patch ideas for polyrhythms and complex time signatures</h1>
+<h2>1. Polyrhythmic kick lattice</h2>
+<p>Use separate trigger streams to create interlocking cycles.</p>
+<p>Example concept:</p>
+<ul>
+<li>Main Bohm voice: trigger every <strong>5 steps</strong></li>
+<li>Groove voice: trigger every <strong>7 steps</strong></li>
+<li>Accent CV or velocity modulation: cycle every <strong>3 steps</strong></li>
+<li>Performer FX changes: cycle every <strong>8 or 9 steps</strong></li>
+</ul>
+<p>This creates a composite pattern that takes many bars to fully repeat.</p>
+<h3>How to shape it</h3>
+<ul>
+<li>Keep the <strong>main voice</strong> short:</li>
+<li>lower <strong>LENGTH</strong></li>
+<li>moderate <strong>ATTACK</strong></li>
+<li>controlled <strong>SUSTAIN</strong></li>
+<li>Set the <strong>secondary/Groove voice</strong> longer:</li>
+<li>more <strong>TRS DECAY</strong></li>
+<li>more <strong>COLOR</strong></li>
+<li>subtle <strong>FX</strong></li>
+<li>Modulate <strong>PITCH</strong> on only selected hits for pseudo-tom phrases</li>
+</ul>
+<p>This works especially well for <strong>5:7</strong>, <strong>4:5</strong>, or <strong>3:4:7</strong> relationships.</p>
+<hr />
+<h2>2. Complex-meter kick phrasing</h2>
+<p>Instead of sequencing in 4/4, build phrases in meters like:</p>
+<ul>
+<li><strong>7/8</strong></li>
+<li><strong>9/8</strong></li>
+<li><strong>11/8</strong></li>
+<li>alternating <strong>5/4 + 7/8</strong></li>
+<li><strong>3+3+2</strong></li>
+<li><strong>2+2+3</strong></li>
+<li><strong>4+4+3</strong></li>
+</ul>
+<h3>Practical use on Bohm</h3>
+<p>Program your triggers so the strongest accents are not always on beat 1.</p>
+<p>For example in <strong>7/8</strong>:
+- Hit pattern accent structure: <strong>3 + 2 + 2</strong>
+- Strong hit on step 1
+- medium on step 4
+- lighter on step 6</p>
+<p>Then use:
+- <strong>VELOCITY</strong> variation for accent hierarchy
+- <strong>ATTACK</strong> for sharper accented hits
+- <strong>CURVE</strong> to make some kicks snap and others bloom
+- <strong>PITCH</strong> slightly lower on the first group to reinforce phrase boundaries</p>
+<p>This gives the listener a strong internal pulse while still sounding asymmetrical.</p>
+<hr />
+<h2>3. Euclidean low-end percussion</h2>
+<p>If your trigger sequencer supports Euclidean rhythms, Bohm can become the anchor for very dense structures.</p>
+<p>Try:
+- Main kick voice: <strong>5 hits over 13 steps</strong>
+- Groove layer: <strong>7 hits over 16</strong>
+- Accent modulation: <strong>3 over 8</strong>
+- FX bursts: <strong>2 over 5</strong></p>
+<h3>Why this works</h3>
+<p>Because Bohm has enough tone-shaping controls to differentiate each layer:
+- shorter Euclidean streams become <strong>dry punches</strong>
+- longer sparse streams become <strong>sub punctuation</strong>
+- denser streams can be made <strong>clickier and more percussive</strong> with shorter sustain and more attack</p>
+<p>You are not just varying timing; you are varying <strong>spectral role</strong>.</p>
+<hr />
+<h1>Making the voice unique, punchy, and percussive</h1>
+<p>Even though Bohm is a kick module, you can push it into a broader percussion vocabulary.</p>
+<h2>1. Turn kicks into a family of tuned percussion</h2>
+<p>The manual notes that <strong>PITCH</strong> ranges roughly from <strong>C1 to C2</strong>, with adjustable pitch curves inspired by 808/909 behavior.</p>
+<p>Use that musically:</p>
+<ul>
+<li>lower pitch = classic body/sub kick</li>
+<li>mid pitch = tom-like percussion</li>
+<li>high end of range = clicky attack drum or synth blip</li>
+</ul>
+<h3>Technique</h3>
+<p>Sequence pitch changes across a phrase:
+- Beat 1: low root kick
+- Beat 3: slightly higher “tom”
+- Beat 5: even higher accent hit
+- Ghost notes: very short, higher-pitched taps</p>
+<p>Then vary <strong>CURVE</strong>:
+- steeper curve = more classic electronic punch
+- softer curve = rounded low percussion</p>
+<p>This gives you <strong>melodic percussion</strong>, which is excellent in odd meters.</p>
+<hr />
+<h2>2. Use ATTACK and LENGTH as rhythmic articulation controls</h2>
+<p>These are not just tone controls; they are groove controls.</p>
+<h3>For punch</h3>
+<ul>
+<li>Increase <strong>ATTACK</strong></li>
+<li>Reduce <strong>LENGTH</strong></li>
+<li>Keep <strong>SUSTAIN</strong> controlled</li>
+<li>Use shorter <strong>TRS DECAY</strong></li>
+</ul>
+<p>This makes hits feel more like precision drum machine transients.</p>
+<h3>For dense rhythm beds</h3>
+<ul>
+<li>Use alternating short and long hits</li>
+<li>Short hits act like punctuation</li>
+<li>Longer hits fill space between accents</li>
+</ul>
+<p>Example:
+- downbeats: short, sharp
+- offbeats: longer, smeared, colored
+- phrase-ending hit: long decay with FX</p>
+<p>That contrast is what creates “hyper-complex” feel without total mud.</p>
+<hr />
+<h2>3. Use VELOCITY as a structural sequencer lane</h2>
+<p>If you can send variable accent or CV into velocity-related behavior, think of it as a compositional layer.</p>
+<p>Use 4 velocity tiers:
+- <strong>high</strong> = structural accents
+- <strong>medium</strong> = groove support
+- <strong>low</strong> = ghost hits
+- <strong>very low</strong> = almost-clicks</p>
+<p>Then map parameter response by model:
+- some models may react with more attack
+- some may react with more body
+- some may change timbre strongly</p>
+<p>This means a single trigger stream can become a <strong>multi-level percussion line</strong>.</p>
+<hr />
+<h2>4. Exploit model differences as “kit pieces”</h2>
+<p>Because Bohm includes multiple kick “models,” assign different models to different compositional purposes.</p>
+<p>For example:
+- Model A: tight, dry punch for meter definition
+- Model B: boomy low-end support
+- Model C: distorted or colored industrial accent
+- Model D: click-forward transient percussion</p>
+<p>In <strong>Studio Mode</strong>, explore immediate parameter changes to find:
+- one model for anchor pulse
+- one for syncopated secondary hits
+- one for special fills</p>
+<p>Then save programs if your workflow allows, since the module stores <strong>up to 32 programs</strong>.</p>
+<hr />
+<h1>Using Groove for layered and rumble-heavy complexity</h1>
+<p>The manual says Groove adds a <strong>secondary kick voice for techno rumbles and layered percussion</strong>. This is extremely useful for dense rhythm.</p>
+<h2>1. Separate transient from tail</h2>
+<p>Use:
+- <strong>Main Bohm voice</strong> = transient and impact
+- <strong>Groove voice</strong> = longer low-end tail or off-beat rumble</p>
+<p>This gives you cleaner control over rhythmic density.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Main voice on the grid</li>
+<li>Groove voice delayed or sequenced in between grid points</li>
+<li>Main voice: low sustain, sharp attack</li>
+<li>Groove: more decay, more color, more FX</li>
+</ul>
+<p>Result:
+- the main voice defines meter
+- the Groove layer creates rolling momentum</p>
+<hr />
+<h2>2. Create call-and-response between voices</h2>
+<p>In odd meter, alternate the voices as if they were two drummers.</p>
+<p>In <strong>11/8</strong>, for example:
+- Main voice accents: steps 1, 4, 7
+- Groove voice answers: steps 3, 6, 9, 11</p>
+<p>Then tune them slightly apart with <strong>PITCH</strong> and vary <strong>COLOR</strong> so they occupy different low-frequency identities.</p>
+<p>This becomes more like <strong>interlocking hand drums or taiko logic</strong>, but in electronic kick form.</p>
+<hr />
+<h2>3. Build pseudo-ratchets with layered short hits</h2>
+<p>If your sequencer can create fast repeated triggers:
+- send the first trigger to main Bohm
+- subsequent flams/repeats to Groove
+- shorten both voices</p>
+<p>This makes percussive bursts that feel like:
+- machine-gun kicks
+- low tom rolls
+- granular impact clusters</p>
+<p>Especially effective before bar transitions or phrase resets in complex meters.</p>
+<hr />
+<h1>Using Performer for rhythmic motion and stereo complexity</h1>
+<p>The manual says Performer adds <strong>DJ-style effects, ducking, and stereo processing</strong>.</p>
+<h2>1. Turn ducking into groove architecture</h2>
+<p>Ducking is not just for mix cleanup. In dense percussion, it can become a rhythmic sculptor.</p>
+<p>Use ducking to:
+- carve space after major accents
+- make long Groove tails pulse around the main kick
+- exaggerate asymmetrical meter</p>
+<p>For example:
+- every strong hit ducks the stereo tail
+- weaker hits do less ducking
+- this creates macro-accent structure across a 7/8 or 13-step phrase</p>
+<hr />
+<h2>2. Use stereo processing to separate polyrhythms</h2>
+<p>Put different rhythmic functions in different stereo behaviors:
+- centered = main structural pulse
+- widened/processed = secondary or off-grid material</p>
+<p>This helps dense patterns remain intelligible.</p>
+<p>A practical idea:
+- main kick dry and center
+- Groove/performance-processed tails wider
+- FX emphasized only on every 5th or 7th event</p>
+<p>This creates the sensation of multiple percussion layers moving at different rates.</p>
+<hr />
+<h2>3. Use FX as phrase punctuation, not always-on decoration</h2>
+<p>With complicated rhythms, constant effects can blur the structure.</p>
+<p>Instead:
+- dry for most of the bar
+- apply <strong>FX</strong> only at:
+  - phrase ends
+  - metric pivots
+  - fill moments
+  - polyrhythm intersections</p>
+<p>That makes complexity feel intentional rather than messy.</p>
+<hr />
+<h1>Best running modes for this goal</h1>
+<h2>Studio Mode</h2>
+<p>Use this first.</p>
+<p>Because parameter changes happen immediately, it is ideal for:
+- dialing in contrasting kick personalities
+- finding the exact attack/sustain balance
+- testing model behavior under rapid modulation
+- building a library of saved rhythmic voices</p>
+<p>Best for:
+- designing kits for odd-meter percussion
+- tuning layered rumble vs punch
+- discovering how models respond to accents</p>
+<h2>Live Song Mode</h2>
+<p>Use this when you want:
+- preplanned kick changes
+- different sections with different meter emphasis
+- reliable transitions between pattern families</p>
+<p>Good for arrangements like:
+- intro in 5/4
+- main section in 7/8
+- breakdown with sparse 3-against-4 pulse
+- climax with layered polymeter</p>
+<h2>Jam Mode</h2>
+<p>Best when you want performable instability.</p>
+<p>Use it for:
+- mutating pattern emphasis live
+- improvising fills
+- switching which voice dominates
+- riding FX and color for tension</p>
+<p>For hyper-complex percussion, Jam Mode is likely best when the sequencing is external and Bohm becomes the expressive sound-shaping center.</p>
+<hr />
+<h1>Patch recipes</h1>
+<h2>Recipe 1: Odd-meter industrial kick ensemble</h2>
+<p>Goal: sharp, asymmetrical percussion in 7/8</p>
+<ul>
+<li>Sequence main voice in <strong>3+2+2</strong></li>
+<li>Set:</li>
+<li>short <strong>LENGTH</strong></li>
+<li>medium/high <strong>ATTACK</strong></li>
+<li>low/moderate <strong>SUSTAIN</strong></li>
+<li>controlled <strong>COLOR</strong></li>
+<li>Add Groove on offbeats with:</li>
+<li>longer <strong>TRS DECAY</strong></li>
+<li>lower pitch</li>
+<li>subtle <strong>FX</strong></li>
+<li>Use Performer ducking on strong accents only</li>
+</ul>
+<p>Result:
+- articulated phrase divisions
+- heavy but readable low-end
+- aggressive machine-percussion feel</p>
+<hr />
+<h2>Recipe 2: Polymetric techno rumble engine</h2>
+<p>Goal: long-cycle interaction</p>
+<ul>
+<li>Main voice: 4-step regular pulse</li>
+<li>Groove voice: 5-step cycle</li>
+<li>Accent/velocity: 7-step cycle</li>
+<li>FX modulation: 9-step cycle</li>
+</ul>
+<p>Sound design:
+- Main voice = clean punch
+- Groove = longer rumble tail
+- Every 7th accent = extra pitch drop or color shift
+- Every 9th event = FX splash or stereo widening</p>
+<p>Result:
+- evolving phase relationships over many bars
+- still club-functional, but much more intricate than straight techno</p>
+<hr />
+<h2>Recipe 3: Low tom + kick hybrid system</h2>
+<p>Goal: make Bohm act like multiple drum instruments</p>
+<ul>
+<li>Use one model as a classic kick</li>
+<li>Use another setting or voice as a higher-pitched low tom</li>
+<li>Sequence alternating pitches within one phrase</li>
+<li>Shorten sustain on higher notes</li>
+<li>Increase attack on accented tom-like hits</li>
+<li>Use color variation to separate the “drums”</li>
+</ul>
+<p>Pattern example in 11 steps:
+- 1 = low kick
+- 3 = high tom hit
+- 5 = low kick
+- 7 = ghost tap
+- 8 = high tom accent
+- 11 = long tail phrase ending</p>
+<p>Result:
+- one module behaves like a mini percussion battery</p>
+<hr />
+<h2>Recipe 4: Hyper-dense ghost-note engine</h2>
+<p>Goal: lots of activity without losing punch</p>
+<ul>
+<li>Main accents: high velocity, short decay</li>
+<li>Ghost hits: low velocity, shorter length, slightly higher pitch</li>
+<li>Keep ghost hits quieter and thinner</li>
+<li>Use Groove only for selected reinforcement hits</li>
+<li>Add Performer stereo or ducking to prevent overlap mud</li>
+</ul>
+<p>The trick is <strong>spectral hierarchy</strong>:
+- loud hits = low and full
+- ghost hits = smaller, brighter, shorter</p>
+<p>That makes density possible.</p>
+<hr />
+<h1>Composition tips specifically for complex rhythm music</h1>
+<h2>Use contrast, not maximum density everywhere</h2>
+<p>If every hit is huge, complex rhythm turns to mush.</p>
+<p>Instead:
+- accents big
+- inner notes small
+- fills bright and short
+- rumbles reserved for transitions or support</p>
+<h2>Let timbre mark the meter</h2>
+<p>In odd signatures, listeners need cues.</p>
+<p>Use:
+- lower pitch on the first beat of a cycle
+- sharper attack on group boundaries
+- more color on phrase endings
+- extra FX only at long-cycle resets</p>
+<h2>Build long-form repetition cycles</h2>
+<p>For true hyper-complex feel:
+- trigger cycle length
+- velocity cycle length
+- pitch cycle length
+- FX cycle length</p>
+<p>Make each a different number of steps so the full phrase evolves slowly.</p>
+<h2>Keep one stable reference layer</h2>
+<p>Even with heavy polymeter, keep one voice acting as the listener’s anchor.
+Usually:
+- shortest
+- driest
+- most centered
+- least processed</p>
+<p>Then let everything else mutate around it.</p>
+<hr />
+<h1>Practical sound design checklist</h1>
+<p>When dialing in Bohm for punchy complex percussion:</p>
+<ul>
+<li><strong>Need more impact?</strong></li>
+<li>raise <strong>ATTACK</strong></li>
+<li>shorten <strong>LENGTH</strong></li>
+<li>
+<p>reduce excessive <strong>SUSTAIN</strong></p>
+</li>
+<li>
+<p><strong>Need more definition in dense patterns?</strong></p>
+</li>
+<li>shorten decays</li>
+<li>separate main and secondary roles</li>
+<li>
+<p>use stereo/ducking to create space</p>
+</li>
+<li>
+<p><strong>Need more variation?</strong></p>
+</li>
+<li>change <strong>model</strong></li>
+<li>modulate <strong>PITCH</strong></li>
+<li>vary <strong>CURVE</strong></li>
+<li>
+<p>use <strong>VELOCITY</strong> in tiers</p>
+</li>
+<li>
+<p><strong>Need more rumble without losing clarity?</strong></p>
+</li>
+<li>let Groove handle tails</li>
+<li>keep main voice dry and punchy</li>
+<li>
+<p>use Performer ducking to shape overlap</p>
+</li>
+<li>
+<p><strong>Need more “percussion” than “kick”?</strong></p>
+</li>
+<li>tune some hits higher</li>
+<li>shorten them</li>
+<li>use attack-heavy settings</li>
+<li>alternate tonal roles across the phrase</li>
+</ul>
+<hr />
+<h1>Final approach</h1>
+<p>If your goal is <strong>densely rhythmic, hyper-complex percussion</strong>, use Bohm as:</p>
+<ul>
+<li>a <strong>kick anchor</strong></li>
+<li>a <strong>layered low percussion pair</strong></li>
+<li>a <strong>stereo rhythmic texture generator</strong></li>
+</ul>
+<p>The real power is in separating functions:
+- <strong>main pulse</strong>
+- <strong>secondary counter-rhythm</strong>
+- <strong>tail/rumble/space</strong>
+- <strong>accent/effect punctuation</strong></p>
+<p>With external sequencing, odd meters, and differing trigger cycle lengths, Bohm can become the low-frequency heart of a very advanced rhythmic patch. The module’s controls let you move beyond straight kick duty into <strong>tuned low percussion, ghost-note structures, industrial impacts, rumble counterpoint, and evolving polymetric low-end architecture</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

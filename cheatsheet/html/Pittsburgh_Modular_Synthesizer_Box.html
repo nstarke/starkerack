@@ -1,0 +1,471 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Pittsburgh_Modular_Synthesizer_Box</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Pittsburgh Modular — Synthesizer Box</h1>
+<ul>
+<li><a href="../../manuals/Synthesizer Box - Pittsburgh Modular Synthesizers.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://pittsburghmodular.com/s/Synthesizer-Box-Manual.pdf">Manual PDF</a></p>
+<h1>Pittsburgh Modular Synthesizer Box — Cheat Sheet</h1>
+<p><strong>Type:</strong> Semi-modular analog monophonic voice<br />
+<strong>Status:</strong> Discontinued<br />
+<strong>Format:</strong> Eurorack, <strong>28hp</strong>, <strong>36.5mm</strong> deep<br />
+<strong>Power:</strong> <strong>+12V 125mA / -12V 95mA / +5V not required</strong></p>
+<h2>What it is</h2>
+<p>A complete analog synth voice with these internally patched sections:</p>
+<p><strong>1V/O IN → Glide → Waveforms Oscillator → LPG → VCA OUT</strong><br />
+Control/mod defaults:
+- <strong>LFO TRI → Oscillator FM CV</strong>
+- <strong>LFO TRI → Oscillator MOD CV</strong>
+- <strong>ENV OUT → LPG CV</strong>
+- <strong>ENV OUT → VCA CV</strong></p>
+<p>Patching into the destination input <strong>breaks/overrides</strong> the internal routing.</p>
+<hr />
+<h2>Quick Start</h2>
+<h3>Basic monosynth patch</h3>
+<ol>
+<li>Patch pitch CV to <strong>1V/O IN</strong></li>
+<li>Patch gate/trigger to <strong>ENV IN</strong></li>
+<li>Take audio from <strong>VCA OUT</strong></li>
+<li>Set:</li>
+<li>Oscillator coarse/fine tune to taste</li>
+<li>Mixer waveform levels up</li>
+<li>LPG mode to <strong>LPG</strong> or <strong>VCA</strong></li>
+<li>Envelope attack low, decay/release to taste</li>
+<li>VCA CV attenuator up</li>
+</ol>
+<h3>Fast percussive patch</h3>
+<ol>
+<li><strong>ENV IN</strong> with triggers/gates</li>
+<li>Use <strong>LPG mode = LPG</strong></li>
+<li>Set <strong>Mod/Ping = PING</strong></li>
+<li>Short envelope, moderate LPG frequency</li>
+<li>Audio from <strong>VCA OUT</strong> or <strong>LPG OUT</strong></li>
+</ol>
+<h3>Drone patch</h3>
+<ol>
+<li>Use oscillator outputs or <strong>MIX OUT</strong></li>
+<li>Patch directly to <strong>LPG IN</strong> or <strong>VCA IN</strong></li>
+<li>Skip envelope, open <strong>VCA</strong> manually with its level knob</li>
+<li>Add LFO to <strong>FM CV IN</strong> or <strong>MOD CV IN</strong></li>
+</ol>
+<hr />
+<h2>Signal Flow Overview</h2>
+<h3>Oscillator / Waveforms</h3>
+<p>Main sound source with:
+- Triangle
+- Saw or Blade
+- Square
+- Sub oscillator one octave below</p>
+<p>The mixer sets the levels of triangle, saw/blade, and square into:
+- their respective post-mixer outs
+- <strong>MIX OUT</strong></p>
+<h3>LPG</h3>
+<p>A 3-mode dynamics/tone section:
+- <strong>VCA</strong>
+- <strong>LPG</strong>
+- <strong>Lowpass filter</strong></p>
+<h3>Envelope</h3>
+<p>ADSR envelope with <strong>ENV IN</strong> gate/trigger input and <strong>ENV OUT</strong></p>
+<h3>LFO</h3>
+<p>Triangle and square LFO, with low/high range switch. Can also run fast enough for audio-rate FM.</p>
+<h3>Glide</h3>
+<p>Always between <strong>1V/O IN</strong> and oscillator pitch path.</p>
+<h3>VCA</h3>
+<p>Final linear VCA after LPG by default.</p>
+<hr />
+<h1>Controls Reference</h1>
+<h2>Waveforms Oscillator Controls</h2>
+<ul>
+<li><strong>Frequency</strong> — coarse tune</li>
+<li><strong>Fine Tune</strong> — fine pitch adjust</li>
+<li><strong>Sub</strong> toggle — sub oscillator level:</li>
+<li>low volume / off / full volume</li>
+<li><strong>FM CV</strong> knob — attenuates oscillator FM amount</li>
+<li><strong>Expo FM / Linear FM</strong> toggle — selects FM response</li>
+<li><strong>Saw / Blade</strong> toggle — chooses saw type sent to mixer/output</li>
+<li><strong>Saw</strong> = core saw, not affected by MOD CV</li>
+<li><strong>Blade</strong> = complex saw, affected by MOD CV and <strong>BLADE IN</strong></li>
+<li><strong>MOD CV</strong> knob — attenuates waveform modulation amount</li>
+</ul>
+<h2>LPG Controls</h2>
+<ul>
+<li><strong>MOD CV</strong> knob — attenuates LPG frequency modulation amount</li>
+<li><strong>Mod / Ping</strong> toggle</li>
+<li><strong>MOD</strong> = CV sweeps LPG/filter</li>
+<li><strong>PING</strong> = incoming CV is converted to a short strike</li>
+<li><strong>Frequency</strong> — cutoff / pass level depending on mode</li>
+<li><strong>Resonance</strong> — active in lowpass mode only</li>
+<li><strong>Mode</strong> toggle</li>
+<li><strong>Up:</strong> VCA</li>
+<li><strong>Center:</strong> LPG</li>
+<li><strong>Down:</strong> Lowpass</li>
+</ul>
+<h2>LFO Controls</h2>
+<ul>
+<li><strong>Rate</strong> — LFO speed</li>
+<li><strong>Range</strong> toggle — low/high range</li>
+</ul>
+<h2>Envelope Controls</h2>
+<ul>
+<li><strong>Attack</strong></li>
+<li><strong>Decay</strong></li>
+<li><strong>Sustain</strong> control/switch as labeled on panel/manual</li>
+<li><strong>Release</strong></li>
+</ul>
+<h2>Glide Controls</h2>
+<ul>
+<li><strong>Time</strong> — portamento amount</li>
+</ul>
+<h2>Mixer Controls</h2>
+<ul>
+<li><strong>Triangle Wave</strong> — level to TRI OUT and MIX OUT</li>
+<li><strong>Saw/Blade Wave</strong> — level to S/B OUT and MIX OUT</li>
+<li><strong>Square Wave</strong> — level to SQR OUT and MIX OUT</li>
+</ul>
+<h2>VCA Controls</h2>
+<ul>
+<li><strong>CV Input Attenuator / Output Level</strong> — VCA level / CV amount</li>
+</ul>
+<hr />
+<h1>Jack Reference</h1>
+<blockquote>
+<p><strong>Important:</strong> The manual page provided does <strong>not specify numeric voltage ranges</strong> for any CV or audio input/output jacks.<br />
+Therefore, exact <strong>voltage ranges are undocumented in the manual</strong>.</p>
+</blockquote>
+<h2>Inputs</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Function</th>
+<th>Internal Normal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1V/O IN</strong></td>
+<td>CV in</td>
+<td>1V/oct pitch input to oscillator via glide</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>BLADE IN</strong></td>
+<td>CV/audio in</td>
+<td>Manipulates Blade waveform</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>FM CV IN</strong></td>
+<td>CV in</td>
+<td>External oscillator FM input; overrides internal FM routing</td>
+<td><strong>LFO TRI</strong></td>
+</tr>
+<tr>
+<td><strong>MOD CV IN</strong></td>
+<td>CV in</td>
+<td>External waveform modulation input; overrides internal modulation routing</td>
+<td><strong>LFO TRI</strong></td>
+</tr>
+<tr>
+<td><strong>LPG CV IN</strong></td>
+<td>CV in</td>
+<td>External LPG modulation input; overrides internal LPG CV routing</td>
+<td><strong>ENV OUT</strong></td>
+</tr>
+<tr>
+<td><strong>LPG IN</strong></td>
+<td>Audio in</td>
+<td>External signal into LPG; overrides internal audio routing</td>
+<td><strong>Oscillator MIX OUT/internal voice path</strong></td>
+</tr>
+<tr>
+<td><strong>ENV IN</strong></td>
+<td>Gate/trigger in</td>
+<td>Triggers envelope generator</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>VCA CV IN</strong></td>
+<td>CV in</td>
+<td>External VCA CV; overrides internal VCA CV routing</td>
+<td><strong>ENV OUT</strong></td>
+</tr>
+<tr>
+<td><strong>VCA IN</strong></td>
+<td>Audio in</td>
+<td>External signal into VCA; overrides internal audio routing</td>
+<td><strong>LPG OUT</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TRI OUT</strong></td>
+<td>Audio out</td>
+<td>Post-mixer triangle output</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>S/B OUT</strong></td>
+<td>Audio out</td>
+<td>Post-mixer saw or blade output</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>SQR OUT</strong></td>
+<td>Audio out</td>
+<td>Post-mixer square output</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>MIX OUT</strong></td>
+<td>Audio out</td>
+<td>Mixed oscillator output incl. triangle, saw/blade, square, sub</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>LFO TRI OUT</strong></td>
+<td>CV out</td>
+<td>Triangle LFO output</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>LFO SQR OUT</strong></td>
+<td>CV out</td>
+<td>Square LFO output</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>ENV OUT</strong></td>
+<td>CV out</td>
+<td>ADSR envelope output</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>LPG OUT</strong></td>
+<td>Audio out</td>
+<td>LPG output</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+<tr>
+<td><strong>VCA OUT</strong></td>
+<td>Audio out</td>
+<td>Final VCA output</td>
+<td><strong>Not specified in manual</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>Section-by-Section Usage Notes</h1>
+<h2>1) Waveforms Oscillator</h2>
+<ul>
+<li>The oscillator is the core voice.</li>
+<li><strong>Saw</strong> gives a stable classic waveform.</li>
+<li><strong>Blade</strong> gives a more animated/complex wave; best for timbral motion.</li>
+<li><strong>MOD CV</strong> affects:</li>
+<li><strong>Square</strong> via pulse-width modulation</li>
+<li><strong>Blade</strong> via waveshape morphing</li>
+<li><strong>BLADE IN</strong> adds further Blade-specific shaping.</li>
+<li>The <strong>sub oscillator</strong> thickens bass and adds weight.</li>
+</ul>
+<h3>Good uses</h3>
+<ul>
+<li><strong>Classic lead/bass:</strong> Saw + sub</li>
+<li><strong>Hollow/animated:</strong> Square with MOD CV</li>
+<li><strong>Aggressive/modern:</strong> Blade with LFO or envelope to MOD CV</li>
+</ul>
+<hr />
+<h2>2) LPG</h2>
+<p>Three different personalities:</p>
+<h3>VCA mode</h3>
+<ul>
+<li>Pure amplitude control</li>
+<li>Best when you want clean level shaping</li>
+</ul>
+<h3>LPG mode</h3>
+<ul>
+<li>Characterful combo of filtering + amplitude behavior</li>
+<li>Louder sounds get brighter, quieter sounds mellow naturally</li>
+<li>Great for plucks, bongs, wood-like hits, organic decays</li>
+</ul>
+<h3>Lowpass mode</h3>
+<ul>
+<li>Traditional lowpass filtering</li>
+<li><strong>Resonance</strong> active here only</li>
+</ul>
+<h3>Ping mode</h3>
+<p>Use <strong>Mod/Ping = PING</strong> and send triggers/CV to <strong>LPG CV IN</strong> for struck/percussive sounds.</p>
+<hr />
+<h2>3) LFO</h2>
+<ul>
+<li><strong>Low range:</strong> slow sweeps</li>
+<li><strong>High range:</strong> fast modulation and audio-rate FM territory</li>
+<li>Triangle is useful for smooth pitch/timbre motion</li>
+<li>Square is useful for stepped/trill/gate-like modulation</li>
+</ul>
+<p>Typical destinations:
+- <strong>FM CV IN</strong> for vibrato to harsh FM
+- <strong>MOD CV IN</strong> for PWM / Blade movement
+- <strong>LPG CV IN</strong> for rhythmic tone shaping
+- <strong>VCA CV IN</strong> for tremolo</p>
+<hr />
+<h2>4) Envelope</h2>
+<p>Use <strong>ENV IN</strong> from gate or trigger source.</p>
+<p>Typical uses:
+- Default:
+  - controls <strong>LPG</strong>
+  - controls <strong>VCA</strong>
+- Patch <strong>ENV OUT</strong> to <strong>MOD CV IN</strong> for timbral attack
+- Patch <strong>ENV OUT</strong> to <strong>FM CV IN</strong> for pitch envelopes</p>
+<h3>Envelope behavior notes</h3>
+<p>The manual describes standard ADSR behavior, though the Decay description appears unusual in wording. In practical use, treat it as the voice contour source for amplitude, LPG strike, or modulation.</p>
+<hr />
+<h2>5) Glide</h2>
+<ul>
+<li>Adds portamento to incoming 1V/oct pitch CV</li>
+<li>Always sits between <strong>1V/O IN</strong> and oscillator</li>
+<li>Best for legato leads, acid slides, and smooth interval transitions</li>
+</ul>
+<hr />
+<h2>6) Mixer</h2>
+<p>The waveform mixer controls how much of each waveform hits:
+- its own dedicated output
+- the <strong>MIX OUT</strong></p>
+<p>The <strong>sub oscillator</strong> is included in <strong>MIX OUT</strong> per the manual.</p>
+<h3>Good starting mixes</h3>
+<ul>
+<li><strong>Bass:</strong> Saw/Blade + sub, a little square</li>
+<li><strong>Lead:</strong> Saw/Blade + triangle</li>
+<li><strong>Rounded tone:</strong> Triangle dominant</li>
+<li><strong>Richer PWM lead:</strong> Square + moderate MOD CV</li>
+</ul>
+<hr />
+<h2>7) VCA</h2>
+<ul>
+<li>Linear VCA</li>
+<li>Normally receives:</li>
+<li>audio from <strong>LPG OUT</strong></li>
+<li>CV from <strong>ENV OUT</strong></li>
+<li>Final output is <strong>VCA OUT</strong></li>
+</ul>
+<p>Use it as:
+- the normal end of the voice
+- a standalone VCA for external audio/CV by patching <strong>VCA IN</strong></p>
+<hr />
+<h1>Internal Normalizations Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Destination</th>
+<th>Normal Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Oscillator FM</td>
+<td><strong>LFO TRI OUT</strong></td>
+</tr>
+<tr>
+<td>Oscillator MOD CV</td>
+<td><strong>LFO TRI OUT</strong></td>
+</tr>
+<tr>
+<td>LPG CV</td>
+<td><strong>ENV OUT</strong></td>
+</tr>
+<tr>
+<td>VCA CV</td>
+<td><strong>ENV OUT</strong></td>
+</tr>
+<tr>
+<td>VCA audio in</td>
+<td><strong>LPG OUT</strong></td>
+</tr>
+<tr>
+<td>Oscillator pitch</td>
+<td><strong>1V/O IN through Glide</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>Practical Patch Ideas</h1>
+<h2>Simple bass</h2>
+<ul>
+<li><strong>1V/O IN</strong> from sequencer</li>
+<li><strong>ENV IN</strong> from gate</li>
+<li>Mixer: Saw + Sub</li>
+<li>LPG mode: <strong>LPG</strong></li>
+<li>Short attack, medium decay, low sustain, medium release</li>
+<li>Audio: <strong>VCA OUT</strong></li>
+</ul>
+<h2>West-coast style pluck</h2>
+<ul>
+<li>Mixer: Triangle + Blade</li>
+<li>LPG mode: <strong>LPG</strong></li>
+<li><strong>Mod/Ping = PING</strong></li>
+<li>Trigger <strong>LPG CV IN</strong></li>
+<li>Optional slow LFO to <strong>BLADE IN</strong></li>
+<li>Audio from <strong>LPG OUT</strong> or <strong>VCA OUT</strong></li>
+</ul>
+<h2>PWM lead</h2>
+<ul>
+<li>Square wave up in mixer</li>
+<li>LFO TRI to <strong>MOD CV IN</strong></li>
+<li>Light glide</li>
+<li>Envelope to VCA as normal</li>
+<li>Output from <strong>VCA OUT</strong></li>
+</ul>
+<h2>Audio-rate FM texture</h2>
+<ul>
+<li>Set LFO to <strong>high range</strong></li>
+<li>LFO TRI to <strong>FM CV IN</strong></li>
+<li>Choose <strong>Linear FM</strong> for cleaner FM behavior</li>
+<li>Start with low FM amount</li>
+</ul>
+<h2>Filtered external audio</h2>
+<ul>
+<li>Patch external audio to <strong>LPG IN</strong></li>
+<li>Use LPG in <strong>LOPASS</strong> mode</li>
+<li>Envelope or LFO to <strong>LPG CV IN</strong></li>
+<li>Take output from <strong>LPG OUT</strong> or route onward to <strong>VCA IN</strong></li>
+</ul>
+<hr />
+<h1>Tips</h1>
+<ul>
+<li>If a section seems unresponsive, check whether inserting a cable has broken its normalled source.</li>
+<li>Use <strong>LPG mode</strong> when you want the module’s most characteristic sound.</li>
+<li>Use <strong>VCA mode</strong> when you want predictable amplitude shaping.</li>
+<li><strong>Blade + MOD CV</strong> is the fastest route to unusual animated timbres.</li>
+<li><strong>High-range LFO</strong> can act as an extra audio-rate modulation source.</li>
+</ul>
+<hr />
+<h1>Known Documentation Gaps</h1>
+<p>The supplied manual text does <strong>not provide explicit voltage ranges</strong> for:
+- CV inputs
+- audio inputs
+- CV outputs
+- audio outputs
+- gate/trigger thresholds</p>
+<p>So all jack voltage ranges remain <strong>undocumented in the manual</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

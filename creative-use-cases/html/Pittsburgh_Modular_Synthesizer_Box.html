@@ -1,0 +1,646 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Pittsburgh_Modular_Synthesizer_Box</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Pittsburgh Modular — Synthesizer Box</h1>
+<ul>
+<li><a href="../../manuals/Synthesizer Box - Pittsburgh Modular Synthesizers.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://pittsburghmodular.com/s/Synthesizer-Box-Manual.pdf">Manual PDF</a></p>
+<h1>Pittsburgh Modular Synthesizer Box — creative patch ideas with other modules</h1>
+<p>The <strong>Synthesizer Box</strong> is basically a compact semi-modular voice made from:
+- a <strong>complex analog oscillator</strong> with sub, blade wave shaping, FM, PWM/waveshape modulation
+- a <strong>wave mixer</strong>
+- a <strong>3-mode LPG / filter / VCA</strong>
+- a <strong>wide-range LFO</strong>
+- an <strong>ADSR</strong>
+- a <strong>final VCA</strong>
+- built-in <strong>glide</strong></p>
+<p>What makes it especially fun in a larger Eurorack system is that the normalled internal routings can be overridden almost everywhere. So it can be:
+1. a complete standalone synth voice,<br />
+2. a collection of utility submodules, or<br />
+3. a modulation/audio hub for other voices.</p>
+<hr />
+<h2>Quick summary of the normalled architecture</h2>
+<p>Useful to keep in mind before patching externally:</p>
+<ul>
+<li><strong>LFO TRI</strong> is internally routed to:</li>
+<li>oscillator <strong>FM</strong></li>
+<li>oscillator <strong>MOD CV</strong></li>
+<li><strong>Envelope OUT</strong> is internally routed to:</li>
+<li><strong>LPG CV</strong></li>
+<li><strong>VCA CV</strong></li>
+<li>Oscillator/mixer is internally routed toward the <strong>LPG</strong></li>
+<li><strong>LPG OUT</strong> is internally routed to <strong>VCA IN</strong></li>
+<li><strong>1V/O IN</strong> is hardwired through <strong>Glide</strong> into the oscillator</li>
+</ul>
+<p>That means the module already gives you a playable “default voice,” and every patch cable you insert can selectively break that normalization.</p>
+<hr />
+<h1>Best roles for the Synthesizer Box in a system</h1>
+<h2>1. Compact main voice</h2>
+<p>Use it as your primary mono voice and expand its modulation and timbral range with external modules.</p>
+<p>Best companions:
+- <strong>sequencer</strong> or keyboard CV source
+- <strong>clocked modulation</strong>
+- <strong>sample &amp; hold / random</strong>
+- <strong>extra envelopes</strong>
+- <strong>effects</strong> like delay, reverb, wavefolder, distortion</p>
+<h2>2. West-coast flavored voice core</h2>
+<p>The <strong>blade waveform</strong>, <strong>sub</strong>, <strong>LPG ping mode</strong>, and internal modulation make it particularly nice for plucky, organic, woody, and animated tones.</p>
+<p>Best companions:
+- <strong>function generator / slope</strong>
+- <strong>random voltage</strong>
+- <strong>low pass gate or resonator</strong>
+- <strong>wavefolder</strong>
+- <strong>strike / trigger sequencer</strong></p>
+<h2>3. Breakout utility cluster</h2>
+<p>You can split it apart:
+- use the <strong>LFO</strong> elsewhere
+- use the <strong>ADSR</strong> on another voice
+- use the <strong>VCA</strong> as a utility amp
+- use the <strong>LPG</strong> as an external processor
+- use oscillator outputs independently</p>
+<p>This is especially valuable in small systems.</p>
+<hr />
+<h1>Creative patch ideas</h1>
+<h2>1. Dual-motion oscillator animation</h2>
+<p>The oscillator has two juicy destinations:
+- <strong>FM CV IN</strong>
+- <strong>MOD CV IN</strong></p>
+<p>Instead of relying on the internal LFO for both, send <strong>two different modulation sources</strong>:
+- a <strong>slow random</strong> or stepped CV into <strong>MOD CV IN</strong>
+- a <strong>sine/triangle LFO</strong> or envelope into <strong>FM CV IN</strong></p>
+<h3>Result</h3>
+<p>The pitch movement and waveform movement become decorrelated, which makes the oscillator feel much more alive.</p>
+<h3>Great companion modules</h3>
+<ul>
+<li><strong>Make Noise Wogglebug</strong></li>
+<li><strong>Mutable Instruments Marbles</strong></li>
+<li><strong>Xaoc Batumi</strong></li>
+<li>any <strong>function generator</strong> like Maths, Rampage, Delta-V</li>
+</ul>
+<hr />
+<h2>2. Audio-rate modulation from another oscillator</h2>
+<p>Because the LFO can go wide range and the oscillator has FM input with <strong>linear/exponential switch</strong>, the Synthesizer Box likes cross-modulation.</p>
+<h3>Patch</h3>
+<ul>
+<li>External oscillator sine/triangle -&gt; <strong>FM CV IN</strong></li>
+<li>Try <strong>linear FM</strong> first</li>
+<li>Tune the external oscillator to harmonic intervals or detuned offsets</li>
+</ul>
+<h3>Result</h3>
+<p>Metallic, vocal, bell-ish, tearing, and complex analog FM tones.</p>
+<h3>Best module partners</h3>
+<ul>
+<li>a clean sine-core VCO:</li>
+<li><strong>Intellijel Dixie II+</strong></li>
+<li><strong>Doepfer A-110-6</strong></li>
+<li><strong>Instruō Ts-L</strong></li>
+<li>or another character oscillator for dirty FM</li>
+</ul>
+<p>Tip: also send a related envelope to <strong>MOD CV IN</strong> for evolving spectra.</p>
+<hr />
+<h2>3. Use the blade input as a timbre injection point</h2>
+<p>The <strong>BLADE IN</strong> is one of the most interesting inputs on the module. Since the blade waveform is a special complex saw-derived shape, feeding voltage there should let you animate it in ways that differ from ordinary PWM.</p>
+<h3>Try feeding BLADE IN with</h3>
+<ul>
+<li>a slow triangle LFO</li>
+<li>an envelope</li>
+<li>audio-rate oscillator</li>
+<li>filtered noise</li>
+<li>stepped random voltage</li>
+</ul>
+<h3>Result</h3>
+<p>Shifting asymmetry, spectral movement, sharp vocal/tearing textures, and unstable “alive” harmonics.</p>
+<h3>Best partners</h3>
+<ul>
+<li>another VCO</li>
+<li>random source</li>
+<li>envelope follower</li>
+<li>chaotic modulation source</li>
+</ul>
+<p>A neat patch:
+- <strong>noise -&gt; slew limiter -&gt; BLADE IN</strong>
+This gives semi-fluid, organic timbral drift.</p>
+<hr />
+<h2>4. Ping the LPG with trigger patterns</h2>
+<p>The module’s <strong>LPG</strong> has a <strong>PING</strong> mode that converts modulation into a short trigger-like strike. This is one of the most musical parts of the Synthesizer Box.</p>
+<h3>Patch</h3>
+<ul>
+<li>Set LPG mode to <strong>LPG</strong></li>
+<li>Set mod/ping switch to <strong>PING</strong></li>
+<li>Send triggers, gates, or rhythmic pulses into <strong>LPG CV IN</strong></li>
+<li>Feed oscillator, external audio, or noise into <strong>LPG IN</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Bongo-like, plucked string, woody percussion, struck-filter sounds.</p>
+<h3>Companion modules</h3>
+<ul>
+<li>trigger sequencers:</li>
+<li><strong>Tiptop Circadian Rhythms</strong></li>
+<li><strong>Steppy</strong></li>
+<li><strong>Pamela’s New Workout</strong></li>
+<li>probability trigger generators</li>
+<li>burst generators</li>
+<li>noise/percussion sources</li>
+</ul>
+<p>This patch is fantastic with:
+- <strong>noise into LPG IN</strong> for hand drum / shaker / click percussion
+- <strong>external wavetable or FM oscillator into LPG IN</strong> for plucked digital-organic hybrids</p>
+<hr />
+<h2>5. Use the LPG as an external processor</h2>
+<p>Because <strong>LPG IN</strong> overrides the internal audio routing, the Synthesizer Box can become a character processor for other modules.</p>
+<h3>Feed into LPG IN</h3>
+<ul>
+<li>drum loops from a sample player</li>
+<li>a digital oscillator</li>
+<li>chords from a polyphonic voice mixed to mono</li>
+<li>noise or field recordings</li>
+<li>another synth voice</li>
+</ul>
+<p>Then use:
+- internal envelope normalled to LPG CV
+- or external modulation into <strong>LPG CV IN</strong></p>
+<h3>Result</h3>
+<p>A more organic, dynamic, less static version of the source. In LPG mode especially, louder moments get brighter while quieter parts stay more natural.</p>
+<h3>Best source types</h3>
+<ul>
+<li>harsh digital oscillators</li>
+<li>wavetable voices</li>
+<li>samples</li>
+<li>external drum voices</li>
+</ul>
+<p>This is a very strong way to “analog-ize” sterile sound sources.</p>
+<hr />
+<h2>6. Use envelope and LPG separately for two jobs</h2>
+<p>One overlooked trick is to break the module into independent sections.</p>
+<h3>Example patch</h3>
+<ul>
+<li>Use <strong>ENV OUT</strong> to modulate an external filter or oscillator</li>
+<li>Feed an external modulation source into <strong>LPG CV IN</strong></li>
+<li>Use Synthesizer Box oscillator through LPG/VCA as usual</li>
+</ul>
+<h3>Result</h3>
+<p>You effectively gain an extra system envelope while still using the voice.</p>
+<p>Even better:
+- Use <strong>ENV OUT</strong> on an external reverb/delay CV input while the internal LPG is pinged by triggers.</p>
+<p>This gives coherent articulation across the whole patch.</p>
+<hr />
+<h2>7. Parallel waveform processing</h2>
+<p>The oscillator offers multiple outs:
+- <strong>TRI OUT</strong>
+- <strong>S/B OUT</strong>
+- <strong>SQR OUT</strong>
+- <strong>MIX OUT</strong></p>
+<p>These are gold in a modular setup.</p>
+<h3>Patch idea</h3>
+<ul>
+<li><strong>TRI OUT</strong> -&gt; wavefolder</li>
+<li><strong>SQR OUT</strong> -&gt; clock divider / subharmonic processing / logic / comparator</li>
+<li><strong>S/B OUT</strong> -&gt; filter</li>
+<li>mix externally</li>
+</ul>
+<h3>Result</h3>
+<p>A single oscillator becomes a layered composite voice with separate spectral lanes.</p>
+<h3>Great supporting modules</h3>
+<ul>
+<li>mixers</li>
+<li>VCAs</li>
+<li>wavefolders</li>
+<li>filters</li>
+<li>resonators</li>
+<li>crossfaders</li>
+</ul>
+<p>Specific modules:
+- <strong>Xaoc Tallin</strong> or <strong>Intellijel Quad VCA</strong> for dynamic mixing
+- <strong>Bastl Ikarie</strong> or <strong>QPAS</strong> for stereo filtering
+- <strong>Joranalogue Fold 6</strong> or <strong>Intellijel Bifold</strong> for triangle folding</p>
+<hr />
+<h2>8. Build a pseudo-duophonic patch</h2>
+<p>The Synthesizer Box is monophonic, but you can make it behave like two related voices.</p>
+<h3>Patch</h3>
+<ul>
+<li>Use <strong>MIX OUT</strong> as voice A through the internal LPG/VCA</li>
+<li>Send <strong>TRI OUT</strong> or <strong>SQR OUT</strong> to an external filter + VCA as voice B</li>
+<li>Use same pitch CV to both paths</li>
+<li>Modulate one path differently</li>
+</ul>
+<h3>Result</h3>
+<p>Layered intervals, pseudo-paraphonic behavior, stereo spreads, body + edge combinations.</p>
+<p>For example:
+- internal path = plucky LPG voice
+- external path = long filtered drone or delayed pad layer</p>
+<hr />
+<h2>9. Turn the LFO into an audio oscillator</h2>
+<p>The LFO is described as <strong>wide range</strong>, including audio-rate modulation territory.</p>
+<h3>Patch</h3>
+<ul>
+<li>LFO <strong>TRI OUT</strong> or <strong>SQR OUT</strong> -&gt; external mixer / filter / VCA</li>
+<li>Sequence the rate manually or CV it indirectly through a VCA-and-offset setup elsewhere</li>
+</ul>
+<h3>Result</h3>
+<p>A bonus lo-fi oscillator or modulation-rate audio source.</p>
+<h3>Fun uses</h3>
+<ul>
+<li>audio-rate modulation for another oscillator</li>
+<li>sub-audio square for rhythmic gates</li>
+<li>triangle as a second crude audio source to layer with the main VCO</li>
+</ul>
+<p>Especially good if you want:
+- beating
+- rough FM
+- pseudo-sync-like interactions</p>
+<hr />
+<h2>10. Clock the whole voice with stepped random</h2>
+<p>Since the oscillator and LPG both respond well to modulation, combining a <strong>sample &amp; hold</strong> or <strong>quantized random</strong> source with trigger-derived articulation gets very musical.</p>
+<h3>Patch</h3>
+<ul>
+<li>random quantized CV -&gt; <strong>1V/O IN</strong></li>
+<li>trigger sequence -&gt; <strong>ENV IN</strong></li>
+<li>slower random -&gt; <strong>MOD CV IN</strong></li>
+<li>another slow random or envelope -&gt; <strong>LPG CV IN</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Self-playing melodic lines with animated timbre and organic articulation.</p>
+<h3>Excellent partner modules</h3>
+<ul>
+<li><strong>Mutable Marbles</strong></li>
+<li><strong>Turing Machine</strong></li>
+<li><strong>Pam’s</strong> with random/quantizer support</li>
+<li>any quantizer + noise/sample-hold combo</li>
+</ul>
+<hr />
+<h2>11. External wavefolder after the triangle output</h2>
+<p>The <strong>triangle output</strong> is perfect folder material.</p>
+<h3>Patch</h3>
+<ul>
+<li><strong>TRI OUT</strong> -&gt; wavefolder -&gt; external VCA/filter</li>
+<li>keep internal voice running from <strong>MIX OUT</strong> or LPG/VCA chain</li>
+</ul>
+<h3>Result</h3>
+<p>You get two versions of the same oscillator:
+- one smoother and folded
+- one raw/internal</p>
+<p>This is a fantastic stereo or layered patch.</p>
+<h3>Recommended modules</h3>
+<ul>
+<li><strong>Make Noise Fold</strong></li>
+<li><strong>Intellijel Bifold</strong></li>
+<li><strong>Joranalogue Fold 6</strong></li>
+<li><strong>Serge-style wavefolder clones</strong></li>
+</ul>
+<hr />
+<h2>12. Use square out for logic-derived rhythms</h2>
+<p>The <strong>SQR OUT</strong> is useful not only as audio but as a modulation/gate source when tuned/LFO’d creatively.</p>
+<h3>Patch</h3>
+<ul>
+<li>send <strong>SQR OUT</strong> into:</li>
+<li>logic modules</li>
+<li>clock dividers</li>
+<li>comparators</li>
+<li>switch modules</li>
+</ul>
+<p>Combine with the internal LFO square or external clock.</p>
+<h3>Result</h3>
+<p>Rhythmic structures derived from pitch relationships. Great for techno, generative, and polyrhythmic patches.</p>
+<h3>Companion modules</h3>
+<ul>
+<li><strong>Doepfer logic</strong></li>
+<li><strong>Joranalogue Compare 2</strong></li>
+<li><strong>switches</strong> like Doepfer A-151</li>
+<li>clock dividers / Boolean modules</li>
+</ul>
+<hr />
+<h2>13. LPG percussion voice from noise or samples</h2>
+<p>The LPG section can make excellent percussion even without using the oscillator.</p>
+<h3>Patch</h3>
+<ul>
+<li>noise / sample / click source -&gt; <strong>LPG IN</strong></li>
+<li>triggers -&gt; <strong>LPG CV IN</strong> in <strong>PING</strong> mode</li>
+<li>optional: <strong>LPG OUT</strong> -&gt; internal VCA or external distortion</li>
+</ul>
+<h3>Result</h3>
+<p>Bongos, toms, claves, hi-hats, muted plucks, wooden knocks.</p>
+<h3>Best source modules</h3>
+<ul>
+<li>noise source</li>
+<li>sample player</li>
+<li>very short envelopes/clicks</li>
+<li>digital percussion modules</li>
+</ul>
+<p>A great trick:
+- send <strong>pitched noise</strong> or resonant filter noise into the LPG for hand-drum style sounds.</p>
+<hr />
+<h2>14. Animate the final VCA separately from the LPG</h2>
+<p>Because there is both an <strong>LPG</strong> and a separate <strong>VCA</strong>, you can get more nuanced articulation than on many compact voices.</p>
+<h3>Patch</h3>
+<ul>
+<li>external envelope -&gt; <strong>VCA CV IN</strong></li>
+<li>different external envelope or trigger source -&gt; <strong>LPG CV IN</strong></li>
+<li>use LPG for tone/body transient</li>
+<li>use VCA for macro amplitude contour</li>
+</ul>
+<h3>Result</h3>
+<p>Very expressive plucks, bowed-like shapes, reverse-feeling swells, punch + tail behavior.</p>
+<h3>Ideal modulation sources</h3>
+<ul>
+<li>snappy envelope for LPG</li>
+<li>slower ADSR for VCA</li>
+<li>or vice versa</li>
+</ul>
+<p>This is one of the most powerful upgrades you can give the module.</p>
+<hr />
+<h2>15. Run the oscillator into external spectral processors, then back</h2>
+<p>You can take one oscillator output externally, process it, and then return it to the module’s downstream sections.</p>
+<h3>Example</h3>
+<ul>
+<li><strong>S/B OUT</strong> -&gt; phaser / wavefolder / resonator / frequency shifter</li>
+<li>processed signal -&gt; <strong>LPG IN</strong> or <strong>VCA IN</strong></li>
+</ul>
+<h3>Result</h3>
+<p>You keep the Synthesizer Box’s articulation path while radically changing the timbre source.</p>
+<h3>Especially good processors</h3>
+<ul>
+<li>resonators</li>
+<li>comb filters</li>
+<li>phasers</li>
+<li>analog distortion</li>
+<li>frequency shifters</li>
+<li>spectral processors</li>
+</ul>
+<p>Examples:
+- <strong>Mutable Rings</strong> as resonator
+- <strong>Doepfer A-126-2</strong> frequency shifter
+- <strong>Erica Phaser</strong>
+- <strong>triphonic/stereo filter</strong></p>
+<hr />
+<h2>16. Use glide with quantized sequencing for liquid acid lines</h2>
+<p>The built-in glide is hardwired between <strong>1V/O IN</strong> and oscillator, which makes it naturally playable.</p>
+<h3>Patch</h3>
+<ul>
+<li>quantized sequencer -&gt; <strong>1V/O IN</strong></li>
+<li>gate sequencer -&gt; <strong>ENV IN</strong></li>
+<li>set moderate resonance in lowpass mode or use LPG mode</li>
+<li>route accent-like envelope to <strong>MOD CV IN</strong> or <strong>FM CV IN</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Acid-adjacent monosynth lines, but with more analog organic variation than a classic ladder synth.</p>
+<h3>Great sequencer types</h3>
+<ul>
+<li>step sequencer with slides</li>
+<li>generative quantizer</li>
+<li>probability sequencer</li>
+</ul>
+<h3>Bonus</h3>
+<p>Use the <strong>sub oscillator</strong> for huge bassline weight.</p>
+<hr />
+<h2>17. Turn it into a drone laboratory</h2>
+<p>The module is also great without conventional note gates.</p>
+<h3>Patch</h3>
+<ul>
+<li>open the VCA partially</li>
+<li>set LPG to filter or LPG mode</li>
+<li>use slow modulation into:</li>
+<li><strong>FM CV IN</strong></li>
+<li><strong>MOD CV IN</strong></li>
+<li><strong>LPG CV IN</strong></li>
+<li>optionally process outputs through delay/reverb</li>
+</ul>
+<h3>Result</h3>
+<p>Dense analog drone beds with evolving harmonics.</p>
+<h3>Great support modules</h3>
+<ul>
+<li>slow CV sources</li>
+<li>chaotic modulators</li>
+<li>matrix mixer</li>
+<li>stereo effects</li>
+</ul>
+<p>Specific ideas:
+- <strong>Batumi</strong> for 4 related LFOs
+- <strong>Maths</strong> for drifting envelopes
+- <strong>matrix mixer</strong> for cross-patched modulation blends
+- long stereo delay + shimmer reverb</p>
+<hr />
+<h2>18. Create self-playing feedback ecosystems</h2>
+<p>Because there are several outputs and several modulation inputs, the Synthesizer Box invites controlled feedback.</p>
+<h3>Safe-ish feedback experiments</h3>
+<ul>
+<li><strong>S/B OUT</strong> -&gt; external attenuator/VCA -&gt; <strong>BLADE IN</strong></li>
+<li><strong>LFO TRI OUT</strong> externally attenuated/mixed with random -&gt; <strong>FM CV IN</strong></li>
+<li><strong>ENV OUT</strong> -&gt; external attenuator -&gt; <strong>MOD CV IN</strong></li>
+<li><strong>LPG OUT</strong> -&gt; distortion/filter -&gt; external VCA -&gt; back to <strong>VCA IN</strong> or <strong>LPG IN</strong></li>
+</ul>
+<h3>Result</h3>
+<p>Wild, semi-chaotic analog behaviors, especially with careful attenuation.</p>
+<h3>Important</h3>
+<p>Use attenuators, attenuverters, or VCAs in feedback loops.</p>
+<h3>Best helper modules</h3>
+<ul>
+<li><strong>Happy Nerding 3xMIA</strong></li>
+<li><strong>Frap 321</strong></li>
+<li><strong>Intellijel Triplatt</strong></li>
+<li><strong>Quad VCA</strong></li>
+</ul>
+<hr />
+<h2>19. Pair it with a matrix mixer</h2>
+<p>If I were adding one “secret weapon” utility to maximize this module, it would be a <strong>matrix mixer</strong>.</p>
+<h3>Why</h3>
+<p>You have multiple modulation targets:
+- FM
+- MOD CV
+- LPG CV
+- VCA CV externally if overridden
+- BLADE IN externally</p>
+<p>And multiple modulation sources:
+- internal LFO
+- envelope
+- external random
+- external envelopes
+- external audio-rate oscillators</p>
+<p>A matrix mixer lets you distribute and combine them in subtle amounts.</p>
+<h3>Result</h3>
+<p>A small voice turns into a highly animated ecosystem.</p>
+<h3>Great options</h3>
+<ul>
+<li><strong>Doepfer A-138m</strong></li>
+<li><strong>AISynthesis matrix mixer</strong></li>
+<li>any compact CV matrix</li>
+</ul>
+<hr />
+<h2>20. Stereo expansion patch</h2>
+<p>The Synthesizer Box itself is mono, but it expands beautifully to stereo.</p>
+<h3>Patch</h3>
+<ul>
+<li>internal main voice -&gt; left-side effect chain</li>
+<li>separate waveform output -&gt; right-side effect chain</li>
+<li>modulate each side differently</li>
+</ul>
+<p>Example:
+- <strong>MIX OUT</strong> -&gt; LPG/VCA -&gt; chorus -&gt; left
+- <strong>TRI OUT</strong> -&gt; wavefolder -&gt; filter -&gt; delay -&gt; right</p>
+<h3>Result</h3>
+<p>Huge stereo images from a single oscillator core.</p>
+<h3>Good stereo helpers</h3>
+<ul>
+<li>stereo delay</li>
+<li>stereo filter</li>
+<li>dual VCA</li>
+<li>panner / crossfader</li>
+</ul>
+<hr />
+<h1>Best module types to pair with Synthesizer Box</h1>
+<p>If you want the most mileage, these are the highest-value additions:</p>
+<h2>Essential companions</h2>
+<ul>
+<li><strong>attenuator / attenuverter</strong></li>
+<li><strong>utility mixer</strong></li>
+<li><strong>extra VCA</strong></li>
+<li><strong>sequencer</strong></li>
+<li><strong>clock source</strong></li>
+</ul>
+<h2>Modulation expansion</h2>
+<ul>
+<li><strong>random voltage source</strong></li>
+<li><strong>function generator</strong></li>
+<li><strong>multi-LFO</strong></li>
+<li><strong>sample &amp; hold</strong></li>
+<li><strong>envelope follower</strong></li>
+</ul>
+<h2>Timbre expansion</h2>
+<ul>
+<li><strong>wavefolder</strong></li>
+<li><strong>resonator</strong></li>
+<li><strong>stereo filter</strong></li>
+<li><strong>distortion / saturation</strong></li>
+<li><strong>frequency shifter</strong></li>
+</ul>
+<h2>Performance expansion</h2>
+<ul>
+<li><strong>joystick controller</strong></li>
+<li><strong>pressure controller</strong></li>
+<li><strong>touch controller</strong></li>
+<li><strong>manual gate / trigger source</strong></li>
+</ul>
+<hr />
+<h1>Specific module pairings I’d recommend</h1>
+<h2>Make Noise Maths</h2>
+<p>Perfect with Synthesizer Box because it gives:
+- extra envelopes
+- slews
+- modulation mixing
+- cycling LFOs
+- trigger manipulation</p>
+<p>Use it for:
+- shaped pings into LPG
+- slewed random into BLADE IN
+- envelope variations to FM or MOD CV</p>
+<h2>Xaoc Batumi</h2>
+<p>A great modulation expander:
+- quadrature motion
+- synced LFOs
+- multiple related shapes</p>
+<p>Excellent for evolving FM, waveform morphing, and LPG animation.</p>
+<h2>Mutable Instruments Marbles</h2>
+<p>Fantastic if you want the module to become a generative voice:
+- pitch
+- triggers
+- random modulation
+- musical unpredictability</p>
+<h2>Intellijel Quad VCA</h2>
+<p>Super useful because the Synthesizer Box gets much deeper when modulation is attenuated and mixed carefully.</p>
+<h2>Joranalogue Fold 6 / Intellijel Bifold</h2>
+<p>The triangle output begs for folding.</p>
+<h2>Pamela’s New Workout</h2>
+<p>Great as a timing and modulation brain:
+- clocks
+- triggers
+- synced LFOs
+- random
+- envelopes in a pinch</p>
+<h2>Make Noise Mimeophon / XAOC Timiszoara / stereo delays and reverbs</h2>
+<p>The Synthesizer Box sounds great through time-based effects, especially plucks and drones.</p>
+<hr />
+<h1>Patch recipes</h1>
+<h2>Recipe 1: Organic plucked bass</h2>
+<ul>
+<li>Sequencer pitch -&gt; <strong>1V/O IN</strong></li>
+<li>Sequencer gate -&gt; <strong>ENV IN</strong></li>
+<li>Oscillator <strong>MIX OUT</strong> internal to LPG/VCA</li>
+<li>LPG mode = <strong>LPG</strong></li>
+<li>Mod/Ping = <strong>MOD</strong></li>
+<li>Envelope internal to LPG/VCA</li>
+<li>slow random -&gt; <strong>MOD CV IN</strong></li>
+<li>sub oscillator on</li>
+</ul>
+<p>Add:
+- mild saturation after <strong>VCA OUT</strong></p>
+<p>Result: woody, rubbery, animated bass.</p>
+<hr />
+<h2>Recipe 2: Metallic dual-FM lead</h2>
+<ul>
+<li>External sine oscillator -&gt; <strong>FM CV IN</strong></li>
+<li>Set FM switch to <strong>linear</strong></li>
+<li>envelope or LFO -&gt; <strong>MOD CV IN</strong></li>
+<li>use <strong>S/B OUT</strong> into LPG</li>
+<li>reverb/delay after VCA</li>
+</ul>
+<p>Result: bright, singing, metallic lead tones.</p>
+<hr />
+<h2>Recipe 3: LPG drum lab</h2>
+<ul>
+<li>noise source -&gt; <strong>LPG IN</strong></li>
+<li>trigger sequencer -&gt; <strong>LPG CV IN</strong></li>
+<li>LPG set to <strong>PING</strong></li>
+<li>LPG mode = <strong>LPG</strong></li>
+<li><strong>LPG OUT</strong> -&gt; VCA IN</li>
+<li>external envelope -&gt; <strong>VCA CV IN</strong></li>
+</ul>
+<p>Result: shaped percussion with more control over tail length.</p>
+<hr />
+<h2>Recipe 4: Split oscillator stereo</h2>
+<ul>
+<li><strong>TRI OUT</strong> -&gt; wavefolder -&gt; left channel</li>
+<li><strong>S/B OUT</strong> -&gt; filter -&gt; right channel</li>
+<li>same pitch sequence to Synth Box</li>
+<li>independent modulation for each chain</li>
+</ul>
+<p>Result: wide stereo voice with shared tuning but different spectral motion.</p>
+<hr />
+<h2>Recipe 5: Self-playing ambient machine</h2>
+<ul>
+<li>Random quantizer -&gt; <strong>1V/O IN</strong></li>
+<li>sparse gates -&gt; <strong>ENV IN</strong></li>
+<li>slow LFO -&gt; <strong>FM CV IN</strong></li>
+<li>random slew -&gt; <strong>MOD CV IN</strong></li>
+<li>another slow CV -&gt; <strong>LPG CV IN</strong></li>
+<li>VCA OUT -&gt; delay -&gt; reverb</li>
+</ul>
+<p>Result: generative ambient lines with constantly shifting timbre.</p>
+<hr />
+<h1>Things to watch out for</h1>
+<ul>
+<li>The module gets much better with <strong>attenuation</strong>. A lot of the most musical patches will depend on reducing modulation depth.</li>
+<li>The <strong>LPG ping</strong> can be especially sensitive to trigger level and shape; try different trigger/gate sources.</li>
+<li>The <strong>wide-range LFO</strong> may enter audio-rate territory, which is great, but can quickly become intense in FM patches.</li>
+<li>Since several routings are internally normalled, if something behaves differently after patching, check whether you’ve overridden an internal source.</li>
+</ul>
+<hr />
+<h1>Overall creative verdict</h1>
+<p>The Synthesizer Box is strongest when treated not just as a “small synth voice,” but as a <strong>patch-programmable analog ecosystem</strong>. Its best tricks come from:
+- separating the normalled sections,
+- using external modulation to replace the built-in routings,
+- exploiting the <strong>blade waveform</strong> and <strong>LPG pinging</strong>,
+- layering the multiple oscillator outputs in parallel,
+- and adding utilities like <strong>VCAs, attenuverters, mixers, and random sources</strong>.</p>
+<p>If you want, I can also provide:
+1. <strong>10 genre-specific patches</strong> for the Synthesizer Box,<br />
+2. a <strong>small-system pairing guide</strong> (e.g. best 3 modules to add), or<br />
+3. a <strong>signal-flow diagram</strong> of its internal routings and how to override them.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

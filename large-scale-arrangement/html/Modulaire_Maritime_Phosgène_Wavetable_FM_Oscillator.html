@@ -1,0 +1,624 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Modulaire_Maritime_Phosgène_Wavetable_FM_Oscillator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Modulaire Maritime — Phosgène Wavetable FM Oscillator</h1>
+<ul>
+<li><a href="../../manuals/Phosgène _ Modulaire Maritime.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.modulaire-maritime.com/phosg%C3%A8ne">Manual PDF / Source</a></p>
+<h1>Modulaire Maritime Phosgène — using it to build full-length songs</h1>
+<p>Phosgène is a <strong>2hp digital wavetable/FM oscillator</strong> with a surprisingly wide range for such a small module. From the manual page, the key musical features are:</p>
+<ul>
+<li><strong>60 wavetables</strong> in <strong>2 banks of 30</strong></li>
+<li><strong>Two parallel sound paths / outputs</strong>:</li>
+<li><strong>Wavetable / waveshaping output</strong></li>
+<li><strong>FM output</strong></li>
+<li><strong>Shared controls</strong> influencing both sound engines</li>
+<li><strong>Wavefolding / waveshaping</strong>, manually and by CV</li>
+<li><strong>FM built around a 100 Hz base</strong>, giving darker, tighter, less splashy FM tones</li>
+<li><strong>V/Oct tracking over 8 octaves</strong></li>
+<li><strong>Octave up/down switching</strong></li>
+<li><strong>Octave displace switch</strong> for the wavetable side, useful for keeping timbres in sweet spots and extending lower range</li>
+<li><strong>Last-state memory</strong> for bank, wave, and octave</li>
+</ul>
+<p>That combination makes Phosgène more than “just another voice oscillator.” It is especially useful as a <strong>song-structure oscillator</strong> because it can move between roles quickly:</p>
+<ul>
+<li>bass</li>
+<li>lead</li>
+<li>drone</li>
+<li>harmonic layer</li>
+<li>metallic percussion</li>
+<li>transitions/noise accents</li>
+<li>doubling another voice with a contrasting output</li>
+</ul>
+<p>The biggest trick to making full songs in Eurorack is to stop thinking of a module as a single static voice and start using it as a <strong>scene-changing actor</strong>. Phosgène is ideal for this because the same pitch sequence can sound radically different with:</p>
+<ul>
+<li>wave selection changes</li>
+<li>bank changes</li>
+<li>fold amount modulation</li>
+<li>switching between wavetable out and FM out</li>
+<li>octave displacement for register changes</li>
+<li>filtering and VCAs for arrangement</li>
+</ul>
+<hr />
+<h1>What this module is especially good at in a song context</h1>
+<h2>1. One sequence, many sections</h2>
+<p>A common Eurorack trap is creating one killer loop and not knowing how to evolve it. Phosgène solves that by giving you multiple timbral identities from one melodic source.</p>
+<p>For example, one 16-step sequence can become:</p>
+<ul>
+<li><strong>Intro</strong>: low, mellow wavetable tone</li>
+<li><strong>Verse</strong>: same sequence, slightly folded, filtered, quieter</li>
+<li><strong>Pre-chorus</strong>: switch bank or wave, add CV movement to fold</li>
+<li><strong>Chorus</strong>: octave up, brighter wave, layered with FM output</li>
+<li><strong>Bridge</strong>: mute wavetable output, use FM output only for a darker alien version</li>
+<li><strong>Outro</strong>: return to low octave displaced wavetable with slow modulation</li>
+</ul>
+<p>This is one of the easiest ways to get from “loop” to “song.”</p>
+<h2>2. Parallel outputs can create arrangement contrast</h2>
+<p>Because wavetable and FM are available separately, you can route them into:</p>
+<ul>
+<li>separate filters</li>
+<li>separate VCAs</li>
+<li>separate effects</li>
+<li>separate mixer channels</li>
+<li>separate envelope behaviors</li>
+</ul>
+<p>That means one oscillator can serve as <strong>two arrangement layers</strong>.</p>
+<p>Example:
+- Wavetable output = bass voice
+- FM output = upper texture or percussive accent</p>
+<p>Or:
+- Wavetable output = dry and centered
+- FM output = drenched in delay/reverb and faded in only during transitions</p>
+<p>That gives you song sections without needing a totally separate oscillator.</p>
+<h2>3. The “imperfect digital” aspect is musically useful</h2>
+<p>The manual explicitly mentions:
+- noise-bearing wavetables
+- aliasing at high ranges
+- 11-bit character
+- “digital trash”</p>
+<p>That is not a flaw in song-making. It is actually great for:
+- intros
+- breakdowns
+- rises
+- fills
+- industrial percussion
+- transition effects</p>
+<p>A full song needs contrast. Clean sounds alone often loop endlessly; rougher textures help define form.</p>
+<hr />
+<h1>Core patching roles for Phosgène in a full song</h1>
+<h2>Role A: Primary bass voice</h2>
+<p>This is probably the strongest use case.</p>
+<h3>Why it works</h3>
+<p>The manual notes the FM implementation has a <strong>100 Hz base</strong> and produces a more controlled, darker FM sound, good for <strong>tight FM basses</strong> and deep modulation. Also, the octave displace function helps keep the wavetable side in the low-end sweet spot.</p>
+<h3>Pair with</h3>
+<ul>
+<li>Sequencer: Metropolix, René, Voltage Block + quantizer, Bloom, O_C, Mimetic Digitalis + quantizer</li>
+<li>Envelope: Maths, Zadar, Contour, Quadrax</li>
+<li>VCA: Veils, Tallin, Quad VCA</li>
+<li>Filter: ripples-style LPF, SEM filter, ladder filter, Polivoks for aggressive stuff</li>
+<li>Saturation/waveshaping: Bastl Timber, Instruō tanh[3], L-1, drive in mixer</li>
+<li>Compressor or end-of-chain glue module</li>
+</ul>
+<h3>Song use</h3>
+<ul>
+<li><strong>Intro</strong>: bass filtered almost closed, sparse triggers</li>
+<li><strong>Verse</strong>: regular bassline, low fold CV</li>
+<li><strong>Chorus</strong>: open filter, add FM output layer for edge</li>
+<li><strong>Bridge</strong>: drop kick, keep only subby Phosgène with long notes</li>
+<li><strong>Final chorus</strong>: octave jump + stronger fold modulation</li>
+</ul>
+<h3>Best trick</h3>
+<p>Use the same bass sequence through the whole song, but automate:
+- filter cutoff
+- wave selection
+- fold depth
+- octave position
+- note density via trigger variation</p>
+<p>That alone can create a complete arrangement arc.</p>
+<hr />
+<h2>Role B: Lead that transforms across sections</h2>
+<p>Phosgène should excel as a lead because wavetable selection and fold modulation make it easy to generate evolving harmonic color.</p>
+<h3>Pair with</h3>
+<ul>
+<li>Quantized pitch source</li>
+<li>Slew/glide module</li>
+<li>Envelope + VCA</li>
+<li>Delay/reverb</li>
+<li>Sequential switch or preset manager</li>
+<li>Performance mixer</li>
+</ul>
+<h3>Song use</h3>
+<ul>
+<li><strong>Verse</strong>: restrained lead, narrow range, little modulation</li>
+<li><strong>Pre-chorus</strong>: more wave scanning</li>
+<li><strong>Chorus</strong>: octave up, increased fold CV, stereo delay</li>
+<li><strong>Breakdown</strong>: switch to FM output only for a glassy/darker lead variant</li>
+<li><strong>Outro</strong>: reduced modulation, lower octave, long reverb tails</li>
+</ul>
+<h3>Good composition tactic</h3>
+<p>Don’t write a new melody for every section. Instead:
+- keep the same motif
+- transpose it
+- reharmonize externally
+- change its timbre and register with Phosgène</p>
+<p>That is how many strong songs maintain identity while evolving.</p>
+<hr />
+<h2>Role C: Dual-layer voice from one pitch source</h2>
+<p>This is one of the most song-useful features.</p>
+<h3>Patch</h3>
+<ul>
+<li>Same V/Oct to Phosgène</li>
+<li>Wavetable output -&gt; low-pass filter -&gt; VCA</li>
+<li>FM output -&gt; band-pass or high-pass -&gt; VCA</li>
+<li>Separate envelopes for each output</li>
+<li>Mix them independently</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- a body/foundation layer
+- an edge/air/attack layer</p>
+<h3>Song structure application</h3>
+<ul>
+<li><strong>Intro</strong>: FM layer only, atmospheric</li>
+<li><strong>Verse</strong>: wavetable layer enters</li>
+<li><strong>Pre</strong>: FM layer gets rhythmic gating</li>
+<li><strong>Chorus</strong>: both layers full</li>
+<li><strong>Bridge</strong>: only filtered wavetable layer remains</li>
+<li><strong>Finale</strong>: both plus effects</li>
+</ul>
+<p>This makes one oscillator behave like a multitracked instrument.</p>
+<hr />
+<h2>Role D: Industrial percussion / metallic fills</h2>
+<p>Because the module can produce darker FM and rough digital edges, it can do:
+- toms
+- clangs
+- zaps
+- metallic hats
+- stabs
+- transition hits</p>
+<h3>Pair with</h3>
+<ul>
+<li>Fast envelopes</li>
+<li>LPG or snappy VCA</li>
+<li>Trigger sequencer</li>
+<li>Random voltage or sample-and-hold to wave CV</li>
+<li>Distortion</li>
+<li>Band-pass filtering</li>
+</ul>
+<h3>Song use</h3>
+<p>A song needs small events between larger loops. Use Phosgène for:
+- every 8th bar fill
+- bar-end accent
+- pre-drop metallic stab
+- bridge texture percussion
+- outro glitches</p>
+<p>This helps create arrangement punctuation, which is often what modular songs lack.</p>
+<hr />
+<h2>Role E: Drone / harmonic bed</h2>
+<p>A full-length song often needs sustained background material, not just rhythm and riffs.</p>
+<h3>Patch</h3>
+<ul>
+<li>Phosgène to a filter and VCA</li>
+<li>Slow LFO to wave selection or fold amount</li>
+<li>Very slow random CV to timbre</li>
+<li>Long envelope or manual VCA opening</li>
+<li>Reverb / shimmer / delay</li>
+<li>Maybe a submixer with sidechain ducking from kick</li>
+</ul>
+<h3>Song use</h3>
+<ul>
+<li>Intro pad/drone</li>
+<li>Under-verse bed</li>
+<li>Breakdown sustain</li>
+<li>End-of-song tail</li>
+</ul>
+<p>Even if Phosgène is monophonic, a rich wavetable through effects can fill a lot of space.</p>
+<hr />
+<h1>How to make full songs with it: practical arrangement strategies</h1>
+<h2>Strategy 1: Use “section macros”</h2>
+<p>The best way to get beyond loops is to assign one control gesture per song section.</p>
+<p>For Phosgène, your macros could be:</p>
+<ul>
+<li><strong>Verse macro</strong></li>
+<li>low fold amount</li>
+<li>stable wave</li>
+<li>low octave</li>
+<li>
+<p>wavetable output only</p>
+</li>
+<li>
+<p><strong>Pre-chorus macro</strong></p>
+</li>
+<li>gradual fold CV increase</li>
+<li>slight wave movement</li>
+<li>filter opening</li>
+<li>
+<p>occasional FM layer</p>
+</li>
+<li>
+<p><strong>Chorus macro</strong></p>
+</li>
+<li>octave up</li>
+<li>brighter wave</li>
+<li>wavetable + FM layered</li>
+<li>
+<p>more effects send</p>
+</li>
+<li>
+<p><strong>Bridge macro</strong></p>
+</li>
+<li>switch to darker FM emphasis</li>
+<li>reduce note density</li>
+<li>increase space/reverb</li>
+<li>add random modulation</li>
+</ul>
+<p>These macros can be implemented with:
+- CV presets
+- sequential switches
+- mutes
+- matrix mixers
+- offset/attenuator modules
+- performance mixers
+- scenes on sequencers</p>
+<p>If you can recall 4–5 distinct Phosgène states, you can build a whole song.</p>
+<hr />
+<h2>Strategy 2: Separate composition from orchestration</h2>
+<p>In modular, people often constantly change notes when what they really need is to change arrangement.</p>
+<p>With Phosgène:
+- Keep one strong melody or bassline.
+- Let section changes happen through:
+  - waveform choice
+  - bank selection
+  - fold amount
+  - octave changes
+  - output routing
+  - effects sends</p>
+<p>This is closer to how songs are actually arranged in traditional production.</p>
+<hr />
+<h2>Strategy 3: Use probability and reset intelligently</h2>
+<p>Phosgène sounds varied enough that controlled randomness works well.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Main sequencer for pitch</li>
+<li>Trigger sequencer with:</li>
+<li>probability</li>
+<li>mutes</li>
+<li>fills</li>
+<li>bar resets</li>
+<li>Random source to wave CV, attenuated</li>
+<li>Clock divider for slower section changes</li>
+</ul>
+<h3>Song result</h3>
+<ul>
+<li>stable motif</li>
+<li>subtle timbral evolution</li>
+<li>occasional timbral surprises</li>
+<li>repeatable bar structure</li>
+</ul>
+<p>The key is <strong>bar-level predictability</strong> with <strong>note-level variation</strong>.</p>
+<hr />
+<h2>Strategy 4: Build songs from register changes</h2>
+<p>Because the module tracks 8 octaves and includes octave switching/displacement, register is a huge compositional tool here.</p>
+<p>Use the same sequence as:
+- sub bass in one section
+- mid-register riff in another
+- high synthetic lead in another
+- noisy digital percussion at the top end</p>
+<p>Register change is one of the easiest ways to make a modular arrangement feel intentional.</p>
+<hr />
+<h2>Strategy 5: Alternate “identity outputs”</h2>
+<p>Treat the two outputs as two emotional versions of the same part.</p>
+<ul>
+<li>Wavetable out = more recognizable, tonal, foundational</li>
+<li>FM out = more shadowy, aggressive, unsettling, synthetic</li>
+</ul>
+<p>In a full song:
+- use one for “statement”
+- use the other for “response”</p>
+<p>Example:
+- Chorus hook on wavetable output
+- Chorus answer phrase on FM output</p>
+<p>That creates call-and-response structure.</p>
+<hr />
+<h1>Example full-song patch ideas</h1>
+<h2>1. Techno / EBM track</h2>
+<h3>Modules</h3>
+<ul>
+<li>Phosgène</li>
+<li>kick module or sampler</li>
+<li>noise/snare/hat voices</li>
+<li>16-step sequencer</li>
+<li>filter</li>
+<li>dual VCA</li>
+<li>distortion</li>
+<li>delay/reverb</li>
+<li>performance mixer</li>
+<li>mute module</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Pitch sequencer -&gt; Phosgène V/Oct</li>
+<li>Gate sequence -&gt; envelope -&gt; VCA for wavetable output</li>
+<li>Wavetable output -&gt; low-pass filter -&gt; VCA -&gt; mixer</li>
+<li>FM output -&gt; distortion -&gt; VCA -&gt; mixer</li>
+<li>Slow LFO/random -&gt; wave/fold CV</li>
+<li>Kick ducks Phosgène via sidechain VCA/compressor if available</li>
+</ul>
+<h3>Arrangement</h3>
+<ul>
+<li><strong>Intro</strong>: FM output only with delay, kick faded in</li>
+<li><strong>Verse groove</strong>: bass sequence from wavetable output</li>
+<li><strong>Build</strong>: increase fold and distortion, add percussion</li>
+<li><strong>Drop/chorus</strong>: both outputs layered, octave up accents every 4 bars</li>
+<li><strong>Breakdown</strong>: remove drums, let slow FM drones take over</li>
+<li><strong>Final section</strong>: reintroduce bass, more open filter, stronger modulation</li>
+<li><strong>Outro</strong>: mute wavetable, leave FM texture</li>
+</ul>
+<p>Phosgène here carries both bassline identity and tension effects.</p>
+<hr />
+<h2>2. Ambient / cinematic modular piece</h2>
+<h3>Modules</h3>
+<ul>
+<li>Phosgène</li>
+<li>random source</li>
+<li>quantizer</li>
+<li>slow envelopes/LFOs</li>
+<li>stereo filter or LPG</li>
+<li>granular or reverb processor</li>
+<li>looper/sampler</li>
+<li>mixer</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Random stepped CV -&gt; quantizer -&gt; V/Oct</li>
+<li>Very slow gate triggers -&gt; long envelope</li>
+<li>Wavetable output -&gt; LPG/filter -&gt; reverb</li>
+<li>FM output -&gt; granular/delay path</li>
+<li>Slow CV -&gt; fold amount</li>
+<li>Different slow CV -&gt; wave selection</li>
+</ul>
+<h3>Arrangement</h3>
+<ul>
+<li><strong>Intro</strong>: drone on wavetable output</li>
+<li><strong>Section B</strong>: sparse high-register FM notes appear</li>
+<li><strong>Section C</strong>: loop a phrase and play against it</li>
+<li><strong>Climax</strong>: both outputs layered with more fold movement</li>
+<li><strong>Resolution</strong>: reduce note density and move octave downward</li>
+</ul>
+<p>Here the song form comes from <strong>density, register, and effects depth</strong>, not drum-based development.</p>
+<hr />
+<h2>3. Electro / synth-pop style modular arrangement</h2>
+<h3>Modules</h3>
+<ul>
+<li>Phosgène</li>
+<li>drum machine / sample player</li>
+<li>chord source or polyphonic voice</li>
+<li>sequencer with song mode</li>
+<li>filter</li>
+<li>VCA/envelopes</li>
+<li>chorus/delay/reverb</li>
+<li>mixer with mutes</li>
+</ul>
+<h3>Patch role for Phosgène</h3>
+<p>Use it as the <strong>main hook voice</strong>.</p>
+<h3>Arrangement</h3>
+<ul>
+<li><strong>Intro</strong>: single-note motif with delay</li>
+<li><strong>Verse</strong>: bass role, low octave displaced wavetable</li>
+<li><strong>Pre</strong>: melody rises with more wave modulation</li>
+<li><strong>Chorus</strong>: octave up lead hook with layered FM output</li>
+<li><strong>Verse 2</strong>: back to bass, but altered bank/wave</li>
+<li><strong>Bridge</strong>: remove drums, use FM output in spacious mode</li>
+<li><strong>Last chorus</strong>: stack bass and lead by multitracking or live re-patching/muting</li>
+</ul>
+<p>A modular song often becomes convincing when one voice can act as both bass and hook at different times. Phosgène seems excellent for that.</p>
+<hr />
+<h1>Specific module pairings that help turn Phosgène into song material</h1>
+<h2>With a sequential switch</h2>
+<p>A sequential switch can route:
+- different CV sources into wave/fold control
+- different trigger patterns to the VCA envelope
+- different outputs into different processing chains</p>
+<p>This creates section-by-section identity changes.</p>
+<p>Good uses:
+- verse = subtle modulation
+- chorus = aggressive modulation
+- bridge = random stepped timbre changes</p>
+<hr />
+<h2>With a preset manager / CV memory module</h2>
+<p>This is one of the best “song form” tools in modular.</p>
+<p>Store different offsets for:
+- wave selection
+- fold depth
+- filter cutoff
+- VCA level
+- effects send
+- FM layer level</p>
+<p>Then recall those presets as:
+- intro
+- verse
+- chorus
+- bridge
+- outro</p>
+<p>If your system has something like:
+- Acid Rain Maestro
+- Ornament &amp; Crime scenes
+- Verbos Sequence Selector
+- presets in a digital controller
+- ADDAC/manual scene manager concepts</p>
+<p>you can make Phosgène behave like a structured instrument, not just a patch element.</p>
+<hr />
+<h2>With a matrix mixer</h2>
+<p>A matrix mixer is great for songs because it lets you blend modulation sources differently per section.</p>
+<p>For Phosgène:
+- LFO 1 -&gt; fold CV
+- Random -&gt; wave CV
+- Envelope -&gt; FM depth-related timbral movement
+- Manual offset -&gt; base timbre</p>
+<p>Then mix those amounts differently in real time.</p>
+<p>This creates controlled evolution without repatching.</p>
+<hr />
+<h2>With a clockable modulation source</h2>
+<p>To keep the song coherent, sync modulation to bars.</p>
+<p>Useful modulation rhythms:
+- wave shift every 8 bars
+- fold swell every 4 bars
+- octave accent every 16 bars
+- FM output gate only on fill bars</p>
+<p>Clocked modulation is much more song-like than free-running chaos.</p>
+<hr />
+<h2>With a looper/sampler</h2>
+<p>One secret to full songs in modular is to <strong>print</strong> parts.</p>
+<p>Use Phosgène to record:
+- a bass riff
+- a drone bed
+- a noisy FM texture
+- a lead phrase</p>
+<p>Then free the module to play a new role on top.</p>
+<p>This is one of the fastest ways to get from “one-voice patch” to “arranged track.”</p>
+<p>Modules/processes:
+- Morphagene
+- Lubadh
+- Arbhar
+- Bitbox
+- 1010 Blackbox
+- external DAW/looper</p>
+<hr />
+<h1>Arrangement recipes</h1>
+<h2>Recipe 1: “Bass to lead” song</h2>
+<ol>
+<li>Write a strong 8- or 16-step sequence.</li>
+<li>Start with Phosgène as low bass via wavetable output.</li>
+<li>In chorus, transpose the sequence up 1–2 octaves.</li>
+<li>Add fold CV and effects.</li>
+<li>Blend in FM output for edge.</li>
+<li>Bring bass back in later by looping/sampling or switching to another voice.</li>
+</ol>
+<p>This creates a clear narrative from the same motif.</p>
+<hr />
+<h2>Recipe 2: “Shadow double” arrangement</h2>
+<ol>
+<li>Wavetable output carries the main line.</li>
+<li>FM output is muted most of the time.</li>
+<li>Bring FM output in only:</li>
+<li>at phrase endings</li>
+<li>every fourth bar</li>
+<li>in choruses</li>
+<li>during transitions</li>
+</ol>
+<p>This creates tension/release and makes sections feel bigger.</p>
+<hr />
+<h2>Recipe 3: “Timbral chorus” instead of harmonic chorus</h2>
+<p>If you don’t have a lot of harmonic voices, make your chorus bigger by changing timbre, not chords.</p>
+<ul>
+<li>Verse: simple, dark wave, low fold</li>
+<li>Chorus: brighter bank, stronger fold, more open filter, layered outputs</li>
+</ul>
+<p>Even with the same notes, the chorus feels lifted.</p>
+<hr />
+<h2>Recipe 4: “Bridge by degradation”</h2>
+<p>Use the digital edge creatively.</p>
+<ul>
+<li>Reduce drums</li>
+<li>Push Phosgène into noisier/aliasing territory</li>
+<li>High-pass or band-pass it</li>
+<li>Add delay/reverb</li>
+<li>Let it become unstable and textural</li>
+</ul>
+<p>Then snap back to a cleaner bass/lead tone for the final section.</p>
+<p>That contrast reads as structure.</p>
+<hr />
+<h1>A practical full-song workflow</h1>
+<h2>Step 1: Decide its song role</h2>
+<p>Pick one:
+- bass anchor
+- lead hook
+- dual-layer motif
+- drone/percussion utility</p>
+<p>Don’t ask it to do everything at once live unless your patch is designed for that.</p>
+<h2>Step 2: Make 4 section states</h2>
+<p>Create:
+- A = intro
+- B = verse
+- C = chorus
+- D = bridge/breakdown</p>
+<p>Each state should differ in:
+- octave/register
+- wave or bank
+- fold amount
+- output balance
+- filtering/effects</p>
+<h2>Step 3: Keep pitch material simple</h2>
+<p>Use:
+- one riff
+- one hook
+- one transposed variant</p>
+<p>Too much melodic churn often weakens modular songs.</p>
+<h2>Step 4: Add punctuation</h2>
+<p>Every 4, 8, or 16 bars:
+- wave jump
+- FM stab
+- octave accent
+- filter sweep
+- mute/re-entry</p>
+<h2>Step 5: Record passes if needed</h2>
+<p>If your rack is small, record one Phosgène role, then repatch/use it for another role. Full songs often come from layering time, not only layering hardware.</p>
+<hr />
+<h1>Potential strengths and limitations to be aware of</h1>
+<h2>Strengths</h2>
+<ul>
+<li>Very compact</li>
+<li>Broad timbral range</li>
+<li>Bass-capable FM character</li>
+<li>Parallel outputs are arrangement-friendly</li>
+<li>Can go from tonal to textural quickly</li>
+<li>Saved state helps patch continuity</li>
+</ul>
+<h2>Limitations</h2>
+<p>Because this is a tiny module, hands-on control may be compact and immediate CV control options may be limited compared to larger oscillators. That means for song work, it benefits greatly from:
+- attenuators
+- VCAs for modulation depth
+- external switching/mixing
+- good envelope and filter companions</p>
+<p>In other words, Phosgène is likely best as part of a <strong>voice architecture</strong>, not used naked.</p>
+<hr />
+<h1>Best companion modules for full-song use</h1>
+<p>If your goal is full arrangements, pair Phosgène with:</p>
+<ul>
+<li><strong>Sequencer with song mode or pattern memory</strong></li>
+<li><strong>Performance mixer with mutes</strong></li>
+<li><strong>Filter</strong></li>
+<li><strong>At least two VCAs</strong></li>
+<li><strong>Clocked modulation</strong></li>
+<li><strong>Preset/scenes module or sequential switch</strong></li>
+<li><strong>Delay/reverb</strong></li>
+<li><strong>Sampler/looper if your system is small</strong></li>
+</ul>
+<p>That combination turns the oscillator into a section-capable instrument.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>Phosgène looks especially strong for full-length songs because it is not just “a sound source,” but a <strong>compact timbral arranger</strong>:</p>
+<ul>
+<li>the <strong>wavetable side</strong> gives you body, identity, and harmonic content</li>
+<li>the <strong>FM side</strong> gives you shadow, aggression, and contrast</li>
+<li><strong>octave displacement</strong> helps keep sounds in useful musical ranges</li>
+<li><strong>CV-controlled folding/waveshaping</strong> creates section evolution</li>
+<li>the <strong>lo-fi digital character</strong> provides transitions, fills, and breakdown material</li>
+</ul>
+<p>If you use it with:
+- a structured sequencer,
+- clocked modulation,
+- separate processing for its two outputs,
+- and clear section-based performance decisions,</p>
+<p>then Phosgène can absolutely help you move from “cool loop” to “actual song.”</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

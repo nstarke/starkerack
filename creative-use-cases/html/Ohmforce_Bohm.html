@@ -1,0 +1,721 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ohmforce_Bohm</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Ohmforce — Bohm</h1>
+<ul>
+<li><a href="../../manuals/Bohm documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://ohmforce.com/wp-content/uploads/2025/03/Bohm_manual.pdf">Manual PDF</a></p>
+<h1>Creative patch ideas for the Ohm Force Bohm system</h1>
+<p>Bohm is much more than a kick module. Reading through the manual, it’s really a <strong>performance-oriented stereo kick workstation</strong> with three distinct roles:</p>
+<ul>
+<li><strong>Bohm core</strong> = main kick voice with pitch/gate behavior, CV-able macro control, model switching, snapshots</li>
+<li><strong>Groove expander</strong> = secondary voice / rumble / top / envelope generator</li>
+<li><strong>Performer expander</strong> = stereo sidechain, live FX bus, and external audio processor</li>
+</ul>
+<p>That means you can use it as:</p>
+<ul>
+<li>a kick drum</li>
+<li>a bass synth</li>
+<li>a stereo transient processor</li>
+<li>a ducking hub</li>
+<li>a clock-relative rhythm shaper</li>
+<li>a live scene-recall instrument</li>
+</ul>
+<p>Below are practical and creative ways to combine it with other Eurorack modules.</p>
+<hr />
+<h2>1. Turn Bohm into a playable bass voice</h2>
+<p>The manual makes it clear that Bohm can <strong>track pitch at 1V/oct</strong> if you:</p>
+<ul>
+<li>set <strong>PITCH knob fully CCW</strong></li>
+<li>set <strong>PITCH attenuverter fully CW</strong></li>
+<li>choose the correct <strong>Pitch CV range</strong> in system settings: <code>0..1V</code>, <code>1..2V</code>, or <code>2..3V</code></li>
+<li>use <strong>1V/oct</strong></li>
+<li>keep <strong>LENGTH long enough</strong> or use a <strong>gate</strong> at <code>HIT</code></li>
+</ul>
+<h3>Patch idea</h3>
+<p>Use a pitch sequencer or keyboard controller to play Bohm melodically while still behaving like a kick/bass hybrid.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Intellijel Metropolix</strong></li>
+<li><strong>Make Noise René</strong></li>
+<li><strong>Winter Modular Eloquencer</strong></li>
+<li><strong>Arturia BeatStep Pro</strong></li>
+<li>Any <strong>MIDI-to-CV</strong> module with stable pitch output</li>
+</ul>
+<h3>Why it’s interesting</h3>
+<p>Because Bohm’s models are not just simple sines. Many are wavetable/FM/sample-layered engines, so you can get:
+- 808 basslines
+- FM acid-ish low end
+- industrial tuned tom/bass hits
+- per-note kick changes in a groove</p>
+<h3>Extra trick</h3>
+<p>Send:
+- <strong>pitch CV</strong> to <code>PITCH</code>
+- <strong>gate</strong> to <code>HIT</code>
+- <strong>velocity/accent CV</strong> to <code>VELOCITY</code></p>
+<p>Now you have a dynamic bass instrument that still has kick articulation.</p>
+<hr />
+<h2>2. Use Groove as a modular techno rumble designer</h2>
+<p>Groove isn’t just a delay. It creates <strong>clock-triggered repetitions</strong>, reverb/noise/grit-sub layers, and a <strong>tap-based envelope</strong>. This is huge.</p>
+<h3>Patch idea</h3>
+<p>Clock Groove at <strong>16ths</strong> or <strong>triplets</strong>, and trigger Bohm only on quarter notes. Use Groove to build:
+- rolling techno rumble
+- kick tops
+- pumping noise wash
+- sub-synced ghost hits</p>
+<h3>Great pairings</h3>
+<ul>
+<li>Clock source: <strong>Pamela’s Pro Workout</strong>, <strong>Tempi</strong>, <strong>Shakmat Clock O’Pawn</strong></li>
+<li>Trigger sequencer: <strong>Steppy</strong>, <strong>Varigate</strong>, <strong>Euclidean Circles</strong></li>
+<li>CV modulation for <code>TAPS</code>: <strong>Stages</strong>, <strong>Zadar</strong>, <strong>Batumi</strong>, <strong>Ochd</strong></li>
+</ul>
+<h3>Creative move</h3>
+<p>Use Groove <code>COLOR</code> to morph between:
+- kick repetitions
+- reverb-based body
+- noise
+- grit + sub</p>
+<p>Then automate it with a slow CV to create a kick that evolves from tight to cavernous over 16 or 32 bars.</p>
+<h3>Best companion modules</h3>
+<ul>
+<li><strong>Filter</strong> after Bohm output: for deep rumble sculpting</li>
+<li><strong>Stereo compressor</strong>: glue the entire kick ecosystem</li>
+<li><strong>Saturation/waveshaper</strong>: turn rumble into dirt</li>
+</ul>
+<p>Examples:
+- <strong>SSF Stereo Dipole</strong>
+- <strong>WMD Overseer</strong>
+- <strong>Bastl Ikarie</strong>
+- <strong>Joranalogue Fold 6</strong>
+- <strong>Noise Engineering Ruina series</strong></p>
+<hr />
+<h2>3. Exploit the TAPS output as a modulation source</h2>
+<p>One of the most underrated features in the manual: Groove provides a <strong>TAPS CV output</strong>. System settings also let that output become:</p>
+<ul>
+<li><code>GROOVE</code> envelope</li>
+<li><code>I BOHM</code> inverted Bohm envelope</li>
+<li><code>PERF</code> Performer ducking envelope</li>
+<li><code>BOHM</code> non-inverted Bohm envelope</li>
+</ul>
+<p>This means Bohm can act like a <strong>rhythmic CV brain</strong> for the rest of your system.</p>
+<h3>Patch ideas</h3>
+<h4>A. Animate a hi-hat VCA</h4>
+<p>Send <code>TAPS OUT</code> to a VCA controlling noise or hats.
+- Kick triggers the groove envelope
+- Groove taps create hat swells synced to kick structure</p>
+<h4>B. Sidechain external bass without a compressor</h4>
+<p>Set <code>TAPS OUT</code> to <code>I BOHM</code> or <code>PERF</code> and patch into:
+- a VCA CV input
+- a low-pass gate CV
+- the level CV of a mixer channel</p>
+<p>Now your modular bassline or drone ducks rhythmically.</p>
+<h4>C. Modulate filter cutoff rhythmically</h4>
+<p>Send <code>TAPS OUT</code> to:
+- filter cutoff CV
+- wavefolder amount
+- delay feedback CV</p>
+<p>This gives your entire patch a kick-related breathing pattern.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>VCAs</strong>: Veils, Quad VCA, Tallin</li>
+<li><strong>Filters</strong>: Belgrad, Ikarie, QPAS</li>
+<li><strong>Mixers with CV</strong>: Mutamix, Tangle Quartet, Happy Nerding 3xVCA</li>
+<li><strong>Envelope followers / dynamics tools</strong> to stack modulation behavior</li>
+</ul>
+<hr />
+<h2>4. Use Performer as your modular sidechain and DJ bus</h2>
+<p>Performer is not just an insert effect. It is a <strong>ducking processor and performance effects bus</strong> for external stereo audio.</p>
+<h3>Core concept</h3>
+<p>Feed another part of your patch into Performer <code>IN</code>, and Bohm will duck it on each <code>HIT</code>.</p>
+<p>This means you can sidechain:
+- pads
+- drones
+- stereo loops
+- a whole submixer
+- granular clouds
+- chord voices</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Stereo voice</strong>: XPO, Ensemble Oscillator, Odessa, Plaits into stereo effects</li>
+<li><strong>Stereo mixer</strong>: Xer Mixa, Cosmix Pro, Listen Four, Mixup + stereo FX</li>
+<li><strong>Sampler / loopers</strong>: Morphagene, Lubadh, Bitbox, Squid Salmple</li>
+</ul>
+<h3>Patch ideas</h3>
+<h4>A. Full live techno bus</h4>
+<p>Patch your melodic bus into Performer <code>IN</code>, then let Bohm create all the pumping.</p>
+<p>Use:
+- <code>DUCK</code> for depth
+- <code>DUCK TIME</code> variation for release length
+- <code>DUCK SMTH</code> to preserve some transient
+- <code>DUCK BS</code> to duck only lows for more transparent sidechaining</p>
+<p>This is extremely useful if you want a “mastering-style” pump without dedicating a compressor.</p>
+<h4>B. DJ filter transitions</h4>
+<p>Set Performer FX to:
+- <code>DJ FILTER</code>
+- <code>LP</code>
+- <code>HP</code>
+- <code>BEAT ROLL</code>
+- <code>SLIP ROLL</code></p>
+<p>Now Bohm becomes your transition/performance module for the rest of your patch.</p>
+<p>Excellent with:
+- <strong>stereo sampler</strong>
+- <strong>drum bus</strong>
+- <strong>granular texture source</strong></p>
+<h4>C. Process only the kick or only the input</h4>
+<p>The <code>CHN</code> variation lets you choose:
+- <code>ALL</code>
+- <code>KICK</code>
+- <code>INPUT</code></p>
+<p>So you can:
+- filter only the external music while kicks stay clean
+- roll/stutter only the kick
+- process everything together for breakdowns</p>
+<p>This makes it function like a compact live DJ section inside the rack.</p>
+<hr />
+<h2>5. Build a self-ducking drone patch</h2>
+<p>The manual specifically notes:
+- Performer can duck external input
+- Groove can sustain as a drone with <code>GRV ENV = SUSTAIN</code>
+- <code>PERF VOL</code> can be set to affect only Bohm or Bohm+Groove
+- Groove can become effectively continuous in some cases</p>
+<h3>Patch idea</h3>
+<p>Create a sustained drone from another voice and let Bohm periodically carve holes in it.</p>
+<h3>Setup</h3>
+<ul>
+<li>Patch drone voice into Performer <code>IN</code></li>
+<li>Trigger Bohm with a sparse rhythm</li>
+<li>Set <code>DUCK</code> fairly high</li>
+<li>Set <code>DUCK BS</code> low enough that highs remain more present</li>
+<li>Use long <code>DUCK TIME</code></li>
+</ul>
+<h3>Great drone sources</h3>
+<ul>
+<li><strong>Instruō Cs-L</strong></li>
+<li><strong>Make Noise DPO</strong></li>
+<li><strong>4ms Ensemble Oscillator</strong></li>
+<li><strong>Mutable Rings / Resonator voices</strong></li>
+<li><strong>Sine bank / chord modules</strong></li>
+<li><strong>Granular processors</strong></li>
+</ul>
+<h3>Result</h3>
+<p>You get a huge, breathing cinematic low-end structure where the kick doesn’t merely sit on top — it physically sculpts the other sound.</p>
+<hr />
+<h2>6. Use Bohm snapshots like scene memory for live improvisation</h2>
+<p>Bohm has <strong>32 programs</strong> with <strong>16 steps</strong> each, plus:
+- snapshot save/load
+- <code>LOAD W/ POTS</code>
+- Song mode
+- Jam mode
+- per-knob behavior: <code>LATCH</code>, <code>REL</code>, <code>OVR</code></p>
+<p>This is ideal with sequencers or controllers that can fire step advances.</p>
+<h3>Patch idea</h3>
+<p>Use Bohm as a <strong>scene-recall rhythm engine</strong> while the rest of your system remains semi-improvised.</p>
+<h3>With other modules</h3>
+<ul>
+<li>Use a trigger sequencer to advance <code>FUNCTION</code></li>
+<li>Use a manual gate button module or controller for cueing</li>
+<li>Clock everything from one master source</li>
+</ul>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Pam’s Pro Workout</strong> for sending structured triggers</li>
+<li><strong>Tetrapad / Tête</strong>, <strong>Pressure Points</strong>, <strong>Planar 2</strong>, <strong>Faderbank</strong> for manual transitions</li>
+<li><strong>Stillson Hammer</strong>, <strong>Eloquencer</strong>, <strong>Hermod</strong> for arranged changes</li>
+</ul>
+<h3>Smart live setup</h3>
+<p>Set some knobs to <code>OVR</code> inside the program:
+- <code>COLOR</code>
+- <code>FX</code>
+- maybe <code>PITCH</code></p>
+<p>Now snapshots recall the overall kick architecture, but you retain hands-on control of the “money parameters.”</p>
+<hr />
+<h2>7. Combine Bohm with logic and probability modules for generative kick variation</h2>
+<p>Because Bohm responds to:
+- <code>HIT</code>
+- <code>VELOCITY</code>
+- <code>FUNCTION</code> CV randomization in Studio mode
+- lots of parameter CV inputs</p>
+<p>…it can benefit hugely from modular logic.</p>
+<h3>Patch idea</h3>
+<p>Create an evolving kick system where:
+- kick triggers remain stable
+- accents vary
+- model variations randomize occasionally
+- Groove taps reshape on phrase boundaries</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Mutable Branches / compare/probability</strong></li>
+<li><strong>Pam’s probability/skips</strong></li>
+<li><strong>Shakmat Time Wizard</strong></li>
+<li><strong>Joranalogue Compare 2</strong></li>
+<li><strong>Klavis Logica XT</strong></li>
+<li><strong>Marbles</strong></li>
+<li><strong>Turing Machine + Pulses</strong></li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>Main quarter note trigger to <code>HIT</code></li>
+<li>Random accent gate opens a VCA sending CV to <code>VELOCITY</code></li>
+<li>Slow random stepped voltage to <code>COLOR</code></li>
+<li>Every 16 bars, pulse <code>FUNCTION CV</code> in Studio mode for randomization</li>
+<li>Save favorite results as snapshots</li>
+</ul>
+<p>This turns Bohm into a generative kick laboratory.</p>
+<hr />
+<h2>8. Patch Bohm through resonators for tuned kick architecture</h2>
+<p>Because Bohm is rich in transients and tuned low-frequency content, it works brilliantly as an exciter.</p>
+<h3>Patch idea</h3>
+<p>Send Bohm’s output to:
+- resonator
+- comb filter
+- physical modeling module
+- tuned delay</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Mutable Rings</strong></li>
+<li><strong>2hp Pluck</strong></li>
+<li><strong>Comb filters</strong></li>
+<li><strong>Karplus processors</strong></li>
+<li><strong>Mimeophon</strong> with tuned settings</li>
+<li><strong>Sealegs</strong></li>
+<li><strong>Data Bender</strong> for glitch tails</li>
+</ul>
+<h3>Results</h3>
+<ul>
+<li>metallic industrial kicks</li>
+<li>tuned boomy toms</li>
+<li>dub-techno bass clouds</li>
+<li>resonant ghost harmonics around the kick</li>
+</ul>
+<h3>Extra idea</h3>
+<p>Use the <strong>Bohm envelope from TAPS OUT</strong> to modulate the resonator damping/brightness.</p>
+<hr />
+<h2>9. Feed Bohm into a LPG or VCA for alternate transient shaping</h2>
+<p>Even though Bohm has internal envelopes, using an external dynamics stage gives another layer of articulation.</p>
+<h3>Patch idea</h3>
+<p>Route Bohm into:
+- VCA controlled by another envelope
+- LPG for woody damping
+- transient shaper/EQ</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Optomix</strong></li>
+<li><strong>LxD</strong></li>
+<li><strong>Tallin</strong></li>
+<li><strong>SSF Vortices</strong> for saturation</li>
+<li><strong>Mutable Streams</strong> or similar dynamics module</li>
+</ul>
+<h3>Why bother?</h3>
+<p>You can:
+- choke the tail
+- emphasize the punch
+- make kicks more percussive and woody
+- create “gated industrial” kicks</p>
+<p>This is especially useful on the more sample-layered or FM-heavy models.</p>
+<hr />
+<h2>10. Use external CV recorders or motion sequencers to animate macro controls</h2>
+<p>Bohm’s controls are macro-based and model-dependent. That means a single CV modulation can produce lots of meaningful movement.</p>
+<h3>Best CV targets</h3>
+<ul>
+<li><code>COLOR</code></li>
+<li><code>CURVE</code></li>
+<li><code>TRS DECAY</code></li>
+<li><code>TRS TONE</code></li>
+<li><code>FX</code></li>
+<li>Groove <code>COLOR</code></li>
+<li>Groove <code>TAPS</code></li>
+<li>Performer <code>DUCK</code> / <code>FX</code></li>
+</ul>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Make Noise Maths</strong></li>
+<li><strong>Xaoc Zadar</strong></li>
+<li><strong>Intellijel Quadrax</strong></li>
+<li><strong>Batumi</strong></li>
+<li><strong>Mimetic Digitalis</strong></li>
+<li><strong>Voltage Block</strong></li>
+<li><strong>Acid Rain Maestro</strong></li>
+<li><strong>Planar 2</strong> for recorded gesture control</li>
+</ul>
+<h3>Patch idea</h3>
+<p>Record one manual gesture with Planar 2 or Voltage Block to sweep:
+- Bohm <code>COLOR</code>
+- Groove <code>COLOR</code>
+- Performer <code>FX</code></p>
+<p>Now one movement transitions the whole drum ecosystem from dry punch to huge rave wash.</p>
+<hr />
+<h2>11. Build layered kick ecosystems with external analog kick modules</h2>
+<p>Bohm is already dual voice with Groove, but it becomes monstrous when layered with a third kick.</p>
+<h3>Great companion kick/percussion modules</h3>
+<ul>
+<li><strong>SSF Ultra-Kick</strong></li>
+<li><strong>WMD Crater</strong></li>
+<li><strong>Jomox ModBase 09</strong></li>
+<li><strong>Bastl Kickall</strong></li>
+<li><strong>Hexinverter Mutant Bassdrum</strong></li>
+<li><strong>Noise Engineering Basimilus Iteritas Alter</strong> as click/top/metal layer</li>
+</ul>
+<h3>Patch approaches</h3>
+<h4>A. Bohm = sub/fundamental, external module = click</h4>
+<p>Use Bohm for weight and long body.
+Use another kick module for midrange click.
+Mix externally or send one through Performer input.</p>
+<h4>B. Bohm = main kick, external module = ghost kick</h4>
+<p>Send the other kick through Performer input so Bohm ducks it rhythmically.</p>
+<h4>C. Bohm Groove = rumble, external module = dry 909 attack</h4>
+<p>Very strong for modern techno.</p>
+<hr />
+<h2>12. Use Bohm as the central low-end voice in a stereo effects network</h2>
+<p>Bohm outputs <strong>true stereo audio</strong>. That’s unusual for a kick module and worth exploiting.</p>
+<h3>Great stereo effects</h3>
+<ul>
+<li><strong>Mimeophon</strong></li>
+<li><strong>Sealegs</strong></li>
+<li><strong>Nautilus</strong></li>
+<li><strong>Desmodus Versio</strong></li>
+<li><strong>Aurora</strong></li>
+<li><strong>FX Aid XL</strong></li>
+<li><strong>Timiszoara</strong></li>
+<li><strong>Xaoc Sarajewo</strong> for delay networking</li>
+</ul>
+<h3>Patch ideas</h3>
+<h4>A. Stereo widening + post-FX rumble</h4>
+<p>Use Bohm model <code>STEREO</code> variation to widen, then feed into stereo reverb/delay.</p>
+<h4>B. Split panning by source</h4>
+<p>Use the system <strong>PANNING</strong> settings:
+- Bohm left
+- Groove right
+- Performer center or opposite side</p>
+<p>Then process the channels separately downstream.</p>
+<p>This is powerful if you have:
+- dual mono filters
+- separate distortion paths
+- independent channel VCAs</p>
+<h3>Example</h3>
+<p>Hard-pan Bohm left and Groove right, then:
+- distort left harder
+- filter right darker
+- recombine in mixer</p>
+<p>Now your kick system has internal width and movement rather than just a centered thump.</p>
+<hr />
+<h2>13. Leverage PM-K1 for acoustic-space hybrid percussion</h2>
+<p>The <strong>PM-K1</strong> model is unusual: it’s a physical model of an acoustic bass drum, with controls for:
+- drum size/tension
+- beater volume
+- beater reverb decay / tone
+- room size
+- ambient mic volume
+- stereo spread</p>
+<h3>Patch idea</h3>
+<p>Use PM-K1 not as a club kick but as a <strong>cinematic percussion anchor</strong>.</p>
+<h3>Pair with</h3>
+<ul>
+<li><strong>Field recordings</strong></li>
+<li><strong>Granular textures</strong></li>
+<li><strong>Tape emulation / wow-flutter</strong></li>
+<li><strong>Spring reverb</strong></li>
+<li><strong>Transient designer</strong></li>
+<li><strong>Random trigger skips</strong></li>
+</ul>
+<h3>Great companion modules</h3>
+<ul>
+<li>Morphagene</li>
+<li>Arbhar</li>
+<li>Lubadh</li>
+<li>Rings / Elements-type resonators</li>
+<li>Spring reverb or reverb tank interface</li>
+</ul>
+<p>Because PM-K1 ignores many standard controls, it behaves like a different instrument entirely — perfect for ambient, soundtrack, experimental techno intros, or acoustic-electronic hybrids.</p>
+<hr />
+<h2>14. XT-88 as a custom kick/sample laboratory</h2>
+<p>The <strong>XT-88</strong> model lets you load:
+- up to 16 custom wavetables
+- up to 256 samples
+- user WAVE files
+- custom layering samples</p>
+<h3>Patch idea</h3>
+<p>Create your own signature percussion engine by loading:
+- vinyl clicks
+- foley hits
+- metal textures
+- modular recordings
+- field-recorded impacts
+- vocal consonants</p>
+<p>Then use Bohm’s macro controls to transform them into playable kicks.</p>
+<h3>Great workflow</h3>
+<p>Pair Bohm with:
+- a desktop editor workflow
+- DAW resampling
+- field recorder
+- other Eurorack samplers for source generation</p>
+<h3>Smart sound design trick</h3>
+<p>Make your own layer folders:
+- “Clicks”
+- “Hard tops”
+- “Dust”
+- “Industrial”
+- “Wood”
+- “Broken speaker”
+- “Rave transient”</p>
+<p>Then use snapshots to create genre-specific sets.</p>
+<hr />
+<h2>15. Create polyrhythmic low-end systems with independent HIT and CLOCK streams</h2>
+<p>Important manual detail:
+- Bohm main voice is triggered by <code>HIT</code>
+- Groove voice is triggered by <code>CLOCK</code></p>
+<p>They don’t have to be the same rhythm.</p>
+<h3>Patch idea</h3>
+<p>Use different rhythmic divisions for each.</p>
+<h3>Example setups</h3>
+<ul>
+<li><code>HIT</code> = quarter notes</li>
+<li><code>CLOCK</code> = 16ths</li>
+<li>or <code>CLOCK</code> = dotted 8ths</li>
+<li>or triplet clock against straight kick</li>
+</ul>
+<h3>Great pairings</h3>
+<ul>
+<li>Clock divider/multiplier</li>
+<li>Euclidean trigger generator</li>
+<li>Trigger delay</li>
+<li>Logic modules</li>
+</ul>
+<p>Examples:
+- <strong>Pam’s</strong>
+- <strong>Tempi</strong>
+- <strong>Rotating Clock Divider</strong>
+- <strong>Euclidean Circles</strong>
+- <strong>Shakmat Time Wizard</strong>
+- <strong>Doepfer trigger tools</strong></p>
+<h3>Result</h3>
+<p>Groove becomes a rhythmic “afterimage” of the kick rather than a static tail.</p>
+<hr />
+<h2>16. Use Performer beat roll/slip roll as a modular breakdown machine</h2>
+<p>The Performer FX modes include:
+- <code>BEAT ROLL</code>
+- <code>SLIP ROLL</code></p>
+<p>These are performance-oriented and excellent in live modular where most systems lack DJ-style loop effects.</p>
+<h3>Patch idea</h3>
+<p>Feed a whole drum/percussion submix into Performer <code>IN</code>.
+Let Bohm provide the kick and ducking.
+Then punch in beat roll for transitions.</p>
+<h3>Great pairings</h3>
+<ul>
+<li>Drum submixer</li>
+<li>Sample drums</li>
+<li>hats and percussion bus</li>
+<li>stereo loop sources</li>
+</ul>
+<p>Modules:
+- <strong>Bitbox</strong>
+- <strong>Squid Salmple</strong>
+- <strong>Assimil8or</strong>
+- <strong>Erica Sample Drum</strong>
+- <strong>WMD/SSF percussion modules</strong>
+- <strong>Stereo mixer before Performer</strong></p>
+<p>This can replace a lot of external mixer DJ FX tricks inside the rack.</p>
+<hr />
+<h2>17. Pair Bohm with envelope-following or audio-reactive modules</h2>
+<p>Because Bohm is highly transient and structured, it is a fantastic source for:
+- envelope followers
+- transient extractors
+- comparators
+- audio-to-CV tools</p>
+<h3>Patch idea</h3>
+<p>Use Bohm audio to derive modulation for the rest of your patch.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Envelope follower</strong></li>
+<li><strong>Comparator</strong></li>
+<li><strong>PLL</strong></li>
+<li><strong>Transient detector</strong></li>
+<li><strong>Clock extractor</strong></li>
+</ul>
+<h3>Uses</h3>
+<ul>
+<li>kick audio opens bass VCA</li>
+<li>rumble amplitude controls reverb depth elsewhere</li>
+<li>kick transient clocks another sequence</li>
+<li>ducking envelope derived from audio complements CV envelope</li>
+</ul>
+<p>This is especially nice if you don’t want to use TAPS OUT and want audio-reactive behavior instead.</p>
+<hr />
+<h2>18. Make Bohm the master “drop” controller with manual controllers</h2>
+<p>Because the module has performance-oriented controls and scene memory, it pairs really well with hands-on controllers.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Planar 2</strong></li>
+<li><strong>Tetrapad/Tête</strong></li>
+<li><strong>Pressure Points</strong></li>
+<li><strong>Faderfox external MIDI to CV</strong></li>
+<li><strong>Joystick or macro controller</strong></li>
+<li><strong>Manual gate buttons</strong></li>
+</ul>
+<h3>Patch idea</h3>
+<p>Map different control sources to:
+- Bohm <code>COLOR</code>
+- Bohm <code>FX</code>
+- Groove <code>VOL</code>
+- Performer <code>DUCK</code>
+- Performer <code>FX</code></p>
+<p>Now one hand can:
+- increase kick aggression
+- raise rumble
+- deepen sidechain
+- sweep DJ filter
+- then recall a new kick snapshot</p>
+<p>That’s an entire live techno performance workflow centered around Bohm.</p>
+<hr />
+<h2>19. Process Bohm through spectral or unusual processors</h2>
+<p>Because Bohm models cover FM, physical modeling, wavetable and layered samples, they respond differently to niche processors.</p>
+<h3>Interesting companions</h3>
+<ul>
+<li><strong>Frequency shifter</strong></li>
+<li><strong>Spectral processor</strong></li>
+<li><strong>Ring mod</strong></li>
+<li><strong>Bitcrusher</strong></li>
+<li><strong>Granular delay</strong></li>
+<li><strong>Resampling looper</strong></li>
+<li><strong>Multiband distortion</strong></li>
+</ul>
+<h3>Patch ideas</h3>
+<ul>
+<li>Send only Groove through a frequency shifter for metallic side-rumble</li>
+<li>Use a spectral processor on Performer input while Bohm ducks it</li>
+<li>Resample Bohm hits into a looper, then feed them back into Performer</li>
+</ul>
+<p>This creates recursive drum architecture.</p>
+<hr />
+<h2>20. Build a full “one-rack techno engine” around Bohm</h2>
+<p>If I were designing a compact system around Bohm, I’d pair it with:</p>
+<h3>Essential supporting module types</h3>
+<ul>
+<li><strong>Master clock / trigger sequencer</strong></li>
+<li><strong>Pitch sequencer</strong></li>
+<li><strong>Modulation source</strong></li>
+<li><strong>Stereo effect</strong></li>
+<li><strong>Mixer with VCAs</strong></li>
+<li><strong>Filter/distortion</strong></li>
+<li><strong>Sampler or texture voice</strong></li>
+<li><strong>Performance controller</strong></li>
+</ul>
+<h3>Example dream companions</h3>
+<ul>
+<li><strong>Pamela’s Pro Workout</strong> — clocks, modulation, probability</li>
+<li><strong>Metropolix</strong> — pitch and rhythmic bass sequencing</li>
+<li><strong>Zadar or Maths</strong> — deep modulation</li>
+<li><strong>Ikarie / Stereo Dipole</strong> — stereo tonal shaping</li>
+<li><strong>Mimeophon / FX Aid XL / Sealegs</strong> — atmosphere</li>
+<li><strong>Planar 2</strong> — performance gestures</li>
+<li><strong>Bitbox / Morphagene</strong> — stereo material into Performer input</li>
+<li><strong>Veils / Quad VCA</strong> — extra control and sidechaining</li>
+</ul>
+<p>With that, Bohm can sit at the center as:
+- kick
+- bass
+- sidechain processor
+- transition effect
+- scene memory brain</p>
+<hr />
+<h1>Best module pairings by goal</h1>
+<h2>For hard techno</h2>
+<ul>
+<li>distortion / saturation</li>
+<li>clock sequencer</li>
+<li>stereo filter</li>
+<li>sampler for industrial layers</li>
+<li>manual controller</li>
+</ul>
+<p><strong>Examples:</strong> Crater, Ruina, Pam’s, Ikarie, Bitbox, Planar 2</p>
+<h2>For dub techno / deep techno</h2>
+<ul>
+<li>stereo delay</li>
+<li>resonator</li>
+<li>ducked pad source</li>
+<li>warm filter</li>
+<li>slow CV modulators</li>
+</ul>
+<p><strong>Examples:</strong> Mimeophon, Rings, Ensemble Oscillator, QPAS/Ikarie, Batumi</p>
+<h2>For live performance</h2>
+<ul>
+<li>trigger sequencer for <code>FUNCTION</code></li>
+<li>controller for macro moves</li>
+<li>stereo mixer/submix</li>
+<li>sampler loops into Performer</li>
+</ul>
+<p><strong>Examples:</strong> Hermod, Tetrapad, Cosmix Pro, Squid Salmple</p>
+<h2>For experimental percussion</h2>
+<ul>
+<li>resonator</li>
+<li>granular processor</li>
+<li>comparator/logic</li>
+<li>custom sample workflow for XT-88</li>
+</ul>
+<p><strong>Examples:</strong> Arbhar, Data Bender, Compare 2, Morphagene</p>
+<hr />
+<h1>A few especially strong patch recipes</h1>
+<h2>Recipe 1: Modern techno kick station</h2>
+<ul>
+<li>Quarter notes to <code>HIT</code></li>
+<li>16ths to Groove <code>CLOCK</code></li>
+<li>Groove <code>COLOR</code> around repetition/reverb blend</li>
+<li>Performer ducks a stereo drone</li>
+<li>TAPS OUT to VCA controlling hats</li>
+<li>External stereo filter after Bohm output</li>
+</ul>
+<p>Result: full kick/rumble/pump ecosystem from one hub.</p>
+<h2>Recipe 2: Bassline + kick hybrid</h2>
+<ul>
+<li>Sequencer pitch CV to <code>PITCH</code></li>
+<li>Gate to <code>HIT</code></li>
+<li>Accent lane to <code>VELOCITY</code></li>
+<li>Long <code>LENGTH</code></li>
+<li>FM-2X or OLP4 model</li>
+<li>External distortion and low-pass filter after output</li>
+</ul>
+<p>Result: kick that plays notes and still slams.</p>
+<h2>Recipe 3: Breakdown machine</h2>
+<ul>
+<li>Drum bus into Performer <code>IN</code></li>
+<li>Kick from Bohm internal voice</li>
+<li><code>CHN = INPUT</code> or <code>ALL</code></li>
+<li>Use <code>DJ FILTER</code> / <code>BEAT ROLL</code></li>
+<li>Cue snapshot changes for sections</li>
+</ul>
+<p>Result: modular DJ-style transitions without external mixer FX.</p>
+<h2>Recipe 4: Generative industrial percussion</h2>
+<ul>
+<li>Sparse random triggers to <code>HIT</code></li>
+<li>Independent Euclidean clock to Groove</li>
+<li>Random stepped CV to <code>COLOR</code></li>
+<li>Envelope to <code>TRS TONE</code></li>
+<li>Function randomization occasionally in Studio mode</li>
+<li>Process through resonator or brutal distortion</li>
+</ul>
+<p>Result: self-evolving industrial kick landscapes.</p>
+<hr />
+<h1>Final thoughts</h1>
+<p>Bohm is best treated not as “a kick module,” but as a <strong>low-end performance instrument</strong>. The most interesting combinations come from treating its parts separately:</p>
+<ul>
+<li><strong>Bohm core</strong> for punch, tuning, and snapshots</li>
+<li><strong>Groove</strong> as rhythmic envelope/rhythm texture generator</li>
+<li><strong>Performer</strong> as sidechain bus and transition processor</li>
+</ul>
+<p>If you want, I can also make you any of these next:</p>
+<ol>
+<li>a <strong>10-patch “starter cookbook”</strong> for Bohm  </li>
+<li>a <strong>best companion modules shopping list by budget</strong>  </li>
+<li>a <strong>genre-specific guide</strong> for techno / electro / industrial / ambient  </li>
+<li>a <strong>small-case performance system built around Bohm</strong>  </li>
+</ol>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

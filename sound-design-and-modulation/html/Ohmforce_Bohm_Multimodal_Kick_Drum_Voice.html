@@ -1,0 +1,499 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ohmforce_Bohm_Multimodal_Kick_Drum_Voice</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Ohmforce — Bohm Multimodal Kick Drum Voice</h1>
+<ul>
+<li><a href="../../manuals/Bohm_Eurorack_Manual_Compiled.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://bohm-eurorack-manual.readthedocs.io/en/latest/index.html">Manual PDF / Source</a></p>
+<h1>Bohm Eurorack modulation ideas</h1>
+<p>Bohm looks much deeper than a simple kick module. Since it’s a <strong>stereo dual-voice kick system</strong> with <strong>different internal models</strong>, plus optional <strong>Groove</strong> and <strong>Performer</strong> expanders, the best approach is to treat it like a <strong>bass/percussion voice</strong> rather than only a drum source.</p>
+<p>From the manual, the key sound-shaping controls are:</p>
+<ul>
+<li><strong>HIT</strong></li>
+<li><strong>VELOCITY</strong></li>
+<li><strong>LENGTH</strong></li>
+<li><strong>SUSTAIN</strong></li>
+<li><strong>ATTACK</strong></li>
+<li><strong>PITCH</strong></li>
+<li><strong>CURVE</strong></li>
+<li><strong>TRS DECAY</strong></li>
+<li><strong>COLOR</strong></li>
+<li><strong>FX</strong></li>
+<li><strong>TRS TONE</strong></li>
+</ul>
+<p>And the important note is that <strong>controls behave differently depending on the selected model</strong>, so the most interesting results will come from:
+1. choosing a model,
+2. sending modulation to several parameters at once,
+3. using the module’s pitch and decay behavior as the basis for timbre.</p>
+<hr />
+<h2>General modulation strategy</h2>
+<p>For Bohm, I’d think in 3 modulation rates:</p>
+<h3>1. Trigger-rate modulation</h3>
+<p>Change something every hit:
+- velocity accents
+- pitch amount
+- decay length
+- color/tone per step</p>
+<p>This is how you get <strong>alive, animated percussion</strong> instead of static kicks.</p>
+<h3>2. Envelope-rate modulation</h3>
+<p>Use envelopes to shape timbre over the course of each sound:
+- short envelope to <strong>PITCH</strong> for punch
+- longer envelope to <strong>COLOR</strong> or <strong>FX</strong> for evolving body
+- envelope to <strong>SUSTAIN</strong> or <strong>LENGTH</strong> for bass articulation</p>
+<h3>3. Slow CV / LFO modulation</h3>
+<p>Use slow movement for atmosphere and instability:
+- drift <strong>TRS TONE</strong>
+- slowly modulate <strong>CURVE</strong>
+- stereo movement through <strong>FX</strong> or Performer processing</p>
+<p>This is how you push it into <strong>pads</strong>, <strong>evolving drones</strong>, and ominous textures.</p>
+<hr />
+<h1>1) Distorted percussive sounds</h1>
+<p>Bohm should be excellent for industrial percussion, smashed kicks, metallic hits, and broken drum machine sounds.</p>
+<h2>A. Overdriven techno kick variations</h2>
+<p>Start with a model that already has strong low-end or aggressive transient behavior.</p>
+<h3>Suggested settings</h3>
+<ul>
+<li><strong>ATTACK:</strong> medium to high</li>
+<li><strong>PITCH:</strong> low-mid</li>
+<li><strong>CURVE:</strong> steeper/faster for a hard drop</li>
+<li><strong>LENGTH / SUSTAIN:</strong> short to medium</li>
+<li><strong>COLOR:</strong> push until harmonics emerge</li>
+<li><strong>FX:</strong> increase until it begins to feel unstable or widened</li>
+<li><strong>TRS DECAY / TRS TONE:</strong> tune for resonance or ringing</li>
+</ul>
+<h3>Modulation patch</h3>
+<ul>
+<li>Send a <strong>random stepped CV</strong> to <strong>VELOCITY</strong></li>
+<li>Send a second, attenuated random CV to <strong>COLOR</strong></li>
+<li>Use an accent trigger to open <strong>ATTACK</strong> or increase <strong>HIT</strong></li>
+<li>Modulate <strong>CURVE</strong> every 4 or 8 steps with a sequencer row</li>
+</ul>
+<h3>What this does</h3>
+<p>You’ll get kick hits that shift between:
+- tight thump
+- crunchy knock
+- blown-out slam
+- resonant industrial toms</p>
+<p>If the selected model reacts strongly to COLOR or FX, this can get very nasty in a good way.</p>
+<hr />
+<h2>B. Broken clap/snare-like percussion from a kick engine</h2>
+<p>Even though Bohm is kick-focused, fast pitch and tone modulation can push it into hybrid percussion.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Set <strong>PITCH</strong> higher than normal kick range</li>
+<li>Keep <strong>LENGTH</strong> very short</li>
+<li>Increase <strong>ATTACK</strong></li>
+<li>Tune <strong>TRS TONE</strong> to emphasize a noisy or clicky region</li>
+<li>Modulate <strong>COLOR</strong> with a very fast envelope</li>
+<li>Use small random CV into <strong>PITCH</strong></li>
+</ul>
+<h3>Result</h3>
+<p>You can get:
+- zap-like hits
+- electro percussion
+- woody clicks
+- distorted rim / tom hybrids</p>
+<p>If Groove is installed, layer the second voice slightly offset in timing for <strong>flammed percussion</strong> or <strong>rumble tails</strong>.</p>
+<hr />
+<h2>C. FM-like impact sounds</h2>
+<p>Even without explicit FM in the manual, very fast modulation of pitch-related parameters can fake FM-ish percussion.</p>
+<h3>Try this</h3>
+<ul>
+<li>Mult your trigger:</li>
+<li>one copy triggers Bohm</li>
+<li>another triggers a very short envelope</li>
+<li>Send that envelope to <strong>PITCH</strong></li>
+<li>Send an inverted or attenuated version to <strong>CURVE</strong></li>
+<li>Optionally modulate <strong>TRS TONE</strong> at the same time</li>
+</ul>
+<h3>Why it works</h3>
+<p>The pitch envelope and curve interaction can create:
+- laser hits
+- metal punch
+- tearing impacts
+- aggressive “speaker rip” attacks</p>
+<p>Use a VCA or attenuator because too much pitch envelope will just sound cartoony.</p>
+<hr />
+<h2>D. Distorted layered percussion with Groove expander</h2>
+<p>The manual says <strong>Groove adds a secondary kick voice for techno rumbles and layered percussion</strong>. That means you can design one voice as the transient and the other as the dirt/body.</p>
+<h3>Layer recipe</h3>
+<p><strong>Main Bohm voice</strong>
+- short
+- punchy
+- more attack
+- less sustain</p>
+<p><strong>Groove voice</strong>
+- lower tuned
+- longer decay
+- more color / fx
+- slightly delayed trigger if possible</p>
+<h3>Modulation</h3>
+<ul>
+<li>Sequence different velocities to both voices</li>
+<li>Modulate Groove pitch subtly with an LFO or random source</li>
+<li>Send occasional longer gates for selective rumble blooms</li>
+</ul>
+<h3>Result</h3>
+<p>This gives:
+- warehouse kick stacks
+- distorted low tom barrages
+- rolling industrial grooves
+- pseudo-reverb rumbles without external effects</p>
+<hr />
+<h1>2) Crazy basslines for dubstep / drum and bass</h1>
+<p>This is where Bohm gets really interesting. Since the manual says <strong>PITCH ranges roughly from C1 to C2</strong>, that’s right in useful bass territory. It won’t be a full-range melodic oscillator in the conventional sense, but for heavy bassline work that limited range can be perfect.</p>
+<h2>A. Triggered reese-style bass pulses</h2>
+<p>Use Bohm as a monophonic bass percussion voice rather than a sustained oscillator.</p>
+<h3>Settings</h3>
+<ul>
+<li><strong>SUSTAIN:</strong> medium</li>
+<li><strong>LENGTH:</strong> medium-long</li>
+<li><strong>PITCH:</strong> tuned to root note area</li>
+<li><strong>CURVE:</strong> moderate, not too steep</li>
+<li><strong>COLOR:</strong> enough to growl</li>
+<li><strong>FX:</strong> add stereo dirt/motion</li>
+<li><strong>TRS TONE:</strong> find a sweet spot with midrange bite</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Sequence pitch changes in a low register</li>
+<li>Send an LFO to <strong>COLOR</strong></li>
+<li>Send a different slower LFO or stepped random to <strong>FX</strong></li>
+<li>Use accent CV into <strong>VELOCITY</strong></li>
+<li>Occasionally increase <strong>ATTACK</strong> for selected notes</li>
+</ul>
+<h3>Sound</h3>
+<p>This should create:
+- gnarly bass stabs
+- wobbling low-end phrases
+- distorted “donk” basses
+- neuro-ish bass punches</p>
+<p>Because Bohm starts from a kick architecture, even pitched notes will retain a percussive front edge, which is excellent for DnB.</p>
+<hr />
+<h2>B. Dubstep wobble from parameter cross-modulation</h2>
+<p>Instead of only wobbling filter cutoff like on a subtractive synth, wobble the <strong>body mechanics</strong> of the kick model.</p>
+<h3>Core patch</h3>
+<ul>
+<li>Clock-sync an LFO</li>
+<li>Send it to <strong>COLOR</strong></li>
+<li>Send an attenuated inverted copy to <strong>TRS TONE</strong></li>
+<li>Send another divided clock modulation to <strong>FX</strong></li>
+<li>Sequence <strong>PITCH</strong> in a repeating 1–2 bar pattern</li>
+</ul>
+<h3>Why this is cool</h3>
+<p>As COLOR rises while TONE falls, or vice versa, the bass can morph from:
+- hollow
+- nasal
+- snarling
+- sub-heavy
+- torn-speaker distorted</p>
+<p>This gets you much more unusual movement than a normal filter wobble.</p>
+<hr />
+<h2>C. Machine-gun bassline growls</h2>
+<p>Use very short note retriggers with varying pitch envelope depths.</p>
+<h3>Patch</h3>
+<ul>
+<li>Rapid trigger pattern from a sequencer</li>
+<li>A modulation lane to <strong>VELOCITY</strong></li>
+<li>Another lane to <strong>CURVE</strong></li>
+<li>A burst generator or ratcheting trigger into HIT</li>
+<li>Envelope to <strong>PITCH</strong> amount via VCA</li>
+</ul>
+<h3>Target sound</h3>
+<ul>
+<li>stuttering bass attacks</li>
+<li>talking growls</li>
+<li>tearing fills</li>
+<li>jump-up DnB style bass punctuation</li>
+</ul>
+<p>The trick is to make every rapid hit slightly different. Small CV movement on CURVE and COLOR matters a lot.</p>
+<hr />
+<h2>D. Sub drop / bass cannon patch</h2>
+<p>Bohm should be able to produce devastating drops if you extend the decay and pitch motion.</p>
+<h3>Settings</h3>
+<ul>
+<li><strong>PITCH:</strong> low</li>
+<li><strong>LENGTH / SUSTAIN:</strong> long</li>
+<li><strong>CURVE:</strong> tuned for a dramatic downward sweep</li>
+<li><strong>COLOR:</strong> moderate</li>
+<li><strong>FX:</strong> enough to widen or dirty the tail</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Trigger with a long gate</li>
+<li>Use a descending envelope to <strong>PITCH</strong></li>
+<li>Slowly open <strong>COLOR</strong> over the tail</li>
+<li>If Performer is installed, use its <strong>ducking and stereo processing</strong> around the hit</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>festival-style bass drops</li>
+<li>trailer impacts</li>
+<li>cinematic subs</li>
+<li>huge intros and transitions</li>
+</ul>
+<hr />
+<h2>E. Fake sidechained bass using Performer</h2>
+<p>The manual says Performer adds <strong>DJ-style effects, ducking, and stereo processing</strong>. That is extremely useful for bass design.</p>
+<h3>Idea</h3>
+<p>Patch Bohm as both:
+- your kick/percussive source
+- and a sustained bass element</p>
+<p>Then use Performer’s ducking to carve motion around the attacks.</p>
+<h3>Outcome</h3>
+<p>You can get:
+- self-pumping basslines
+- club-style movement
+- huge stereo body with centered attack
+- more mix-ready distorted low-end</p>
+<p>This is especially effective for dubstep intros and halftime grooves.</p>
+<hr />
+<h1>3) Haunting atmospheric pad sounds</h1>
+<p>This is the least obvious use, but definitely possible if you stop thinking of Bohm as only a drum.</p>
+<p>The manual mentions:
+- stereo processing
+- multiple models
+- FX and tone controls
+- longer sustain/length options
+- expanders for wider processing</p>
+<p>That suggests Bohm can be pushed into <strong>drone and pad-adjacent territory</strong>, especially with re-triggering, long decays, and slow modulation.</p>
+<h2>A. Ghost drone patch</h2>
+<h3>Settings</h3>
+<ul>
+<li><strong>LENGTH / SUSTAIN:</strong> high</li>
+<li><strong>ATTACK:</strong> softened if possible</li>
+<li><strong>PITCH:</strong> low-mid</li>
+<li><strong>CURVE:</strong> gentle</li>
+<li><strong>COLOR:</strong> low to medium</li>
+<li><strong>FX:</strong> moderate to high</li>
+<li><strong>TRS TONE:</strong> tuned for a hollow or mournful resonance</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>Very slow LFO to <strong>PITCH</strong> (tiny depth)</li>
+<li>Separate slow LFO to <strong>COLOR</strong></li>
+<li>Random smooth CV to <strong>TRS TONE</strong></li>
+<li>Sparse triggers or manually tapped HIT</li>
+</ul>
+<h3>Result</h3>
+<p>Instead of a punchy kick, you get:
+- foggy resonant blooms
+- distant machine drones
+- haunted engine-room ambience
+- dark underscoring textures</p>
+<p>Add external reverb after Bohm and it becomes much more pad-like.</p>
+<hr />
+<h2>B. Granular-feeling pad from repeated soft retriggers</h2>
+<p>Use frequent but low-intensity hits to create a cloud.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send a fast but irregular trigger stream</li>
+<li>Lower <strong>VELOCITY</strong></li>
+<li>Lengthen <strong>SUSTAIN</strong></li>
+<li>Keep <strong>ATTACK</strong> modest</li>
+<li>Slowly modulate <strong>FX</strong> and <strong>TRS TONE</strong></li>
+</ul>
+<h3>What happens</h3>
+<p>Each hit becomes a small fragment in a larger texture. In stereo this can feel like:
+- swarming air
+- distant choirs of machinery
+- unstable ambient beds
+- eerie pulsing fog</p>
+<p>This works especially well if the model has a resonant or tonal tail.</p>
+<hr />
+<h2>C. Dissonant haunted pad using pitch drift</h2>
+<p>Because Bohm only spans roughly <strong>C1 to C2</strong>, the pitch range is constrained, which is actually helpful for dark drone work.</p>
+<h3>Try this</h3>
+<ul>
+<li>Tune the main pitch to the root</li>
+<li>Send tiny random or sample-and-hold modulation to <strong>PITCH</strong></li>
+<li>Use another slow modulation to <strong>CURVE</strong></li>
+<li>Increase <strong>FX</strong> for width or instability</li>
+<li>Layer Groove at an interval-like offset if possible</li>
+</ul>
+<h3>Result</h3>
+<p>You’ll get subtle beating and tonal ambiguity:
+- ominous low strings vibe
+- degraded tape-organ feeling
+- dark ambient resonance
+- horror soundtrack undertones</p>
+<hr />
+<h2>D. Stereo cinematic pad with Performer</h2>
+<p>Performer’s stereo processing is the key here.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Long-decay Bohm sound</li>
+<li>Sparse triggers</li>
+<li>Slow CV to timbral parameters</li>
+<li>Use Performer for width, ducking, and DJ-style effects</li>
+</ul>
+<h3>Best use</h3>
+<ul>
+<li>huge intro washes</li>
+<li>breakdown textures</li>
+<li>transitions between heavy sections</li>
+<li>hovering stereo dread</li>
+</ul>
+<p>Even if the source is still obviously “kick-derived,” once spread and effected it can become very atmospheric.</p>
+<hr />
+<h1>Best parameters to modulate for each goal</h1>
+<h2>For distorted percussion</h2>
+<p>Prioritize:
+- <strong>VELOCITY</strong>
+- <strong>ATTACK</strong>
+- <strong>CURVE</strong>
+- <strong>COLOR</strong>
+- <strong>TRS TONE</strong></p>
+<p>These shape the impact and harmonic aggression.</p>
+<h2>For basslines</h2>
+<p>Prioritize:
+- <strong>PITCH</strong>
+- <strong>CURVE</strong>
+- <strong>SUSTAIN</strong>
+- <strong>LENGTH</strong>
+- <strong>COLOR</strong>
+- <strong>FX</strong></p>
+<p>These shape note identity, weight, and movement.</p>
+<h2>For pads/drones</h2>
+<p>Prioritize:
+- <strong>LENGTH</strong>
+- <strong>SUSTAIN</strong>
+- <strong>COLOR</strong>
+- <strong>FX</strong>
+- <strong>TRS TONE</strong>
+- subtle <strong>PITCH</strong></p>
+<p>These shape resonance, tail, width, and slow transformation.</p>
+<hr />
+<h1>Advanced modulation ideas</h1>
+<h2>1. Macro modulation</h2>
+<p>Use one CV source multed to several destinations with different attenuations:
+- positive to <strong>COLOR</strong>
+- inverted to <strong>TRS TONE</strong>
+- slight amount to <strong>CURVE</strong></p>
+<p>One knob or one LFO can then create major morphs.</p>
+<h2>2. Accent-dependent timbre</h2>
+<p>Instead of only accenting loudness, use accent gates/CV to also open:
+- <strong>ATTACK</strong>
+- <strong>COLOR</strong>
+- <strong>FX</strong></p>
+<p>That makes accented steps brighter, harsher, and more explosive.</p>
+<h2>3. Probability-based mutation</h2>
+<p>Use a probabilistic trigger or random stepped CV to occasionally alter:
+- <strong>PITCH</strong>
+- <strong>LENGTH</strong>
+- <strong>TRS DECAY</strong></p>
+<p>This makes loops feel less repetitive and more performative.</p>
+<h2>4. Audio-rate abuse</h2>
+<p>If Bohm accepts sufficiently fast CV on certain inputs, try audio-rate modulation of:
+- <strong>PITCH</strong>
+- <strong>COLOR</strong>
+- <strong>TRS TONE</strong></p>
+<p>Even if it doesn’t behave like clean FM, aliasing and instability can create brutal digital textures.</p>
+<h2>5. Resampling workflow</h2>
+<p>Since the module uses <strong>microSD / SDHC</strong> and stores models/samples/settings, a practical approach is:
+- patch extreme sounds
+- record long improvisations
+- resample the best moments
+- use those snippets in a sampler for further composition</p>
+<p>That’s often the fastest path to truly unique bass and atmospheric material.</p>
+<hr />
+<h1>Performance mode suggestions</h1>
+<p>The manual mentions:
+- <strong>Studio Mode</strong>
+- <strong>Live Song Mode</strong>
+- <strong>Jam Mode</strong></p>
+<h2>Studio Mode</h2>
+<p>Use this for:
+- dialing exact sweet spots
+- calibrating modulation depth
+- building resampling material</p>
+<h2>Live Song Mode</h2>
+<p>Use this for:
+- sequenced parameter changes
+- switching kick/bass character per section
+- structured bassline or drum evolution</p>
+<h2>Jam Mode</h2>
+<p>Use this for:
+- improvised macro modulation
+- live tweaking of color/fx/tone
+- chaotic transitions and fills</p>
+<p>For your goals, <strong>Jam Mode</strong> sounds especially promising for discovering weird bass and haunted textures.</p>
+<hr />
+<h1>Practical patch recipes</h1>
+<h2>Recipe 1: Industrial broken kick</h2>
+<ul>
+<li>4-on-the-floor trigger into HIT</li>
+<li>random CV to VELOCITY</li>
+<li>short envelope to PITCH</li>
+<li>sequencer row to COLOR</li>
+<li>occasional accent to ATTACK</li>
+<li>Groove layer with long rumble tail</li>
+</ul>
+<h2>Recipe 2: Dubstep growl stab</h2>
+<ul>
+<li>melodic trigger sequence</li>
+<li>tune PITCH to root/fifth</li>
+<li>medium sustain</li>
+<li>synced LFO to COLOR</li>
+<li>inverted LFO to TRS TONE</li>
+<li>stepped modulation to FX</li>
+<li>Performer ducking for pump</li>
+</ul>
+<h2>Recipe 3: Neuro percussion fill</h2>
+<ul>
+<li>ratcheting triggers</li>
+<li>short decay</li>
+<li>modulate CURVE every step</li>
+<li>random CV to PITCH at low depth</li>
+<li>high COLOR and aggressive FX</li>
+<li>automate mutes for sudden drops</li>
+</ul>
+<h2>Recipe 4: Haunted drone bed</h2>
+<ul>
+<li>sparse triggers</li>
+<li>long sustain/length</li>
+<li>slow LFO to COLOR</li>
+<li>random smooth CV to TRS TONE</li>
+<li>tiny pitch drift</li>
+<li>stereo processing from Performer</li>
+<li>external reverb after output</li>
+</ul>
+<h2>Recipe 5: Bass cannon transition</h2>
+<ul>
+<li>one trigger every 8 or 16 bars</li>
+<li>long pitch envelope downward</li>
+<li>long sustain</li>
+<li>increase FX over tail</li>
+<li>optional Groove layer for sub reinforcement</li>
+<li>Performer widening on tail only</li>
+</ul>
+<hr />
+<h1>Final advice</h1>
+<p>The big takeaway from the manual is that <strong>Bohm is model-based</strong>, and <strong>controls react differently per model</strong>, so the deepest sound design move is not just modulating more CV, but <strong>finding which model turns a given parameter into something extreme</strong>.</p>
+<p>If I were designing the kinds of sounds you want, I’d explore in this order:</p>
+<ol>
+<li><strong>Find 2–3 aggressive models</strong> for distorted percussion  </li>
+<li><strong>Find 2 models with the strongest tonal sustain</strong> for basslines  </li>
+<li><strong>Find 1–2 resonant/atmospheric models</strong> for drone and pad work  </li>
+<li>Patch:</li>
+<li>envelope to <strong>PITCH</strong></li>
+<li>LFO to <strong>COLOR</strong></li>
+<li>inverted LFO to <strong>TRS TONE</strong></li>
+<li>stepped random to <strong>VELOCITY</strong> or <strong>CURVE</strong></li>
+<li>Use <strong>Groove</strong> for layered rumble/body</li>
+<li>Use <strong>Performer</strong> for stereo movement, ducking, and live destruction</li>
+</ol>
+<p>That combination should get you well beyond “kick drum” territory and into:
+- mangled industrial percussion
+- dubstep and DnB bass assaults
+- eerie cinematic atmospheres</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,601 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Buchla_and_Tiptop_Audio_248t</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Buchla and Tiptop Audio — 248t</h1>
+<ul>
+<li><a href="../../manuals/Buchla_&amp;_Tiptop_Audio_248t.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://tiptopaudio.com/manuals/248t/Tiptop_Audio_248t_MARF_User_Manual.pdf">Manual PDF</a></p>
+<h1>Tiptop Audio / Buchla 248t MARF Cheat Sheet</h1>
+<h2>What it is</h2>
+<p>The <strong>248t MARF</strong> is a <strong>16-stage dual function generator / sequencer / arbitrary CV programmer</strong>.<br />
+It has <strong>two independent Function Generators (FG1 and FG2)</strong> that read the same bank of 16 programmed stages in different ways.</p>
+<p>Each stage can store:
+- <strong>Voltage value</strong>
+- <strong>Time value</strong>
+- <strong>Pulse 1 on/off</strong>
+- <strong>Pulse 2 on/off</strong>
+- <strong>Voltage behavior</strong>: quantized, sloped, range, source
+- <strong>Timing behavior</strong>: time range, external/internal source
+- <strong>Stage behavior</strong>: stop, sustain, enable, first, last</p>
+<hr />
+<h1>Quick Start</h1>
+<h2>Basic 16-stage CV sequence</h2>
+<ol>
+<li>Set a Function Generator to <strong>internal</strong> stage advance.</li>
+<li>Set its <strong>Mode</strong> to run using <strong>Start</strong>.</li>
+<li>Program stage voltages with the <strong>top row sliders</strong>.</li>
+<li>Program stage times with the <strong>bottom row sliders</strong>.</li>
+<li>Patch:</li>
+<li><strong>Voltage Out</strong> or <strong>ART Out</strong> → oscillator pitch</li>
+<li><strong>Pulse Out 1</strong> → envelope gate</li>
+<li>Add pulses to desired stages with <strong>Output Pulses 1/2</strong>.</li>
+<li>Use <strong>Stage Number</strong> to select a stage for editing.</li>
+</ol>
+<h2>Simple looping sequence</h2>
+<ul>
+<li>Mark one stage as <strong>First</strong></li>
+<li>Mark another as <strong>Last</strong></li>
+<li>The FG will loop between them</li>
+</ul>
+<h2>Quantized melodic sequence</h2>
+<ol>
+<li>For desired stages, enable <strong>Quantize</strong></li>
+<li>Choose <strong>Key</strong></li>
+<li>Choose <strong>Scale</strong>:</li>
+<li><strong>10 = Major</strong></li>
+<li><strong>11 = Minor</strong></li>
+<li><strong>12 = Chromatic</strong></li>
+</ol>
+<h2>Glide / portamento</h2>
+<ul>
+<li>Enable <strong>Sloped</strong> on desired stages  </li>
+<li>Slew amount follows the stage’s <strong>interval time</strong></li>
+</ul>
+<h2>Variable stage timing</h2>
+<ul>
+<li>Use bottom sliders for stage times</li>
+<li>Set global <strong>Time Multiplier</strong> to scale all stage times</li>
+<li>Or use <strong>Time Source = External</strong> and feed CV into A/B/C/D</li>
+</ul>
+<hr />
+<h1>Core Concept</h1>
+<p>The module has 3 main areas:</p>
+<h2>1. Function Generators (left side, two identical sections)</h2>
+<p>Each FG reads the programmed stage data and outputs:
+- pitch/CV
+- time CV
+- programmed pulses
+- reference ramp
+- all-stage pulse stream</p>
+<h2>2. Programming Section (center)</h2>
+<p>This is where you edit what each stage does.</p>
+<h2>3. Sliders + stage LEDs (right side)</h2>
+<ul>
+<li><strong>Top 16 sliders</strong> = stage voltage / external source selection</li>
+<li><strong>Bottom 16 sliders</strong> = stage interval time</li>
+<li><strong>16 LEDs between rows</strong> = stage indicators</li>
+</ul>
+<hr />
+<h1>Programming Workflow</h1>
+<h2>Select a stage</h2>
+<p>Use <strong>Stage Number</strong> switch:
+- left/right steps through stages
+- hold to scroll quickly
+- wraps around from 16→1 and 1→16</p>
+<h2>Edit selected stage</h2>
+<p>Use the programming controls to set:
+- pulses
+- voltage mode
+- operating mode
+- time range
+- internal/external sources</p>
+<h2>Apply to all stages</h2>
+<p>While holding <strong>Stage Number</strong> so stage LEDs scroll, press a programming function to apply it to all 16 stages.</p>
+<hr />
+<h1>Stage Programming Reference</h1>
+<h2>Output Pulses</h2>
+<p>Each stage can independently output:
+- <strong>Pulse 1</strong>
+- <strong>Pulse 2</strong></p>
+<p>Switch behavior:
+- press <strong>up</strong> = add pulse
+- press <strong>down</strong> = remove pulse</p>
+<h2>Voltage programming</h2>
+<p>Per-stage options:</p>
+<h3>Quantize / Continuous</h3>
+<ul>
+<li><strong>Quantize on</strong> = 1V/oct quantized output</li>
+<li><strong>Continuous</strong> = unquantized CV</li>
+</ul>
+<h3>Sloped / Stepped</h3>
+<ul>
+<li><strong>Sloped</strong> = glide between stages</li>
+<li><strong>Stepped</strong> = hard step</li>
+</ul>
+<h3>Range</h3>
+<ul>
+<li><strong>Full</strong> = <strong>0 to 10 V</strong></li>
+<li><strong>Half</strong> = <strong>0 to 5 V</strong></li>
+<li><strong>Limited + octave offsets</strong> = 2 V span with offsets</li>
+</ul>
+<h3>Source</h3>
+<ul>
+<li><strong>Internal</strong> = use stage voltage slider</li>
+<li><strong>External</strong> = use one of external CV inputs A/B/C/D selected by slider position</li>
+</ul>
+<h2>Operating mode</h2>
+<p>Per-stage options:</p>
+<h3>Stop</h3>
+<p>FG halts on this stage until a <strong>Start pulse</strong> is received.<br />
+The stage still observes its interval time.</p>
+<h3>Sustain</h3>
+<p>If a high gate is present at <strong>Start</strong>, the FG holds on the stage as long as gate stays high.</p>
+<h3>Enable</h3>
+<p>FG waits on the stage until <strong>Start input &gt; 5 V</strong>.</p>
+<h3>First / Last</h3>
+<p>Defines loop start and loop end.</p>
+<h2>Time programming</h2>
+<p>Per-stage options:</p>
+<h3>Time Range</h3>
+<p>Four selectable timing ranges from:
+- <strong>0.002 s minimum</strong>
+- up to <strong>2 minutes maximum</strong></p>
+<p>Manual notes default panel range as:
+- about <strong>2 to 30 seconds</strong> on the sliders unless otherwise modified</p>
+<h3>Time Source</h3>
+<ul>
+<li><strong>Internal</strong> = use time slider + range setting</li>
+<li><strong>External</strong> = use external CV input A/B/C/D</li>
+</ul>
+<p>If set to <strong>External</strong> and no CV is patched, interval defaults to <strong>fastest value</strong> of selected range.</p>
+<hr />
+<h1>Function Generator Operation</h1>
+<p>Each FG has its own transport and addressing controls.</p>
+<h2>Mode controls</h2>
+<h3>Advance</h3>
+<p>Manual step to next stage.</p>
+<h3>Start / Stop</h3>
+<p>Starts or stops internal clock, manually or by pulse input.</p>
+<h3>Status LEDs</h3>
+<ul>
+<li><strong>Green</strong> = running</li>
+<li><strong>Yellow</strong> = hold/waiting</li>
+<li><strong>Red</strong> = stopped</li>
+</ul>
+<p>Red stop can happen because of:
+- stop command
+- programmed stop stage
+- stage address set to continuous</p>
+<h2>Stage Address controls</h2>
+<h3>Reset</h3>
+<p>Returns FG to:
+- first programmed <strong>First</strong> stage, or
+- <strong>Stage 1</strong> if no First is set</p>
+<h3>Display</h3>
+<p>Shows current stage position without interrupting operation.</p>
+<h3>Cont / Strobe</h3>
+<ul>
+<li><strong>Continuous</strong> = sweep through stages with address control, internal clock stopped</li>
+<li><strong>Strobe</strong> = load stage corresponding to current stage address</li>
+</ul>
+<h3>Internal / External</h3>
+<p>Selects whether stage position is controlled by:
+- internal address control
+- external CV at Stage Address input</p>
+<hr />
+<h1>Presets / Scales / ART</h1>
+<h2>Presets</h2>
+<h3>Load</h3>
+<p>Press <strong>Load</strong>, then stage button <strong>1–12</strong></p>
+<h3>Save</h3>
+<p>Press <strong>Save</strong>, then button <strong>1–12</strong></p>
+<p>Saved:
+- all stage settings
+- slider values</p>
+<p>Important:
+- after loading a preset, physical sliders are “caught” only when moved past stored values</p>
+<h2>Key / Scale</h2>
+<h3>Key</h3>
+<p>Press <strong>Key</strong>, then select <strong>1–12</strong> for:
+- C, C#, D, D#, E, F, F#, G, G#, A, A#, B</p>
+<h3>Scale</h3>
+<p>Press <strong>Scale</strong>, then:
+- <strong>10</strong> = Major
+- <strong>11</strong> = Minor
+- <strong>12</strong> = Chromatic</p>
+<h2>ART + Auto Tune</h2>
+<ul>
+<li><strong>ART Out</strong> sends digital pitch data for compatible oscillators like the <strong>259t</strong></li>
+<li>Press <strong>Autotune</strong> once = send tuning message</li>
+<li>Hold <strong>Autotune</strong> = send initial tune message</li>
+</ul>
+<p>Tiptop recommends using <strong>Half range (0–5 V)</strong> or <strong>Limited range</strong> with 259t for practical pitch range.</p>
+<hr />
+<h1>Clear / Reset Behavior</h1>
+<h2>Clear switch</h2>
+<p>Pressing <strong>up</strong> clears all 16 stages and resets programming:
+- Pulse 1 and 2 cleared
+- Voltage mode = <strong>Continuous / Full Range / Internal</strong>
+- Operating mode cleared
+- Time range = <strong>2 to 3 seconds</strong>
+- Slider values set to current physical positions</p>
+<hr />
+<h1>External Input Calibration</h1>
+<p>If 0 V external input does not produce 0 V behavior:
+1. Unplug A–D inputs
+2. Set both FGs to <strong>STOP</strong>
+3. Press <strong>External</strong> switch <strong>4 times</strong>
+4. LED flashes about 2 seconds</p>
+<hr />
+<h1>Inputs / Outputs Reference</h1>
+<blockquote>
+<p>Voltage ranges below are included where stated in the manual.<br />
+Some jack thresholds/scales are described functionally because the manual does not specify an exact full range.</p>
+</blockquote>
+<h2>Inputs</h2>
+<h3>External Inputs A, B, C, D</h3>
+<ul>
+<li><strong>Type:</strong> CV inputs</li>
+<li><strong>Use:</strong> per-stage selectable source for voltage or time</li>
+<li><strong>Range:</strong> <strong>not explicitly specified in manual</strong></li>
+<li>Notes:</li>
+<li>for voltage source selection, slider picks A/B/C/D</li>
+<li>for time control, if no CV present and source is external, time goes to fastest setting</li>
+</ul>
+<h3>FG1 Start input</h3>
+<ul>
+<li><strong>Type:</strong> gate/pulse/CV input</li>
+<li><strong>Use:</strong> start, sustain hold, enable logic</li>
+<li><strong>Threshold:</strong> <strong>Enable requires &gt; 5 V</strong></li>
+<li>Other exact acceptable range: <strong>not specified</strong></li>
+</ul>
+<h3>FG2 Start input</h3>
+<ul>
+<li><strong>Type:</strong> gate/pulse/CV input</li>
+<li><strong>Use:</strong> same as above</li>
+<li><strong>Threshold:</strong> <strong>Enable requires &gt; 5 V</strong></li>
+<li>Other exact acceptable range: <strong>not specified</strong></li>
+</ul>
+<h3>FG1 Stop input</h3>
+<ul>
+<li><strong>Type:</strong> gate/pulse input</li>
+<li><strong>Use:</strong> stop transport</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG2 Stop input</h3>
+<ul>
+<li><strong>Type:</strong> gate/pulse input</li>
+<li><strong>Use:</strong> stop transport</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG1 Advance input</h3>
+<ul>
+<li><strong>Type:</strong> pulse input</li>
+<li><strong>Use:</strong> manual/remote stage advance</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG2 Advance input</h3>
+<ul>
+<li><strong>Type:</strong> pulse input</li>
+<li><strong>Use:</strong> manual/remote stage advance</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG1 Stage Address input</h3>
+<ul>
+<li><strong>Type:</strong> CV input</li>
+<li><strong>Use:</strong> externally control stage addressing when set to external</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG2 Stage Address input</h3>
+<ul>
+<li><strong>Type:</strong> CV input</li>
+<li><strong>Use:</strong> externally control stage addressing when set to external</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG1 Time Multiplier CV input</h3>
+<ul>
+<li><strong>Type:</strong> CV input with attenuverter</li>
+<li><strong>Use:</strong> scales stage durations globally for FG1</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG2 Time Multiplier CV input</h3>
+<ul>
+<li><strong>Type:</strong> CV input with attenuverter</li>
+<li><strong>Use:</strong> scales stage durations globally for FG2</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<hr />
+<h2>Outputs</h2>
+<h3>FG1 ART Output</h3>
+<ul>
+<li><strong>Type:</strong> digital pitch/control output</li>
+<li><strong>Use:</strong> ART oscillator control</li>
+<li><strong>Range:</strong> digital ART signal, not standard analog voltage range</li>
+</ul>
+<h3>FG2 ART Output</h3>
+<ul>
+<li><strong>Type:</strong> digital pitch/control output</li>
+<li><strong>Use:</strong> ART oscillator control</li>
+<li><strong>Range:</strong> digital ART signal</li>
+</ul>
+<h3>FG1 Voltage Output</h3>
+<ul>
+<li><strong>Type:</strong> CV output</li>
+<li><strong>Use:</strong> stage voltage output with modifiers applied</li>
+<li><strong>Range:</strong></li>
+<li><strong>Full:</strong> <strong>0 to 10 V</strong></li>
+<li><strong>Half:</strong> <strong>0 to 5 V</strong></li>
+<li><strong>Limited:</strong> <strong>2 V span</strong> with octave offsets</li>
+<li><strong>Quantized mode:</strong> 1 V/oct pitch behavior</li>
+</ul>
+<h3>FG2 Voltage Output</h3>
+<ul>
+<li><strong>Type:</strong> CV output</li>
+<li><strong>Use:</strong> same as FG1</li>
+<li><strong>Range:</strong></li>
+<li><strong>0 to 10 V</strong> full</li>
+<li><strong>0 to 5 V</strong> half</li>
+<li><strong>2 V span</strong> limited modes</li>
+</ul>
+<h3>FG1 Time Output</h3>
+<ul>
+<li><strong>Type:</strong> CV output</li>
+<li><strong>Use:</strong> outputs voltage proportional to interval time slider</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG2 Time Output</h3>
+<ul>
+<li><strong>Type:</strong> CV output</li>
+<li><strong>Use:</strong> outputs voltage proportional to interval time slider</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG1 Pulse Output 1</h3>
+<ul>
+<li><strong>Type:</strong> gate/pulse output</li>
+<li><strong>Use:</strong> stages programmed with Pulse 1</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG1 Pulse Output 2</h3>
+<ul>
+<li><strong>Type:</strong> gate/pulse output</li>
+<li><strong>Use:</strong> stages programmed with Pulse 2</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG2 Pulse Output 1</h3>
+<ul>
+<li><strong>Type:</strong> gate/pulse output</li>
+<li><strong>Use:</strong> stages programmed with Pulse 1</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG2 Pulse Output 2</h3>
+<ul>
+<li><strong>Type:</strong> gate/pulse output</li>
+<li><strong>Use:</strong> stages programmed with Pulse 2</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG1 Reference Output</h3>
+<ul>
+<li><strong>Type:</strong> CV/ramp output</li>
+<li><strong>Use:</strong> downward ramp over stage duration</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG2 Reference Output</h3>
+<ul>
+<li><strong>Type:</strong> CV/ramp output</li>
+<li><strong>Use:</strong> downward ramp over stage duration</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG1 All Pulses Output</h3>
+<ul>
+<li><strong>Type:</strong> pulse output</li>
+<li><strong>Use:</strong> emits pulse on every stage address change</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<h3>FG2 All Pulses Output</h3>
+<ul>
+<li><strong>Type:</strong> pulse output</li>
+<li><strong>Use:</strong> emits pulse on every stage address change</li>
+<li><strong>Range:</strong> not specified</li>
+</ul>
+<hr />
+<h1>Controls Reference</h1>
+<h2>Sliders</h2>
+<h3>16 Output Voltage sliders</h3>
+<ul>
+<li>Set per-stage voltage</li>
+<li>In external voltage-source mode, select <strong>A/B/C/D</strong> source instead</li>
+<li>Output range depends on stage range mode:</li>
+<li><strong>0–10 V full</strong></li>
+<li><strong>0–5 V half</strong></li>
+<li><strong>2 V span limited</strong></li>
+</ul>
+<h3>16 Interval Time sliders</h3>
+<ul>
+<li>Set per-stage interval time</li>
+<li>Also generate corresponding <strong>Time Output</strong> CV</li>
+<li>Default panel behavior roughly <strong>2 to 30 seconds</strong>, modified by time range and multiplier</li>
+</ul>
+<hr />
+<h2>Programming Section switches/buttons</h2>
+<h3>Output Pulses 1, 2</h3>
+<ul>
+<li>3-position momentary</li>
+<li>up = add pulse</li>
+<li>down = remove pulse</li>
+</ul>
+<h3>Clear</h3>
+<ul>
+<li>momentary</li>
+<li>up = clear/reset programming</li>
+</ul>
+<h3>Stage Number</h3>
+<ul>
+<li>3-position momentary</li>
+<li>scroll/select stages for editing</li>
+</ul>
+<h3>Quantize / Continuous</h3>
+<ul>
+<li>3-position momentary</li>
+<li>up = quantize</li>
+<li>down = continuous</li>
+</ul>
+<h3>Sloped / Stepped</h3>
+<ul>
+<li>3-position momentary</li>
+<li>up = sloped</li>
+<li>down = stepped</li>
+</ul>
+<h3>Range selector</h3>
+<ul>
+<li>momentary options:</li>
+<li>full</li>
+<li>half</li>
+<li>limited ranges with offsets</li>
+</ul>
+<h3>Voltage Source: Internal / External</h3>
+<ul>
+<li>3-position momentary</li>
+<li>selects internal slider or external A/B/C/D source</li>
+</ul>
+<h3>Stop</h3>
+<ul>
+<li>3-position momentary</li>
+<li>up = add stop stage</li>
+<li>down = remove</li>
+</ul>
+<h3>Sustain</h3>
+<ul>
+<li>3-position momentary</li>
+<li>up = add sustain</li>
+<li>down = remove</li>
+</ul>
+<h3>Enable</h3>
+<ul>
+<li>3-position momentary</li>
+<li>up = add enable</li>
+<li>down = remove</li>
+</ul>
+<h3>Cycle First / Last</h3>
+<ul>
+<li>3-position momentary</li>
+<li>define loop start/end points</li>
+</ul>
+<h3>Time Range switches</h3>
+<ul>
+<li>4 momentary switches</li>
+<li>select timing range from <strong>0.002 s</strong> to <strong>2 min</strong></li>
+</ul>
+<h3>Time Source: Internal / External</h3>
+<ul>
+<li>3-position momentary</li>
+<li>selects internal timing or external A/B/C/D timing CV</li>
+</ul>
+<hr />
+<h2>Preset / scale buttons</h2>
+<h3>Load</h3>
+<p>Recall preset</p>
+<h3>Save</h3>
+<p>Store preset</p>
+<h3>Buttons 1–12</h3>
+<ul>
+<li>preset slots</li>
+<li>key selection</li>
+<li>scale selection:</li>
+<li>10 major</li>
+<li>11 minor</li>
+<li>12 chromatic</li>
+</ul>
+<h3>Key</h3>
+<p>Select root note</p>
+<h3>Scale</h3>
+<p>Select scale type</p>
+<h3>Hold / Initial Tune / Autotune</h3>
+<ul>
+<li>press = autotune message</li>
+<li>hold = initial tune message</li>
+</ul>
+<hr />
+<h2>Function Generator controls per side</h2>
+<h3>Advance button/input</h3>
+<p>Manual stage step</p>
+<h3>Start button/input</h3>
+<p>Start/hold/enable interaction</p>
+<h3>Stop button/input</h3>
+<p>Stop transport</p>
+<h3>Reset</h3>
+<p>Return to first programmed stage or stage 1</p>
+<h3>Display</h3>
+<p>Show current FG stage</p>
+<h3>Cont / Strobe switch</h3>
+<ul>
+<li>continuous address sweep</li>
+<li>stage strobe load</li>
+</ul>
+<h3>Internal / External switch</h3>
+<p>Select internal or external stage address source</p>
+<h3>Stage Address knob</h3>
+<p>Sets stage address in internal addressing mode / continuous sweep context</p>
+<h3>Time Multiplier knob</h3>
+<p>Global time scaling:
+- <strong>0.5x to 4x</strong></p>
+<h3>Time Multiplier CV attenuverter</h3>
+<p>Amount/polarity of time multiplier CV</p>
+<h3>ART gate source switch</h3>
+<p>Selects ART gate source:
+- <strong>Pulse 1</strong>
+- <strong>Pulse 2</strong>
+- <strong>All</strong></p>
+<hr />
+<h1>Useful Patch Ideas</h1>
+<h2>1. Dual related melodies</h2>
+<ul>
+<li>FG1 Voltage Out → Oscillator 1 pitch</li>
+<li>FG2 Voltage Out → Oscillator 2 pitch</li>
+<li>Same programmed stages, different loop boundaries via First/Last</li>
+</ul>
+<h2>2. Sequencer + envelope source</h2>
+<ul>
+<li>Voltage Out → oscillator pitch</li>
+<li>Reference Out → LPG CV</li>
+<li>Pulse 1 → gate/trigger for articulation</li>
+</ul>
+<h2>3. Addressed wavetable-ish CV scanner</h2>
+<ul>
+<li>Set Stage Address to <strong>External</strong></li>
+<li>Feed slow CV into stage address input</li>
+<li>Use Voltage Out as a scanned arbitrary function</li>
+</ul>
+<h2>4. Rhythmic modulation source</h2>
+<ul>
+<li>Use <strong>Time Out</strong> as a second CV lane</li>
+<li>Set time source to <strong>External</strong> if you want time sliders as pure CV without affecting stage timing</li>
+</ul>
+<hr />
+<h1>Practical Tips</h1>
+<ul>
+<li><strong>Half range</strong> is easiest for tonal pitch work.</li>
+<li><strong>Sloped</strong> stages create pitch glide tied to stage time.</li>
+<li>Use <strong>First/Last</strong> creatively to make different loop windows for FG1 and FG2.</li>
+<li><strong>All Pulses Out</strong> is useful as a derived clock.</li>
+<li><strong>Reference Out</strong> is excellent for LPG plucks and decays.</li>
+<li>In <strong>External voltage source</strong> mode, the top slider selects <strong>which external input</strong> is active for that stage.</li>
+<li>After loading presets, sliders use a <strong>pickup/catch</strong> behavior.</li>
+</ul>
+<hr />
+<h2>Specs</h2>
+<ul>
+<li><strong>Width:</strong> 72 HP</li>
+<li><strong>Depth:</strong> 45 mm</li>
+<li><strong>Power:</strong> +12 V <strong>340 mA</strong>, -12 V <strong>30 mA</strong></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

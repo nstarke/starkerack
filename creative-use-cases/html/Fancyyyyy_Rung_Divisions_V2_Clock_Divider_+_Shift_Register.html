@@ -1,0 +1,775 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Fancyyyyy_Rung_Divisions_V2_Clock_Divider_+_Shift_Register</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Fancyyyyy — Rung Divisions V2 Clock Divider + Shift Register</h1>
+<ul>
+<li><a href="../../manuals/RungDivisionsManual.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="attachment">Manual PDF</a></p>
+<h1>Fancyyyyy Rung Divisions — creative patch ideas and module pairings</h1>
+<p>Rung Divisions is a pretty unusual hybrid:<br />
+- <strong>clock divider / pulse processor</strong>
+- <strong>dual OR bus rhythm mixer</strong>
+- <strong>universal shift register</strong>
+- <strong>1-bit / 3-bit / 8-bit CV source</strong>
+- <strong>noise source</strong>
+- <strong>direction / length / chance voltage-addressable pattern logic</strong>
+- and it all works from <strong>sub-audio up to audio rate</strong></p>
+<p>That means it can sit at the center of a system as:
+1. a <strong>polyrhythmic trigger brain</strong>,<br />
+2. a <strong>looping / chaotic stepped CV sequencer</strong>,<br />
+3. a <strong>feedback instrument</strong>, or<br />
+4. an <strong>audio-rate digital chaos oscillator / subharmonic source</strong>.</p>
+<p>Below are the most musically useful and weird combinations I’d try.</p>
+<hr />
+<h2>Quick character summary</h2>
+<p>A few important things from the manual shape how to patch it:</p>
+<ul>
+<li><strong>Bus1 clocks the shift register.</strong></li>
+<li>The divider outputs <code>/2</code> to <code>/8</code> can be routed to <strong>Bus1 or Bus2</strong> with switches.</li>
+<li><strong>Bus outputs are OR combinations</strong> of selected divisions.</li>
+<li><strong>Chance</strong> determines whether the register tends to:</li>
+<li>take in new data,</li>
+<li>mix in noisy interference,</li>
+<li>or fully <strong>loop</strong> existing data.</li>
+<li><strong>Direction</strong> can be manually toggled or triggered with a gate.</li>
+<li><strong>Length</strong> changes loop point and can be voltage controlled.</li>
+<li><strong>3-bit and 8-bit outputs are reverse encoded</strong>, so they often create complementary/contrapuntal motion.</li>
+<li>At audio rate, the module becomes a <strong>complex digital/noise oscillator</strong>.</li>
+</ul>
+<p>So the golden rule is:</p>
+<blockquote>
+<p>Use <strong>Bus1</strong> as your internal rhythmic engine, and use <strong>Bus2 / 1-bit / 3-bit / 8-bit</strong> as related but differently-behaving outputs to animate the rest of the patch.</p>
+</blockquote>
+<hr />
+<h1>1. Use it as a polyrhythmic drum brain</h1>
+<h2>Patch concept</h2>
+<p>Send a master clock into <strong>Clock</strong>.<br />
+Route several divisions to <strong>Bus1</strong> and <strong>Bus2</strong> in different combinations.</p>
+<p>Example:
+- <strong>Bus1</strong>: <code>/3 + /5</code>
+- <strong>Bus2</strong>: <code>/2 + /7</code>
+- <strong>1-bit</strong>: use as a third rhythm line
+- <strong>Reset</strong>: occasional manual trigger or bar reset from a master sequencer</p>
+<h2>What happens</h2>
+<ul>
+<li>Bus1 creates a composite rhythm that also clocks the shift register.</li>
+<li>Bus2 becomes a second correlated but offset gate stream.</li>
+<li>The shift register then generates stepped voltages tied to the rhythm complexity of Bus1.</li>
+</ul>
+<h2>Pair with</h2>
+<ul>
+<li><strong>Drum modules</strong>: WMD Crucible, Noise Engineering Basimilus, Jomox ModBase, Tiptop drum voices</li>
+<li><strong>Envelope + VCA chains</strong> for pinging LPGs</li>
+<li><strong>Sequential switch</strong> to distribute Bus outputs across voices</li>
+<li><strong>Accent VCAs / logic modules</strong> to create fills</li>
+</ul>
+<h2>Nice trick</h2>
+<p>Use:
+- <strong>Bus1</strong> for kick/low percussion clocking
+- <strong>Bus2</strong> for hats/claps
+- <strong>/8 or /7</strong> directly into reset or fill logic
+- <strong>3-bit output</strong> to modulate drum pitch or decay</p>
+<h3>Great companion module types</h3>
+<ul>
+<li>Trigger sequencers</li>
+<li>Clock utilities</li>
+<li>Logic modules</li>
+<li>Drum voices</li>
+<li>Envelope generators</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>Shakmat Time Wizard</strong> or <strong>4ms Rotating Clock Divider</strong> for expanded clock interplay</li>
+<li><strong>Noise Engineering Integra Solum</strong> or <strong>Vice Virga</strong> to route rhythms dynamically</li>
+<li><strong>Doepfer A-166 logic</strong> to derive accents and odd resets</li>
+<li><strong>Steppy / Varigate / Pam’s</strong> as master clock and reset source</li>
+</ul>
+<hr />
+<h1>2. Make an evolving melodic sequencer with controlled instability</h1>
+<p>Rung Divisions is basically begging to be patched as a semi-random melody source.</p>
+<h2>Patch concept</h2>
+<ul>
+<li>Feed a steady clock into <strong>Clock</strong></li>
+<li>Put a few divisions into <strong>Bus1</strong></li>
+<li>Set <strong>Chance</strong> around the middle</li>
+<li>Set <strong>Length</strong> somewhere between 3 and 7</li>
+<li>Take <strong>8-bit output</strong> into a <strong>quantizer</strong></li>
+<li>Send quantizer output to oscillator pitch</li>
+<li>Use <strong>Bus2</strong> or <strong>1-bit</strong> to trigger envelopes</li>
+</ul>
+<h2>What happens</h2>
+<p>The shift register produces repeating-but-mutating pitch patterns.<br />
+Changing:
+- <strong>Length</strong> changes phrase length
+- <strong>Direction</strong> changes melodic contour
+- <strong>Chance</strong> changes how much it loops vs refreshes</p>
+<p>The reverse encoding means:
+- <strong>8-bit</strong> often gives broad, stepped contours
+- <strong>3-bit</strong> gives a smaller, chunkier melodic motion</p>
+<h2>Pair with</h2>
+<ul>
+<li><strong>Quantizer</strong></li>
+<li><strong>Oscillator</strong></li>
+<li><strong>Envelope + VCA</strong></li>
+<li><strong>Precision adder / transposer</strong></li>
+<li><strong>Slew limiter</strong> if you want it less stepped</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>Intellijel Scales</strong>, <strong>ADDAC207</strong>, <strong>Toppobrillo Quantimator</strong>, <strong>uO_C in Quantermain</strong></li>
+<li><strong>Precision adder</strong> like <strong>Doepfer A-185-2</strong></li>
+<li><strong>Sequential switch</strong> to switch scales or destinations</li>
+<li><strong>Slew / lag</strong> like <strong>Make Noise Function</strong>, <strong>Joranalogue Contour 1</strong>, <strong>Doepfer A-171-2</strong></li>
+</ul>
+<h2>Nice variation</h2>
+<p>Quantize both:
+- <strong>3-bit output</strong> to oscillator A
+- <strong>8-bit output</strong> to oscillator B</p>
+<p>Because of the complementary encoding, they often feel like two lines “answering” each other.</p>
+<hr />
+<h1>3. Build a self-playing duet or canon</h1>
+<p>One of the best uses of the reverse-encoded outputs is contrapuntal voice-leading.</p>
+<h2>Patch concept</h2>
+<ul>
+<li><strong>3-bit output</strong> → quantizer channel 1 → VCO 1</li>
+<li><strong>8-bit output</strong> → quantizer channel 2 → VCO 2</li>
+<li><strong>Bus1</strong> triggers voice 1 envelopes</li>
+<li><strong>Bus2</strong> triggers voice 2 envelopes</li>
+<li><strong>Direction input</strong> receives sparse triggers from another divider or gate sequencer</li>
+<li><strong>Length CV</strong> is modulated slowly</li>
+</ul>
+<h2>Why it works</h2>
+<p>The 3-bit and 8-bit outputs move differently enough to create:
+- call/response
+- mirrored contour
+- inside/outside harmonic drift</p>
+<h2>Pair with</h2>
+<ul>
+<li>dual quantizer</li>
+<li>dual oscillator</li>
+<li>dual LPGs or VCAs</li>
+<li>stereo mixer / panner</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>XAOC Zadar</strong> for two independently shaped envelopes</li>
+<li><strong>QPAS / Ikarie / Dual Dagger</strong> for stereo movement</li>
+<li><strong>Mutable Veils / Intellijel Quad VCA</strong> to animate dynamics</li>
+<li><strong>Happy Nerding PanMix</strong> or any stereo panner</li>
+</ul>
+<h2>Fun extension</h2>
+<p>Send one voice through a <strong>wavefolder</strong> and the other through a <strong>low-pass filter</strong>.<br />
+Now the same hidden data structure produces two very different personalities.</p>
+<hr />
+<h1>4. Patch it as a “probability without a probability module” system</h1>
+<p>The Chance control is not just a randomizer; it crossfades pattern behavior between fresh data, noise interaction, and looping memory.</p>
+<h2>Patch concept</h2>
+<ul>
+<li>Clock from a stable source</li>
+<li>Data input from:</li>
+<li><strong>noise</strong></li>
+<li>or another gate sequence</li>
+<li>or one of its own divisions</li>
+<li>Modulate <strong>Chance CV</strong> slowly with an LFO, envelope, or another sequencer row</li>
+<li>Use <strong>Bus outputs</strong> for percussion triggers</li>
+<li>Use <strong>8-bit</strong> for modulation or pitch</li>
+</ul>
+<h2>What happens</h2>
+<p>You get changing density and pattern memory:
+- low chance = more new data / instability
+- middle = noisy interference
+- high = looping / locked pattern</p>
+<p>This is fantastic for making phrases that gradually “remember themselves,” then dissolve again.</p>
+<h2>Pair with</h2>
+<ul>
+<li>Slow random CV</li>
+<li>Function generators</li>
+<li>Attenuverters</li>
+<li>Manual offset modules</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>Batumi</strong>, <strong>Ochd</strong>, <strong>Delta-V</strong>, <strong>Maths</strong>, <strong>Sapèl</strong>, <strong>Marbles</strong>, <strong>Sloths</strong></li>
+<li><strong>Happy Nerding 3xMIA</strong>, <strong>Frap 321</strong>, <strong>Quadratt</strong> for dialing in Chance CV range</li>
+</ul>
+<h2>Patch tip</h2>
+<p>A very small modulation depth on <strong>Chance CV</strong> can make a huge musical difference.<br />
+Use attenuation.</p>
+<hr />
+<h1>5. Clock extractor / rhythm miner for messy signals</h1>
+<p>The manual notes that the clock input turns any signal crossing 1V into a pulse for driving the counters. That means Rung Divisions can derive usable timing from weird sources.</p>
+<h2>Patch concept</h2>
+<p>Feed into <strong>Clock</strong>:
+- a raw oscillator
+- a complex LFO
+- a burst generator
+- a comparator output
+- audio loops from an external source after gain/comparison</p>
+<p>Then use divided outputs and buses as structured rhythmic extractions from that source.</p>
+<h2>Great source modules</h2>
+<ul>
+<li><strong>Comparator / window comparator</strong></li>
+<li><strong>Envelope follower</strong></li>
+<li><strong>External input preamp</strong></li>
+<li><strong>Chaos oscillator</strong></li>
+<li><strong>Burst generator</strong></li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>Joranalogue Compare 2</strong></li>
+<li><strong>Doepfer A-119</strong></li>
+<li><strong>Frap Falistri</strong> as a cycling source</li>
+<li><strong>NLC / chaotic function generators</strong></li>
+<li><strong>SSF Ultra Random Analog</strong></li>
+</ul>
+<h2>Musical use</h2>
+<p>Take a complex source and derive:
+- regular-ish percussion clocks
+- unstable resets
+- changing melodic clocks
+- subharmonic structures at audio rate</p>
+<p>This is especially strong if you want a patch to feel “played by physics” instead of step-sequenced.</p>
+<hr />
+<h1>6. Audio-rate subharmonic / organ / digital drone voice</h1>
+<p>The manual explicitly mentions audio-rate use and PWM-derived subharmonics. This is one of the coolest underused aspects.</p>
+<h2>Patch concept</h2>
+<ul>
+<li>Feed an audio-rate square or pulse wave into <strong>Clock</strong></li>
+<li>Route several divisions to <strong>Bus1</strong> and <strong>Bus2</strong></li>
+<li>Listen directly to:</li>
+<li><code>/2</code> to <code>/8</code></li>
+<li><strong>Bus1</strong></li>
+<li><strong>Bus2</strong></li>
+<li><strong>1-bit</strong></li>
+<li><strong>3-bit</strong></li>
+<li><strong>8-bit</strong></li>
+<li>Mix them and filter</li>
+</ul>
+<h2>What happens</h2>
+<p>You get:
+- subharmonic pulse trains
+- organ-like mixtures
+- digital edge textures
+- prime-division interference effects</p>
+<p>The manual specifically points out how prime divisions like <code>/5</code> and <code>/7</code> create interference-like movement against <code>/2</code>.</p>
+<h2>Pair with</h2>
+<ul>
+<li>Mixer</li>
+<li>Filter</li>
+<li>Wavefolder</li>
+<li>LPG</li>
+<li>Resonator</li>
+<li>Stereo effects</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>CP3-style mixer</strong> or overdriving mixer</li>
+<li><strong>Three Sisters</strong>, <strong>QPAS</strong>, <strong>Belgrad</strong>, <strong>Ikarie</strong></li>
+<li><strong>Wavefolder</strong> like <strong>Fold 6</strong>, <strong>Bifold</strong>, <strong>Serge-style</strong></li>
+<li><strong>Mimeophon / FX Aid / Magneto</strong> for spatialized drones</li>
+</ul>
+<h2>Patch recipe</h2>
+<ul>
+<li>Clock input: pulse VCO</li>
+<li>Bus1: <code>/2 + /5 + /7</code></li>
+<li>Bus2: <code>/3 + /4 + /8</code></li>
+<li>Mix Bus1 + Bus2 + 1-bit</li>
+<li>Filter with resonance tracking the original oscillator pitch</li>
+</ul>
+<p>This gives a very rich subharmonic stack.</p>
+<hr />
+<h1>7. Make a chaos feedback instrument</h1>
+<p>The manual directly suggests this: patch <strong>3-bit or 8-bit</strong> back into a CV input of the clock source.</p>
+<h2>Patch concept</h2>
+<ul>
+<li>Use a VCO or function generator as the <strong>Clock</strong> source</li>
+<li>Patch <strong>8-bit</strong> or <strong>3-bit</strong> into that clock source’s:</li>
+<li>FM input</li>
+<li>1V/oct-ish input for quantized weirdness</li>
+<li>symmetry/PWM</li>
+<li>wavefold amount</li>
+<li>Optionally patch <strong>Bus1</strong>, <strong>1-bit</strong>, or <strong>noise</strong> elsewhere in the voice</li>
+</ul>
+<h2>What happens</h2>
+<p>This is where Rung Divisions gets very alive:
+- the clock determines the register evolution
+- the register output modulates the clock rate
+- the system finds temporary attractors, bursts, stalls, and lurches</p>
+<p>The manual says:
+- <strong>3-bit</strong> is more burst-like
+- <strong>8-bit</strong> is more random but still attractor-prone</p>
+<h2>Best pairings</h2>
+<ul>
+<li>Through-zero FM oscillators</li>
+<li>Oscillators with strong linear/exponential FM response</li>
+<li>Function generators that can cycle into audio</li>
+<li>PLLs or tracking filters</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>Generate 3</strong>, <strong>Rubicon 2</strong>, <strong>Dixie 2+</strong>, <strong>ZPO</strong></li>
+<li><strong>Joranalogue Filter 8</strong> self-oscillating and FM’d</li>
+<li><strong>Falistri / Maths / Rampage</strong> cycling as clock sources</li>
+<li><strong>Doepfer PLL A-196</strong> for even more unstable lock behavior</li>
+</ul>
+<h2>Patch tip</h2>
+<p>Use an attenuator or VCA in the feedback path.<br />
+Then you can “play” the onset of chaos.</p>
+<hr />
+<h1>8. Use it with a sample &amp; hold / track &amp; hold for meta-sequencing</h1>
+<p>The manual mentions using the 1-bit output to clock a sample and hold that updates the length parameter at the start of each loop. That’s a brilliant patch.</p>
+<h2>Patch concept</h2>
+<ul>
+<li>Set up a looping pattern in the shift register</li>
+<li>Take <strong>1-bit</strong> output to clock a <strong>sample &amp; hold</strong></li>
+<li>Feed random or stepped CV into that S&amp;H</li>
+<li>Send S&amp;H output to <strong>Length CV</strong></li>
+</ul>
+<h2>Result</h2>
+<p>Each time the loop reaches a certain point, the pattern length changes.<br />
+This creates phrases that reorganize themselves structurally rather than only melodically.</p>
+<h2>Pair with</h2>
+<ul>
+<li>Sample &amp; hold</li>
+<li>Noise/random source</li>
+<li>Quantized random</li>
+<li>Attenuverter</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>Mutable Kinks S&amp;H</strong>, <strong>Doepfer A-148</strong>, <strong>SSF Ultra Random</strong>, <strong>Sapèl</strong></li>
+<li><strong>Turing Machine / Voltages / Marbles</strong></li>
+<li><strong>O_C</strong> for stepped random or quantized CV</li>
+</ul>
+<h2>Nice extension</h2>
+<p>Do the same with:
+- <strong>Direction CV</strong>
+- <strong>Chance CV</strong>
+- or switch among different modulation sources via a sequential switch</p>
+<p>This gives “form changes” in a patch.</p>
+<hr />
+<h1>9. Drive a matrix mixer or VC switch network</h1>
+<p>Because Rung Divisions makes several related gates and CVs at once, it’s excellent for routing systems.</p>
+<h2>Patch concept</h2>
+<p>Use:
+- <strong>Bus1</strong>
+- <strong>Bus2</strong>
+- <strong>1-bit</strong>
+- <code>/7</code> or <code>/8</code></p>
+<p>to control:
+- VC switches
+- sequential switches
+- mute logic
+- matrix mixers
+- preset manager address inputs</p>
+<h2>Why this is strong</h2>
+<p>Instead of only triggering notes, Rung Divisions can trigger <strong>signal path changes</strong>.</p>
+<p>So the patch can:
+- switch oscillators
+- reroute modulation
+- change effects sends
+- alternate filters
+- move voices in stereo</p>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>Doepfer A-151 / A-152</strong></li>
+<li><strong>Vice Virga</strong></li>
+<li><strong>Joranalogue Switch 4</strong></li>
+<li><strong>WMD Sequential Switch Matrix</strong></li>
+<li><strong>Livestock Maze</strong></li>
+<li><strong>matrix mixer</strong> like <strong>AI Synthesis</strong>, <strong>Doepfer</strong>, <strong>Bear Modules</strong></li>
+</ul>
+<h2>Example</h2>
+<ul>
+<li>Bus1 advances a sequential switch for oscillator selection</li>
+<li>Bus2 switches filter routing</li>
+<li>8-bit controls pitch</li>
+<li>3-bit controls timbre</li>
+<li>direction gates reverse phrase behavior</li>
+</ul>
+<p>That’s basically a whole composition engine.</p>
+<hr />
+<h1>10. Turn it into a bassline machine with reset discipline</h1>
+<p>Because the divider section can be reset and all outputs syncopate interestingly, you can force large structures on top of smaller chaotic loops.</p>
+<h2>Patch concept</h2>
+<ul>
+<li>Clock from master transport</li>
+<li>Send a slower reset pulse every 1, 2, or 4 bars into <strong>Reset</strong></li>
+<li>Build a looping sequence with <strong>Chance</strong> mostly high</li>
+<li>Use <strong>8-bit → quantizer → bass oscillator</strong></li>
+<li>Use <strong>Bus2</strong> for note gates</li>
+<li>Use <strong>/8</strong> or another slow division to flip <strong>Direction</strong></li>
+</ul>
+<h2>Musical effect</h2>
+<p>You get:
+- stable phrase centers from reset
+- evolving note order from direction changes
+- controlled mutation from chance and length changes</p>
+<p>This is much more performance-friendly than fully free chaos.</p>
+<h2>Pair with</h2>
+<ul>
+<li>Master clock</li>
+<li>Reset-capable sequencer environment</li>
+<li>Quantizer</li>
+<li>Bass voice</li>
+<li>Filter envelope</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>Pamela’s Pro Workout</strong></li>
+<li><strong>Metropolix</strong> as a reset/transport manager</li>
+<li><strong>Tempi</strong></li>
+<li><strong>Scales</strong> with stored scales</li>
+<li>Any solid analog bass VCO/filter combo</li>
+</ul>
+<hr />
+<h1>11. Use the noise and XOR behavior as a “data corruption” path</h1>
+<p>The manual says incoming front-panel data passes through an <strong>XOR gate</strong>, and that this makes the shift register inherently unstable when data is present.</p>
+<p>That instability is musically useful.</p>
+<h2>Patch concept</h2>
+<p>Patch into <strong>Data</strong>:
+- noise
+- a slow square LFO
+- an envelope comparator
+- a gate pattern
+- audio-rate square</p>
+<p>Then adjust <strong>Chance</strong> so the data input is partially competing with the loop point.</p>
+<h2>What happens</h2>
+<p>The loop gets “corrupted” in intelligible ways:
+- repeated pattern with bit flips
+- syncopated glitches
+- pseudo-random melody mutation
+- unstable but recurring motifs</p>
+<h2>Great pairings</h2>
+<ul>
+<li>Noise source / random gate source</li>
+<li>Comparator</li>
+<li>Bernoulli gate</li>
+<li>Rectifier / waveshaper / pulse shaper</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>Mutable Kinks</strong></li>
+<li><strong>Joranalogue Compare 2</strong></li>
+<li><strong>Branches / Integra Solum / other probability gate modules</strong></li>
+<li><strong>Schmitt trigger / pulse conditioner</strong></li>
+</ul>
+<h2>Advanced move</h2>
+<p>Patch one of Rung Divisions’ own outputs back to <strong>Data</strong>:
+- <code>/5</code> to Data
+- or Bus2 to Data
+- or 1-bit to Data</p>
+<p>This creates internally related corruption instead of external randomness.</p>
+<hr />
+<h1>12. Pair it with LPGs for “West Coast rungler percussion”</h1>
+<p>Because it can generate stepped CV and strange pulse structures, it’s ideal for plucked low-pass gate patches.</p>
+<h2>Patch concept</h2>
+<ul>
+<li><strong>Bus1 / Bus2 / 1-bit</strong> → LPG trigger inputs</li>
+<li><strong>3-bit / 8-bit</strong> → oscillator pitch and/or LPG CV</li>
+<li>use a bright oscillator or noise source into the LPG audio input</li>
+<li>modulate <strong>Length</strong> and <strong>Direction</strong></li>
+</ul>
+<h2>Result</h2>
+<p>You get:
+- pseudo-wooden melodic percussion
+- unstable pluck lines
+- repeating but shifting marimba/bongo behaviors</p>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>Optomix</strong></li>
+<li><strong>LxD</strong></li>
+<li><strong>Meng Qi DPLPG</strong></li>
+<li><strong>Natural Gate</strong></li>
+<li><strong>Buchla-ish voices or simple sine/triangle oscillators</strong></li>
+</ul>
+<p>This pairing is especially nice because Rung Divisions can be both the <strong>striker</strong> and the <strong>pitch brain</strong>.</p>
+<hr />
+<h1>13. Use it as a control source for wavetable / macro oscillators</h1>
+<p>The stepped outputs are ideal for animating digital oscillators without needing a conventional sequencer.</p>
+<h2>Patch concept</h2>
+<ul>
+<li><strong>8-bit</strong> → pitch or coarse tune via quantizer</li>
+<li><strong>3-bit</strong> → wavetable position / morph / timbre</li>
+<li><strong>Bus2</strong> → trigger envelope</li>
+<li><strong>1-bit</strong> → sync or accent</li>
+</ul>
+<h3>Great oscillator pairings</h3>
+<ul>
+<li><strong>Plaits</strong></li>
+<li><strong>Shapeshifter</strong></li>
+<li><strong>Piston Honda</strong></li>
+<li><strong>E352</strong></li>
+<li><strong>Ensemble Oscillator</strong></li>
+<li><strong>Any macro digital VCO</strong></li>
+</ul>
+<h2>Why it works</h2>
+<p>Rung Divisions naturally produces:
+- correlated pitch and timbre motion
+- looped or pseudo-random phrasing
+- directionally altered contours</p>
+<p>That creates coherent, “composed” movement instead of disconnected random modulation.</p>
+<hr />
+<h1>14. Pair with a quantizer that supports scale changes</h1>
+<p>One especially deep patch is using Rung Divisions not just for notes, but for harmonic structure.</p>
+<h2>Patch concept</h2>
+<ul>
+<li><strong>8-bit</strong> → quantizer pitch in</li>
+<li><strong>3-bit</strong> → quantizer scale select / root / transpose CV</li>
+<li><strong>Bus1</strong> → note trigger</li>
+<li><strong>Bus2</strong> → transposition or sample-hold trigger</li>
+<li><strong>/7 or /8</strong> → reset or scale-change pulse</li>
+</ul>
+<h2>Result</h2>
+<p>The melody and the harmonic frame both evolve from the same register but at different abstraction levels.</p>
+<h3>Good pairings</h3>
+<ul>
+<li>Quantizers with CV-addressable scales or roots</li>
+<li>Precision adders</li>
+<li>Sequential switches for chord sets</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>O_C</strong> custom quantizer apps</li>
+<li><strong>Sinfonion</strong> if you want to go huge</li>
+<li><strong>Scales</strong> with external transpose support</li>
+<li><strong>Bard Quartet</strong></li>
+</ul>
+<p>This is one of the best ways to make the module feel “musical” in tonal systems.</p>
+<hr />
+<h1>15. Create pseudo-granular trigger clouds with burst modules</h1>
+<p>Rung Divisions excels when the input clock itself is unusual.</p>
+<h2>Patch concept</h2>
+<ul>
+<li>Feed a <strong>burst generator</strong> or irregular trigger source into <strong>Clock</strong></li>
+<li>Use divisions and buses to derive smeared rhythm families</li>
+<li>Feed <strong>Bus1</strong> to clock the register</li>
+<li>Use <strong>8-bit</strong> to modulate sample playback position, decay, or filter</li>
+</ul>
+<h2>Pair with</h2>
+<ul>
+<li>Burst generator</li>
+<li>Granular/sample modules</li>
+<li>Envelopes</li>
+<li>VCAs</li>
+<li>percussion voices</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>SSF Ultra-Kick / percussive voices</strong></li>
+<li><strong>Pam’s burst functions</strong></li>
+<li><strong>NE Numeric Repetitor</strong> style trigger patterns</li>
+<li><strong>Sample players</strong> like <strong>Bitbox</strong>, <strong>Squid Salmple</strong>, <strong>Assimil8or</strong></li>
+</ul>
+<p>This makes excellent broken IDM / electro-acoustic rhythm structures.</p>
+<hr />
+<h1>16. Exploit direction changes as phrase inversion</h1>
+<p>Direction is more than a gimmick here because the register is universal and the loop logic flips with direction.</p>
+<h2>Patch concept</h2>
+<ul>
+<li>Set a stable looping pattern with high chance</li>
+<li>Use sparse gates to the <strong>Direction input</strong></li>
+<li>Derive those gates from:</li>
+<li>a manual button</li>
+<li>a slow divider</li>
+<li>a random gate source</li>
+<li>a performative pressure controller</li>
+</ul>
+<h2>Musical use</h2>
+<p>Direction flips can act like:
+- retrograde phrase inversion
+- rhythmic mirror
+- melodic reversal
+- “tape turning around” effect</p>
+<h2>Great pairings</h2>
+<ul>
+<li>Manual gate controller</li>
+<li>Pressure controller</li>
+<li>Footswitch gate</li>
+<li>Slow random gate</li>
+</ul>
+<h3>Specific module ideas</h3>
+<ul>
+<li><strong>Pressure Points / 0-CTRL gate rows</strong></li>
+<li><strong>Planar 2 gates</strong></li>
+<li><strong>Tetrapad / controller modules</strong></li>
+<li><strong>Any button/gate interface</strong></li>
+</ul>
+<p>This makes Rung Divisions highly playable in performance.</p>
+<hr />
+<h1>17. Cross-patch with other shift-register / Turing-style modules</h1>
+<p>Rung Divisions gets especially fun when paired with another memory/random sequencer.</p>
+<h2>Patch concept</h2>
+<p>Use another shift-register style module as:
+- clock source
+- data source
+- quantizer source
+- reset source</p>
+<p>Or send Rung Divisions outputs into the other module’s:
+- write/lock/probability
+- address
+- clock
+- length</p>
+<h3>Specific module pairings</h3>
+<ul>
+<li><strong>Music Thing Turing Machine</strong></li>
+<li><strong>Benjolin / Benjolin V2</strong></li>
+<li><strong>Marbles</strong></li>
+<li><strong>Shift-register DIY modules</strong></li>
+<li><strong>NLC cellular/chaotic logic modules</strong></li>
+</ul>
+<h2>Why this works</h2>
+<p>You get two different memory systems influencing each other:
+- one may handle note continuity
+- the other rhythm continuity
+- or one controls phrase shape while the other controls density</p>
+<p>This is where emergent behavior gets really good.</p>
+<hr />
+<h1>18. Use it as an animated modulation source, not just a sequencer</h1>
+<p>A lot of people will patch the 8-bit output to pitch and stop there. But the outputs are equally strong for modulation.</p>
+<h2>Great destinations for 3-bit / 8-bit</h2>
+<ul>
+<li>filter cutoff</li>
+<li>resonance amount</li>
+<li>wavefolder depth</li>
+<li>LPG decay</li>
+<li>delay time</li>
+<li>reverb size</li>
+<li>panning</li>
+<li>sample start</li>
+<li>grains density</li>
+<li>comparator threshold</li>
+<li>another sequencer’s transpose input</li>
+</ul>
+<h2>Patch concept</h2>
+<ul>
+<li>8-bit → filter cutoff</li>
+<li>3-bit → reverb/delay send</li>
+<li>Bus2 → envelope trigger</li>
+<li>1-bit → sidechain ducking trigger</li>
+<li>Chance CV slowly modulated</li>
+</ul>
+<p>This creates structural modulation that feels phrase-linked.</p>
+<hr />
+<h1>19. Best module types to combine with Rung Divisions</h1>
+<p>If you want to build around it, these module types give the most value:</p>
+<h2>Essential pairings</h2>
+<ul>
+<li><strong>Quantizer</strong></li>
+<li><strong>Attenuverter / offset</strong></li>
+<li><strong>VCA for modulation depth</strong></li>
+<li><strong>Master clock / reset source</strong></li>
+<li><strong>Logic module</strong></li>
+<li><strong>Sample &amp; hold</strong></li>
+<li><strong>Sequential switch</strong></li>
+</ul>
+<h2>Very strong pairings</h2>
+<ul>
+<li><strong>Oscillator with good FM</strong></li>
+<li><strong>LPG</strong></li>
+<li><strong>Comparator</strong></li>
+<li><strong>Random voltage source</strong></li>
+<li><strong>Burst generator</strong></li>
+<li><strong>Stereo mixer / panner</strong></li>
+<li><strong>Filter that tracks pitch</strong></li>
+</ul>
+<h2>Especially synergistic “flavor” modules</h2>
+<ul>
+<li>Shift-register / Turing-like sequencers</li>
+<li>Benjolin-style chaotic modules</li>
+<li>PLLs</li>
+<li>Resonators</li>
+<li>Fixed filter banks</li>
+<li>Addressed switches</li>
+<li>Matrix mixers</li>
+</ul>
+<hr />
+<h1>20. Three full example systems</h1>
+<h2>A. Self-generating techno brain</h2>
+<ul>
+<li>Master clock → Rung Divisions Clock</li>
+<li>Bus1 → kick + bass envelope trigger</li>
+<li>Bus2 → hats/clap trigger</li>
+<li>8-bit → quantizer → bass VCO pitch</li>
+<li>3-bit → filter cutoff</li>
+<li>/7 → Direction</li>
+<li>slow random → Chance CV</li>
+<li>S&amp;H → Length CV</li>
+<li>reset every 16 bars</li>
+</ul>
+<p>Result: evolving but danceable system with phrase memory.</p>
+<hr />
+<h2>B. Audio-rate subharmonic drone</h2>
+<ul>
+<li>Pulse VCO → Clock</li>
+<li>Bus1 <code>/2 + /5 + /7</code></li>
+<li>Bus2 <code>/3 + /4 + /8</code></li>
+<li>Mix Bus1 + Bus2 + 1-bit</li>
+<li>8-bit → FM amount on source VCO</li>
+<li>3-bit → filter cutoff</li>
+<li>noise through LPG using Bus2 triggers</li>
+<li>stereo delay/reverb at the end</li>
+</ul>
+<p>Result: organ-meets-digital-chaos drone texture.</p>
+<hr />
+<h2>C. Two-voice contrapuntal patch</h2>
+<ul>
+<li>Clock from Pam’s or another sequencer</li>
+<li>Bus1 → voice A envelopes</li>
+<li>Bus2 → voice B envelopes</li>
+<li>3-bit → quantizer A → VCO A</li>
+<li>8-bit → quantizer B → VCO B</li>
+<li>slow square LFO → Direction</li>
+<li>random stepped CV → Length CV</li>
+<li>attenuated random → Chance CV</li>
+<li>reset every 8 or 16 bars</li>
+</ul>
+<p>Result: mirrored, evolving duet with recurring motifs.</p>
+<hr />
+<h1>Final performance tips</h1>
+<h2>1. Treat Chance like a memory control</h2>
+<ul>
+<li>CW = memory/looping</li>
+<li>CCW = mutation / incoming data</li>
+<li>Mid = unstable life</li>
+</ul>
+<h2>2. Length is structural</h2>
+<p>Tiny movements in Length can completely reorganize the phrase.</p>
+<h2>3. Direction is performative</h2>
+<p>Patch a manual gate source to it. It’s one of the most musical controls on the module.</p>
+<h2>4. Bus1 is the heart</h2>
+<p>What you send to Bus1 doesn’t just make rhythm—it defines the timing structure of the whole internal register behavior.</p>
+<h2>5. Use attenuation everywhere</h2>
+<p>This module gets wild quickly, especially with feedback and CV over chance/length.</p>
+<hr />
+<h1>Best specific pairing shortlist</h1>
+<p>If I were assembling a small “Rung Divisions companion rack,” I’d pick:</p>
+<ul>
+<li><strong>Pamela’s Pro Workout</strong> or other master clock/reset utility</li>
+<li><strong>Intellijel Scales</strong> or <strong>uO_C</strong> for quantization</li>
+<li><strong>Joranalogue Compare 2</strong> for extracting and reshaping data/clock signals</li>
+<li><strong>Doepfer A-151 or A-152</strong> for routing/sequential switching</li>
+<li><strong>Maths / Falistri / Contour 1</strong> for modulation and clock source duties</li>
+<li><strong>Quad VCA / 3xMIA / Quadratt</strong> for modulation control</li>
+<li><strong>Optomix or another LPG</strong></li>
+<li><strong>A strong FM-capable oscillator</strong></li>
+<li><strong>A stereo filter or effect</strong></li>
+<li><strong>A sample &amp; hold/random source</strong></li>
+</ul>
+<p>That combination would let Rung Divisions function as:
+- sequencer
+- rhythmic brain
+- modulation source
+- chaos voice
+- performance instrument</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

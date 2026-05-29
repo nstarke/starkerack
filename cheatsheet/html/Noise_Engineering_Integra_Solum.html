@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Integra_Solum</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Integra Solum</h1>
+<ul>
+<li><a href="../../manuals/Integra Solum Manual - Noise Engineering Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.noiseengineering.us/is/">Manual PDF / Documentation</a></p>
+<h1>Noise Engineering Integra Solum — Cheat Sheet</h1>
+<h2>What it is</h2>
+<p>Dual rotating clock divider / trigger generator with <strong>2 independent sides</strong>, each with:
+- <strong>1 Clock input</strong>
+- <strong>1 Reset input/button</strong>
+- <strong>1 Shift (offset) control/CV</strong>
+- <strong>8 trigger outputs</strong>
+- <strong>1 mode selector</strong></p>
+<p>A single clock and/or reset can be used for both sides thanks to <strong>normalled inputs</strong>.</p>
+<h2>Quick use</h2>
+<ol>
+<li>Patch a clock into either <strong>Clock</strong> input.</li>
+<li>If only one clock is patched, it <strong>normals to both sides</strong>.</li>
+<li>Choose a <strong>Mode</strong> on each side:</li>
+<li><strong>/2N</strong> = powers-of-two divisions</li>
+<li><strong>N</strong> = sequence of 8</li>
+<li><strong>/2N+1</strong> = odd-number divisions</li>
+<li>Turn or CV the <strong>Shift</strong> control to rotate which output is “first.”</li>
+<li>Patch any of the <strong>8 outputs per side</strong> to envelopes, drum voices, switches, sequencers, etc.</li>
+<li>Use <strong>Reset</strong> input/button to restart the pattern alignment.</li>
+</ol>
+<hr />
+<h2>Controls</h2>
+<h3>Shift knob / CV</h3>
+<ul>
+<li>Rotates the output order.</li>
+<li>Example: <strong>jack 2 becomes step/output 1</strong>, then jack 3, etc.</li>
+<li>Lets you re-map the rhythm across the 8 outputs without changing the clock.</li>
+</ul>
+<h3>Mode switch</h3>
+<p>Three standard modes per side:
+- <strong>/2N</strong> — divide by powers of two
+- <strong>N</strong> — sequence of eight
+- <strong>/2N+1</strong> — divide by odd numbers</p>
+<h3>Reset button</h3>
+<ul>
+<li>While held, <strong>all clock processing pauses</strong>.</li>
+<li>When released, the divider resets on the <strong>first clock after release</strong>.</li>
+</ul>
+<h3>Wack mode</h3>
+<p>Hidden randomized mode.</p>
+<h4>Enter/exit Wack mode</h4>
+<ul>
+<li><strong>One side:</strong> hold that side’s <strong>Offset/Shift knob</strong>, then press <strong>Reset</strong></li>
+<li><strong>Both sides:</strong> hold <strong>both knobs</strong>, then press <strong>Reset</strong>  </li>
+<li>Works when both sides are in regular mode</li>
+</ul>
+<h4>Wack mode behavior</h4>
+<ul>
+<li><strong>/2N:</strong> probabilistic divide-by-2 behavior  </li>
+<li>each step has a <strong>50% chance</strong> to generate a trigger</li>
+<li><strong>N:</strong> one <strong>random trigger output</strong> per step</li>
+<li><strong>/2N+1:</strong> all 8 outputs act independently  </li>
+<li>on each rising clock, <strong>each output has a 50% chance</strong> of triggering</li>
+</ul>
+<hr />
+<h2>Jack Reference</h2>
+<h2>Inputs</h2>
+<h3>Clock input (x2, one per side)</h3>
+<ul>
+<li>Function: Advances that side’s divider/generator on a rising edge</li>
+<li><strong>Clock threshold:</strong> responds at about <strong>3.3 V</strong></li>
+<li>If only one clock is patched, it is <strong>normalled to the other side</strong></li>
+<li><strong>Timing latency:</strong> outputs update about <strong>70 µs</strong> after the clock edge</li>
+</ul>
+<h3>Reset input (x2, one per side)</h3>
+<ul>
+<li>Function: Resets the state of that divider section</li>
+<li>Inputs are also described as normalled behavior when using shared reseting across sides</li>
+<li>Useful for re-aligning patterns to bar starts or master transport</li>
+</ul>
+<h3>Shift CV input (x2, one per side)</h3>
+<ul>
+<li>Function: Rotates the output assignment/order for that side</li>
+<li>Manual does <strong>not specify CV input voltage range</strong></li>
+</ul>
+<hr />
+<h2>Outputs</h2>
+<h3>Trigger outputs (16 total; 8 per side)</h3>
+<ul>
+<li>Function: Trigger streams based on selected mode and shift</li>
+<li><strong>Output voltage range:</strong> <strong>0 V to 5 V</strong></li>
+<li>Trigger goes high at approximately <strong>3.4 V</strong></li>
+<li>Suitable for triggering most Eurorack gate/trigger inputs</li>
+</ul>
+<hr />
+<h2>Per-side output behavior summary</h2>
+<h3>Mode: /2N</h3>
+<ul>
+<li>Outputs represent divisions by powers of 2</li>
+<li>Best for classic clock division trees</li>
+</ul>
+<h3>Mode: N</h3>
+<ul>
+<li>Outputs behave as a sequence of 8 steps</li>
+<li>Good for stepping across 8 destinations rhythmically</li>
+</ul>
+<h3>Mode: /2N+1</h3>
+<ul>
+<li>Outputs represent odd-number divisions</li>
+<li>Good for less symmetrical polyrhythms</li>
+</ul>
+<h3>Shift effect</h3>
+<ul>
+<li>Reorders which physical jack corresponds to the beginning of the cycle</li>
+<li>Great for changing groove without repatching</li>
+</ul>
+<hr />
+<h2>Voltage / Timing Summary</h2>
+<ul>
+<li><strong>Clock input threshold:</strong> ~<strong>3.3 V</strong></li>
+<li><strong>Trigger outputs:</strong> <strong>0 V to 5 V</strong></li>
+<li><strong>Trigger high level:</strong> ~<strong>3.4 V</strong></li>
+<li><strong>Output update latency:</strong> ~<strong>70 µs</strong></li>
+<li><strong>Shift CV range:</strong> <strong>not specified in manual</strong></li>
+<li><strong>Reset input voltage range:</strong> <strong>not specified in manual</strong></li>
+</ul>
+<hr />
+<h2>Physical / Power Specs</h2>
+<ul>
+<li><strong>Type:</strong> Rhythm Modifier</li>
+<li><strong>Width:</strong> <strong>8 HP</strong></li>
+<li><strong>Depth:</strong> <strong>0.8 in</strong></li>
+<li><strong>Power connector:</strong> <strong>2x5 Eurorack</strong></li>
+<li><strong>+12 V:</strong> <strong>90 mA</strong></li>
+<li><strong>-12 V:</strong> <strong>35 mA</strong></li>
+</ul>
+<hr />
+<h2>Practical patch tips</h2>
+<ul>
+<li>Use one master clock to drive both sides for related rhythms.</li>
+<li>Use separate clocks for independent polyrhythmic structures.</li>
+<li>Send resets from a master sequencer every 16 or 32 steps to keep patterns anchored.</li>
+<li>Use <strong>Shift</strong> to remix which destination gets which subdivision.</li>
+<li>Try one side in standard mode and the other in <strong>Wack mode</strong> for a stable/random layered rhythm setup.</li>
+</ul>
+<hr />
+<h2>Ultra-short workflow</h2>
+<ul>
+<li><strong>Clock in</strong></li>
+<li><strong>Pick mode</strong></li>
+<li><strong>Rotate with Shift</strong></li>
+<li><strong>Patch outputs</strong></li>
+<li><strong>Reset to re-align</strong></li>
+<li><strong>Enable Wack mode for randomness</strong></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

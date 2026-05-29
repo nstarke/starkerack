@@ -1,0 +1,805 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ohmforce_Bohm</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Ohmforce — Bohm</h1>
+<ul>
+<li><a href="../../manuals/Bohm documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://ohmforce.com/wp-content/uploads/2025/03/Bohm-Manual.pdf">Manual PDF</a></p>
+<h1>Ohmforce Bohm Cheat Sheet</h1>
+<h2>What it is</h2>
+<p><strong>Bohm</strong> is a <strong>stereo dual-voice kick system</strong> for Eurorack:
+- <strong>Bohm</strong> = main kick voice
+- <strong>Groove expander</strong> = secondary kick / rumble / tops voice
+- <strong>Performer expander</strong> = stereo input, ducking, performance FX</p>
+<h2>Quick start</h2>
+<ol>
+<li><strong>Trigger <code>HIT</code></strong> to fire the main kick.</li>
+<li>Pick a <strong>model</strong> with the <strong>FUNCTION</strong> encoder.</li>
+<li>Shape the kick with:</li>
+<li><code>LENGTH</code> = decay/duration</li>
+<li><code>SUSTAIN</code> = body/level</li>
+<li><code>ATTACK</code> = punch</li>
+<li><code>PITCH</code> = base pitch</li>
+<li><code>CURVE</code> = 808-ish CCW → 909-ish CW pitch sweep</li>
+<li><code>TRS DECAY</code> = click length</li>
+<li><code>TRS TONE</code> = click brightness</li>
+<li><code>COLOR</code> = oscillator/timbre behavior</li>
+<li><code>FX</code> = post-effect amount</li>
+<li>If installed, clock <strong>Groove</strong> from <code>CLOCK</code> for rumble/taps.</li>
+<li>If installed, use <strong>Performer</strong> to duck/process external stereo audio.</li>
+</ol>
+<hr />
+<h1>Core workflow</h1>
+<h2>1) Select a model</h2>
+<ul>
+<li>Turn <strong>FUNCTION</strong> to browse kick models.</li>
+<li>Press <strong>FUNCTION</strong> to enter model variations/menu.</li>
+<li>In <strong>Studio mode</strong>, changes are immediate.</li>
+</ul>
+<h2>2) Main kick behavior</h2>
+<ul>
+<li><code>HIT</code> works as <strong>trigger or gate</strong></li>
+<li><strong>Trigger</strong> = normal kick hit</li>
+<li><strong>Gate held high</strong> = sustain while gate is high, decay when released</li>
+<li><code>PITCH</code> spans roughly <strong>C1 (32.7 Hz) to C2 (65.4 Hz)</strong></li>
+<li><code>CURVE</code></li>
+<li><strong>CCW</strong> = faster drop to base pitch, more 808-like</li>
+<li><strong>CW</strong> = slower sweep, more 909-like</li>
+</ul>
+<h2>3) Groove expander behavior</h2>
+<ul>
+<li><code>CLOCK</code> triggers Groove voice independently of <code>HIT</code></li>
+<li>Best use: feed it a regular clock, often <strong>16th notes</strong></li>
+<li><code>2 / 3 / 4</code> shape tap/envelope levels after each Bohm hit</li>
+<li><code>LENGTH</code> and <code>PITCH</code> are <strong>relative to Bohm</strong></li>
+<li>center = same as Bohm</li>
+<li>left = lower/shorter</li>
+<li>right = higher/longer</li>
+<li><code>COLOR</code> blends sound generators:</li>
+<li>repetition</li>
+<li>kick reverb</li>
+<li>noise</li>
+<li>grit + sub</li>
+<li><code>TAPS</code> output can emit Groove envelope, or other selectable envelopes in settings</li>
+</ul>
+<h2>4) Performer expander behavior</h2>
+<ul>
+<li>Stereo <code>IN</code> is ducked on every <code>HIT</code></li>
+<li><code>DUCK</code> controls how much input ducks</li>
+<li><code>VOL</code> balances Bohm/Groove against the external input</li>
+<li><code>ON/OFF</code> toggles or gates the Performer FX section</li>
+<li>FX can process:</li>
+<li><code>ALL</code></li>
+<li><code>KICK</code></li>
+<li><code>INPUT</code></li>
+</ul>
+<hr />
+<h1>Best-use tips</h1>
+<h2>For classic techno kick</h2>
+<ul>
+<li>Start with <strong>FM-2X</strong>, <strong>HZ-1</strong>, <strong>VX-T</strong>, or <strong>WT-4</strong></li>
+<li>Set:</li>
+<li>medium <code>LENGTH</code></li>
+<li>medium/high <code>ATTACK</code></li>
+<li>low-mid <code>PITCH</code></li>
+<li><code>CURVE</code> slightly CW for 909-ish snap</li>
+<li>short <code>TRS DECAY</code></li>
+<li>brighter <code>TRS TONE</code></li>
+</ul>
+<h2>For 808-style long kick / bass</h2>
+<ul>
+<li>Lower <code>PITCH</code></li>
+<li>Increase <code>LENGTH</code></li>
+<li><code>CURVE</code> more CCW</li>
+<li>Raise <code>SUSTAIN</code></li>
+<li>Try <strong>BASS</strong> FX variation on supported models</li>
+</ul>
+<h2>For pitch tracking / basslines</h2>
+<ul>
+<li>Set:</li>
+<li><code>PITCH</code> knob fully CCW</li>
+<li><code>PITCH</code> attenuverter fully CW</li>
+<li>system <code>PITCH CV</code> mode to proper 1V/oct window: <code>0..1V</code>, <code>1..2V</code>, or <code>2..3V</code></li>
+<li>Use a <strong>1V/oct</strong> sequencer</li>
+<li>Use enough <code>LENGTH</code>, or a gate into <code>HIT</code></li>
+</ul>
+<h2>For Groove rumbles</h2>
+<ul>
+<li>Patch steady clock into <code>CLOCK</code></li>
+<li>Raise Groove <code>VOL</code></li>
+<li>Use <code>COLOR</code> toward repetition/reverb area</li>
+<li>Use <code>2/3/4</code> to build movement</li>
+<li>Groove <code>LENGTH</code> only affects repetition generator, mainly from about <strong>3 o’clock to full CW</strong></li>
+</ul>
+<h2>For sidechain/performance use</h2>
+<ul>
+<li>Patch stereo music into Performer <code>IN</code></li>
+<li>Use <code>DUCK</code> for pumping</li>
+<li>Set Performer FX to <code>DJ FILTER</code>, <code>BEAT ROLL</code>, or <code>SLIP ROLL</code></li>
+<li>Use synced FX switching if you want clean transitions on next <code>HIT</code></li>
+</ul>
+<hr />
+<h1>Models at a glance</h1>
+<h2>FM-2X</h2>
+<ul>
+<li>2-operator FM kick</li>
+<li>Great for punchy synthesized kicks</li>
+<li><code>ATTACK</code> strongly affects FM bite</li>
+<li><code>TRS TONE</code> changes modulator waveform character</li>
+</ul>
+<h2>HZ-1</h2>
+<ul>
+<li>Wavetable kick + transient synth</li>
+<li>Good all-rounder</li>
+<li><code>COLOR</code> adds transient distortion/motion</li>
+</ul>
+<h2>OLP4</h2>
+<ul>
+<li>4-operator FM / OPL-style</li>
+<li>Most experimental</li>
+<li><code>COLOR</code> inactive</li>
+<li><code>TRS TONE</code> adds FM feedback/noisiness</li>
+<li>Groove supported in newer firmware</li>
+</ul>
+<h2>PM-K1</h2>
+<ul>
+<li>Physical-model acoustic bass drum</li>
+<li>Very different control mapping</li>
+<li>Groove <strong>not supported</strong></li>
+<li>Good for acoustic/organic kick textures</li>
+</ul>
+<h2>PX3</h2>
+<ul>
+<li>Wavetable + layered object-hit samples</li>
+<li>Harder / more experimental character</li>
+</ul>
+<h2>SP-6</h2>
+<ul>
+<li>Digital-sounding wavetable + synthesized transient layers</li>
+</ul>
+<h2>VX-T</h2>
+<ul>
+<li>Wavetable + FM transient synth</li>
+<li>Nice for click/toc/hihat-flavored transients</li>
+</ul>
+<h2>WT-4</h2>
+<ul>
+<li>Analog-ish wavetable + synthesized transient layers</li>
+</ul>
+<h2>XT-88</h2>
+<ul>
+<li>User wavetable + user sample model</li>
+<li>Loads from microSD:</li>
+<li><code>wavetables/</code></li>
+<li><code>samples/</code></li>
+</ul>
+<hr />
+<h1>Variations / menu essentials</h1>
+<h2>Bohm common variations</h2>
+<h3>FX type</h3>
+<ul>
+<li><code>TUBE</code></li>
+<li><code>BASS</code></li>
+<li><code>SOFT</code></li>
+<li><code>HARD</code></li>
+<li><code>WAVEFOLD</code></li>
+<li><code>BITCRUSH</code> (some models)</li>
+<li><code>DECIM</code> (some models)</li>
+</ul>
+<h3>Stereo</h3>
+<ul>
+<li><code>STEREO</code> = width 0% to 100%</li>
+</ul>
+<h2>Groove variations</h2>
+<h3>FX type</h3>
+<ul>
+<li><code>LP</code></li>
+<li><code>HP</code></li>
+<li><code>BP</code></li>
+<li><code>DIST</code></li>
+</ul>
+<h3>Stereo</h3>
+<ul>
+<li><code>STEREO</code> = width 0% to 100%</li>
+</ul>
+<h2>Performer variations</h2>
+<ul>
+<li><code>DUCK TIME</code> = duck release time</li>
+<li><code>DUCK SMTH</code> = duck curve smoothing</li>
+<li><code>DUCK BS</code> = band-split frequency for more transparent ducking</li>
+<li>FX types:</li>
+<li><code>DJ FILTER</code></li>
+<li><code>HP</code></li>
+<li><code>LP</code></li>
+<li><code>BEAT ROLL</code></li>
+<li><code>SLIP ROLL</code></li>
+<li><code>DJ RESO</code> = filter resonance</li>
+<li><code>CHN</code> = <code>ALL</code>, <code>KICK</code>, <code>INPUT</code></li>
+</ul>
+<hr />
+<h1>Running modes</h1>
+<h2>Studio mode</h2>
+<ul>
+<li>Default on power-up</li>
+<li>Immediate editing</li>
+<li>Best for sound design and browsing models</li>
+</ul>
+<h2>Live Song mode</h2>
+<ul>
+<li>Programs act as <strong>step sequences of kick snapshots</strong></li>
+<li>Trigger <code>FUNCTION</code> to advance to next step</li>
+<li>New step becomes active on next <code>HIT</code></li>
+</ul>
+<h2>Live Jam mode</h2>
+<ul>
+<li>Programs act as <strong>banks of kick snapshots</strong></li>
+<li>Turn <strong>FUNCTION</strong> to choose next kick</li>
+<li>Press <strong>FUNCTION</strong> to cue it</li>
+<li>It becomes active on next <code>HIT</code></li>
+</ul>
+<h2>Snapshot basics</h2>
+<ul>
+<li>Save a snapshot by holding <strong>HIT</strong> and pressing <strong>FUNCTION</strong></li>
+<li>Snapshots store:</li>
+<li>model variations</li>
+<li>knob positions</li>
+<li><code>LOAD</code></li>
+<li>loads variations only</li>
+<li><code>LOAD W/ POTS</code></li>
+<li>loads variations + pot positions</li>
+</ul>
+<hr />
+<h1>System settings worth knowing</h1>
+<ul>
+<li><strong>PITCH CV</strong>: select 1V/oct mapping window (<code>0..1V</code>, <code>1..2V</code>, <code>2..3V</code>)</li>
+<li><strong>ATTVERT 2</strong>: map <code>SUSTAIN</code> attenuverter to <code>SUSTAIN CV</code> or <code>VELOCITY CV</code></li>
+<li><strong>FUNC RAND</strong>: randomize Bohm+Groove or all including Performer</li>
+<li><strong>PERF FX</strong>: FX switch <code>INSTANT</code> or <code>SYNCED</code></li>
+<li><strong>PERF ON/OFF</strong>: <code>TRIG</code> or <code>GATE</code></li>
+<li><strong>GRV ENV</strong>: <code>FALL</code> or <code>SUSTAIN</code></li>
+<li><strong>TAPS OUT</strong>: <code>GROOVE</code>, <code>I BOHM</code>, <code>PERF</code>, <code>BOHM</code></li>
+<li><strong>PANNING</strong>: hard-pan Bohm/Groove/Performer left, center, or right</li>
+<li><strong>POST EQ</strong>: output EQ for Bohm/Groove</li>
+<li><strong>IN VOL</strong>: attenuate Performer input</li>
+<li><strong>PERF VOL</strong>: Performer slider controls <code>B+G</code> or <code>BOHM</code></li>
+<li><strong>PERF MAX</strong>: max Performer-controlled output level</li>
+<li><strong>LOCK MODEL</strong>: prevent accidental model changes in Studio mode</li>
+<li><strong>BACKUP / RESTORE</strong> via SD card</li>
+<li><strong>FACTORY RESET</strong></li>
+</ul>
+<hr />
+<h1>I/O and control reference</h1>
+<h2>Global technical CV/audio specs</h2>
+<ul>
+<li><strong>CV input range:</strong> <strong>±5V</strong>  </li>
+<li><strong>0..5V compatible:</strong> yes</li>
+<li><strong>Knob/CV resolution:</strong> <strong>16-bit</strong></li>
+<li><strong>Audio output:</strong> stereo</li>
+<li><strong>Sample rate:</strong> <strong>48 kHz</strong></li>
+<li><strong>Latency:</strong> <strong>0.33 ms</strong></li>
+</ul>
+<hr />
+<h2>Bohm main module</h2>
+<h3>Jacks</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th style="text-align: right;">Range</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LENGTH CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates kick duration</td>
+</tr>
+<tr>
+<td><code>ATTACK CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates attack amount</td>
+</tr>
+<tr>
+<td><code>SUSTAIN CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates sustain/volume</td>
+</tr>
+<tr>
+<td><code>HIT</code></td>
+<td>gate/trigger in</td>
+<td style="text-align: right;"><strong>0..5V compatible</strong> / CV input spec <strong>±5V</strong></td>
+<td>Triggers or sustains the kick</td>
+</tr>
+<tr>
+<td><code>TRS DECAY CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates transient decay</td>
+</tr>
+<tr>
+<td><code>TONE CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates transient tone</td>
+</tr>
+<tr>
+<td><code>FUNCTION CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>In Studio: randomize current variations; other contexts depend on mode</td>
+</tr>
+<tr>
+<td><code>VELOCITY CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates kick velocity/level</td>
+</tr>
+<tr>
+<td><code>PITCH CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Pitch modulation; can be configured for 1V/oct over selected 1V window</td>
+</tr>
+<tr>
+<td><code>CURVE CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates pitch curve</td>
+</tr>
+<tr>
+<td><code>COLOR CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates timbre/wavetable behavior</td>
+</tr>
+<tr>
+<td><code>FX CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates FX amount</td>
+</tr>
+<tr>
+<td><code>OUT L/R</code></td>
+<td>stereo audio out</td>
+<td style="text-align: right;">Eurorack audio</td>
+<td>Main stereo output</td>
+</tr>
+</tbody>
+</table>
+<h3>Knobs / controls</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LENGTH</code></td>
+<td>knob</td>
+<td>Kick duration</td>
+</tr>
+<tr>
+<td><code>SUSTAIN</code></td>
+<td>knob</td>
+<td>Kick body/level</td>
+</tr>
+<tr>
+<td><code>ATTACK</code></td>
+<td>knob</td>
+<td>Attack/punch</td>
+</tr>
+<tr>
+<td><code>PITCH</code></td>
+<td>knob</td>
+<td>Base kick pitch</td>
+</tr>
+<tr>
+<td><code>CURVE</code></td>
+<td>knob</td>
+<td>Pitch drop shape: 808-like CCW → 909-like CW</td>
+</tr>
+<tr>
+<td><code>TRS DECAY</code></td>
+<td>knob</td>
+<td>Click/transient duration</td>
+</tr>
+<tr>
+<td><code>COLOR</code></td>
+<td>knob</td>
+<td>Timbre / wavetable behavior</td>
+</tr>
+<tr>
+<td><code>FX</code></td>
+<td>knob</td>
+<td>Kick post-effect amount</td>
+</tr>
+<tr>
+<td><code>TRS TONE</code></td>
+<td>knob</td>
+<td>Click brightness</td>
+</tr>
+<tr>
+<td><code>FUNCTION</code></td>
+<td>push encoder</td>
+<td>Model select, menu navigation, variation editing</td>
+</tr>
+<tr>
+<td><code>HIT</code></td>
+<td>button</td>
+<td>Manual trigger; can also be held</td>
+</tr>
+<tr>
+<td><code>microSD slot</code></td>
+<td>storage</td>
+<td>Firmware, models, user wavetables/samples</td>
+</tr>
+</tbody>
+</table>
+<h3>Attenuverters / trims</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LENGTH</code> attenuverter</td>
+<td>trim</td>
+<td>CV depth/polarity for LENGTH CV</td>
+</tr>
+<tr>
+<td><code>ATTACK</code> attenuverter</td>
+<td>trim</td>
+<td>CV depth/polarity for ATTACK CV</td>
+</tr>
+<tr>
+<td><code>SUSTAIN</code> attenuverter</td>
+<td>trim</td>
+<td>CV depth/polarity for SUSTAIN CV or VELOCITY CV depending on setting</td>
+</tr>
+<tr>
+<td><code>PITCH</code> attenuverter</td>
+<td>trim</td>
+<td>CV depth/polarity for PITCH CV</td>
+</tr>
+<tr>
+<td><code>CURVE</code> attenuverter</td>
+<td>trim</td>
+<td>CV depth/polarity for CURVE CV</td>
+</tr>
+<tr>
+<td><code>COLOR</code> attenuverter</td>
+<td>trim</td>
+<td>CV depth/polarity for COLOR CV</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Groove expander</h2>
+<h3>Jacks</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th style="text-align: right;">Range</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FX CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates Groove FX</td>
+</tr>
+<tr>
+<td><code>CLOCK</code></td>
+<td>trigger in</td>
+<td style="text-align: right;"><strong>0..5V compatible</strong> / CV input spec <strong>±5V</strong></td>
+<td>Triggers Groove voice/taps</td>
+</tr>
+<tr>
+<td><code>COLOR CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates sound source blend</td>
+</tr>
+<tr>
+<td><code>VOL CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates Groove volume</td>
+</tr>
+<tr>
+<td><code>LENGTH CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates Groove duration (repetition source only where applicable)</td>
+</tr>
+<tr>
+<td><code>PITCH CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates Groove pitch relative to Bohm</td>
+</tr>
+<tr>
+<td><code>TAPS CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Shapes tap envelope</td>
+</tr>
+<tr>
+<td><code>TAPS CV OUT</code></td>
+<td>CV out</td>
+<td style="text-align: right;">not explicitly stated; Eurorack CV</td>
+<td>Outputs selected envelope (<code>GROOVE</code>, <code>I BOHM</code>, <code>PERF</code>, or <code>BOHM</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3>Knobs / sliders</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>2</code></td>
+<td>knob</td>
+<td>2nd tap/envelope level</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>knob</td>
+<td>3rd tap/envelope level</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>knob</td>
+<td>4th tap/envelope level</td>
+</tr>
+<tr>
+<td><code>LENGTH</code></td>
+<td>knob</td>
+<td>Groove length relative to Bohm</td>
+</tr>
+<tr>
+<td><code>PITCH</code></td>
+<td>knob</td>
+<td>Groove pitch relative to Bohm</td>
+</tr>
+<tr>
+<td><code>FX</code></td>
+<td>knob</td>
+<td>Groove post-effect amount</td>
+</tr>
+<tr>
+<td><code>COLOR</code></td>
+<td>knob</td>
+<td>Selects/blends sound generators</td>
+</tr>
+<tr>
+<td><code>VOL</code></td>
+<td>slider</td>
+<td>Groove output level</td>
+</tr>
+</tbody>
+</table>
+<h3>Attenuverters / trims</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FX</code> attenuverter</td>
+<td>trim</td>
+<td>CV depth/polarity for FX CV</td>
+</tr>
+<tr>
+<td><code>COLOR</code> attenuverter</td>
+<td>trim</td>
+<td>CV depth/polarity for COLOR CV</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Performer expander</h2>
+<h3>Jacks</h3>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th style="text-align: right;">Range</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DUCK CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates ducking amount</td>
+</tr>
+<tr>
+<td><code>FX CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Modulates Performer FX parameter</td>
+</tr>
+<tr>
+<td><code>ON/OFF CV</code></td>
+<td>gate/trigger in</td>
+<td style="text-align: right;"><strong>0..5V compatible</strong> / CV input spec <strong>±5V</strong></td>
+<td>Toggles or gates FX depending on system setting</td>
+</tr>
+<tr>
+<td><code>IN L/R</code></td>
+<td>stereo audio in</td>
+<td style="text-align: right;">Eurorack audio</td>
+<td>External stereo input</td>
+</tr>
+<tr>
+<td><code>VOL CV</code></td>
+<td>CV in</td>
+<td style="text-align: right;"><strong>±5V</strong></td>
+<td>Controls Bohm/Groove or Bohm-only level depending on setting</td>
+</tr>
+</tbody>
+</table>
+<h3>Knobs / buttons / sliders</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DUCK</code></td>
+<td>knob</td>
+<td>Amount of ducking on external input</td>
+</tr>
+<tr>
+<td><code>FX</code></td>
+<td>knob</td>
+<td>Performance FX parameter</td>
+</tr>
+<tr>
+<td><code>ON/OFF</code></td>
+<td>button</td>
+<td>Activate/deactivate or gate the FX section</td>
+</tr>
+<tr>
+<td><code>VOL</code></td>
+<td>slider</td>
+<td>Level of Bohm/Groove before mix/effect, depending on settings</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>Installation / power / size</h1>
+<h2>Width</h2>
+<ul>
+<li><strong>Bohm:</strong> 18HP</li>
+<li><strong>Groove:</strong> 10HP</li>
+<li><strong>Performer:</strong> 8HP</li>
+<li><strong>Full set:</strong> 36HP</li>
+</ul>
+<h2>Depth</h2>
+<ul>
+<li><strong>Bohm:</strong> 28 mm</li>
+<li><strong>Groove:</strong> 26 mm</li>
+<li><strong>Performer:</strong> 26 mm</li>
+</ul>
+<h2>Power</h2>
+<ul>
+<li><strong>Bohm:</strong> +12V 130 mA / -12V 10 mA</li>
+<li><strong>Groove:</strong> +12V 20 mA / -12V 10 mA</li>
+<li><strong>Performer:</strong> +12V 10 mA / -12V 5 mA</li>
+<li><strong>+5V:</strong> unused</li>
+</ul>
+<hr />
+<h1>microSD / firmware / user files</h1>
+<ul>
+<li>microSD / SDHC Class 10+</li>
+<li>Up to <strong>32 GB</strong></li>
+<li><strong>FAT32 with MBR only</strong></li>
+<li>Used for:</li>
+<li>firmware updates</li>
+<li>model files</li>
+<li>XT-88 user wavetables and samples</li>
+<li>backup/restore</li>
+</ul>
+<h2>XT-88 user file formats</h2>
+<h3>Wavetables</h3>
+<ul>
+<li><code>.wav</code></li>
+<li>Serum/Serum 2 compatible, assumed <strong>2048-cycle</strong></li>
+<li>or <strong>mono 32-bit float</strong>, assumed <strong>1024-cycle</strong></li>
+<li>max <strong>16 wavetables</strong> or until <strong>1.4 MB</strong> memory full</li>
+</ul>
+<h3>Samples</h3>
+<ul>
+<li><code>.wav</code></li>
+<li>mono or stereo</li>
+<li>16-bit / 24-bit integer or 32-bit float</li>
+<li><strong>48 kHz</strong></li>
+<li>max <strong>256 samples</strong> or until <strong>14 MB</strong> memory full</li>
+</ul>
+<hr />
+<h1>Practical patch recipes</h1>
+<h2>Simple standalone kick</h2>
+<ul>
+<li>Trigger sequencer → <code>HIT</code></li>
+<li>Bohm <code>OUT</code> → mixer</li>
+<li>Start with FM-2X</li>
+<li>Tune with <code>PITCH</code>, <code>CURVE</code>, <code>LENGTH</code>, <code>ATTACK</code></li>
+</ul>
+<h2>Techno rumble</h2>
+<ul>
+<li>Main trigger → <code>HIT</code></li>
+<li>16th clock → Groove <code>CLOCK</code></li>
+<li>Groove <code>VOL</code> up</li>
+<li>Groove <code>COLOR</code> toward repetitions/reverb</li>
+<li>Adjust <code>2/3/4</code> and Groove <code>FX</code></li>
+</ul>
+<h2>Sidechain external synths</h2>
+<ul>
+<li>External stereo synth → Performer <code>IN</code></li>
+<li>Kick trigger → <code>HIT</code></li>
+<li>Increase Performer <code>DUCK</code></li>
+<li>Output from Bohm <code>OUT</code></li>
+</ul>
+<h2>Envelope utility patch</h2>
+<ul>
+<li>Use Groove <code>TAPS OUT</code> to modulate another VCA/filter</li>
+<li>In settings, choose source:</li>
+<li>Groove envelope</li>
+<li>inverted Bohm envelope</li>
+<li>Bohm envelope</li>
+<li>Performer duck envelope</li>
+</ul>
+<hr />
+<h1>Gotchas</h1>
+<ul>
+<li><strong>Groove does nothing without <code>CLOCK</code></strong></li>
+<li><strong>Groove <code>LENGTH</code> only affects repetition source</strong></li>
+<li><strong>PM-K1 does not support Groove</strong></li>
+<li>For pitch tracking, ensure sequencer is <strong>1V/oct</strong></li>
+<li>The module can preload next live snapshot, so ultra-fast step changes may be limited by model load time</li>
+<li>If you add Groove/Performer after purchase, <strong>calibration is recommended</strong></li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

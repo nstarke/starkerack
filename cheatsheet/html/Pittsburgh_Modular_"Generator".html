@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Pittsburgh_Modular_&quot;Generator&quot;</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Pittsburgh Modular — "Generator"</h1>
+<ul>
+<li><a href="../../manuals/Generator - Pittsburgh Modular Synthesizers.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://pittsburghmodular.com/generator">Manual PDF / Source</a></p>
+<h1>Pittsburgh Modular Generator — Cheat Sheet</h1>
+<p><strong>Type:</strong> Dual oscillator / FM voice<br />
+<strong>Status:</strong> No longer in production<br />
+<strong>Size:</strong> 10 HP<br />
+<strong>Depth:</strong> 35 mm<br />
+<strong>Power:</strong> 30 mA</p>
+<h2>What it does</h2>
+<p>Generator is a <strong>2-oscillator FM-focused sound source</strong> built around two <strong>triangle-core wide-range oscillators</strong>. It excels at:
+- internal FM tones
+- metallic percussion
+- harsh modulation
+- drones / textures
+- noise / glitchy digital-like sounds</p>
+<p>A key concept: <strong>Oscillator 1 feeds an internal VCA (“Index”) whose output internally FM-modulates Oscillator 2.</strong></p>
+<p>It is <strong>not 1V/oct</strong> and <strong>not temperature compensated</strong>, so think of it more as an <strong>FM/timbre oscillator</strong> than a precision melodic VCO.</p>
+<hr />
+<h2>Quick start</h2>
+<ol>
+<li>Patch <strong>OUT</strong> or <strong>2</strong> to your mixer/VCA.</li>
+<li>Set both oscillators to <strong>Mid</strong> or <strong>High</strong> range.</li>
+<li>Adjust <strong>GEN1 RANGE</strong> and <strong>GEN2 RANGE</strong> for base pitch.</li>
+<li>Turn <strong>INDEX</strong> to control how much Osc 1 internally FM’s Osc 2.</li>
+<li>Sweep <strong>SHAPE</strong> to morph both oscillators’ waveforms.</li>
+<li>Use <strong>EXTERNAL IN</strong> plus its attenuverter to add more FM to either osc.</li>
+<li>For dynamic timbre, patch an envelope or LFO into <strong>INDEX CV</strong>.</li>
+</ol>
+<hr />
+<h2>Signal flow</h2>
+<ul>
+<li><strong>Generator 1 output (“1”)</strong> = raw Oscillator 1, <strong>pre-Index VCA</strong></li>
+<li><strong>Index VCA</strong> controls Generator 1 level</li>
+<li><strong>OUT</strong> = Oscillator 1 <strong>post-Index VCA</strong></li>
+<li><strong>OUT</strong> is also the <strong>internal FM source</strong> sent to Generator 2</li>
+<li><strong>Generator 2 output (“2”)</strong> = Oscillator 2 audio output</li>
+<li><strong>EXTERNAL IN</strong> can FM either Generator 1 or 2 depending on destination switch</li>
+</ul>
+<hr />
+<h2>Controls</h2>
+<h2>GEN1 row</h2>
+<h3>EXP jack</h3>
+<p>Exponential CV input for <strong>Generator 1</strong> frequency.<br />
+- Exponential response
+- <strong>Does not track 1V/oct</strong>
+- Voltage range: <strong>not specified in manual</strong></p>
+<h3>3-way range switch</h3>
+<p>Coarse frequency range for Generator 1:
+- <strong>Left = Low</strong>
+- <strong>Center = High</strong>
+- <strong>Right = Mid</strong></p>
+<h3>RANGE knob</h3>
+<p>Fine frequency control for Generator 1.</p>
+<hr />
+<h2>EXTERNAL row</h2>
+<h3>INPUT ATTENUVERTER knob</h3>
+<p>Controls amount/polarity of <strong>EXTERNAL IN</strong> modulation.
+- Full left: inverted modulation, max amount
+- 12 o’clock: 0
+- Full right: positive modulation, max amount</p>
+<h3>DESTINATION switch</h3>
+<p>Chooses which oscillator gets modulated by <strong>EXTERNAL IN</strong>:
+- <strong>Up = Generator 1</strong>
+- <strong>Down = Generator 2</strong></p>
+<h3>EXTERNAL IN jack</h3>
+<p>Accepts CV or audio-rate signals as FM/modulation source.<br />
+- Voltage range: <strong>not specified in manual</strong></p>
+<hr />
+<h2>GEN2 row</h2>
+<h3>EXP jack</h3>
+<p>Exponential CV input for <strong>Generator 2</strong> frequency.<br />
+- Exponential response
+- <strong>Does not track 1V/oct</strong>
+- Voltage range: <strong>not specified in manual</strong></p>
+<h3>3-way range switch</h3>
+<p>Coarse frequency range for Generator 2:
+- <strong>Left = Low</strong>
+- <strong>Center = High</strong>
+- <strong>Right = Mid</strong></p>
+<h3>RANGE knob</h3>
+<p>Fine frequency control for Generator 2.</p>
+<h3>Internal FM note</h3>
+<p>Generator 2 is internally FM’d by <strong>Generator 1 Index Out</strong>. The amount is controlled by:
+- <strong>INDEX knob</strong>
+- <strong>INDEX CV</strong></p>
+<hr />
+<h2>SHAPE row</h2>
+<h3>SHAPE knob</h3>
+<p>Morphs both oscillators’ waveforms simultaneously:</p>
+<ul>
+<li><strong>Full left</strong></li>
+<li>Generator 1 = <strong>Square</strong></li>
+<li>
+<p>Generator 2 = <strong>Triangle</strong></p>
+</li>
+<li>
+<p><strong>Full right</strong></p>
+</li>
+<li>Generator 1 = <strong>Triangle</strong></li>
+<li>Generator 2 = <strong>Square</strong></li>
+</ul>
+<h3>1 jack</h3>
+<p>Audio output for <strong>Generator 1</strong>, <strong>pre-Index VCA</strong>.<br />
+- Voltage range: <strong>not specified in manual</strong></p>
+<h3>2 jack</h3>
+<p>Audio output for <strong>Generator 2</strong>.<br />
+- Voltage range: <strong>not specified in manual</strong></p>
+<hr />
+<h2>INDEX row</h2>
+<h3>CV jack</h3>
+<p>CV input for the <strong>Index VCA</strong>.<br />
+This controls Generator 1’s VCA, which in turn controls:
+- <strong>OUT level</strong>
+- amount of <strong>internal FM sent to Generator 2</strong></p>
+<p>Voltage range: <strong>not specified in manual</strong></p>
+<h3>OUT jack</h3>
+<p><strong>Post-Index VCA Generator 1 output</strong>.<br />
+Also serves as the source for internal FM to Generator 2.<br />
+Voltage range: <strong>not specified in manual</strong></p>
+<h3>INDEX knob</h3>
+<p>Gain control for Generator 1 Index VCA:
+- <strong>Full left = 100% gain</strong>
+- <strong>Full right = 0% gain</strong></p>
+<p>Important: this knob is <strong>not</strong> a normal CV attenuator.<br />
+- Full left gives full output regardless of CV
+- Full right allows strongest effect from incoming <strong>INDEX CV</strong></p>
+<hr />
+<h2>Jack reference</h2>
+<table>
+<thead>
+<tr>
+<th>Jack</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GEN1 EXP</strong></td>
+<td>CV input</td>
+<td>Exponential frequency control for Generator 1</td>
+<td><strong>Not specified</strong></td>
+</tr>
+<tr>
+<td><strong>EXTERNAL IN</strong></td>
+<td>CV/audio input</td>
+<td>External FM/modulation source for selected oscillator</td>
+<td><strong>Not specified</strong></td>
+</tr>
+<tr>
+<td><strong>GEN2 EXP</strong></td>
+<td>CV input</td>
+<td>Exponential frequency control for Generator 2</td>
+<td><strong>Not specified</strong></td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>Audio output</td>
+<td>Generator 1 output, pre-Index VCA</td>
+<td><strong>Not specified</strong></td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Audio output</td>
+<td>Generator 2 output</td>
+<td><strong>Not specified</strong></td>
+</tr>
+<tr>
+<td><strong>INDEX CV</strong></td>
+<td>CV input</td>
+<td>Controls Index VCA / internal FM amount</td>
+<td><strong>Not specified</strong></td>
+</tr>
+<tr>
+<td><strong>OUT</strong></td>
+<td>Audio output</td>
+<td>Generator 1 post-Index VCA output; internal FM source to Gen2</td>
+<td><strong>Not specified</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Control reference</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GEN1 RANGE switch</strong></td>
+<td>3-way toggle</td>
+<td>Gen1 coarse range: Left Low / Center High / Right Mid</td>
+</tr>
+<tr>
+<td><strong>GEN1 RANGE knob</strong></td>
+<td>Knob</td>
+<td>Gen1 fine frequency</td>
+</tr>
+<tr>
+<td><strong>EXTERNAL ATTENUVERTER</strong></td>
+<td>Knob</td>
+<td>Amount/polarity of external modulation</td>
+</tr>
+<tr>
+<td><strong>DESTINATION switch</strong></td>
+<td>Toggle</td>
+<td>External modulation target: Up Gen1 / Down Gen2</td>
+</tr>
+<tr>
+<td><strong>GEN2 RANGE switch</strong></td>
+<td>3-way toggle</td>
+<td>Gen2 coarse range: Left Low / Center High / Right Mid</td>
+</tr>
+<tr>
+<td><strong>GEN2 RANGE knob</strong></td>
+<td>Knob</td>
+<td>Gen2 fine frequency</td>
+</tr>
+<tr>
+<td><strong>SHAPE</strong></td>
+<td>Knob</td>
+<td>Simultaneous waveform morph for both oscillators</td>
+</tr>
+<tr>
+<td><strong>INDEX</strong></td>
+<td>Knob</td>
+<td>Gain of Generator 1 Index VCA / internal FM amount to Gen2</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Practical patch tips</h2>
+<h3>1. Internal FM voice</h3>
+<ul>
+<li>Listen to <strong>2</strong></li>
+<li>Set both oscillators in <strong>Mid</strong></li>
+<li>Use <strong>INDEX</strong> to add internal FM</li>
+<li>Sweep <strong>SHAPE</strong> for timbre changes</li>
+</ul>
+<p>This is the core Generator sound.</p>
+<h3>2. Metallic percussion</h3>
+<ul>
+<li>Patch an envelope to <strong>INDEX CV</strong></li>
+<li>Listen to <strong>OUT</strong> or <strong>2</strong></li>
+<li>Put <strong>GEN1</strong> in <strong>Low</strong></li>
+<li>Put <strong>GEN2</strong> in <strong>Mid</strong></li>
+<li>Fine-tune both frequency knobs</li>
+</ul>
+<p>This matches the manual’s suggested percussion approach.</p>
+<h3>3. Cross-mod style patch</h3>
+<ul>
+<li>Patch <strong>2</strong> into <strong>EXTERNAL IN</strong></li>
+<li>Set destination switch <strong>Up</strong> to modulate <strong>GEN1</strong></li>
+<li>Use <strong>INDEX CV</strong> for animated internal FM</li>
+<li>Listen to <strong>OUT</strong> or <strong>2</strong></li>
+</ul>
+<p>Great for chaotic, aggressive, unstable FM.</p>
+<h3>4. Separate dual oscillator use</h3>
+<ul>
+<li>Take <strong>1</strong> and <strong>2</strong> as two independent audio sources</li>
+<li>Keep <strong>INDEX</strong> lower if you want less internal FM interaction</li>
+<li>Use <strong>SHAPE</strong> as a dual timbre control</li>
+</ul>
+<hr />
+<h2>Important caveats</h2>
+<ul>
+<li><strong>Not a precision pitch VCO</strong></li>
+<li><strong>No 1V/oct tracking</strong></li>
+<li><strong>No voltage ranges given in the manual</strong> for I/O</li>
+<li>Best treated as an <strong>experimental FM oscillator / sound generator</strong></li>
+</ul>
+<hr />
+<h2>Best-use summary</h2>
+<p>Use Generator when you want:
+- brutal FM
+- percussion and clangs
+- shifting drone textures
+- unstable digital-ish sounds from analog circuits
+- one compact module that can act as both sound source and modulation source</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

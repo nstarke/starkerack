@@ -1,0 +1,587 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ohmforce_Bohm</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Ohmforce — Bohm</h1>
+<ul>
+<li><a href="../../manuals/Bohm documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://ohmforce.com/wp-content/uploads/2025/03/Bohm-Manual.pdf">Ohm Force Bohm Eurorack Manual</a></p>
+<h1>Using Bohm, Groove, and Performer to create melodic components</h1>
+<p>Although <strong>Bohm</strong> is presented as a stereo dual-voice <strong>kick</strong> system, the manual makes it clear that it can do much more than drum duties. Used together, <strong>Bohm + Groove + Performer</strong> can become a compact <strong>melodic bass / riff / drone / resampling / performance FX voice</strong> for Eurorack.</p>
+<h2>Big picture</h2>
+<p>These modules can create melody in four main ways:</p>
+<ol>
+<li><strong>Bohm as a pitched synth voice</strong></li>
+<li>The manual explicitly states that <strong>pitch tracking can be used to play bass lines</strong>.</li>
+<li>
+<p>Bohm’s kick engine becomes a playable oscillator/enveloped synth when you use:</p>
+<ul>
+<li><strong>PITCH CV</strong></li>
+<li>a long enough <strong>LENGTH</strong></li>
+<li>optionally a <strong>gate</strong> on <strong>HIT</strong> instead of a short trigger</li>
+</ul>
+</li>
+<li>
+<p><strong>Groove as a second related melodic voice</strong></p>
+</li>
+<li>Groove is a second kick voice triggered by <strong>CLOCK</strong></li>
+<li>Its <strong>PITCH</strong> and <strong>LENGTH</strong> are <strong>relative to Bohm</strong></li>
+<li>
+<p>That makes it ideal for:</p>
+<ul>
+<li>harmonically related bass doubling</li>
+<li>octave / interval reinforcement</li>
+<li>rhythmic melodic repeats</li>
+<li>drones and rumble beds</li>
+</ul>
+</li>
+<li>
+<p><strong>Performer as a melodic processor</strong></p>
+</li>
+<li>Performer adds:<ul>
+<li>stereo input</li>
+<li>ducking</li>
+<li>performance FX</li>
+<li>selectable processing of <strong>kick</strong>, <strong>input</strong>, or <strong>both</strong></li>
+</ul>
+</li>
+<li>
+<p>This means Bohm/Groove can be used as melodic sources, while Performer shapes them into playable transitions, filter sweeps, beat-roll textures, and sidechained musical layers.</p>
+</li>
+<li>
+<p><strong>Snapshots and Live modes as “preset melody states”</strong></p>
+</li>
+<li>A snapshot stores:<ul>
+<li>model variations</li>
+<li>knob positions</li>
+</ul>
+</li>
+<li>Programs and Live modes let you sequence or cue different melodic states:<ul>
+<li>bassline section</li>
+<li>chorus octave</li>
+<li>breakdown drone</li>
+<li>distorted lead-like hit</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h1>1. Bohm as a melodic voice</h1>
+<h2>Pitch tracking</h2>
+<p>The most important melodic feature in the manual is here:</p>
+<ul>
+<li>Bohm <strong>PITCH</strong> spans approximately <strong>C1 to C2</strong></li>
+<li>It supports <strong>1V/oct pitch tracking</strong></li>
+<li>For proper pitch tracking:</li>
+<li>set <strong>PITCH knob fully counterclockwise</strong></li>
+<li>set <strong>PITCH attenuverter fully clockwise</strong></li>
+<li>choose the proper <strong>Pitch CV system setting</strong>:<ul>
+<li><code>0..1V</code></li>
+<li><code>1..2V</code></li>
+<li><code>2..3V</code></li>
+</ul>
+</li>
+<li>ensure your sequencer outputs <strong>1 Volt per octave</strong></li>
+</ul>
+<p>This means Bohm can function as a <strong>monophonic bass synth voice</strong> over a one-octave window, depending on configuration and model behavior.</p>
+<h2>Use HIT as a gate, not only a trigger</h2>
+<p>The manual says:</p>
+<ul>
+<li><strong>HIT can work both as a trigger or a gate</strong></li>
+<li>If <strong>HIT remains on</strong>, the kick sustains</li>
+<li>When HIT is released, the sound decays</li>
+</ul>
+<p>For melody, this is huge. It means you can send:
+- a <strong>gate sequence</strong>
+- a keyboard/gate
+- a sequencer with variable gate lengths</p>
+<p>This transforms Bohm from a percussive one-shot into a <strong>sustained playable voice</strong>, especially for:
+- basslines
+- drone notes
+- acid-like plucks
+- sustained sub melodies</p>
+<h2>Envelope controls for note shaping</h2>
+<p>Even when using Bohm melodically, the kick controls become useful synth-shaping controls:</p>
+<ul>
+<li><strong>LENGTH</strong> = total note duration / tail length</li>
+<li><strong>SUSTAIN</strong> = body/level of the sustained note</li>
+<li><strong>ATTACK</strong> = transient amount and attack emphasis</li>
+<li><strong>CURVE</strong> = pitch envelope behavior</li>
+<li><strong>TRS DECAY</strong> = click/transient duration</li>
+<li><strong>TRS TONE</strong> = transient brightness</li>
+<li><strong>COLOR</strong> = timbral evolution of the oscillator</li>
+<li><strong>FX</strong> = post effect amount</li>
+</ul>
+<p>So for melodic use:
+- reduce transient-heavy settings for smoother notes
+- lengthen <strong>LENGTH</strong>
+- increase <strong>SUSTAIN</strong>
+- use <strong>HIT gate</strong> for true sustain
+- use <strong>COLOR</strong> and <strong>FX</strong> as musical tone controls</p>
+<h2>Which Bohm models are most melodic?</h2>
+<p>From the manual, these are especially promising:</p>
+<h3>FM-2X</h3>
+<p>Best for:
+- FM basslines
+- techno bass melodies
+- metallic subs
+- playable low-end riffs</p>
+<p>Why:
+- 2-operator FM structure
+- <strong>ATTACK</strong> controls FM amount
+- <strong>TRS TONE</strong> changes modulator waveform
+- <strong>RATIO</strong> variation changes harmonic relationship</p>
+<p>Musically, this can move from:
+- clean sine-ish bass
+- to punchy FM bass
+- to more overtone-rich melodic lines</p>
+<h3>HZ-1</h3>
+<p>Best for:
+- classic electronic basslines
+- smoother melodic kick-bass hybrids</p>
+<p>Why:
+- wavetable oscillator + transient synth
+- analog-style wavetable options
+- variable click choices</p>
+<h3>VX-T</h3>
+<p>Best for:
+- sharper, articulated melodic parts
+- percussive leads
+- bass + hi-click hybrid sequences</p>
+<p>Why:
+- transient synth is more pronounced and tunable
+- can create top-heavy melodic attacks</p>
+<h3>WT-4</h3>
+<p>Best for:
+- rounded “analog-style” melodic bass
+- layered, musical low-end phrases</p>
+<h3>SP-6 / PX3</h3>
+<p>Best for:
+- more aggressive melodic content
+- industrial / experimental riffs
+- textured bass hooks</p>
+<h3>XT-88</h3>
+<p>Best for:
+- custom melodic design</p>
+<p>Why:
+- load your own <strong>wavetables</strong>
+- load your own <strong>samples</strong>
+- tune <strong>BRIGHT</strong> and <strong>LAYER VOL</strong>
+- create a hybrid oscillator + sampled layer melodic voice</p>
+<p>This is probably the most powerful model if your goal is to turn Bohm into a custom bass instrument.</p>
+<h3>PM-K1</h3>
+<p>Less useful for conventional melodic sequencing:
+- It is a <strong>physical model of an acoustic bass drum</strong>
+- many usual controls are inactive
+- Groove is not supported with it</p>
+<p>Still usable for tuned tom-like or acoustic drum-pitched lines, but not the first choice for melodic work.</p>
+<hr />
+<h1>2. Groove as a second melodic layer</h1>
+<p>Groove is described as a <strong>secondary kick voice</strong>, often for rumbles or tops. But the architecture makes it very useful melodically.</p>
+<h2>Groove follows Bohm</h2>
+<p>Its key melodic behavior:</p>
+<ul>
+<li><strong>PITCH on Groove is relative to Bohm PITCH</strong></li>
+<li><strong>LENGTH on Groove is relative to Bohm LENGTH</strong></li>
+<li>center position = same as Bohm</li>
+<li>left = lower than Bohm, but not below Bohm minimum</li>
+<li>right = higher than Bohm, but not above Bohm maximum</li>
+</ul>
+<p>This means Groove is ideal for making a <strong>dependent second voice</strong>, such as:</p>
+<ul>
+<li>tuned reinforcement</li>
+<li>note doubling</li>
+<li>octave-above or octave-below feel</li>
+<li>interval-shifted taps</li>
+<li>moving rumble tied to the bassline</li>
+</ul>
+<h2>Groove sound generators as melodic textures</h2>
+<p>Groove contains 4 sound generators:</p>
+<ol>
+<li><strong>Repetitions of the Bohm kick</strong></li>
+<li><strong>Kick reverb</strong></li>
+<li><strong>Noise</strong></li>
+<li><strong>Grit + sub frequency</strong></li>
+</ol>
+<p>Selected/blended with <strong>COLOR</strong>.</p>
+<h3>Repetition mode</h3>
+<p>This is the most obviously melodic:
+- every <strong>CLOCK</strong> trigger retriggers a “tap”
+- these are not delayed echoes; they are fresh rhythmic retriggers
+- tap levels are controlled by:
+  - <strong>2</strong>
+  - <strong>3</strong>
+  - <strong>4</strong>
+  - <strong>TAPS CV</strong></p>
+<p>This can create:
+- bass arpeggio-feel repeats
+- galloping subs
+- ratcheted low-end motifs
+- pseudo-sequenced melodic subdivisions</p>
+<p>If Bohm is pitch-tracked, Groove’s repetitions inherit a harmonically related pitch context.</p>
+<h3>Reverb / noise / grit+sub modes</h3>
+<p>These are not “pitched melody” in the classic sense, but they are useful for <strong>melodic support layers</strong>:
+- resonant rumble tails
+- tuned sub under a note
+- noisy top texture following a bass phrase
+- sustained drone synced to melodic events</p>
+<h2>Groove can become a drone</h2>
+<p>The manual notes:
+- <strong>GRV ENV</strong> system option can be:
+  - <code>FALL</code>
+  - <code>SUSTAIN</code></p>
+<p>With <code>SUSTAIN</code>, Groove can hold after the 4th tap level, which is excellent for:
+- bass drones
+- sustained harmonic beds
+- one-note underpinning below a melody
+- transitions and breakdowns</p>
+<p>Also:
+- <strong>Perf Vol option</strong> can be set so Performer VOL controls only <strong>BOHM</strong>
+- the manual says this allows <strong>Groove to drone without hearing the Bohm kick</strong></p>
+<p>That is extremely useful melodically:
+- Bohm can act as the triggering/pitched event source
+- Groove can become the sustained note layer</p>
+<h2>Groove FX as tonal shaping</h2>
+<p>Groove effect variations:
+- <strong>LP</strong>
+- <strong>HP</strong>
+- <strong>BP</strong>
+- <strong>DIST</strong></p>
+<p>This means Groove can function as:
+- a filtered bass shadow
+- a band-passed tonal repeat layer
+- a high-passed melodic top
+- a distorted harmonic duplicate</p>
+<p>And <strong>STEREO</strong> width can widen the melodic layer spatially.</p>
+<hr />
+<h1>3. Performer as the melodic glue and live processor</h1>
+<p>Performer is not a voice generator by itself, but in a melodic patch it becomes the key to making Bohm/Groove feel like a complete musical instrument.</p>
+<h2>External audio as another melodic source</h2>
+<p>Performer has:
+- stereo <strong>IN</strong>
+- ducking based on <strong>HIT</strong>
+- effects
+- routing selector</p>
+<p>So you can bring in:
+- another oscillator voice
+- a chord source
+- a sampler loop
+- a drone
+- a bassline from another module</p>
+<p>Then combine it with Bohm/Groove.</p>
+<h2>Ducking for rhythmic phrasing</h2>
+<p>The external input is ducked on every <strong>HIT</strong>.
+That means if you send in a drone, pad, or sustained oscillator:
+- Bohm can carve rhythmic space into it
+- creating a pulsing harmonic layer
+- synced to the melodic bass events</p>
+<p>Performer variations make this more subtle and musical:
+- <strong>DUCK TIME</strong> = release time
+- <strong>DUCK SMTH</strong> = smoothing
+- <strong>DUCK BS</strong> = band split frequency</p>
+<p>This is great for melody because you can:
+- duck only lows while preserving highs
+- create sidechained bass + sustained top
+- keep chord clarity while pulsing the low band</p>
+<h2>Selective FX routing</h2>
+<p>Performer <strong>CHN</strong> variation:
+- <code>ALL</code>
+- <code>KICK</code>
+- <code>INPUT</code></p>
+<p>This allows several melodic configurations:</p>
+<h3>KICK only through FX</h3>
+<p>Use if Bohm/Groove are your melodic voice and you want:
+- filter sweeps on the bassline
+- beat roll on the bass
+- live stutter transitions</p>
+<h3>INPUT only through FX</h3>
+<p>Use if Bohm is your rhythmic melodic anchor and incoming audio is a pad/lead/drone.</p>
+<h3>ALL</h3>
+<p>Process the full combined musical texture.</p>
+<h2>Performer effects for melody</h2>
+<p>Available variations:
+- <strong>DJ FILTER</strong>
+- <strong>HP</strong>
+- <strong>LP</strong>
+- <strong>BEAT ROLL</strong>
+- <strong>SLIP ROLL</strong></p>
+<p>These are excellent for melodic performance:</p>
+<h3>DJ FILTER</h3>
+<ul>
+<li>center is neutral</li>
+<li>CCW low-pass</li>
+<li>CW high-pass</li>
+<li><strong>DJ RESO</strong> controls resonance</li>
+</ul>
+<p>Perfect for:
+- opening/closing basslines
+- breakdown filtering
+- morphing a bass phrase into a thin lead-like line
+- isolating highs from an incoming melodic texture</p>
+<h3>HP / LP</h3>
+<p>Useful for:
+- carving low-end vs top-end
+- creating arrangement movement
+- making one melodic layer sit behind another</p>
+<h3>BEAT ROLL / SLIP ROLL</h3>
+<p>These can turn sustained or repeating melodic material into:
+- glitch fills
+- stutters
+- rhythmic note slicing
+- end-of-phrase transitions</p>
+<hr />
+<h1>4. Practical melodic patch strategies</h1>
+<h2>A. Bohm as a bass synth voice</h2>
+<p><strong>Patch</strong>
+- Sequencer pitch CV -&gt; <strong>PITCH CV</strong>
+- Sequencer gate -&gt; <strong>HIT</strong>
+- Audio from <strong>OUT</strong></p>
+<p><strong>Set</strong>
+- PITCH knob full CCW
+- PITCH attenuverter full CW
+- system <strong>Pitch CV</strong> to correct range
+- <strong>LENGTH</strong> fairly long
+- <strong>SUSTAIN</strong> up
+- moderate <strong>ATTACK</strong>
+- reduced transient if too clicky</p>
+<p><strong>Result</strong>
+- monophonic bassline voice
+- especially strong with <strong>FM-2X</strong>, <strong>HZ-1</strong>, <strong>WT-4</strong>, <strong>XT-88</strong></p>
+<hr />
+<h2>B. Bohm bassline + Groove octave/tap melody</h2>
+<p><strong>Patch</strong>
+- Same as above
+- Clock divider/multiplier or 16th clock -&gt; <strong>Groove CLOCK</strong></p>
+<p><strong>Set</strong>
+- Groove <strong>PITCH</strong> slightly above or below center
+- Groove <strong>LENGTH</strong> to taste
+- Use <strong>2 / 3 / 4</strong> to shape repeats
+- Groove <strong>COLOR</strong> toward repetition source
+- Groove <strong>FX</strong> with BP or DIST</p>
+<p><strong>Result</strong>
+- Bohm gives the root note
+- Groove gives related rhythmic melodic taps
+- feels like a bassline with ratchets or ghost notes</p>
+<hr />
+<h2>C. Bohm as note attack, Groove as sustained drone</h2>
+<p><strong>Patch</strong>
+- Melodic gate/pitch into Bohm
+- Regular clock into Groove
+- Use Performer if available</p>
+<p><strong>Set</strong>
+- Groove system <strong>GRV ENV = SUSTAIN</strong>
+- Groove level up
+- Bohm more transient-forward
+- If Performer present, set <strong>PERF VOL = BOHM</strong> so Groove can remain independent
+- Optionally duck external audio with Performer</p>
+<p><strong>Result</strong>
+- Bohm articulates notes
+- Groove forms sustained harmonic/sub layer
+- excellent for techno hypnosis and dark ambient low-end melody</p>
+<hr />
+<h2>D. Bohm + external oscillator/chords through Performer</h2>
+<p><strong>Patch</strong>
+- Bohm sequenced melodically
+- External stereo or mono voice into Performer <strong>IN</strong>
+- Optionally send a chord or drone source</p>
+<p><strong>Set</strong>
+- <strong>DUCK</strong> to taste
+- <strong>DUCK BS</strong> so low band ducks more than highs
+- <strong>CHN = INPUT</strong> or <code>ALL</code>
+- Use <strong>DJ FILTER</strong> or <strong>LP</strong>
+- toggle FX synced to <strong>HIT</strong> for phrase changes</p>
+<p><strong>Result</strong>
+- Bohm acts as rhythmic/melodic bass anchor
+- incoming voice becomes breathing accompaniment
+- very effective for live melodic techno</p>
+<hr />
+<h2>E. Snapshot-based melodic arrangement</h2>
+<p>Because snapshots save:
+- model variations
+- knob positions</p>
+<p>you can prepare multiple melodic identities:
+- Step 1: clean FM sub bass
+- Step 2: brighter distorted chorus bass
+- Step 3: long drone breakdown
+- Step 4: filtered/stuttered fill</p>
+<p>Then use:
+- <strong>Song mode</strong> for fixed arrangement
+- <strong>Jam mode</strong> for improvisational cueing</p>
+<p>This is one of the strongest non-obvious melodic uses in the manual: Bohm becomes a <strong>preset-morphing low-end instrument</strong> rather than just a kick generator.</p>
+<hr />
+<h1>5. Best model choices for different melodic roles</h1>
+<h2>Best for basslines</h2>
+<ul>
+<li><strong>FM-2X</strong></li>
+<li><strong>HZ-1</strong></li>
+<li><strong>WT-4</strong></li>
+<li><strong>XT-88</strong></li>
+</ul>
+<h2>Best for aggressive riffs</h2>
+<ul>
+<li><strong>PX3</strong></li>
+<li><strong>SP-6</strong></li>
+<li><strong>OLP4</strong></li>
+</ul>
+<h2>Best for custom melodic sound design</h2>
+<ul>
+<li><strong>XT-88</strong></li>
+</ul>
+<h2>Best for acoustic/tuned drum melodies</h2>
+<ul>
+<li><strong>PM-K1</strong></li>
+</ul>
+<h2>Best for clicky articulated phrases</h2>
+<ul>
+<li><strong>VX-T</strong></li>
+</ul>
+<hr />
+<h1>6. Most useful system settings for melodic use</h1>
+<p>These matter a lot.</p>
+<h2>Pitch CV</h2>
+<p>Set to:
+- <code>0..1V</code>
+- <code>1..2V</code>
+- <code>2..3V</code></p>
+<p>depending on your sequencer’s voltage span.</p>
+<h2>ATTVERT 2</h2>
+<p>The <strong>SUSTAIN attenuverter</strong> can instead control <strong>VELOCITY CV</strong>.
+This can be useful if you want more expressive sequencing of note dynamics rather than sustain amount.</p>
+<h2>GRV ENV</h2>
+<ul>
+<li><code>FALL</code> for rhythmic behavior</li>
+<li><code>SUSTAIN</code> for drones and held layers</li>
+</ul>
+<h2>TAPS OUT</h2>
+<p>Can output:
+- Groove envelope
+- inverted Bohm envelope
+- Performer envelope
+- Bohm envelope</p>
+<p>This is very useful for melodic patches because you can use the output to animate other modules:
+- open a filter on another oscillator
+- duck a bass drone
+- modulate VCA on a melodic layer
+- create envelope-following accompaniment</p>
+<h2>PANNING</h2>
+<p>You can hard-pan:
+- Bohm
+- Groove
+- Performer input</p>
+<p>This is surprisingly useful for melodic patching:
+- route Bohm to left and Groove to right
+- process them separately downstream
+- build mono dual-line structures from the stereo output</p>
+<h2>POST EQ</h2>
+<p>Useful for tuning Bohm/Groove into a more musical role in a mix:
+- tame club boom
+- emphasize note definition
+- shape bassline presence</p>
+<hr />
+<h1>7. Creative melodic techniques</h1>
+<h2>Use Bohm as a limited-range but very characterful bass synth</h2>
+<p>It won’t replace a full-range oscillator voice, but within its designed range it can produce very strong, mix-ready melodic low-end.</p>
+<h2>Use Groove as “melodic repetition” rather than rumble</h2>
+<p>Because Groove repetitions are retriggered taps, not delay echoes, they can sound tighter and more intentional than a traditional delay.</p>
+<h2>Turn kick changes into harmonic section changes</h2>
+<p>Different Bohm models and snapshots can behave like:
+- verse bass
+- chorus bass
+- breakdown drone
+- fill/stutter preset</p>
+<h2>Use Performer to make melodies breathe</h2>
+<p>With selective ducking and filter FX, Performer can make even static external melodic material feel locked to the kick/bass phrasing.</p>
+<h2>Use XT-88 to build a custom melodic hybrid</h2>
+<p>Load:
+- your own wavetable for pitch body
+- your own sample for attack/layer</p>
+<p>That gives you a very personalized bass instrument.</p>
+<hr />
+<h1>8. Limitations to keep in mind</h1>
+<h2>Bohm is not a general-purpose wide-range melodic oscillator</h2>
+<p>The manual frames pitch around <strong>C1 to C2</strong>, so this is mainly:
+- bassline territory
+- low melodic hooks
+- tuned percussive phrasing</p>
+<h2>Model interpretation varies</h2>
+<p>Each model interprets controls differently, so “melodic sweet spots” will vary significantly by model.</p>
+<h2>Groove pitch is relative, not fully independent</h2>
+<p>This is great for coherence, but less ideal if you want a completely separate second melody.</p>
+<h2>Model loading time matters in live sequencing</h2>
+<p>In Song mode, steps need enough time for preloading. Extremely rapid melodic preset switching may be constrained.</p>
+<hr />
+<h1>9. Best real-world musical roles</h1>
+<p>Used together, these modules are especially good for:</p>
+<ul>
+<li><strong>melodic techno basslines</strong></li>
+<li><strong>industrial bass riffs</strong></li>
+<li><strong>electro low-end hooks</strong></li>
+<li><strong>acid-adjacent FM sub sequences</strong></li>
+<li><strong>drone + pulse hybrid lines</strong></li>
+<li><strong>live performance transitions</strong></li>
+<li><strong>sidechained melodic layering</strong></li>
+<li><strong>preset-based bass arrangement changes</strong></li>
+</ul>
+<p>In practice, the strongest melodic identity of the system is:</p>
+<blockquote>
+<p><strong>Bohm = pitched low-end voice</strong><br />
+<strong>Groove = related rhythmic/sub/drone companion</strong><br />
+<strong>Performer = sidechain, filter, and transition processor for the whole musical layer</strong></p>
+</blockquote>
+<p>That combination makes the system much more than a kick module—it can function as a <strong>complete low-end melodic instrument with performance control</strong>.</p>
+<hr />
+<h1>10. Recommended starter melodic patches</h1>
+<h2>Patch 1: FM techno bass</h2>
+<ul>
+<li>Model: <strong>FM-2X</strong></li>
+<li>Pitch sequence -&gt; PITCH CV</li>
+<li>Gate -&gt; HIT</li>
+<li>Long LENGTH</li>
+<li>Medium SUSTAIN</li>
+<li>ATTACK moderate</li>
+<li>TRS DECAY low</li>
+<li>Groove on 16ths, low in mix</li>
+</ul>
+<h2>Patch 2: Rolling melodic rumble</h2>
+<ul>
+<li>Bohm plays root bassline</li>
+<li>Groove CLOCK on 16ths</li>
+<li>Groove COLOR toward repetitions/reverb blend</li>
+<li>Groove PITCH slightly above center</li>
+<li>Groove BP effect</li>
+<li>Performer DJ filter on ALL</li>
+</ul>
+<h2>Patch 3: Drone bass with rhythmic articulation</h2>
+<ul>
+<li>Bohm receives sparse gated notes</li>
+<li>Groove set to <strong>SUSTAIN</strong></li>
+<li>Performer ducks incoming drone or chord source</li>
+<li>Use TAPS OUT or Bohm env to animate another VCA/filter</li>
+</ul>
+<h2>Patch 4: Custom hybrid bass</h2>
+<ul>
+<li>Model: <strong>XT-88</strong></li>
+<li>User wavetable for oscillator</li>
+<li>User sample for layer</li>
+<li>Sequence PITCH CV and HIT gate</li>
+<li>Snapshot several variants for song sections</li>
+</ul>
+<hr />
+<h2>Bottom line</h2>
+<p><strong>Yes—these modules can absolutely be used to create melodic components.</strong><br />
+Not as a conventional polysynth, but as a highly characterful <strong>low-register melodic system</strong>.</p>
+<p>If you think of them as:</p>
+<ul>
+<li><strong>Bohm:</strong> a playable kick-bass oscillator voice</li>
+<li><strong>Groove:</strong> a harmonically linked second voice / repeater / drone</li>
+<li><strong>Performer:</strong> a sidechaining and FX performance mixer</li>
+</ul>
+<p>then together they become a powerful tool for <strong>bass melodies, rhythmic melodic motifs, drones, and live-evolving low-end arrangements</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,822 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ohmforce_Bohm</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Ohmforce — Bohm</h1>
+<ul>
+<li><a href="../../manuals/Bohm documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://ohmforce.com/wp-content/uploads/2025/03/Bohm-manual.pdf">Manual PDF / Documentation</a></p>
+<h1>Ohm Force Bohm: using it for dense, hyper-complex percussion</h1>
+<p>Bohm is extremely good for this goal because it is not just a single kick module. It is really a <strong>multi-layered percussion system</strong>:</p>
+<ul>
+<li><strong>Bohm main voice</strong> = primary kick / tuned percussion voice</li>
+<li><strong>Groove expander</strong> = secondary clocked voice for taps, rumbles, tops, repeats, noise, sub grit</li>
+<li><strong>Performer expander</strong> = ducking + live FX processor for the internal voices and/or external audio</li>
+</ul>
+<p>That means you can treat it like a <strong>micro-rhythm section</strong> inside your rack, especially when you drive it with separate clocks, gates, CV modulation, and program changes.</p>
+<hr />
+<h1>What makes Bohm especially useful for complex rhythms</h1>
+<p>From the manual, these are the key features for dense rhythmic work:</p>
+<ul>
+<li><strong>Main kick triggered by HIT</strong></li>
+<li><strong>Secondary Groove voice triggered independently by CLOCK</strong></li>
+<li>Groove creates:</li>
+<li><strong>repetitions/taps</strong></li>
+<li><strong>reverb-based rumble</strong></li>
+<li><strong>noise</strong></li>
+<li><strong>grit + sub</strong></li>
+<li>Groove timing behavior depends on the relationship between:</li>
+<li><strong>HIT triggers</strong></li>
+<li><strong>CLOCK triggers</strong></li>
+<li>Bohm <strong>HIT can act as trigger or gate</strong></li>
+<li>Bohm supports <strong>snapshots</strong>, <strong>programs</strong>, <strong>Song mode</strong>, and <strong>Jam mode</strong></li>
+<li><strong>FUNCTION trigger</strong> can advance live sequences in Song mode</li>
+<li><strong>Pitch tracking</strong> via 1V/oct can turn kicks into tuned percussion or bassline percussion</li>
+<li><strong>Performer</strong> can process:</li>
+<li>only kick</li>
+<li>only input</li>
+<li>or both</li>
+<li><strong>TAPS output</strong> can emit rhythmic envelope data you can use elsewhere</li>
+<li>CV control and attenuverters on many parameters let you animate the voice constantly</li>
+</ul>
+<p>So if your aim is <strong>polyrhythm, asymmetry, metric tension, percussion density</strong>, Bohm is actually more interesting than a plain kick drum.</p>
+<hr />
+<h1>Best high-level strategy</h1>
+<p>Think of Bohm as a <strong>3-layer percussion engine</strong>:</p>
+<h2>Layer 1 — the downbeat body</h2>
+<p>Use the <strong>main Bohm voice</strong> for:
+- anchor kick
+- odd-meter accents
+- tuned tom-like strikes
+- long gated bass drum drones</p>
+<h2>Layer 2 — the interlocking subdivision engine</h2>
+<p>Use <strong>Groove CLOCK</strong> for:
+- 16ths against quarter-note HIT
+- triplets against straight pulse
+- 5s or 7s against 4
+- burst-like repetitions
+- top-end chatter or rumble tails</p>
+<h2>Layer 3 — glue, pump, and disruption</h2>
+<p>Use <strong>Performer</strong> for:
+- ducked external percussion loops
+- beat roll / slip roll transitions
+- filtered contour shaping
+- turning stable patterns into performance gestures</p>
+<p>This three-layer approach is the core of making Bohm feel “hyper-rhythmic.”</p>
+<hr />
+<h1>Patch concepts for polyrhythm and complex time signatures</h1>
+<h2>1. Separate HIT and CLOCK immediately</h2>
+<p>The manual makes this very clear:</p>
+<ul>
+<li><strong>Bohm main voice</strong> responds to <strong>HIT</strong></li>
+<li><strong>Groove</strong> needs <strong>CLOCK</strong> to do its thing</li>
+</ul>
+<p>Do <strong>not</strong> send the same exact trigger everywhere if you want complexity.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send your main meter pulse to <strong>HIT</strong></li>
+<li>Send a different subdivision or clock division/multiplication to <strong>Groove CLOCK</strong></li>
+</ul>
+<h3>Examples</h3>
+<ul>
+<li>HIT = quarter notes</li>
+<li>CLOCK = 16ths</li>
+</ul>
+<p>This gives classic dense techno internal motion.</p>
+<p>Or:</p>
+<ul>
+<li>HIT = every 5 steps</li>
+<li>CLOCK = straight 16ths</li>
+</ul>
+<p>Now Groove evolves across the bar against the main kick cycle.</p>
+<p>Or:</p>
+<ul>
+<li>HIT = pattern in 7</li>
+<li>CLOCK = pattern in 4 or 8</li>
+</ul>
+<p>This creates polymetric drift.</p>
+<hr />
+<h2>2. Use Groove as a “rhythmic parasite”</h2>
+<p>Groove is strongest when it is not just a second kick, but a <strong>subdivision organism</strong> attached to the main voice.</p>
+<p>Per the manual:</p>
+<ul>
+<li>When <strong>HIT</strong> is triggered, Groove’s envelope is retriggered</li>
+<li>The following <strong>CLOCK</strong> triggers define the path toward taps <strong>2, 3, 4</strong></li>
+<li>After that it either:</li>
+<li><strong>falls back to 0</strong></li>
+<li>or <strong>sustains</strong> depending on <strong>GRV ENV</strong></li>
+</ul>
+<p>That means Groove is ideal for <strong>interior rhythmic articulation</strong> between main accents.</p>
+<h3>Great use:</h3>
+<ul>
+<li>Main kick on structural pulses</li>
+<li>Groove CLOCK running faster or at a different grouping</li>
+<li>Tap knobs 2/3/4 set to uneven levels</li>
+</ul>
+<p>This gives “phrases inside the beat.”</p>
+<p>For example:
+- HIT on beat 1 of each bar in 7/8
+- CLOCK on all 8ths
+- Tap 2 low, tap 3 high, tap 4 medium</p>
+<p>Now every time the bar resets, the internal contour restarts, creating a repeated but asymmetrical shape.</p>
+<hr />
+<h2>3. Exploit triplets and mixed subdivisions</h2>
+<p>The manual explicitly mentions Groove works well with <strong>triplets</strong>, where taps 2 and 3 become especially relevant.</p>
+<h3>Patch ideas</h3>
+<ul>
+<li>Main meter straight 4</li>
+<li>Groove CLOCK = quarter-note triplets</li>
+<li>Or main pattern in 12, Groove in 16</li>
+<li>Or switch between straight and triplet clocks with a sequential switch</li>
+</ul>
+<p>Use Groove for:
+- <strong>repetition source</strong> when you want articulated repeats
+- <strong>noise/grit</strong> when you want high-frequency chatter over the kick grid</p>
+<p>This is one of the easiest ways to make Bohm sound “advanced” rather than simply techno.</p>
+<hr />
+<h2>4. Use odd clock divisions for Groove</h2>
+<p>If you have clock tools, try:</p>
+<ul>
+<li>CLOCK every <strong>3 pulses</strong></li>
+<li>every <strong>5 pulses</strong></li>
+<li>every <strong>7 pulses</strong></li>
+<li>Euclidean bursts</li>
+<li>logic-derived triggers</li>
+</ul>
+<p>Because Groove is not just delay—it is actively retriggered synthesis—odd clocks make it sound like a composed percussion layer rather than an echo.</p>
+<h3>Example</h3>
+<ul>
+<li>HIT = 1 and 6 in an 11-step sequence</li>
+<li>CLOCK = every pulse from a 16th-note master</li>
+<li>Groove COLOR toward repetition/reverb blend</li>
+<li>Groove FX set to HP or BP</li>
+</ul>
+<p>You get a kick with an unstable, rotating halo.</p>
+<hr />
+<h1>How to make the main Bohm voice punchy, unique, and percussive</h1>
+<p>The manual describes a consistent architecture across many models:</p>
+<ul>
+<li><strong>PITCH</strong></li>
+<li><strong>CURVE</strong></li>
+<li><strong>ATTACK</strong></li>
+<li><strong>SUSTAIN</strong></li>
+<li><strong>LENGTH</strong></li>
+<li><strong>TRS DECAY</strong></li>
+<li><strong>TRS TONE</strong></li>
+<li><strong>COLOR</strong></li>
+<li><strong>FX</strong></li>
+</ul>
+<h2>1. Short LENGTH + strong transient = percussion, not just kick</h2>
+<p>If you want Bohm to behave like a <strong>tuned drum hit</strong>, keep:</p>
+<ul>
+<li><strong>LENGTH</strong> shorter</li>
+<li><strong>ATTACK</strong> enough to emphasize the front edge</li>
+<li><strong>TRS DECAY</strong> short</li>
+<li><strong>TRS TONE</strong> brighter</li>
+</ul>
+<p>This shifts the sound toward:
+- tom
+- zap
+- knock
+- clicky kick
+- industrial percussive hit</p>
+<p>Great for fast, intricate sequences.</p>
+<hr />
+<h2>2. Use CURVE as your rhythmic articulation control</h2>
+<p>The manual notes:</p>
+<ul>
+<li>counterclockwise = more <strong>808-style</strong></li>
+<li>clockwise = more <strong>909-style</strong></li>
+<li>shorter LENGTH may prevent the oscillator from fully reaching the target fundamental</li>
+</ul>
+<p>That is gold for percussive design.</p>
+<h3>Practical implication</h3>
+<p>You can use <strong>CURVE + LENGTH</strong> together to change whether a hit feels:
+- rounded
+- snapping
+- pitched
+- almost “conga-like”
+- like a transient thud with no stable low tone</p>
+<p>For dense rhythms:
+- use shorter length
+- modulate CURVE slowly or per step</p>
+<p>This creates a family of related hits instead of one static kick sample.</p>
+<hr />
+<h2>3. Treat PITCH as tuned percussion, not just bass</h2>
+<p>The manual says Bohm can do <strong>pitch tracking</strong> if set correctly:
+- PITCH knob fully CCW
+- PITCH attenuverter fully CW
+- choose proper system voltage range
+- use 1V/oct</p>
+<p>This lets you sequence Bohm as:
+- bassline percussion
+- tuned tom line
+- melodic kick pattern
+- polyrhythmic pitch accents</p>
+<h3>Excellent use for complexity</h3>
+<p>Sequence <strong>different pitches on different rhythmic layers</strong>:
+- low tonic for bar anchors
+- higher pitches on offbeats
+- perfect fourth/fifth/octave jumps for phrase markers</p>
+<p>This makes the rhythm feel more composed and less repetitive.</p>
+<hr />
+<h2>4. Modulate VELOCITY for ghosted percussion</h2>
+<p>Velocity is often overlooked on kick modules. Here it matters.</p>
+<p>Use a stepped random source, sequencer lane, or accent pattern into <strong>VELOCITY CV</strong> to create:</p>
+<ul>
+<li>ghost notes</li>
+<li>accented polymeter</li>
+<li>“human” contour</li>
+<li>rolling dynamic contrast</li>
+</ul>
+<p>Especially effective in fast patterns where the same sound would otherwise blur.</p>
+<hr />
+<h2>5. Use HIT as gate, not just trigger</h2>
+<p>The manual says <strong>HIT can work as trigger or gate</strong>. If held high, the sound sustains, then decays when released.</p>
+<p>This is powerful for advanced percussion because it means you can vary <strong>note duration rhythmically</strong>.</p>
+<h3>Patch ideas</h3>
+<p>Send:
+- short triggers on some steps
+- longer gates on others</p>
+<p>Result:
+- some hits are sharp drum strikes
+- others bloom into drones, booms, or bass notes</p>
+<p>This is especially strong in:
+- 5/4
+- 7/8
+- additive meters
+- evolving techno structures</p>
+<p>You can make the same voice alternate between kick, tom, bass stab, and low drone.</p>
+<hr />
+<h1>Best models for complicated percussion use</h1>
+<h2>FM-2X</h2>
+<p>Best for:
+- punchy FM kicks
+- tuned percussive bass
+- synthetic drum articulation</p>
+<p>Why:
+- ATTACK controls FM amount
+- TRS DECAY controls FM transient duration
+- TRS TONE changes modulator character
+- RATIO variation changes harmonic behavior</p>
+<h3>For hyper-complex use</h3>
+<p>Modulate or snapshot different <strong>RATIO</strong> settings across patterns.<br />
+That turns one rhythmic line into multiple related “instruments.”</p>
+<p>Use it like:
+- low ratio for body
+- higher ratio for metallic or snappier hits</p>
+<p>This is likely one of the best models for intricate percussion.</p>
+<hr />
+<h2>HZ-1</h2>
+<p>Best for:
+- clicky transient kicks
+- shapeable harmonic front edge
+- classic electronic percussion</p>
+<p>Why:
+- COLOR changes transient distortion behavior over time
+- WT variation changes oscillator waveform
+- CLK variation changes transient click type</p>
+<h3>Use it for:</h3>
+<ul>
+<li>click-led fast rhythms</li>
+<li>“top kick” duties</li>
+<li>sharper odd-meter accents</li>
+</ul>
+<hr />
+<h2>OLP4</h2>
+<p>Best for:
+- experimental FM percussion
+- aggressive synthetic hits
+- unusual harmonics</p>
+<p>Why:
+- 4-operator FM architecture
+- different algorithms
+- waveform selections
+- feedback via TRS TONE</p>
+<h3>Use it for:</h3>
+<ul>
+<li>metallic low percussion</li>
+<li>pseudo-industrial drum sequences</li>
+<li>“not obviously a kick” percussive tones</li>
+</ul>
+<p>This may be the best model if you want the kick voice to become a <strong>weird percussion synthesizer</strong>.</p>
+<hr />
+<h2>PM-K1</h2>
+<p>Best for:
+- acoustic-ish bass drum gestures
+- roomy physical body
+- less synthetic pulse</p>
+<p>Limitations:
+- many controls inactive
+- Groove not supported</p>
+<p>So for hyper-complex layered rhythm, this is less central unless you want one acoustic-like anchor voice.</p>
+<hr />
+<h2>PX3 / SP-6 / WT-4</h2>
+<p>Best for:
+- layered transient-heavy kicks
+- harder, more aggressive percussion
+- digital or analog-leaning layered hits</p>
+<p>Because they combine oscillator + layering material, they’re ideal when you want the kick to speak through dense arrangements.</p>
+<h3>Use them for:</h3>
+<ul>
+<li>punchy front-loaded strikes</li>
+<li>industrial or hybrid drum grids</li>
+<li>contrasting snapshots in performance</li>
+</ul>
+<hr />
+<h2>XT-88</h2>
+<p>Best for:
+- user-defined percussion identity
+- custom wavetable and sample layering
+- building your own drum machine behavior</p>
+<p>This is the most open-ended option.</p>
+<p>Load:
+- short clicks
+- stick hits
+- metallic transients
+- noisy tops
+- odd found-sound percussive samples</p>
+<p>Then use Bohm’s kick engine as the body and your own sample as the attack signature.</p>
+<p>For complex percussion systems, this is maybe the deepest model.</p>
+<hr />
+<h1>How to use Groove for dense percussive complexity</h1>
+<p>Groove is not merely a rumble add-on. It can be your <strong>sub-grid percussion layer</strong>.</p>
+<h2>Understand the four generator families</h2>
+<p>Manual says Groove blends:
+- <strong>repetition</strong>
+- <strong>kick reverb</strong>
+- <strong>noise</strong>
+- <strong>grit + sub</strong></p>
+<p>Use <strong>COLOR</strong> as a morphing composition control.</p>
+<h3>Practical role of each</h3>
+<ul>
+<li><strong>Repetition</strong> = articulated extra drum hits</li>
+<li><strong>Reverb</strong> = smear / tail / space / tunnel</li>
+<li><strong>Noise</strong> = hats / texture / hiss / transient spray</li>
+<li><strong>Grit + sub</strong> = dirty low percussion or body reinforcement</li>
+</ul>
+<p>This is enough to make Groove act like:
+- rumble engine
+- tops engine
+- sub pulse
+- noisy chatter layer</p>
+<hr />
+<h2>1. Use repetition mode for interlocking rhythms</h2>
+<p>The repetition engine responds to CLOCK triggers, so it is perfect for:
+- 3 against 4
+- 5 against 4
+- 7 over 8
+- Euclidean subdivisions</p>
+<p>Keep <strong>COLOR</strong> biased toward repetition.</p>
+<p>Then shape:
+- <strong>2 / 3 / 4</strong> for the tap levels
+- <strong>LENGTH</strong> for relative duration
+- <strong>PITCH</strong> for relative pitch</p>
+<p>Because Groove pitch and length are <strong>relative to Bohm</strong>, you get a coherent but animated pair of instruments.</p>
+<h3>Example</h3>
+<ul>
+<li>Bohm main hit = deep body</li>
+<li>Groove repetition = shorter, slightly higher “knock”</li>
+</ul>
+<p>This makes a kick family rather than two unrelated drums.</p>
+<hr />
+<h2>2. Use noise or grit as a synthetic hi-hat/snare layer</h2>
+<p>Past around 3 o’clock on COLOR, you can lean into non-repetition sources.</p>
+<p>Then:
+- 2/3/4 and TAPS CV shape the envelope contour
+- PITCH alters the generator character
+- Groove FX can filter or distort it</p>
+<p>This is a very strong way to create:
+- noisy sixteenth chatter
+- hat-like syncopation
+- rattling triplet overlays
+- burst accents in polymeter</p>
+<h3>Especially good move</h3>
+<p>Use Groove <strong>HP</strong> or <strong>BP</strong> effect on noisy material so it occupies upper-mid range and doesn’t muddy the kick body.</p>
+<hr />
+<h2>3. Use GRV ENV = SUSTAIN for drones and held rhythmic beds</h2>
+<p>The manual says:
+- <strong>FALL</strong> = envelope falls after tap 4
+- <strong>SUSTAIN</strong> = stays at tap 4 level</p>
+<p>This means Groove can become a <strong>continuous percussive bed</strong> if your clock density is high.</p>
+<h3>Use case</h3>
+<ul>
+<li>Main kick sparse</li>
+<li>Groove on dense odd clock</li>
+<li>GRV ENV = SUSTAIN</li>
+<li>COLOR toward noise or grit</li>
+<li>Performer ducks external input against it</li>
+</ul>
+<p>Now the patch breathes like a living rhythm texture rather than simple discrete hits.</p>
+<hr />
+<h2>4. Modulate TAPS CV for variable internal phrases</h2>
+<p>Since the tap structure can be shaped by <strong>TAPS CV</strong>, you can animate the envelope contour over time.</p>
+<p>Patch in:
+- stepped random
+- Euclidean CV sequence
+- slow chaos
+- another envelope</p>
+<p>Now every set of taps changes shape:
+- 2 weak / 3 strong / 4 absent
+- then 2 high / 3 low / 4 high
+- etc.</p>
+<p>This is one of the best ways to keep dense subdivisions from sounding looped.</p>
+<hr />
+<h2>5. Use the TAPS output as a control source elsewhere</h2>
+<p>The manual says <strong>TAPS output</strong> can output:
+- Groove envelope
+- inverted Bohm envelope
+- Performer envelope
+- Bohm envelope</p>
+<p>This is huge in a modular context.</p>
+<p>Use TAPS OUT to:
+- open a VCA for hats
+- ping a filter
+- modulate a wavefolder depth
+- sidechain another voice
+- animate reverb send
+- drive a LPG
+- control another percussion source</p>
+<p>So Bohm can become the <strong>timing brain</strong> of a larger percussion ecosystem.</p>
+<h3>Great advanced patch</h3>
+<ul>
+<li>TAPS OUT = Groove envelope</li>
+<li>Send to VCA controlling noise source or metallic voice</li>
+<li>CLOCK Groove at odd subdivision</li>
+<li>Main HIT on downbeats</li>
+</ul>
+<p>Now Bohm generates both its own percussion and the control contour for another instrument.</p>
+<hr />
+<h1>Using Performer for rhythmic complexity</h1>
+<p>Performer is not just a utility. It can make your whole percussion network breathe.</p>
+<h2>1. Duck external percussion loops or voices with HIT</h2>
+<p>The manual says the stereo input is ducked on every <strong>HIT</strong> trigger, with <strong>DUCK</strong> amount control.</p>
+<p>Feed into Performer:
+- hats
+- claps
+- modular percussion bus
+- breakbeat loop
+- noise wash
+- synth stab bus</p>
+<p>Then duck them from Bohm’s kick.</p>
+<p>This creates clarity and pulse, especially in dense patterns.</p>
+<h3>Advanced use</h3>
+<p>If Bohm is in a complex meter and the external loop is straight, the ducking pattern imprints the complex meter onto the loop.<br />
+That’s an excellent way to create polyrhythmic illusion without rewriting every sequence.</p>
+<hr />
+<h2>2. Choose effect routing strategically with CHN</h2>
+<p>Per manual, Performer can process:
+- <strong>ALL</strong>
+- <strong>KICK</strong>
+- <strong>INPUT</strong></p>
+<p>This is important.</p>
+<h3>For punch</h3>
+<p>Set <strong>CHN = KICK</strong>
+- Process only Bohm/Groove
+- Leave external percussion clean</p>
+<h3>For rhythmic transformation</h3>
+<p>Set <strong>CHN = INPUT</strong>
+- Put beat roll/slip roll/filter only on incoming loop or percussion bus
+- Let Bohm remain solid</p>
+<h3>For chaos</h3>
+<p>Set <strong>CHN = ALL</strong>
+- Everything goes through one gesture processor</p>
+<hr />
+<h2>3. Use Beat Roll and Slip Roll as rhythmic mutation tools</h2>
+<p>Performer FX options include:
+- <strong>BEAT ROLL</strong>
+- <strong>SLIP ROLL</strong></p>
+<p>These are ideal for:
+- fills
+- stutters
+- phrase transitions
+- metric disruptions</p>
+<h3>Performance trick</h3>
+<p>Keep the underlying sequence stable, then use:
+- beat roll for temporary subdivision intensification
+- slip roll for more glitchy reset-like effects</p>
+<p>Because the input can be resampled on every HIT in slip roll, it can become strongly tied to the kick pulse.</p>
+<p>This is excellent for making live polyrhythms feel “performed” rather than preprogrammed.</p>
+<hr />
+<h2>4. Use synced FX switching</h2>
+<p>The manual says FX on/off can be:
+- <strong>INSTANT</strong>
+- <strong>SYNCED</strong> to next HIT</p>
+<p>For complex music, <strong>SYNCED</strong> is safer and more musical because transitions land with the rhythm.</p>
+<p>Use this for:
+- activating beat roll only on the next structural hit
+- dropping a filter exactly on the barline
+- changing phrase feel without mistimed toggles</p>
+<hr />
+<h2>5. Use Duck Time, Duck Smooth, and Duck Band Split</h2>
+<p>These variation settings are especially useful for dense percussion.</p>
+<ul>
+<li><strong>DUCK TIME</strong> = release time</li>
+<li><strong>DUCK SMTH</strong> = smoothing</li>
+<li><strong>DUCK BS</strong> = ducked band split frequency</li>
+</ul>
+<h3>Good settings logic</h3>
+<ul>
+<li>Short duck time = tight, punchy, articulate</li>
+<li>Longer duck time = pumping, breathing, larger groove</li>
+<li>More smoothing = preserves some transient from external audio</li>
+<li>Band split = duck lows while preserving highs for transparency</li>
+</ul>
+<h3>Great patch use</h3>
+<p>If your external input is a busy hat/snare/percussion mix:
+- set a band split so lows get ducked
+- highs remain present
+- Bohm punch stays intact without muting all detail</p>
+<p>This is one of the best ways to keep a dense mix readable.</p>
+<hr />
+<h1>Best rhythmic workflows</h1>
+<h2>Workflow 1: Polyrhythmic kick + tap engine</h2>
+<ul>
+<li>HIT: sequencer pattern in 5</li>
+<li>Groove CLOCK: constant 16ths</li>
+<li>Bohm model: FM-2X or HZ-1</li>
+<li>Groove COLOR: repetition/noise blend</li>
+<li>Tap levels 2/3/4 asymmetrical</li>
+<li>Groove FX: BP</li>
+<li>Performer: duck external hats with moderate DUCK</li>
+</ul>
+<p>Result: structured but dense rhythmic mesh.</p>
+<hr />
+<h2>Workflow 2: Odd-meter techno engine</h2>
+<ul>
+<li>HIT: 7/8 pattern with missing accents</li>
+<li>CLOCK: straight 8ths</li>
+<li>Bohm LENGTH: medium-short</li>
+<li>CURVE modulated slowly</li>
+<li>VELOCITY sequenced</li>
+<li>Groove PITCH slightly higher than Bohm</li>
+<li>Groove VOL moderate</li>
+<li>Performer FX on kick only with DJ filter</li>
+</ul>
+<p>Result: asymmetrical but danceable low-end phrasing.</p>
+<hr />
+<h2>Workflow 3: Tuned percussion line</h2>
+<ul>
+<li>Enable pitch tracking</li>
+<li>Sequence Bohm melodically in 1V/oct</li>
+<li>Use short gates for some notes, longer for others</li>
+<li>Groove CLOCK at faster subdivision</li>
+<li>Groove in repetition mode with shorter relative length</li>
+<li>Use TAPS OUT to trigger another VCA/noise voice</li>
+</ul>
+<p>Result: Bohm becomes kick + tom/bass percussion centerpiece.</p>
+<hr />
+<h2>Workflow 4: Dense industrial percussion</h2>
+<ul>
+<li>Bohm model: OLP4, PX3, or XT-88</li>
+<li>Main HIT irregular and sparse</li>
+<li>Groove CLOCK dense and logic-derived</li>
+<li>Groove COLOR toward grit/noise</li>
+<li>Groove FX = DIST or HP</li>
+<li>Performer input fed from metallic/noise percussion bus</li>
+<li>CHN = INPUT or ALL</li>
+<li>Use beat roll for transitions</li>
+</ul>
+<p>Result: layered, abrasive, machine-like percussion field.</p>
+<hr />
+<h2>Workflow 5: Rumble plus articulated tops</h2>
+<ul>
+<li>Bohm main kick long and weighty</li>
+<li>Groove COLOR between reverb and repetition</li>
+<li>Groove CLOCK on 16ths or triplets</li>
+<li>Groove LENGTH moderate</li>
+<li>Groove PITCH slightly above or below center</li>
+<li>GRV ENV = FALL for decaying rumble phrases</li>
+<li>Performer ducks external clap/hat loop</li>
+</ul>
+<p>Result: rich techno low-end with internal movement.</p>
+<hr />
+<h1>Snapshot and live mode strategies for advanced rhythm</h1>
+<p>Bohm’s <strong>snapshots/programs</strong> are very useful for complicated percussion arrangements.</p>
+<h2>Why snapshots matter here</h2>
+<p>A snapshot can store:
+- model variations
+- knob positions</p>
+<p>This lets you create multiple rhythmic personalities:
+- one for 4/4 groove
+- one for 7/8 bridge
+- one for triplet tension
+- one for dense roll section
+- one for breakdown drone</p>
+<h2>Song mode for arranged complexity</h2>
+<p>Use <strong>Song mode</strong> if your piece has:
+- fixed sections
+- meter changes
+- recurring rhythmic forms</p>
+<p>You can advance steps via <strong>FUNCTION trigger</strong>, which means an external sequencer can automate section changes.</p>
+<p>That is perfect for:
+- bar 1–8 = 4/4
+- bar 9–12 = 5/4
+- bar 13–16 = 7/8
+- bar 17 = roll/fill</p>
+<h2>Jam mode for improvisational complexity</h2>
+<p>Use <strong>Jam mode</strong> if you want to:
+- cue different kick/percussion states live
+- improvise metric changes
+- move between snapshots as performance gestures</p>
+<p>This is ideal if your music is exploratory or modular-improv based.</p>
+<hr />
+<h1>Sound design tips to keep it punchy in dense arrangements</h1>
+<p>Dense rhythm can turn to mud fast. The manual gives several ways to avoid that.</p>
+<h2>1. Use Bohm FX variations wisely</h2>
+<p>Common Bohm effects:
+- TUBE
+- BASS
+- SOFT
+- HARD
+- WAVEFOLD
+- BITCRUSH
+- DECIM on some models</p>
+<h3>Suggested uses</h3>
+<ul>
+<li><strong>TUBE</strong> for warm body and slightly enhanced front edge</li>
+<li><strong>HARD</strong> for aggressive attack that cuts</li>
+<li><strong>SOFT</strong> for control without harshness</li>
+<li><strong>WAVEFOLD</strong> for unusual overtones in sparse mixes</li>
+<li><strong>BASS</strong> for longer 808-type material</li>
+<li><strong>BITCRUSH / DECIM</strong> for digital percussion identity</li>
+</ul>
+<p>In dense complex percussion, <strong>HARD</strong>, <strong>SOFT</strong>, and selected <strong>TUBE</strong> settings are often best.</p>
+<hr />
+<h2>2. Use stereo width carefully</h2>
+<p>Both Bohm and Groove can have <strong>STEREO</strong> variation.</p>
+<p>For highly rhythmic music:
+- keep main body more centered/mono-ish
+- spread Groove or Performer input wider</p>
+<p>This improves punch while preserving complexity.</p>
+<hr />
+<h2>3. Use Post EQ as final tuning</h2>
+<p>The system <strong>Post EQ</strong> affects Bohm and Groove outputs.</p>
+<p>This is extremely useful if your complex percussion becomes:
+- too boomy
+- too honky
+- too splashy</p>
+<p>Use it to:
+- trim low shelf if rumble dominates
+- cut a muddy low-mid peak
+- add top shelf if noisy taps need more definition</p>
+<p>Since it is a system setting, think of it as your final venue/mix adaptation tool.</p>
+<hr />
+<h2>4. Use Performer volume behavior strategically</h2>
+<p>Manual options:
+- <strong>PERF VOL</strong> can affect B+G or BOHM only
+- <strong>PERF MAX</strong> can limit max level</p>
+<p>A clever trick:
+- set <strong>PERF VOL = BOHM only</strong>
+- let Groove remain more constant</p>
+<p>That can create the feel of a persistent rhythmic bed while the main kick body breathes over it.</p>
+<p>The manual explicitly notes this also allows Groove to drone without hearing Bohm.</p>
+<p>That is useful for experimental percussive textures.</p>
+<hr />
+<h1>Specific advanced patch recipes</h1>
+<h2>Recipe A: 4 over 5 evolving kick mesh</h2>
+<ul>
+<li>External master clock into clock divider/multiplier</li>
+<li>Generate:</li>
+<li>HIT pattern every 5 pulses</li>
+<li>CLOCK every 4 pulses</li>
+<li>Bohm model: FM-2X</li>
+<li>Groove COLOR: repetition + noise</li>
+<li>Groove 2/3/4 at uneven values</li>
+<li>TAPS OUT to modulate external VCA on a separate metallic source</li>
+</ul>
+<p>Result: two audible percussion layers plus one derived CV percussion layer.</p>
+<hr />
+<h2>Recipe B: Additive meter percussion</h2>
+<p>For a 3+3+2 feel:
+- Trigger HIT on the start of each group
+- CLOCK continuously on 8ths
+- Use Groove taps to emphasize the inner motion
+- Change VELOCITY on the third group
+- Snapshot alternate states for phrase changes</p>
+<p>Result: strong additive-meter articulation.</p>
+<hr />
+<h2>Recipe C: Kick becomes tom ensemble</h2>
+<ul>
+<li>Pitch track Bohm</li>
+<li>Shorten LENGTH</li>
+<li>Increase ATTACK and brighten TRS TONE</li>
+<li>Use HZ-1, VX-T, or OLP4</li>
+<li>Sequence notes across a scale fragment</li>
+<li>Groove repetition one octave or interval offset via relative pitch</li>
+</ul>
+<p>Result: tuned low percussion that can replace toms or bass drums.</p>
+<hr />
+<h2>Recipe D: Controlled chaos with external bus</h2>
+<ul>
+<li>Send hats/claps/noise bus into Performer IN</li>
+<li>Bohm on sparse irregular accents</li>
+<li>Groove on dense clock</li>
+<li>DUCK medium-high</li>
+<li>DUCK BS set so highs survive</li>
+<li>Beat Roll on input only</li>
+<li>TAPS OUT = PERF envelope to animate another filter</li>
+</ul>
+<p>Result: a whole percussion mix pulsing around Bohm.</p>
+<hr />
+<h1>A few especially valuable manual-based tricks</h1>
+<h2>Use Groove LENGTH only when repetition source is active</h2>
+<p>The manual notes Groove <strong>LENGTH only affects repetition</strong>, roughly from around 3 o’clock to full CW on COLOR behavior.</p>
+<p>So if you are on noise/reverb/grit territory and wondering why LENGTH feels inactive—that is expected.</p>
+<p>Practical takeaway:
+- if you want articulated micro-hits, bias COLOR toward repetition
+- if you want texture, use other generator regions and stop relying on LENGTH</p>
+<hr />
+<h2>Groove pitch/length are relative to Bohm</h2>
+<p>This is one of the best musical design choices in the module.</p>
+<p>Because Groove is relative:
+- it naturally follows your main kick’s pitch/length area
+- it stays coherent while still being different</p>
+<p>So for complex sequences, modulating the main Bohm pitch/length also indirectly changes Groove behavior.</p>
+<p>This is a great way to create <strong>macro variation</strong>.</p>
+<hr />
+<h2>Use FUNCTION CV in Studio mode for randomization</h2>
+<p>Manual says in Studio mode the <strong>FUNCTION CV</strong> can randomize model variations.</p>
+<p>This is useful for exploratory percussion design:
+- patch a rare trigger or manual gate
+- let Bohm produce fresh variation states
+- save snapshots of the good ones</p>
+<p>Because Bohm models are designed around sweet spots, this can be a serious creativity tool rather than gimmick.</p>
+<hr />
+<h1>Recommended setup if your goal is “hyper-complex percussion”</h1>
+<p>If I were building around Bohm for this purpose, I would pair it with:</p>
+<ul>
+<li>a <strong>master clock / clock divider / multiplier</strong></li>
+<li>a <strong>logic module</strong></li>
+<li>a <strong>Euclidean trigger sequencer</strong></li>
+<li>a <strong>CV sequencer for pitch/velocity</strong></li>
+<li>one or two <strong>random or chaotic CV sources</strong></li>
+<li>a <strong>switch</strong> for changing clocks or patterns</li>
+<li>extra voices controlled by <strong>TAPS OUT</strong></li>
+</ul>
+<p>Then Bohm becomes:
+- kick synthesizer
+- sub-percussion voice
+- texture generator
+- ducking processor
+- modulation source
+- snapshot-based performance instrument</p>
+<hr />
+<h1>Best concise recommendations</h1>
+<p>If you want the fastest path to dense and advanced percussion:</p>
+<ol>
+<li><strong>Use different sources for HIT and Groove CLOCK</strong></li>
+<li><strong>Run Groove on a different subdivision or meter than Bohm</strong></li>
+<li><strong>Sequence VELOCITY and PITCH</strong></li>
+<li><strong>Use short LENGTH and transient shaping for drum-like articulation</strong></li>
+<li><strong>Exploit HIT-as-gate for variable duration percussion</strong></li>
+<li><strong>Use TAPS OUT to animate other modules</strong></li>
+<li><strong>Use Performer ducking to impose rhythm on external loops</strong></li>
+<li><strong>Store multiple metric personalities as snapshots</strong></li>
+<li><strong>Use Song mode for arranged meter changes</strong></li>
+<li><strong>Use OLP4, FM-2X, HZ-1, PX3, or XT-88 for the most percussive variety</strong></li>
+</ol>
+<hr />
+<h1>Best model choices by role</h1>
+<ul>
+<li><strong>Punchy synthetic kick percussion</strong>: FM-2X</li>
+<li><strong>Clicky articulated drum voice</strong>: HZ-1</li>
+<li><strong>Experimental metallic percussion</strong>: OLP4</li>
+<li><strong>Hard layered attack</strong>: PX3 / SP-6 / WT-4</li>
+<li><strong>Custom percussion ecosystem</strong>: XT-88</li>
+<li><strong>Acoustic-ish bass drum anchor</strong>: PM-K1</li>
+</ul>
+<hr />
+<h1>Final take</h1>
+<p>Bohm is very well suited to <strong>densely rhythmic, hyper-detailed percussion music</strong> because it is not locked into “one kick per bar” thinking. Its real strength is the interaction between:</p>
+<ul>
+<li><strong>main voice pulse</strong></li>
+<li><strong>secondary Groove clock behavior</strong></li>
+<li><strong>relative timing and pitch relationships</strong></li>
+<li><strong>snapshot-based structural changes</strong></li>
+<li><strong>Performer ducking and roll effects</strong></li>
+<li><strong>control-voltage reuse through TAPS OUT</strong></li>
+</ul>
+<p>If you patch it like a <strong>layered rhythm instrument</strong> instead of a simple kick module, it can become the central engine for:</p>
+<ul>
+<li>polyrhythms</li>
+<li>odd meters</li>
+<li>internal subdivisions</li>
+<li>evolving percussion beds</li>
+<li>sharp transients</li>
+<li>tuned low percussion</li>
+<li>live rhythmic mutation</li>
+</ul>
+<p>If you want, I can also turn this into:
+1. a <strong>set of 10 concrete patch recipes</strong>,<br />
+2. a <strong>“best companion modules for Bohm” guide</strong>, or<br />
+3. a <strong>“how to build an Autechre/techno/IDM style percussion system around Bohm” guide</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Modulaire_Maritime_Phosgène_Wavetable_FM_Oscillator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Modulaire Maritime — Phosgène Wavetable FM Oscillator</h1>
+<ul>
+<li><a href="../../manuals/Phosgène _ Modulaire Maritime.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.modulaire-maritime.com/phosgène">Manual PDF / source page</a></p>
+<h1>Modulaire Maritime Phosgène — patch ideas and creative uses</h1>
+<p>Phosgène looks like a <strong>2hp digital wavetable/FM oscillator</strong> with a pretty unusual character:</p>
+<ul>
+<li><strong>60 wavetables</strong> in <strong>2 banks of 30</strong></li>
+<li><strong>Two parallel sound paths / outputs</strong>:</li>
+<li><strong>Waveshaping / folded wavetable output</strong></li>
+<li><strong>FM output</strong></li>
+<li><strong>Shared controls</strong> influence both paths differently</li>
+<li><strong>External CV</strong> can push wave/folding/FM behavior further</li>
+<li><strong>100 Hz FM base</strong> for a darker, tighter, less splashy FM spectrum</li>
+<li><strong>Tracks 1V/oct across 8 octaves</strong></li>
+<li><strong>Octave up/down switch</strong></li>
+<li><strong>Octave displace function</strong> for shifting wavetable range lower while leaving FM range intact</li>
+<li><strong>11-bit-ish lower-resolution digital tone</strong>, with aliasing/noise as part of the flavor</li>
+<li><strong>Saves last settings</strong> after power cycle</li>
+</ul>
+<p>This tells me Phosgène is not just a “small oscillator,” but really a <strong>compact digital character source</strong> that can cover:
+- basses
+- metallic tones
+- dirty leads
+- industrial percussion
+- dual-layered timbres from its separate outputs
+- CV-reactive digital textures</p>
+<p>Below are the most interesting ways I’d use it in a Eurorack system.</p>
+<hr />
+<h2>1. Treat it as a <strong>dual personality oscillator</strong></h2>
+<p>Because it offers separate wavetable/folded and FM outputs, the first creative move is to <strong>never think of it as one voice</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send the <strong>wavetable output</strong> to a <strong>low-pass filter</strong></li>
+<li>Send the <strong>FM output</strong> to a <strong>wavefolder, LPG, or band-pass filter</strong></li>
+<li>Pan them left/right in a stereo mixer</li>
+<li>Modulate wave selection and FM depth with two related but different modulation sources</li>
+</ul>
+<h3>Why it works</h3>
+<p>You get one coherent pitch source but two very different timbral interpretations:
+- one side can be the “body”
+- the other side can be the “grit,” “air,” or “machine noise”</p>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Stereo mixer / panner</strong>: Happy Nerding PanMix, Worng SoundStage, Befaco STMix</li>
+<li><strong>Dual filter</strong>: Bastl Ikarie, Make Noise QPAS, Frap Fumana if you want spectral madness</li>
+<li><strong>LPG / dynamics</strong>: Make Noise Optomix, Takaab LPG, Doepfer A-101-2</li>
+</ul>
+<hr />
+<h2>2. Build a <strong>bass voice that stays dark and solid</strong></h2>
+<p>The manual specifically mentions the FM implementation is based around <strong>100 Hz</strong>, making it ideal for <strong>tight FM basses</strong> and <strong>deep modulation</strong>. That suggests Phosgène can do bass without the brittle upper-mid splash many digital FM voices get.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequence 1V/oct into Phosgène</li>
+<li>Use the <strong>FM output</strong> as your main oscillator</li>
+<li>Send it into a <strong>clean VCA</strong></li>
+<li>Add a <strong>snappy envelope</strong> to amplitude</li>
+<li>Use a <strong>slow envelope or offset CV</strong> to animate wave/folding controls subtly</li>
+<li>Layer the <strong>wavetable output</strong> one octave lower or with octave displacement engaged</li>
+</ul>
+<h3>Why it works</h3>
+<p>The FM side gives punch and harmonic focus, while the lower-displaced wavetable side can add weight.</p>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Envelope</strong>: Intellijel Dual ADSR, Zadar, Quadrax</li>
+<li><strong>VCA</strong>: Veils, Tallin, Quad VCA</li>
+<li><strong>Bass-friendly filter</strong>: AJH MiniMod VCF, Doepfer SEM, Joranalogue Filter 8</li>
+<li><strong>Saturation</strong>: Instruō tanh[3], Ritual Guillotine, Endorphin.es Golden Master for final polish</li>
+</ul>
+<hr />
+<h2>3. Use the <strong>octave displace</strong> feature as a sound-design tool, not just pitch management</h2>
+<p>This is one of the coolest features described. It seems meant to keep the wavetable engine in a lower, more usable range while preserving full FM range.</p>
+<h3>Creative use</h3>
+<p>Instead of thinking “this just prevents harshness,” use it to create <strong>split-register timbres</strong>:
+- wavetable output stays low, thick, and dirty
+- FM output remains high, articulate, and bright
+- both are tracking the same melody</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Mult your pitch CV to Phosgène and another oscillator</li>
+<li>Use Phosgène’s <strong>wavetable output</strong> with octave displace on as a sub/undertone</li>
+<li>Use another analog VCO or the <strong>FM output</strong> for the top layer</li>
+<li>Mix to taste</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Analog VCO pairing</strong>: Dixie II+, STO, Ts-L, A-110-1</li>
+<li><strong>Subharmonic enhancers</strong>: Joranalogue Fold 6, analog saturation, resonant filter ping layer</li>
+</ul>
+<p>This creates a “one module does low digital filth, another does stable top-end” hybrid voice.</p>
+<hr />
+<h2>4. Exploit the <strong>11-bit / aliasing / noisy wavetable character</strong></h2>
+<p>The manual explicitly celebrates the “digital trash.” That means you should lean into it rather than trying to sterilize it.</p>
+<h3>Patch idea: “broken sampler” lead</h3>
+<ul>
+<li>Use the wavetable output</li>
+<li>Add moderate wave/fold CV from a stepped random source</li>
+<li>Send into a <strong>high-pass filter</strong></li>
+<li>Add <strong>short digital delay</strong> or <strong>clocked delay</strong></li>
+<li>Reverb after that</li>
+</ul>
+<h3>Result</h3>
+<p>You get a lead that feels like:
+- degraded ROMpler
+- busted game-console synth
+- early sampler wavetable edge</p>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Stepped random / S&amp;H</strong>: Mutable Kinks, Wogglebug, Doepfer A-148, SSF Ultra-Random Analog</li>
+<li><strong>Clocked delay</strong>: Mimeophon, Chronoblob 2, Erica Pico DSP</li>
+<li><strong>Bit/phase/digital FX</strong>: Data Bender, FX Aid, Timiszoara, MFX</li>
+</ul>
+<hr />
+<h2>5. Turn it into an <strong>industrial percussion source</strong></h2>
+<p>Phosgène’s harsh digital partials, noise-containing tables, and FM path make it ideal for non-traditional drum synthesis.</p>
+<h3>Patch idea: kick/metal hybrid</h3>
+<ul>
+<li>Sequence very short pitches or trigger envelopes into pitch modulation</li>
+<li>Use the <strong>FM output</strong> for the body</li>
+<li>Use the <strong>wavetable output</strong> through a VCA for the attack/noise layer</li>
+<li>Envelope the noise layer with an extremely short decay</li>
+<li>Add distortion and compression</li>
+</ul>
+<h3>Patch idea: hi-hats / clanks</h3>
+<ul>
+<li>Tune Phosgène high</li>
+<li>Modulate wave selection with random voltages</li>
+<li>Gate with a short decay envelope</li>
+<li>Run through band-pass filtering or LPG</li>
+<li>Optional: ring mod with another oscillator or noise source</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Percussion envelopes</strong>: Quadrax, Pingable Envelope Generator, Delta-V</li>
+<li><strong>Distortion</strong>: Noise Engineering Ruina series, Bastl Dark Matter, Ritual Miasma</li>
+<li><strong>Compressor</strong>: WMD MSCL, Cosmotronic Messor, Endorphin.es Cockpit 2 sidechain tricks</li>
+</ul>
+<hr />
+<h2>6. Pair it with a <strong>resonator or physical modeling module</strong></h2>
+<p>The slightly crude digital tone can become very alive when used as an exciter rather than the final voice.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send one of Phosgène’s outputs into:</li>
+<li>a resonator</li>
+<li>Karplus-Strong input path</li>
+<li>modal filter bank</li>
+<li>Use bursts or short envelopes instead of sustained notes</li>
+<li>Modulate wave selection every few triggers</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Resonator / physical modeling</strong>: Mutable Rings, 2hp Pluck, Tubbutec/4ms resonant options, Schlappi Three Body used resonantly</li>
+<li><strong>Karplus tools</strong>: delay line with short feedback, Mimeophon zones, Chronoblob, Sarajewo</li>
+<li><strong>Exciter helpers</strong>: LPGs, burst generators, trigger sequencers</li>
+</ul>
+<h3>Why it works</h3>
+<p>Phosgène’s edgy harmonics and aliasing give resonators a more complex excitation signal than a simple sine or noise burst.</p>
+<hr />
+<h2>7. Use it as a <strong>modulator</strong>, not only an audio oscillator</h2>
+<p>Because it tracks well and has controllable digital shape changes, Phosgène can be a fantastic <strong>audio-rate modulation source</strong> for other modules.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Use the <strong>FM output</strong> to frequency-modulate another oscillator</li>
+<li>Use the <strong>wavetable output</strong> to phase-modulate a digital oscillator or filter cutoff FM</li>
+<li>Sequence both oscillators harmonically</li>
+</ul>
+<h3>Excellent targets</h3>
+<ul>
+<li>Through-zero FM oscillators</li>
+<li>Filters with good FM response</li>
+<li>Delay time CV</li>
+<li>Wavefolders</li>
+<li>PLL modules</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Oscillators for cross-mod</strong>: Generate 3, Furthrrrr Generator, Cs-L, Brenso, Neoni</li>
+<li><strong>Filters that like audio-rate FM</strong>: Filter 8, Belgrad, Ikarie, Three Sisters</li>
+<li><strong>PLL / logic weirdness</strong>: Doepfer A-196, Joranalogue Compare 2, logic modules</li>
+</ul>
+<h3>Result</h3>
+<p>Phosgène can inject “digital chewiness” into otherwise smooth analog modules.</p>
+<hr />
+<h2>8. Crossfade the two outputs for <strong>morphing articulation</strong></h2>
+<p>Since there are two sonic interpretations available, voltage-controlled crossfading is an obvious and very musical move.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send both outputs into a <strong>VC crossfader</strong></li>
+<li>Use:</li>
+<li>an envelope for plucked transitions</li>
+<li>an LFO for evolving drones</li>
+<li>velocity or aftertouch from your controller for expressive morphing</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>VC crossfader</strong>: Doepfer A-134-2, Happy Nerding Xfade, Joranalogue Morph 4</li>
+<li><strong>Performance control</strong>: Tetrapad/Tête, Pressure Points, Planar 2, 0-CTRL</li>
+</ul>
+<h3>Why it works</h3>
+<p>You can perform between:
+- stable-ish wavetable tone
+- rougher FM articulation
+- or vice versa depending on the patch</p>
+<p>It gives the voice a macro “gesture” control.</p>
+<hr />
+<h2>9. Make it the center of a <strong>small 2hp/compact skiff voice</strong></h2>
+<p>Since it’s only 2hp, it begs to be part of a very tiny but high-impact voice chain.</p>
+<h3>Minimal voice recipe</h3>
+<ul>
+<li><strong>Phosgène</strong></li>
+<li><strong>Envelope/LFO</strong></li>
+<li><strong>VCA</strong></li>
+<li><strong>Filter or LPG</strong></li>
+<li><strong>Multi-FX</strong></li>
+<li><strong>Compact sequencer</strong></li>
+</ul>
+<h3>Suggested compact ecosystem</h3>
+<ul>
+<li>2hp EG / VCA / MMF / Verb / Delay</li>
+<li>ALM Pip Slope / Pip Filter / MFX</li>
+<li>Happy Nerding 3xVCA + FX Aid</li>
+<li>Xaoc Sewastopol or Tallin for extra gain and drive</li>
+</ul>
+<h3>Result</h3>
+<p>A tiny skiff with one tiny oscillator can still make:
+- dark techno basslines
+- acid-adjacent sequences
+- industrial bleeps
+- cinematic drones</p>
+<hr />
+<h2>10. Use slow CV on <strong>wave selection</strong> for quasi-granular movement</h2>
+<p>Even without true wavetable interpolation details in the text, stepped or slewed modulation through wave indices can create a pseudo-scan effect.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Feed a <strong>very slow random voltage</strong> into wave select</li>
+<li>Use a <strong>slew limiter</strong> if needed</li>
+<li>Keep pitch static or drone-based</li>
+<li>Process through reverb and stereo delay</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Random / chaos</strong>: Triple Sloths, Marbles, Wogglebug, Orbit 3</li>
+<li><strong>Slew</strong>: Doepfer A-170, Joranalogue Contour 1, Maths</li>
+<li><strong>Spatial FX</strong>: Mimeophon, Nautilus, Desmodus Versio, Beads</li>
+</ul>
+<h3>Result</h3>
+<p>A living digital drone that moves between “machine hum,” “radio ghosts,” and “corroded glass harmonics.”</p>
+<hr />
+<h2>11. Patch it into a <strong>wavefolder anyway</strong></h2>
+<p>Even though it already contains waveshaping/folding behavior, external folding on digital waveforms often produces a very different result than internal shaping.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Use the wavetable output into an analog wavefolder</li>
+<li>Modulate folder symmetry/fold amount with envelopes and audio-rate LFOs</li>
+<li>Compare with the FM output processed separately</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Wavefolders</strong>: Intellijel Bifold, Joranalogue Fold 6, Serge-style folder, Bastl Timber</li>
+<li><strong>Mod source</strong>: another oscillator, cycling envelope, random burst</li>
+</ul>
+<h3>Why it works</h3>
+<p>Digital source + analog nonlinear processing = excellent contrast.<br />
+Phosgène supplies stepped/aliased complexity; the external folder adds continuous analog instability.</p>
+<hr />
+<h2>12. Build a <strong>drone voice with parallel signal processing</strong></h2>
+<p>This module seems especially strong when split into multiple processing lanes.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Wavetable output → low-pass gate → spring reverb</li>
+<li>FM output → resonant band-pass filter → distortion → delay</li>
+<li>Mix both at different levels</li>
+<li>Modulate wave and FM depth with unrelated slow CVs</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Spring / character reverb</strong>: Doepfer A-199, Knas Ekdahl Moisturizer (if external), FX Aid spring emulations</li>
+<li><strong>Band-pass filter</strong>: Three Sisters, Ikarie, QPAS</li>
+<li><strong>Slow modulators</strong>: Batumi, Ochd, Just Friends, Maestro</li>
+</ul>
+<h3>Result</h3>
+<p>Huge dark drones with an “engine room / submarine / abandoned factory” character.</p>
+<hr />
+<h2>13. Pair it with <strong>sequenced CV offsets and precision utilities</strong></h2>
+<p>Because the manual emphasizes octave range management and careful timbral positioning, precision utilities will be especially rewarding.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Use a <strong>precision adder</strong> for octave jumps</li>
+<li>Use a <strong>CV offset/attenuator</strong> to place the wave/FM sweet spot exactly</li>
+<li>Trigger switches to jump between banks or octave settings in performance</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Precision / utility</strong>: Ornament &amp; Crime, Doepfer A-185-2, Frap 321, Happy Nerding 3xMIA</li>
+<li><strong>Sequential switching</strong>: Doepfer A-151, Vice Virga, Switch 4</li>
+</ul>
+<h3>Why it matters</h3>
+<p>Digital oscillators with lots of sweet spots benefit massively from:
+- attenuating modulation
+- offsetting it into “musical” zones
+- recalling repeatable intervals</p>
+<hr />
+<h2>14. Clocked sample-and-hold on timbre controls for <strong>machine speech / robotic melody</strong></h2>
+<p>Digital wavetable modules often sound amazing when timbre changes are rhythmically quantized.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send a synced clock to sample-and-hold</li>
+<li>Feed S&amp;H with noise, random, or another slow oscillator</li>
+<li>Patch that into wave selection or modulation depth</li>
+<li>Sequence pitch normally</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>S&amp;H</strong>: A-148, Kinks, Select 2, Sapèl</li>
+<li><strong>Clock source</strong>: Pam’s Pro Workout, Tempi, Workout-style modules</li>
+<li><strong>Quantizer for melodic certainty</strong>: Scales, O_C, Bard Quartet</li>
+</ul>
+<h3>Result</h3>
+<p>Every note can have a different “phoneme,” producing robotic lines that feel speech-like.</p>
+<hr />
+<h2>15. Process it through <strong>formant or spectral modules</strong></h2>
+<p>Phosgène’s bright, irregular harmonics are ideal fodder for spectral animation.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Wavetable output into a <strong>formant filter</strong> or <strong>fixed filter bank</strong></li>
+<li>FM output direct or through VCA</li>
+<li>Animate filter bands with envelopes or LFOs</li>
+<li>Tune oscillator low and let filtering define the apparent motion</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Filter banks / spectral</strong>: Bark Filter, Fumana, fixed filter banks, Serge Resonant EQ</li>
+<li><strong>Formant processing</strong>: Rossum Morpheus, Xaoc Koszalin for weird enhancement, spectral EQ modules</li>
+</ul>
+<h3>Result</h3>
+<p>Industrial choir, radio voices, dystopian pads.</p>
+<hr />
+<h2>16. Use it as a <strong>dirty clockable texture source</strong> for granular or looper modules</h2>
+<p>Instead of “playing” it conventionally, record snippets and repitch/process them elsewhere.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Run Phosgène through changing CV states</li>
+<li>Sample short phrases into:</li>
+<li>granular processor</li>
+<li>looping delay</li>
+<li>sampler</li>
+<li>Then repitch, reverse, freeze, and resequence</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Granular / buffer</strong>: Arbhar, Beads, Morphagene, Nebulae</li>
+<li><strong>Sampler</strong>: Assimil8or, Bitbox, Radio Music-style playback tools</li>
+<li><strong>Looper</strong>: Lubadh, Magneto, Morphagene</li>
+</ul>
+<h3>Why it works</h3>
+<p>Its tone is already rich and unstable, so even tiny captured fragments remain interesting after transformation.</p>
+<hr />
+<h2>17. Pair it with <strong>comparators, logic, and envelope followers</strong> for control extraction</h2>
+<p>A digital oscillator with sharp transitions can be useful as a source of control logic too.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Send an audio output into a <strong>comparator</strong></li>
+<li>Derive gates based on waveform crossings</li>
+<li>Use those gates to trigger envelopes elsewhere</li>
+<li>Or use an <strong>envelope follower</strong> on one output to animate processing on the other</li>
+</ul>
+<h3>Great companions</h3>
+<ul>
+<li><strong>Comparator / logic</strong>: Joranalogue Compare 2, Doepfer logic modules, Klavis Two Bits</li>
+<li><strong>Envelope follower</strong>: Sewastopol, Detect-Rx, Mutable Ears, A-119</li>
+</ul>
+<h3>Result</h3>
+<p>Self-derived rhythms and feedback ecosystems where Phosgène partly controls its own processing.</p>
+<hr />
+<h2>18. Patch ideas by genre</h2>
+<h2>Dark techno</h2>
+<ul>
+<li>FM output as bass voice</li>
+<li>Wavetable output layered quietly for grit</li>
+<li>Saturation + low-pass filter</li>
+<li>Modulate wave select every 8 or 16 bars with stepped random</li>
+<li>Add sidechain compression from kick</li>
+</ul>
+<h2>Industrial / EBM</h2>
+<ul>
+<li>High-register wavetable output into distortion</li>
+<li>FM output for metallic transient layer</li>
+<li>Triggered sample-and-hold on timbre</li>
+<li>Band-pass filtering and mono delay</li>
+</ul>
+<h2>Ambient / sci-fi</h2>
+<ul>
+<li>Slow random on wave select</li>
+<li>Octave-displaced wavetable for lower drone bed</li>
+<li>FM output through resonator and long reverb</li>
+<li>Manual crossfading between paths</li>
+</ul>
+<h2>Electro / IDM</h2>
+<ul>
+<li>Use Phosgène for percussion and bass alternately</li>
+<li>Audio-rate modulate filter cutoff</li>
+<li>Sample slices into a sampler</li>
+<li>Sequence octave jumps with precision adder</li>
+</ul>
+<hr />
+<h2>A few especially strong pairing recommendations</h2>
+<h2>If you want it to sound bigger</h2>
+<ul>
+<li><strong>Filter:</strong> Bastl Ikarie or Joranalogue Filter 8</li>
+<li><strong>VCA/mixer:</strong> Veils or Happy Nerding 3xVCA</li>
+<li><strong>FX:</strong> FX Aid XL or Mimeophon</li>
+</ul>
+<h2>If you want industrial destruction</h2>
+<ul>
+<li><strong>Distortion:</strong> Noise Engineering Ruina Versio / Terci Ruina</li>
+<li><strong>Dynamics:</strong> Messor or MSCL</li>
+<li><strong>Random:</strong> Ultra-Random Analog or Wogglebug</li>
+</ul>
+<h2>If you want experimental timbre motion</h2>
+<ul>
+<li><strong>Modulation:</strong> Batumi, Ochd, Triple Sloths</li>
+<li><strong>Crossfader:</strong> Morph 4 or Planar 2</li>
+<li><strong>Resonator:</strong> Rings or a resonant filter bank</li>
+</ul>
+<h2>If you want a tiny but serious voice</h2>
+<ul>
+<li><strong>Envelope:</strong> Pip Slope / Zadar</li>
+<li><strong>VCA:</strong> Tallin / 2hp VCA</li>
+<li><strong>Filter:</strong> 2hp MMF / Ikarie</li>
+<li><strong>FX:</strong> MFX / FX Aid</li>
+</ul>
+<hr />
+<h2>Best practical advice for patching Phosgène</h2>
+<ol>
+<li>
+<p><strong>Use both outputs whenever possible</strong><br />
+   That’s where a lot of its uniqueness probably lives.</p>
+</li>
+<li>
+<p><strong>Attenuate CV heavily</strong><br />
+   Small digital modules often have narrow sweet spots.</p>
+</li>
+<li>
+<p><strong>Use octave displacement musically</strong><br />
+   It’s not just a corrective feature; it’s a voicing feature.</p>
+</li>
+<li>
+<p><strong>Let aliasing be part of the patch</strong><br />
+   Don’t over-filter too early.</p>
+</li>
+<li>
+<p><strong>Try it as a modulation source</strong><br />
+   Especially into filters and analog oscillators.</p>
+</li>
+<li>
+<p><strong>Pair it with analog processors</strong><br />
+   Filters, VCAs, wavefolders, LPGs, and saturation can make the digital core feel much larger and more dimensional.</p>
+</li>
+</ol>
+<hr />
+<h2>Quick starter patch recipes</h2>
+<h3>1. Brutal bass</h3>
+<ul>
+<li>Pitch seq → Phosgène</li>
+<li>FM out → VCA → LPF</li>
+<li>Env → VCA</li>
+<li>Slow LFO → wave/mod input</li>
+<li>Wavetable out mixed quietly underneath</li>
+</ul>
+<h3>2. Machine drone</h3>
+<ul>
+<li>Static pitch or very slow sequence</li>
+<li>Wavetable out → LPG → reverb</li>
+<li>FM out → distortion → delay</li>
+<li>Two unsynced slow LFOs on wave/fold controls</li>
+</ul>
+<h3>3. Metallic percussion</h3>
+<ul>
+<li>Trigger envelope to VCA</li>
+<li>FM out → band-pass filter</li>
+<li>Fast decay envelope to pitch for transient</li>
+<li>Random stepped CV to wave select</li>
+</ul>
+<h3>4. Glitch lead</h3>
+<ul>
+<li>Wavetable out → HPF → delay → reverb</li>
+<li>Clocked sample-and-hold to wave select</li>
+<li>Short envelope to VCA</li>
+<li>Manual crossfade with FM out for accents</li>
+</ul>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

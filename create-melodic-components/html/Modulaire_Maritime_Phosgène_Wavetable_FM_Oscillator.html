@@ -1,0 +1,359 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Modulaire_Maritime_Phosgène_Wavetable_FM_Oscillator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Modulaire Maritime — Phosgène Wavetable FM Oscillator</h1>
+<ul>
+<li><a href="../../manuals/Phosgène _ Modulaire Maritime.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<h1><a href="https://www.modulaire-maritime.com/phosg%C3%A8ne">Manual PDF / Source</a></h1>
+<p>From the provided manual pages, the module documented here is:</p>
+<ul>
+<li><strong>Modulaire Maritime Phosgène</strong></li>
+<li><strong>2hp digital wavetable / FM oscillator</strong></li>
+<li><strong>60 wavetables</strong> arranged in <strong>2 banks of 30</strong></li>
+<li><strong>Two parallel sound paths / outputs</strong>:<ul>
+<li><strong>Wavetable / waveshaping output</strong></li>
+<li><strong>FM output</strong></li>
+</ul>
+</li>
+<li><strong>Wave folding / shaping</strong> under manual control and external CV</li>
+<li><strong>V/Oct tracking over 8 octaves</strong></li>
+<li><strong>Octave up/down switching</strong></li>
+<li><strong>Octave displace function</strong> for shifting the wavetable range lower</li>
+<li><strong>Settings memory</strong> on reboot for bank, wave, octave</li>
+<li><strong>11-bit digital character</strong>, with intentional low-resolution/aliasing flavor at extremes</li>
+</ul>
+<p>Because only one module manual is attached, I’ll focus on how <strong>Phosgène</strong> can be used with the rest of a typical Eurorack system to create <strong>melodic components</strong>: leads, basses, arpeggios, harmonized lines, and evolving tonal motifs.</p>
+<hr />
+<h2>What Phosgène contributes melodically</h2>
+<p>Phosgène is fundamentally a <strong>pitchable sound source</strong>, so it is naturally suited to melodic work. Its most important musical strengths are:</p>
+<ul>
+<li><strong>Stable pitch tracking</strong> via V/Oct</li>
+<li><strong>Large timbral range</strong> from wavetable selection and folding</li>
+<li><strong>A darker, more controlled FM voice</strong> due to its low FM base frequency approach</li>
+<li><strong>Two distinct tones at once</strong> from separate wavetable and FM outputs</li>
+</ul>
+<p>That means it can act as:</p>
+<ul>
+<li>a <strong>main voice oscillator</strong> for melodies</li>
+<li>a <strong>bass oscillator</strong></li>
+<li>a <strong>layered dual-timbre melodic source</strong></li>
+<li>a <strong>countermelody generator</strong> when its two outputs are treated separately</li>
+<li>a <strong>dynamic digital voice</strong> that changes timbre while keeping pitch constant</li>
+</ul>
+<hr />
+<h2>Core melodic patch roles</h2>
+<h2>1. Simple mono lead voice</h2>
+<p>This is the most direct use.</p>
+<p><strong>Patch concept</strong>
+- Sequencer or keyboard <strong>Pitch CV</strong> → <strong>Phosgène V/Oct</strong>
+- Gate/trigger → envelope generator
+- Phosgène <strong>wavetable output</strong> → VCA or low-pass gate → mixer
+- Envelope → VCA CV
+- Optional modulation source → <strong>wave select / folding CV</strong></p>
+<p><strong>Why it works</strong>
+- The module tracks pitch over a wide range, so it can play melodies conventionally.
+- The wavetable side gives you a bright, synthetic lead voice.
+- Subtle CV over wave selection/folding adds expression without changing the notes.</p>
+<p><strong>Best melodic use</strong>
+- Acid-adjacent digital leads
+- Video-game flavored themes
+- Industrial synth lines
+- Sharp melodic ostinatos</p>
+<hr />
+<h2>2. Bassline voice</h2>
+<p>The manual specifically points toward <strong>tight FM basses</strong> and deep modulation. The <strong>octave displace</strong> function is especially useful here.</p>
+<p><strong>Patch concept</strong>
+- Pitch CV → V/Oct
+- Use the <strong>octave down</strong> setting and/or <strong>octave displace</strong>
+- Take either:
+  - <strong>FM output</strong> for darker bass
+  - <strong>wavetable output</strong> for more aggressive bass
+- Route to VCA/filter
+- Use a short envelope for plucky bass or sustained envelope for drone bass
+- Add slight wave/fold modulation from an envelope or slow LFO</p>
+<p><strong>Why it works</strong>
+- The lower-register support helps preserve useful bass territory.
+- FM is described as more “sober” spectrally than many harsher digital FM designs, which is good for focused low end.
+- The wavetable side can add grind and edge.</p>
+<p><strong>Best melodic use</strong>
+- Sequenced bass motifs
+- Dark electro bass
+- Industrial EBM patterns
+- Melodic sub-bass with upper digital bite</p>
+<hr />
+<h2>3. Dual-layer melody from both outputs</h2>
+<p>A particularly interesting feature is that the <strong>waveshaping and FM are available in parallel through separate outputs</strong>. This is where the module becomes more than “just one oscillator.”</p>
+<p><strong>Patch concept</strong>
+- Pitch CV → V/Oct
+- <strong>Wavetable output</strong> → one VCA/filter chain
+- <strong>FM output</strong> → second VCA/filter chain
+- Same gate can open both VCAs, or separate envelopes can shape each differently
+- Mix both voices together</p>
+<p><strong>Why it works musically</strong>
+- Both outputs share pitch material, so they remain melodically coherent.
+- But they differ in harmonic structure, so you get a layered tone from one oscillator.
+- One output can carry the <strong>body</strong> of the note while the other supplies <strong>attack</strong>, <strong>grit</strong>, or <strong>air</strong>.</p>
+<p><strong>Melodic applications</strong>
+- Lead + shadow layer
+- Bass + upper articulation
+- Clean-ish note core from one output, aggressive texture from the other
+- Stereo melodic voice if panned left/right</p>
+<p><strong>Example</strong>
+- Wavetable output: filtered, slightly resonant, central in mix
+- FM output: brighter, shorter envelope, panned off-center
+- Result: notes feel more alive and dimensional</p>
+<hr />
+<h2>4. Pseudo-counterpoint from one oscillator</h2>
+<p>Because the outputs are separate, you can process them differently enough to suggest two related melodic parts.</p>
+<p><strong>Patch concept</strong>
+- Same pitch input drives Phosgène
+- Wavetable output → quantizer-triggered sample-and-hold filter or delay line
+- FM output → separate envelope/VCA path with rhythmic gate variation
+- Send the two paths to different effects</p>
+<p><strong>Musical result</strong>
+You won’t get two independent pitches from the module alone, but you can create the feeling of:
+- melody + answer
+- foreground line + ghost echo
+- note + rhythmic harmonic accent</p>
+<p>This is especially effective if one output is:
+- short and plucky
+- heavily delayed
+- octave-shifted externally
+- processed with wavefolder/filter/distortion</p>
+<hr />
+<h2>5. Evolving melodic timbre without changing pitch</h2>
+<p>A strong melodic patch often depends not only on the note sequence, but also on how timbre evolves per note.</p>
+<p>Phosgène is good at this because:
+- wave selection can be changed
+- folding/shaping can be modulated
+- FM depth responds well to CV</p>
+<p><strong>Patch concept</strong>
+- Sequencer row 1 → V/Oct
+- Sequencer row 2 or slow CV → wave selection / fold / FM modulation amount
+- Envelope or random stepped CV → timbre parameter
+- Keep pitch sequence fixed while timbre changes continuously</p>
+<p><strong>Why this matters</strong>
+This creates melodies that feel:
+- animated
+- phrased
+- non-repetitive
+- “composed” rather than merely looped</p>
+<p><strong>Great for</strong>
+- Berlin-school style motifs
+- generative melodic patches
+- soundtrack pulses
+- machine-like themes with evolving color</p>
+<hr />
+<h2>Practical melodic strategies</h2>
+<h2>A. Use wavetable output for note identity, FM output for accent</h2>
+<p>A very effective compositional approach:</p>
+<ul>
+<li>Let the <strong>wavetable output</strong> define the fundamental melodic note</li>
+<li>Bring in the <strong>FM output</strong> only on accented steps</li>
+</ul>
+<p><strong>Patch</strong>
+- Main gate opens wavetable VCA every note
+- Accent gate or secondary trigger opens FM VCA on selected notes</p>
+<p><strong>Result</strong>
+- Melody stays clear
+- Certain notes become more intense, edgy, or emotionally weighted</p>
+<p>This is excellent for:
+- 8-step basslines
+- syncopated motifs
+- techno and electro phrasing</p>
+<hr />
+<h2>B. Use octave switching to separate register roles</h2>
+<p>Because the module includes octave controls and octave displacement, you can reposition the same sequence into different musical roles.</p>
+<p>Examples:
+- Mid-register wavetable lead
+- Low-register FM bass
+- High-register brittle arpeggio
+- Lowered wavetable drone under a sequenced line</p>
+<p>For melodic arrangement, this means Phosgène can be repurposed quickly in a patch from:
+- melody
+- to bass
+- to ornament
+- to drone support</p>
+<hr />
+<h2>C. Exploit aliasing and 11-bit character as a melodic feature</h2>
+<p>The manual is explicit that at some ranges, especially high or heavily folded settings, you may get:
+- more pronounced aliasing
+- digital trash
+- noisy wave behavior</p>
+<p>For melodic work, don’t think of that only as a flaw. It can become:</p>
+<ul>
+<li>note attack texture</li>
+<li>expressive roughness on high melody notes</li>
+<li>a way to distinguish chorus/bridge sections</li>
+<li>a “broken digital” upper voice contrasting with a cleaner bass</li>
+</ul>
+<p>A useful method:
+- Keep verses or initial loop iterations on cleaner wave settings
+- Increase wave/folding or select noisier waves in a later section
+- This turns timbre into arrangement</p>
+<hr />
+<h2>Melodic patch recipes</h2>
+<h2>1. Dark digital bassline</h2>
+<p><strong>Use</strong>
+- V/Oct from sequencer
+- FM output as main audio
+- Low-pass filter after oscillator
+- Short decay envelope to VCA
+- Slight envelope to FM modulation depth or wave control</p>
+<p><strong>Character</strong>
+- Focused low end
+- Deep, brooding melodic bass
+- Tight without becoming too metallic</p>
+<p><strong>Style fit</strong>
+- Electro
+- darkwave
+- industrial techno
+- soundtrack tension beds</p>
+<hr />
+<h2>2. Bright wavetable arpeggio</h2>
+<p><strong>Use</strong>
+- Arpeggiator/sequencer → V/Oct
+- Wavetable output → LPG or VCA
+- Clocked random or stepped CV → wave select
+- Fast attack/short decay envelope</p>
+<p><strong>Character</strong>
+- Crisp, animated notes
+- Each step gets slight spectral variation
+- Great for melodic sparkle</p>
+<p><strong>Style fit</strong>
+- IDM
+- synth pop
+- chiptune-adjacent textures
+- modular ambient with rhythmic articulation</p>
+<hr />
+<h2>3. Hybrid lead with parallel outputs</h2>
+<p><strong>Use</strong>
+- Pitch CV → V/Oct
+- Wavetable output → filter → VCA
+- FM output → separate VCA, maybe no filter
+- One envelope for body, second shorter/snappier envelope for FM path
+- Mix to taste</p>
+<p><strong>Character</strong>
+- Strong melodic intelligibility
+- Controlled aggression
+- Feels more “produced” than a single raw oscillator</p>
+<p><strong>Style fit</strong>
+- lead hooks
+- solo lines
+- cinematic industrial melodies
+- live performance voice</p>
+<hr />
+<h2>4. Morphing sequence</h2>
+<p><strong>Use</strong>
+- 8- or 16-step sequencer for pitch
+- Another CV lane or slow LFO for wave selection
+- Manual bank changes between song sections
+- Optional octave displace engaged for lower, weightier passage</p>
+<p><strong>Character</strong>
+- Same melody can move through several emotional colors
+- Useful for long-form repetition without boredom</p>
+<p><strong>Style fit</strong>
+- techno
+- ambient sequences
+- post-industrial modular jams
+- generative melodic systems</p>
+<hr />
+<h2>5. Call-and-response processing patch</h2>
+<p><strong>Use</strong>
+- Wavetable output → dry/main melodic voice
+- FM output → delay/reverb/distortion chain
+- Rhythmically gate or duck one against the other</p>
+<p><strong>Character</strong>
+- The melody seems to answer itself
+- Very effective in sparse arrangements</p>
+<p><strong>Style fit</strong>
+- experimental pop
+- minimal wave
+- soundtrack composition
+- live improvisation</p>
+<hr />
+<h2>What other modules pair best with it for melody</h2>
+<p>Since this is an oscillator, it benefits most from the usual “voice chain” modules:</p>
+<h3>Essential companions</h3>
+<ul>
+<li><strong>Pitch sequencer or keyboard controller</strong></li>
+<li><strong>Envelope generator</strong></li>
+<li><strong>VCA</strong></li>
+<li><strong>Mixer</strong></li>
+<li><strong>Filter or low-pass gate</strong></li>
+</ul>
+<h3>Especially useful companions</h3>
+<ul>
+<li>
+<p><strong>Quantizer</strong><br />
+  For turning random CV into tonal melodies.</p>
+</li>
+<li>
+<p><strong>Sequential switch / clocked switch</strong><br />
+  To alternate between wavetable and FM paths or different processing chains.</p>
+</li>
+<li>
+<p><strong>Precision adder / octave switcher</strong><br />
+  To transpose melodic phrases while preserving tuning.</p>
+</li>
+<li>
+<p><strong>Utility attenuator / offset</strong><br />
+  Very useful for dialing in sweet spots on timbre CV.</p>
+</li>
+<li>
+<p><strong>Clocked random / sample-and-hold</strong><br />
+  Great for stepped wave changes that stay rhythmically tied to melody.</p>
+</li>
+<li>
+<p><strong>Stereo effects</strong><br />
+  Delay, chorus, or reverb can turn the dual outputs into expansive melodic textures.</p>
+</li>
+</ul>
+<hr />
+<h2>Best compositional uses in a rack</h2>
+<p>If I were building melodic material around Phosgène in a Eurorack patch, I would treat it in one of these three ways:</p>
+<h3>1. As the main melody oscillator</h3>
+<p>Use the wavetable output as the core tone and animate timbre with CV.</p>
+<h3>2. As a bass and hook generator</h3>
+<p>Use the FM output for bass and reserve more aggressive wavetable settings for hook phrases.</p>
+<h3>3. As a layered voice source</h3>
+<p>Use both outputs simultaneously and process them differently for a richer melodic line from minimal rack space.</p>
+<p>Because it’s only <strong>2hp</strong>, this is especially attractive in compact performance systems where one module needs to do a lot of work.</p>
+<hr />
+<h2>Overall musical assessment</h2>
+<p>For melodic use, Phosgène seems best suited to:</p>
+<ul>
+<li><strong>digital basslines</strong></li>
+<li><strong>aggressive or characterful leads</strong></li>
+<li><strong>evolving sequenced melodies</strong></li>
+<li><strong>layered mono voices</strong></li>
+<li><strong>industrial / electro / dark melodic textures</strong></li>
+</ul>
+<p>Its strengths are not “vintage warmth” or traditional subtractive purity. Instead, it offers:</p>
+<ul>
+<li>compactness</li>
+<li>strong digital personality</li>
+<li>useful pitch tracking</li>
+<li>timbral variation under CV</li>
+<li>dual parallel outputs that can make a single melodic line feel more complex</li>
+</ul>
+<p>That makes it a very strong <strong>melodic sound source</strong> if your music benefits from:
+- edge
+- texture
+- spectral movement
+- darker FM color
+- intentionally digital tone</p>
+<p>If you want, I can also turn this into:
+1. a <strong>patch cookbook</strong> with step-by-step cable routing, or<br />
+2. a <strong>musical role matrix</strong> showing how Phosgène fits into bass / lead / arp / drone / counterpoint duties.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

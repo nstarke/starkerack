@@ -1,0 +1,703 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Integra_Solum</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Integra Solum</h1>
+<ul>
+<li><a href="../../manuals/Integra Solum Manual - Noise Engineering Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.noiseengineering.us/is/">Manual PDF / documentation</a></p>
+<h1>Using Noise Engineering Integra Solum to build full-length Eurorack songs</h1>
+<p>Integra Solum is easy to misunderstand as “just” a clock divider / trigger source. But for song construction, that is exactly the kind of module that can turn a cool loop into an arrangement.</p>
+<p>Its real strength is not only making rhythms — it is making <strong>structured time divisions</strong>, <strong>section changes</strong>, <strong>rotating variations</strong>, and <strong>parallel trigger streams</strong> that can control multiple layers of a patch over longer spans.</p>
+<h2>What Integra Solum does well</h2>
+<p>From the manual:</p>
+<ul>
+<li>Dual rotating clock divider</li>
+<li>16 trigger outputs total, in two groups of 8</li>
+<li>Both sides can share one clock or run independently</li>
+<li>Both sides can share reset or reset independently</li>
+<li>3 modes per side:</li>
+<li><code>/2N</code> = powers-of-two divisions</li>
+<li><code>N</code> = sequence of eight</li>
+<li><code>/2N+1</code> = odd divisions</li>
+<li><code>Shift</code> rotates output order</li>
+<li>“Wack mode” adds randomized behavior</li>
+<li>Outputs are trigger outputs, 0–5 V, triggering around 3.4 V</li>
+</ul>
+<p>That means it can act as:</p>
+<ul>
+<li>a master <strong>section clock brain</strong></li>
+<li>a <strong>drum arrangement source</strong></li>
+<li>a <strong>phrase variation generator</strong></li>
+<li>a <strong>fill / break generator</strong></li>
+<li>a <strong>modulation scheduler</strong></li>
+<li>a <strong>song form coordinator</strong></li>
+</ul>
+<hr />
+<h1>Why this module is useful for full songs</h1>
+<p>A full song usually needs more than a repeating 1-bar pattern. It needs:</p>
+<ul>
+<li>intro</li>
+<li>groove entry</li>
+<li>tension / subtraction</li>
+<li>variation</li>
+<li>fills</li>
+<li>breakdown</li>
+<li>return</li>
+<li>ending</li>
+</ul>
+<p>Integra Solum helps because it naturally produces <strong>events at different time scales</strong>.</p>
+<p>For example, from one master clock you can derive triggers that happen:</p>
+<ul>
+<li>every 2 steps</li>
+<li>every 4 steps</li>
+<li>every 8 steps</li>
+<li>every 16 steps</li>
+<li>every 32 steps</li>
+</ul>
+<p>Those longer divisions are exactly what creates arrangement.</p>
+<p>Instead of asking:</p>
+<blockquote>
+<p>“How do I make a song?”</p>
+</blockquote>
+<p>you can patch:</p>
+<blockquote>
+<p>“What should happen every 8 bars? Every 16 bars? Every 32 beats? What should rotate at the end of each phrase?”</p>
+</blockquote>
+<p>Integra Solum gives you those timing landmarks.</p>
+<hr />
+<h1>Core song-building idea</h1>
+<p>Use Integra Solum in <strong>layers of time</strong>:</p>
+<ul>
+<li><strong>Fast events</strong>: hats, accents, ratchets, melodic note clocks</li>
+<li><strong>Medium events</strong>: kick pattern variations, bass phrase resets, chord changes</li>
+<li><strong>Slow events</strong>: mute/unmute, filter opening, switching sequencer pages, changing effect sends, transitions between sections</li>
+</ul>
+<p>A full-length song emerges when those layers interact over time.</p>
+<hr />
+<h1>Best roles for each side</h1>
+<p>Because Integra Solum is dual, a very practical use is:</p>
+<h2>Side A: “musical pattern timing”</h2>
+<p>Use one side for things the listener clearly hears as rhythm or phrase structure:
+- drums
+- bass resets
+- melodic step advances
+- fills
+- phrase endings</p>
+<h2>Side B: “arrangement and transitions”</h2>
+<p>Use the other side for slower or more hidden control:
+- switch sequential switch routes
+- trigger envelope bursts for transitions
+- advance sequencer pages
+- open VCAs for different voices
+- change quantizer root
+- enable effect sends
+- trigger sample changes</p>
+<p>This split makes the patch feel more song-like instead of just busy.</p>
+<hr />
+<h1>Understanding the modes musically</h1>
+<h2>1. <code>/2N</code> mode: powers of two</h2>
+<p>This is the most useful mode for arrangement.</p>
+<p>Musically, use it for:
+- phrase boundaries
+- 2-bar / 4-bar / 8-bar / 16-bar changes
+- kick dropouts every few bars
+- opening a filter every 8th or 16th cycle
+- switching sections</p>
+<p>This is the “song form” mode.</p>
+<h3>Example uses</h3>
+<ul>
+<li>Output 1: every 2 clocks</li>
+<li>Output 2: every 4 clocks</li>
+<li>Output 3: every 8 clocks</li>
+<li>Output 4: every 16 clocks</li>
+</ul>
+<p>Even if you don’t know exactly which jack corresponds to which division in practice, patch and listen: some outputs will clearly be slower and ideal for arrangement timing.</p>
+<hr />
+<h2>2. <code>N</code> mode: sequence of eight</h2>
+<p>This behaves more like a moving one-of-eight trigger stream.</p>
+<p>Musically, use it for:
+- stepping through drum voices
+- driving an 8-stage melodic accent structure
+- sending one trigger to a sequential switch to create scene changes
+- creating “which lane is active now?” behavior</p>
+<p>This is the “ordered pattern evolution” mode.</p>
+<h3>Example uses</h3>
+<ul>
+<li>Trigger one of 8 VCAs in succession</li>
+<li>Route one trigger across 8 modulation destinations via switch logic</li>
+<li>Clock a switch that changes oscillator timbre every phrase step</li>
+</ul>
+<p>Very useful for making arrangement feel intentional rather than random.</p>
+<hr />
+<h2>3. <code>/2N+1</code> mode: odd divisions</h2>
+<p>This is where groove starts becoming less square.</p>
+<p>Musically, use it for:
+- polymetric accents
+- fills that don’t align every bar
+- asymmetrical modulation
+- variation in percussion layers
+- non-obvious phrase resets</p>
+<p>This is the “keep the loop from becoming static” mode.</p>
+<h3>Example uses</h3>
+<ul>
+<li>Trigger a clap accent every 3 or 5 cycles</li>
+<li>Fire a noise burst into reverb on an odd division</li>
+<li>Advance a secondary melody at an odd interval against a 16-step main line</li>
+</ul>
+<p>Odd divisions are excellent for full-length songs because they create <strong>longer composite cycles</strong> before repeating.</p>
+<hr />
+<h1>Wack mode for arrangement</h1>
+<p>Wack mode is particularly valuable for transitions and anti-loop fatigue.</p>
+<p>From the manual:</p>
+<ul>
+<li><code>/2N</code> becomes probabilistic divide-by-two behavior</li>
+<li><code>N</code> generates one random trigger at each step</li>
+<li><code>/2N+1</code> gives independent 50% chance per output per clock</li>
+</ul>
+<p>This means Wack mode is not just “random chaos.” It is <strong>controlled variation</strong>.</p>
+<h2>Good musical uses for Wack mode</h2>
+<ul>
+<li>fills at the end of phrases</li>
+<li>semi-random percussion texture during breakdowns</li>
+<li>changing note density in arpeggios</li>
+<li>evolving hi-hat accents</li>
+<li>conditional stabs or FX hits</li>
+</ul>
+<h2>Best practice</h2>
+<p>Don’t leave everything in Wack mode all the time. Use it in <strong>specific sections</strong>:
+- intro texture
+- pre-drop tension
+- breakdown instability
+- final chorus variation
+- outro decay</p>
+<p>That way it sounds like arrangement, not drift.</p>
+<hr />
+<h1>Patch strategies for full-length songs</h1>
+<h2>1. Build a verse/chorus structure with mutes and VCAs</h2>
+<h3>What you need</h3>
+<ul>
+<li>Integra Solum</li>
+<li>master clock</li>
+<li>multiple voices</li>
+<li>VCAs or mute modules</li>
+<li>envelopes</li>
+</ul>
+<h3>Patch concept</h3>
+<ul>
+<li>Clock both sides from one master clock</li>
+<li>Use Side A in <code>/2N</code> mode for phrase timing</li>
+<li>Use slow outputs to trigger envelopes that open VCAs for different voices</li>
+<li>Use Side B to rotate or switch variation triggers</li>
+</ul>
+<h3>Song behavior</h3>
+<ul>
+<li>Intro: only kick + texture voice open</li>
+<li>Verse: bass VCA opens every 8 or 16 beats</li>
+<li>Chorus: lead voice and open hats come in on a slower divider trigger</li>
+<li>Breakdown: gate closes bass and kick, leaves FX and melody fragments</li>
+<li>Final section: all VCAs opened, plus Wack-mode percussion accents</li>
+</ul>
+<p>This is one of the cleanest ways to turn a patch into sections.</p>
+<hr />
+<h2>2. Use it as a “scene change trigger” for sequential switches</h2>
+<p>Sequential switches are one of the strongest song-form tools in Eurorack.</p>
+<h3>Pair with</h3>
+<ul>
+<li>Doepfer A-151</li>
+<li>Noise Engineering Vice Virga / Confundo Funkitas style logic tools</li>
+<li>any sequential switch</li>
+<li>switchable sequencers or sample players</li>
+</ul>
+<h3>Patch concept</h3>
+<p>Use slow Integra Solum outputs to:
+- advance a sequential switch
+- switch between:
+  - different bass CV sequences
+  - different drum trigger patterns
+  - different modulation routings
+  - different quantizer roots
+  - different effect send levels</p>
+<h3>Result</h3>
+<p>The patch changes “scene” every phrase.</p>
+<h3>Example</h3>
+<ul>
+<li>Scene 1: intro</li>
+<li>Scene 2: verse groove</li>
+<li>Scene 3: chorus</li>
+<li>Scene 4: breakdown</li>
+<li>Scene 5: return</li>
+<li>Scene 6: final chorus with extra percussion</li>
+</ul>
+<p>Integra Solum becomes a song section conductor.</p>
+<hr />
+<h2>3. Drive drum arrangement over many bars</h2>
+<p>A common issue in Eurorack is a great 1-bar drum loop that never develops.</p>
+<h3>Patch concept</h3>
+<p>Let your core drum sequencer handle the main beat, but use Integra Solum to create:
+- clap entrances
+- tom fills
+- crash triggers
+- hat density changes
+- kick dropouts
+- snare flam triggers
+- end-of-phrase noise bursts</p>
+<h3>Pair with</h3>
+<ul>
+<li>drum modules</li>
+<li>logic modules</li>
+<li>burst generators</li>
+<li>VCAs</li>
+<li>mute matrix</li>
+<li>OR combiner / trigger mixer</li>
+</ul>
+<h3>Specific approach</h3>
+<ul>
+<li>Main sequencer = kick/snare fundamentals</li>
+<li>Integra Solum outputs = arrangement overlays</li>
+<li><code>/2N</code> outputs trigger crash or fill every 16 or 32 steps</li>
+<li><code>N</code> mode rotates through toms or percussion lanes</li>
+<li>Wack mode drives occasional hat and rim variations</li>
+</ul>
+<p>This creates the feeling of a drummer or arranger intervening over time.</p>
+<hr />
+<h2>4. Reset sequencers to create phrases</h2>
+<p>Resets are one of the most important arrangement tools in modular.</p>
+<h3>Pair with</h3>
+<ul>
+<li>melodic sequencer</li>
+<li>bass sequencer</li>
+<li>Euclidean sequencer</li>
+<li>quantizer</li>
+<li>clocked modulation source</li>
+</ul>
+<h3>Patch concept</h3>
+<p>Use Integra Solum outputs not only as note triggers, but as:
+- sequencer reset triggers
+- modulation reset triggers
+- envelope re-sync triggers</p>
+<h3>Why this matters</h3>
+<p>A patch often sounds “songless” because multiple clocks run freely with no phrase boundaries.</p>
+<p>Use slow Integra Solum triggers to:
+- reset the bass sequencer every 16 steps
+- reset the melody every 32 steps
+- reset a modulation LFO every 64 steps</p>
+<p>Now phrases line up and sections feel intentional.</p>
+<hr />
+<h2>5. Use Shift as a live arrangement control</h2>
+<p>The Shift/Offset control rotates outputs. This is very useful live.</p>
+<p>Instead of repatching, you can rotate which output is considered first in the cycle.</p>
+<h2>Musical result</h2>
+<ul>
+<li>fills happen in different places</li>
+<li>accents shift forward/backward</li>
+<li>phrase emphasis changes</li>
+<li>drum lane ordering changes</li>
+<li>switch progression changes</li>
+</ul>
+<p>If one side is controlling a sequence of section actions, rotating it effectively rearranges the order of events.</p>
+<h3>Practical use</h3>
+<p>During performance:
+- keep one side stable for core groove
+- manually move Shift on the other side to create evolving arrangements</p>
+<p>This is a strong way to make a 6-minute performance feel composed.</p>
+<hr />
+<h2>6. Separate clocks for macro and micro time</h2>
+<p>Because each side can be clocked independently, you don’t have to run both from the same pulse.</p>
+<h3>Powerful approach</h3>
+<ul>
+<li>Side A gets 16th-note clock</li>
+<li>Side B gets bar clock, phrase clock, or divided clock from another module</li>
+</ul>
+<h3>Why</h3>
+<p>Now one side handles local rhythm while the other handles large-scale arrangement.</p>
+<h3>Example</h3>
+<ul>
+<li>Side A: hats, percussion, melodic triggers</li>
+<li>Side B: every bar or every 2 bars triggers section changes, filter swells, switch advances</li>
+</ul>
+<p>This creates hierarchy in the patch, which is key to song form.</p>
+<hr />
+<h2>7. Create intros and outros by gradual layer activation</h2>
+<p>Full-length songs often need gentle entry and exit.</p>
+<h3>Patch concept</h3>
+<p>Use progressively slower outputs to bring in layers one by one:
+- drone starts immediately
+- kick starts after a few bars
+- bass enters after 8 bars
+- hat enters after 16 bars
+- lead enters after 32 bars</p>
+<p>You can do this with:
+- trigger-to-gate modules
+- sample &amp; hold plus comparator
+- sequential switches
+- latching VCAs / gate-controlled VCAs</p>
+<p>Similarly for outros:
+- remove hats first
+- then lead
+- then bass
+- leave kick + delay tail
+- then only texture</p>
+<p>Integra Solum gives the timing skeleton for that.</p>
+<hr />
+<h1>Module combinations that work especially well</h1>
+<h2>With trigger sequencers</h2>
+<p>Examples:
+- Steppy
+- Numeric Repetitor
+- Varigate
+- Pam’s Pro Workout
+- Euclidean Circles</p>
+<p>Use Integra Solum as the <strong>macro arranger</strong> above the trigger sequencer.</p>
+<p>The sequencer makes the groove.
+Integra Solum decides when the groove changes.</p>
+<hr />
+<h2>With melodic sequencers</h2>
+<p>Examples:
+- Metropolix
+- René
+- Mimetic Digitalis
+- Moskwa
+- Voltage Block plus quantizer</p>
+<p>Use Integra Solum to:
+- reset phrases
+- switch stored sequences
+- transpose sections
+- enable alternate clocks
+- trigger different envelopes for note articulation</p>
+<p>This helps transform a cool riff into verse/chorus development.</p>
+<hr />
+<h2>With quantizers</h2>
+<p>Examples:
+- Scales
+- Bard Quartet
+- O_C
+- ADDAC quantizers</p>
+<p>Use slow trigger outputs to:
+- change root note
+- switch scale
+- transpose melody up for chorus
+- move bass from tonic pedal to progression tones</p>
+<p>One of the fastest routes to “song” is harmonic change.
+Integra Solum can schedule those changes.</p>
+<hr />
+<h2>With sequential switches</h2>
+<p>This may be the single best pairing.</p>
+<p>Use it to switch:
+- CV patterns
+- trigger lanes
+- modulation destinations
+- audio sources
+- filter inputs</p>
+<p>Now every phrase can be a different arrangement state.</p>
+<hr />
+<h2>With logic modules</h2>
+<p>Examples:
+- AND / OR / XOR logic
+- Compare 2
+- Joranalogue logic tools
+- Ladik logic modules</p>
+<p>Logic multiplies the usefulness of Integra Solum.</p>
+<h3>Example</h3>
+<ul>
+<li>Main snare trigger AND a slow divider trigger = only occasional snare accent</li>
+<li>Kick trigger XOR odd division = changing syncopation</li>
+<li>Melody gate OR random Wack trigger = occasional grace notes</li>
+</ul>
+<p>This creates controlled song evolution.</p>
+<hr />
+<h2>With VCAs and envelope generators</h2>
+<p>This is essential.</p>
+<p>Triggers only matter musically if they open or shape something.
+Use Integra Solum to trigger:
+- accent envelopes
+- amplitude envelopes
+- filter envelopes
+- effect send envelopes
+- ducking or sidechain pulses</p>
+<p>For song construction, think in terms of:
+- when does this part enter?
+- how strongly?
+- for how long?
+- on what phrase cycle?</p>
+<hr />
+<h2>With effects</h2>
+<p>Use slow outputs to animate effects over sections:
+- send more snare to reverb every 8 bars
+- open delay feedback during fills
+- trigger freeze or hold functions
+- switch between dry and wet paths
+- clock modulation on delay/reverb parameters</p>
+<p>Effects automation is one of the easiest ways to create progression without changing notes.</p>
+<hr />
+<h1>Concrete full-song patch examples</h1>
+<h2>Patch 1: Techno arrangement engine</h2>
+<h3>Modules</h3>
+<ul>
+<li>drum voices</li>
+<li>bass voice</li>
+<li>lead voice</li>
+<li>1 main trigger sequencer</li>
+<li>1 melodic sequencer</li>
+<li>Integra Solum</li>
+<li>mute VCAs</li>
+<li>filter</li>
+<li>delay/reverb</li>
+<li>sequential switch</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Main clock to Integra Solum and trigger sequencer</li>
+<li>Side A <code>/2N</code>: phrase triggers</li>
+<li>Side B <code>N</code>: route through sequential switch for section changes</li>
+</ul>
+<h3>Use</h3>
+<ul>
+<li>Output A1: occasional open hat accents</li>
+<li>Output A2: clap enable every phrase</li>
+<li>Output A3: crash trigger every 16 steps/bars</li>
+<li>Output A4: reset bass sequence every 32 steps</li>
+<li>Output B outputs: advance switch selecting 1 of 4 lead modulation states</li>
+</ul>
+<h3>Song structure</h3>
+<ul>
+<li>0:00–0:45 intro: kick + filtered percussion only</li>
+<li>0:45–1:30 bass enters on a slow divider event</li>
+<li>1:30–2:15 lead enters when switch reaches scene 2</li>
+<li>2:15–2:45 breakdown: mute kick using gate logic, enable Wack percussion</li>
+<li>2:45–4:00 full groove return, Shift slightly rotated for new accents</li>
+<li>4:00–end gradual layer subtraction</li>
+</ul>
+<hr />
+<h2>Patch 2: Generative ambient song with recurring form</h2>
+<h3>Modules</h3>
+<ul>
+<li>2–3 voice patch</li>
+<li>quantizer</li>
+<li>clocked random</li>
+<li>envelopes</li>
+<li>VCAs</li>
+<li>reverb</li>
+<li>sequential switch</li>
+<li>Integra Solum</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Side A in <code>N</code> mode controls which voice is active each step/phrase</li>
+<li>Side B in <code>/2N</code> mode resets melodic and modulation cycles</li>
+<li>Wack mode on one side for sparse random texture triggers</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>recurring phrase markers create recognizable form</li>
+<li>random textures keep it evolving</li>
+<li>resets keep it from turning into an endless drift</li>
+</ul>
+<p>This is great for long-form ambient where “song” means recurring sections rather than verse/chorus.</p>
+<hr />
+<h2>Patch 3: Bassline + melody song form</h2>
+<h3>Modules</h3>
+<ul>
+<li>bass sequencer</li>
+<li>melody sequencer</li>
+<li>quantizer</li>
+<li>two voices</li>
+<li>mixer</li>
+<li>VCA</li>
+<li>switch or precision adder</li>
+<li>Integra Solum</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Side A controls bass phrase resets and accents</li>
+<li>Side B controls melody transposition and section changes</li>
+</ul>
+<h3>Use</h3>
+<ul>
+<li>A slow output resets bass every 16 steps</li>
+<li>Another output opens bass accent envelope at phrase start</li>
+<li>Side B triggers precision adder transposition:</li>
+<li>section 1 = root</li>
+<li>section 2 = +5th</li>
+<li>section 3 = relative minor / alternate root</li>
+<li>another slow output enables melody only in chorus sections</li>
+</ul>
+<p>Now your song gains harmonic and textural development without needing a DAW-style arranger.</p>
+<hr />
+<h2>Patch 4: Drum fill and transition machine</h2>
+<h3>Modules</h3>
+<ul>
+<li>main drum sequencer</li>
+<li>sample player or noise voice</li>
+<li>burst generator</li>
+<li>logic</li>
+<li>reverb</li>
+<li>Integra Solum</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Main groove stays stable</li>
+<li>Integra Solum handles only transitions:</li>
+<li>fill trigger</li>
+<li>crash trigger</li>
+<li>reverse cymbal / noise swell</li>
+<li>delay send burst</li>
+<li>kick mute for one beat before drop</li>
+</ul>
+<h3>Why it works</h3>
+<p>Many songs are defined less by the loop and more by the transitions between loops.
+Integra Solum can specialize in that role and dramatically improve song feel.</p>
+<hr />
+<h1>Practical workflow for writing a song with Integra Solum</h1>
+<h2>Method 1: Build from the longest timescale first</h2>
+<ol>
+<li>Set master clock</li>
+<li>Patch slow Integra Solum outputs to section-change functions</li>
+<li>Define:</li>
+<li>intro length</li>
+<li>phrase length</li>
+<li>breakdown point</li>
+<li>return point</li>
+<li>Then fill in drums and melody</li>
+</ol>
+<p>This works better than starting with a dense groove and trying to “arrange” later.</p>
+<hr />
+<h2>Method 2: Reserve one side only for arrangement</h2>
+<p>This is a great discipline.</p>
+<ul>
+<li>Side A = groove support</li>
+<li>Side B = song form only</li>
+</ul>
+<p>Do not spend all outputs on drums.
+Keep at least a few outputs for:
+- mutes
+- resets
+- switch advances
+- effect moments
+- harmonic changes</p>
+<p>That is usually the missing ingredient in Eurorack songs.</p>
+<hr />
+<h2>Method 3: Use one “event” per phrase</h2>
+<p>For each phrase boundary, decide one thing that changes:
+- add hat
+- remove bass
+- transpose melody
+- open filter
+- trigger fill
+- change switch state
+- enable random mode</p>
+<p>If each phrase has one clear event, the listener hears progression.</p>
+<p>Integra Solum excels at creating these phrase events.</p>
+<hr />
+<h1>Important performance ideas</h1>
+<h2>Manual interaction matters</h2>
+<p>A full song in Eurorack often comes from a combination of:
+- automated structure
+- live intervention</p>
+<p>On Integra Solum, live actions can include:
+- changing mode
+- rotating Shift
+- entering/exiting Wack mode
+- changing which side shares a clock/reset
+- muting outputs downstream</p>
+<p>These actions can act like arrangement moves:
+- verse to chorus
+- stable groove to fill-heavy section
+- breakdown to full density return</p>
+<hr />
+<h2>Use reset intentionally</h2>
+<p>Reset is one of the strongest “section marker” gestures in modular.
+A reset can make the whole system feel like it has arrived at a new chapter.</p>
+<p>Use resets:
+- at drop returns
+- at end of breakdowns
+- at start of melody sections
+- when changing clock relationships</p>
+<hr />
+<h1>Limitations to be aware of</h1>
+<p>Integra Solum is not a full song arranger by itself.</p>
+<p>It does not:
+- store songs
+- chain patterns explicitly
+- remember section order
+- output pitch CV
+- mute audio directly</p>
+<p>So to make full songs, you should pair it with:
+- VCAs
+- switches
+- logic
+- sequencers
+- quantizers
+- mixers
+- effects</p>
+<p>Think of it as a <strong>structural timing generator</strong>, not a complete composer.</p>
+<p>That said, structural timing is often exactly what a modular patch lacks.</p>
+<hr />
+<h1>Best song-building use cases in one sentence each</h1>
+<p>Integra Solum is especially good for:</p>
+<ul>
+<li>turning bar-level loops into phrase-level arrangements</li>
+<li>making different voices enter and leave on longer cycles</li>
+<li>creating fills and transitions automatically</li>
+<li>resetting sequencers into recognizable song phrases</li>
+<li>controlling section changes via switches</li>
+<li>adding non-repeating long-form variation with odd divisions</li>
+<li>using Wack mode to inject controlled instability</li>
+</ul>
+<hr />
+<h1>A simple “full song” starter patch</h1>
+<p>If you want one practical patch to try immediately:</p>
+<h2>Modules</h2>
+<ul>
+<li>clock source</li>
+<li>kick, snare, hat voices</li>
+<li>bass voice</li>
+<li>lead voice</li>
+<li>melodic sequencer</li>
+<li>sequential switch</li>
+<li>4 VCAs or mute channels</li>
+<li>Integra Solum</li>
+</ul>
+<h2>Patch</h2>
+<ul>
+<li>Clock to both Integra Solum sides</li>
+<li>Side A <code>/2N</code></li>
+<li>one output to hat accents</li>
+<li>one to bass sequencer reset</li>
+<li>one to crash</li>
+<li>one to fill trigger</li>
+<li>Side B <code>N</code></li>
+<li>outputs to sequential switch selecting:<ol>
+<li>bass only</li>
+<li>bass + drums</li>
+<li>add lead</li>
+<li>breakdown modulation state</li>
+<li>full chorus</li>
+</ol>
+</li>
+<li>Use VCAs to open/close layers based on switch outputs</li>
+<li>At breakdown, engage Wack mode on one side for hats and percussion only</li>
+<li>Rotate Shift for the final section</li>
+</ul>
+<p>That can easily produce a 4–8 minute performance with clear form.</p>
+<hr />
+<h1>Final thought</h1>
+<p>Integra Solum helps create full-length songs because it gives you a way to think beyond the loop.</p>
+<p>In Eurorack, the jump from “great pattern” to “great song” usually comes from adding:
+- phrase boundaries
+- section changes
+- controlled entrances and exits
+- resets
+- fills
+- long-cycle variation</p>
+<p>Integra Solum is extremely strong at all of those.</p>
+<p>If you treat it not as a divider but as a <strong>song clock architecture module</strong>, it becomes much more powerful.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

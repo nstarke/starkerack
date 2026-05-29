@@ -1,0 +1,485 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Integra_Solum</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Integra Solum</h1>
+<ul>
+<li><a href="../../manuals/Integra Solum Manual - Noise Engineering Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.noiseengineering.us/is/">Manual / Docs</a></p>
+<h1>Noise Engineering Integra Solum for dense, hyper-complex percussion</h1>
+<p>Integra Solum is not a sound source or effect; it’s a <strong>dual rotating clock divider / trigger generator</strong>. That makes it extremely good for building <strong>intricate drum logic</strong>, especially when you want:</p>
+<ul>
+<li><strong>polyrhythms</strong></li>
+<li><strong>offset repeating structures</strong></li>
+<li><strong>odd-length cycles</strong></li>
+<li><strong>rotating accents</strong></li>
+<li><strong>controlled randomness</strong></li>
+<li><strong>two interlocked but independent rhythmic systems</strong></li>
+</ul>
+<p>Because it has <strong>two sides of 8 trigger outputs</strong>, independently clockable/resettable, you can treat it like <strong>two related rhythmic brains</strong> in one module.</p>
+<h2>What it does best for percussion</h2>
+<p>From the manual, the key features for rhythm design are:</p>
+<ul>
+<li><strong>Dual sections</strong>, each with <strong>8 trigger outputs</strong></li>
+<li>Shared or separate <strong>clock</strong> and <strong>reset</strong></li>
+<li><strong>Shift</strong> control rotates the order of outputs</li>
+<li>Three core modes:</li>
+<li><strong>/2N</strong> = powers-of-two divisions</li>
+<li><strong>N</strong> = sequence of eight</li>
+<li><strong>/2N+1</strong> = odd-number divisions</li>
+<li><strong>Wack mode</strong> adds randomized behavior</li>
+<li>One clock can <strong>normal to both sides</strong>, or you can clock each side independently</li>
+</ul>
+<p>That means Integra Solum is ideal as a <strong>master trigger architecture module</strong> for percussion systems built from drum voices, LPGs, envelopes, burst generators, logic, and VCAs.</p>
+<hr />
+<h1>Big-picture strategy</h1>
+<p>For hyper-complex percussion, think of Integra Solum as generating <strong>layers of rhythmic hierarchy</strong>:</p>
+<ol>
+<li>
+<p><strong>Main pulse layer</strong><br />
+   foundational kick/snare timing</p>
+</li>
+<li>
+<p><strong>Subdivision layer</strong><br />
+   hats, shakers, clicks, ghost hits</p>
+</li>
+<li>
+<p><strong>Accent rotation layer</strong><br />
+   changing emphasis over time via Shift</p>
+</li>
+<li>
+<p><strong>Odd-cycle layer</strong><br />
+   polymeter and phrase drift via /2N+1</p>
+</li>
+<li>
+<p><strong>Random disruption layer</strong><br />
+   Wack mode for instability and variation</p>
+</li>
+</ol>
+<p>Use one side for <strong>stable structure</strong>, and the other for <strong>destabilization</strong>.</p>
+<p>A strong approach is:</p>
+<ul>
+<li><strong>Side A</strong> = your “grid authority”</li>
+<li><strong>Side B</strong> = your “mutation engine”</li>
+</ul>
+<hr />
+<h1>Understanding the three modes musically</h1>
+<h2>1. /2N mode: powers-of-two divisions</h2>
+<p>This is your classic clock division territory.</p>
+<p>Use it for:</p>
+<ul>
+<li>kicks on slower divisions</li>
+<li>snares/claps on medium divisions</li>
+<li>regular hats from faster divisions</li>
+<li>structured anchors in otherwise chaotic patches</li>
+</ul>
+<p>This mode is useful when you want <strong>clarity inside complexity</strong>. Even if everything else gets strange, /2N gives the ear recognizable points of reference.</p>
+<h3>Good uses</h3>
+<ul>
+<li>Kick on one slow output</li>
+<li>Snare on a medium division</li>
+<li>Closed hat on a faster division</li>
+<li>Accent trigger for opening a VCA or changing decay on another drum voice</li>
+</ul>
+<h3>Why it helps with dense rhythm</h3>
+<p>Dense music only works if some layer remains comprehensible. /2N provides that backbone.</p>
+<hr />
+<h2>2. N mode: sequence of eight</h2>
+<p>This is one of the most useful modes for evolving percussion. The manual describes it as a <strong>sequence of eight</strong>, and the Shift control rotates which jack is considered the first in the cycle.</p>
+<p>Think of it like an <strong>8-step trigger scan</strong> spread across the outputs.</p>
+<p>Use it for:</p>
+<ul>
+<li>stepping through 8 percussion voices</li>
+<li>moving accents around a smaller set of voices</li>
+<li>creating phrase-based rhythmic movement</li>
+<li>manually “rotating” patterns without re-patching</li>
+</ul>
+<h3>Great patch idea</h3>
+<p>Patch several outputs from one side in N mode to:</p>
+<ul>
+<li>kick trigger</li>
+<li>snare trigger</li>
+<li>closed hat</li>
+<li>open hat</li>
+<li>rim</li>
+<li>clap</li>
+<li>FM percussion hit</li>
+<li>noise burst</li>
+</ul>
+<p>Now Shift changes which output happens first, so the whole drum phrase rotates. This is a very fast way to get <strong>pattern mutation</strong> while keeping a coherent phrase shape.</p>
+<h3>Why it helps with complex time signatures</h3>
+<p>Because the sequence is ordered and rotatable, you can align or misalign it against another clock domain or reset interval to create:
+- 5-over-8 feeling
+- 7-against-4 phrase movement
+- evolving downbeat displacement</p>
+<hr />
+<h2>3. /2N+1 mode: odd-number divisions</h2>
+<p>This is the goldmine for <strong>polyrhythms and weird meters</strong>.</p>
+<p>Odd divisions naturally resist lining up with standard 4/4 subdivisions. That gives you:</p>
+<ul>
+<li>3-based accents over 4-based kicks</li>
+<li>5-step recurring percussion lines</li>
+<li>7-hit phrase overlays</li>
+<li>long non-repeating composite structures</li>
+</ul>
+<h3>Best uses</h3>
+<ul>
+<li>toms</li>
+<li>metallic percussion</li>
+<li>accents</li>
+<li>ratchet enable signals</li>
+<li>modulation triggers for drum parameter changes</li>
+</ul>
+<h3>Why this mode matters</h3>
+<p>If you want “complicated patterns” that don’t feel like simple x0x repeats, odd-number divisions are essential.</p>
+<p>A patch with:
+- Side A in <strong>/2N</strong>
+- Side B in <strong>/2N+1</strong></p>
+<p>already gets you far into <strong>polymetric percussion architecture</strong>.</p>
+<hr />
+<h1>Wack mode: where complexity becomes alive</h1>
+<p>Wack mode turns Integra Solum from a structured divider into a <strong>controlled chaos percussion sequencer</strong>.</p>
+<p>The manual gives these behaviors:</p>
+<h2>Wack /2N</h2>
+<ul>
+<li>probabilistic divide-by-two behavior</li>
+<li>50% chance of generating a trigger at each step</li>
+<li>average density similar to /2N, but randomized</li>
+</ul>
+<p>This is ideal for:
+- ghost hats
+- unstable accents
+- broken techno percussion
+- swung-feeling textures without actual swing</p>
+<h2>Wack N</h2>
+<ul>
+<li>a <strong>single random trigger</strong> is generated at each step</li>
+</ul>
+<p>This is excellent for:
+- rotating one-hit-per-step percussion choice
+- “which voice fires now?” behavior
+- sparse but animated phrase motion</p>
+<p>If patched to multiple drum voices, this becomes a kind of <strong>random voice allocator</strong>.</p>
+<h2>Wack /2N+1</h2>
+<ul>
+<li>all 8 outputs independently have a 50% chance of going high on each rising clock</li>
+</ul>
+<p>This is the densest and wildest mode. It can generate:
+- flurries of percussion
+- clustered impacts
+- glitch bursts
+- chaotic fills</p>
+<p>This is perfect for:
+- hats through VCAs
+- noise bursts
+- FM clicks
+- transient layers
+- fill sections
+- modulating drum parameters at high density</p>
+<hr />
+<h1>Best practical patch architectures</h1>
+<h2>Patch 1: Stable core + unstable detail</h2>
+<p>A classic high-functioning drum patch.</p>
+<h3>Side A</h3>
+<ul>
+<li>Clocked by your master clock</li>
+<li>Mode: <strong>/2N</strong></li>
+<li>Use outputs for:</li>
+<li>kick</li>
+<li>snare</li>
+<li>clap</li>
+<li>open hat accents</li>
+</ul>
+<h3>Side B</h3>
+<ul>
+<li>Same clock, normalled from Side A</li>
+<li>Mode: <strong>/2N+1</strong> or Wack <strong>/2N+1</strong></li>
+<li>Use outputs for:</li>
+<li>closed hats</li>
+<li>shakers</li>
+<li>blips</li>
+<li>metallic percussion</li>
+<li>fills</li>
+</ul>
+<h3>Result</h3>
+<p>Side A gives groove stability; Side B generates tension and complexity.</p>
+<hr />
+<h2>Patch 2: Two independent clock domains for true polyrhythm</h2>
+<p>Since each side can be clocked independently, use this.</p>
+<h3>Side A</h3>
+<ul>
+<li>Clock: straight 16th-note clock</li>
+<li>Mode: <strong>N</strong></li>
+<li>Handles your “main kit”</li>
+</ul>
+<h3>Side B</h3>
+<ul>
+<li>Clock: a different clock rate, such as:</li>
+<li>triplets</li>
+<li>dotted 8ths</li>
+<li>clock multiplied x5 or x7</li>
+<li>a manually divided odd-rate pulse</li>
+<li>Mode: <strong>/2N+1</strong></li>
+</ul>
+<h3>Result</h3>
+<p>The two sides phase against each other and create <strong>real polyrhythm</strong>, not just rotated variation.</p>
+<p>This is one of the strongest uses of the module.</p>
+<hr />
+<h2>Patch 3: Complex time signatures with strategic reset</h2>
+<p>The reset input is crucial.</p>
+<p>Use resets to define phrase length. For example:</p>
+<ul>
+<li>Let Side A reset every <strong>16 steps</strong></li>
+<li>Let Side B reset every <strong>15</strong> or <strong>14</strong> or <strong>21</strong> steps</li>
+</ul>
+<p>Now your rhythmic pattern re-aligns only after a longer cycle. That gives the effect of:
+- shifting meters
+- non-repeating bar structures
+- evolving phrase accents</p>
+<h3>Example feel</h3>
+<ul>
+<li>Side A suggests 4/4</li>
+<li>Side B implies 5/4 or 7/8</li>
+<li>Together, the system creates long-form rhythmic evolution</li>
+</ul>
+<p>Because the reset can be patched independently, you can use another sequencer, logic source, or clock divider to determine phrase boundaries.</p>
+<hr />
+<h2>Patch 4: Rotating drum orchestration</h2>
+<p>Put one side in <strong>N</strong> mode and patch each output to a different percussion voice.</p>
+<p>Then perform with <strong>Shift</strong>.</p>
+<p>Since Shift rotates the outputs, the order of events moves across the kit:
+- kick appears in different phrase positions
+- snares displace
+- metallic hits slide forward
+- accents migrate</p>
+<p>This is excellent for:
+- live improvisation
+- pattern mutation without menu diving
+- generating “same pattern, new groove” effects</p>
+<p>If your voices have overlapping timbres, this can sound like a highly composed rhythmic rearrangement rather than randomization.</p>
+<hr />
+<h2>Patch 5: Trigger one voice, modulate another</h2>
+<p>Don’t use all outputs only as drum triggers. Some should control <strong>parameters</strong>.</p>
+<p>Patch outputs to:
+- envelope triggers for pitch sweeps
+- accent VCAs
+- decay CV sample-and-hold clocks
+- filter ping triggers
+- wavefolder CV gates
+- sample-rate or bit-depth change triggers
+- switch/select modules to swap percussion timbres</p>
+<h3>Example</h3>
+<ul>
+<li>One output triggers a kick</li>
+<li>Another output, on a different division, triggers a short envelope that momentarily increases kick pitch or attack</li>
+<li>Another output opens a VCA on noise layered with the snare</li>
+</ul>
+<p>Now the rhythm system is not just deciding <strong>when</strong> things happen, but also <strong>what kind</strong> of hit happens.</p>
+<p>That’s how you get truly intricate percussion.</p>
+<hr />
+<h1>How to make it feel dense without becoming mush</h1>
+<p>Dense rhythmic music needs separation. Use Integra Solum to distribute roles.</p>
+<h2>Assign outputs by function</h2>
+<p>Instead of patching 8 outputs to 8 random drums, organize them like:</p>
+<ul>
+<li>2 outputs = structural hits</li>
+<li>2 outputs = accents</li>
+<li>2 outputs = ghost notes</li>
+<li>2 outputs = parameter modulation triggers</li>
+</ul>
+<p>This keeps complexity legible.</p>
+<h2>Use different decay lengths</h2>
+<p>Even if two triggers are dense, they’ll read clearly if one voice is:
+- short click
+- medium snare
+- long metallic ring</p>
+<h2>Reserve Wack mode for upper layers</h2>
+<p>If everything is randomized, the groove dissolves. Usually:
+- stable low-end
+- unstable mids/highs
+works best.</p>
+<h2>Use reset as composition</h2>
+<p>A reset is not just utility; it is a phrase-defining tool. Resetting one side at unusual lengths creates “meter” out of pure trigger logic.</p>
+<hr />
+<h1>Specific advanced rhythmic ideas</h1>
+<h2>1. Fake euclidean-like behavior</h2>
+<p>While Integra Solum is not a Euclidean sequencer, you can approximate distributed rhythmic variety by:</p>
+<ul>
+<li>using <strong>N</strong> mode for ordered stepping</li>
+<li>rotating with <strong>Shift</strong></li>
+<li>resetting at odd lengths</li>
+<li>combining one side in <strong>/2N+1</strong></li>
+</ul>
+<p>The result is often similar to Euclidean percussion: evenly distributed but shifting accents.</p>
+<h2>2. Cross-accenting</h2>
+<p>Use one side to trigger hats regularly, and the other side to trigger accent envelopes that modulate:
+- hat decay
+- hat VCA level
+- hat filter cutoff</p>
+<p>This creates a second rhythm over the first, giving a very “programmed” complex drum-machine feel.</p>
+<h2>3. Fill generator</h2>
+<p>Leave one side in stable mode, and switch the other into a Wack mode during fills.</p>
+<p>For example:
+- normal groove: Side B in /2N+1
+- fill: Side B in Wack /2N+1</p>
+<p>This creates dramatic bursts of activity without losing the foundational pulse.</p>
+<h2>4. Long-form cycle design</h2>
+<p>Try this:
+- Side A reset every 16 clocks
+- Side B reset every 12 clocks
+- Side A in N
+- Side B in /2N+1</p>
+<p>You’ll get recurring but slowly recombining patterns. This is great for:
+- IDM
+- broken beat
+- industrial
+- complex techno
+- generative percussion</p>
+<h2>5. Voice stealing by trigger overlap</h2>
+<p>Patch multiple outputs into a logic OR/mixer or trigger combiner before hitting a single voice. This can generate:
+- irregular retriggers
+- burst-like rolls
+- clustered impacts</p>
+<p>Especially effective with:
+- noise snares
+- resonant pings
+- LPG bongos
+- FM blips</p>
+<hr />
+<h1>Performance techniques</h1>
+<h2>Use Shift as a live composition control</h2>
+<p>Shift is one of the most musical controls on the module. During performance:
+- move Shift slowly for phrase evolution
+- snap it abruptly for fills and drops
+- rotate only one side while the other remains fixed</p>
+<p>This creates the sensation of changing the beat “from the inside.”</p>
+<h2>Toggle Wack mode for variation</h2>
+<p>The Wack modes are powerful live tools.
+Use them like:
+- enter Wack for a breakdown
+- return to normal mode to re-lock the groove
+- place only one side in Wack for asymmetrical disruption</p>
+<h2>Separate the clocks live</h2>
+<p>If both sides normally share one clock, temporarily clock one side differently for:
+- burst sections
+- halftime/doubletime overlays
+- triplet percussion episodes</p>
+<hr />
+<h1>Concrete genre-oriented uses</h1>
+<h2>For IDM / glitch</h2>
+<ul>
+<li>Side A: N mode for phrase structure</li>
+<li>Side B: Wack /2N+1 for fragmented hats and clicks</li>
+<li>Route some outputs to sample-select, decay modulation, and pitch envelopes</li>
+</ul>
+<h2>For polyrhythmic techno</h2>
+<ul>
+<li>Side A: /2N for kick/snare architecture</li>
+<li>Side B: /2N+1 for toms, rides, metallics</li>
+<li>Reset Side B on a different phrase boundary than Side A</li>
+</ul>
+<h2>For industrial / broken rhythm</h2>
+<ul>
+<li>Side A: stable pulse</li>
+<li>Side B: Wack N or Wack /2N+1 into noisy percussive voices</li>
+<li>Use Shift aggressively</li>
+</ul>
+<h2>For “complex but danceable”</h2>
+<ul>
+<li>Keep kick and main snare on the more predictable side</li>
+<li>Put all hats, claps, ghosts, percussion, and parameter accents on the experimental side</li>
+</ul>
+<hr />
+<h1>Good companion modules</h1>
+<p>Integra Solum becomes especially powerful with:</p>
+<ul>
+<li><strong>drum voices</strong> or percussive synth voices</li>
+<li><strong>logic modules</strong> for combining/diverting triggers</li>
+<li><strong>switches</strong> for re-routing outputs</li>
+<li><strong>burst generators</strong></li>
+<li><strong>sample and hold</strong></li>
+<li><strong>VCAs</strong></li>
+<li><strong>envelope generators</strong></li>
+<li><strong>clock multipliers/dividers</strong></li>
+<li><strong>sequential switches</strong></li>
+<li><strong>accent VCAs</strong></li>
+<li><strong>mute/performance mixers</strong></li>
+</ul>
+<p>If you have a logic module, combining Integra Solum outputs with AND/OR/XOR can push it into very advanced rhythmic territory.</p>
+<hr />
+<h1>Technical notes from the manual that matter</h1>
+<ul>
+<li>Clock responds to a <strong>rising edge around 3.3 V</strong></li>
+<li>Outputs update with about <strong>70 µs latency</strong></li>
+<li>Trigger outputs go <strong>0 V to 5 V</strong></li>
+<li>Trigger threshold is around <strong>3.4 V</strong></li>
+<li>One clock input can <strong>normal to both sides</strong></li>
+<li>Reset can be used independently per side or commonly</li>
+</ul>
+<p>In practical terms, that means it should play nicely with most Eurorack trigger/gate destinations.</p>
+<hr />
+<h1>Best starting patch for your goal</h1>
+<p>If your goal is <strong>densely rhythmic, hyper-complex percussion</strong>, start here:</p>
+<h2>Recommended starter setup</h2>
+<h3>Side A</h3>
+<ul>
+<li>Master clock in</li>
+<li>Mode: <strong>/2N</strong></li>
+<li>Outputs to:</li>
+<li>kick</li>
+<li>snare</li>
+<li>clap</li>
+<li>accent envelope</li>
+</ul>
+<h3>Side B</h3>
+<ul>
+<li>Same clock, normalled</li>
+<li>Mode: <strong>/2N+1</strong></li>
+<li>Outputs to:</li>
+<li>closed hat</li>
+<li>open hat</li>
+<li>shaker</li>
+<li>rim</li>
+<li>metallic percussion</li>
+<li>noise burst</li>
+<li>decay modulation trigger</li>
+<li>pitch envelope trigger</li>
+</ul>
+<h3>Then</h3>
+<ul>
+<li>Rotate <strong>Shift</strong> on Side B</li>
+<li>Reset Side B at an odd phrase length</li>
+<li>Occasionally enter <strong>Wack mode</strong> on Side B</li>
+</ul>
+<p>This gives you:
+- a dependable body
+- unstable upper percussion
+- phrase movement
+- odd-cycle behavior
+- enough complexity to stay interesting for a long time</p>
+<hr />
+<h1>Bottom line</h1>
+<p>Integra Solum excels at <strong>architecting percussion ecosystems</strong>, not just simple clock division. For hyper-complex rhythmic music, its strengths are:</p>
+<ul>
+<li><strong>two parallel rhythmic layers</strong></li>
+<li><strong>odd divisions</strong></li>
+<li><strong>rotating output order</strong></li>
+<li><strong>independent resets</strong></li>
+<li><strong>probabilistic Wack behaviors</strong></li>
+<li><strong>easy creation of long, non-repeating composite cycles</strong></li>
+</ul>
+<p>If you want dense percussion, use it less like a “divider” and more like a <strong>dual phrase engine</strong>:
+- one side defines pulse,
+- the other side destabilizes it,
+- resets define meter,
+- Shift defines motion,
+- Wack defines chaos.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

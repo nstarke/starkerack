@@ -1,0 +1,559 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ohmforce_Bohm_Multimodal_Kick_Drum_Voice</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Ohmforce — Bohm Multimodal Kick Drum Voice</h1>
+<ul>
+<li><a href="../../manuals/Bohm_Eurorack_Manual_Compiled.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://bohm-eurorack-manual.readthedocs.io/en/latest/index.html">Manual PDF / Source</a></p>
+<h1>Creative patch ideas for the Bohm Eurorack system</h1>
+<p>Bohm looks like much more than a simple kick module: it’s a <strong>stereo dual-voice kick platform</strong> with model-based synthesis, performance modes, optional <strong>Groove</strong> layering, and <strong>Performer</strong> stereo/DJ-style processing. That means you can treat it as:</p>
+<ul>
+<li>a kick drum voice</li>
+<li>a bass percussion synth</li>
+<li>a layered low-end system</li>
+<li>a stereo effects destination</li>
+<li>a live techno performance centerpiece</li>
+</ul>
+<p>Because the manual suggests the controls behave differently per model, a lot of the fun will come from <strong>modulating familiar parameters across different models</strong> and using external modules to create structure, groove, and movement.</p>
+<hr />
+<h2>What stands out from the manual</h2>
+<p>A few things suggest the best creative uses:</p>
+<ul>
+<li>
+<p><strong>Multiple kick models</strong> with different architectures<br />
+  This means model selection and parameter sweeps can give you multiple drum-machine personalities in one patch.</p>
+</li>
+<li>
+<p><strong>Stereo dual-voice concept</strong>
+  Useful for layered kicks, call-and-response percussion, stereo movement, and low-end + texture splits.</p>
+</li>
+<li>
+<p><strong>Groove expander</strong>
+  Especially suited for <strong>rumbles, layered percussion, and secondary impacts</strong>.</p>
+</li>
+<li>
+<p><strong>Performer expander</strong>
+  Adds <strong>ducking, DJ-style effects, and stereo processing</strong>, which is huge for live transitions and making a kick patch feel like a finished record.</p>
+</li>
+<li>
+<p><strong>Studio / Live Song / Jam modes</strong>
+  This strongly suggests pairing Bohm with <strong>sequencers, CV memories, switches, and performance controllers</strong>.</p>
+</li>
+<li>
+<p><strong>Pitch curve behavior inspired by 808/909</strong>
+  This means Bohm likely responds very musically to <strong>pitch CV, envelopes, accent, and transient shaping</strong>.</p>
+</li>
+</ul>
+<hr />
+<h1>Best module pairings</h1>
+<h2>1. Trigger sequencers and drum sequencers</h2>
+<p>Bohm will shine with a sequencer that can do more than simple quarter notes.</p>
+<h3>Good pairings</h3>
+<ul>
+<li><strong>ALM Pamela’s Pro Workout</strong></li>
+<li><strong>Xaoc Moskwa II</strong></li>
+<li><strong>Intellijel Steppy</strong></li>
+<li><strong>Winter Modular Eloquencer</strong></li>
+<li><strong>Five12 Vector Sequencer</strong></li>
+<li><strong>Noise Engineering Numeric Repetitor</strong></li>
+<li><strong>Verbos Multi-Stage / Voltage Multistage</strong> for more experimental sequencing</li>
+</ul>
+<h3>Why</h3>
+<p>Use them to create:
+- standard 4-on-the-floor
+- broken kicks
+- fills
+- probability-based ghost hits
+- pattern-specific accent variations
+- alternating main kick / Groove voice patterns</p>
+<h3>Patch idea</h3>
+<p>Send a main trigger pattern to Bohm and a sparser or shuffled pattern to Groove.<br />
+Then use a sequencer lane or probability trigger to create occasional layered hits for transitions.</p>
+<hr />
+<h2>2. Accent and velocity modulation</h2>
+<p>Since Bohm has <strong>VELOCITY</strong>, it’ll benefit enormously from dynamic triggering or CV modulation.</p>
+<h3>Use with</h3>
+<ul>
+<li>CV sequencers</li>
+<li>offset/attenuator modules</li>
+<li>random stepped voltage generators</li>
+<li>function generators</li>
+<li>MIDI-to-CV interfaces with velocity output</li>
+</ul>
+<h3>Specific recommendations</h3>
+<ul>
+<li><strong>Mutable Instruments Marbles</strong></li>
+<li><strong>Bastl CV Trinity</strong></li>
+<li><strong>Make Noise Maths</strong></li>
+<li><strong>Frap Tools Falistri</strong></li>
+<li><strong>After Later / Mutable Peaks-style modulation sources</strong></li>
+<li><strong>Hermod+</strong> if working with MIDI velocity</li>
+</ul>
+<h3>Patch idea: “Humanized warehouse kick”</h3>
+<ul>
+<li>Trigger Bohm with a rigid 4/4 clock.</li>
+<li>Modulate VELOCITY slightly with a stepped random source, attenuated carefully.</li>
+<li>Send another very subtle modulation to ATTACK or COLOR.</li>
+<li>Result: a kick that keeps the pulse steady but feels alive in a long techno set.</li>
+</ul>
+<hr />
+<h2>3. Envelope generators for macro kick sculpting</h2>
+<p>Even if Bohm has internal shaping, external envelopes are perfect for animating model-dependent parameters.</p>
+<h3>Great targets</h3>
+<ul>
+<li>PITCH</li>
+<li>CURVE</li>
+<li>LENGTH</li>
+<li>COLOR</li>
+<li>FX</li>
+<li>TRS DECAY / TRS TONE</li>
+</ul>
+<h3>Modules</h3>
+<ul>
+<li><strong>Make Noise Maths</strong></li>
+<li><strong>Intellijel Quadrax</strong></li>
+<li><strong>Xaoc Zadar</strong></li>
+<li><strong>Cosmotronic Delta-V</strong></li>
+<li><strong>ALM Pip Slope</strong></li>
+<li><strong>Doepfer A-171-2</strong></li>
+</ul>
+<h3>Patch idea: “Pseudo-sidechained pitch rip”</h3>
+<p>Use a fast-decay envelope into PITCH or CURVE on selected hits only.<br />
+This can exaggerate the classic downward pitch sweep and create huge modern hard-techno transient impacts.</p>
+<hr />
+<h2>4. VCAs and CV processors</h2>
+<p>A lot of people underrate this with drum modules, but CV processing is where Bohm becomes a serious instrument.</p>
+<h3>Useful module types</h3>
+<ul>
+<li>attenuverters</li>
+<li>offsets</li>
+<li>VCAs for CV</li>
+<li>polarizers</li>
+<li>sequential switches</li>
+<li>logic modules</li>
+</ul>
+<h3>Recommendations</h3>
+<ul>
+<li><strong>Happy Nerding 3xMIA</strong></li>
+<li><strong>Frap Tools 321</strong></li>
+<li><strong>Befaco A*B+C</strong></li>
+<li><strong>Intellijel Triplatt</strong></li>
+<li><strong>Mutable Blinds / clones</strong></li>
+<li><strong>Doepfer A-172 / A-185 style utility support</strong></li>
+</ul>
+<h3>Why</h3>
+<p>Different models likely react very differently to the same CV range. Utilities let you:
+- narrow modulation sweet spots
+- invert envelopes
+- combine random + envelope motion
+- create different response depths for different songs</p>
+<h3>Patch idea</h3>
+<p>Mix a slow triangle LFO with a tiny random stepped source, then attenuate heavily into COLOR.<br />
+You’ll get subtle model drift rather than obvious wobble.</p>
+<hr />
+<h2>5. Random and generative modulation</h2>
+<p>Because Bohm has many timbral parameters, random voltage can transform it from “kick module” to “evolving percussion system.”</p>
+<h3>Modules</h3>
+<ul>
+<li><strong>Mutable Marbles</strong></li>
+<li><strong>Make Noise Wogglebug</strong></li>
+<li><strong>SSF Ultra-Random Analog</strong></li>
+<li><strong>XAOC Devices Batumi</strong> in stepped mode through sample-and-hold</li>
+<li><strong>Turing Machine + expanders</strong></li>
+</ul>
+<h3>Patch idea: “Intelligent industrial kickline”</h3>
+<ul>
+<li>Main kick on every quarter note.</li>
+<li>Random modulation to ATTACK and COLOR at low depth.</li>
+<li>Probability-based extra trigger to Groove.</li>
+<li>Send Groove through a long decay or external feedback path.</li>
+<li>Result: a controlled but unstable industrial techno low-end bed.</li>
+</ul>
+<hr />
+<h2>6. Sequential switches and scene switching</h2>
+<p>Since Bohm has multiple running modes and likely rewards parameter changes, external switching is a strong pairing.</p>
+<h3>Modules</h3>
+<ul>
+<li><strong>Doepfer A-151 Sequential Switch</strong></li>
+<li><strong>Tenderfoot quad switch types</strong></li>
+<li><strong>Shakmat Bard Quartet</strong></li>
+<li><strong>Vice Virga</strong></li>
+<li><strong>Noise Engineering Vice Virga</strong></li>
+<li><strong>WMD SSM / similar switch modules</strong></li>
+</ul>
+<h3>Patch idea: “Four kick personalities”</h3>
+<p>Prepare four CV sources or offsets for PITCH/COLOR/FX and switch between them every 8 or 16 bars.<br />
+This lets Bohm move through:
+1. dry club kick
+2. distorted hard kick
+3. boomy rumble layer
+4. washed transition kick</p>
+<p>This is especially effective in <strong>Live Song Mode</strong>.</p>
+<hr />
+<h2>7. Distortion, saturation, and wavefolding</h2>
+<p>Bohm likely already covers a lot of internal kick colors, but external saturation is still one of the best pairings.</p>
+<h3>Great module choices</h3>
+<ul>
+<li><strong>Noise Engineering Ruina Versio</strong></li>
+<li><strong>Noise Engineering Terci Ruina</strong></li>
+<li><strong>Strymon Magneto input drive</strong></li>
+<li><strong>Bastl Dark Matter</strong></li>
+<li><strong>Instruō tanh[3]</strong></li>
+<li><strong>SSF Triptych</strong></li>
+<li><strong>100 Grit</strong></li>
+<li><strong>Metasonix / tube modules</strong> if you like dangerous low-end chaos</li>
+</ul>
+<h3>Patch ideas</h3>
+<h4>A. Hard techno destroyer</h4>
+<p>Run Bohm into a distortion with parallel dry blend.<br />
+Keep the sub intact and smash only the mids/high transient.</p>
+<h4>B. Folded click layer</h4>
+<p>High-pass a copy of Bohm, then wavefold it.<br />
+Mix that back with the dry signal for a custom top-click that tracks your kick pattern.</p>
+<h4>C. Rumble exciter</h4>
+<p>Send Groove into saturation before reverb/delay to make the rumble denser and more harmonic.</p>
+<hr />
+<h2>8. Filters and EQ modules</h2>
+<p>A kick module through a filter sounds obvious, but there are some less obvious uses.</p>
+<h3>Good module types</h3>
+<ul>
+<li>multimode filters</li>
+<li>fixed filter banks</li>
+<li>stereo filters</li>
+<li>resonant low-pass gates</li>
+<li>parametric EQ / sculpting modules</li>
+</ul>
+<h3>Recommendations</h3>
+<ul>
+<li><strong>QPAS</strong></li>
+<li><strong>Bastl Ikarie</strong></li>
+<li><strong>Sara VCF</strong></li>
+<li><strong>Worng Parallax</strong></li>
+<li><strong>Doepfer Wasp / SEM filters</strong></li>
+<li><strong>ADDAC fixed filter banks</strong></li>
+<li><strong>Joranalogue Filter 8</strong></li>
+</ul>
+<h3>Patch ideas</h3>
+<h4>A. Split-band processing</h4>
+<p>Mult Bohm:
+- one copy stays clean for sub
+- one copy goes through a band-pass filter and distortion
+Mix to taste.</p>
+<p>This keeps low-end solid while adding a controllable attack band.</p>
+<h4>B. Resonant kick bassline</h4>
+<p>Patch PITCH CV melodically and run Bohm through a low-pass filter that opens only on selected hits.<br />
+This can turn Bohm into a bass-percussion hybrid.</p>
+<h4>C. Stereo Performer widening</h4>
+<p>If using Performer, process its stereo output through a stereo filter with slow modulation for breakdowns and transitions.</p>
+<hr />
+<h2>9. Delays and reverbs for techno rumble</h2>
+<p>The manual explicitly points toward <strong>Groove</strong> as a rumble/layering tool. External effects can push this much further.</p>
+<h3>Best effect pairings</h3>
+<ul>
+<li>synced delay</li>
+<li>reverb with filtering</li>
+<li>feedback processors</li>
+<li>stereo diffusion</li>
+<li>clocked delay into saturation</li>
+</ul>
+<h3>Specific modules</h3>
+<ul>
+<li><strong>Make Noise Mimeophon</strong></li>
+<li><strong>Strymon Magneto</strong></li>
+<li><strong>Happy Nerding FX Aid XL</strong></li>
+<li><strong>Xaoc Timiszoara</strong></li>
+<li><strong>Intellijel Sealegs</strong></li>
+<li><strong>Erica Synths Black Hole DSP 2</strong></li>
+<li><strong>Desmodus Versio</strong></li>
+<li><strong>Nautilus</strong></li>
+</ul>
+<h3>Patch ideas</h3>
+<h4>A. Classic rumble loop</h4>
+<ul>
+<li>Send Groove output to reverb.</li>
+<li>High-pass the reverb return.</li>
+<li>Compress or saturate it.</li>
+<li>Duck it against the main kick using Performer or an external envelope/VCA setup.</li>
+</ul>
+<p>This gives you the classic rolling techno basement rumble.</p>
+<h4>B. Pinged sub tail</h4>
+<p>Use a very short delay with feedback and low-pass filtering on Groove only.<br />
+This can create a tuned resonant tail behind the main kick.</p>
+<h4>C. Stereo transition wash</h4>
+<p>During fills or breakdowns, push Bohm or Groove into long stereo reverb, then snap back to dry for the drop.</p>
+<hr />
+<h2>10. Compressors, envelope followers, and sidechain tools</h2>
+<p>Since Performer already includes ducking, external dynamics modules can still open up more advanced routing.</p>
+<h3>Useful modules</h3>
+<ul>
+<li><strong>WMD MSCL</strong></li>
+<li><strong>Cosmotronic Messor</strong></li>
+<li><strong>Frap Tools CGM dynamics setups</strong></li>
+<li><strong>Mutable Ears / envelope follower types</strong></li>
+<li><strong>Detect-Rx</strong></li>
+<li><strong>Endorphin.es Cockpit / Ghost</strong></li>
+<li><strong>Shakmat Archer’s Rig / sidechain-capable mixers</strong></li>
+</ul>
+<h3>Patch ideas</h3>
+<h4>A. Self-ducking rumble bus</h4>
+<p>Use Bohm’s trigger or an envelope follower from Bohm audio to duck a reverb return or bass voice.</p>
+<h4>B. Kick drives the whole patch</h4>
+<p>Let Bohm control the sidechain on:
+- drones
+- pads
+- acid lines
+- sampled textures</p>
+<p>This makes the kick the central rhythmic authority in the patch.</p>
+<h4>C. Dynamic transient emphasis</h4>
+<p>Compress a distorted parallel version of Bohm while keeping the dry transient uncompressed.</p>
+<hr />
+<h2>11. Mixers and parallel processing</h2>
+<p>Bohm is the kind of module that rewards <strong>parallel chains</strong>.</p>
+<h3>Useful module types</h3>
+<ul>
+<li>submixers</li>
+<li>stereo mixers</li>
+<li>sends/returns</li>
+<li>performance mixers</li>
+<li>crossfaders</li>
+</ul>
+<h3>Recommendations</h3>
+<ul>
+<li><strong>Happy Nerding PanMix</strong></li>
+<li><strong>Befaco Hexmix</strong></li>
+<li><strong>WMD Performance Mixer</strong></li>
+<li><strong>Cosmotronic Cosmix</strong></li>
+<li><strong>Toppobrillo Minimix</strong></li>
+<li><strong>Joranalogue Mix 3</strong></li>
+<li><strong>XOH / OUT-style stereo outputs</strong></li>
+</ul>
+<h3>Patch structure</h3>
+<p>Try 3 parallel lanes:
+1. <strong>dry Bohm</strong> for punch
+2. <strong>distorted lane</strong> for aggression
+3. <strong>reverb/delay lane</strong> for space</p>
+<p>Blend live. This is especially powerful if Performer is present.</p>
+<hr />
+<h2>12. LFOs for long-form motion</h2>
+<p>Slow modulation can make a repetitive kick evolve over 5–10 minutes.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Xaoc Batumi</strong></li>
+<li><strong>DivKid øchd</strong></li>
+<li><strong>Intellijel Quadrax cycling</strong></li>
+<li><strong>Joranalogue Orbit 3</strong></li>
+<li><strong>Pamela’s Pro Workout</strong></li>
+</ul>
+<h3>Best parameter destinations</h3>
+<ul>
+<li>COLOR</li>
+<li>FX</li>
+<li>ATTACK</li>
+<li>CURVE</li>
+<li>stereo processing parameters via Performer</li>
+</ul>
+<h3>Patch idea: “Set-and-forget evolution”</h3>
+<p>Use very slow unsynced LFOs at tiny depth into 2–3 parameters.<br />
+The kick subtly changes tone over the course of a track, keeping long loops interesting.</p>
+<hr />
+<h2>13. Quantizers and melodic pitch CV</h2>
+<p>The manual says PITCH roughly covers <strong>C1 to C2</strong>, which opens up more than just drum tuning.</p>
+<h3>Modules</h3>
+<ul>
+<li><strong>Intellijel Scales</strong></li>
+<li><strong>Ornament &amp; Crime</strong></li>
+<li><strong>ADDAC quantizers</strong></li>
+<li><strong>Bard Quartet</strong></li>
+<li><strong>Mimetic Digitalis + quantizer</strong></li>
+</ul>
+<h3>Patch idea: “Kick-bassline hybrid”</h3>
+<p>Sequence Bohm’s PITCH melodically over a 1-octave range while keeping trigger density sparse.<br />
+You can create:
+- tuned electro toms
+- bass kicks
+- industrial percussive basslines
+- 808-style melodic booms</p>
+<p>Pair with an acid line one octave up for huge groove lock.</p>
+<hr />
+<h2>14. Sample and hold / stepped modulation</h2>
+<p>This is ideal if you want repeatable-but-changing kick settings every bar or phrase.</p>
+<h3>Good tools</h3>
+<ul>
+<li>sample &amp; hold</li>
+<li>clock divider</li>
+<li>stepped random</li>
+<li>addressable CV source</li>
+</ul>
+<h3>Patch idea</h3>
+<p>Clock a sample-and-hold every 8 steps and route it to COLOR or FX.<br />
+The kick timbre changes once per phrase, which feels musical rather than chaotic.</p>
+<hr />
+<h2>15. Logic and clock utilities</h2>
+<p>Kick layers become much more interesting when trigger relationships are derived logically.</p>
+<h3>Module suggestions</h3>
+<ul>
+<li><strong>Doepfer logic modules</strong></li>
+<li><strong>Joranalogue Compare 2</strong></li>
+<li><strong>ALM Pamela’s Pro Workout</strong></li>
+<li><strong>Mutable Kinks / logic utilities</strong></li>
+<li><strong>Klavis Logica XT</strong></li>
+</ul>
+<h3>Patch ideas</h3>
+<h4>A. Accent from coincidence</h4>
+<p>Generate a second trigger only when two rhythmic streams coincide, then use that to fire Groove or modulate VELOCITY.</p>
+<h4>B. Fill generator</h4>
+<p>Use a clock divider reset and logic combination to create end-of-bar fills that alter Bohm parameters for a single beat.</p>
+<h4>C. Triggered FX burst</h4>
+<p>Use logic-derived gates to open an external FX send only on special hits.</p>
+<hr />
+<h1>Performance-focused setups</h1>
+<h2>Setup 1: Minimal techno core</h2>
+<p><strong>Modules</strong>
+- Bohm
+- Pamela’s Pro Workout
+- 3xMIA
+- distortion
+- stereo reverb
+- mixer</p>
+<p><strong>Patch</strong>
+- Pam triggers Bohm in 4/4
+- Another Pam channel modulates VELOCITY subtly
+- Slow random via Pam into COLOR/FX
+- Distortion on a parallel send
+- Reverb on Groove or selected fills</p>
+<p><strong>Result</strong>
+A compact but club-ready techno kick ecosystem.</p>
+<hr />
+<h2>Setup 2: Live performance drum centerpiece</h2>
+<p><strong>Modules</strong>
+- Bohm + Groove + Performer
+- trigger sequencer
+- CV recorder or scene controller
+- stereo mixer
+- external delay/reverb</p>
+<p><strong>Patch</strong>
+- Main pattern to Bohm
+- Syncopated layers to Groove
+- Performer handles ducking and stereo transitions
+- Use scene-based CV changes every 16 bars
+- Push FX and stereo width in breakdowns</p>
+<p><strong>Result</strong>
+A highly performable low-end section that can carry an entire live set.</p>
+<hr />
+<h2>Setup 3: Experimental industrial percussion lab</h2>
+<p><strong>Modules</strong>
+- Bohm
+- random source
+- sequential switch
+- wavefolder/distortion
+- band-pass filter
+- delay
+- envelope follower</p>
+<p><strong>Patch</strong>
+- Irregular trigger patterns to Bohm
+- Random CV to ATTACK, CURVE, COLOR
+- Switch between different modulation depths
+- Distorted filtered parallel lane
+- Delay feedback only on selected hits</p>
+<p><strong>Result</strong>
+Bohm becomes a brutal percussion synth rather than just a kick.</p>
+<hr />
+<h1>Less obvious uses</h1>
+<h2>Use Bohm as a bass voice</h2>
+<p>Because of the pitch range and envelope-like character of kick synths, Bohm may work well as:
+- sub bass stabs
+- plucky mono bass
+- tuned low toms
+- 808-style booming notes</p>
+<p>Pair with:
+- quantizer
+- glide/portamento CV source
+- VCA for external amplitude articulation if needed
+- low-pass filter and saturation</p>
+<hr />
+<h2>Use Groove as a dedicated send effect source</h2>
+<p>Instead of thinking of Groove as “second kick,” treat it as:
+- the reverb-fed rumble voice
+- the distorted mid-bass layer
+- the ghost-hit percussion lane
+- the breakdown swell lane</p>
+<p>That frees the main Bohm voice to stay clean and mix-stable.</p>
+<hr />
+<h2>Use Performer as a pseudo-master bus for your rhythm section</h2>
+<p>If Performer has ducking and stereo effects, feed related percussion or bass into a shared bus around it if your system allows that kind of routing.<br />
+This can make Bohm the anchor of a more cohesive live mix.</p>
+<hr />
+<h1>Practical modulation targets to try first</h1>
+<p>If you’re just starting with Bohm, I’d prioritize these pairings:</p>
+<h3>Most musically useful CV targets</h3>
+<ol>
+<li><strong>VELOCITY</strong> — immediate groove improvement  </li>
+<li><strong>PITCH</strong> — tuned kicks, fills, bass-kick hybrids  </li>
+<li><strong>COLOR</strong> — tonal movement without losing timing  </li>
+<li><strong>ATTACK</strong> — helps define placement in the mix  </li>
+<li><strong>CURVE</strong> — major impact on classic drum-machine feel  </li>
+<li><strong>FX / TRS DECAY</strong> — excellent for transitions and rumble work  </li>
+</ol>
+<h3>Best modulation sources</h3>
+<ol>
+<li>stepped random</li>
+<li>short envelope</li>
+<li>slow LFO</li>
+<li>sequenced CV lane</li>
+<li>logic-derived trigger converted to CV</li>
+<li>manual performance controller</li>
+</ol>
+<hr />
+<h1>My top recommended companion modules</h1>
+<p>If I were building around Bohm, I’d especially consider:</p>
+<h2>Compact utility-oriented system</h2>
+<ul>
+<li><strong>Pamela’s Pro Workout</strong></li>
+<li><strong>Happy Nerding 3xMIA</strong></li>
+<li><strong>Make Noise Maths</strong></li>
+<li><strong>FX Aid XL</strong></li>
+<li><strong>Ruina Versio</strong></li>
+<li><strong>small stereo mixer/output</strong></li>
+</ul>
+<h2>Performance techno system</h2>
+<ul>
+<li><strong>Vector Sequencer</strong> or <strong>Eloquencer</strong></li>
+<li><strong>Bohm + Groove + Performer</strong></li>
+<li><strong>Messor</strong> or <strong>MSCL</strong></li>
+<li><strong>Mimeophon</strong> or <strong>Sealegs</strong></li>
+<li><strong>performance mixer</strong></li>
+<li><strong>filter or saturator for parallel bus</strong></li>
+</ul>
+<h2>Experimental sound design system</h2>
+<ul>
+<li><strong>Marbles</strong></li>
+<li><strong>Falistri or Maths</strong></li>
+<li><strong>Vice Virga</strong></li>
+<li><strong>Filter 8</strong></li>
+<li><strong>Triptych / Ruina</strong></li>
+<li><strong>Desmodus Versio / Timiszoara</strong></li>
+</ul>
+<hr />
+<h1>Final creative advice</h1>
+<p>The biggest creative opportunity with Bohm is to avoid treating it as “just the kick.” Instead, think of it as a <strong>low-frequency performance voice system</strong>.</p>
+<p>The winning strategies are:</p>
+<ul>
+<li>keep one layer <strong>clean and reliable</strong></li>
+<li>make another layer <strong>dirty, spatial, or unstable</strong></li>
+<li>modulate <strong>small amounts</strong> for long-form movement</li>
+<li>use <strong>parallel processing</strong> rather than destroying the main signal</li>
+<li>exploit <strong>sequenced CV and scene changes</strong> to make one kick engine behave like an entire rhythm section</li>
+</ul>
+<p>If you want, I can also turn this into:
+1. a <strong>genre-specific patch guide</strong> for techno / electro / industrial / ambient, or<br />
+2. a <strong>shopping list of the best companion modules by budget</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

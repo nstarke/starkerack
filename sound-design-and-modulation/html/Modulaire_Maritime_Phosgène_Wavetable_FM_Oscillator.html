@@ -1,0 +1,495 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Modulaire_Maritime_Phosgène_Wavetable_FM_Oscillator</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Modulaire Maritime — Phosgène Wavetable FM Oscillator</h1>
+<ul>
+<li><a href="../../manuals/Phosgène _ Modulaire Maritime.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://www.modulaire-maritime.com/phosg%C3%A8ne">Manual PDF / Source</a></p>
+<h1>Modulaire Maritime Phosgène — patch ideas and modulation strategies</h1>
+<p>Phosgène is a <strong>2hp digital wavetable / FM oscillator</strong> with a pretty specific personality:</p>
+<ul>
+<li><strong>60 wavetables</strong> in <strong>2 banks of 30</strong></li>
+<li><strong>Two parallel outputs</strong>:</li>
+<li><strong>WAVE</strong>: wavetable + folding/waveshaping character</li>
+<li><strong>FM</strong>: separate FM-oriented output</li>
+<li><strong>Shared controls</strong> affect both engines</li>
+<li><strong>External CV</strong> can push the timbre deeper</li>
+<li><strong>Tracks 1V/Oct over 8 octaves</strong></li>
+<li><strong>Octave up/down switch</strong></li>
+<li><strong>“Octave displace”</strong> function for the wavetable side, useful for darker/lower folded tones</li>
+<li><strong>100 Hz FM base</strong>, which likely makes the FM side less “glassy DX” and more weighty, restrained, and bass-friendly</li>
+<li><strong>11-bit / lower-resolution digital behavior</strong> and potential aliasing at extremes — which is actually a feature here</li>
+</ul>
+<p>This is not a “clean hi-fi all-rounder” oscillator. It sounds like it wants to make:
+- aggressive digital percussion
+- nasty basses
+- dark folded tones
+- haunted, low-res atmospheres</p>
+<p>Because there’s very little panel space, the module’s real power comes from <strong>fast CV animation</strong>, <strong>audio-rate modulation from elsewhere</strong>, and <strong>crossfading/mixing the two outputs</strong>.</p>
+<hr />
+<h2>First: understand the best modulation targets</h2>
+<p>From the panel and text, the important modulation/performance targets seem to be:</p>
+<ul>
+<li><strong>1V/Oct</strong></li>
+<li><strong>Wave Select CV</strong></li>
+<li><strong>FM Mod CV</strong></li>
+<li><strong>Octave switches / octave displacement</strong></li>
+<li>Likely <strong>coarse tuning</strong></li>
+</ul>
+<p>The biggest sound-design trick with this module is to think in <strong>layers of motion</strong>:</p>
+<ol>
+<li><strong>Pitch motion</strong> — sequencer, glide, pitch envelopes</li>
+<li><strong>Timbre motion</strong> — wave select scanning</li>
+<li><strong>Intensity motion</strong> — FM MOD CV amount changes</li>
+<li><strong>Register motion</strong> — octave/displace changes</li>
+<li><strong>Blend motion</strong> — external crossfade between WAVE and FM outputs</li>
+</ol>
+<p>If you patch all 5 at once, even a tiny oscillator becomes huge.</p>
+<hr />
+<h1>General sound design approach</h1>
+<h2>1. Use the two outputs as separate voices</h2>
+<p>Don’t think of WAVE and FM as just “two flavors.” Treat them as:</p>
+<ul>
+<li><strong>Body</strong> = WAVE output</li>
+<li><strong>Attack / edge / growl</strong> = FM output</li>
+</ul>
+<p>Patch both into:
+- a mixer,
+- a crossfader,
+- separate VCAs,
+- or separate filters.</p>
+<p>That lets you shape:
+- WAVE for low-end and sustain
+- FM for click, metallic transient, or moving upper harmonics</p>
+<p>This is probably the single best way to get “finished” sounds from Phosgène.</p>
+<hr />
+<h2>2. Slow CV for wavetable position, fast CV for FM MOD</h2>
+<p>A great rule of thumb:</p>
+<ul>
+<li><strong>Slow modulation</strong> on <strong>Wave Select</strong></li>
+<li>triangle LFO</li>
+<li>random slew</li>
+<li>stepped random through a slew limiter</li>
+<li>
+<p>envelope with long attack/decay</p>
+</li>
+<li>
+<p><strong>Fast modulation</strong> on <strong>FM MOD CV</strong></p>
+</li>
+<li>snappy envelope</li>
+<li>short decay envelope from trigger</li>
+<li>audio-rate oscillator</li>
+<li>burst generator / random pulse logic</li>
+</ul>
+<p>This yields the classic “stable core + unstable edge” behavior that works especially well for bass and percussion.</p>
+<hr />
+<h2>3. Exploit aliasing instead of avoiding it</h2>
+<p>The manual explicitly says:
+- high octaves
+- folded timbres
+- noise-containing waves
+- lower-resolution digital playback</p>
+<p>…can produce digital trash.</p>
+<p>Good. Use it.</p>
+<p>For modern bass music and industrial percussion:
+- send the oscillator high
+- add aggressive modulation
+- then <strong>filter down afterward</strong>
+- or resample into a sampler / looper</p>
+<p>Often the ugliest raw tone becomes the most powerful once low-passed, saturated, and enveloped.</p>
+<hr />
+<h1>Patch ideas for distorted percussive sounds</h1>
+<p>These are ideal because Phosgène already has a digital edge and the FM side can create sharp transients.</p>
+<hr />
+<h2>1. Digital kick-drone hybrid</h2>
+<h3>Patch</h3>
+<ul>
+<li><strong>1V/Oct</strong>: no sequence or fixed low pitch</li>
+<li><strong>WAVE out</strong> → VCA → low-pass filter → mixer</li>
+<li><strong>FM out</strong> → separate VCA → mixer</li>
+<li>Trigger a <strong>snappy pitch envelope</strong> into <strong>1V/Oct</strong></li>
+<li>Trigger a <strong>very short decay envelope</strong> into <strong>FM MOD CV</strong></li>
+<li>Trigger another envelope to open the WAVE VCA slightly longer than the FM VCA</li>
+</ul>
+<h3>What happens</h3>
+<ul>
+<li>The pitch envelope gives the kick “thump”</li>
+<li>The FM envelope creates a click/snap or tearing front edge</li>
+<li>The WAVE output provides body</li>
+<li>The FM output provides attack grit</li>
+</ul>
+<h3>Tips</h3>
+<ul>
+<li>For harder kicks, increase the pitch envelope amount</li>
+<li>For more “broken speaker” character, use a noisier wavetable and high FM MOD</li>
+<li>If the kick is too tonal, scan to a less harmonic wave</li>
+<li>Add a wavefolder, distortion, or clipping after the mixer</li>
+</ul>
+<hr />
+<h2>2. Snare from wavetable dirt</h2>
+<h3>Patch</h3>
+<ul>
+<li>Tune the oscillator to mid/high register</li>
+<li>Use a wavetable that contains noise or inharmonic content</li>
+<li><strong>Wave Select CV</strong>: modulate with a short envelope or random stepped voltage</li>
+<li><strong>FM MOD CV</strong>: hit with a second short envelope</li>
+<li>Send output through:</li>
+<li>band-pass filter, or</li>
+<li>high-pass + VCA</li>
+</ul>
+<h3>Layering strategy</h3>
+<ul>
+<li><strong>FM output</strong> = noisy crack</li>
+<li><strong>WAVE output</strong> = resonant body</li>
+</ul>
+<h3>Enhancement</h3>
+<p>Add:
+- short reverb
+- gated room reverb
+- parallel distortion</p>
+<p>This can make convincing industrial snares or electro “claps from hell.”</p>
+<hr />
+<h2>3. Metallic percussion / industrial hits</h2>
+<h3>Patch</h3>
+<ul>
+<li>Tune Phosgène high</li>
+<li>Use <strong>FM output</strong> as the main source</li>
+<li>Send a trigger-derived envelope to <strong>FM MOD CV</strong></li>
+<li>Send a slightly slower random CV to <strong>Wave Select</strong></li>
+<li>Use a LPG or VCA with short decay</li>
+<li>Optional: feed through resonator, comb filter, or BBD delay</li>
+</ul>
+<h3>Why it works</h3>
+<p>The 100 Hz base FM character should keep it from getting too brittle while still giving metallic sidebands. Short envelopes on the FM amount create evolving clangs rather than static digital tones.</p>
+<h3>For more weirdness</h3>
+<ul>
+<li>Clock a sample-and-hold into Wave Select each trigger</li>
+<li>Alternate between Bank 1 and Bank 2 manually while recording</li>
+<li>Use different envelope lengths for WAVE and FM outputs</li>
+</ul>
+<hr />
+<h2>4. Glitch hats and broken tops</h2>
+<h3>Patch</h3>
+<ul>
+<li>High pitch</li>
+<li>Choose the brightest/noisiest waves</li>
+<li>Clocked stepped random → attenuator → <strong>Wave Select</strong></li>
+<li>Very fast envelope or burst modulation → <strong>FM MOD CV</strong></li>
+<li>Output → high-pass filter → VCA with very short decay</li>
+</ul>
+<h3>Bonus move</h3>
+<p>Patch both outputs to separate VCAs:
+- WAVE VCA short decay
+- FM VCA ultra-short decay</p>
+<p>This gives a layered hi-hat where one layer is body and the other is transient fizz.</p>
+<hr />
+<h1>Patch ideas for dubstep / drum &amp; bass basslines</h1>
+<p>This is probably where Phosgène shines. The module’s darker FM base and rough digital tone are perfect for hostile low-end.</p>
+<hr />
+<h2>1. Reece-style digital bass</h2>
+<h3>Patch</h3>
+<ul>
+<li>Sequence <strong>1V/Oct</strong></li>
+<li>Use <strong>WAVE output</strong> and <strong>FM output</strong> at the same time</li>
+<li>Detune externally by multing pitch:</li>
+<li>one output dry</li>
+<li>one copy through a tiny pitch offset source if available</li>
+<li>or use a second oscillator layered underneath</li>
+<li>Slow LFO or envelope follower → <strong>Wave Select</strong></li>
+<li>Medium envelope → <strong>FM MOD CV</strong></li>
+<li>Both outputs into saturation/filter chain</li>
+</ul>
+<h3>Suggested processing</h3>
+<ul>
+<li>low-pass filter with moving cutoff</li>
+<li>mild overdrive before filter</li>
+<li>heavier distortion after filter</li>
+<li>stereo chorus or microdelay after everything</li>
+</ul>
+<h3>Result</h3>
+<p>You get a gnarly, animated digital reece with:
+- moving harmonic center from wavetable scan
+- midrange growl from FM
+- dirt from the 11-bit/aliasing texture</p>
+<hr />
+<h2>2. Talking dubstep wobble</h2>
+<h3>Patch</h3>
+<ul>
+<li>Sequence bass notes</li>
+<li><strong>WAVE out</strong> → low-pass or band-pass filter</li>
+<li><strong>FM out</strong> → separate band-pass or direct distortion path</li>
+<li>LFO synced to tempo → filter cutoff</li>
+<li>A different LFO or envelope → <strong>Wave Select</strong></li>
+<li>Accent triggers → <strong>FM MOD CV</strong></li>
+</ul>
+<h3>Performance trick</h3>
+<p>Use accents only on certain steps:
+- normal notes = mostly WAVE
+- accented notes = FM MOD opens up and adds snarling upper harmonics</p>
+<p>This creates the classic bassline pattern where some notes “speak” harder than others.</p>
+<h3>Better still</h3>
+<p>Use a sequential switch or crossfader to alternate:
+- mostly WAVE on one bar
+- more FM on the next
+- mixed on fills</p>
+<hr />
+<h2>3. Neuro-style movement bass</h2>
+<h3>Patch architecture</h3>
+<ul>
+<li><strong>WAVE output</strong> → filter A</li>
+<li><strong>FM output</strong> → filter B or distortion</li>
+<li>Modulate:</li>
+<li><strong>Wave Select</strong> with a slow, irregular CV</li>
+<li><strong>FM MOD CV</strong> with a looping envelope</li>
+<li>filter A cutoff with one LFO</li>
+<li>filter B cutoff with another LFO at a different rate</li>
+</ul>
+<h3>Why it works</h3>
+<p>The bass becomes complex because multiple layers move at different timescales:
+- wavetable movement = identity drift
+- FM modulation = aggression pulses
+- split filtering = morphing formants</p>
+<h3>Key technique</h3>
+<p>Record 3–5 minutes of improvisation and resample the best phrases. This kind of oscillator excels at finding accidental sweet spots.</p>
+<hr />
+<h2>4. Brutal bass stabs</h2>
+<h3>Patch</h3>
+<ul>
+<li>Put the oscillator in lower register using octave displacement for the WAVE side</li>
+<li>Sequence short staccato notes</li>
+<li>Trigger:</li>
+<li>short envelope to VCA</li>
+<li>pitch envelope to 1V/Oct</li>
+<li>short aggressive envelope to FM MOD CV</li>
+<li>Mix WAVE and FM outputs</li>
+<li>Add hard clipping and low-pass filtering after</li>
+</ul>
+<h3>Sound result</h3>
+<p>You’ll get bass stabs with:
+- sub impact from WAVE
+- ripping upper transient from FM
+- a “compressed” digital slam when clipped</p>
+<p>This is ideal for:
+- halftime dubstep hits
+- DnB foghorn-adjacent one-shots
+- warehouse techno bass punctuation</p>
+<hr />
+<h2>5. Foghorn-inspired patch</h2>
+<p>Phosgène may not be a traditional foghorn machine, but you can absolutely push it there.</p>
+<h3>Patch</h3>
+<ul>
+<li>Low note sequence</li>
+<li>Moderate glide/portamento in your pitch source</li>
+<li><strong>WAVE output</strong> as main bass source</li>
+<li><strong>FM output</strong> mixed low for bark</li>
+<li>Slow envelope or LFO to <strong>Wave Select</strong></li>
+<li>Another envelope with more depth on accented notes to <strong>FM MOD CV</strong></li>
+<li>Filter with resonance after mixing</li>
+<li>Distortion before or after the filter depending on taste</li>
+</ul>
+<h3>Important move</h3>
+<p>Use the <strong>octave displace</strong> function to keep the wavetable side lower and heavier while the FM side retains more range/attack.</p>
+<p>That separation can make the patch feel much larger.</p>
+<hr />
+<h1>Patch ideas for haunting atmospheric pads</h1>
+<p>A 2hp digital oscillator can absolutely do pads, especially when you embrace the haunted low-res vibe.</p>
+<hr />
+<h2>1. Frozen ghost pad</h2>
+<h3>Patch</h3>
+<ul>
+<li>Tune low to mid register</li>
+<li>Use <strong>WAVE output</strong> as primary source</li>
+<li>Slow triangle or random slew → <strong>Wave Select</strong></li>
+<li>Very subtle slow modulation → <strong>FM MOD CV</strong></li>
+<li>Send through:</li>
+<li>low-pass filter</li>
+<li>long reverb</li>
+<li>stereo delay / chorus</li>
+</ul>
+<h3>Best practice</h3>
+<p>Keep the modulation depth small. Tiny movements matter a lot on digital oscillators. Too much CV may turn “haunting” into “cartoonish.”</p>
+<h3>Good result</h3>
+<p>A murky, unstable, almost tape-corrupted pad texture.</p>
+<hr />
+<h2>2. Split-output spectral pad</h2>
+<h3>Patch</h3>
+<ul>
+<li><strong>WAVE output</strong> → low-pass filter → reverb</li>
+<li><strong>FM output</strong> → high-pass filter → shimmer reverb or delay</li>
+<li>Same pitch to both, but process differently</li>
+</ul>
+<h3>Modulation</h3>
+<ul>
+<li>slow LFO on <strong>Wave Select</strong></li>
+<li>even slower LFO or random drift on <strong>FM MOD CV</strong></li>
+<li>manual octave shifts while recording long drones</li>
+</ul>
+<h3>Why it works</h3>
+<p>The WAVE side becomes the pad’s body, while the FM side becomes a mist of unstable harmonics above it.</p>
+<p>This is one of the most effective “small module, big texture” techniques.</p>
+<hr />
+<h2>3. Worn VHS choir / digital fog</h2>
+<h3>Patch</h3>
+<ul>
+<li>Pick a wavetable with some internal noise or complex harmonic profile</li>
+<li>Low or mid pitch</li>
+<li>Slow attack envelope into VCA</li>
+<li>Slow CV drift into Wave Select</li>
+<li>Slight random pitch drift via very attenuated random voltage to 1V/Oct</li>
+<li>Heavy chorus / wow-flutter / reverb after</li>
+</ul>
+<h3>Optional</h3>
+<p>Mix in a tiny amount of FM output for grain and air.</p>
+<p>This creates a pad that feels old, sick, and emotionally unstable in a good way.</p>
+<hr />
+<h2>4. Dissonant cinematic drone</h2>
+<h3>Patch</h3>
+<ul>
+<li>Drone the oscillator with no gate</li>
+<li>Use <strong>FM output</strong> more prominently than usual</li>
+<li>Apply slow, deep modulation to <strong>FM MOD CV</strong></li>
+<li>Use slow stepped random or sample-and-hold with slew on <strong>Wave Select</strong></li>
+<li>Process through resonant filter and long dark reverb</li>
+</ul>
+<h3>Technique</h3>
+<p>Move the octave switch manually during recording. The abrupt digital register shifts can sound extremely cinematic, especially when drowned in reverb tails.</p>
+<hr />
+<h1>Modulation tricks that will make this module stand out</h1>
+<hr />
+<h2>1. Envelope the wavetable position per note</h2>
+<p>Instead of static wave selection, patch an envelope to Wave Select so each note starts bright and settles darker, or vice versa.</p>
+<p>This is one of the best ways to create:
+- punchy bass articulation
+- percussive transients
+- evolving pads</p>
+<p>A tiny envelope amount can make a patch feel alive.</p>
+<hr />
+<h2>2. Use different CV sources for Wave Select and FM MOD</h2>
+<p>Avoid using the same LFO for both. Better combinations:</p>
+<ul>
+<li>Wave Select = slow triangle</li>
+<li>FM MOD = rhythmic envelope</li>
+</ul>
+<p>or</p>
+<ul>
+<li>Wave Select = slewed random</li>
+<li>FM MOD = audio-rate oscillator</li>
+</ul>
+<p>or</p>
+<ul>
+<li>Wave Select = sequencer lane</li>
+<li>FM MOD = accents from trigger sequencer</li>
+</ul>
+<p>That separation creates the impression of a much deeper instrument.</p>
+<hr />
+<h2>3. Audio-rate modulation from another oscillator</h2>
+<p>If you have another VCO/LFO:
+- patch it into <strong>FM MOD CV</strong>
+- keep the amount low first
+- then increase until harmonics become unstable</p>
+<p>This is especially strong for:
+- metallic percussion
+- tearing basses
+- dystopian drones</p>
+<p>If the input accepts wide enough modulation, you can get pseudo-phase-distortion / chaotic wavetable tearing behavior.</p>
+<hr />
+<h2>4. Modulate around sweet spots, not across the whole range</h2>
+<p>With small digital oscillators, the best sounds often live in narrow windows.</p>
+<p>Use:
+- attenuators
+- offset generators
+- CV mixers</p>
+<p>to find one sweet wavetable region, then wiggle around it rather than scanning the whole bank.</p>
+<p>This is crucial for pads and basses.</p>
+<hr />
+<h2>5. Use sequenced CV for timbre, not just pitch</h2>
+<p>Send a stepped modulation lane into:
+- Wave Select
+- FM MOD CV
+- or both via attenuverters</p>
+<p>Then each sequenced note can have its own timbre identity. This is how you get basslines that sound “spoken” or “designed,” rather than just played.</p>
+<p>Perfect for:
+- DnB call-and-response
+- dubstep growl patterns
+- glitch percussion sequences</p>
+<hr />
+<h1>Three complete recipe patches</h1>
+<h2>A. Distorted industrial tom/snare bank</h2>
+<ul>
+<li>Phosgène tuned mid-low</li>
+<li>Trigger sequencer to envelope generator</li>
+<li>Envelope 1 → VCA for WAVE output</li>
+<li>Envelope 2 (shorter) → FM MOD CV</li>
+<li>Stepped random per hit → Wave Select</li>
+<li>WAVE + FM outputs mixed</li>
+<li>Into distortion, then band-pass filter</li>
+</ul>
+<p><strong>Variation:</strong> increase pitch envelope for toms, reduce it for snare-like hits.</p>
+<hr />
+<h2>B. Dubstep monster bass</h2>
+<ul>
+<li>Bass sequence into 1V/Oct</li>
+<li>Glide on selected notes</li>
+<li>WAVE output → LPF</li>
+<li>FM output → distortion path</li>
+<li>Sync LFO to filter cutoff</li>
+<li>Accent envelope → FM MOD CV</li>
+<li>Slow random → Wave Select</li>
+<li>Recombine paths and compress lightly</li>
+</ul>
+<p><strong>Performance move:</strong> manually flip octave/displace during fills and resample the result.</p>
+<hr />
+<h2>C. Haunted pad wash</h2>
+<ul>
+<li>Sustained note or slow chord sequencing from another voice layered with Phosgène</li>
+<li>WAVE output dominant, FM output quiet</li>
+<li>Very slow LFO → Wave Select</li>
+<li>Very slow random drift → FM MOD CV</li>
+<li>Attenuated random pitch drift</li>
+<li>Low-pass filter</li>
+<li>Long dark reverb + chorus</li>
+</ul>
+<p><strong>Performance move:</strong> manually change banks between long held notes.</p>
+<hr />
+<h1>Best external modules to pair with Phosgène</h1>
+<p>This oscillator will especially benefit from:</p>
+<ul>
+<li><strong>Attenuators / attenuverters</strong></li>
+<li><strong>Fast envelopes</strong></li>
+<li><strong>Random CV</strong></li>
+<li><strong>Crossfaders</strong></li>
+<li><strong>Dual VCAs</strong></li>
+<li><strong>Filters</strong> with character</li>
+<li><strong>Distortion / wavefolder / clipping</strong></li>
+<li><strong>Stereo effects</strong></li>
+<li><strong>Resamplers / loopers</strong></li>
+</ul>
+<p>If you only add one utility, make it a <strong>CV attenuator/offset</strong> module. Tiny control is everything here.</p>
+<hr />
+<h1>Final thoughts</h1>
+<p>Phosgène seems best approached as a <strong>digital character oscillator</strong>, not a pristine “do-everything” VCO. Its strengths are exactly the things many modules try to hide:</p>
+<ul>
+<li>roughness</li>
+<li>fold brightness</li>
+<li>limited-resolution grit</li>
+<li>aliasing</li>
+<li>dark FM</li>
+<li>unstable/noisy waves</li>
+</ul>
+<p>For your target sounds:</p>
+<ul>
+<li><strong>Distorted percussion:</strong> use short envelopes on pitch and FM MOD, randomize wave position per hit, and layer WAVE + FM separately.</li>
+<li><strong>Dubstep / DnB bass:</strong> sequence pitch, animate Wave Select slowly, hit FM MOD rhythmically, split and process both outputs differently.</li>
+<li><strong>Haunting pads:</strong> keep modulation subtle, scan narrow timbral zones, exploit low-res instability, and let reverb/delay magnify the ghostliness.</li>
+</ul>
+<p>The secret with this module is not complexity on the panel — it’s <strong>careful external CV animation</strong> and <strong>separate treatment of its two outputs</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

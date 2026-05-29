@@ -1,0 +1,689 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Pittsburgh_Modular_&quot;Generator&quot;</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Pittsburgh Modular — "Generator"</h1>
+<ul>
+<li><a href="../../manuals/Generator - Pittsburgh Modular Synthesizers.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://pittsburghmodular.com/generator">Manual PDF / source</a></p>
+<h1>Pittsburgh Modular Generator: using an FM monster to build full-length songs</h1>
+<p>The <strong>Pittsburgh Modular Generator</strong> is not a conventional precision melodic oscillator. It is a <strong>dual oscillator FM voice / modulation source</strong> built for <strong>complex timbre, internal cross-functionality, and animated instability</strong>. That makes it especially good for the part of eurorack songwriting that often feels hardest:</p>
+<ul>
+<li>turning a loop into an arrangement</li>
+<li>making sections feel different without replacing the whole patch</li>
+<li>creating transitions, fills, breakdowns, rises, and textural contrast</li>
+<li>deriving multiple related musical layers from one core sound source</li>
+</ul>
+<h2>What the module is, musically</h2>
+<p>From the manual:</p>
+<ul>
+<li><strong>Two triangle-core oscillators</strong></li>
+<li><strong>Wide frequency range</strong></li>
+<li><strong>Exponential CV inputs</strong>, but <strong>not 1V/oct</strong> and <strong>not temperature compensated</strong></li>
+<li><strong>Generator 2 is internally FM’d by Generator 1 Index Out</strong></li>
+<li><strong>Shape control</strong> morphs the waveform relationship between the two oscillators</li>
+<li><strong>External FM input</strong> can target either oscillator</li>
+<li><strong>Index section</strong> is effectively a VCA on Generator 1’s output, and that post-VCA signal both:</li>
+<li>appears at <strong>Index Out</strong></li>
+<li>drives the <strong>internal FM amount to Generator 2</strong></li>
+</ul>
+<p>So musically, Generator is best understood as:</p>
+<ol>
+<li>a <strong>dual raw oscillator voice</strong></li>
+<li>a <strong>self-patched FM network</strong></li>
+<li>a <strong>timbral percussion and noise engine</strong></li>
+<li>a <strong>modulator generator</strong></li>
+<li>a <strong>section-making machine</strong></li>
+</ol>
+<p>That last point matters for songs. A lot of modules help you make a sound. Generator helps you make <strong>states</strong> of a sound:
+- dry vs internally FM’d
+- low vs mid vs high ranges
+- triangle-ish vs square-ish spectral balance
+- oscillator 1 foreground vs oscillator 2 foreground
+- external modulation routed to oscillator 1 or 2</p>
+<p>Those state changes are exactly what help produce verses, choruses, intros, breakdowns, and endings.</p>
+<hr />
+<h1>Key behaviors from the manual that matter for arranging</h1>
+<h2>1. It is not a precision pitch voice</h2>
+<p>The manual explicitly says the EXP inputs are exponential but <strong>do not track 1V/oct</strong>.</p>
+<p>That means:</p>
+<ul>
+<li>do <strong>not</strong> rely on Generator as your only “traditional” tuned melody source across multiple octaves</li>
+<li>do use it for:</li>
+<li>drones</li>
+<li>bass riffs in narrow ranges</li>
+<li>percussion</li>
+<li>FM stabs</li>
+<li>tension layers</li>
+<li>atonal or semi-tonal hooks</li>
+<li>tuned-by-ear motif voices</li>
+<li>transitions and sound design</li>
+</ul>
+<p>It can still be musical; it’s just better approached like an <strong>expressive performance oscillator</strong> than a keyboard synth VCO.</p>
+<h2>2. Oscillator 2’s FM depth is tied to the Index section</h2>
+<p>This is huge. The manual says Generator 2 is internally FM’d by <strong>Generator 1 Index Out</strong>, and the <strong>Index pot / Index CV</strong> control that amount.</p>
+<p>So one CV destination changes both:</p>
+<ul>
+<li>the amplitude of Generator 1 at <strong>Index Out</strong></li>
+<li>the internal FM intensity sent into Generator 2</li>
+</ul>
+<p>That means one envelope or sequence can create <strong>simultaneous loudness + timbral development</strong>.</p>
+<p>This is excellent for full-song composition because it lets one control gesture create a “bigger” section automatically.</p>
+<h2>3. Shape is a section-defining macro control</h2>
+<p>The <strong>Shape pot</strong> changes both oscillators at once:</p>
+<ul>
+<li>full left:</li>
+<li>Gen1 = square</li>
+<li>Gen2 = triangle</li>
+<li>full right:</li>
+<li>Gen1 = triangle</li>
+<li>Gen2 = square</li>
+</ul>
+<p>That means the harmonic role of each oscillator swaps as you turn one knob/CV source. This is extremely useful for:</p>
+<ul>
+<li>verse vs chorus tone shifts</li>
+<li>intro dullness to chorus brightness</li>
+<li>evolving drones</li>
+<li>fills and transitions</li>
+</ul>
+<h2>4. External FM destination switch is arrangement gold</h2>
+<p>External modulation can be routed to <strong>Generator 1 or Generator 2</strong>.</p>
+<p>That means the exact same modulation source can produce two different musical results. In a song context, that gives you a simple “section switch”:
+- route modulation to Gen1 for one section
+- route to Gen2 for another</p>
+<hr />
+<h1>Best role for Generator in a song-oriented modular system</h1>
+<p>Generator is usually strongest as one of these:</p>
+<h2>A. Main “feature voice”</h2>
+<p>Use it as the memorable lead texture or bass/percussion signature that defines the track.</p>
+<p>Good if your song wants:
+- industrial FM bass
+- metallic hook
+- unstable lead
+- tuned percussion motif
+- game-console-ish weirdness
+- noisy drum voice</p>
+<h2>B. Secondary motion layer</h2>
+<p>Let a more stable voice handle exact pitch duties, while Generator adds:
+- grit
+- attack layer
+- FM shimmer
+- fills
+- background tension
+- call-and-response accents</p>
+<h2>C. Transition engine</h2>
+<p>Use it mostly for:
+- risers
+- drops
+- noise bursts
+- self-FM drum fills
+- section cues
+- breakdown textures</p>
+<h2>D. Self-contained percussion / bass hybrid</h2>
+<p>One of the best strategies: use Generator to blur roles. In different sections, the same patch can become:
+- kick-like thump
+- tom pattern
+- bassline
+- metallic hat wash
+- FX burst</p>
+<p>That “same DNA, different function” is very powerful for cohesive songwriting.</p>
+<hr />
+<h1>What other modules pair best with it for full songs</h1>
+<p>To make songs rather than loops, Generator benefits from a support cast that provides <strong>structure</strong>.</p>
+<h2>Essential partners</h2>
+<h3>1. A sequencer with multiple lanes or scenes</h3>
+<p>Examples:
+- Make Noise Rene
+- Intellijel Metropolix
+- Five12 Vector
+- Winter Modular Eloquencer
+- NerdSEQ
+- OXI One controlling the rack externally</p>
+<p>You want:
+- pitch/CV lanes
+- gate lanes
+- pattern switching
+- mutes
+- probability
+- song mode or chained patterns</p>
+<p>Since Generator isn’t strict 1V/oct, sequencer lanes are still useful for:
+- narrow-range pitch gestures
+- transposition offsets
+- FM amount automation via CV tracks
+- range-changing logic</p>
+<h3>2. Function generators / envelopes</h3>
+<p>Examples:
+- Maths
+- Zadar
+- Quadrax
+- Stages
+- Delta-V
+- Contour 1</p>
+<p>These are crucial because Generator comes alive when:
+- Index CV is animated
+- external FM comes in bursts
+- filter/VCA after it shape phrases
+- section envelopes move timbre over many bars</p>
+<h3>3. VCAs</h3>
+<p>You will want more VCAs than you think.</p>
+<p>Use them for:
+- controlling external FM depth before it hits Generator
+- dynamically modulating Shape or frequency inputs
+- ducking Generator under drums
+- automating transitions
+- crossfading between outputs 1 / 2 / Index Out</p>
+<h3>4. A filter or spectral shaper</h3>
+<p>Even though Generator already does lots of timbral work, filtering helps define song sections.</p>
+<p>Useful pairings:
+- LPG for percussive phrasing
+- multimode filter for bass/lead shaping
+- wavefolder for more aggression
+- fixed filter bank for arranged tone colors</p>
+<h3>5. Mixer with mutes / sends</h3>
+<p>For songs, this matters more than another oscillator.</p>
+<p>A performance mixer lets you:
+- mute Generator layers in/out by section
+- send it to reverb only in breakdowns
+- dub in feedback delays for transitions
+- create arrangement live</p>
+<h3>6. Clocked modulation / logic / switches</h3>
+<p>Examples:
+- sequential switch
+- clock divider
+- burst generator
+- logic module
+- clocked random
+- compare / sample and hold</p>
+<p>These help Generator change role every 4, 8, 16, or 32 bars without repatching.</p>
+<hr />
+<h1>How to think about full-length songs with this module</h1>
+<p>The mistake many modular users make is asking a patch to stay interesting by itself for 6 minutes.</p>
+<p>Instead, with Generator, think in terms of <strong>reusable arrangement states</strong>.</p>
+<h2>Build 4 states, not 1 patch</h2>
+<p>For example:</p>
+<h3>State 1: Intro / sparse</h3>
+<ul>
+<li>low Index amount</li>
+<li>slow or no external FM</li>
+<li>Shape biased toward triangle-heavy behavior</li>
+<li>long reverb</li>
+<li>low register</li>
+<li>maybe just output 2</li>
+</ul>
+<h3>State 2: Verse / groove</h3>
+<ul>
+<li>moderate Index CV from envelopes</li>
+<li>external FM from a synced modulation source</li>
+<li>tight VCA articulation</li>
+<li>dry mix</li>
+<li>controlled pitch range</li>
+</ul>
+<h3>State 3: Chorus / impact</h3>
+<ul>
+<li>larger Index modulation</li>
+<li>shape shifted brighter</li>
+<li>more external FM</li>
+<li>doubled with another oscillator or sample voice</li>
+<li>accent pattern opens filter or increases distortion</li>
+</ul>
+<h3>State 4: Breakdown / transition</h3>
+<ul>
+<li>frequency ranges switched</li>
+<li>external FM rerouted to other oscillator</li>
+<li>use output 1 or Index Out alone</li>
+<li>more delay/reverb</li>
+<li>less rhythmic gating, more wash or texture</li>
+</ul>
+<p>Then use sequencer scenes, mute automation, switches, and envelope changes to move between them.</p>
+<p>That is how you get a song.</p>
+<hr />
+<h1>Important outputs and how to exploit them for arrangement</h1>
+<p>From the manual:</p>
+<ul>
+<li><strong>1</strong> = Generator 1 output, pre Index VCA</li>
+<li><strong>2</strong> = Generator 2 output</li>
+<li><strong>OUT</strong> = post Index VCA Generator 1 output</li>
+</ul>
+<p>These are very useful as three related but distinct signals.</p>
+<h2>Practical use of the three outputs</h2>
+<h3>Output 1: stable raw oscillator source</h3>
+<p>Use for:
+- a constant bass/drone layer
+- pre-VCA recording path
+- clean signal to process separately</p>
+<h3>Output 2: the internally FM-affected partner</h3>
+<p>Use for:
+- your main complex timbre voice
+- metallic lead/percussion source
+- layered voice against output 1</p>
+<h3>Index Out: the “arrangement output”</h3>
+<p>Use for:
+- dynamically shaped phrases
+- envelope-driven accents
+- the main voice for sections with stronger motion</p>
+<p>Because Index Out also influences Gen2’s internal FM behavior, this output is especially good for creating “alive” sections.</p>
+<h2>Song trick: use all three as separate arrangement layers</h2>
+<p>Patch:
+- <strong>1</strong> to a lowpass filter for bass body
+- <strong>2</strong> to a VCA + delay for top texture
+- <strong>OUT</strong> to a distortion or LPG for rhythmic phrases</p>
+<p>Now one module becomes a mini-ensemble. Across a full song you can mute/unmute or emphasize different paths.</p>
+<hr />
+<h1>Full-song patch strategies</h1>
+<h2>1. Generator as the central song voice</h2>
+<h3>Patch concept</h3>
+<ul>
+<li>Output 2 = main voice</li>
+<li>Index Out = accent layer</li>
+<li>Output 1 = sub/low body or parallel distortion feed</li>
+<li>Sequencer sends slow pitch CV to both EXP inputs</li>
+<li>Envelope to Index CV</li>
+<li>Another oscillator/LFO/sample source into External FM input</li>
+<li>External destination switch set per section</li>
+</ul>
+<h3>Arrangement use</h3>
+<ul>
+<li><strong>Intro:</strong> only output 1, filtered, low register</li>
+<li><strong>Verse:</strong> bring in output 2 with modest FM</li>
+<li><strong>Pre-chorus:</strong> increase Index CV depth with a longer envelope</li>
+<li><strong>Chorus:</strong> mix output 2 + Index Out together</li>
+<li><strong>Breakdown:</strong> mute output 2, leave delayed Index Out tail</li>
+<li><strong>Final chorus:</strong> external FM deeper + shape brighter + parallel distortion</li>
+</ul>
+<p>This works because the same timbral family persists through the whole song.</p>
+<hr />
+<h2>2. Generator as a percussion engine for evolving drums</h2>
+<p>The manual even gives a percussion patch idea:
+- patch <strong>Generator 2 output</strong> into <strong>External CV Input</strong>
+- set external switch to modulate <strong>Generator 1</strong>
+- patch an <strong>envelope generator</strong> into <strong>Index CV</strong>
+- listen to <strong>Index Out</strong>
+- Gen1 low range, Gen2 mid range gives nice percussion</p>
+<p>That can be expanded into a full drum architecture.</p>
+<h3>Build a full drum role</h3>
+<ul>
+<li>Trigger short envelopes into Index CV for struck timbres</li>
+<li>Sequence pitch offsets narrowly for different drum hits</li>
+<li>Use range switches manually or through external switched CV setups between sections</li>
+<li>Process with LPG, transient shaper, distortion, or compressor</li>
+</ul>
+<h3>Full-song use</h3>
+<ul>
+<li><strong>Verse:</strong> Generator acts like tom/snare metallic hits</li>
+<li><strong>Chorus:</strong> faster trigger density and more FM = industrial hats/rides</li>
+<li><strong>Breakdown:</strong> long envelope into Index CV = resonant booms</li>
+<li><strong>Outro:</strong> sparse percussive pings with heavy delay</li>
+</ul>
+<p>One module can carry a whole drum subplot through the track.</p>
+<hr />
+<h2>3. Generator as bassline + fill machine</h2>
+<p>Since it doesn’t track perfectly, keep it in a narrow range and write bass parts by ear.</p>
+<h3>Patch</h3>
+<ul>
+<li>Output 2 through a lowpass filter and VCA</li>
+<li>Sequencer CV to Gen2 EXP in a limited range</li>
+<li>Envelope to VCA</li>
+<li>Index CV from accents or a second sequencer lane</li>
+<li>External FM from a synced LFO or from a percussion trigger converted to CV</li>
+</ul>
+<h3>Why this works for songs</h3>
+<p>Bass arrangement often needs:
+- stable root motion
+- occasional fills
+- section-dependent aggression</p>
+<p>Generator can do all three if you separate:
+- pitch motion = modest, constrained
+- timbral motion = large, evolving</p>
+<h3>Song map</h3>
+<ul>
+<li><strong>Verse bass:</strong> low Index, rounded shape, filtered</li>
+<li><strong>Chorus bass:</strong> brighter shape, more internal FM, slight saturation</li>
+<li><strong>Turnaround fill:</strong> brief burst of external FM on last bar</li>
+<li><strong>Bridge:</strong> same bass rhythm but waveform shape reversed and lowpassed less</li>
+</ul>
+<p>This keeps harmonic continuity while timbre tells the arrangement story.</p>
+<hr />
+<h2>4. Generator as a lead that evolves across sections</h2>
+<p>A strong modular song lead often needs to change identity while staying recognizable.</p>
+<h3>Patch</h3>
+<ul>
+<li>Output 2 into wavefolder or filter</li>
+<li>Index Out to a separate VCA/delay path</li>
+<li>Sequencer provides stepped CV motifs</li>
+<li>Slow envelope or LFO to Shape</li>
+<li>Performance control over Index amount</li>
+<li>External FM from another oscillator tuned to a consonant or dissonant interval by ear</li>
+</ul>
+<h3>Section design</h3>
+<ul>
+<li><strong>Intro motif:</strong> dry output 2, triangle-leaning</li>
+<li><strong>Verse lead:</strong> sparse notes, low FM</li>
+<li><strong>Pre-chorus:</strong> increase FM and delay send</li>
+<li><strong>Chorus:</strong> layer output 2 and Index Out, wider stereo FX</li>
+<li><strong>Solo/bridge:</strong> reroute external FM destination to the other oscillator for a “same lead, new personality” change</li>
+</ul>
+<p>That one destination switch can feel like a new instrument entering.</p>
+<hr />
+<h2>5. Generator as a drone/textural bed that supports song development</h2>
+<p>Generator is fantastic at long-form movement.</p>
+<h3>Patch</h3>
+<ul>
+<li>Output 1 and 2 to separate channels</li>
+<li>Very slow CV into one or both EXP inputs</li>
+<li>Slow random or looping envelope to Shape</li>
+<li>Sparse gates to Index CV for intermittent blooming</li>
+<li>External FM from a sub-audio LFO, another drone oscillator, or filtered noise</li>
+</ul>
+<h3>Song use</h3>
+<ul>
+<li><strong>Intro:</strong> establish atmosphere</li>
+<li><strong>Verse:</strong> keep low in mix as harmonic tension bed</li>
+<li><strong>Chorus:</strong> open filter / add FM / widen stereo</li>
+<li><strong>Breakdown:</strong> remove rhythmic instruments, let Generator carry continuity</li>
+<li><strong>Outro:</strong> reduce motion until nearly static</li>
+</ul>
+<p>This is a very effective way to make a modular track feel composed rather than merely looped.</p>
+<hr />
+<h1>Techniques specifically for turning loops into songs</h1>
+<h2>1. Use Generator as a macro-variation source</h2>
+<p>If your rhythm/melody is already working, don’t rewrite it immediately. Instead, use Generator to create sectional contrast over the loop.</p>
+<p>For every 8 or 16 bars, change one of:
+- Index amount
+- Shape position
+- external FM source depth
+- external FM destination
+- which output is prominent in the mix
+- filter processing after the outputs</p>
+<p>This creates musical development without losing the groove.</p>
+<h2>2. Create “energy lanes”</h2>
+<p>Assign separate control sources to:
+- <strong>pitch lane</strong>
+- <strong>brightness lane</strong>
+- <strong>FM intensity lane</strong>
+- <strong>density lane</strong> via VCA/gates
+- <strong>space lane</strong> via effects send</p>
+<p>Generator is strongest on the <strong>brightness / FM intensity</strong> lanes. Let another module handle exact harmony if needed.</p>
+<h2>3. Write section changes with CV, not only notes</h2>
+<p>A modular song often becomes full-length when section changes are driven by:
+- different envelope times
+- different FM amounts
+- different wave shape balances
+- switched modulation routing</p>
+<p>With Generator, those changes are more dramatic than merely changing a note sequence.</p>
+<h2>4. Record long performances of timbre, then compose from them</h2>
+<p>Because Generator is gestural, it’s excellent for live takes:
+- manually perform Shape
+- ride Index
+- switch modulation destination
+- tweak frequency ranges between sections</p>
+<p>Record 10 minutes, then edit into a song structure. This is often more effective than trying to sequence every change.</p>
+<hr />
+<h1>Concrete arrangement recipes</h1>
+<h2>Recipe A: Verse / Chorus industrial electro track</h2>
+<h3>Supporting modules</h3>
+<ul>
+<li>drum machine or drum voices</li>
+<li>sequencer with 2–4 CV lanes</li>
+<li>one filter</li>
+<li>3 VCAs</li>
+<li>delay/reverb</li>
+<li>mixer with mutes</li>
+</ul>
+<h3>Generator role</h3>
+<p>Main bass-lead hybrid</p>
+<h3>Patch</h3>
+<ul>
+<li>Output 2 → filter → VCA → mixer</li>
+<li>Index Out → distortion → VCA → mixer</li>
+<li>Output 1 → sub mixer channel or compressor input</li>
+<li>Accent envelope → Index CV</li>
+<li>Sequencer lane → Gen2 EXP</li>
+<li>Slow offset CV → Gen1 EXP</li>
+<li>Clocked LFO or another oscillator → External FM input</li>
+</ul>
+<h3>Arrangement</h3>
+<ul>
+<li><strong>Intro:</strong> only filtered output 1 + delay send</li>
+<li><strong>Verse:</strong> output 2 enters, low FM</li>
+<li><strong>Chorus:</strong> Index Out distortion layer added</li>
+<li><strong>Post-chorus:</strong> mute drums briefly, let Generator scream with more external FM</li>
+<li><strong>Bridge:</strong> switch external FM destination, lower drum density</li>
+<li><strong>Final chorus:</strong> all three outputs blended in different amounts</li>
+</ul>
+<hr />
+<h2>Recipe B: Melodic techno with Generator as tension layer</h2>
+<h3>Supporting modules</h3>
+<ul>
+<li>precise VCO for main melody</li>
+<li>quantizer</li>
+<li>sample-based drums</li>
+<li>stereo effects</li>
+<li>sequential switch</li>
+<li>utility mixer/VCAs</li>
+</ul>
+<h3>Generator role</h3>
+<p>Counter-melody and textural riser source</p>
+<h3>Patch</h3>
+<ul>
+<li>Main melodic VCO handles accurate pitch</li>
+<li>Generator receives related but narrow CV movement</li>
+<li>Output 2 → bandpass filter → reverb</li>
+<li>Index Out → short delay ping path</li>
+<li>External FM from the main VCO or a divided clock LFO</li>
+</ul>
+<h3>Arrangement</h3>
+<ul>
+<li><strong>Verse:</strong> subtle Generator texture underneath main line</li>
+<li><strong>Build:</strong> increase Index CV every 4 bars</li>
+<li><strong>Drop:</strong> mute main melody briefly; Generator carries lead tension</li>
+<li><strong>Chorus:</strong> restore main melody while Generator becomes higher, noisier sparkle</li>
+<li><strong>Breakdown:</strong> only Generator + kick + FX remain</li>
+</ul>
+<p>This is very song-effective because Generator provides emotional motion without forcing tonal precision.</p>
+<hr />
+<h2>Recipe C: Experimental ambient full-length piece</h2>
+<h3>Supporting modules</h3>
+<ul>
+<li>random voltage source</li>
+<li>slews</li>
+<li>quad VCA</li>
+<li>stereo reverb</li>
+<li>looper or sampler</li>
+<li>LPG or resonant filter</li>
+</ul>
+<h3>Generator role</h3>
+<p>Primary sound ecosystem</p>
+<h3>Patch</h3>
+<ul>
+<li>Output 1 → LPG → left channel</li>
+<li>Output 2 → filter → right channel</li>
+<li>Index Out → shimmer reverb</li>
+<li>Very slow random CV to Shape</li>
+<li>Sparse triggers to Index CV</li>
+<li>External FM from noise or another slow oscillator</li>
+<li>Manual changes of range switches every few minutes</li>
+</ul>
+<h3>Arrangement</h3>
+<ul>
+<li><strong>Part I:</strong> nearly static drone</li>
+<li><strong>Part II:</strong> introduce slow pulse through Index envelope</li>
+<li><strong>Part III:</strong> external FM grows harsh and active</li>
+<li><strong>Part IV:</strong> sampled loops of earlier material layered back in</li>
+<li><strong>Part V:</strong> remove modulation, return to sparse harmonic residue</li>
+</ul>
+<p>Generator can absolutely carry a long-form composition in this context.</p>
+<hr />
+<h1>Advanced techniques for song structure</h1>
+<h2>Crossfade between outputs instead of changing patches</h2>
+<p>Because outputs 1, 2, and OUT are related, a crossfader can create smooth arrangement transitions.</p>
+<p>Examples:
+- verse = mostly output 1
+- chorus = mostly output 2
+- fill = momentary emphasis on OUT</p>
+<p>This preserves continuity while still sounding arranged.</p>
+<h2>Use switched modulation sources every 8 or 16 bars</h2>
+<p>Run a sequential switch into the External FM input:
+- source 1 = slow LFO
+- source 2 = envelope bursts
+- source 3 = noise
+- source 4 = another oscillator</p>
+<p>Now Generator becomes a section-varying instrument automatically.</p>
+<h2>Send drums or bass envelopes into Index CV</h2>
+<p>This is especially effective for track cohesion.
+If the same envelope family controlling drums also controls Index dynamics, the Generator part “breathes” with the rhythm section.</p>
+<h2>Parallel process the outputs</h2>
+<p>Try:
+- Output 2 dry and centered
+- Index Out distorted and compressed
+- Output 1 lowpassed for sub/body</p>
+<p>Mute combinations of these channels to produce structure.</p>
+<h2>Use the range switches as arrangement markers</h2>
+<p>The 3-way range switch on each oscillator is not just setup; it is compositionally important.</p>
+<p>Possible section logic:
+- intro: Gen1 low, Gen2 low-mid
+- verse: Gen1 low, Gen2 mid
+- chorus: Gen1 mid, Gen2 high
+- breakdown: Gen1 low, Gen2 high for extreme FM contrast</p>
+<p>Even if done manually during recording, this is a powerful formal device.</p>
+<hr />
+<h1>What kind of songs this module excels at</h1>
+<p>Generator is especially strong in:</p>
+<ul>
+<li>industrial</li>
+<li>electro</li>
+<li>EBM</li>
+<li>IDM</li>
+<li>experimental techno</li>
+<li>noise</li>
+<li>dark ambient</li>
+<li>sci-fi soundtrack</li>
+<li>broken beat</li>
+<li>abstract percussion music</li>
+<li>game-sound-inspired music</li>
+<li>drone-based composition</li>
+</ul>
+<p>It can still work in melodic genres, but usually best when paired with a more precise pitch voice.</p>
+<hr />
+<h1>A practical songwriting workflow with Generator</h1>
+<h2>Method 1: Build the arrangement first</h2>
+<ol>
+<li>Patch Generator into 2–3 parallel outputs.</li>
+<li>Create four timbral states for sections.</li>
+<li>Program or perform mutes and modulation changes.</li>
+<li>Only after that, write detailed note content.</li>
+</ol>
+<p>This avoids getting trapped in a perfect 4-bar loop.</p>
+<h2>Method 2: Let Generator define transitions</h2>
+<p>If your drums and bass are already static:
+1. keep the groove unchanged
+2. automate Generator’s Shape / Index / FM routing over 16–32 bars
+3. use it as the emotional curve of the track</p>
+<h2>Method 3: Record stems from different outputs</h2>
+<p>Record:
+- output 1 stem
+- output 2 stem
+- Index Out stem
+- effects return stem</p>
+<p>Then arrange those stems as if they were separate instruments. This is one of the easiest ways to get a “full song” from modular material.</p>
+<hr />
+<h1>Limitations to plan around</h1>
+<h2>Not ideal as your only tuned voice</h2>
+<p>Because it is not 1V/oct and not temp compensated, use it by ear, in limited ranges, or as a secondary/expressive voice.</p>
+<h2>FM can get chaotic quickly</h2>
+<p>That’s part of the appeal, but for song use:
+- control depth with VCAs
+- save the wildest settings for transitions and climaxes
+- keep at least one layer more restrained</p>
+<h2>Macro controls are powerful</h2>
+<p>Small movement can create large change. This is good for arrangement but means you should:
+- attenuate incoming CV
+- use offset generators
+- rehearse performance gestures</p>
+<hr />
+<h1>Best “song building” pairings by role</h1>
+<h2>If Generator is your bass voice</h2>
+<p>Add:
+- precise sequencer
+- lowpass filter
+- envelope
+- compressor
+- parallel distortion
+- accent CV lane to Index</p>
+<h2>If Generator is your lead</h2>
+<p>Add:
+- stereo delay
+- reverb
+- wavefolder or multimode filter
+- clocked modulation
+- crossfader for output blending</p>
+<h2>If Generator is your percussion source</h2>
+<p>Add:
+- trigger sequencer
+- fast envelopes
+- LPG or VCA
+- transient shaping/distortion
+- sample layer for consistency if needed</p>
+<h2>If Generator is your texture bed</h2>
+<p>Add:
+- slow random
+- long envelopes
+- stereo effects
+- mixer sends
+- looper/sampler for arrangement capture</p>
+<hr />
+<h1>Simple full-song templates</h1>
+<h2>Template 1: 6-minute techno track</h2>
+<ul>
+<li>0:00–1:00 intro drone from output 1</li>
+<li>1:00–2:00 beat enters, output 2 low in mix</li>
+<li>2:00–3:00 bass pattern emerges via narrow EXP sequencing</li>
+<li>3:00–4:00 increase Index CV and external FM for peak section</li>
+<li>4:00–4:45 breakdown using Index Out + delay only</li>
+<li>4:45–6:00 full groove returns with brighter Shape setting</li>
+</ul>
+<h2>Template 2: electro song form</h2>
+<ul>
+<li>intro</li>
+<li>verse A: Generator bass</li>
+<li>chorus A: Generator bass + distorted Index Out hook</li>
+<li>verse B: external FM destination changed</li>
+<li>bridge: Generator as percussion only</li>
+<li>final chorus: all layers return</li>
+<li>outro: output 1 alone fades</li>
+</ul>
+<h2>Template 3: ambient narrative</h2>
+<ul>
+<li>scene 1: low static pair</li>
+<li>scene 2: slight shape movement</li>
+<li>scene 3: internal FM bloom</li>
+<li>scene 4: external FM disruption</li>
+<li>scene 5: decaying residue</li>
+</ul>
+<hr />
+<h1>Bottom line</h1>
+<p>The Pittsburgh <strong>Generator</strong> is excellent for full-length songs because it is not merely an oscillator—it is a <strong>timbral relationship instrument</strong>. Its real songwriting strength is that it lets you derive many related musical identities from one patch:</p>
+<ul>
+<li>raw voice</li>
+<li>FM voice</li>
+<li>percussion voice</li>
+<li>modulation source</li>
+<li>transition effect</li>
+<li>drone layer</li>
+</ul>
+<p>To make songs with it, don’t treat it only as “the sound.” Treat it as a <strong>section engine</strong>:
+- use <strong>Index</strong> for energy
+- use <strong>Shape</strong> for character
+- use <strong>External FM routing</strong> for contrast
+- use its <strong>multiple outputs</strong> as separate arrangement layers
+- pair it with <strong>sequencers, envelopes, VCAs, filters, and a performance mixer</strong>
+- design <strong>4–5 states</strong> and move between them over time</p>
+<p>That’s how this module can go from making a great loop to carrying a complete composition.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

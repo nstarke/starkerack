@@ -1,0 +1,640 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Noise_Engineering_Integra_Solum</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Noise Engineering — Integra Solum</h1>
+<ul>
+<li><a href="../../manuals/Integra Solum Manual - Noise Engineering Documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://manuals.noiseengineering.us/is/">Manual PDF / Documentation</a></p>
+<h1>Noise Engineering Integra Solum — creative modular patch ideas</h1>
+<p>Integra Solum is much more than “just” a clock divider. It’s really a <strong>dual rhythmic pattern generator</strong>, with:
+- <strong>2 independent or normalized clock lanes</strong>
+- <strong>16 trigger outputs total</strong>
+- <strong>3 core output organizations</strong>
+  - <strong>/2N</strong> = powers-of-two divisions
+  - <strong>N</strong> = sequence-of-eight style stepping
+  - <strong>/2N+1</strong> = odd divisions
+- <strong>Shift/Offset rotation</strong> per side
+- <strong>Independent reset per side</strong>
+- <strong>Wack mode</strong> for randomized trigger behavior</p>
+<p>That makes it especially strong for:
+- drum programming
+- gate animation
+- switching/routing
+- clock-derived modulation
+- controlled randomness
+- polyrhythms and polymeters
+- generating structured chaos from a single clock</p>
+<hr />
+<h2>Quick functional read of what it wants to do in a patch</h2>
+<p>A useful way to think about Integra Solum:</p>
+<ul>
+<li>In <strong>regular mode</strong>, it creates <strong>related timing families</strong></li>
+<li>In <strong>Wack mode</strong>, it creates <strong>probabilistic variations</strong> of those timing families</li>
+<li><strong>Shift</strong> turns fixed relationships into moving rhythmic phrases</li>
+<li><strong>Dual sides</strong> let you do either:</li>
+<li>one “stable” section + one “wild” section</li>
+<li>one for percussion + one for modulation</li>
+<li>one master clock source split into two rhythmic layers</li>
+<li>two fully independent temporal systems</li>
+</ul>
+<p>Because the outputs are triggers/gates in the <strong>0–5 V</strong> range and trigger around <strong>3.4 V</strong>, it pairs well with most Eurorack trigger inputs, envelope generators, logic, switch modules, burst generators, sequential switches, percussion voices, and sample players.</p>
+<hr />
+<h1>Best module pairings</h1>
+<h2>1. Drum voices and percussion modules</h2>
+<p>This is the most immediate and rewarding use.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Noise Engineering Basimilus Iteritas Alter</strong></li>
+<li><strong>WMD Crucible / Fracture / Chimera</strong></li>
+<li><strong>Tiptop drum voices</strong></li>
+<li><strong>ALM Squid Salmple</strong></li>
+<li><strong>1010 Bitbox / Rample</strong></li>
+<li><strong>Hexinverter Mutant series</strong></li>
+<li><strong>generic:</strong> kick, snare, hat, clap, sampler, physical modeling percussion</li>
+</ul>
+<h3>Why it works</h3>
+<p>Each output can drive a different percussion voice, or several outputs can address:
+- different samples in a sampler
+- different layers of one drum patch
+- accent inputs
+- choke/mute behavior through VCAs or switches</p>
+<h3>Creative patch</h3>
+<p><strong>One side for backbone, one side for fills</strong>
+- Left side in <strong>/2N</strong> for kick/snare scaffolding
+- Right side in <strong>N</strong> or <strong>/2N+1</strong> for hats, claps, and percussion
+- Put right side into <strong>Wack mode</strong>
+- Send a few right-side outputs to:
+  - hi-hat trigger
+  - sampler slice advance
+  - burst generator trigger
+- Result: stable groove with evolving top-end detail</p>
+<hr />
+<h2>2. Sequential switches and trigger routers</h2>
+<p>Integra Solum really shines when its triggers don’t just fire sounds, but <strong>reconfigure the patch</strong>.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Doepfer A-151</strong></li>
+<li><strong>Noise Engineering Vice Virga</strong></li>
+<li><strong>Befaco Muxlicer</strong></li>
+<li><strong>Joranalogue Step 8</strong></li>
+<li><strong>ALM Boss Bow Two</strong></li>
+<li><strong>generic:</strong> sequential switch, addressable switch, gate router</li>
+</ul>
+<h3>Why it works</h3>
+<p>The module’s rotating/divided outputs create excellent switch-advance signals. Different outputs can:
+- advance a sequence selector
+- change effect send destinations
+- alternate oscillators
+- rotate modulation targets
+- swap between envelopes</p>
+<h3>Creative patch</h3>
+<p><strong>Rhythm-controlled timbre switching</strong>
+- Send one output from Integra Solum to advance a sequential switch
+- Patch 4 different modulation sources into the switch:
+  - slow LFO
+  - stepped random
+  - envelope
+  - chaos source
+- Switch output goes to filter cutoff or oscillator FM
+- Use another Integra Solum output to trigger envelopes
+- Result: every rhythmic event can have a different modulation character</p>
+<hr />
+<h2>3. Envelope generators and function generators</h2>
+<p>Triggers become much more musically rich when converted into envelope motion.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Make Noise Maths</strong></li>
+<li><strong>Frap Tools Falistri</strong></li>
+<li><strong>Xaoc Zadar</strong></li>
+<li><strong>Intellijel Quadrax</strong></li>
+<li><strong>Befaco Rampage</strong></li>
+<li><strong>Mutable Stages</strong></li>
+<li><strong>generic:</strong> AD envelope, function generator, multi-envelope</li>
+</ul>
+<h3>Why it works</h3>
+<p>Instead of using Integra Solum only as a drum trigger source, use it to generate:
+- amplitude envelopes
+- filter plucks
+- FM accents
+- pitch envelopes
+- ratcheted modulation</p>
+<h3>Creative patch</h3>
+<p><strong>Distributed envelope orchestra</strong>
+- Patch 4–8 Integra Solum outputs into multiple envelope channels
+- Send those envelopes to:
+  - VCA level
+  - wavefolder amount
+  - filter resonance
+  - oscillator sync amount
+- Use <strong>Shift</strong> to rotate which envelope arrives when
+- Result: a static drone or oscillator pair becomes a constantly re-articulated rhythmic texture</p>
+<hr />
+<h2>4. Logic modules</h2>
+<p>A divider becomes dramatically more powerful when combined with Boolean rhythm processing.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Joranalogue Compare 2</strong></li>
+<li><strong>Doepfer A-166</strong></li>
+<li><strong>Bastl Kompas</strong>-adjacent logic workflows</li>
+<li><strong>Mystic Circuits ANA / tree / logic tools</strong></li>
+<li><strong>Klavis Logica XT</strong></li>
+<li><strong>generic:</strong> AND, OR, XOR, NAND, flip-flop, comparator, logic combiner</li>
+</ul>
+<h3>Why it works</h3>
+<p>Integra Solum provides related but distinct clocks/triggers. Logic can derive:
+- syncopation
+- accents
+- missing beats
+- composite rhythms
+- Euclidean-like structures from basic divisions</p>
+<h3>Creative patch</h3>
+<p><strong>XOR swing generator</strong>
+- Take two outputs from one side, preferably neighboring divisions or sequence positions
+- Feed into an <strong>XOR</strong>
+- Send XOR result to a hi-hat or accent path
+- Send original outputs to kick/snare
+- Result: derived “between-the-lines” rhythmic material</p>
+<h3>Another patch</h3>
+<p><strong>AND = rare events</strong>
+- Patch a slower output from left side and a rotated output from right side into an <strong>AND</strong>
+- Use result to trigger:
+  - crash
+  - bass drop
+  - sample reset
+  - scene change on a switch
+- Result: musically sparse structural markers</p>
+<hr />
+<h2>5. Burst generators and ratchets</h2>
+<p>Integra Solum can act as the “when,” while a burst generator supplies the “how intensely.”</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Noise Engineering Numeric Repetitor</strong></li>
+<li><strong>4ms PEG / QCD + expander</strong></li>
+<li><strong>SSF Ultra-Random trigger modes</strong></li>
+<li><strong>Bastl Kompas / Knit Rider ecosystems</strong></li>
+<li><strong>generic:</strong> burst generator, ratchet generator, trigger repeater</li>
+</ul>
+<h3>Why it works</h3>
+<p>You can make some outputs act as phrase markers that launch bursts, rather than directly firing sounds.</p>
+<h3>Creative patch</h3>
+<p><strong>Occasional ratchet percussion</strong>
+- Main hi-hat gets regular triggers from one Integra Solum output
+- Another less frequent output triggers a burst generator
+- Burst generator output goes to open hat, clap, or LPG ping
+- Use <strong>Wack /2N</strong> or <strong>Wack N</strong> for irregular burst placement
+- Result: dense fills without manually programming them</p>
+<hr />
+<h2>6. Sample and slicer modules</h2>
+<p>This is an excellent trigger brain for sample-based rhythm systems.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>ALM Squid Salmple</strong></li>
+<li><strong>1010 Bitbox</strong></li>
+<li><strong>Rossum Assimil8or</strong></li>
+<li><strong>Tiptop One</strong></li>
+<li><strong>Make Noise Morphagene</strong> for rhythmic splices</li>
+<li><strong>generic:</strong> sample player, slicer, granular module with trigger inputs</li>
+</ul>
+<h3>Why it works</h3>
+<p>Different trigger outputs can control:
+- sample playback
+- slice advance
+- reverse toggles via logic/switches
+- record arming
+- occasional resets</p>
+<h3>Creative patch</h3>
+<p><strong>Polymetric breakbeat engine</strong>
+- Left side clocked from master clock
+- Right side clocked from a clock that is slightly offset or differently divided
+- Use left side to trigger main drum samples
+- Use right side to:
+  - advance slices
+  - trigger glitch percussion
+  - reset phrase points
+- Put right side in <strong>Wack N</strong>
+- Result: breakbeat variation that stays rhythmically anchored</p>
+<hr />
+<h2>7. Clock modulators, master clocks, and transport tools</h2>
+<p>Integra Solum becomes much deeper if the incoming clock itself changes.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Pamela’s Pro Workout / New Workout</strong></li>
+<li><strong>Tempi</strong></li>
+<li><strong>4ms QCD</strong></li>
+<li><strong>Shakmat Clock O’Pawn / Time Wizard</strong></li>
+<li><strong>ALM mmMidi / MIDI clock tools</strong></li>
+<li><strong>generic:</strong> clock source, clock divider/multiplier, swing source, transport/reset module</li>
+</ul>
+<h3>Why it works</h3>
+<p>A static divider on a static clock can still be good, but feeding it:
+- swung clock
+- changing clock rate
+- clock skips
+- external reset phrases
+- multiplied/subdivided clocks per side</p>
+<p>turns it into a <strong>form generator</strong>.</p>
+<h3>Creative patch</h3>
+<p><strong>Phrase-aware dual lane</strong>
+- Clock both sides from same source
+- Reset left side every 16 steps
+- Reset right side every 12 or 20 steps
+- Use different modes per side
+- Result: long-form polymeter that only fully repeats after many bars</p>
+<h3>Advanced variant</h3>
+<ul>
+<li>Clock left side from quarter notes</li>
+<li>Clock right side from swung eighths or triplets</li>
+<li>Patch both to related drum or modulation destinations</li>
+<li>Result: groove with interlocking metric layers</li>
+</ul>
+<hr />
+<h2>8. VCAs, LPGs, and audio-rate “ping” systems</h2>
+<p>Triggers don’t have to hit only drum modules.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Make Noise Optomix</strong></li>
+<li><strong>XAOC Tallin</strong></li>
+<li><strong>Intellijel Quad VCA</strong></li>
+<li><strong>Befaco LPG / Percall</strong></li>
+<li><strong>Takaab LPG</strong></li>
+<li><strong>generic:</strong> VCA, low-pass gate, transient shaper</li>
+</ul>
+<h3>Why it works</h3>
+<p>If you use Integra Solum to ping LPGs or fire envelopes controlling VCAs, you can rhythmically animate:
+- drones
+- noise sources
+- FM tones
+- resonant filters
+- feedback loops</p>
+<h3>Creative patch</h3>
+<p><strong>Rhythmic drone carving</strong>
+- Mult a drone source to several VCAs/LPGs
+- Trigger each channel with different Integra Solum outputs
+- Pan them across the stereo field
+- Rotate one side’s <strong>Shift</strong> slowly by hand or CV if available in your setup via external control tricks
+- Result: one drone becomes an intricate pulse cloud</p>
+<hr />
+<h2>9. Filters and resonators</h2>
+<p>Trigger outputs are excellent for pinging resonant systems.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Mutable Rings</strong></li>
+<li><strong>QPAS</strong></li>
+<li><strong>Bastl Ikarie</strong></li>
+<li><strong>Three Sisters</strong></li>
+<li><strong>Doepfer resonant filters</strong></li>
+<li><strong>generic:</strong> resonant filter, resonator, comb filter, LPG</li>
+</ul>
+<h3>Why it works</h3>
+<p>A trigger into:
+- a resonator excite input
+- a short envelope to filter cutoff
+- a VCA opening noise into a filter</p>
+<p>creates tuned percussion and melodic rhythm.</p>
+<h3>Creative patch</h3>
+<p><strong>Pseudo-melodic percussion network</strong>
+- Noise source into VCA
+- VCA into resonant filter or Rings
+- Integra Solum triggers a very short envelope opening the VCA
+- Different outputs trigger different pitch changes or damping changes
+- Use left side for note triggers, right side for parameter changes
+- Result: tuned percussive line that evolves structurally</p>
+<hr />
+<h2>10. Random, chaos, and uncertainty modules</h2>
+<p>Because Integra Solum already has <strong>Wack mode</strong>, it pairs beautifully with external randomness for “bounded unpredictability.”</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Mutable Marbles</strong></li>
+<li><strong>Make Noise Wogglebug</strong></li>
+<li><strong>SSF Ultra-Random Analog</strong></li>
+<li><strong>Qu-Bit Chance</strong></li>
+<li><strong>Clank Chaos</strong></li>
+<li><strong>generic:</strong> random CV, sample-and-hold, chaos, probability gate processor</li>
+</ul>
+<h3>Why it works</h3>
+<p>Use Integra Solum for <strong>temporal structure</strong>, and random modules for <strong>parameter variation</strong>.</p>
+<h3>Creative patch</h3>
+<p><strong>Structured chaos drum patch</strong>
+- Integra Solum side A = deterministic rhythm triggers
+- Integra Solum side B in <strong>Wack mode</strong> = fill/accent triggers
+- Random CV controls:
+  - sample selection
+  - decay time
+  - pitch
+  - effect send amount
+- Result: a groove that never collapses into mush because timing remains organized</p>
+<hr />
+<h2>11. Sequencers and quantizers</h2>
+<p>Even though it’s not a pitch sequencer, Integra Solum can be the <strong>rhythmic spine</strong> for melodic systems.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Make Noise René</strong></li>
+<li><strong>Intellijel Metropolix</strong></li>
+<li><strong>Xaoc Moskwa</strong></li>
+<li><strong>Verbos Voltage Multistage</strong></li>
+<li><strong>After Later/Mutable Turing machine variants</strong></li>
+<li><strong>generic:</strong> CV sequencer, gate sequencer, quantizer</li>
+</ul>
+<h3>Why it works</h3>
+<p>Use different outputs to:
+- clock sequencer advance
+- reset the sequencer
+- change sequence stage via switches
+- trigger S&amp;H for melodic variation
+- accent note articulation</p>
+<h3>Creative patch</h3>
+<p><strong>Melody with self-generated phrase accents</strong>
+- One Integra Solum output advances sequencer
+- Another resets it occasionally
+- Another triggers an envelope for VCA articulation
+- Another triggers a second envelope into filter FM or pitch envelope
+- Right side in <strong>/2N+1</strong> or <strong>Wack N</strong> creates irregular accents
+- Result: one melodic line feels composed rather than looped</p>
+<hr />
+<h2>12. Matrix mixers and modulation hubs</h2>
+<p>The 16 outputs become much more useful if combined downstream.</p>
+<h3>Great pairings</h3>
+<ul>
+<li><strong>Livestock Maze</strong></li>
+<li><strong>4ms VCA Matrix</strong></li>
+<li><strong>Befaco Hexmix VCA / CV tools</strong></li>
+<li><strong>AI Synthesis matrix mixers</strong></li>
+<li><strong>generic:</strong> matrix mixer, trigger combiner, gate mixer, CV router</li>
+</ul>
+<h3>Why it works</h3>
+<p>By combining multiple Integra Solum outputs, you can produce:
+- trigger densities
+- composite envelopes
+- grouped accents
+- pattern clusters</p>
+<h3>Creative patch</h3>
+<p><strong>Section-based percussion bus</strong>
+- Route 4 outputs to one voice family, 4 outputs to another
+- Mix or logic-combine selected gates before hitting voices
+- Change <strong>Shift</strong> to rearrange which sub-cluster is active first
+- Result: pattern changes without repatching the whole system</p>
+<hr />
+<h1>Mode-by-mode musical uses</h1>
+<h2>/2N mode</h2>
+<p>Powers-of-two divisions are your most “classic clock divider” patterns.</p>
+<h3>Best for</h3>
+<ul>
+<li>kick/snare backbones</li>
+<li>phrase markers</li>
+<li>regular resets</li>
+<li>stable sync points</li>
+<li>modulation clocks</li>
+</ul>
+<h3>Great tricks</h3>
+<ul>
+<li>Use the slower divisions to reset sequencers or rotate switches</li>
+<li>Use faster divisions for hats or envelope retriggers</li>
+<li>Cross-patch with logic to create sparse derived accents</li>
+</ul>
+<h3>In Wack mode</h3>
+<p>The manual says this becomes a <strong>probabilistic divide-by-two behavior</strong> with roughly 50% chance at each step, averaging similar density over time.</p>
+<p><strong>Best use:</strong> humanized percussive layers, unstable accents, generative hats.</p>
+<hr />
+<h2>N mode</h2>
+<p>This behaves like a stepped sequence of eight outputs.</p>
+<h3>Best for</h3>
+<ul>
+<li>trigger sequencing</li>
+<li>rotating event order</li>
+<li>switching destinations</li>
+<li>“which voice fires next?” style patches</li>
+</ul>
+<h3>Great tricks</h3>
+<ul>
+<li>Send outputs 1–8 to eight different drum samples</li>
+<li>Or send 1–8 to a switch matrix controlling one voice’s timbre</li>
+<li>Rotate with Shift to change phrase start point instantly</li>
+</ul>
+<h3>In Wack mode</h3>
+<p>The manual says <strong>a single random trigger is generated at each step</strong>.</p>
+<p><strong>Best use:</strong> random voice addressing, non-repeating melodic articulation, generative switch addressing.</p>
+<p>This mode is especially strong with:
+- samplers
+- sequential switches
+- multi-envelope rigs
+- percussion banks</p>
+<hr />
+<h2>/2N+1 mode</h2>
+<p>Odd divisions give more asymmetry and are perfect for lopsided or interlocking rhythms.</p>
+<h3>Best for</h3>
+<ul>
+<li>syncopation</li>
+<li>off-grid-feeling percussion</li>
+<li>polymetric structures</li>
+<li>weird but still repeatable relationships</li>
+</ul>
+<h3>Great tricks</h3>
+<ul>
+<li>Put one side in /2N and the other in /2N+1</li>
+<li>Route both to related voices</li>
+<li>You get immediate stable-vs-skewed interplay</li>
+</ul>
+<h3>In Wack mode</h3>
+<p>Each output independently has a 50% chance of going high on each step.</p>
+<p><strong>Best use:</strong> trigger clouds, dense random modulation, unpredictable sample triggering, texture generation.</p>
+<p>This can get busy fast, so it pairs well with:
+- VCAs
+- logic AND gates
+- envelope followers
+- selective muting
+- comparators</p>
+<hr />
+<h1>Especially strong dual-side strategies</h1>
+<h2>1. Deterministic left / random right</h2>
+<ul>
+<li>Left side: regular mode</li>
+<li>Right side: Wack mode</li>
+<li>Left drives core groove</li>
+<li>Right drives ornaments, fills, modulation</li>
+</ul>
+<p>This is probably the most musically useful “default” patch concept.</p>
+<hr />
+<h2>2. Same clock, different resets</h2>
+<p>Because both sides can share the same clock but have independent reset behavior, you can make long-form evolving structures.</p>
+<h3>Example</h3>
+<ul>
+<li>Same incoming clock to both sides</li>
+<li>Left reset every 16 steps</li>
+<li>Right reset every 15 steps</li>
+<li>Different modes on each side</li>
+</ul>
+<p>This creates long cycles with repeating internal logic.</p>
+<hr />
+<h2>3. Percussion side / modulation side</h2>
+<ul>
+<li>One side triggers drum voices</li>
+<li>Other side triggers envelopes, switches, sample-and-holds, and effect changes</li>
+</ul>
+<p>This keeps the whole patch rhythmically related.</p>
+<hr />
+<h2>4. Fast side / slow side</h2>
+<ul>
+<li>Side A clocked at master rate</li>
+<li>Side B clocked by a divided or multiplied version</li>
+<li>Use A for micro-rhythm, B for macro structure</li>
+</ul>
+<p>Excellent for:
+- fills vs phrases
+- voice triggers vs scene changes
+- notes vs resets</p>
+<hr />
+<h1>Patches you can try immediately</h1>
+<h2>Patch 1: Generative drum machine</h2>
+<p><strong>Modules:</strong>
+- Integra Solum
+- 3–6 drum voices or a sampler
+- 1 logic module
+- 1 mixer
+- optional effects</p>
+<p><strong>Patch:</strong>
+- Clock both sides from Pam’s or other master clock
+- Left side in <strong>/2N</strong>
+- Right side in <strong>Wack N</strong>
+- Left outputs to kick, snare, closed hat
+- Right outputs to percussion voices and clap accents
+- Combine one left output and one right output in an <strong>AND</strong> for occasional crash</p>
+<p><strong>Result:</strong> groove with stable center and variable ornamentation</p>
+<hr />
+<h2>Patch 2: Rhythmic modulation laboratory</h2>
+<p><strong>Modules:</strong>
+- Integra Solum
+- 2 oscillators
+- filter
+- 3 envelopes/functions
+- 2 VCAs</p>
+<p><strong>Patch:</strong>
+- Several Integra Solum outputs trigger different envelopes
+- Envelope 1 → VCA amplitude
+- Envelope 2 → filter cutoff
+- Envelope 3 → FM depth
+- Another output resets one function generator
+- Shift one side during performance</p>
+<p><strong>Result:</strong> one note or drone becomes an articulated evolving phrase</p>
+<hr />
+<h2>Patch 3: Stereo ping network</h2>
+<p><strong>Modules:</strong>
+- Integra Solum
+- noise source or oscillator
+- 2 LPGs or resonant filters
+- stereo mixer
+- delay/reverb</p>
+<p><strong>Patch:</strong>
+- Same audio source to both LPGs
+- Left-side outputs trigger left LPG
+- Right-side outputs trigger right LPG
+- Different mode on each side
+- Add effects send from one side only</p>
+<p><strong>Result:</strong> animated stereo percussion from a single source</p>
+<hr />
+<h2>Patch 4: Switch-driven melodic variation</h2>
+<p><strong>Modules:</strong>
+- Integra Solum
+- sequencer
+- quantizer
+- sequential switch
+- oscillator + voice chain</p>
+<p><strong>Patch:</strong>
+- One output advances the pitch sequencer
+- Another output advances a sequential switch selecting among 4 modulation sources
+- Another output resets the sequencer every phrase
+- Wack mode on side B for irregular articulation or accents</p>
+<p><strong>Result:</strong> melody evolves in phrasing and timbre without losing coherence</p>
+<hr />
+<h2>Patch 5: Controlled chaos texture patch</h2>
+<p><strong>Modules:</strong>
+- Integra Solum
+- sampler or noise source
+- random CV source
+- logic module
+- reverb/delay</p>
+<p><strong>Patch:</strong>
+- Right side in <strong>Wack /2N+1</strong>
+- Send several outputs to:
+  - sample trigger
+  - grain trigger
+  - envelope trigger
+  - freeze input via logic-conditioned gate
+- Left side provides regular structural timing
+- Random CV changes sample start, pitch, or effect depth</p>
+<p><strong>Result:</strong> chaotic texture with a strong rhythmic skeleton</p>
+<hr />
+<h1>Performance ideas</h1>
+<h2>Use Shift as arrangement</h2>
+<p>Since Shift rotates output order, treat it like a <strong>pattern reindexer</strong>:
+- leave all patch cables fixed
+- rotate the pattern origin live
+- the whole groove changes without changing module assignments</p>
+<p>This is especially effective when each output goes to a different drum or modulation destination.</p>
+<hr />
+<h2>Use resets as “scene changes”</h2>
+<p>Manual reset isn’t only for correction; it can be a performance gesture.
+- Hit reset to force both sides back into phrase alignment
+- Or reset only one side to deliberately create a new relationship</p>
+<hr />
+<h2>Use one side for audible rhythm, one side for invisible rhythm</h2>
+<p>Not every output has to make sound directly.
+Patch some outputs to:
+- effect send gates
+- switch advance
+- sequencer reset
+- hold/sample commands
+- envelope retrigger
+- comparator windowing</p>
+<p>These invisible events are often what make a patch feel alive.</p>
+<hr />
+<h1>Modules I’d especially recommend with Integra Solum</h1>
+<h2>If you want a compact drum/generative system</h2>
+<ul>
+<li><strong>Pamela’s Pro Workout</strong> — master clock and modulation source</li>
+<li><strong>ALM Squid Salmple</strong> — sample-based rhythm playground</li>
+<li><strong>Intellijel Quadrax</strong> — trigger-to-envelope powerhouse</li>
+<li><strong>Doepfer A-151</strong> — cheap and incredibly useful switching</li>
+<li><strong>Joranalogue Compare 2 or a logic module</strong> — derived rhythms</li>
+</ul>
+<hr />
+<h2>If you want experimental/generative results</h2>
+<ul>
+<li><strong>Marbles</strong> — random CV and timing interplay</li>
+<li><strong>Morphagene</strong> — trigger-driven splice/granular actions</li>
+<li><strong>Maths / Falistri</strong> — rhythmic modulation and event shaping</li>
+<li><strong>Vice Virga</strong> — trigger-controlled rerouting</li>
+<li><strong>Rings or resonant filters</strong> — pinged melodic/percussive textures</li>
+</ul>
+<hr />
+<h2>If you want techno/club utility</h2>
+<ul>
+<li><strong>Basimilus Iteritas Alter</strong></li>
+<li><strong>Crucible / hats</strong></li>
+<li><strong>sampler for one-shots</strong></li>
+<li><strong>VCA matrix or mixer with mutes</strong></li>
+<li><strong>clock source with reset control</strong></li>
+</ul>
+<p>Integra Solum can easily become the centerpiece of a live performance rhythm section.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>Integra Solum is best understood as a <strong>dual structured trigger ecosystem</strong> rather than a simple divider. Its real strengths are:</p>
+<ul>
+<li>generating many related trigger streams from very little input</li>
+<li>making those streams feel different via <strong>mode</strong></li>
+<li>recontextualizing them via <strong>Shift</strong></li>
+<li>introducing controllable randomness with <strong>Wack mode</strong></li>
+<li>allowing one side to be the groove and the other to be the mutation engine</li>
+</ul>
+<p>If you patch it only to drum triggers, it will already be useful.<br />
+If you patch it to <strong>switches, envelopes, logic, samplers, and modulation destinations</strong>, it becomes a powerful compositional tool.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,751 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ohmforce_Bohm</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Ohmforce — Bohm</h1>
+<ul>
+<li><a href="../../manuals/Bohm documentation.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Manual PDF / Bohm Documentation</a></p>
+<h1>Creative Modulation Ideas for <strong>Ohm Force Bohm</strong></h1>
+<p><em>A Eurorack musician’s take on how to push Bohm beyond “just kicks”</em></p>
+<p>Bohm is marketed as a stereo dual-voice kick system, but the manual makes it clear it can do much more if you treat it like a playable synth voice + rhythmic layer generator + sidechain/effects hub. The biggest takeaway is:</p>
+<ul>
+<li><strong>Bohm voice</strong> can be pitched and sustained with <strong>HIT as a gate</strong></li>
+<li><strong>Groove</strong> is not just a rumble generator; it’s a second rhythmic synth voice with envelope logic</li>
+<li><strong>Performer</strong> can turn the whole thing into a ducking / filtering / beat-roll performance processor</li>
+<li>Different <strong>models reinterpret controls differently</strong>, so modulation feels very different model-to-model</li>
+</ul>
+<p>That means you can get:
+- <strong>distorted percussion</strong>
+- <strong>talking / tearing basslines</strong>
+- <strong>pseudo-pads and haunted drones</strong>
+- <strong>industrial tops, reese-adjacent lows, broken techno thumps, DnB stabs</strong></p>
+<hr />
+<h2>Best core ideas from the manual</h2>
+<p>Before patch recipes, here are the most important modulation facts from the manual:</p>
+<h3>1. <strong>HIT can be a trigger or a gate</strong></h3>
+<p>This is huge. If <strong>HIT stays high</strong>, the sound sustains. That means Bohm can act more like a bass synth/drone voice than a one-shot kick.</p>
+<p>Use this for:
+- bass notes
+- held drones
+- long evolving atmospheric tones
+- pitch-tracked lines</p>
+<hr />
+<h3>2. <strong>PITCH can track 1V/oct</strong></h3>
+<p>The manual says for proper pitch tracking:
+- set <strong>PITCH knob fully CCW</strong>
+- set <strong>PITCH attenuverter fully CW</strong>
+- choose proper <strong>Pitch CV range</strong> in system settings: <code>0..1V</code>, <code>1..2V</code>, or <code>2..3V</code>
+- make sure sequencer is <strong>1V/oct</strong></p>
+<p>This is essential for:
+- dubstep bass riffs
+- DnB subs
+- melodic industrial percussion
+- pad/drone harmonics</p>
+<hr />
+<h3>3. <strong>CURVE matters a lot</strong></h3>
+<p>The pitch envelope curve moves from:
+- <strong>808-style</strong> counterclockwise
+- <strong>909-style</strong> clockwise</p>
+<p>The manual notes that fully CCW reaches the fundamental frequency quicker. That means:
+- shorter, more solid bass pitch center
+- better bassline tuning
+- more stable held-note behavior</p>
+<p>While clockwise can give:
+- more exaggerated punch / dive
+- more synthetic attack
+- more aggressive transient motion</p>
+<p>Modulate or perform this manually for big character changes.</p>
+<hr />
+<h3>4. <strong>COLOR is often a wavetable motion control</strong></h3>
+<p>On many models, <strong>COLOR</strong> is not simply “brightness.” It often controls:
+- wavetable position
+- position over time
+- transient harmonic content
+- sound source blend on Groove</p>
+<p>This is probably one of the best CV destinations for “alive” sounds.</p>
+<hr />
+<h3>5. <strong>Groove is a second voice, not just an effect return</strong></h3>
+<p>Groove has:
+- its own trigger input: <strong>CLOCK</strong>
+- relative <strong>PITCH</strong> and <strong>LENGTH</strong>
+- <strong>COLOR</strong> source blending
+- <strong>2 / 3 / 4 taps</strong> shaping an envelope
+- <strong>TAPS CV output</strong></p>
+<p>That means Groove can become:
+- a tuned secondary bass layer
+- a metallic top layer
+- an evolving rumble envelope source
+- a modulation generator via <strong>TAPS out</strong></p>
+<hr />
+<h3>6. <strong>Performer can process kick, input, or both</strong></h3>
+<p>Performer has:
+- external stereo input
+- ducking on every <strong>HIT</strong>
+- effect modes like <strong>DJ Filter</strong>, <strong>HP</strong>, <strong>LP</strong>, <strong>Beat Roll</strong>, <strong>Slip Roll</strong>
+- channel selector: <strong>ALL / KICK / INPUT</strong></p>
+<p>This opens up a lot:
+- sidechained pads
+- pumping drones
+- beat-repeat resampling
+- filtered industrial atmospheres</p>
+<hr />
+<hr />
+<h1>Best models for the sounds you want</h1>
+<h2>For distorted percussion</h2>
+<p>Use:
+- <strong>FM-2X</strong>
+- <strong>OLP4</strong>
+- <strong>VX-T</strong>
+- <strong>PX3</strong>
+- <strong>SP-6</strong>
+- <strong>WT-4</strong></p>
+<h3>Why</h3>
+<ul>
+<li><strong>FM-2X / OLP4</strong> = sharper synthetic FM attack, industrial metal</li>
+<li><strong>VX-T</strong> = strong transient shaping</li>
+<li><strong>PX3</strong> = weird, hard, experimental with object-hit layers</li>
+<li><strong>SP-6 / WT-4</strong> = layered transient and wavetable body</li>
+</ul>
+<hr />
+<h2>For dubstep / DnB basslines</h2>
+<p>Use:
+- <strong>FM-2X</strong>
+- <strong>HZ-1</strong>
+- <strong>VX-T</strong>
+- <strong>XT-88</strong>
+- <strong>OLP4</strong></p>
+<h3>Why</h3>
+<ul>
+<li><strong>FM-2X</strong> = very strong bass transient and FM bark</li>
+<li><strong>HZ-1 / VX-T</strong> = clean-to-nasty wavetable motion</li>
+<li><strong>XT-88</strong> = user wavetable/sample import for custom bass timbres</li>
+<li><strong>OLP4</strong> = weird FM motion and metallic bass growl</li>
+</ul>
+<hr />
+<h2>For haunting atmospheric pads / drones</h2>
+<p>Use:
+- <strong>PM-K1</strong>
+- <strong>HZ-1</strong>
+- <strong>VX-T</strong>
+- <strong>XT-88</strong>
+- <strong>WT-4</strong>
+- Groove + Performer together</p>
+<h3>Why</h3>
+<ul>
+<li><strong>PM-K1</strong> can become roomy, resonant, ambient, especially with long held gates</li>
+<li><strong>HZ-1 / VX-T / WT-4</strong> can be softened into wavetable drones</li>
+<li><strong>XT-88</strong> can use custom wavetables and layers</li>
+<li>Performer ducking/filtering can make things breathe</li>
+</ul>
+<hr />
+<h1>Modulation strategies by sound type</h1>
+<h1>1. Distorted percussive sounds</h1>
+<h2>A. Industrial metallic kick/snare hybrid</h2>
+<h3>Try on:</h3>
+<ul>
+<li><strong>FM-2X</strong></li>
+<li><strong>OLP4</strong></li>
+<li><strong>VX-T</strong></li>
+</ul>
+<h3>Patch:</h3>
+<ul>
+<li>Send regular triggers to <strong>HIT</strong></li>
+<li>Send a fast random or stepped CV to:</li>
+<li><strong>ATTACK CV</strong></li>
+<li><strong>TRS DECAY CV</strong></li>
+<li><strong>TRS TONE CV</strong></li>
+<li>Send a slower LFO to <strong>COLOR CV</strong></li>
+<li>Use <strong>VELOCITY CV</strong> with random accents</li>
+<li>Set Bohm FX variation to:</li>
+<li><strong>HARD</strong></li>
+<li><strong>WAVEFOLD</strong></li>
+<li><strong>BITCRUSH</strong> if available</li>
+<li><strong>DECIM</strong> if available</li>
+</ul>
+<h3>Why it works</h3>
+<ul>
+<li><strong>ATTACK</strong> affects transient intensity</li>
+<li><strong>TRS DECAY</strong> changes click/toc length</li>
+<li><strong>TRS TONE</strong> changes dark/bright transient color</li>
+<li><strong>COLOR</strong> moves the oscillator/wavetable body</li>
+<li><strong>VELOCITY</strong> gives non-repeating impact</li>
+</ul>
+<h3>Extra trick</h3>
+<p>Use a clock divider/multiplier so one modulation source changes every 2, 3, or 5 hits rather than every hit. That creates repeatable “machine language” percussion instead of chaos.</p>
+<hr />
+<h2>B. Broken hardcore kick with tearing top</h2>
+<h3>Try on:</h3>
+<ul>
+<li><strong>PX3</strong></li>
+<li><strong>SP-6</strong></li>
+<li><strong>WT-4</strong></li>
+</ul>
+<h3>Patch:</h3>
+<ul>
+<li>Trigger <strong>HIT</strong> with your main rhythm</li>
+<li>Send a sequenced CV to <strong>PITCH CV</strong> for tuned percussion jumps</li>
+<li>Modulate <strong>COLOR CV</strong> with a medium-speed envelope or LFO</li>
+<li>Modulate <strong>FX CV</strong> with random stepped voltage</li>
+<li>Turn <strong>LENGTH</strong> fairly short</li>
+<li>Turn <strong>CURVE</strong> toward 909 side for more punch movement</li>
+<li>Layer Groove lightly with high <strong>COLOR</strong></li>
+</ul>
+<h3>Why it works</h3>
+<p>These models combine wavetable kick body and transient/sample layering. When pitch and color move together, they stop reading as a standard kick and start becoming hard-edged drum voices.</p>
+<h3>Performance move</h3>
+<p>Make the <strong>FUNCTION CV</strong> randomize in Studio mode between takes. Since Bohm randomization is designed around “sweet spots,” you can quickly discover distorted percussion presets.</p>
+<hr />
+<h2>C. Glitch percussion via Groove taps</h2>
+<h3>Patch:</h3>
+<ul>
+<li>Main beat to <strong>HIT</strong></li>
+<li>Faster clock, like 16ths or triplets, to <strong>Groove CLOCK</strong></li>
+<li>Modulate <strong>TAPS CV</strong></li>
+<li>Modulate Groove <strong>COLOR</strong></li>
+<li>Put Groove FX on <strong>HP</strong> or <strong>BP</strong></li>
+<li>Keep Groove <strong>VOL</strong> fairly high</li>
+<li>Use irregular tap settings on <strong>2 / 3 / 4</strong></li>
+</ul>
+<h3>Why it works</h3>
+<p>Groove repetitions are <strong>retriggered</strong>, not delayed copies. That means the groove voice acts like a sequenced percussion synth. With HP/BP filtering and changing tap levels, it becomes a clattery glitch layer rather than a normal rumble.</p>
+<h3>Best use</h3>
+<ul>
+<li>industrial hats from a kick source</li>
+<li>neuro-ish ghost percussion</li>
+<li>broken beat tops</li>
+</ul>
+<hr />
+<h1>2. Crazy basslines for dubstep / drum and bass</h1>
+<h1>First, the setup for proper bass playing</h1>
+<p>Per manual:
+- <strong>PITCH knob full CCW</strong>
+- <strong>PITCH attenuverter full CW</strong>
+- set <strong>Pitch CV</strong> system range properly
+- use <strong>1V/oct</strong> sequencer
+- use longer <strong>LENGTH</strong> or hold <strong>HIT gate</strong></p>
+<p>This is the main unlock for turning Bohm into a bass synth.</p>
+<hr />
+<h2>A. FM growl bass</h2>
+<h3>Best model:</h3>
+<p><strong>FM-2X</strong></p>
+<h3>Patch:</h3>
+<ul>
+<li>Send a pitch sequence to <strong>PITCH CV</strong></li>
+<li>Send matching gates to <strong>HIT</strong></li>
+<li>Set <strong>LENGTH</strong> fairly long</li>
+<li>Use medium <strong>SUSTAIN</strong></li>
+<li>Modulate:</li>
+<li><strong>ATTACK CV</strong> with envelope or velocity</li>
+<li><strong>TRS TONE CV</strong> with a slow triangle LFO</li>
+<li><strong>COLOR CV</strong> with another slow/moderate LFO</li>
+<li><strong>FX CV</strong> with manual performance or sequencer lane</li>
+<li>In variations, explore <strong>RATIO</strong></li>
+</ul>
+<h3>Why it works</h3>
+<p>FM-2X gives you:
+- sub carrier
+- modulator-driven attack/growl
+- wavetable-dependent tone changes
+- ratio variation for harmonic character shifts</p>
+<h3>What to listen for</h3>
+<ul>
+<li>low ratios = heavier sub and weight</li>
+<li>higher ratios = more edge / metallic bark</li>
+<li>ATTACK modulation = changes how hard the FM bites</li>
+<li>TRS DECAY/TONE = changes the growl contour</li>
+</ul>
+<h3>Dubstep move</h3>
+<p>Patch an LFO or envelope to <strong>ATTACK CV</strong> and sync it to phrase length. You’ll get “opening” growls on selected notes without losing low-end consistency.</p>
+<hr />
+<h2>B. Wobble / vowel-adjacent bass</h2>
+<h3>Best models:</h3>
+<ul>
+<li><strong>HZ-1</strong></li>
+<li><strong>VX-T</strong></li>
+<li><strong>WT-4</strong></li>
+<li><strong>XT-88</strong></li>
+</ul>
+<h3>Patch:</h3>
+<ul>
+<li>Pitch sequence into <strong>PITCH CV</strong></li>
+<li>Gates into <strong>HIT</strong></li>
+<li>Long <strong>LENGTH</strong></li>
+<li>Moderate <strong>SUSTAIN</strong></li>
+<li>Slow/tempo-synced LFO into <strong>COLOR CV</strong></li>
+<li>Another LFO into <strong>FX CV</strong></li>
+<li>Optional stepped random into <strong>CURVE CV</strong></li>
+<li>Performer FX set to <strong>DJ FILTER</strong> or <strong>LP</strong></li>
+<li>Use Performer channel set to <strong>KICK</strong> or <strong>ALL</strong></li>
+</ul>
+<h3>Why it works</h3>
+<p>On these wavetable-oriented models, <strong>COLOR</strong> often sweeps harmonic position over time. This behaves a lot like a wavetable sweep or moving tone contour. Add Performer filtering and you get pseudo-formant movement.</p>
+<h3>Make it more aggressive</h3>
+<ul>
+<li>Add Groove as a higher pitched layer</li>
+<li>Set Groove <strong>PITCH</strong> above center</li>
+<li>Use Groove <strong>COLOR</strong> to blend noise/grit/sub components</li>
+<li>Filter Groove with <strong>BP</strong> or <strong>DIST</strong></li>
+<li>Keep Bohm as the sub anchor</li>
+</ul>
+<p>This gives a bass patch with:
+- Bohm = body/sub
+- Groove = grit/motion/top harmonics</p>
+<p>That’s a very dubstep/neuro concept.</p>
+<hr />
+<h2>C. Reese-ish stereo bass stack</h2>
+<h3>Best models:</h3>
+<ul>
+<li><strong>XT-88</strong></li>
+<li><strong>WT-4</strong></li>
+<li><strong>HZ-1</strong></li>
+<li><strong>OLP4</strong></li>
+</ul>
+<h3>Patch idea:</h3>
+<ul>
+<li>Bohm voice: long bass note sequence</li>
+<li>Groove clock: fast subdivisions</li>
+<li>Groove <strong>PITCH</strong> slightly above or below center</li>
+<li>Groove <strong>LENGTH</strong> around center or longer if repetition source is active</li>
+<li>Bohm and Groove stereo width up</li>
+<li>Modulate Bohm <strong>COLOR</strong></li>
+<li>Modulate Groove <strong>COLOR</strong></li>
+<li>Use Performer <strong>DJ FILTER</strong> with moderate resonance</li>
+</ul>
+<h3>Why it works</h3>
+<p>It won’t be a classic detuned dual saw reese, but it can create a similar feeling:
+- wide moving low-mid texture
+- animated upper harmonics
+- unstable stereo edge
+- filtered motion</p>
+<h3>Advanced trick</h3>
+<p>Use <strong>Panning</strong> system settings:
+- Bohm hard left
+- Groove hard right
+- Performer center or one side</p>
+<p>Now process left/right externally with separate Eurorack chains for serious stereo destruction.</p>
+<hr />
+<h2>D. Machine-gun DnB stabs</h2>
+<h3>Best models:</h3>
+<ul>
+<li><strong>FM-2X</strong></li>
+<li><strong>OLP4</strong></li>
+<li><strong>PX3</strong></li>
+</ul>
+<h3>Patch:</h3>
+<ul>
+<li>Short gates into <strong>HIT</strong></li>
+<li>Fast sequenced pitch line</li>
+<li>High <strong>ATTACK</strong></li>
+<li>Short/medium <strong>LENGTH</strong></li>
+<li>Random accents into <strong>VELOCITY</strong></li>
+<li>Modulate <strong>CURVE</strong> per phrase</li>
+<li>Modulate <strong>TRS TONE</strong></li>
+<li>Use hard distortion mode</li>
+<li>Add Groove taps in sync with 16ths</li>
+</ul>
+<h3>Why it works</h3>
+<p>This gives sharp, tuned impacts that sit between kick, bass, and tom. Great for:
+- jump-up stabs
+- techstep bass punctuation
+- industrial fills</p>
+<hr />
+<h1>3. Haunting atmospheric pad sounds</h1>
+<p>This is the most non-obvious use of Bohm, but the manual directly supports it because:
+- <strong>HIT can sustain with a gate</strong>
+- <strong>PITCH can track</strong>
+- <strong>Performer ducks and filters external audio</strong>
+- Groove can create evolving envelopes and texture layers</p>
+<p>The key is to stop thinking “kick” and think “held digital resonant voice.”</p>
+<hr />
+<h2>A. Bohm as a dark drone/pad oscillator</h2>
+<h3>Best models:</h3>
+<ul>
+<li><strong>HZ-1</strong></li>
+<li><strong>WT-4</strong></li>
+<li><strong>XT-88</strong></li>
+<li><strong>PM-K1</strong></li>
+<li><strong>VX-T</strong></li>
+</ul>
+<h3>Patch:</h3>
+<ul>
+<li>Send long gates or manually hold <strong>HIT</strong></li>
+<li>Use very long <strong>LENGTH</strong></li>
+<li>Medium/high <strong>SUSTAIN</strong></li>
+<li>Lower <strong>ATTACK</strong></li>
+<li>Slow LFO into <strong>COLOR CV</strong></li>
+<li>Very slow random or triangle into <strong>CURVE CV</strong></li>
+<li>Small pitch modulation from a slow random source into <strong>PITCH CV</strong> in addition to your base note</li>
+<li>Use Bohm FX lightly</li>
+<li>Use Performer <strong>LP</strong> or <strong>DJ FILTER</strong></li>
+<li>Add external reverb after Bohm</li>
+</ul>
+<h3>Why it works</h3>
+<p>A held Bohm tone with wavetable motion can become a haunting sustained sound, especially when pitch dive behavior is minimized and the transient is tamed.</p>
+<h3>Important</h3>
+<p>For cleaner sustained notes:
+- keep <strong>CURVE</strong> more toward the side that stabilizes pitch sooner
+- lower transient emphasis
+- avoid overly short <strong>LENGTH</strong></p>
+<hr />
+<h2>B. PM-K1 haunted drum room</h2>
+<h3>Best model:</h3>
+<p><strong>PM-K1</strong></p>
+<p>This model is totally different:
+- <strong>PITCH</strong> = drum size/tension
+- <strong>ATTACK</strong> = beater volume
+- <strong>TRS TONE</strong> = beater reverberation decay
+- <strong>SUSTAIN</strong> = ambient mic volume
+- <strong>LENGTH</strong> = room size
+- <strong>FX</strong> = stereo spread of ambient mic</p>
+<h3>Patch:</h3>
+<ul>
+<li>Send sparse gates to <strong>HIT</strong></li>
+<li>Long gate lengths</li>
+<li>Low <strong>ATTACK</strong></li>
+<li>High <strong>SUSTAIN</strong></li>
+<li>Long <strong>LENGTH</strong></li>
+<li>High <strong>FX</strong> for stereo spread</li>
+<li>Modulate <strong>PITCH</strong> slowly</li>
+<li>Modulate <strong>TRS TONE</strong> with slow random CV</li>
+</ul>
+<h3>Result</h3>
+<p>This can create:
+- ghostly resonant drum rooms
+- cinematic low thuds
+- ritual ambient percussion
+- almost-tom, almost-space, almost-pad textures</p>
+<p>This is probably the fastest path in Bohm to “haunting.”</p>
+<hr />
+<h2>C. Pad made from Groove envelope + external sound</h2>
+<h3>Patch:</h3>
+<ul>
+<li>Feed a stereo drone/oscillator into <strong>Performer IN</strong></li>
+<li>Set Performer ducking moderate</li>
+<li>Send sparse or rhythmic triggers to <strong>HIT</strong></li>
+<li>Set Performer FX to <strong>LP</strong> or <strong>DJ FILTER</strong></li>
+<li>Use Bohm only lightly, or even nearly silent</li>
+<li>Set <strong>TAPS OUT</strong> system setting to:</li>
+<li><strong>GROOVE</strong></li>
+<li>or <strong>PERF</strong></li>
+<li>Use that CV output to modulate an external VCA/filter/reverb send</li>
+</ul>
+<h3>Why it works</h3>
+<p>Now Bohm becomes the rhythmic ghost controlling another sound source:
+- the pad breathes with the kick
+- Groove envelope creates non-standard swells
+- Performer ducking gives transparent or exaggerated pumping</p>
+<p>This is excellent for:
+- haunted pads behind broken beats
+- sidechained cinematic wash
+- evolving dub-techno atmospheres</p>
+<hr />
+<h2>D. Granular-feeling haunted loops with Performer</h2>
+<h3>Patch:</h3>
+<ul>
+<li>Feed texture, radio noise, field recording, or resampled ambience into <strong>Performer IN</strong></li>
+<li>Set channel mode to <strong>INPUT</strong> or <strong>ALL</strong></li>
+<li>Use <strong>SLIP ROLL</strong> or <strong>BEAT ROLL</strong></li>
+<li>Trigger <strong>HIT</strong> sparsely</li>
+<li>Use synced Performer FX switching if desired</li>
+<li>Modulate <strong>DUCK</strong></li>
+<li>Modulate <strong>FX</strong></li>
+<li>Mix in Bohm quietly as a low pulse</li>
+</ul>
+<h3>Why it works</h3>
+<p>Performer can stutter and resample input around hits, which turns static ambience into ghost rhythm. Great for:
+- dark DnB intros
+- haunted breakdowns
+- IDM-ish shattered atmospheres</p>
+<hr />
+<h1>Cross-modulation ideas using Bohm’s own outputs and logic</h1>
+<h2>1. Use <strong>TAPS OUT</strong> as a modulation source</h2>
+<p>The manual says TAPS output can emit:
+- <strong>GROOVE</strong> envelope
+- <strong>I BOHM</strong> inverted Bohm envelope
+- <strong>PERF</strong> performer envelope
+- <strong>BOHM</strong> Bohm envelope</p>
+<p>This is one of the coolest features.</p>
+<h3>Uses:</h3>
+<ul>
+<li>send to external filter cutoff for synced movement</li>
+<li>send to VCA controlling noise layer</li>
+<li>send to reverb send amount</li>
+<li>send to wavefolder depth</li>
+<li>use <strong>I BOHM</strong> to create inverse movement against the kick</li>
+</ul>
+<h3>Great patch</h3>
+<ul>
+<li>Set TAPS OUT = <strong>I BOHM</strong></li>
+<li>Route to external oscillator VCA</li>
+<li>Now your external drone swells in the spaces <em>between</em> the kick hits</li>
+</ul>
+<p>That’s instant haunted atmosphere.</p>
+<hr />
+<h2>2. Groove as modulated bass grit layer</h2>
+<p>The Groove section has:
+- repetition
+- kick reverb
+- noise
+- grit + sub</p>
+<p>Since <strong>COLOR</strong> blends these, slow CV on Groove COLOR can morph from:
+- rhythmic repeat
+- to hiss/noise texture
+- to gritty low-end layer</p>
+<p>This is extremely useful for neuro / bass music hybrid patches.</p>
+<hr />
+<h2>3. Performer ducking as rhythmic spectral carving</h2>
+<p>The <strong>DUCK BS</strong> variation sets a band split frequency:
+- lows duck
+- highs preserved</p>
+<p>This is powerful and easy to miss.</p>
+<h3>Use it for:</h3>
+<ul>
+<li>keeping air/transients from an external pad while clearing room for Bohm low-end</li>
+<li>subtle sidechain instead of full pumping</li>
+<li>rhythmic bass/pad integration</li>
+</ul>
+<p>For haunting pads, this is often better than full-range ducking.</p>
+<hr />
+<h1>Specific patch recipes</h1>
+<h1>Patch 1 — “Neuro Kick Bass Monster”</h1>
+<h3>Goal</h3>
+<p>Aggressive bassline with attack bark and moving upper harmonics</p>
+<h3>Model</h3>
+<p><strong>FM-2X</strong></p>
+<h3>Patch</h3>
+<ul>
+<li>sequencer pitch -&gt; <strong>PITCH CV</strong></li>
+<li>gate sequence -&gt; <strong>HIT</strong></li>
+<li>velocity lane/random accents -&gt; <strong>VELOCITY CV</strong></li>
+<li>envelope/LFO -&gt; <strong>ATTACK CV</strong></li>
+<li>slow LFO -&gt; <strong>TRS TONE CV</strong></li>
+<li>manual or sequenced modulation -&gt; <strong>FX CV</strong></li>
+<li>Groove CLOCK -&gt; 16ths</li>
+<li>Groove COLOR around grit/noise area</li>
+<li>Groove PITCH slightly above center</li>
+<li>Groove FX = <strong>DIST</strong></li>
+<li>Performer FX = <strong>DJ FILTER</strong></li>
+<li>Performer CHN = <strong>KICK</strong></li>
+</ul>
+<h3>Notes</h3>
+<p>Keep Bohm as the sub/fundamental and Groove as the upper dirt.</p>
+<hr />
+<h1>Patch 2 — “Broken Factory Percussion”</h1>
+<h3>Goal</h3>
+<p>Metallic industrial percussion line</p>
+<h3>Model</h3>
+<p><strong>OLP4</strong> or <strong>PX3</strong></p>
+<h3>Patch</h3>
+<ul>
+<li>Euclidean triggers -&gt; <strong>HIT</strong></li>
+<li>stepped random -&gt; <strong>PITCH CV</strong></li>
+<li>random gate accents -&gt; <strong>VELOCITY CV</strong></li>
+<li>slow random -&gt; <strong>TRS DECAY CV</strong></li>
+<li>fast attenuated random -&gt; <strong>ATTACK CV</strong></li>
+<li>Bohm FX = <strong>HARD</strong> or <strong>WAVEFOLD</strong></li>
+<li>short <strong>LENGTH</strong></li>
+<li>Groove clock at odd division</li>
+<li>Groove FX = <strong>HP</strong></li>
+</ul>
+<h3>Notes</h3>
+<p>This produces a line that sits between tuned drum hits and machine noise.</p>
+<hr />
+<h1>Patch 3 — “Dubstep Wobble Pad”</h1>
+<h3>Goal</h3>
+<p>A sustained, wobbling dark harmonic bed</p>
+<h3>Model</h3>
+<p><strong>HZ-1</strong>, <strong>WT-4</strong>, or <strong>XT-88</strong></p>
+<h3>Patch</h3>
+<ul>
+<li>hold <strong>HIT</strong> high with long gate</li>
+<li>root pitch to <strong>PITCH CV</strong></li>
+<li>slow sine LFO -&gt; <strong>COLOR CV</strong></li>
+<li>second slower triangle -&gt; <strong>FX CV</strong></li>
+<li>tiny slow random -&gt; <strong>PITCH CV</strong> mixed in</li>
+<li>Performer IN &lt;- external reverb return or texture source</li>
+<li>Performer DUCK moderate</li>
+<li>Performer FX = <strong>LP</strong></li>
+<li>CHN = <strong>ALL</strong></li>
+</ul>
+<h3>Notes</h3>
+<p>This works best if you reduce the attack transient and let wavetable movement do the talking.</p>
+<hr />
+<h1>Patch 4 — “Ghost Chamber”</h1>
+<h3>Goal</h3>
+<p>Haunted cinematic percussive ambience</p>
+<h3>Model</h3>
+<p><strong>PM-K1</strong></p>
+<h3>Patch</h3>
+<ul>
+<li>sparse triggers/gates -&gt; <strong>HIT</strong></li>
+<li>slow random -&gt; <strong>PITCH CV</strong></li>
+<li>slow random -&gt; <strong>TRS TONE CV</strong></li>
+<li>high <strong>SUSTAIN</strong></li>
+<li>long <strong>LENGTH</strong></li>
+<li>high <strong>FX</strong> width</li>
+<li>external shimmer or long reverb after Bohm</li>
+</ul>
+<h3>Notes</h3>
+<p>This makes spectral low-end drum ghosts and ritual room tones.</p>
+<hr />
+<h1>Patch 5 — “Self-Pumping Atmosphere”</h1>
+<h3>Goal</h3>
+<p>Pad that breathes around Bohm hits</p>
+<h3>Patch</h3>
+<ul>
+<li>external pad/oscillator/mixer send -&gt; <strong>Performer IN</strong></li>
+<li>Bohm plays sparse kick or bass pulses</li>
+<li>set <strong>TAPS OUT</strong> = <strong>PERF</strong> or <strong>I BOHM</strong></li>
+<li>send TAPS OUT to external filter/VCA controlling a second drone</li>
+<li>Performer DUCK moderate to high</li>
+<li>Performer DUCK BS set so highs remain</li>
+<li>Performer FX = <strong>DJ FILTER</strong></li>
+</ul>
+<h3>Notes</h3>
+<p>This makes the whole system feel like one breathing instrument.</p>
+<hr />
+<h1>Best modulation sources to pair with Bohm</h1>
+<h2>Great CV types for Bohm</h2>
+<p>Because many parameters are macro controls, Bohm responds best to <strong>musical</strong>, not purely chaotic, CV.</p>
+<p>Use:
+- <strong>slow triangle / sine LFOs</strong> for COLOR and FX
+- <strong>stepped random</strong> for VELOCITY, ATTACK, PITCH jumps
+- <strong>envelopes</strong> for ATTACK and FX
+- <strong>burst/ratchet clocks</strong> for Groove CLOCK
+- <strong>sample &amp; hold</strong> for transient tone changes
+- <strong>sequenced CV lanes</strong> for COLOR movement phrase-by-phrase</p>
+<hr />
+<h2>Best parameter pairings</h2>
+<h3>For bass</h3>
+<ul>
+<li><strong>PITCH + COLOR</strong></li>
+<li><strong>PITCH + FX</strong></li>
+<li><strong>ATTACK + TRS DECAY</strong></li>
+<li><strong>COLOR + Performer filter</strong></li>
+</ul>
+<h3>For percussion</h3>
+<ul>
+<li><strong>ATTACK + TRS TONE</strong></li>
+<li><strong>PITCH + VELOCITY</strong></li>
+<li><strong>CURVE + LENGTH</strong></li>
+<li><strong>Groove COLOR + TAPS CV</strong></li>
+</ul>
+<h3>For atmospheres</h3>
+<ul>
+<li><strong>COLOR + FX</strong></li>
+<li><strong>PITCH + CURVE</strong> very slowly</li>
+<li><strong>Performer DUCK + DJ FILTER</strong></li>
+<li><strong>TAPS OUT -&gt; external VCA/filter</strong></li>
+</ul>
+<hr />
+<h1>Underused manual features that are especially creative</h1>
+<h2>1. <strong>Load snapshots with pots positions</strong></h2>
+<p>This means you can create families of radically different bass/percussion/pad states and recall them like presets for a set.</p>
+<p>Use it for:
+- section changes in a live DnB set
+- switching from kick to bass drone instantly
+- verse/chorus transitions</p>
+<hr />
+<h2>2. <strong>Program knob modes: Latch / Relative / Override</strong></h2>
+<p>If you want one control always live during performance:
+- set that parameter to <strong>OVR</strong></p>
+<p>Example:
+Keep <strong>COLOR</strong> on override in a live bass patch so you always have hands-on “wobble depth.”</p>
+<hr />
+<h2>3. <strong>Panning modes</strong></h2>
+<p>Hard-pan:
+- Bohm left
+- Groove right
+- Performer center or opposite side</p>
+<p>Then process channels separately outside Bohm. This is killer for:
+- stereo bass mangling
+- asymmetrical distortion
+- pseudo-mid/side destruction</p>
+<hr />
+<h2>4. <strong>Post EQ</strong></h2>
+<p>Since Bohm and Groove can get very bass-heavy or harsh, Post EQ can be used like global voicing:
+- cut excess mud
+- boost bite
+- tame fizz</p>
+<p>Very useful if you build dubstep/DnB patches that overload the low mids.</p>
+<hr />
+<h1>My strongest recommendations</h1>
+<p>If I were using Bohm for your goals, I would focus on these 5 workflows:</p>
+<h2>1. <strong>Use HIT as a gate</strong></h2>
+<p>This is the biggest key to turning Bohm into:
+- bass synth
+- drone
+- pad voice</p>
+<h2>2. <strong>Treat Groove as a separate texture oscillator</strong></h2>
+<p>Not just rumble. Use it as:
+- tops
+- grit
+- ghost notes
+- bass harmonics</p>
+<h2>3. <strong>Use Performer as part of the sound design, not just end-of-chain</strong></h2>
+<p>Especially:
+- DJ FILTER
+- LP/HP
+- ducking
+- beat/slip roll on input or kick</p>
+<h2>4. <strong>Modulate COLOR constantly</strong></h2>
+<p>On Bohm and Groove both. This is where a lot of movement lives.</p>
+<h2>5. <strong>Use TAPS OUT as a real modulation source</strong></h2>
+<p>It can animate the rest of your rack and make Bohm the rhythmic brain of a larger patch.</p>
+<hr />
+<h1>Quick starting recipes</h1>
+<h2>Fast distorted percussion starter</h2>
+<ul>
+<li>Model: <strong>PX3</strong></li>
+<li>Short LENGTH</li>
+<li>High ATTACK</li>
+<li>Medium TRS DECAY</li>
+<li>Random VELOCITY</li>
+<li>Slow COLOR modulation</li>
+<li>FX distortion mode</li>
+<li>Groove HP filtered tops</li>
+</ul>
+<h2>Fast dubstep bass starter</h2>
+<ul>
+<li>Model: <strong>FM-2X</strong></li>
+<li>PITCH track enabled</li>
+<li>HIT as gate</li>
+<li>Long LENGTH</li>
+<li>Moderate SUSTAIN</li>
+<li>LFO on COLOR</li>
+<li>Envelope on ATTACK</li>
+<li>Performer DJ FILTER</li>
+</ul>
+<h2>Fast haunted pad starter</h2>
+<ul>
+<li>Model: <strong>WT-4</strong> or <strong>PM-K1</strong></li>
+<li>Long gate to HIT</li>
+<li>Long LENGTH</li>
+<li>High SUSTAIN</li>
+<li>Slow COLOR or PITCH modulation</li>
+<li>Performer LP</li>
+<li>external long reverb</li>
+<li>TAPS OUT to modulate another drone layer</li>
+</ul>
+<hr />
+<h1>Final thought</h1>
+<p>Bohm is most interesting when you stop asking it to be a kick drum and instead patch it like:
+- a <strong>bass voice with transient architecture</strong>
+- a <strong>dual-voice percussion synth</strong>
+- a <strong>stereo drone generator</strong>
+- a <strong>sidechain and resampling performance processor</strong></p>
+<p>If you want, I can also turn this into:
+1. a <strong>set of specific patch sheets</strong>,<br />
+2. a <strong>genre-focused guide</strong> for <strong>dubstep / neuro / industrial techno / dark ambient</strong>, or<br />
+3. a <strong>“best CV inputs by model” cheat sheet</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>
