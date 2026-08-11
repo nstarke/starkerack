@@ -1,0 +1,569 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>xaoc_Devices_Sopot</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>xaoc Devices — Sopot</h1>
+<ul>
+<li><a href="../../manuals/DocFractaosEN-V1.5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="#">Fractaos User Manual v1.5</a></p>
+<h1>Using Fractaos to Create Melodic Components in Eurorack</h1>
+<p>Fractaos is a <strong>4-voice polyphonic, multitimbral fractal oscillator/synth voice</strong> for Eurorack. From the manual, it’s best understood not as a typical oscillator, but as a <strong>self-contained melodic sound source</strong> with:</p>
+<ul>
+<li>4 polyphonic voices</li>
+<li>8 real-time fractal oscillators arranged as driver/follower pairs</li>
+<li>per-voice ADSR</li>
+<li>per-voice resonant fractal filter</li>
+<li>stereo output</li>
+<li>MIDI and CV/gate polyphonic control</li>
+<li>preset and multitimbral operation</li>
+</ul>
+<p>Because it already contains oscillators, envelopes, and filtering behavior, Fractaos can serve as the <strong>main melodic engine</strong> in a system.</p>
+<hr />
+<h2>What kind of melodic roles Fractaos can play</h2>
+<p>Based on the manual, Fractaos is especially strong for:</p>
+<ul>
+<li><strong>Polyphonic pads</strong></li>
+<li><strong>Chords and harmonic drones</strong></li>
+<li><strong>Monophonic leads</strong></li>
+<li><strong>Animated arpeggios</strong></li>
+<li><strong>Layered multitimbral parts</strong></li>
+<li><strong>Hybrid pitched-percussive lines</strong></li>
+<li><strong>Evolving counterpoint across 4 voices</strong></li>
+</ul>
+<p>It is less like a plain VCO and more like a <strong>complex digital voice module</strong> that can generate complete melodic material with minimal support.</p>
+<hr />
+<h2>Core melodic features that matter most</h2>
+<h2>1. Four-voice polyphony</h2>
+<p>Fractaos can be played melodically in two main ways:</p>
+<ul>
+<li><strong>Via MIDI</strong></li>
+<li><strong>Via 4x 1V/oct + 4x trig inputs</strong></li>
+</ul>
+<p>This means you can use it for:</p>
+<ul>
+<li>keyboard-style polyphony</li>
+<li>sequenced 4-part harmony</li>
+<li>paraphonic-feeling chord work with independent voice triggers</li>
+<li>layered melodic phrases across separate sequencer lanes</li>
+</ul>
+<p>If you want actual melodic composition in Eurorack, this is the big advantage: <strong>Fractaos can hold multiple notes at once</strong>.</p>
+<hr />
+<h2>2. Driver/follower oscillator pairing per voice</h2>
+<p>Each voice contains two oscillators:</p>
+<ul>
+<li>a <strong>main fractal</strong> (“driver”)</li>
+<li>a <strong>secondary fractal</strong> (“primitive” / follower)</li>
+</ul>
+<p>The <strong>Morph</strong> control blends and interrelates them, not just as a crossfade, but as a more complex timbral interaction.</p>
+<p>For melodic use, this means each note can have:</p>
+<ul>
+<li>a stable core pitch</li>
+<li>internal harmonic motion</li>
+<li>timbral animation that tracks note events</li>
+</ul>
+<p>This is excellent for:
+- expressive lead sounds
+- harmonically rich chord voicings
+- evolving sustained notes that don’t feel static</p>
+<hr />
+<h2>3. Fractal families and how they affect melody</h2>
+<p>The manual divides the sound engines into 3 groups:</p>
+<h3>Geometric fractals</h3>
+<p>These are the most useful for tonal/melodic work.</p>
+<p>Examples:
+- <strong>Mandelbrot</strong>: crystalline, harmonically rich
+- <strong>Julia</strong>: softer and smoother
+- <strong>Cantor</strong>: articulated, edgy
+- <strong>Sierpinski</strong>: odd-harmonic brightness
+- <strong>Dragon</strong>: beating, expressive
+- <strong>Rule30</strong>: dense, granular
+- <strong>Lorenz / Hénon / Rössler / Logistic</strong>: unstable, evolving, experimental
+- <strong>Fibonacci</strong>: warm and musically friendly
+- <strong>Koch</strong>: crystal highs, brass-like lows
+- <strong>Hilbert</strong>: stepped/evolving rectangle character</p>
+<p>For melody, these are your primary palette.</p>
+<h3>Texture fractals</h3>
+<p>These are more atmospheric, noisy, and pad-oriented:
+- Cloud
+- Storm
+- Aliasing
+- String
+- Ensemble
+- Cluster</p>
+<p>These are still useful melodically, especially for:
+- ambient harmonic beds
+- blurred chord clouds
+- sustained note clusters
+- textural melodic layers behind a lead</p>
+<h3>Drum fractals</h3>
+<p>These are one-shot percussion models:
+- Kick
+- Tom
+- Snare
+- HiHat
+- Cymbal</p>
+<p>Interesting melodic use:
+- tuned tom melodies
+- kick-bass lines
+- pitched percussive ostinatos
+- percussive attacks morphed into harmonic tails</p>
+<p>This is one of the more unusual strengths of Fractaos: it can create <strong>pitched melodic percussion</strong> without needing samples.</p>
+<hr />
+<h2>How to use Fractaos for melodic patching</h2>
+<h2>A. Polyphonic chord voice</h2>
+<p>This is the most obvious melodic use.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Send MIDI chords into Fractaos, or</li>
+<li>Use 4 pitch CVs plus 4 triggers from a polyphonic sequencer</li>
+<li>Use a geometric fractal as the main oscillator</li>
+<li>Set a moderate ADSR</li>
+<li>Use low/moderate Morph and Texture</li>
+<li>Use stereo outputs into mixer/effects</li>
+</ul>
+<h3>Good settings</h3>
+<ul>
+<li><strong>Main fractal</strong>: Fibonacci, Julia, Koch, Mandelbrot</li>
+<li><strong>Primitive</strong>: Rössler, Sierpinski, Julia</li>
+<li><strong>Spread</strong>: low in normal mode for subtle detune</li>
+<li><strong>Texture</strong>: moderate for resonant body</li>
+<li><strong>Speed/Amount</strong>: slow for movement</li>
+</ul>
+<h3>Result</h3>
+<p>A playable 4-note harmonic voice that can produce:
+- pads
+- chord stabs
+- moving harmony
+- modal progressions</p>
+<p>This makes Fractaos a strong “all-in-one” melodic voice for polyphonic composition.</p>
+<hr />
+<h2>B. Sequenced lead voice</h2>
+<p>Although polyphonic, Fractaos can also be used monophonically for a focused melodic line.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Sequence one voice via MIDI or one CV/gate lane</li>
+<li>Use a geometric fractal with expressive Chaos response</li>
+<li>Trigger ADSR per note</li>
+<li>Use primitive LFO behavior for note-synced motion</li>
+</ul>
+<h3>Good settings</h3>
+<ul>
+<li><strong>Dragon</strong> or <strong>Mandelbrot</strong> for lively harmonics</li>
+<li><strong>Hilbert</strong> for stepped/edgy digital lines</li>
+<li><strong>Fibonacci</strong> for warmer leads</li>
+<li><strong>Chaos modulation enabled</strong></li>
+<li><strong>Morph or Spread modulation active</strong></li>
+<li>Medium attack/decay for articulation</li>
+</ul>
+<h3>Result</h3>
+<p>A lead line with:
+- animated timbre per note
+- expressive internal movement
+- more complexity than a traditional subtractive voice</p>
+<p>Because the primitive can restart per note depending on Loop/Trig settings, the lead can feel highly articulated and “composed,” not just modulated.</p>
+<hr />
+<h2>C. Arpeggios and moving ostinatos</h2>
+<p>Fractaos should pair extremely well with external Eurorack or MIDI arpeggiators.</p>
+<h3>Patch concept</h3>
+<ul>
+<li>Feed repeating melodic notes into the polyphonic engine</li>
+<li>Use retriggered primitive modulation</li>
+<li>Use short ADSR</li>
+<li>Keep Spread low to maintain pitch clarity</li>
+<li>Use Texture carefully to avoid losing note definition</li>
+</ul>
+<h3>Best switch behavior</h3>
+<p>The switch section matters a lot here:</p>
+<ul>
+<li><strong>Loop OFF + Trig ON</strong>: per-note one-shot modulation</li>
+<li><strong>Loop ON + Trig ON</strong>: looping while note held</li>
+<li><strong>Morph ON</strong>: timbral sweep on each note</li>
+<li><strong>Chaos ON</strong>: animated spectral attack</li>
+<li><strong>Spread ON</strong>: wobbling detuned movement</li>
+</ul>
+<h3>Result</h3>
+<p>Each arpeggiated note can have a repeating internal contour, like:
+- a tiny envelope on timbre
+- pseudo-acoustic attack behavior
+- evolving brightness from note to note</p>
+<p>This is especially effective for melodic ostinatos that need motion without extra modulation modules.</p>
+<hr />
+<h2>D. Chord drones that remain melodic</h2>
+<p>Drone mode is one of Fractaos’ signature features.</p>
+<p>In Drone mode:
+- all 8 oscillators run continuously
+- Spread behaves differently
+- upper Spread range scans preset chord/microtuning structures</p>
+<h3>Why this matters melodically</h3>
+<p>Drone mode is not just for noise beds. It can create:</p>
+<ul>
+<li>held harmonic centers</li>
+<li>modal pedal tones</li>
+<li>sustained chord foundations</li>
+<li>microtonal harmonic fields</li>
+<li>evolving tonic/dominant beds behind other voices</li>
+</ul>
+<h3>Spread in Drone mode</h3>
+<p>The manual describes 3 zones:</p>
+<ul>
+<li><strong>0–0.02</strong>: unison</li>
+<li><strong>0.02–0.50</strong>: linear spread up to one octave</li>
+<li><strong>0.50–1.00</strong>: scans 13 predefined chord/microtuning structures</li>
+</ul>
+<p>These chord structures include:
+- major triad spread
+- minor triad spread
+- sus/fifths
+- major 7
+- minor 7
+- add 9
+- add 11
+- add 13
+- just intonation
+- 7-limit flavor
+- 19-TET slice
+- Bohlen-Pierce subset</p>
+<h3>Musical use</h3>
+<p>This is incredibly useful for melodic composition because you can create:</p>
+<ul>
+<li>a harmonic bed in just intonation</li>
+<li>a sustained add9 or maj7 field</li>
+<li>a microtonal drone under a lead sequence</li>
+<li>chordal transitions by slowly moving Spread</li>
+</ul>
+<p>This is one of the most direct ways to generate <strong>melodic harmony</strong> from the module itself.</p>
+<hr />
+<h2>E. Multitimbral layered melodic arrangement</h2>
+<p>MULTI mode is where Fractaos becomes especially powerful compositionally.</p>
+<p>Each of the 4 voices can:
+- load a different preset, or
+- remain in LIVE mode</p>
+<p>Each voice can also respond to a separate MIDI channel.</p>
+<h3>What this enables</h3>
+<p>You can use a single module as:</p>
+<ul>
+<li>voice 1: bass</li>
+<li>voice 2: chord stab</li>
+<li>voice 3: lead</li>
+<li>voice 4: pluck/countermelody</li>
+</ul>
+<p>Or:
+- one preset for warm harmonic support
+- one preset for noisy upper extension
+- one preset for tuned percussion
+- one LIVE voice for manual improvisation</p>
+<h3>Melodic significance</h3>
+<p>MULTI mode turns Fractaos into a <strong>mini ensemble</strong> rather than a single oscillator.</p>
+<p>In a composition, this means one module can generate:
+- independent melodic lines
+- register-separated harmonic parts
+- contrapuntal voices
+- call-and-response phrases</p>
+<p>For a small Eurorack system, this is a huge space saver.</p>
+<hr />
+<h2>Good melodic strategies by fractal type</h2>
+<h2>Best fractals for tonal melody</h2>
+<p>These seem most suitable from the descriptions:</p>
+<ul>
+<li><strong>Fibonacci</strong> – warm, foundational, friendly for melodies</li>
+<li><strong>Julia</strong> – softer, smoother lines</li>
+<li><strong>Koch</strong> – bright highs, brass-like lows</li>
+<li><strong>Mandelbrot</strong> – rich, crystalline, detailed</li>
+<li><strong>Sierpinski</strong> – odd-harmonic, assertive melodic presence</li>
+<li><strong>Rössler</strong> – deformed sine-like motion, useful for expressive tones</li>
+</ul>
+<p>Use these when you want:
+- recognizable pitch
+- harmonic stability
+- musical repeatability</p>
+<hr />
+<h2>Best fractals for edgy/modern melodies</h2>
+<ul>
+<li><strong>Cantor</strong></li>
+<li><strong>Dragon</strong></li>
+<li><strong>Hilbert</strong></li>
+<li><strong>Rule30</strong></li>
+<li><strong>Logistic</strong></li>
+</ul>
+<p>These are great for:
+- IDM lines
+- glitch melodies
+- aggressive synth hooks
+- mechanistic or sequencer-forward phrasing</p>
+<hr />
+<h2>Best fractals for unstable evolving melodic parts</h2>
+<ul>
+<li><strong>Lorenz</strong></li>
+<li><strong>Hénon</strong></li>
+<li><strong>Rössler</strong></li>
+<li><strong>Rule30</strong></li>
+</ul>
+<p>These are ideal when you want pitch to remain present but timbre to feel alive and semi-chaotic.</p>
+<p>Use for:
+- generative melodies
+- evolving ambient top lines
+- unstable harmonic color</p>
+<hr />
+<h2>Best sound engines for melodic percussion</h2>
+<ul>
+<li><strong>Tom</strong> for tuned lines</li>
+<li><strong>Kick</strong> for bass-note pulse</li>
+<li><strong>Snare</strong> + Morph for pitched attack/tail hybrids</li>
+</ul>
+<p>A very musical trick from the manual is that Drum curves can be blended with the second geometric fractal using Morph. That means you can create:</p>
+<ul>
+<li>percussive attacks with pitched sustain</li>
+<li>mallet-like voices</li>
+<li>tom-to-tone transitions</li>
+<li>transient-rich bass motifs</li>
+</ul>
+<p>This is excellent for melodic techno, electro, experimental ambient, and broken beat styles.</p>
+<hr />
+<h2>Modulation behaviors that help melody</h2>
+<h2>Primitive as note-synced modulation source</h2>
+<p>The primitive-derived modulation can affect:
+- Morph
+- Spread
+- Chaos</p>
+<p>For melody, this lets each note have internal shape.</p>
+<h3>Strong melodic use cases</h3>
+<ul>
+<li><strong>Morph modulation</strong>: notes bloom from one harmonic shape to another</li>
+<li><strong>Chaos modulation</strong>: notes brighten or destabilize over time</li>
+<li><strong>Spread modulation</strong>: subtle chorusing or dramatic pitch animation</li>
+</ul>
+<p>This can make repeated notes feel more expressive without changing the sequence itself.</p>
+<hr />
+<h2>Simplified FM mode for harmonic complexity</h2>
+<p>The manual describes a simplified FM mode:</p>
+<ul>
+<li>Loop OFF</li>
+<li>Trig OFF</li>
+<li>Morph ON</li>
+<li>Spread OFF</li>
+<li>Chaos OFF</li>
+</ul>
+<p>Then <strong>Amount</strong> becomes bipolar:
+- lower half: internal feedback
+- center: neutral
+- upper half: primitive 2 modulates main fractal frequency</p>
+<h3>Melodic usefulness</h3>
+<p>FM mode is especially useful for:
+- metallic leads
+- bell-like melodies
+- complex bass tones
+- harmonically rich plucks</p>
+<p>Caveat:
+- FM is not active when main fractal is a Texture
+- FM has no effect on Drum curves</p>
+<p>So for clear melodic FM-like playing, stick to geometric fractals.</p>
+<hr />
+<h2>Texture as a melodic enhancer</h2>
+<p>Texture is more than a filter amount. It affects:
+- resonant fractal filtering
+- formant extraction/application
+- organic micro-detunings
+- filter intensity</p>
+<p>For melody, Texture can function like a macro control for:
+- vowel-like tone
+- body and resonance
+- subtle acoustic-feeling instability
+- animated overtones</p>
+<h3>Practical advice</h3>
+<p>For clear melodic lines:
+- keep Texture moderate</p>
+<p>For ambient or emotional harmonic content:
+- increase Texture gradually</p>
+<p>Too much may obscure pitch clarity, especially with already unstable fractals.</p>
+<hr />
+<h2>Envelope use for melody</h2>
+<p>Fractaos has shared ADSR settings across all four voices.</p>
+<h3>Practical melodic applications</h3>
+<ul>
+<li><strong>Short attack, medium decay, low sustain</strong>: plucks and arps</li>
+<li><strong>Fast attack, high sustain, medium release</strong>: chord pads</li>
+<li><strong>Long attack, long release</strong>: ambient swells</li>
+<li><strong>Short decay, zero sustain</strong>: struck or mallet-like notes</li>
+<li><strong>Zero sustain with release</strong>: expressive fading notes depending on note length</li>
+</ul>
+<p>Because release remains active even with sustain at zero, you can make notes respond differently based on gate length, which is musically useful for expressive sequencing.</p>
+<hr />
+<h2>How Fractaos works with other Eurorack modules</h2>
+<p>Even though only one manual is provided, we can still say a lot about how Fractaos fits into a rack for melody.</p>
+<h2>Best companions for melodic use</h2>
+<h3>1. Sequencers</h3>
+<p>Use with:
+- pitch/gate sequencers
+- polyphonic CV sequencers
+- MIDI sequencers
+- keyboard controllers</p>
+<p>Fractaos needs melodic instruction from somewhere, and it responds well to either MIDI or 1V/oct inputs.</p>
+<p>Ideal uses:
+- one sequencer lane per voice
+- polyphonic chord progression input
+- separate melodic channels in MULTI mode</p>
+<hr />
+<h3>2. Quantizers</h3>
+<p>If generating pitches from random or CV sources, quantizers are very useful before the 1V/oct inputs.</p>
+<p>This helps keep Fractaos in:
+- scales
+- modes
+- chord tones
+- microtonal frameworks if desired</p>
+<p>Because the timbre can already be highly complex, stable pitch organization helps melodic intelligibility.</p>
+<hr />
+<h3>3. Utility modulation</h3>
+<p>Even though Fractaos has internal motion, external CV into:
+- Pitch
+- Spread
+- Morph
+- Texture
+- Speed
+- Amount
+- F-Chaos
+- P-Chaos</p>
+<p>can create evolving melodic expression.</p>
+<p>Especially useful:
+- slow CV into Morph for phrase development
+- stepped CV into Chaos for section changes
+- performance CV into Texture for emphasis
+- light modulation of Spread for ensemble width</p>
+<hr />
+<h3>4. Effects</h3>
+<p>Stereo output makes Fractaos especially attractive with:
+- reverb
+- delay
+- chorus
+- spectral FX
+- shimmer
+- resonators</p>
+<p>Melodic roles improved by FX:
+- chords become lush pads
+- leads become cinematic
+- arps become spatially animated
+- drones become harmonic environments</p>
+<hr />
+<h3>5. Mixers and VCAs</h3>
+<p>Because it is stereo and multitimbral, a mixer is helpful downstream.</p>
+<p>In MULTI mode especially, you may want:
+- voice balancing
+- external processing chains
+- dynamic arrangement control</p>
+<hr />
+<h2>Example melodic patch ideas</h2>
+<h2>Patch 1: Polyphonic ambient chords</h2>
+<ul>
+<li>MIDI keyboard or poly sequencer into Fractaos</li>
+<li>Main fractal: Julia or Fibonacci</li>
+<li>Primitive: Rössler</li>
+<li>Moderate Morph</li>
+<li>Low Chaos</li>
+<li>Medium Texture</li>
+<li>Long attack/release</li>
+<li>Stereo reverb after output</li>
+</ul>
+<p><strong>Result:</strong> warm evolving chord clouds with internal movement.</p>
+<hr />
+<h2>Patch 2: Metallic melodic techno lead</h2>
+<ul>
+<li>Single-note sequencer into one voice</li>
+<li>Main fractal: Mandelbrot or Koch</li>
+<li>Primitive: Sierpinski or Dragon</li>
+<li>Simplified FM mode enabled</li>
+<li>Medium Amount above center</li>
+<li>Short attack, medium decay, low sustain</li>
+<li>Small delay after output</li>
+</ul>
+<p><strong>Result:</strong> bright, metallic, cutting lead with animated harmonics.</p>
+<hr />
+<h2>Patch 3: Tuned percussive melody</h2>
+<ul>
+<li>Main fractal: Tom</li>
+<li>Primitive: geometric fractal</li>
+<li>Morph around low-to-mid range</li>
+<li>Short envelope</li>
+<li>Moderate Chaos</li>
+<li>Sequence pitch melodically</li>
+</ul>
+<p><strong>Result:</strong> tom/mallet hybrid riffs with defined pitch and transient attack.</p>
+<hr />
+<h2>Patch 4: 4-part multitimbral composition in one module</h2>
+<p>In MULTI mode:
+- Voice 1: bass preset
+- Voice 2: chord preset
+- Voice 3: lead preset
+- Voice 4: LIVE mode for manual tweaks</p>
+<p>Assign separate MIDI channels or distinct sequencing.</p>
+<p><strong>Result:</strong> one module handling multiple melodic layers at once.</p>
+<hr />
+<h2>Patch 5: Drone harmony plus top melody</h2>
+<ul>
+<li>Enable Drone mode</li>
+<li>Use Spread chord zone for maj7, add9, or just intonation</li>
+<li>Set texture-based or geometric harmonic bed</li>
+<li>Feed CV/MIDI transposition to shape harmonic center</li>
+<li>Play another module or another Fractaos voice above it</li>
+</ul>
+<p><strong>Result:</strong> sustained harmonic field supporting melodic content.</p>
+<hr />
+<h2>Limitations to keep in mind for melody</h2>
+<p>A few manual-based considerations:</p>
+<ul>
+<li>Some fractals are intentionally unstable and may not sound identical across registers.</li>
+<li>Texture fractals are less pitch-defined.</li>
+<li>Drum fractals are not traditional oscillators.</li>
+<li>Depth is stepped and not CV-modulatable.</li>
+<li>In LOAD mode, physical pots/CVs don’t control the sound until you return to LIVE.</li>
+<li>In MULTI mode, Spread behavior differs between LIVE and preset voices.</li>
+</ul>
+<p>These are not flaws, but they do affect how predictable melodic patching will be.</p>
+<hr />
+<h2>Best overall uses for melodic music</h2>
+<p>If I were using Fractaos in a Eurorack composition, I’d see it as best suited for:</p>
+<ol>
+<li><strong>Primary polyphonic voice</strong></li>
+<li><strong>Multitimbral melodic hub</strong></li>
+<li><strong>Chord drone generator</strong></li>
+<li><strong>Animated lead source</strong></li>
+<li><strong>Pitched percussion synth</strong></li>
+<li><strong>Experimental harmonic texture layer</strong></li>
+</ol>
+<p>Its biggest melodic strength is that it combines:
+- pitch handling
+- polyphony
+- timbral evolution
+- preset recall
+- multitimbral arrangement</p>
+<p>in one module.</p>
+<p>That makes it unusually effective for writing actual melodic/harmonic music in Eurorack, especially if your system is otherwise more modulation- and sequencing-oriented.</p>
+<hr />
+<h2>Bottom line</h2>
+<p>Fractaos can be used to create melodic components by functioning as:</p>
+<ul>
+<li>a <strong>4-voice polyphonic synth voice</strong></li>
+<li>a <strong>multitimbral 4-part melodic ensemble</strong></li>
+<li>a <strong>chord and drone generator with built-in harmonic spreads</strong></li>
+<li>an <strong>expressive lead and arp source</strong></li>
+<li>a <strong>pitched percussion voice for melodic rhythm</strong></li>
+</ul>
+<p>For the clearest melodic results, focus on:
+- <strong>geometric fractals</strong>
+- <strong>moderate Chaos</strong>
+- <strong>careful Morph/Texture settings</strong>
+- <strong>ADSR shaping</strong>
+- <strong>MULTI mode for layered arrangements</strong>
+- <strong>Drone Spread chord sets for harmony</strong></p>
+<p>If you want, I can also turn this into:
+1. a <strong>musical cheat sheet</strong>,<br />
+2. a <strong>“best patch recipes” guide</strong>, or<br />
+3. a <strong>module pairing guide</strong> for Fractaos with sequencers, filters, and effects.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

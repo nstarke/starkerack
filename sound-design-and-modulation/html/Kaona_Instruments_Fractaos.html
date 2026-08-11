@@ -1,0 +1,924 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kaona_Instruments_Fractaos</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Kaona Instruments — Fractaos</h1>
+<ul>
+<li><a href="../../manuals/DocFractaosEN-V1.5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://kaona.fr/wp-content/uploads/2025/07/FRCTAOS_manual_1.5_ENG.pdf">Fractaos Manual PDF</a></p>
+<h1>Fractaos modulation ideas for distorted percussion, basslines, and haunted pads</h1>
+<p>Fractaos is unusually deep for a Eurorack oscillator because it’s not just “an oscillator with FM.” It’s really:</p>
+<ul>
+<li>4 voices</li>
+<li>8 real-time fractal oscillators in driver/follower pairs</li>
+<li>per-voice resonant fractal filtering</li>
+<li>internal primitive-driven modulation/LFO behavior</li>
+<li>CV over the most important movement controls</li>
+</ul>
+<p>That means the best sounds usually come from <strong>stacking several small motions at once</strong> rather than one huge modulation source.</p>
+<hr />
+<h1>First: understand what is most worth modulating</h1>
+<p>From the manual, the most modulation-friendly panel parameters are:</p>
+<ul>
+<li><strong>Morph</strong></li>
+<li><strong>Spread</strong></li>
+<li><strong>Texture</strong></li>
+<li><strong>Speed</strong></li>
+<li><strong>Amount</strong></li>
+<li><strong>Chaos</strong></li>
+<li><strong>Primitive Chaos</strong></li>
+<li><strong>Pitch</strong></li>
+</ul>
+<p>And the switches decide <strong>where the primitive-derived modulation goes</strong>:</p>
+<ul>
+<li><strong>Morph</strong></li>
+<li><strong>Spread</strong></li>
+<li><strong>Chaos</strong></li>
+<li>plus <strong>Loop/Trig</strong> behavior for whether it acts like a looping LFO or note-retriggered contour</li>
+</ul>
+<h2>Important limitation</h2>
+<p>These are <strong>not CV-modulatable</strong>:
+- <strong>Depth</strong>
+- <strong>Primitive Depth</strong></p>
+<p>So for live patching, treat Depth settings as your “static engine configuration,” then animate:
+- chaos
+- morph
+- texture
+- spread
+- speed/amount</p>
+<p>That’s where the sound comes alive.</p>
+<hr />
+<h1>Big-picture patch philosophy for Fractaos</h1>
+<h2>1. Use the primitive as an internal motion source</h2>
+<p>The primitive isn’t just a second oscillator. It also creates internal motion. The switches let you decide whether that motion affects:
+- morphing
+- spread/detune
+- chaos</p>
+<p>This is one of the module’s strongest features.</p>
+<h2>2. Treat Texture like a spectral violence / atmosphere control</h2>
+<p>Texture does a lot at once:
+- fractal filter resonance
+- formant extraction/detection
+- micro-detuning
+- filter intensity</p>
+<p>So in practice:
+- low Texture = more direct oscillator identity
+- medium Texture = vocal/formant/organic complexity
+- high Texture = unstable, spectral, resonant, sometimes noisy behavior</p>
+<h2>3. Spread is context-sensitive</h2>
+<ul>
+<li><strong>Normal mode:</strong> detunes driver/follower in each voice</li>
+<li><strong>Drone mode:</strong> becomes a global 8-oscillator spread/chord/microtuning control</li>
+</ul>
+<p>That makes Spread one of the best performance parameters on the module.</p>
+<h2>4. Chaos is not generic “randomness”</h2>
+<p>Each fractal responds differently to Chaos. Some become unstable, some become richer, some just get slightly rougher. So the best approach is:
+- pick a fractal family for the musical role
+- then find its sweet-spot chaos window</p>
+<hr />
+<h1>Best fractals by use case</h1>
+<h2>For distorted percussion</h2>
+<p>Best starting points:
+- <strong>Rule30</strong> — granular, dense, percussive
+- <strong>Collatz</strong> — stepped and jerky, rhythmic
+- <strong>Dragon</strong> — beating and expressive under chaos
+- <strong>Hénon</strong> — unstable/experimental
+- <strong>Lorenz</strong> — complex drifting, irregular
+- <strong>Drum models:</strong> <strong>Kick, Tom, Snare, HiHat, Cymbal</strong></p>
+<p>Also try morphing Drum curves with geometric primitives for hybrid percussion.</p>
+<h2>For dubstep / DnB bass</h2>
+<p>Best starting points:
+- <strong>Mandelbrot</strong> — bright, crystalline, harmonically rich
+- <strong>Cantor</strong> — gapped saw/pulse character
+- <strong>Sierpinski</strong> — strong odd harmonics
+- <strong>Dragon</strong> — moving/internal beating
+- <strong>Rule30</strong> — nasty bass texture
+- <strong>Koch</strong> — brassy low register
+- <strong>Fibonacci</strong> — warmer foundation
+- <strong>Hilbert</strong> — stepped rectangular spectral behavior</p>
+<h2>For haunted atmospheric pads</h2>
+<p>Best starting points:
+- <strong>Cloud</strong>
+- <strong>Storm</strong>
+- <strong>String</strong>
+- <strong>Ensemble</strong>
+- <strong>Cluster</strong>
+- <strong>Lorenz</strong>
+- <strong>Rössler</strong>
+- <strong>Julia</strong>
+- <strong>Fibonacci</strong></p>
+<p>For pads, the texture fractals as the main fractal are especially important because they’re intentionally noisy/atmospheric.</p>
+<hr />
+<h1>Core modulation techniques that work especially well on Fractaos</h1>
+<h2>1. Slow CV into Texture</h2>
+<p>This is one of the best “free complexity” moves.</p>
+<p>Use:
+- a slow triangle LFO
+- random slewed voltage
+- very slow envelope
+- offset + attenuated modulation</p>
+<p>Why it works:
+Texture changes not only filter intensity but also formants and micro-detuning, so even tiny movement sounds rich.</p>
+<h3>Great for:</h3>
+<ul>
+<li>evolving pads</li>
+<li>speaking bass growls</li>
+<li>metallic percussion tails</li>
+</ul>
+<hr />
+<h2>2. Envelope to Chaos</h2>
+<p>Use a fast-decay envelope into <strong>F-Chaos</strong> or <strong>P-Chaos</strong>.</p>
+<p>Why:
+A burst of chaos at the attack makes sounds feel:
+- struck
+- ripped
+- unstable
+- snarling</p>
+<p>This is excellent for:
+- distorted kicks
+- tearing bass attacks
+- noisy transient design</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Trigger source -&gt; envelope generator</li>
+<li>Envelope out -&gt; Fractaos <strong>F-Chaos CV</strong></li>
+<li>Set attenuator low-medium</li>
+<li>Keep base Chaos moderate</li>
+<li>Let the envelope briefly push it over the edge</li>
+</ul>
+<p>Result:
+clean-ish body with violent transient articulation.</p>
+<hr />
+<h2>3. Gate-triggered primitive modulation</h2>
+<p>Use:
+- <strong>Loop OFF</strong>
+- <strong>Trig ON</strong></p>
+<p>Now each new note retriggers the primitive contour from the beginning.</p>
+<p>If <strong>Morph</strong>, <strong>Spread</strong>, or <strong>Chaos</strong> are enabled, each hit/note gets its own animated shape.</p>
+<p>This is one of the best methods for:
+- punchy bass plucks
+- animated percussion
+- articulated sequences</p>
+<hr />
+<h2>4. Looping primitive modulation for unstable movement</h2>
+<p>Use:
+- <strong>Loop ON</strong>
+- optional <strong>Trig ON</strong> if you want note-synced restarts</p>
+<p>Now the primitive becomes a looping LFO.</p>
+<p>Great for:
+- wobble basses
+- fluttering spectral percussion
+- living drones
+- breathing pads</p>
+<hr />
+<h2>5. Audio-style aggression without classic audio-rate CV: use simplified FM mode</h2>
+<p>The manual’s “simplified FM mode” is huge for aggressive sounds.</p>
+<p>Set:
+- <strong>Loop OFF</strong>
+- <strong>Trig OFF</strong>
+- <strong>Morph ON</strong>
+- <strong>Spread OFF</strong>
+- <strong>Chaos OFF</strong></p>
+<p>Now <strong>Amount</strong> becomes bipolar:
+- <strong>0–50%:</strong> internal feedback
+- <strong>center:</strong> neutral
+- <strong>50–100%:</strong> primitive 2 modulates main fractal frequency</p>
+<p>This is your primary route to:
+- tearing reese-like basses
+- metallic attacks
+- snarling dubstep timbres
+- overdriven, deformed waveforms</p>
+<h3>Important note</h3>
+<p>FM does <strong>not</strong> work when the main fractal is a <strong>Texture</strong> fractal, and does not affect <strong>Drum</strong> curves.</p>
+<hr />
+<h1>Sound design recipes</h1>
+<hr />
+<h1>1. Distorted percussion and hybrid drums</h1>
+<p>Fractaos is unusually good at percussion because you can combine:
+- actual drum models
+- geometric fractals
+- primitive-triggered contouring
+- chaos bursts
+- texture resonance</p>
+<h2>A. Distorted kick drum</h2>
+<h3>Start here</h3>
+<ul>
+<li>Main fractal: <strong>Kick</strong></li>
+<li>Primitive: <strong>Dragon</strong> or <strong>Rule30</strong></li>
+<li>Depth: medium-high</li>
+<li>Primitive Depth: medium</li>
+<li>Chaos: low-medium</li>
+<li>Primitive Chaos: medium</li>
+<li>Morph: low to low-mid</li>
+<li>Texture: medium</li>
+<li>Speed: medium-fast</li>
+<li>Amount: low-medium</li>
+</ul>
+<h3>Switches</h3>
+<ul>
+<li><strong>Loop OFF</strong></li>
+<li><strong>Trig ON</strong></li>
+<li><strong>Morph ON</strong></li>
+<li>optionally <strong>Chaos ON</strong></li>
+<li><strong>Spread OFF</strong></li>
+</ul>
+<h3>Why this works</h3>
+<ul>
+<li>Kick provides the body</li>
+<li>Primitive adds evolving harmonic contamination</li>
+<li>Retriggered modulation gives each hit a consistent motion contour</li>
+<li>Chaos modulation adds snap/rip at the start</li>
+</ul>
+<h3>Improve it further</h3>
+<p>Patch:
+- trigger mult -&gt; Fractaos trig + external fast envelope
+- external envelope -&gt; <strong>Texture CV</strong>
+- another envelope or accent CV -&gt; <strong>F-Chaos CV</strong></p>
+<p>This gives:
+- attack-dependent filter/formant bite
+- aggressive transient dirt
+- more “broken speaker” energy</p>
+<h3>For harder industrial kicks</h3>
+<p>Try:
+- more Texture
+- more Morph
+- primitive = <strong>Cantor</strong> or <strong>Collatz</strong>
+- pitch lower
+- higher Chaos on accented hits</p>
+<hr />
+<h2>B. Snare from hell</h2>
+<h3>Start here</h3>
+<ul>
+<li>Main fractal: <strong>Snare</strong></li>
+<li>Primitive: <strong>Rule30</strong>, <strong>Hénon</strong>, or <strong>Collatz</strong></li>
+<li>Morph: medium</li>
+<li>Texture: medium-high</li>
+<li>Chaos: medium-high</li>
+<li>Primitive Chaos: medium-high</li>
+<li>Speed: medium-fast</li>
+<li>Amount: medium</li>
+</ul>
+<h3>Switches</h3>
+<ul>
+<li><strong>Loop OFF</strong></li>
+<li><strong>Trig ON</strong></li>
+<li><strong>Morph ON</strong></li>
+<li><strong>Chaos ON</strong></li>
+<li>maybe <strong>Spread ON</strong> in small doses</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- percussive shell/noise from Snare
+- digital tearing from primitive modulation
+- unstable noise sprays from chaos
+- flamming metallic edges via spread modulation</p>
+<h3>Advanced trick</h3>
+<p>Sequence pitch slightly even on Snare. The manual says pitch shifts color/resonance/internal filtering strongly on Snare/HiHat/Cymbal. Tiny pitch sequences can create a whole kit from one patch.</p>
+<hr />
+<h2>C. Metallic hi-hats and fractured tops</h2>
+<h3>Start here</h3>
+<ul>
+<li>Main fractal: <strong>HiHat</strong> or <strong>Cymbal</strong></li>
+<li>Primitive: <strong>Hilbert</strong>, <strong>Rule30</strong>, or <strong>Koch</strong></li>
+<li>Texture: high</li>
+<li>Chaos: medium</li>
+<li>Primitive Chaos: high</li>
+<li>Morph: medium-high</li>
+<li>Spread: low-medium</li>
+<li>Speed: fairly fast</li>
+<li>Amount: medium-high</li>
+</ul>
+<h3>Switches</h3>
+<ul>
+<li><strong>Loop OFF</strong></li>
+<li><strong>Trig ON</strong></li>
+<li><strong>Spread ON</strong></li>
+<li><strong>Morph ON</strong></li>
+</ul>
+<h3>Why</h3>
+<p>Spread modulation on short metallic voices introduces oscillating detune and can create:
+- shaken hat texture
+- digital sizzle
+- unstable cymbal wash</p>
+<h3>Patch improvement</h3>
+<p>Use random stepped CV with attenuation into:
+- <strong>P-Chaos</strong>
+- or <strong>Morph</strong></p>
+<p>Now every hit gets a slightly different color without losing the patch identity.</p>
+<hr />
+<h2>D. Percussion that turns into a note</h2>
+<p>One of Fractaos’s coolest manual-noted features is using <strong>Morph</strong> with Drum curves to blend percussion with the second geometric fractal.</p>
+<h3>Patch</h3>
+<ul>
+<li>Main fractal: <strong>Kick</strong>, <strong>Tom</strong>, or <strong>Snare</strong></li>
+<li>Primitive: <strong>Fibonacci</strong>, <strong>Mandelbrot</strong>, or <strong>Koch</strong></li>
+<li>Morph: medium-high</li>
+<li>Trig ON, Loop OFF, Morph ON</li>
+</ul>
+<h3>Effect</h3>
+<p>You can create:
+- percussive attack + pitched sustain
+- drum-to-bass hybrids
+- “hit becomes note” sounds
+- tuned tom stabs</p>
+<p>This is excellent for modern bass music fills.</p>
+<hr />
+<h1>2. Crazy basslines for dubstep / drum and bass</h1>
+<p>Fractaos can do bass very well if you focus less on “traditional analog FM bass” and more on:
+- morph movement
+- attack chaos
+- spread detune
+- texture/formants
+- simplified FM mode</p>
+<h2>A. Talking/growling bass</h2>
+<h3>Start here</h3>
+<ul>
+<li>Main fractal: <strong>Cantor</strong>, <strong>Mandelbrot</strong>, <strong>Dragon</strong>, or <strong>Rule30</strong></li>
+<li>Primitive: <strong>Rössler</strong>, <strong>Dragon</strong>, or <strong>Hilbert</strong></li>
+<li>Pitch: low register</li>
+<li>Depth: medium-high</li>
+<li>Primitive Depth: medium</li>
+<li>Chaos: medium</li>
+<li>Primitive Chaos: medium</li>
+<li>Morph: around center</li>
+<li>Texture: medium-high</li>
+<li>Speed: synced to groove</li>
+<li>Amount: medium-high</li>
+</ul>
+<h3>Switches</h3>
+<ul>
+<li><strong>Loop ON</strong></li>
+<li><strong>Morph ON</strong></li>
+<li><strong>Spread ON</strong></li>
+<li>optional <strong>Chaos ON</strong></li>
+<li><strong>Trig</strong> optional depending on whether you want phrase resets</li>
+</ul>
+<h3>Why</h3>
+<p>This creates multiple interlocked movements:
+- spectral shape changing from Morph modulation
+- detune throbbing from Spread modulation
+- chaos-driven internal roughness
+- filter/formant animation from Texture</p>
+<h3>Best external modulation</h3>
+<p>Patch an LFO or sequencer lane into:
+- <strong>Texture CV</strong> for vowel/growl emphasis
+- <strong>Morph CV</strong> for phrase evolution
+- <strong>Pitch CV</strong> for slides or stepped riffs</p>
+<h3>Dubstep move</h3>
+<p>Clock a stepped random or sequenced CV into Texture while the internal primitive loops on Morph. That gives macro movement plus internal motion.</p>
+<hr />
+<h2>B. Reese / tearing DnB bass</h2>
+<h3>Start here</h3>
+<ul>
+<li>Main fractal: <strong>Sierpinski</strong>, <strong>Cantor</strong>, <strong>Koch</strong>, or <strong>Mandelbrot</strong></li>
+<li>Primitive: <strong>Dragon</strong>, <strong>Rössler</strong>, or <strong>Fibonacci</strong></li>
+<li>Spread: medium</li>
+<li>Morph: low-mid</li>
+<li>Texture: low-medium to medium</li>
+<li>Chaos: low-medium</li>
+<li>Primitive Chaos: medium</li>
+<li>Pitch: low</li>
+</ul>
+<h3>Switches</h3>
+<ul>
+<li><strong>Loop ON</strong></li>
+<li><strong>Spread ON</strong></li>
+<li><strong>Morph OFF</strong></li>
+<li><strong>Chaos OFF</strong> initially</li>
+</ul>
+<p>This gives you animated detune between driver/follower. It’s not a classic supersaw detune; it’s stranger and often gnarlier.</p>
+<h3>Make it nastier</h3>
+<p>Then add:
+- a little <strong>Chaos ON</strong>
+- slow CV to <strong>Texture</strong>
+- envelope to <strong>F-Chaos</strong></p>
+<p>This keeps body and adds attack abrasion.</p>
+<h3>External processing recommendation</h3>
+<p>Fractaos will sound huge through:
+- wavefolder
+- distortion
+- lowpass or bandpass filter
+- VCA with envelope follower sidechaining</p>
+<p>But even before external processing, Spread + Texture is already very “reese-adjacent.”</p>
+<hr />
+<h2>C. Simplified FM bass monster</h2>
+<p>This is one of the most important bass modes on the module.</p>
+<h3>Set exactly</h3>
+<ul>
+<li><strong>Loop OFF</strong></li>
+<li><strong>Trig OFF</strong></li>
+<li><strong>Morph ON</strong></li>
+<li><strong>Spread OFF</strong></li>
+<li><strong>Chaos OFF</strong></li>
+</ul>
+<h3>Then</h3>
+<ul>
+<li>Main fractal: <strong>Cantor</strong>, <strong>Mandelbrot</strong>, <strong>Koch</strong>, <strong>Sierpinski</strong>, or <strong>Dragon</strong></li>
+<li>Primitive: <strong>Dragon</strong>, <strong>Hilbert</strong>, <strong>Rössler</strong>, or <strong>Fibonacci</strong></li>
+<li>Turn <strong>Amount</strong> around center and above</li>
+<li>Increase until the tone becomes metallic, unstable, or tearing</li>
+</ul>
+<h3>Sound zones</h3>
+<ul>
+<li>Below center: more self-feedback, denser/deformed</li>
+<li>Near center: neutral</li>
+<li>Above center: more proper fractal FM</li>
+</ul>
+<h3>Bassline patch tip</h3>
+<p>Use a sequencer with:
+- pitch CV into a voice
+- gate/trig into trig input
+- accent envelope into <strong>Texture</strong>
+- slower modulation into <strong>P-Chaos</strong></p>
+<p>This produces bass phrases with stable pitch but moving overtone violence.</p>
+<h3>For neuro / hyper-bass</h3>
+<p>Automate <strong>Amount</strong> itself with CV while in FM mode. Small CV moves near the center crossing point can dramatically change the spectral behavior.</p>
+<hr />
+<h2>D. Stab bass / bass plucks</h2>
+<h3>Start here</h3>
+<ul>
+<li>Main fractal: <strong>Koch</strong>, <strong>Fibonacci</strong>, <strong>Cantor</strong>, or <strong>Hilbert</strong></li>
+<li>Primitive: <strong>Dragon</strong> or <strong>Rössler</strong></li>
+<li>Texture: medium</li>
+<li>Morph: low-medium</li>
+<li>Chaos: low-medium</li>
+<li>Speed: medium-fast</li>
+<li>Amount: medium</li>
+</ul>
+<h3>Switches</h3>
+<ul>
+<li><strong>Loop OFF</strong></li>
+<li><strong>Trig ON</strong></li>
+<li><strong>Morph ON</strong></li>
+<li>optional <strong>Chaos ON</strong></li>
+</ul>
+<p>This makes each note speak with an internal motion envelope rather than a static tone.</p>
+<h3>Extra patching</h3>
+<p>Use external envelope into <strong>Spread CV</strong> for pitch-tear on every hit.</p>
+<p>Subtle version:
+- low attenuation
+- very fast decay</p>
+<p>Extreme version:
+- moderate attenuation
+- medium decay</p>
+<p>Result:
+a “rip” or “bark” at note onset.</p>
+<hr />
+<h2>E. Bass that mutates per step</h2>
+<p>Fractaos loves sequencer modulation lanes.</p>
+<p>Use a sequencer row or CV track to step-modulate one of:
+- Texture
+- Morph
+- F-Chaos
+- P-Chaos
+- Amount</p>
+<p>Best combination:
+- one stepped lane to <strong>Texture</strong>
+- one slewed/random lane to <strong>P-Chaos</strong>
+- internal primitive modulating <strong>Morph</strong></p>
+<p>That gives:
+- step-specific tone
+- overall living movement
+- controlled unpredictability</p>
+<hr />
+<h1>3. Haunting atmospheric pads and drones</h1>
+<p>This is where Fractaos gets very special because of:
+- Texture fractals
+- Drone mode
+- 8-oscillator chord spread
+- slow primitive movement
+- formant and resonance behavior</p>
+<h2>A. Haunted drone pad</h2>
+<h3>Start here</h3>
+<ul>
+<li>Enable <strong>Drone</strong></li>
+<li>Main fractal: <strong>Cloud</strong>, <strong>Storm</strong>, <strong>String</strong>, <strong>Ensemble</strong>, or <strong>Cluster</strong></li>
+<li>Primitive: <strong>Julia</strong>, <strong>Rössler</strong>, <strong>Fibonacci</strong>, or <strong>Hilbert</strong></li>
+<li>Depth: medium-high</li>
+<li>Primitive Depth: medium</li>
+<li>Chaos: low-medium</li>
+<li>Primitive Chaos: low-medium</li>
+<li>Morph: low-medium</li>
+<li>Texture: medium-high</li>
+<li>Speed: very slow</li>
+<li>Amount: low-medium</li>
+</ul>
+<h3>Spread in Drone mode</h3>
+<p>Use Spread in its three zones:</p>
+<h4>Zone 1: near 0</h4>
+<ul>
+<li>8 oscillators in unison</li>
+<li>dense central mass</li>
+<li>good for ominous mono-drones</li>
+</ul>
+<h4>Zone 2: 0.02–0.50</h4>
+<ul>
+<li>gradual 8-oscillator widening up to +1 octave</li>
+<li>excellent for slowly opening a drone over time</li>
+</ul>
+<h4>Zone 3: 0.50–1.00</h4>
+<ul>
+<li>chord and microtuning scan</li>
+<li>this is absolute gold for haunted harmonic beds</li>
+</ul>
+<h3>Best pad performance move</h3>
+<p>Very slowly sweep Spread through the Drone chord region while also slowly modulating Texture.</p>
+<p>This changes both:
+- tuning relationships
+- spectral identity</p>
+<p>The result feels composed rather than merely filtered.</p>
+<hr />
+<h2>B. Ghost choir / broken organ</h2>
+<h3>Start here</h3>
+<ul>
+<li>Main fractal: <strong>Ensemble</strong>, <strong>Cluster</strong>, or <strong>String</strong></li>
+<li>Primitive: <strong>Fibonacci</strong>, <strong>Julia</strong>, or <strong>Koch</strong></li>
+<li>Morph: around center</li>
+<li>Texture: high</li>
+<li>Chaos: low</li>
+<li>Primitive Chaos: low-medium</li>
+<li>Speed: very slow</li>
+<li>Amount: medium</li>
+</ul>
+<h3>Switches</h3>
+<ul>
+<li><strong>Loop ON</strong></li>
+<li><strong>Morph ON</strong></li>
+<li><strong>Spread OFF</strong></li>
+<li>optional <strong>Chaos ON</strong> very lightly</li>
+</ul>
+<h3>Why</h3>
+<p>Texture plus slow Morph modulation creates formant/vocal drift without requiring an actual vocal filter.</p>
+<h3>Add external CV</h3>
+<ul>
+<li>slow random into <strong>Texture CV</strong></li>
+<li>slow triangle into <strong>Morph CV</strong></li>
+</ul>
+<p>Use tiny amounts. On Fractaos, subtle is often more eerie than extreme.</p>
+<hr />
+<h2>C. Storm ambience with unstable harmonics</h2>
+<h3>Start here</h3>
+<ul>
+<li>Main fractal: <strong>Storm</strong></li>
+<li>Primitive: <strong>Lorenz</strong> or <strong>Rule30</strong></li>
+<li>Texture: high</li>
+<li>Chaos: medium-high</li>
+<li>Primitive Chaos: medium</li>
+<li>Speed: very slow to slow</li>
+<li>Amount: medium-high</li>
+</ul>
+<h3>Switches</h3>
+<ul>
+<li><strong>Loop ON</strong></li>
+<li><strong>Chaos ON</strong></li>
+<li>optional <strong>Morph ON</strong></li>
+</ul>
+<p>The manual notes Storm can evoke thunder/dense rain depending on Amount, Chaos, Depth, and Texture. Modulating Chaos and Texture slowly is the key.</p>
+<h3>Patch method</h3>
+<ul>
+<li>very slow random CV -&gt; <strong>F-Chaos</strong></li>
+<li>another slow CV -&gt; <strong>Texture</strong></li>
+<li>manual Spread sweeps in Drone mode chord zone</li>
+</ul>
+<p>This creates weather systems, not just pads.</p>
+<hr />
+<h2>D. Evolving chord cloud in Drone mode</h2>
+<h3>Start here</h3>
+<ul>
+<li>Drone ON</li>
+<li>Main fractal: <strong>Cloud</strong> or <strong>Cluster</strong></li>
+<li>Primitive: <strong>Fibonacci</strong> or <strong>Rössler</strong></li>
+<li>Spread in Zone 3 chord area</li>
+<li>Texture: medium-high</li>
+<li>Speed: very slow</li>
+<li>Amount: low-medium</li>
+</ul>
+<h3>Then perform:</h3>
+<ul>
+<li>move Spread through:</li>
+<li>Maj triad spread</li>
+<li>Min triad spread</li>
+<li>Major 7th</li>
+<li>Minor 7th</li>
+<li>Just intonation</li>
+<li>7-limit flavor</li>
+<li>BP subset</li>
+</ul>
+<p>The microtuning options especially will produce eerie, alien, haunted harmony.</p>
+<h3>Best modulation addition</h3>
+<p>Use a slow CV into Pitch while in Drone mode for whole-cloud transposition. If you have four pitch CV sources, you can offset the four voice pairs separately while the 8-oscillator spread remains global.</p>
+<hr />
+<h1>Best CV sources to pair with Fractaos</h1>
+<p>Fractaos rewards particular modulation types.</p>
+<h2>Best for percussion</h2>
+<ul>
+<li>short decay envelopes</li>
+<li>accent envelopes</li>
+<li>stepped random</li>
+<li>burst generators</li>
+<li>trigger-synced sample &amp; hold</li>
+</ul>
+<p>Use these on:
+- Chaos
+- Texture
+- Morph
+- Spread</p>
+<h2>Best for bass</h2>
+<ul>
+<li>tempo-synced LFOs</li>
+<li>sequencer modulation lanes</li>
+<li>envelopes with adjustable decay</li>
+<li>slewed random</li>
+<li>manual controller CV</li>
+</ul>
+<p>Use these on:
+- Texture
+- Amount
+- Morph
+- Chaos</p>
+<h2>Best for pads</h2>
+<ul>
+<li>ultra-slow LFOs</li>
+<li>smooth random</li>
+<li>looping envelopes</li>
+<li>manual joystick or fader</li>
+<li>quantized slow CV for Drone Spread chord selection</li>
+</ul>
+<p>Use these on:
+- Texture
+- Morph
+- Pitch
+- Chaos very lightly</p>
+<hr />
+<h1>Modulation destinations ranked by musical usefulness</h1>
+<h2>For distorted percussion</h2>
+<ol>
+<li><strong>F-Chaos</strong></li>
+<li><strong>Texture</strong></li>
+<li><strong>Morph</strong></li>
+<li><strong>Spread</strong></li>
+<li><strong>P-Chaos</strong></li>
+</ol>
+<h2>For bass music</h2>
+<ol>
+<li><strong>Texture</strong></li>
+<li><strong>Amount</strong></li>
+<li><strong>Morph</strong></li>
+<li><strong>F-Chaos</strong></li>
+<li><strong>Spread</strong></li>
+</ol>
+<h2>For atmospheric pads</h2>
+<ol>
+<li><strong>Spread</strong> in Drone mode</li>
+<li><strong>Texture</strong></li>
+<li><strong>Morph</strong></li>
+<li><strong>Pitch</strong></li>
+<li><strong>P-Chaos / F-Chaos</strong> in very small amounts</li>
+</ol>
+<hr />
+<h1>High-value switch combos</h1>
+<h2>1. Retriggered animated note</h2>
+<ul>
+<li>Loop OFF</li>
+<li>Trig ON</li>
+<li>Morph ON</li>
+</ul>
+<p>Best for:
+- plucks
+- kicks
+- snare hybrids
+- bass stabs</p>
+<h2>2. Wobble machine</h2>
+<ul>
+<li>Loop ON</li>
+<li>Morph ON</li>
+<li>Spread ON</li>
+</ul>
+<p>Best for:
+- dubstep movement
+- chorused bass
+- unstable drones</p>
+<h2>3. Attack violence</h2>
+<ul>
+<li>Loop OFF</li>
+<li>Trig ON</li>
+<li>Chaos ON</li>
+</ul>
+<p>Best for:
+- drum transient corruption
+- bass attack tear
+- broken digital edge</p>
+<h2>4. Simplified FM</h2>
+<ul>
+<li>Loop OFF</li>
+<li>Trig OFF</li>
+<li>Morph ON</li>
+<li>Spread OFF</li>
+<li>Chaos OFF</li>
+</ul>
+<p>Best for:
+- metallic basses
+- harsh stabs
+- distorted synth tones</p>
+<h2>5. Full internal turbulence</h2>
+<ul>
+<li>Loop ON</li>
+<li>Morph ON</li>
+<li>Spread ON</li>
+<li>Chaos ON</li>
+</ul>
+<p>Best for:
+- extreme sound design
+- horror drones
+- glitch percussion
+- mutant bass FX</p>
+<p>Use attenuation and restraint here; it can get wild quickly.</p>
+<hr />
+<h1>Three complete patch examples</h1>
+<h2>Patch 1: DnB reese destroyer</h2>
+<p><strong>Goal:</strong> aggressive moving bass</p>
+<h3>Panel</h3>
+<ul>
+<li>Main: Cantor</li>
+<li>Primitive: Dragon</li>
+<li>Chaos: 35%</li>
+<li>Primitive Chaos: 45%</li>
+<li>Depth: 60%</li>
+<li>Primitive Depth: 45%</li>
+<li>Morph: 30%</li>
+<li>Spread: 40%</li>
+<li>Texture: 35%</li>
+<li>Speed: slow-medium</li>
+<li>Amount: 45%</li>
+<li>Pitch: low</li>
+</ul>
+<h3>Switches</h3>
+<ul>
+<li>Loop ON</li>
+<li>Spread ON</li>
+<li>optional Morph ON</li>
+</ul>
+<h3>CV</h3>
+<ul>
+<li>slow triangle LFO -&gt; Texture CV</li>
+<li>accent envelope -&gt; F-Chaos CV</li>
+<li>sequencer mod lane -&gt; Morph CV</li>
+</ul>
+<h3>Result</h3>
+<p>Wide, growling, moving bass with attack abrasion and phrase evolution.</p>
+<hr />
+<h2>Patch 2: Broken industrial snare</h2>
+<p><strong>Goal:</strong> distorted percussive hit with synthetic tail</p>
+<h3>Panel</h3>
+<ul>
+<li>Main: Snare</li>
+<li>Primitive: Rule30</li>
+<li>Chaos: 55%</li>
+<li>Primitive Chaos: 60%</li>
+<li>Depth: 40%</li>
+<li>Primitive Depth: 50%</li>
+<li>Morph: 50%</li>
+<li>Spread: 15%</li>
+<li>Texture: 60%</li>
+<li>Speed: fast</li>
+<li>Amount: 50%</li>
+</ul>
+<h3>Switches</h3>
+<ul>
+<li>Loop OFF</li>
+<li>Trig ON</li>
+<li>Morph ON</li>
+<li>Chaos ON</li>
+</ul>
+<h3>CV</h3>
+<ul>
+<li>trigger -&gt; Fractaos trig</li>
+<li>fast envelope -&gt; Texture CV</li>
+<li>stepped random -&gt; P-Chaos CV</li>
+</ul>
+<h3>Result</h3>
+<p>Snare hit with tearing digital edge, unstable brightness, and a weird tonal residue.</p>
+<hr />
+<h2>Patch 3: Haunted microtonal fog</h2>
+<p><strong>Goal:</strong> eerie ambient drone</p>
+<h3>Panel</h3>
+<ul>
+<li>Drone ON</li>
+<li>Main: Cluster</li>
+<li>Primitive: Fibonacci</li>
+<li>Chaos: 20%</li>
+<li>Primitive Chaos: 15%</li>
+<li>Depth: 70%</li>
+<li>Primitive Depth: 45%</li>
+<li>Morph: 35%</li>
+<li>Texture: 65%</li>
+<li>Speed: very slow</li>
+<li>Amount: 30%</li>
+<li>Spread: Zone 3, around Just intonation / 7-limit / BP subset</li>
+</ul>
+<h3>Switches</h3>
+<ul>
+<li>Loop ON</li>
+<li>Morph ON</li>
+<li>maybe very light Chaos ON</li>
+</ul>
+<h3>CV</h3>
+<ul>
+<li>slow random -&gt; Texture CV</li>
+<li>ultra-slow triangle -&gt; Morph CV</li>
+<li>manual performance on Spread</li>
+</ul>
+<h3>Result</h3>
+<p>A drifting harmonic cloud with slightly uncanny tuning and spectral vocal-like motion.</p>
+<hr />
+<h1>Practical performance tips</h1>
+<h2>1. Keep one hand on Texture</h2>
+<p>If I had to choose a single performance knob on Fractaos for live interest, it would often be <strong>Texture</strong>. It can move the sound from:
+- defined
+- to resonant
+- to organic
+- to unstable
+without simply acting like a plain filter sweep.</p>
+<h2>2. Use Chaos for transients, not only constant dirt</h2>
+<p>Especially for percussion and bass, Chaos is often strongest when it is:
+- moderate at rest
+- pushed by envelope/accent CV on attack</p>
+<p>That preserves body while adding violence.</p>
+<h2>3. For bass, don’t overdo Morph immediately</h2>
+<p>Too much Morph can dissolve the core note. Start lower than you think, then add modulation. Bass usually hits harder when the center of gravity remains audible.</p>
+<h2>4. Use Drum curves with Morph for hybrid hits</h2>
+<p>This is one of the module’s signature tricks:
+- drum transient
+- geometric sustain
+- fractured hybrid tone</p>
+<p>Perfect for:
+- neuro percussion
+- cinematic impacts
+- weird tom/bass hits</p>
+<h2>5. In Drone mode, Spread is compositional</h2>
+<p>On many modules, detune spread is just width. Here it becomes:
+- interval architecture
+- chord selection
+- microtonal atmosphere</p>
+<p>That’s much more powerful than typical unison spread.</p>
+<hr />
+<h1>Best “quick-start” settings by genre</h1>
+<h2>Distorted percussion quick start</h2>
+<ul>
+<li>Main: Snare / Kick / HiHat</li>
+<li>Primitive: Rule30 / Dragon / Collatz</li>
+<li>Trig ON</li>
+<li>Loop OFF</li>
+<li>Morph ON</li>
+<li>Chaos ON</li>
+<li>Texture medium-high</li>
+<li>envelope to F-Chaos or Texture</li>
+</ul>
+<h2>Dubstep / DnB quick start</h2>
+<ul>
+<li>Main: Cantor / Mandelbrot / Sierpinski / Rule30</li>
+<li>Primitive: Dragon / Rössler / Hilbert</li>
+<li>Loop ON</li>
+<li>Morph ON or Spread ON</li>
+<li>Texture medium</li>
+<li>Chaos medium</li>
+<li>sequencer CV to Texture</li>
+<li>try simplified FM mode for the nastiest tones</li>
+</ul>
+<h2>Haunted pad quick start</h2>
+<ul>
+<li>Main: Cloud / Cluster / Ensemble / Storm</li>
+<li>Primitive: Fibonacci / Julia / Rössler</li>
+<li>Drone ON</li>
+<li>Loop ON</li>
+<li>Morph ON</li>
+<li>very slow Speed</li>
+<li>medium-high Texture</li>
+<li>Spread in Zone 3 chord range</li>
+<li>very slow random CV to Texture</li>
+</ul>
+<hr />
+<h1>Final takeaway</h1>
+<p>The most unique thing about Fractaos is that it doesn’t sound best when treated like a normal oscillator plus filter. It excels when you think in layers:</p>
+<ol>
+<li>choose a fractal with the right native behavior  </li>
+<li>choose a primitive with contrasting motion  </li>
+<li>decide whether that motion should affect Morph, Spread, or Chaos  </li>
+<li>use CV to animate Texture, Chaos, and Amount in restrained but purposeful ways  </li>
+<li>for percussion, use retriggered modulation  </li>
+<li>for bass, use simplified FM, Texture movement, and Spread  </li>
+<li>for pads, use Drone mode and chord/microtuning Spread sweeps</li>
+</ol>
+<p>If you want, I can also turn this into:
+- a <strong>cheat sheet of best fractal pairings</strong>
+- a <strong>set of 20 patch recipes</strong>
+- or a <strong>“what to patch into each CV input” guide</strong></p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

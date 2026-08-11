@@ -1,0 +1,377 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-151_Quad_Sequential_Switch</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-151 Quad Sequential Switch</h1>
+<ul>
+<li><a href="../../manuals/A151_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100_man/a151_man.pdf">Doepfer A-151 Quad Sequential Switch Manual (PDF)</a></p>
+<h1>Doepfer A-151 for dense, hyper-complex percussion</h1>
+<p>The <strong>A-151 Quad Sequential Switch</strong> is not a sound source by itself — it’s a <strong>bi-directional 4-step sequential router</strong>. That makes it extremely powerful for <strong>rhythm design</strong>, because in modular percussion, routing is composition.</p>
+<p>Every trigger at <strong>Trig In</strong> advances the switch to the next stage. <strong>Reset In</strong> forces it back to step 1. On <strong>version 2</strong>, the <strong>2/3/4-step switch</strong> is especially useful for polyrhythms and odd cycles.</p>
+<h2>What it does best for percussion</h2>
+<p>Think of the A-151 as a way to:</p>
+<ul>
+<li>rotate one clock across several destinations</li>
+<li>rotate several sources into one destination</li>
+<li>create uneven repeating cycles</li>
+<li>generate polymetric accents</li>
+<li>switch modulation per hit</li>
+<li>create “phrase logic” from simple triggers</li>
+<li>reorder drum voices or drum parameters over time</li>
+</ul>
+<p>Because it is <strong>bi-directional</strong>, it works equally well as:</p>
+<ul>
+<li><strong>1 input -&gt; 4 outputs</strong></li>
+<li><strong>4 inputs -&gt; 1 output</strong></li>
+</ul>
+<p>That means it can distribute gates, or select between CV/audio/modulation sources.</p>
+<hr />
+<h1>Core percussion strategies</h1>
+<h2>1. Rotate one trigger stream across multiple drum voices</h2>
+<p>Patch:</p>
+<ul>
+<li>master rhythm or trigger source -&gt; <strong>O/I</strong></li>
+<li><strong>I/O 1–4</strong> -&gt; triggers for kick, snare, hat, clap</li>
+</ul>
+<p>Each incoming trigger advances to the next output, so one stream becomes a cycling voice allocator.</p>
+<h3>Why this is useful</h3>
+<p>This creates instant interlocking rhythms from a single pulse train. If your incoming clock is steady 16ths, the voices will fire in rotation, producing a distributed pattern instead of a unison stack.</p>
+<h3>Make it more complex</h3>
+<ul>
+<li>Clock the A-151 with a divider or irregular trigger source instead of the same trigger being routed</li>
+<li>Use the <strong>reset</strong> input every 3, 5, or 7 pulses to break the expected 4-step cycle</li>
+<li>Put the <strong>step switch</strong> on 3 while the rest of your patch is in 4-based timing for 3-against-4 interplay</li>
+</ul>
+<p>This is one of the easiest ways to get <strong>pseudo-African cross-rhythm</strong>, <strong>rotating accents</strong>, or <strong>IDM-style drum displacement</strong>.</p>
+<hr />
+<h2>2. Use it as a phrase-level accent distributor</h2>
+<p>Patch:</p>
+<ul>
+<li>accent gate stream -&gt; <strong>O/I</strong></li>
+<li><strong>I/O 1–4</strong> -&gt; accent CV/gate inputs on different percussion voices or VCAs</li>
+</ul>
+<p>Now each accent pulse lands on a different destination in sequence.</p>
+<h3>Result</h3>
+<p>Your percussion line becomes animated without needing a separate sequencer for every accent lane.</p>
+<h3>Advanced variation</h3>
+<p>Send the outputs to:
+- kick decay CV
+- snare pitch envelope trigger
+- hi-hat accent VCA
+- clap filter ping</p>
+<p>Now the same accent stream changes <em>which parameter</em> gets emphasized each hit.</p>
+<p>This is excellent for <strong>dense but controlled variation</strong>.</p>
+<hr />
+<h2>3. Route multiple trigger patterns into one drum voice</h2>
+<p>Patch:</p>
+<ul>
+<li>several different rhythm sources -&gt; <strong>I/O 1–4</strong></li>
+<li><strong>O/I</strong> -&gt; one drum voice trigger input</li>
+<li>another clock/pattern -&gt; <strong>Trig In</strong></li>
+</ul>
+<p>The A-151 will step through four trigger sources, deciding which pattern controls the drum voice at any given moment.</p>
+<h3>Great for:</h3>
+<ul>
+<li>one snare voice with shifting rhythmic identities</li>
+<li>one hat voice alternating between straight, triplet, burst, and sparse rhythms</li>
+<li>one kick that changes pattern every bar or half-bar</li>
+</ul>
+<h3>For hyper-complex results</h3>
+<p>Use rhythm sources of different lengths:
+- pattern 1 = 5 steps
+- pattern 2 = 7 steps
+- pattern 3 = 8 steps
+- pattern 4 = 9 steps</p>
+<p>Then clock the A-151 advancement independently from those patterns. The composite result takes a long time to repeat.</p>
+<p>This is a powerful <strong>meta-sequencing</strong> trick.</p>
+<hr />
+<h2>4. Polyrhythm engine via step-length limitation</h2>
+<p>If you have <strong>version 2</strong>, the <strong>2/3/4 switch</strong> is gold.</p>
+<h3>Patch idea</h3>
+<p>Use one A-151 in <strong>3-step mode</strong> while the rest of the system loops in 4, 8, or 16.</p>
+<p>For example:
+- 16th-note clock into <strong>Trig In</strong>
+- O/I gets a trigger stream
+- outputs go to 3 drum destinations
+- A-151 set to <strong>3 steps</strong></p>
+<p>Now the trigger rotates every 3 hits while your measure structure remains 4-based. This yields a repeating phase relationship over 12 pulses.</p>
+<h3>Musical effect</h3>
+<ul>
+<li>3 against 4</li>
+<li>asymmetrical accent cycles</li>
+<li>tumbling percussion</li>
+<li>evolving ostinatos</li>
+</ul>
+<p>If you reset it only every few bars, the feel becomes even less square.</p>
+<hr />
+<h2>5. Use reset for non-4-step structures</h2>
+<p>The <strong>Reset In</strong> is the key to complex time signatures.</p>
+<p>By forcing the switch back to stage 1 before completing 4 steps, you can create:</p>
+<ul>
+<li>3-step loops</li>
+<li>5-pulse phrases over 4-step routing</li>
+<li>irregular phrase restarts</li>
+<li>barline-dependent fills</li>
+</ul>
+<h3>Example: 7/8 behavior</h3>
+<ul>
+<li>send a steady 8th-note trigger to <strong>Trig In</strong></li>
+<li>use the A-151 to distribute accents or hits</li>
+<li>send a reset every 7 pulses</li>
+</ul>
+<p>Now the switching phrase cycles in a 7-pulse structure even though the module itself is 4-stage.</p>
+<h3>Example: additive meter</h3>
+<p>Reset at changing intervals:
+- 3 pulses
+- then 2
+- then 3
+This gives a <strong>3+2+3</strong> phrasing feel.</p>
+<p>If you have logic, clock dividers, or trigger sequencers, this becomes extremely expressive.</p>
+<hr />
+<h2>6. Switch between different modulation shapes per hit</h2>
+<p>Patch:</p>
+<ul>
+<li>four modulation sources into <strong>I/O 1–4</strong></li>
+<li>envelope</li>
+<li>stepped random</li>
+<li>fast decay envelope</li>
+<li>LFO or chaotic CV</li>
+<li><strong>O/I</strong> -&gt; drum parameter CV input</li>
+<li>pitch</li>
+<li>decay</li>
+<li>filter cutoff</li>
+<li>wavefold amount</li>
+<li>FM amount</li>
+<li>trigger stream into <strong>Trig In</strong></li>
+</ul>
+<p>Now each hit gets a different modulation source.</p>
+<h3>Excellent percussion targets</h3>
+<ul>
+<li>kick pitch: alternating punch profiles</li>
+<li>snare noise filter: changing brightness</li>
+<li>hi-hat decay: rotating closed/open/semi-open feel</li>
+<li>clap tone or reverb send level</li>
+<li>percussion oscillator FM depth</li>
+</ul>
+<p>This is where the A-151 becomes a <strong>variation machine</strong>.</p>
+<hr />
+<h2>7. Switch audio sources into a single percussion processing chain</h2>
+<p>Because the module can switch audio, use it to select among several raw sound sources before one shared VCA/filter/distortion chain.</p>
+<p>Patch:</p>
+<ul>
+<li>different audio sources into <strong>I/O 1–4</strong></li>
+<li>sine kick oscillator</li>
+<li>noise burst</li>
+<li>metallic source</li>
+<li>click/transient source</li>
+<li><strong>O/I</strong> -&gt; filter/VCA/distortion chain</li>
+<li>trigger the A-151 with your rhythm structure</li>
+</ul>
+<h3>Result</h3>
+<p>One percussion “voice” changes identity every hit or every phrase.</p>
+<p>This is great for:
+- glitch percussion
+- machine-like drum mutation
+- making a small system sound much larger</p>
+<h3>Important manual note</h3>
+<p>Older versions handle a smaller signal range than v2. Version 2 supports the full A-100 range. If your module is older, keep audio/CV levels within the safe range described in the manual.</p>
+<hr />
+<h2>8. Build rotating layers of micro-percussion</h2>
+<p>Send one fast trigger stream into the A-151 and route outputs to:
+- short noise ticks
+- filtered clicks
+- muted tom pings
+- ring-mod metallic taps</p>
+<p>Then mix all four voices.</p>
+<p>Because each sound only gets every fourth hit, the pattern becomes sparse per voice but dense as a whole. This is a classic way to get <strong>busy top-end percussion</strong> that still feels organized.</p>
+<h3>To intensify</h3>
+<p>Use a second irregular trigger stream to reset the A-151, causing the voice order to restart unexpectedly.</p>
+<hr />
+<h2>9. Create fills by changing destination mid-pattern</h2>
+<p>Use the A-151 to route a burst generator or ratchet source to different drum voices.</p>
+<p>Patch:
+- burst output -&gt; <strong>O/I</strong>
+- outputs to different percussion triggers
+- another sequence/clock controls <strong>Trig In</strong></p>
+<p>Each burst lands on a different drum destination over time.</p>
+<h3>Why this works</h3>
+<p>A single ratchet source becomes distributed fills:
+- kick stutters
+- snare rolls
+- hat flams
+- metallic glitches</p>
+<p>This is especially effective in techno, jungle, breakcore, and experimental rhythm.</p>
+<hr />
+<h2>10. Use high-speed switching for timbral percussion</h2>
+<p>The manual explicitly mentions that <strong>very fast triggering</strong> can create <strong>audio-frequency modulation</strong>. This means the A-151 can act as a crude timbral combiner when switched fast enough.</p>
+<h3>Patch</h3>
+<ul>
+<li>feed several audio waveforms or percussion partials into <strong>I/O 1–4</strong></li>
+<li>take <strong>O/I</strong> to a VCA/filter/output</li>
+<li>drive <strong>Trig In</strong> with a fast LFO or even a VCO square wave</li>
+</ul>
+<h3>Result</h3>
+<p>The switching becomes so fast it creates a new composite timbre. For percussion, this can produce:
+- aggressive digital-like transients
+- tearing metallic hits
+- unusual pseudo-bitcrushed attacks
+- animated hybrid drum tones</p>
+<h3>Best use</h3>
+<p>Don’t use this as your whole drum tone all the time. Use it for:
+- attack layers
+- transient enhancement
+- occasional fills
+- industrial percussion accents</p>
+<hr />
+<h1>Polyrhythm and odd-meter patch recipes</h1>
+<h2>Patch 1: 3-against-4 hi-hat rotation</h2>
+<ul>
+<li>steady 16th clock -&gt; trigger source into <strong>O/I</strong></li>
+<li><strong>I/O 1–3</strong> -&gt; three different hat or click voices</li>
+<li>set A-151 to <strong>3 steps</strong></li>
+<li>use a normal 4/4 kick/snare under it</li>
+</ul>
+<p>This gives a top layer that cycles every 3 hits against the bar.</p>
+<hr />
+<h2>Patch 2: 5-step accent phrase using reset</h2>
+<ul>
+<li>16th trigger stream into <strong>O/I</strong></li>
+<li>outputs -&gt; accent inputs for four drum parameters</li>
+<li>send regular clock to <strong>Trig In</strong></li>
+<li>send reset every <strong>5 triggers</strong></li>
+</ul>
+<p>The reset interrupts the natural 4-step order, creating a 5-pulse phrase contour.</p>
+<hr />
+<h2>Patch 3: Multi-pattern snare brain</h2>
+<ul>
+<li>four different gate patterns into <strong>I/O 1–4</strong></li>
+<li><strong>O/I</strong> -&gt; snare trigger</li>
+<li>slow clock divider to <strong>Trig In</strong></li>
+<li>reset every bar or every 3 bars</li>
+</ul>
+<p>Your snare pattern changes identity over the course of a phrase instead of just repeating.</p>
+<hr />
+<h2>Patch 4: 7/8 percussion distributor</h2>
+<ul>
+<li>8th-note pulse stream -&gt; <strong>O/I</strong></li>
+<li>outputs -&gt; kick, rim, hat, clap</li>
+<li>regular pulse to <strong>Trig In</strong></li>
+<li>reset every 7 pulses</li>
+</ul>
+<p>Now the voice distribution lives in a 7/8 phrase.</p>
+<hr />
+<h2>Patch 5: Evolving drum modulation matrix</h2>
+<ul>
+<li>envelope A, random CV, slow triangle, decay envelope -&gt; <strong>I/O 1–4</strong></li>
+<li><strong>O/I</strong> -&gt; FM or decay CV of one percussion voice</li>
+<li>trigger advance from the same pulse that triggers the voice</li>
+</ul>
+<p>Every hit changes the behavior of the sound source.</p>
+<hr />
+<h1>Best percussion applications by target</h1>
+<h2>Kick</h2>
+<p>Use the A-151 to rotate:
+- different pitch envelopes
+- different decay CV amounts
+- different click layers
+- different trigger patterns</p>
+<p>This gives kicks that alternate between:
+- short punch
+- long boom
+- hard transient
+- muted ghost hit</p>
+<h2>Snare</h2>
+<p>Rotate:
+- noise sources
+- filter settings
+- envelope shapes
+- trigger densities</p>
+<p>This can make one snare voice behave like a full evolving snare section.</p>
+<h2>Hi-hats</h2>
+<p>This is where the A-151 really shines.
+Rotate:
+- closed/open hat triggers
+- different decay CVs
+- different noise/filter combinations
+- accents
+- burst density</p>
+<p>You get extremely articulate upper percussion with minimal modules.</p>
+<h2>Metallic percussion / FM percussion</h2>
+<p>Switch:
+- modulation index sources
+- oscillator relationships
+- trigger streams
+- waveforms</p>
+<p>This creates animated clangorous rhythms perfect for industrial, electro, or broken beat.</p>
+<hr />
+<h1>Performance tips</h1>
+<h2>Use reset musically</h2>
+<p>Don’t think of reset as only “start over.”
+Use it as:
+- barline correction
+- phrase punctuation
+- fill generator
+- odd-meter enforcer
+- live improvisation control</p>
+<p>A manual gate button into reset can be very powerful in performance.</p>
+<h2>Clock the switch separately from the triggers it routes</h2>
+<p>This is one of the most important tricks.</p>
+<p>If the trigger stream being switched is not the same as the clock advancing the switch, you get much richer behavior:
+- missed hits
+- shifted accents
+- phase patterns
+- long non-repeating structures</p>
+<h2>Pair it with dividers, multipliers, logic, and burst sources</h2>
+<p>The A-151 becomes far more powerful when fed by:
+- clock dividers
+- Euclidean rhythms
+- logic outputs
+- Bernoulli gates
+- burst generators
+- trigger delays</p>
+<p>These modules create the complexity; the A-151 distributes and reorganizes it.</p>
+<h2>Use multiple time scales</h2>
+<p>Try:
+- fast triggers for local variation
+- slower trigger advancement for phrase movement
+- even slower resets for macro-structure</p>
+<p>This gives nested rhythm:
+- hit level
+- beat level
+- bar level
+- phrase level</p>
+<p>That is how you get genuinely complex percussion instead of mere randomness.</p>
+<hr />
+<h1>A few “hyper-complex” patch concepts</h1>
+<h2>Rotating ratchet allocator</h2>
+<p>One ratchet source into O/I, outputs to 4 percussion voices, irregular clock on Trig In, reset every 11 or 13 pulses.</p>
+<h2>Asymmetric modulation drummer</h2>
+<p>Four CV sources into I/O, O/I to drum pitch/decay/filter, step length set to 3, voice trigger in 4/4.</p>
+<h2>Meta-polyrhythm selector</h2>
+<p>Four independent sequenced trigger patterns into I/O, O/I to one voice, switch advanced by a separate 5-step clock.</p>
+<h2>Glitch voice compositor</h2>
+<p>Four audio transients into I/O, fast oscillator clocks Trig In, O/I to distortion/VCA for brutal digital percussion.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Doepfer A-151</strong> is excellent for <strong>complex percussion</strong>, not because it generates rhythms by itself, but because it lets you <strong>reassign rhythmic function over time</strong>.</p>
+<p>For dense, advanced rhythmic music, use it to:</p>
+<ul>
+<li>rotate triggers across voices</li>
+<li>rotate modulation across drum parameters</li>
+<li>select between multiple trigger patterns</li>
+<li>create 3-, 5-, 7-, and mixed-length phrases with reset</li>
+<li>generate polymeter with the 2/3/4 step limit</li>
+<li>switch audio sources for composite drum timbres</li>
+<li>create fast-switched glitch percussion textures</li>
+</ul>
+<p>In a percussion-focused rack, this module is basically a <strong>rhythmic router/composer</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

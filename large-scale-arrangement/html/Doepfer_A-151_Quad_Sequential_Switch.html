@@ -1,0 +1,598 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-151_Quad_Sequential_Switch</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-151 Quad Sequential Switch</h1>
+<ul>
+<li><a href="../../manuals/A151_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100_man/a151_man.pdf">Manual PDF</a></p>
+<h1>Doepfer A-151 Quad Sequential Switch: using it to build full-length songs</h1>
+<p>The <strong>Doepfer A-151</strong> is deceptively simple, but for song-making it’s one of the most useful “arrangement” tools in Eurorack. It is basically a <strong>4-step sequential switch</strong>: each trigger advances the common jack to the next of four jacks, and a reset returns it to step 1. Version 2 also adds a <strong>2/3/4 step selector</strong> and supports the full <strong>±12V</strong> A-100 range.</p>
+<p>The key idea for full-length songs is this:</p>
+<blockquote>
+<p>The A-151 is not just for switching signals — it is for switching <em>states</em>, <em>roles</em>, <em>sections</em>, and <em>musical decisions over time</em>.</p>
+</blockquote>
+<p>That makes it ideal for moving from “cool loop” to <strong>structured progression</strong>.</p>
+<hr />
+<h2>What the module does well</h2>
+<p>From the manual:</p>
+<ul>
+<li>1 common <strong>O/I</strong> jack</li>
+<li>4 switched <strong>I/O</strong> jacks</li>
+<li><strong>Trigger input</strong> advances step-by-step</li>
+<li><strong>Reset input</strong> returns to stage 1</li>
+<li><strong>Bidirectional switching</strong></li>
+<li>4 inputs → 1 output</li>
+<li>or 1 input → 4 outputs</li>
+<li>LEDs show current stage</li>
+<li>Version 2 can limit to <strong>2, 3, or 4 steps</strong></li>
+</ul>
+<p>In musical terms, that means:</p>
+<ul>
+<li>rotate between <strong>different modulation sources</strong></li>
+<li>rotate between <strong>different destinations</strong></li>
+<li>create <strong>repeating sections</strong></li>
+<li>create <strong>fills and variations</strong></li>
+<li>route one sequence to different voices</li>
+<li>route multiple timbres into one signal chain</li>
+<li>reset the “form” of a patch at musically meaningful moments</li>
+</ul>
+<hr />
+<h1>Why it matters for full songs</h1>
+<p>A lot of modular patches fail to become songs because they lack:</p>
+<ol>
+<li><strong>Section changes</strong></li>
+<li><strong>Contrast</strong></li>
+<li><strong>Repeatable structure</strong></li>
+<li><strong>A way to return to “home”</strong></li>
+<li><strong>Controlled variation without repatching</strong></li>
+</ol>
+<p>The A-151 solves all five.</p>
+<p>It can act like a <strong>mini arrangement brain</strong> when driven by clocks, clock dividers, trigger sequencers, logic, or manual gate buttons.</p>
+<hr />
+<h1>Core song-building strategies</h1>
+<h2>1. Use it as a section selector</h2>
+<p>Patch four different CV or audio “scenes” into the four I/O jacks, and use the common jack as your active output.</p>
+<p>Examples of scene sources:</p>
+<ul>
+<li>four different melodic CV patterns</li>
+<li>four different transposition voltages</li>
+<li>four different envelope shapes</li>
+<li>four different drum trigger patterns</li>
+<li>four different filter settings via offset voltages</li>
+<li>four different submixes of voices</li>
+</ul>
+<p>Then clock the A-151 <strong>slowly</strong>, not per 16th note. Think:</p>
+<ul>
+<li>advance every 8 bars</li>
+<li>advance every 16 bars</li>
+<li>reset every 32 bars</li>
+</ul>
+<p>This turns the switch into:</p>
+<ul>
+<li><strong>Verse</strong></li>
+<li><strong>Pre-chorus</strong></li>
+<li><strong>Chorus</strong></li>
+<li><strong>Breakdown</strong></li>
+</ul>
+<h3>Patch idea</h3>
+<ul>
+<li>Four sequencer rows or four stored voltages → A-151 I/O 1–4</li>
+<li>A-151 O/I → oscillator 1V/oct transposition input via precision adder</li>
+<li>Clock divider output → A-151 Trigger</li>
+<li>Master “start of bar 1” pulse → A-151 Reset</li>
+</ul>
+<p>Result: each section gets its own harmonic center or melodic contour, but the whole piece remains synchronized.</p>
+<hr />
+<h2>2. Use it to swap rhythmic patterns over longer timescales</h2>
+<p>A common modular trap is one great drum loop forever. The A-151 fixes that immediately.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Four trigger pattern sources into I/O 1–4:</li>
+<li>straight kick pattern</li>
+<li>denser kick variation</li>
+<li>sparse breakdown pattern</li>
+<li>fill pattern</li>
+<li>O/I → kick drum trigger input</li>
+<li>Advance A-151 every 4 or 8 bars</li>
+<li>Reset every 16 or 32 bars</li>
+</ul>
+<p>Do the same on another A-151 for hats or snares.</p>
+<p>This creates <strong>macro-rhythm evolution</strong>:
+- section A: restrained groove
+- section B: busier groove
+- section C: stripped-down groove
+- section D: fill / transition</p>
+<p>Because the A-151 is sequential and resettable, you can make these changes happen at predictable musical points.</p>
+<hr />
+<h2>3. Use it as a destination router for one melodic source</h2>
+<p>Because the switch is bidirectional, you can send one common source to four different outputs.</p>
+<p>This is powerful for arrangement.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Sequencer melody → A-151 O/I</li>
+<li>I/O 1 → bass voice pitch</li>
+<li>I/O 2 → lead voice pitch</li>
+<li>I/O 3 → FM voice pitch</li>
+<li>I/O 4 → sampler / pluck voice pitch</li>
+<li>Trigger A-151 every 8 bars</li>
+</ul>
+<p>Now one melodic source gets reassigned to different instruments across the song.</p>
+<p>This creates:</p>
+<ul>
+<li>intro: bass only</li>
+<li>verse: lead takes over</li>
+<li>bridge: weird FM reinterpretation</li>
+<li>outro: pluck variation</li>
+</ul>
+<p>Very song-like, very efficient.</p>
+<hr />
+<h2>4. Use it to rotate modulation “moods”</h2>
+<p>One of the best ways to make sections feel different is not changing notes, but changing <strong>motion</strong>.</p>
+<h3>Patch idea</h3>
+<p>Patch four modulation sources into the A-151:</p>
+<ul>
+<li>I/O 1: slow triangle LFO</li>
+<li>I/O 2: stepped random</li>
+<li>I/O 3: envelope loop</li>
+<li>I/O 4: manual offset / fixed voltage</li>
+</ul>
+<p>O/I goes to:
+- filter cutoff CV
+- wavefolder CV
+- delay time CV
+- reverb size CV
+- VCA CV depth control</p>
+<p>Advance every few bars.</p>
+<p>This gives each section a new animation style:
+- smooth
+- jagged
+- pulsing
+- static</p>
+<p>That’s often enough to turn a repetitive loop into an arranged performance.</p>
+<hr />
+<h2>5. Use reset to enforce song form</h2>
+<p>Reset is where the A-151 becomes a real arranger instead of a fancy variation switch.</p>
+<p>If you feed the reset input from a master sequencer, clock divider, or end-of-cycle event, you can force the arrangement to return to section 1 at exact boundaries.</p>
+<p>Examples:
+- reset every 64 bars
+- reset at the start of each performance take
+- reset after a fill
+- reset after a manually triggered transition</p>
+<p>This makes structures like:</p>
+<ul>
+<li><strong>A A B A</strong></li>
+<li><strong>Verse Verse Chorus Verse</strong></li>
+<li><strong>3-step phrase plus reset</strong></li>
+<li><strong>4-bar loop with 1-bar fill, then restart</strong></li>
+</ul>
+<p>Even on a pure modular system, that gives you a repeatable backbone.</p>
+<hr />
+<h1>Best full-song use cases</h1>
+<h2>A. Intro → groove → breakdown → climax</h2>
+<p>Use the four steps as four energy states.</p>
+<h3>Step assignments</h3>
+<ol>
+<li><strong>Intro</strong></li>
+<li>sparse percussion</li>
+<li>low filter cutoff</li>
+<li>no bass</li>
+<li>
+<p>lots of reverb</p>
+</li>
+<li>
+<p><strong>Groove</strong></p>
+</li>
+<li>kick + hats active</li>
+<li>bass sequence enters</li>
+<li>
+<p>moderate modulation</p>
+</li>
+<li>
+<p><strong>Breakdown</strong></p>
+</li>
+<li>drums reduced</li>
+<li>lead or pad emphasized</li>
+<li>long envelopes</li>
+<li>
+<p>transposed harmony</p>
+</li>
+<li>
+<p><strong>Climax / fill</strong></p>
+</li>
+<li>full drums</li>
+<li>open filter</li>
+<li>extra modulation</li>
+<li>denser trigger pattern</li>
+</ol>
+<p>Advance one step every 8 or 16 bars, then reset after step 4.</p>
+<p>This is probably the most direct way to use the A-151 for song form.</p>
+<hr />
+<h2>B. Verse / chorus harmonic switching</h2>
+<p>If you already have a melodic loop, the easiest way to make it song-length is to change harmony while preserving rhythm.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Main melody CV stays constant</li>
+<li>A-151 switches among four transposition voltages:</li>
+<li>0 semitones</li>
+<li>+5 semitones</li>
+<li>+7 semitones</li>
+<li>-2 semitones</li>
+<li>Output goes through a precision adder with the melody CV</li>
+<li>Advance every 8 bars</li>
+</ul>
+<p>Now the same motif behaves differently across sections.</p>
+<p>This is especially strong for techno, ambient, synth-pop, and Berlin-school style modular songwriting.</p>
+<hr />
+<h2>C. Drum arrangement manager</h2>
+<p>The A-151 is excellent for selecting among several trigger streams for one drum voice.</p>
+<h3>For example, on the snare:</h3>
+<ul>
+<li>I/O 1: backbeat only</li>
+<li>I/O 2: backbeat + ghost note</li>
+<li>I/O 3: sparse breakdown snare</li>
+<li>I/O 4: snare roll fill</li>
+</ul>
+<p>Or on hats:
+- I/O 1: 8ths
+- I/O 2: 16ths
+- I/O 3: offbeat only
+- I/O 4: burst pattern</p>
+<p>By clocking the switch from a divider or trigger sequencer, you gain arrangement without touching the patch.</p>
+<hr />
+<h2>D. Bassline evolution without changing voice</h2>
+<p>Take four pitch or gate variations of one bassline and let the A-151 rotate through them.</p>
+<h3>Example</h3>
+<ul>
+<li>same rhythm, four pitch variants</li>
+<li>or same pitch row, four gate densities</li>
+<li>or four different accent envelopes</li>
+</ul>
+<p>Use:
+- Trigger every 4 bars
+- Reset every 16 bars</p>
+<p>This gives a familiar repeated motif that still develops, which is exactly what full songs need.</p>
+<hr />
+<h2>E. Call-and-response with one sequencer</h2>
+<p>Because the switch is bidirectional, one sequence can address different voices in turn.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequencer CV/gate to O/I or parallel utility routing</li>
+<li>I/O 1 → bass</li>
+<li>I/O 2 → lead</li>
+<li>I/O 3 → chord voice</li>
+<li>I/O 4 → percussion modulation destination</li>
+</ul>
+<p>Each section sends the same compositional material somewhere else.</p>
+<p>This produces a strong sense of <strong>orchestration over time</strong>, even with limited gear.</p>
+<hr />
+<h1>Advanced song-form techniques</h1>
+<h2>1. Pair it with a clock divider for long arrangements</h2>
+<p>The biggest mistake is clocking the A-151 too fast. For song structure, use divided clocks.</p>
+<p>Useful sources:
+- /16
+- /32
+- /64
+- end-of-pattern pulse from a sequencer</p>
+<p>Examples:
+- advance every 2 bars for lively IDM
+- every 4 bars for pop-like phrasing
+- every 8 bars for techno sections
+- every 16 bars for long-form ambient evolution</p>
+<p>A clock divider or trigger sequencer is almost essential here.</p>
+<hr />
+<h2>2. Use the 2/3/4 step switch for asymmetrical sections</h2>
+<p>On version 2, the step-count switch is very useful musically.</p>
+<h3>2-step mode</h3>
+<p>Perfect for:
+- verse/chorus alternation
+- A/B harmonic toggling
+- dry/wet alternation
+- kick pattern variation</p>
+<h3>3-step mode</h3>
+<p>Great for:
+- 3-part phrases
+- “expectation breaking” loops
+- polymetric song movement
+- A/B/C forms</p>
+<h3>4-step mode</h3>
+<p>Best for:
+- full cycle song structures
+- intro / verse / bridge / chorus
+- four-stage energy build</p>
+<p>Three-step mode in particular can help avoid the too-square feeling many modular patches have.</p>
+<hr />
+<h2>3. Use it with logic modules for fills and conditional transitions</h2>
+<p>If you combine the A-151 with logic or comparator modules, you can get more performable structures.</p>
+<p>Examples:
+- trigger advance only when a gate is high
+- reset only when a manual button and end-of-bar pulse coincide
+- alternate between two steps unless a fill trigger forces step 4
+- use probability to occasionally skip to the next state</p>
+<p>This lets the A-151 behave more like a song-aware router than a simple rotary switch.</p>
+<p>Useful partner modules:
+- logic
+- AND/OR combiners
+- comparators
+- Bernoulli/probability gates
+- sequential trigger generators</p>
+<hr />
+<h2>4. Build “scene memories” with fixed voltages</h2>
+<p>The A-151 doesn’t store voltages itself, but it can select among four prepared voltages.</p>
+<p>If you patch four offsets into it, each step can define a different global setting for:
+- filter cutoff
+- effect send amount
+- wavefolding depth
+- drum decay
+- VCA bias
+- oscillator FM amount</p>
+<p>Think of these as <strong>song scenes</strong>.</p>
+<p>If one A-151 changes pitch/transposition and another changes timbre offsets at the same time, your sections become much more convincing.</p>
+<hr />
+<h2>5. Switch submixes, not just single signals</h2>
+<p>A high-leverage technique is feeding the A-151 with outputs from mixers or VCAs rather than individual raw voices.</p>
+<p>For instance:
+- I/O 1 = dry drum bus
+- I/O 2 = drum bus + clap send
+- I/O 3 = filtered drum bus
+- I/O 4 = FX-heavy drum fill bus</p>
+<p>Or:
+- I/O 1 = bass voice only
+- I/O 2 = bass + pad
+- I/O 3 = lead + hats
+- I/O 4 = full ensemble</p>
+<p>Now the A-151 is selecting between <strong>arrangement layers</strong>, not just single waveforms.</p>
+<p>That’s much closer to how songs are actually structured.</p>
+<hr />
+<h1>Practical full-song patch recipes</h1>
+<h2>Patch 1: 4-section techno arranger</h2>
+<h3>Modules</h3>
+<ul>
+<li>master clock</li>
+<li>clock divider</li>
+<li>drum sequencer or trigger sequencers</li>
+<li>bass sequencer</li>
+<li>1–2 voices</li>
+<li>filter</li>
+<li>VCA</li>
+<li>mixer</li>
+<li>A-151</li>
+</ul>
+<h3>Patch</h3>
+<ul>
+<li>Four kick patterns → A-151 #1 I/O 1–4</li>
+<li>A-151 #1 O/I → kick trigger</li>
+<li>Four transposition voltages → A-151 #2 I/O 1–4</li>
+<li>A-151 #2 O/I → precision adder → bass voice pitch</li>
+<li>Clock divider /32 → both A-151 triggers</li>
+<li>Reset at 64-bar boundary → both reset inputs</li>
+</ul>
+<h3>Section plan</h3>
+<ol>
+<li>intro: no kick or sparse kick, low bass transpose</li>
+<li>groove: main kick pattern, bass enters</li>
+<li>breakdown: reduced kick, alternate transposition</li>
+<li>peak: denser kick/fill, brighter bass section</li>
+</ol>
+<p>This creates a loop with real macro-development.</p>
+<hr />
+<h2>Patch 2: Ambient evolving composition</h2>
+<h3>Use case</h3>
+<p>Less about verse/chorus, more about gradual scene morphing.</p>
+<h3>Patch</h3>
+<ul>
+<li>Four modulation sources → A-151 I/O 1–4</li>
+<li>O/I → filter cutoff CV</li>
+<li>Another A-151:</li>
+<li>four audio sources or four FX-return levels</li>
+<li>selected into one main path</li>
+<li>Trigger both from a very slow clock or manual gate</li>
+<li>Reset only occasionally or by hand</li>
+</ul>
+<p>This works well for:
+- drone albums
+- generative pieces with recurring structure
+- live ambient sets where section changes should be subtle but intentional</p>
+<hr />
+<h2>Patch 3: Songified acid line</h2>
+<h3>Problem</h3>
+<p>Classic acid patches loop endlessly.</p>
+<h3>Solution</h3>
+<p>Use the A-151 to rotate among:
+- four accent patterns
+- or four gate patterns
+- or four transposition offsets</p>
+<h3>Patch</h3>
+<ul>
+<li>one 303-style pitch line remains constant</li>
+<li>A-151 switches among four gate/accent variants every 8 bars</li>
+<li>reset every 32 bars</li>
+</ul>
+<p>Result:
+- same hook
+- changing phrase articulation
+- recognizable identity with long-form variation</p>
+<p>Very effective.</p>
+<hr />
+<h2>Patch 4: Keyboard performance song mode</h2>
+<p>The manual notes that a keyboard gate can trigger switching. This is excellent for performable songs.</p>
+<h3>Patch</h3>
+<ul>
+<li>keyboard gate → A-151 trigger</li>
+<li>four envelopes into A-151</li>
+<li>A-151 output → filter CV</li>
+</ul>
+<p>Each played note advances to a new articulation.</p>
+<p>Expand that concept:
+- use one A-151 for filter envelope choice
+- one for oscillator waveform source selection
+- one for effects send amount</p>
+<p>Now playing successive notes naturally creates song progression. This is especially good for:
+- live synth-pop
+- modular lead performance
+- arpeggiated melodic storytelling</p>
+<hr />
+<h1>Great module partners for the A-151</h1>
+<h2>Sequencers</h2>
+<p>Use with:
+- pitch sequencers
+- trigger sequencers
+- gate sequencers
+- CV recorders</p>
+<p>Why:
+- switch between phrases
+- direct one phrase to multiple roles
+- arrange patterns across bars</p>
+<h2>Clock dividers / multipliers</h2>
+<p>Use with:
+- Pam’s-style clocks
+- divider trees
+- trigger delays</p>
+<p>Why:
+- create musically meaningful section lengths
+- sync transitions to bars and phrases</p>
+<h2>Precision adders / quantizers</h2>
+<p>Use with:
+- transposition voltages
+- melodic scene changes</p>
+<p>Why:
+- preserve tuning while changing section harmony</p>
+<h2>VCAs and mixers</h2>
+<p>Use with:
+- layered voice groups
+- envelope-dependent scenes
+- submix switching</p>
+<p>Why:
+- turn simple switching into arrangement-level changes</p>
+<h2>Logic / probability</h2>
+<p>Use with:
+- fills
+- conditional resets
+- performance interaction</p>
+<p>Why:
+- make transitions less mechanical</p>
+<h2>Envelopes and modulation sources</h2>
+<p>Use with:
+- different animation profiles for each section</p>
+<p>Why:
+- sections feel composed, not merely switched</p>
+<hr />
+<h1>Important musical tips</h1>
+<h2>1. Think in bars, not triggers</h2>
+<p>For full songs, don’t ask:
+- “what happens every pulse?”</p>
+<p>Ask:
+- “what happens every 4 bars?”
+- “what happens every 8 bars?”
+- “what returns every 32 bars?”</p>
+<p>That is where the A-151 shines.</p>
+<h2>2. Reset is composition</h2>
+<p>Without reset, the switch just cycles.
+With reset, it becomes form.</p>
+<h2>3. Use multiple A-151s for coordinated scene changes</h2>
+<p>One can change:
+- rhythm</p>
+<p>Another:
+- harmony</p>
+<p>Another:
+- timbre</p>
+<p>Triggered together, they create convincing section shifts.</p>
+<h2>4. Don’t switch too many things at once</h2>
+<p>If every parameter changes on every section, it can sound arbitrary.
+Usually best:
+- 1 rhythmic change
+- 1 harmonic/timbral change
+- 1 textural change</p>
+<h2>5. Create tension by delaying one layer</h2>
+<p>For example:
+- drums change at bar 9
+- bass changes at bar 13
+- melody changes at bar 17</p>
+<p>You can do this with separate A-151s driven by different clock divisions or reset structures.</p>
+<hr />
+<h1>Limitations and how to work around them</h1>
+<h2>No voltage address</h2>
+<p>The A-151 is sequential, not CV-addressed.
+So you can’t directly jump to arbitrary steps via CV.</p>
+<h3>Workaround</h3>
+<p>Use:
+- reset cleverly
+- different trigger streams
+- companion sequential switches
+- manual triggers for performance</p>
+<h2>It switches one path at a time</h2>
+<p>So it doesn’t mute/unmute many parts independently like a matrix mixer.</p>
+<h3>Workaround</h3>
+<p>Use it upstream of:
+- VCAs
+- mixers
+- submixes
+- logic-controlled gates</p>
+<h2>Audible switching may be noticeable with some material</h2>
+<p>That can be a feature or a bug.</p>
+<h3>Workaround</h3>
+<ul>
+<li>switch at phrase boundaries</li>
+<li>use envelopes/VCAs to soften transitions</li>
+<li>embrace it for rhythmic cuts and glitches</li>
+</ul>
+<hr />
+<h1>My favorite full-song roles for the A-151</h1>
+<p>If I were using this module specifically to turn loops into songs, I would prioritize these roles:</p>
+<ol>
+<li><strong>Section transposition selector</strong></li>
+<li><strong>Drum pattern rotator</strong></li>
+<li><strong>Envelope/timbre scene selector</strong></li>
+<li><strong>Voice reassignment router</strong></li>
+<li><strong>Breakdown/fill reset controller</strong></li>
+</ol>
+<p>Those five uses alone can create surprisingly complete arrangements.</p>
+<hr />
+<h1>Example full arrangement concept</h1>
+<p>Here’s one practical “whole song” concept using a single A-151.</p>
+<h2>Song structure</h2>
+<ul>
+<li>8 bars intro</li>
+<li>16 bars verse groove</li>
+<li>8 bars breakdown</li>
+<li>16 bars chorus/peak</li>
+<li>reset and repeat with small live tweaks</li>
+</ul>
+<h2>A-151 assignment</h2>
+<ul>
+<li>I/O 1: sparse drum pattern + dark filter offset</li>
+<li>I/O 2: full groove pattern + root bass transpose</li>
+<li>I/O 3: reduced drums + higher reverb send</li>
+<li>I/O 4: dense hats/fill pattern + brighter filter + fifth transpose</li>
+</ul>
+<h3>Control</h3>
+<ul>
+<li>advance every 8 bars</li>
+<li>reset after step 4</li>
+</ul>
+<p>Even with just one switch, that’s a real song form.</p>
+<p>With two or three A-151s, it becomes a serious modular arrangement system.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>The <strong>Doepfer A-151</strong> is a classic “small utility, big compositional impact” module.</p>
+<p>It helps create full-length songs by giving you a way to:</p>
+<ul>
+<li>organize <strong>sections</strong></li>
+<li>rotate <strong>patterns</strong></li>
+<li>vary <strong>timbre</strong></li>
+<li>redirect <strong>melodies</strong></li>
+<li>control <strong>energy flow</strong></li>
+<li>create <strong>repeatable form with resets</strong></li>
+</ul>
+<p>In other words, it helps solve the modular problem of being stuck in a great 8-bar loop.</p>
+<p>Used with clocks, dividers, sequencers, VCAs, mixers, logic, and a few carefully chosen modulation sources, the A-151 can become a compact but powerful <strong>song-arrangement engine</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

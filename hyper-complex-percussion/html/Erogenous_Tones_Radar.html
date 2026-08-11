@@ -1,0 +1,533 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erogenous_Tones_Radar</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erogenous Tones — Radar</h1>
+<ul>
+<li><a href="../../manuals/radar-instructions.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://erogenous-tones.com">Manual PDF / info page</a></p>
+<h1>Erogenous Tones RADAR for dense, hyper-complex percussion</h1>
+<p>RADAR is not a sound source by itself — it’s an <strong>8-channel envelope/LFO generator</strong>. That makes it extremely strong for <strong>percussion architecture</strong>: shaping drum voices, pinging filters/LPGs, modulating VCAs, creating clock-related motion, and building interlocked rhythmic systems.</p>
+<p>Because it gives you <strong>8 envelopes</strong>, <strong>repeating mode</strong>, <strong>AR/AD behavior</strong>, <strong>digital vs analog modeling</strong>, <strong>composite outputs</strong>, and <strong>quad/oct phase relationships</strong>, it is ideal for:</p>
+<ul>
+<li>polymetric trigger shaping</li>
+<li>layered transient design</li>
+<li>evolving per-step drum articulation</li>
+<li>phase-shifted rhythmic modulation</li>
+<li>burst-like envelope-derived percussion</li>
+<li>pseudo-Euclidean and rotating accent systems</li>
+</ul>
+<hr />
+<h2>What RADAR is best at for percussion</h2>
+<p>Think of RADAR as a <strong>rhythm sculptor</strong>, not just an envelope bank.</p>
+<p>You can use it to:</p>
+<ul>
+<li>shape <strong>kick, snare, hat, clap, tom, FM percussion, noise bursts</strong></li>
+<li>create <strong>different envelope lengths</strong> across voices for polyrhythmic feel</li>
+<li>generate <strong>repeating envelopes as LFOs</strong> that act like rhythmic modulators</li>
+<li>create <strong>offset phase envelopes</strong> in QUAD or OCT mode for rotating rhythms</li>
+<li>derive <strong>composite accent patterns</strong> using lane 4 and lane 8 max outputs</li>
+<li>use <strong>analog vs digital behavior</strong> to change whether retriggers snap or glide</li>
+</ul>
+<p>If your goal is “densely rhythmic with hyper-complex percussion,” RADAR can become the <strong>central articulation engine</strong> for nearly every drum layer in the patch.</p>
+<hr />
+<h1>Core concepts from the manual that matter most musically</h1>
+<h2>1. Envelope Mode = 8 independent rhythm articulators</h2>
+<p>In <strong>ENVELOPE MODE</strong>, each of the 8 lanes can be its own:</p>
+<ul>
+<li><strong>AD envelope</strong></li>
+<li><strong>AR envelope</strong></li>
+<li><strong>Repeating envelope / LFO</strong></li>
+</ul>
+<p>This is the most direct mode for complex percussion patches because each lane can control a separate part of the drum ecosystem.</p>
+<p>Good uses:
+- one lane per drum voice
+- one lane for amplitude, another for pitch on the same drum
+- one lane for transient click, another for body
+- one lane for filter ping, one for distortion amount, one for decay length</p>
+<hr />
+<h2>2. Trigger normalization is very useful for cascaded rhythm systems</h2>
+<p>Each channel’s trigger input is <strong>normalized to the next channel below it</strong>.</p>
+<p>That means one trigger stream can be distributed down multiple lanes until you patch over it.</p>
+<p>This is fantastic for percussion because you can:
+- send one master pattern into the top lane
+- let several lower lanes inherit it
+- then patch specific lanes differently to create divergence</p>
+<p>This gives you a patch that feels related, but not repetitive.</p>
+<hr />
+<h2>3. Repeating mode can act like an LFO/clocked pulse shaper</h2>
+<p>Each lane can be set to <strong>Repeating</strong> mode.</p>
+<p>That means you can turn envelopes into:
+- cyclic percussion modulation
+- ratchet-like motion
+- rotating accent shapes
+- independent modulation clocks</p>
+<p>Because each lane can run at a different rise/fall time, you can make:
+- one lane cycling in 5-beat-feel
+- another in 7-beat-feel
+- another in short fast bursts for hat chatter</p>
+<p>Even without a dedicated trigger sequencer, repeating lanes can create living rhythmic motion.</p>
+<hr />
+<h2>4. Digital vs Analog modeling changes rhythmic feel</h2>
+<p>The manual’s distinction here is very important.</p>
+<h3>Digital mode</h3>
+<ul>
+<li>retriggers reset the envelope to zero immediately</li>
+<li>creates hard discontinuities</li>
+<li>repeating frequency is constant</li>
+</ul>
+<p>For percussion this is:
+- tighter
+- sharper
+- more machine-like
+- more precise for aggressive rhythmic repetition</p>
+<p>Use digital when you want:
+- hard kicks
+- snappy hats
+- exact retrigger behavior
+- glitchy, chopped accents</p>
+<h3>Analog modeling</h3>
+<ul>
+<li>retriggers do not always reset in the same way</li>
+<li>attack can begin from the current level</li>
+<li>short gates in AR may not reach full amplitude</li>
+<li>feels like capacitor charging/discharging</li>
+</ul>
+<p>For percussion this is:
+- more elastic
+- more organic
+- less identical from hit to hit
+- great for “alive” drum articulation</p>
+<p>Use analog when you want:
+- hand-drum feel
+- swelling accents
+- softer retrigger overlap
+- unstable or rolling percussion lines</p>
+<p>A powerful strategy is to mix both:
+- digital for kick/closed hat precision
+- analog for toms, metallics, noise bursts, and modulations</p>
+<hr />
+<h2>5. Shape is a huge part of punch</h2>
+<p>The shape knob/CV moves between <strong>LOG, LIN, and EXP</strong>.</p>
+<p>This matters for percussion more than people often realize.</p>
+<h3>EXP attack / decay tendencies</h3>
+<p>Can produce:
+- fast, snappy transients
+- aggressive punch
+- hard clicking articulation</p>
+<p>Great for:
+- kick attack
+- tight hats
+- pluck-like percussion
+- VCA chopping</p>
+<h3>LOG shape</h3>
+<p>Can produce:
+- slower perceived onset or tail contour
+- more bloom
+- rounder percussion
+- “air” around the transient</p>
+<p>Great for:
+- toms
+- cymbal noise shaping
+- resonant filter pings
+- swelling accents</p>
+<h3>LIN</h3>
+<p>Good neutral starting point for:
+- balanced drum body
+- clock-like modulation
+- predictable response</p>
+<p>The manual also notes <strong>E/O</strong> behavior:
+- <strong>Equal</strong>: decay/release shape matches attack shape
+- <strong>Opposite</strong>: release becomes the opposite contour</p>
+<p>This is excellent for percussion design:
+- a <strong>LOG rise + EXP fall</strong> can feel like a soft lift into a tight snap
+- an <strong>EXP rise + LOG fall</strong> can give punch followed by a longer perceived body</p>
+<hr />
+<h1>Best patch strategies for hyper-complex percussion</h1>
+<h2>Strategy 1: Use RADAR as a full drum articulation matrix</h2>
+<p>Patch several lanes to different destinations on the same drum voices.</p>
+<p>Example for one kick voice:
+- <strong>Lane 1</strong> → VCA amplitude envelope
+- <strong>Lane 2</strong> → oscillator pitch for kick thump
+- <strong>Lane 3</strong> → click transient VCA or filter cutoff
+- <strong>Lane 4</strong> → distortion amount or wavefolder depth</p>
+<p>Now the kick is no longer one static hit — it has:
+- body
+- pitch snap
+- transient
+- harmonic aggression</p>
+<p>Do the same for snare:
+- lane for noise VCA
+- lane for body oscillator VCA
+- lane for bandpass filter sweep
+- lane for metallic ring modulation depth</p>
+<p>This is how you get <strong>punchy, unique, percussive drums</strong> from otherwise simple voices.</p>
+<hr />
+<h2>Strategy 2: One trigger source, many envelope interpretations</h2>
+<p>Since triggers normalize downward, send one trigger pattern to the top and use different RADAR modes per lane.</p>
+<p>For example:
+- Lane 1: AD, short, digital, EXP
+- Lane 2: AR, analog, medium, LOG
+- Lane 3: Repeating, synced by reset triggers
+- Lane 4: AD, long release, opposite shape</p>
+<p>All four react to the same pulse stream differently.</p>
+<p>This creates:
+- layered accents
+- varied envelope density
+- controlled rhythmic complexity without unrelated chaos</p>
+<p>This is especially effective on:
+- stacked hats
+- clap layers
+- multi-osc percussion clusters</p>
+<hr />
+<h2>Strategy 3: Build polyrhythms with different envelope times</h2>
+<p>Even if several voices are triggered by the same clock division, the <strong>envelope lengths</strong> themselves can imply different meters.</p>
+<p>Example:
+- Kick envelope very short, every 4 beats
+- Snare tail set to length suggestive of 3-beat grouping
+- Metallic hit decay tuned to 5-beat cycle interaction
+- Hat modulation repeating at a different period</p>
+<p>This creates <strong>polymetric perception</strong> through articulation, not just trigger placement.</p>
+<p>Practical patch:
+- lane cycles in Repeating mode to modulate VCA or filter on a hat voice
+- another lane cycles at a different rate to modulate pitch or tone
+- a third lane triggers from sequencer but has AR behavior that responds to varying gate lengths</p>
+<p>Result: the same programmed rhythm sounds much more complex.</p>
+<hr />
+<h2>Strategy 4: Use QUAD mode for rotating 4-part percussion geometry</h2>
+<p>In <strong>QUAD MODE</strong>, 4 lanes are phase-offset by <strong>90 degrees</strong>.</p>
+<p>This is extremely useful for:
+- four interrelated percussion voices
+- rotating accents
+- circular rhythm illusions
+- “one pattern chasing itself”</p>
+<p>You can patch:
+- lane 1 → kick accent
+- lane 2 → snare timbre
+- lane 3 → hat VCA
+- lane 4 → percussion pitch or FM amount</p>
+<p>Since they are phase-related, they create naturally interlocked movement.</p>
+<p>Best use cases:
+- techno percussion rings
+- 4-on-the-floor plus rotating offbeat modulation
+- cross-accented tom networks
+- pseudo-African cyclic interlock patterns</p>
+<p>The manual notes extra CV functions in QUAD mode:
+- <strong>SPEED</strong>
+- <strong>GRAVITY</strong>
+- <strong>SDELTA</strong></p>
+<p>These are gold for advanced rhythm work.</p>
+<h3>SPEED</h3>
+<p>Modulates the overall speed of the quad relationship.</p>
+<p>Use it to:
+- compress or expand all related modulations together
+- create fills where all percussion motion speeds up
+- slowly drift polyrhythmic relationships</p>
+<h3>GRAVITY</h3>
+<p>Changes how the phase-related waves are attracted/repelled relative to lane 1.</p>
+<p>Musically:
+- can tighten the groove toward one pulse center
+- or pull voices away from the center into more asymmetrical timing feel</p>
+<p>This is amazing for:
+- “swing beyond swing”
+- rotating push/pull accents
+- unstable but coherent percussion timing</p>
+<h3>SDELTA</h3>
+<p>Offsets shape relationships across the lanes.</p>
+<p>Use it to make:
+- one lane snappy
+- next lane more linear
+- next lane bloomy
+- next lane very sharp</p>
+<p>That means one rotating phase system can also have <strong>rotating timbral articulation</strong>.</p>
+<p>For drums, this is huge.</p>
+<hr />
+<h2>Strategy 5: Use OCT mode for 8-step circular rhythm fields</h2>
+<p>In <strong>OCT MODE</strong>, all 8 lanes are phase-shifted <strong>45 degrees</strong> apart.</p>
+<p>This is one of the best ways in the module to create complex rhythmic ecosystems.</p>
+<p>Think of it like an 8-point wheel of envelope motion.</p>
+<p>Patch ideas:
+- all 8 lanes to 8 drum parameters
+- or 8 VCAs opening 8 sound sources
+- or 8 modulation inputs across 2–3 voices</p>
+<p>This creates:
+- phase-locked but offset rhythm webs
+- dense interdependence
+- highly animated percussion that still feels unified</p>
+<p>Excellent for:
+- glitch percussion matrices
+- probabilistic-feeling but deterministic drum movement
+- fast modular electro
+- broken beat / IDM style articulation</p>
+<p>Example:
+- Lane 1: kick pitch
+- Lane 2: kick saturation
+- Lane 3: snare noise level
+- Lane 4: snare body filter
+- Lane 5: closed hat VCA
+- Lane 6: open hat decay
+- Lane 7: metallic FM amount
+- Lane 8: clap width or reverb send VCA</p>
+<p>Because the modulation phases are offset, every hit feels related but non-identical.</p>
+<hr />
+<h1>Using RADAR to create complicated time signatures and patterns</h1>
+<h2>1. Fake odd meters with cycle lengths</h2>
+<p>Set repeating envelopes with different speeds and use them to modulate:
+- VCAs
+- comparator thresholds
+- trigger extractors
+- logic modules
+- sequential switches</p>
+<p>For example:
+- one repeating lane implies a 5-unit cycle
+- another implies a 7-unit cycle
+- another runs in 4</p>
+<p>When these modulate percussion parameters, the resulting feel becomes <strong>5 against 7 against 4</strong>.</p>
+<p>Even if your master clock is steady, the articulation creates shifting meter perception.</p>
+<hr />
+<h2>2. Use gate length to alter AR behavior</h2>
+<p>The manual says a <strong>GATE input</strong> can choose between AD and AR based on level, and in AR mode the envelope can continue attack while high.</p>
+<p>This is fantastic for variable accents.</p>
+<p>Patch different gate lengths from your sequencer or logic source:
+- short gates = smaller attacks / shorter accents
+- long gates = fuller rise / held peaks / longer tails</p>
+<p>In analog mode, this can be especially expressive because short triggers may not reach full level.</p>
+<p>Use this for:
+- ghost notes vs accents
+- flam-like dynamic differences
+- evolving snare pressure
+- hat openness tied to pattern length</p>
+<p>This is a strong way to add “drummer-like” expression to rigid step patterns.</p>
+<hr />
+<h2>3. Trigger resets in repeating mode for ratchets and phrase turns</h2>
+<p>In Repeating mode, trigger inputs <strong>reset the waveform</strong>.</p>
+<p>Use this with:
+- clock divisions
+- burst generators
+- manual fills
+- end-of-bar resets</p>
+<p>Patch idea:
+- Lane repeats at a fast rate to modulate hat VCA or filter
+- occasional trigger reset from a larger phrase clock realigns it
+- another lane runs at a nearby but different speed</p>
+<p>This gives you:
+- local rhythmic turbulence
+- phrase-level re-synchronization
+- patterns that feel like they mutate but return</p>
+<p>Very effective for:
+- IDM hats
+- rolling metallics
+- machine-gun fills that don’t stay static</p>
+<hr />
+<h2>4. Composite outputs for grouped accents</h2>
+<p>The manual says <strong>Lane 4</strong> and <strong>Lane 8</strong> can output a <strong>max/composite waveform</strong>:
+- lane 4 = max of lanes 3 and 4
+- lane 8 = max of lanes 6, 7, and 8</p>
+<p>This is a powerful percussion utility.</p>
+<p>Use these outputs as:
+- accent buses
+- grouped VCA control
+- drum bus compression sidechain source
+- layered transient macro-envelope</p>
+<p>Why it’s useful:
+Instead of summing and clipping, you get a “whichever is strongest wins” contour.</p>
+<p>Applications:
+- combine two related percussive envelopes into one accent line
+- let several hat/tom envelopes drive one filter
+- create a dynamic bus envelope for distortion or ducking
+- extract a “dominant gesture” from multiple micro-rhythms</p>
+<p>For hyper-complex patterns, this helps make the patch feel intentional rather than messy.</p>
+<hr />
+<h1>Patch recipes</h1>
+<h2>Patch 1: 8-lane percussion laboratory</h2>
+<p>Use ENVELOPE MODE.</p>
+<h3>Assignments</h3>
+<ul>
+<li>Lane 1: Kick amplitude</li>
+<li>Lane 2: Kick pitch</li>
+<li>Lane 3: Snare noise amplitude</li>
+<li>Lane 4: Snare body amplitude or composite accent</li>
+<li>Lane 5: Closed hat amplitude</li>
+<li>Lane 6: Open hat decay CV</li>
+<li>Lane 7: Metallic percussion FM index</li>
+<li>Lane 8: Percussion bus distortion CV or composite bus accent</li>
+</ul>
+<h3>Settings</h3>
+<ul>
+<li>Kicks: digital, EXP-ish</li>
+<li>Snare body: analog, LIN to LOG</li>
+<li>Hats: digital, short AD</li>
+<li>Metallics: analog repeating or AD with unusual shapes</li>
+</ul>
+<h3>Result</h3>
+<p>A tightly interrelated drum network with per-voice articulation and macro-accent options.</p>
+<hr />
+<h2>Patch 2: Rotating 4-voice polyrhythm engine</h2>
+<p>Use QUAD MODE.</p>
+<h3>Voices</h3>
+<ul>
+<li>Lane 1 phase: kick voice accent</li>
+<li>Lane 2 phase: snare filter</li>
+<li>Lane 3 phase: hat VCA</li>
+<li>Lane 4 phase: tom pitch or noise level</li>
+</ul>
+<h3>Modulate</h3>
+<ul>
+<li>SPEED slowly from another LFO</li>
+<li>GRAVITY with stepped random or a manual CV</li>
+<li>SDELTA with a slow envelope</li>
+</ul>
+<h3>Result</h3>
+<p>A 4-part rotating rhythm system where each voice breathes around the others with controlled complexity.</p>
+<hr />
+<h2>Patch 3: OCT mode for hyper-dense hat and percussion cloud</h2>
+<p>Use OCT MODE and patch all 8 lanes into:
+- 4 different hat/noise VCAs
+- 2 filter cutoffs
+- 1 wavefolder amount
+- 1 reverb send VCA</p>
+<p>All lanes are related but 45 degrees apart.</p>
+<h3>Good move</h3>
+<p>Keep some envelopes very short and others medium-long. Use different shape contours.</p>
+<h3>Result</h3>
+<p>A cloud of interlocked, phase-related percussive openings that sounds way more complex than a normal sequenced hat line.</p>
+<hr />
+<h2>Patch 4: Humanized ghost-note snare system</h2>
+<p>Use ENVELOPE MODE.</p>
+<ul>
+<li>Lane 1: main snare VCA, digital AD</li>
+<li>Lane 2: snare noise layer, analog AR</li>
+<li>Lane 3: filter envelope, short EXP</li>
+<li>Lane 4: distortion or body resonance amount</li>
+</ul>
+<p>Feed different gate lengths to the AR-controlled lane.</p>
+<h3>Result</h3>
+<p>Main hits remain strong and consistent, while secondary layers vary in weight and contour, creating convincing ghost note behavior.</p>
+<hr />
+<h2>Patch 5: Composite accent bus for drum glue</h2>
+<p>Use lane 3 and 4 as related envelopes, and set lane 4 to composite output.<br />
+Use lane 6, 7, 8 similarly, with lane 8 in composite output.</p>
+<p>Patch these composite outs to:
+- filter cutoff on the drum bus
+- VCA controlling parallel distortion
+- compressor sidechain input if supported
+- reverb send level for selected hits</p>
+<h3>Result</h3>
+<p>Your dense percussion gets macro-dynamics and phrasing, not just micro-events.</p>
+<hr />
+<h1>How to make percussion more punchy and unique with RADAR</h1>
+<h2>For punch</h2>
+<ul>
+<li>use <strong>digital mode</strong></li>
+<li>use <strong>EXP-ish shapes</strong></li>
+<li>keep attack short</li>
+<li>use separate lanes for amplitude and pitch</li>
+<li>retrigger often for hard reset behavior</li>
+<li>modulate distortion, fold, or filter with a second envelope</li>
+</ul>
+<h2>For uniqueness</h2>
+<ul>
+<li>use <strong>analog mode</strong> on secondary layers</li>
+<li>exploit short AR gates that don’t fully rise</li>
+<li>mix different shapes across related voices</li>
+<li>use repeating lanes for internal motion</li>
+<li>use composite outputs as accent controllers</li>
+<li>phase-offset lanes in QUAD/OCT mode</li>
+</ul>
+<h2>For percussive timbre design</h2>
+<p>RADAR is excellent at controlling:
+- oscillator pitch drops
+- filter pings
+- LPG opening
+- noise burst amplitude
+- FM index bursts
+- wavefolder stabs
+- VCAs for transient click layers
+- effects send bursts</p>
+<p>A simple oscillator/noise source becomes a serious drum voice when RADAR handles multiple parameters at once.</p>
+<hr />
+<h1>Advanced rhythmic ideas</h1>
+<h2>1. Accent over one meter, timbre over another</h2>
+<p>Keep triggers in 4/4, but set repeating envelope rates or quad/oct modulation so timbre accents imply 5, 7, or 9 groupings.</p>
+<p>This gives music that is playable and mixable, but rhythmically deep.</p>
+<h2>2. Use analog mode for “non-zero retrigger memory”</h2>
+<p>Because analog modeling can restart from the current level, repeated bursts create evolving contour depending on prior state.</p>
+<p>That’s perfect for:
+- drum rolls
+- broken hats
+- decaying ratchets
+- asymmetrical fills</p>
+<h2>3. Separate transient and body envelopes</h2>
+<p>For every important drum:
+- one lane for click/transient
+- one lane for body
+- one lane for pitch or filter
+- one lane for character effect</p>
+<p>This is the fastest way to get professional modular percussion.</p>
+<h2>4. Phrase-level reset logic</h2>
+<p>Use resets on repeating lanes only at larger phrase divisions. Let fast internal motion drift, then snap back every 8 or 16 bars.</p>
+<p>This creates long-form rhythmic evolution without losing structure.</p>
+<hr />
+<h1>Best practical workflow</h1>
+<h2>If you want maximum complexity:</h2>
+<p>Use <strong>ENVELOPE MODE</strong> first.</p>
+<p>Why:
+- all 8 lanes independent
+- easier to assign across many drum functions
+- easiest for mixed trigger sources
+- best for “modular drum machine brain” behavior</p>
+<h2>If you want rotating geometric rhythm:</h2>
+<p>Use <strong>QUAD MODE</strong>.</p>
+<p>Why:
+- immediate phase relationships
+- coherent 4-lane interlock
+- great for circular rhythmic feels</p>
+<h2>If you want extreme phase-grid density:</h2>
+<p>Use <strong>OCT MODE</strong>.</p>
+<p>Why:
+- 8-way related motion
+- ideal for dense percussion ecosystems
+- strong for metallic, hat, noise, and FX modulation</p>
+<hr />
+<h1>A strong performance setup</h1>
+<p>A good live/performance approach:</p>
+<ul>
+<li><strong>Lanes 1–2</strong>: kick body + pitch</li>
+<li><strong>Lanes 3–4</strong>: snare + composite accent</li>
+<li><strong>Lanes 5–6</strong>: hats closed/open</li>
+<li><strong>Lanes 7–8</strong>: metallic percussion + composite bus mod</li>
+</ul>
+<p>Then perform with:
+- shape changes
+- switching AD/AR/repeating
+- digital vs analog per lane pair
+- output composite mode on 4 and 8
+- phrase resets into repeating lanes
+- external attenuation on shape CV and speed modulation</p>
+<p>This gives you a playable system that moves from tight machine grooves to chaotic hyper-rhythm quickly.</p>
+<hr />
+<h1>Bottom line</h1>
+<p>RADAR is excellent for hyper-complex percussion because it can be the:</p>
+<ul>
+<li><strong>amplitude engine</strong></li>
+<li><strong>pitch envelope bank</strong></li>
+<li><strong>accent generator</strong></li>
+<li><strong>rotating phase modulator</strong></li>
+<li><strong>composite rhythmic bus source</strong></li>
+<li><strong>humanizer / destabilizer</strong></li>
+<li><strong>polyrhythmic modulation core</strong></li>
+</ul>
+<p>For dense rhythmic music, the most effective use is not “one envelope per voice,” but rather:</p>
+<blockquote>
+<p><strong>multiple RADAR lanes per percussion voice, plus repeating/phase-related lanes shaping the whole ecosystem.</strong></p>
+</blockquote>
+<p>That’s where the module becomes truly powerful.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

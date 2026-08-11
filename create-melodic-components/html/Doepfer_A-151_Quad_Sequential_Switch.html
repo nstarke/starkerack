@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-151_Quad_Sequential_Switch</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-151 Quad Sequential Switch</h1>
+<ul>
+<li><a href="../../manuals/A151_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100_man/A151_man.pdf">Doepfer A-151 Quad Sequential Switch Manual (PDF)</a></p>
+<h1>Using the Doepfer A-151 to Create Melodic Material</h1>
+<p>The attached manual is for the <strong>Doepfer A-151 Quad Sequential Switch</strong>, a very simple but extremely musical utility. Even though it does not generate pitch by itself, it becomes a strong <strong>melody-creation module</strong> when combined with oscillators, sequencers, envelopes, clocks, LFOs, quantizers, mixers, and filters.</p>
+<h2>What the A-151 does</h2>
+<p>The A-151 is basically a <strong>4-step sequential signal router</strong>:</p>
+<ul>
+<li>One <strong>common jack</strong>: <code>O/I</code></li>
+<li>Four switched jacks: <code>I/O 1–4</code></li>
+<li>A <strong>Trigger In</strong> input advances the switch by one step</li>
+<li>A <strong>Reset In</strong> input returns it to step 1</li>
+<li>LEDs show the active step</li>
+<li>Version 2 adds a <strong>2 / 3 / 4 step selector</strong></li>
+</ul>
+<p>It is <strong>bidirectional</strong>, which is the key to musical use:</p>
+<ul>
+<li><strong>4 inputs → 1 output</strong></li>
+<li>or <strong>1 input → 4 outputs</strong></li>
+</ul>
+<p>That means it can be used to:
+- rotate through <strong>different pitch CV sources</strong>
+- distribute one pitch sequence to <strong>different destinations</strong>
+- rotate through <strong>different rhythmic gates / envelopes / timbral states</strong>
+- create repeating phrase structures with reset control</p>
+<h2>Important practical notes from the manual</h2>
+<ul>
+<li>Triggering happens on the <strong>rising edge</strong></li>
+<li>Reset immediately returns the switch to <strong>I/O 1</strong></li>
+<li>Older versions handle about <strong>-8V to +8V</strong></li>
+<li>Version 2 handles <strong>-12V to +12V</strong></li>
+<li>Fast switching can enter <strong>audio-rate territory</strong>, which can create new timbral results</li>
+</ul>
+<p>For melodic patching, this means it is ideal for <strong>control voltage sequencing</strong>, phrase switching, and step-based variation.</p>
+<hr />
+<h1>Best melodic uses of the A-151</h1>
+<h2>1. Switching between multiple pitch sources</h2>
+<p>This is the most direct melodic application.</p>
+<h3>Patch idea</h3>
+<p>Send four different melodic CV sources into <code>I/O 1–4</code>, and take <code>O/I</code> to your oscillator’s 1V/oct input, ideally through a quantizer if needed.</p>
+<p>Example sources:
+- <code>I/O 1</code>: a slow 8-step sequencer
+- <code>I/O 2</code>: a transposed copy of that sequencer
+- <code>I/O 3</code>: random stepped CV
+- <code>I/O 4</code>: a fixed voltage or keyboard CV</p>
+<p>Then:
+- clock the A-151 from a divided trigger
+- send <code>O/I</code> → quantizer → VCO 1V/oct</p>
+<h3>Result</h3>
+<p>Each trigger to the A-151 changes which melodic source is currently controlling pitch. This gives:
+- phrase changes
+- verse/chorus-style movement
+- call-and-response lines
+- evolving melodic patterns</p>
+<h3>Musical benefit</h3>
+<p>Instead of writing one sequence, you can write <strong>four related pitch behaviors</strong> and let the A-151 structure them into a larger melody.</p>
+<hr />
+<h2>2. Creating 2-, 3-, or 4-bar melodic phrases</h2>
+<p>If your A-151 is version 2, the <strong>step count switch</strong> is very useful musically.</p>
+<h3>Patch idea</h3>
+<p>Use the A-151 to cycle through:
+- 2 phrase variants
+- 3 phrase variants
+- 4 phrase variants</p>
+<p>For example:
+- <code>I/O 1</code>: root melody
+- <code>I/O 2</code>: variation
+- <code>I/O 3</code>: higher-register variation
+- <code>I/O 4</code>: tension phrase</p>
+<p>Clock the switch once per bar.</p>
+<h3>Result</h3>
+<ul>
+<li>In <strong>2-step mode</strong>, you get ABAB...</li>
+<li>In <strong>3-step mode</strong>, you get ABCABC...</li>
+<li>In <strong>4-step mode</strong>, you get ABCD...</li>
+</ul>
+<p>This is excellent for melodies that feel composed rather than merely looped.</p>
+<hr />
+<h2>3. Reset-controlled melodic form</h2>
+<p>The reset input is one of the most useful musical features.</p>
+<h3>Patch idea</h3>
+<p>Advance the A-151 with a regular clock, but send a reset pulse from:
+- a manual gate button
+- a clock divider
+- an end-of-cycle trigger
+- a sequencer reset output</p>
+<h3>Result</h3>
+<p>You can force the melodic structure back to phrase 1 at predictable moments.</p>
+<p>Examples:
+- reset every 4 bars for a repeating song form
+- reset irregularly for non-looping phrasing
+- reset from a keyboard gate so every new played note starts from phrase 1</p>
+<h3>Why this matters</h3>
+<p>Without reset, sequential switching can drift against the rest of your patch. With reset, it becomes a <strong>musically aligned phrase sequencer</strong>.</p>
+<hr />
+<h2>4. Routing one sequencer to different pitch destinations</h2>
+<p>Because the A-151 is bidirectional, you can also use it as <strong>1 input → 4 outputs</strong>.</p>
+<h3>Patch idea</h3>
+<p>Send one melodic CV sequence into <code>O/I</code>, and use <code>I/O 1–4</code> as switched outputs to different destinations:
+- <code>I/O 1</code>: VCO 1 pitch
+- <code>I/O 2</code>: VCO 2 pitch
+- <code>I/O 3</code>: filter cutoff CV input
+- <code>I/O 4</code>: wavefolder or FM index CV</p>
+<p>Trigger the A-151 every note or every few notes.</p>
+<h3>Result</h3>
+<p>A single sequence is distributed to different parts of the patch over time. This creates:
+- alternating lead and bass motion
+- melody-to-timbre interaction
+- pseudo-counterpoint
+- dynamic phrase orchestration</p>
+<p>This is especially effective if different destinations are attenuated differently.</p>
+<hr />
+<h2>5. Switching between transpositions</h2>
+<p>A very powerful melodic use is to patch <strong>the same sequence processed four different ways</strong>.</p>
+<h3>Patch idea</h3>
+<p>Start with one pitch sequence. Mult it and process the copies differently:
+- <code>I/O 1</code>: original
+- <code>I/O 2</code>: +7 semitones
+- <code>I/O 3</code>: +12 semitones
+- <code>I/O 4</code>: -5 semitones</p>
+<p>Then send <code>O/I</code> to your oscillator pitch input through a quantizer.</p>
+<h3>Result</h3>
+<p>The A-151 turns a simple sequence into a <strong>harmonically shifting melody generator</strong>.</p>
+<p>This can sound like:
+- chord changes implied by a monophonic line
+- modal movement
+- octave jumps
+- recurring refrain structures</p>
+<p>This is one of the most musical uses of a sequential switch.</p>
+<hr />
+<h2>6. Switching gate patterns that drive pitch events</h2>
+<p>Melody is not just pitch; it is also <strong>when notes happen</strong>. The A-151 can shape note rhythm by switching which gate stream is active.</p>
+<h3>Patch idea</h3>
+<p>Patch four rhythmic gate sources into <code>I/O 1–4</code>:
+- straight 8ths
+- syncopated rhythm
+- sparse accents
+- bursty pattern</p>
+<p>Take <code>O/I</code> to:
+- envelope trigger
+- sequencer advance
+- sample-and-hold clock
+- quantizer trigger input</p>
+<h3>Result</h3>
+<p>The pitch material may stay the same, but the <strong>articulation and note timing</strong> changes every time the A-151 steps.</p>
+<p>This creates much more expressive melodies from simple CV material.</p>
+<hr />
+<h2>7. Stepping through different envelopes for melodic articulation</h2>
+<p>The manual itself gives a related example with switching between envelopes. This is very musical.</p>
+<h3>Patch idea</h3>
+<p>Have one pitch sequence running, but send four different envelope shapes into <code>I/O 1–4</code>, and route <code>O/I</code> to filter CV or VCA CV destination.</p>
+<p>For example:
+- <code>I/O 1</code>: short pluck
+- <code>I/O 2</code>: long swell
+- <code>I/O 3</code>: medium decay
+- <code>I/O 4</code>: snappy accent</p>
+<p>Clock the A-151 with the same rhythm as the melody or a slower subdivision.</p>
+<h3>Result</h3>
+<p>Each note or phrase has a different articulation, making the melody feel more “played.”</p>
+<p>This is especially useful for:
+- acid-style phrasing
+- animated arpeggios
+- evolving pads
+- repeated motifs that need variation</p>
+<hr />
+<h2>8. Switching between different filter outputs for melodic timbre changes</h2>
+<p>The manual specifically mentions using the A-151 with a multimode filter such as the A-121.</p>
+<h3>Patch idea</h3>
+<p>Send different filter outputs into the four switched jacks:
+- lowpass
+- bandpass
+- highpass
+- notch</p>
+<p>Take <code>O/I</code> to the VCA or mixer.</p>
+<p>Advance the switch with each note or each bar.</p>
+<h3>Result</h3>
+<p>The melody keeps the same pitch, but its <strong>spectral identity changes step by step</strong>. This is musically powerful because timbre can imply phrasing just as strongly as pitch.</p>
+<p>This works beautifully for:
+- repeating basslines
+- techno riffs
+- generative melodies
+- motif development</p>
+<hr />
+<h2>9. Building larger melodies from small cells</h2>
+<p>The A-151 excels at <strong>form</strong>. Think of each input as one “melodic cell.”</p>
+<h3>Patch structure</h3>
+<ul>
+<li>Cell A: 3-note motif</li>
+<li>Cell B: answer phrase</li>
+<li>Cell C: transposed fragment</li>
+<li>Cell D: rest / drone / held note</li>
+</ul>
+<p>Clock the A-151 once every few beats or once per completed mini-pattern.</p>
+<h3>Result</h3>
+<p>Instead of one long programmed melody, you get a melody built from interchangeable phrase fragments. This feels more modular and more alive.</p>
+<p>This is one of the best ways to create:
+- evolving Berlin-school sequences
+- generative ambient lines
+- modular “composition by recombination”</p>
+<hr />
+<h2>10. Using audio-rate switching for pitched timbral melodies</h2>
+<p>The manual notes that very fast triggering can produce <strong>audio-frequency modulation</strong>.</p>
+<h3>Patch idea</h3>
+<p>Feed different waveforms from a VCO into <code>I/O 1–4</code>:
+- sine
+- triangle
+- saw
+- pulse</p>
+<p>Take <code>O/I</code> to filter or VCA, and trigger the A-151 at audio or near-audio rates from:
+- a fast LFO
+- another VCO square wave</p>
+<h3>Result</h3>
+<p>You get a composite waveform with a distinct timbre. If the switching rate or source relationships are tuned musically, this can create tones with melodic identity.</p>
+<p>This is less about note sequencing and more about <strong>melody-through-timbre</strong>, but it is very effective in experimental patches.</p>
+<hr />
+<h1>Strong patch combinations for melodic music</h1>
+<h2>A. Sequential phrase selector</h2>
+<p><strong>Modules to combine:</strong>
+- pitch sequencer
+- precision adder or offset source
+- quantizer
+- A-151
+- VCO
+- envelope + VCA</p>
+<p><strong>Idea:</strong>
+Use the A-151 to switch between four versions of a melody:
+1. original
+2. transposed up a fifth
+3. octave up
+4. sparse alternate line</p>
+<p>This gives instant melodic arrangement.</p>
+<hr />
+<h2>B. Four articulation melody engine</h2>
+<p><strong>Modules to combine:</strong>
+- one sequencer
+- one VCO
+- VCF
+- four envelopes
+- A-151
+- clock / trigger source</p>
+<p><strong>Idea:</strong>
+Pitch stays constant, but the A-151 rotates through four envelopes going to the filter.<br />
+This creates a melody with changing accent, contour, and emotional feel.</p>
+<hr />
+<h2>C. Generative melody selector</h2>
+<p><strong>Modules to combine:</strong>
+- random stepped CV
+- sequencer
+- keyboard CV
+- fixed offset
+- quantizer
+- A-151
+- clock divider
+- reset source</p>
+<p><strong>Idea:</strong>
+Put four types of pitch source into the A-151 and use reset to define formal boundaries.<br />
+This gives structured unpredictability: random, but still phrased.</p>
+<hr />
+<h2>D. Note-by-note timbre melody</h2>
+<p><strong>Modules to combine:</strong>
+- VCO
+- multimode filter
+- A-151
+- gate source from keyboard or sequencer
+- envelope + VCA</p>
+<p><strong>Idea:</strong>
+Every new note advances the A-151 through different filter outputs.<br />
+The melody becomes orchestrated step-by-step without changing the pitch line.</p>
+<hr />
+<h1>Musical strategies</h1>
+<h2>Use the A-151 at different clock divisions</h2>
+<p>Try advancing it:
+- every note
+- every 2 notes
+- every bar
+- every 4 bars</p>
+<p>This changes whether it behaves like:
+- a step sequencer
+- a phrase selector
+- an arrangement tool</p>
+<h2>Pair it with a quantizer</h2>
+<p>The A-151 itself does not constrain pitch. If you are switching voltages intended as melody, a quantizer will keep results harmonically useful.</p>
+<h2>Use reset for structure</h2>
+<p>Reset is what turns “cycling” into “composition.”<br />
+A reset every 4 or 8 bars keeps melodic changes aligned with your piece.</p>
+<h2>Switch both pitch and timbre in parallel</h2>
+<p>For richer melody, use one A-151 for pitch-source switching and another for envelope or filter-output switching. Even if you only have one A-151, you can still create this feel by switching one domain at a slower rate than another part of the patch.</p>
+<h2>Exploit 3-step mode</h2>
+<p>Three-step phrase cycling over 4/4 rhythms creates beautiful asymmetry.<br />
+A 3-phrase melodic cycle against a 4-beat bar can feel much less repetitive.</p>
+<hr />
+<h1>Best roles for the A-151 in melodic patching</h1>
+<p>The A-151 is especially good as a:</p>
+<ul>
+<li><strong>phrase selector</strong></li>
+<li><strong>melodic variation router</strong></li>
+<li><strong>transposition cycler</strong></li>
+<li><strong>articulation switcher</strong></li>
+<li><strong>timbral melody animator</strong></li>
+<li><strong>structural resettable form generator</strong></li>
+</ul>
+<p>It is less a melody generator on its own and more a <strong>melody organizer</strong>. In a modular system, that is often even more valuable.</p>
+<hr />
+<h1>Example melodic patch recipes</h1>
+<h2>Patch 1: Four melodic phrases</h2>
+<ul>
+<li>Four CV phrase outputs into <code>I/O 1–4</code></li>
+<li><code>O/I</code> to quantizer, then VCO 1V/oct</li>
+<li>Trigger A-151 once per bar</li>
+<li>Reset every 4 bars</li>
+</ul>
+<p><strong>Result:</strong> a looping 4-part melodic form.</p>
+<h2>Patch 2: Same melody, four transpositions</h2>
+<ul>
+<li>One sequence multed four ways</li>
+<li>Add different offsets to each copy</li>
+<li>Send to <code>I/O 1–4</code></li>
+<li><code>O/I</code> to quantizer and oscillator</li>
+</ul>
+<p><strong>Result:</strong> chord-implying monophonic melody.</p>
+<h2>Patch 3: One pitch line, rotating articulations</h2>
+<ul>
+<li>Sequence to VCO</li>
+<li>Four envelopes into <code>I/O 1–4</code></li>
+<li><code>O/I</code> to filter CV input</li>
+<li>Trigger switch every note</li>
+</ul>
+<p><strong>Result:</strong> expressive melodic variation.</p>
+<h2>Patch 4: One note source, four destinations</h2>
+<ul>
+<li>Pitch CV into <code>O/I</code></li>
+<li><code>I/O 1–4</code> to VCO1, VCO2, filter, FM amount</li>
+<li>Advance at phrase intervals</li>
+</ul>
+<p><strong>Result:</strong> the melody moves around your patch and creates evolving roles.</p>
+<hr />
+<h1>Conclusion</h1>
+<p>The <strong>Doepfer A-151</strong> is a deceptively simple module that becomes highly musical when used for <strong>melodic routing and phrase structure</strong>. Its real strength is not just switching signals, but switching <strong>musical roles</strong>:</p>
+<ul>
+<li>which pitch source is active</li>
+<li>which transposition is heard</li>
+<li>which articulation shapes the note</li>
+<li>which timbre carries the melody</li>
+<li>when a phrase restarts</li>
+</ul>
+<p>If you build your patch so that each of the four positions represents a different but related musical idea, the A-151 becomes a compact <strong>melody form generator</strong> for Eurorack.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

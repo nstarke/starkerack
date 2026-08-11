@@ -1,0 +1,765 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>xaoc_Devices_Sopot</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>xaoc Devices — Sopot</h1>
+<ul>
+<li><a href="../../manuals/DocFractaosEN-V1.5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="sandbox:/mnt/data/Fractaos_User_Manual_v1.5.pdf">Fractaos Manual PDF</a></p>
+<h1>Kaona Fractaos: creative patch ideas and module pairing suggestions</h1>
+<p>Fractaos is not “just another digital oscillator.” It’s really a <strong>4-voice fractal synthesis engine</strong> with:</p>
+<ul>
+<li>4 polyphonic voices</li>
+<li>8 oscillators total in driver/follower pairs</li>
+<li>internal ADSR per voice</li>
+<li>internal fractal/LFO modulation behavior</li>
+<li>resonant fractal filter per voice</li>
+<li>MIDI, 1V/oct, and trig per-voice control</li>
+<li>Drone mode</li>
+<li>Multitimbral preset-per-voice mode</li>
+</ul>
+<p>That means it can function as:</p>
+<ul>
+<li>a <strong>polyphonic voice module</strong></li>
+<li>a <strong>4-part multitimbral sound source</strong></li>
+<li>a <strong>self-contained drone orchestra</strong></li>
+<li>a <strong>hybrid tonal/noise/percussion generator</strong></li>
+<li>a <strong>complex modulation-responsive digital texture machine</strong></li>
+</ul>
+<p>Below are practical and creative ways I’d use it in a Eurorack system.</p>
+<hr />
+<h1>1. First: what Fractaos seems best at musically</h1>
+<p>From the manual, Fractaos excels in these zones:</p>
+<ul>
+<li><strong>Animated harmonic complexity</strong> rather than static timbres</li>
+<li><strong>Organic drift and unstable spectra</strong></li>
+<li><strong>Stereo drones and chord clouds</strong></li>
+<li><strong>Percussive models blended with pitched geometry</strong></li>
+<li><strong>Preset-driven performance setups</strong></li>
+<li><strong>Multitimbral MIDI voice allocation</strong></li>
+<li><strong>Audio that rewards slow CV movement</strong></li>
+</ul>
+<p>This suggests pairing it with modules that provide:</p>
+<ul>
+<li>nuanced CV animation</li>
+<li>spatialization</li>
+<li>filtering outside its internal fractal filter</li>
+<li>voice management</li>
+<li>performance macro control</li>
+<li>rhythmic note/gate generation</li>
+<li>rich effects, especially delay/reverb/granular</li>
+</ul>
+<hr />
+<h1>2. Important practical takeaways from the manual</h1>
+<p>These matter for patch planning:</p>
+<h2>CV inputs and ranges</h2>
+<p>Fractaos has 8 CV inputs with attenuators:</p>
+<ul>
+<li><strong>bipolar ±5V</strong> for:</li>
+<li>Texture</li>
+<li>Pitch</li>
+<li>Spread</li>
+<li>
+<p>Morph</p>
+</li>
+<li>
+<p><strong>unipolar 0–5V</strong> for:</p>
+</li>
+<li>Speed</li>
+<li>Amount</li>
+<li>F-Chaos</li>
+<li>P-Chaos</li>
+</ul>
+<p>So if you feed it modulation from Eurorack sources, it helps to have:</p>
+<ul>
+<li>attenuverters</li>
+<li>offset generators</li>
+<li>voltage processors</li>
+<li>slew limiters</li>
+<li>utilities for converting bipolar to unipolar</li>
+</ul>
+<h2>Parameters that seem especially performance-sensitive</h2>
+<p>The most musically exploitable controls look like:</p>
+<ul>
+<li><strong>Morph</strong></li>
+<li><strong>Spread</strong></li>
+<li><strong>Texture</strong></li>
+<li><strong>Chaos / Primitive Chaos</strong></li>
+<li><strong>Speed / Amount</strong></li>
+<li><strong>Fractal Type / Primitive Type</strong> by hand</li>
+</ul>
+<h2>One limitation to exploit intelligently</h2>
+<ul>
+<li><strong>Depth / Primitive Depth are stepped and not CV-modulatable</strong></li>
+</ul>
+<p>So for live use, treat Depth like a <strong>scene change</strong> or timbral range selector rather than an animated modulation destination.</p>
+<hr />
+<h1>3. Best companion module categories</h1>
+<h2>A. Modulation utilities</h2>
+<p>Probably the best category to pair with Fractaos.</p>
+<h3>What to use</h3>
+<ul>
+<li>Make Noise Maths</li>
+<li>Frap Tools 321</li>
+<li>Happy Nerding 3xMIA</li>
+<li>Intellijel Triplatt</li>
+<li>Befaco A*B+C</li>
+<li>Joranalogue Select 2 / Contour 1</li>
+<li>After Later/Doepfer attenuators and offsets</li>
+</ul>
+<h3>Why</h3>
+<p>Fractaos already has deep internal behavior, but <strong>external modulation scaling</strong> will make it far more playable. Especially because some inputs want 0–5V and others want ±5V.</p>
+<h3>Great use</h3>
+<ul>
+<li>Send a slow random CV into <strong>Chaos</strong>, but attenuate heavily</li>
+<li>Offset an LFO into <strong>Amount</strong> so it lives in the “sweet spot”</li>
+<li>Crossfade between two modulation sources before <strong>Morph</strong></li>
+</ul>
+<hr />
+<h2>B. Slow organic modulation sources</h2>
+<p>Fractaos sounds like it loves long-form movement.</p>
+<h3>Good options</h3>
+<ul>
+<li>Make Noise Wogglebug</li>
+<li>Mutable Marbles</li>
+<li>Xaoc Batumi</li>
+<li>DivKid Ochd / Ochd Expander</li>
+<li>Instruō øchd-style multi-LFOs</li>
+<li>Joranalogue Orbit 3</li>
+<li>Verbos Random Sampling</li>
+<li>Nonlinear Circuits chaotic modulators</li>
+</ul>
+<h3>Why</h3>
+<p>The manual repeatedly points toward:
+- drift
+- chaos
+- texture evolution
+- slow filter movement
+- animated detune</p>
+<h3>Great patch targets</h3>
+<ul>
+<li><strong>P-Chaos</strong> for primitive instability</li>
+<li><strong>F-Chaos</strong> for driver instability</li>
+<li><strong>Speed</strong> for changing fractal envelope speed</li>
+<li><strong>Spread</strong> for living detune/chord behavior</li>
+<li><strong>Texture</strong> for evolving resonance/formant content</li>
+</ul>
+<h3>Patch idea</h3>
+<p>Use 3 independent slow LFOs:
+- LFO 1 → Morph
+- LFO 2 → Texture
+- LFO 3 → P-Chaos</p>
+<p>Then manually adjust:
+- Fractal Type
+- Primitive Type
+- Depth</p>
+<p>This should turn Fractaos into an evolving, semi-self-composing digital ecosystem.</p>
+<hr />
+<h2>C. Polyphonic sequencers / MIDI-CV tools</h2>
+<p>Fractaos is unusually capable as a poly voice in Eurorack.</p>
+<h3>Strong matches</h3>
+<ul>
+<li>Expert Sleepers FH-2</li>
+<li>Endorphin.es Shuttle Control</li>
+<li>Hexinverter Mutant Brain</li>
+<li>Tubbutec uTune / MIDI-CV ecosystems</li>
+<li>OXI Coral/One ecosystem if integrated externally</li>
+<li>Squarp Hermod+</li>
+<li>Winter Modular Eloquencer + MIDI/CV helpers</li>
+</ul>
+<h3>Why</h3>
+<p>Fractaos can take:
+- TRS MIDI
+- 4x trig
+- 4x 1V/oct</p>
+<p>That opens multiple workflows:
+- keyboard polyphony
+- DAW-driven chord sequencing
+- per-voice modular sequencing
+- multitimbral routing by MIDI channel</p>
+<h3>Best use</h3>
+<p>Use a MIDI-CV interface that can send:
+- four pitch CVs
+- four gates
+- velocity or aftertouch via MIDI</p>
+<p>Then let Fractaos be a <strong>complete polyphonic synth voice</strong> while the rest of the modular provides modulation and effects.</p>
+<hr />
+<h2>D. External filters</h2>
+<p>Fractaos has internal filtering/texture behavior, but external filtering can turn it into something much larger.</p>
+<h3>Great pairings</h3>
+<ul>
+<li>Stereo filter: QPAS, Ikarie, Dual Dagger</li>
+<li>Character filter: Belgrad, Three Sisters, Morgasmatron</li>
+<li>Clean poly-ish shaping: ADDAC, Doepfer dual filters</li>
+<li>LPGs: Optomix, LxD, Natural Gate</li>
+</ul>
+<h3>Why</h3>
+<p>Fractaos can be spectrally dense, noisy, and formant-rich. External filtering gives you:
+- macro sculpting
+- contrast against the internal fractal texture filter
+- animation between digital complexity and analog restraint</p>
+<h3>Patch ideas</h3>
+<ol>
+<li><strong>Drone mode into stereo filter</strong></li>
+<li>Fractaos in Drone</li>
+<li>Spread in chord zone</li>
+<li>external slow CV to Morph/Texture</li>
+<li>stereo filter sweeping slowly</li>
+<li>
+<p>big reverb after</p>
+</li>
+<li>
+<p><strong>Percussion model into LPG</strong></p>
+</li>
+<li>Use Kick/Snare/Tom</li>
+<li>external trig</li>
+<li>route audio through LPG for woodier transient behavior</li>
+<li>especially nice for turning digital drums into more acoustic-feeling hits</li>
+</ol>
+<hr />
+<h2>E. Effects: delay, reverb, granular, spectral</h2>
+<p>This is maybe the biggest payoff category.</p>
+<h3>Strong matches</h3>
+<ul>
+<li>Make Noise Mimeophon</li>
+<li>Strymon Magneto / Starlab</li>
+<li>XAOC Timiszoara</li>
+<li>Desmodus Versio</li>
+<li>Noise Engineering electus/Imitor style delays</li>
+<li>Mutable Clouds/Beads-inspired modules</li>
+<li>Qu-Bit Aurora / Nautilus / Prism</li>
+<li>Arbhar, Morphagene</li>
+<li>Eventide/H90 external send-return if using line conversion</li>
+</ul>
+<h3>Why</h3>
+<p>Fractaos naturally produces:
+- internal detail
+- spectral movement
+- noisy tails
+- pseudo-acoustic and digital textures</p>
+<p>Effects turn those into:
+- cinematic pads
+- generative ambience
+- metallic dub echoes
+- granular swarms
+- glitched harmonic clouds</p>
+<h3>Specific patch</h3>
+<p><strong>Fractal ensemble wash</strong>
+- Main fractal: Ensemble or Cluster
+- Primitive: Hilbert or Fibonacci
+- Slow modulation to Morph and Texture
+- Drone mode chord spread
+- Into Mimeophon with moderate Halo and Color
+- Then huge reverb</p>
+<p>Result: shimmering evolving orchestra-from-another-planet.</p>
+<hr />
+<h2>F. VCAs and macro performance mixers</h2>
+<p>Fractaos is deep enough that you’ll want gesture control.</p>
+<h3>Recommended types</h3>
+<ul>
+<li>Quad VCA</li>
+<li>Stereo VCA</li>
+<li>performance mixer</li>
+<li>CV-controlled crossfader</li>
+<li>macro controller</li>
+</ul>
+<h3>Good modules</h3>
+<ul>
+<li>Intellijel Quad VCA</li>
+<li>ALM Tangle Quartet</li>
+<li>Happy Nerding PanMix / 3xVCA</li>
+<li>WORNG Soundstage / vector mixers</li>
+<li>Planar 2</li>
+<li>Tetrapad + Tête</li>
+<li>Faderbank modules</li>
+<li>Befaco Hexmix ecosystem</li>
+</ul>
+<h3>Why</h3>
+<p>Since Fractaos can be:
+- 4 voices
+- 2 stereo outs
+- preset/live hybrids in MULTI</p>
+<p>You’ll want to control:
+- level
+- CV depth externally
+- wet/dry effect blends
+- transitions between calm and chaos</p>
+<h3>Performance trick</h3>
+<p>Use a joystick or macro fader to simultaneously control:
+- external VCA on Fractaos audio
+- CV amount sent to Chaos
+- effect send level
+- filter cutoff</p>
+<p>One gesture can move from “stable glass pad” to “fractured storm noise.”</p>
+<hr />
+<h1>4. Creative patch strategies</h1>
+<h2>Patch 1: Four-voice polyphonic “alien string machine”</h2>
+<p><strong>Goal:</strong> lush playable poly synth</p>
+<h3>Setup</h3>
+<ul>
+<li>MIDI keyboard or sequencer into Fractaos</li>
+<li>Polyphonic mode on a single MIDI channel</li>
+<li>Choose:</li>
+<li>main fractal: Fibonacci / Koch / Julia</li>
+<li>primitive: Rössler / Hilbert / Sierpinski</li>
+<li>Moderate Texture</li>
+<li>Slow Speed</li>
+<li>Amount medium-low</li>
+<li>Slight Spread</li>
+<li>ADSR with soft attack and long release</li>
+</ul>
+<h3>Add modules</h3>
+<ul>
+<li>Stereo chorus, ensemble, or reverb</li>
+<li>Optional stereo analog filter</li>
+<li>Slow LFO into Morph</li>
+</ul>
+<h3>Why it works</h3>
+<p>Fibonacci/Koch/Hilbert-like shapes should give harmonically rich but playable tones; Fractaos’s internal motion avoids the static feel of ordinary digital polys.</p>
+<hr />
+<h2>Patch 2: Drone cathedral</h2>
+<p><strong>Goal:</strong> giant harmonic drone installation</p>
+<h3>Setup</h3>
+<ul>
+<li>Activate Drone mode</li>
+<li>Put Spread in upper chord zone</li>
+<li>Try:</li>
+<li>main fractal: Cloud / Cluster / String / Lorenz</li>
+<li>primitive: Dragon / Hilbert / Hénon</li>
+<li>Very slow modulation on:</li>
+<li>Texture</li>
+<li>Morph</li>
+<li>F-Chaos</li>
+<li>Speed</li>
+</ul>
+<h3>Add modules</h3>
+<ul>
+<li>stereo filter</li>
+<li>reverb</li>
+<li>very slow panner</li>
+<li>submixer for parallel dry/wet</li>
+</ul>
+<h3>Bonus</h3>
+<p>Use one of the microtonal Drone chords:
+- Just intonation
+- 7-limit flavor
+- 19-TET slice
+- Bohlen-Pierce subset</p>
+<h3>Why it works</h3>
+<p>Fractaos’s Drone mode treats all 8 oscillators individually, which is much more like a small drone ensemble than a regular detuned oscillator.</p>
+<hr />
+<h2>Patch 3: Fractal percussion laboratory</h2>
+<p><strong>Goal:</strong> weird percussion that still feels “played”</p>
+<h3>Setup</h3>
+<ul>
+<li>Use Drum fractals:</li>
+<li>Kick</li>
+<li>Tom</li>
+<li>Snare</li>
+<li>HiHat</li>
+<li>Cymbal</li>
+<li>Trigger voices separately with modular gates</li>
+<li>Primitive set to a geometric fractal</li>
+<li>Use Morph to blend percussion body with pitched/harmonic tail</li>
+</ul>
+<h3>Add modules</h3>
+<ul>
+<li>trigger sequencer</li>
+<li>probability trigger source</li>
+<li>logic modules</li>
+<li>LPG or transient shaper</li>
+<li>delay on snare/cymbal only if you can route externally</li>
+</ul>
+<h3>Creative use</h3>
+<p>Because Drum fractals still respond to MIDI pitch or CV pitch coloration, you can sequence tuned toms or electro-percussion lines instead of just static drums.</p>
+<h3>Patch expansion</h3>
+<p>Use:
+- Euclidean trigger module
+- random skip/probability
+- sequential switch for changing incoming pitch CV patterns</p>
+<p>Result: hybrid kit / melodic percussion voice.</p>
+<hr />
+<h2>Patch 4: FM-ish metallic machine</h2>
+<p><strong>Goal:</strong> exploit simplified FM mode</p>
+<p>The manual says simplified FM mode is:
+- Loop OFF
+- Trig OFF
+- Morph ON
+- Spread OFF
+- Chaos OFF</p>
+<p>Then <strong>Amount</strong> becomes bipolar around center:
+- below center = internal feedback
+- above center = primitive 2 modulates main fractal frequency</p>
+<h3>Setup</h3>
+<ul>
+<li>Use geometric main fractals, not textures/drums</li>
+<li>Try:</li>
+<li>main: Mandelbrot, Sierpinski, Koch, Dragon</li>
+<li>primitive: Rössler, Logistic, Hilbert, Julia</li>
+<li>Sweep Amount slowly around center</li>
+</ul>
+<h3>Add modules</h3>
+<ul>
+<li>precision offset/attenuverter</li>
+<li>envelope follower or manual CV controller</li>
+<li>wavefolder or analog filter after Fractaos</li>
+</ul>
+<h3>Why</h3>
+<p>This should create metallic, unstable, operator-like digital timbres unlike classic DX/FM voices.</p>
+<h3>Advanced move</h3>
+<p>Use a CV recorder or joystick to “play” the Amount region around the FM center point. That zone is likely extremely expressive.</p>
+<hr />
+<h2>Patch 5: Multitimbral modular “band”</h2>
+<p><strong>Goal:</strong> 4 independent characters from one module</p>
+<h3>Setup</h3>
+<p>Use MULTI mode with separate MIDI channels per voice.</p>
+<p>Example layout:
+- Voice 1: bass preset
+- Voice 2: chord pad preset
+- Voice 3: percussion preset
+- Voice 4: lead/live voice</p>
+<h3>Add modules</h3>
+<ul>
+<li>MIDI sequencer with multitrack channel output</li>
+<li>external mixer</li>
+<li>stereo FX bus</li>
+<li>clocked modulation synced across all voices</li>
+</ul>
+<h3>Why</h3>
+<p>Fractaos can effectively become a <strong>tiny self-contained digital ensemble</strong>.</p>
+<h3>Creative angle</h3>
+<p>Leave one voice in <strong>LIVE</strong> while the others use presets. Then perform the live voice from the panel while the preset voices remain stable.</p>
+<p>This is one of the most unique features in the manual.</p>
+<hr />
+<h2>Patch 6: CV-addressed chaos sculpture</h2>
+<p><strong>Goal:</strong> let modular CV “play the fractal”</p>
+<h3>Setup</h3>
+<p>Use CV sources into:
+- F-Chaos
+- P-Chaos
+- Morph
+- Texture</p>
+<h3>Add modules</h3>
+<ul>
+<li>stepped random</li>
+<li>slewed random</li>
+<li>voltage-addressable sequencer</li>
+<li>sample &amp; hold</li>
+<li>clock divider</li>
+</ul>
+<h3>Trick</h3>
+<p>Clock a sample-and-hold slowly and send it to Primitive Chaos while a slewed random moves Morph. Keep the base sound simple. You’ll get a consistent identity with evolving internal fracture.</p>
+<h3>Best partner modules</h3>
+<ul>
+<li>Marbles</li>
+<li>Turing Machine + expanders</li>
+<li>Ornament &amp; Crime</li>
+<li>Klavis Twin Waves as modulation source</li>
+<li>stochastic sequencers</li>
+</ul>
+<hr />
+<h2>Patch 7: Chord machine with external quantized modulation</h2>
+<p><strong>Goal:</strong> harmonic motion without changing played notes</p>
+<h3>Setup</h3>
+<p>In Drone mode, Spread accesses predefined chord sets. But outside Drone, Spread handles detune. So exploit both states performatively.</p>
+<h3>Add modules</h3>
+<ul>
+<li>gate utility or manual switch</li>
+<li>CV generator into Pitch</li>
+<li>precision adder</li>
+<li>quantizer</li>
+<li>sequential switch</li>
+</ul>
+<h3>Idea</h3>
+<p>Use Pitch CV to transpose the drone chords while manually moving Spread through the chord section. Then process with reverb and filtering.</p>
+<h3>More advanced</h3>
+<p>Use 4 pitch CVs differently per voice even in Drone mode, so each pair gets independent transposition while the global Spread still organizes the overall 8-oscillator structure.</p>
+<p>This should create shifting harmonic fields rather than fixed chords.</p>
+<hr />
+<h2>Patch 8: External resonator or physical-model hybrid</h2>
+<p><strong>Goal:</strong> turn Fractaos into an exciter for resonant systems</p>
+<h3>Pair with</h3>
+<ul>
+<li>Mutable Rings / Resonator modules</li>
+<li>2hp Pluck-style resonators</li>
+<li>feedback resonators</li>
+<li>Karplus/comb filters</li>
+<li>spring reverb tanks</li>
+</ul>
+<h3>Why</h3>
+<p>Fractaos has:
+- noisy textures
+- percussive models
+- harmonically jagged waveforms
+- unstable transients</p>
+<p>Those can act as fantastic excitation sources.</p>
+<h3>Patch examples</h3>
+<ul>
+<li>HiHat fractal into resonator for synthetic metallic tuned percussion</li>
+<li>String/Cloud texture into comb filter for haunted bowed ambience</li>
+<li>Kick/Tom into resonant lowpass for huge cinematic booms</li>
+</ul>
+<hr />
+<h2>Patch 9: Audio-rate modulation ecosystem</h2>
+<p><strong>Goal:</strong> brutal digital complexity</p>
+<p>Fractaos doesn’t expose raw oscillator internals, but you can still build an ecosystem around it.</p>
+<h3>Pair with</h3>
+<ul>
+<li>wavefolder</li>
+<li>analog distortion</li>
+<li>bitcrusher</li>
+<li>sample rate reducer</li>
+<li>PLL</li>
+<li>frequency shifter</li>
+<li>ring modulator</li>
+</ul>
+<h3>Recommended types</h3>
+<ul>
+<li>wavefolder: Serge-style, Intellijel Bifold, Bastl Timber</li>
+<li>frequency shifter: Xaoc Koszalin, Doepfer A-126-2</li>
+<li>distortion: Ruina Versio, Data Bender, Industrial Music Electronics style processors</li>
+</ul>
+<h3>Why</h3>
+<p>Fractaos already creates rich spectra. Nonlinear post-processing can reveal hidden motion and sidebands.</p>
+<h3>Great sounds</h3>
+<ul>
+<li>Mandelbrot + FM mode into wavefolder</li>
+<li>Cloud/Storm into frequency shifter</li>
+<li>Rule30 bass into saturation and LPG</li>
+<li>Cymbal into bitcrusher and reverb</li>
+</ul>
+<hr />
+<h2>Patch 10: Fractaos as the “digital top layer” of a larger patch</h2>
+<p><strong>Goal:</strong> use it as a spectral contrast voice</p>
+<h3>Pair with</h3>
+<ul>
+<li>analog VCO bass voice</li>
+<li>sample-based drum voice</li>
+<li>west-coast bongo voice</li>
+<li>field recording/granular layer</li>
+</ul>
+<h3>Why</h3>
+<p>Fractaos shines when contrasted against simpler materials.</p>
+<h3>Example arrangement</h3>
+<ul>
+<li>Analog mono bass underneath</li>
+<li>Fractaos poly pad above</li>
+<li>Fractaos percussion voice in MULTI</li>
+<li>noise/snare elsewhere</li>
+<li>long stereo FX send only on Fractaos</li>
+</ul>
+<p>This keeps the mix intelligible while preserving Fractaos’s complexity.</p>
+<hr />
+<h1>5. Best module pairings by musical role</h1>
+<h2>For ambient / drone</h2>
+<ul>
+<li>Ochd or Batumi for slow modulation</li>
+<li>QPAS / Ikarie / stereo filter</li>
+<li>Mimeophon / Magneto / Desmodus</li>
+<li>Planar 2 for macro gestures</li>
+<li>Clouds/Beads/Arbhar for granular diffusion</li>
+</ul>
+<h2>For techno / industrial</h2>
+<ul>
+<li>trigger sequencer</li>
+<li>Euclidean sequencer</li>
+<li>logic modules</li>
+<li>distortion / wavefolder / bitcrusher</li>
+<li>LPG or snappy VCA</li>
+<li>performance mixer</li>
+</ul>
+<p>Use Rule30, Drum fractals, Logistic, Collatz, Hénon, and simplified FM mode.</p>
+<h2>For generative / experimental</h2>
+<ul>
+<li>Marbles</li>
+<li>Turing Machine</li>
+<li>Ornament &amp; Crime</li>
+<li>chaotic CV source</li>
+<li>quantizer</li>
+<li>resonator</li>
+<li>granular effect</li>
+</ul>
+<p>Use Lorenz, Dragon, Hilbert, Cluster, Storm, and microtonal Drone chords.</p>
+<h2>For keyboard poly synth use</h2>
+<ul>
+<li>FH-2 / Shuttle Control / Mutant Brain / Hermod+</li>
+<li>stereo chorus/reverb</li>
+<li>external filter</li>
+<li>expression controller or aftertouch-capable controller</li>
+</ul>
+<p>Use Fibonacci, Julia, Koch, Sierpinski, Rössler.</p>
+<hr />
+<h1>6. Specific high-value modulation targets</h1>
+<p>If I were patching Fractaos, these would be my priority CV destinations:</p>
+<h2>1. Morph</h2>
+<p>Probably the richest continuously playable parameter.</p>
+<p>Use:
+- slow triangle LFO
+- joystick
+- pressure CV
+- envelope follower</p>
+<h2>2. Texture</h2>
+<p>Likely the fastest route to “alive” timbral animation.</p>
+<p>Use:
+- slow random
+- ADSR from external keyboard dynamics
+- accent CV from sequencer</p>
+<h2>3. F-Chaos / P-Chaos</h2>
+<p>Use carefully scaled CV here. Small moves probably matter more than large ones.</p>
+<p>Use:
+- attenuated random
+- stepped CV with slew
+- burst envelopes</p>
+<h2>4. Spread</h2>
+<p>Especially powerful in Drone mode.</p>
+<p>Use:
+- macro controller
+- manually performed offset voltage
+- slewed stepped random for slow chord migration</p>
+<h2>5. Amount / Speed</h2>
+<p>These govern the internal fractal envelope/LFO behavior and FM intensity contexts.</p>
+<p>Use:
+- synced LFOs
+- manual offset
+- envelope control for per-note articulation changes</p>
+<hr />
+<h1>7. Patches that exploit manual-specific quirks</h1>
+<h2>A. Preset surfing performance patch</h2>
+<p>Because LOAD mode applies presets immediately for auditioning, you can use Fractaos almost like a performance preset instrument.</p>
+<h3>Setup</h3>
+<ul>
+<li>sequence running into Fractaos</li>
+<li>go into LOAD</li>
+<li>audition presets in time with the music</li>
+<li>use manual “match the knobs to arrows” method to recover live control</li>
+</ul>
+<p>This is ideal if you want morphing between predesigned scenes during a set.</p>
+<hr />
+<h2>B. LIVE + preset hybrid in MULTI</h2>
+<p>Because LIVE voices in MULTI still respond to the panel, you can do this:</p>
+<ul>
+<li>Voice 1: preset bass</li>
+<li>Voice 2: preset pad</li>
+<li>Voice 3: LIVE lead</li>
+<li>Voice 4: LIVE FX/percussion</li>
+</ul>
+<p>Then the front panel becomes a shared live sculptor for only the LIVE voices while other voices stay fixed.</p>
+<p>That’s unusually powerful for a Eurorack oscillator.</p>
+<hr />
+<h2>C. Sustain = 0 envelope trick</h2>
+<p>The manual notes that Release still matters when Sustain is 0.</p>
+<p>Use this for:
+- pseudo-plucks with variable tail
+- disappearing notes if held
+- expressive early note release gestures from keyboard/sequencer</p>
+<p>It’s especially useful for:
+- Drum + geometric Morph patches
+- mallet-like plucks
+- sparse generative melodies</p>
+<hr />
+<h1>8. Suggested “dream systems” around Fractaos</h1>
+<h2>Small system</h2>
+<ul>
+<li>Fractaos</li>
+<li>Quad modulation source</li>
+<li>utility attenuverter/offset</li>
+<li>stereo filter</li>
+<li>delay/reverb</li>
+<li>small mixer</li>
+</ul>
+<p>This is enough for ambient, drones, and performance textures.</p>
+<h2>Poly performance system</h2>
+<ul>
+<li>Fractaos</li>
+<li>MIDI-CV/poly controller</li>
+<li>macro controller</li>
+<li>stereo chorus/filter</li>
+<li>reverb</li>
+<li>performance mixer</li>
+</ul>
+<p>This makes Fractaos the centerpiece synth voice.</p>
+<h2>Experimental lab system</h2>
+<ul>
+<li>Fractaos</li>
+<li>random/chaotic CV generator</li>
+<li>resonator</li>
+<li>bitcrusher/distortion</li>
+<li>granular processor</li>
+<li>logic and trigger sequencer</li>
+</ul>
+<p>This gets the most out of its fractal/noise/percussion identity.</p>
+<hr />
+<h1>9. Concrete module recommendations</h1>
+<p>If you want especially synergistic pairings, I’d shortlist:</p>
+<h2>Utilities</h2>
+<ul>
+<li>Happy Nerding 3xMIA</li>
+<li>Intellijel Triplatt</li>
+<li>Make Noise Maths</li>
+</ul>
+<h2>Modulation</h2>
+<ul>
+<li>DivKid Ochd</li>
+<li>Xaoc Batumi</li>
+<li>Mutable Marbles</li>
+</ul>
+<h2>Poly/MIDI control</h2>
+<ul>
+<li>Expert Sleepers FH-2</li>
+<li>Squarp Hermod+</li>
+<li>Endorphin.es Shuttle Control</li>
+</ul>
+<h2>Filtering</h2>
+<ul>
+<li>Make Noise QPAS</li>
+<li>Bastl Ikarie</li>
+<li>XAOC Belgrad</li>
+</ul>
+<h2>Effects</h2>
+<ul>
+<li>Make Noise Mimeophon</li>
+<li>Desmodus Versio</li>
+<li>Strymon Magneto</li>
+<li>Mutable/clone Clouds or Beads</li>
+<li>Instruō Arbhar</li>
+</ul>
+<h2>Performance control</h2>
+<ul>
+<li>Intellijel Planar 2</li>
+<li>4ms Catalyst Controller style macro tools</li>
+<li>tetrapad/fader-style controllers</li>
+</ul>
+<hr />
+<h1>10. Final creative takeaway</h1>
+<p>The most interesting way to use Fractaos is <strong>not</strong> as a static oscillator replacement.</p>
+<p>It becomes special when you treat it as:</p>
+<ul>
+<li>a <strong>fractal ensemble</strong></li>
+<li>a <strong>preset/live hybrid instrument</strong></li>
+<li>a <strong>drone chord engine</strong></li>
+<li>a <strong>digital percussion + harmonic blend source</strong></li>
+<li>a <strong>polyphonic texture organism</strong> that needs carefully curated modulation</li>
+</ul>
+<p>My personal favorite uses based on the manual would be:</p>
+<ol>
+<li><strong>Drone mode + chord Spread + slow CV + huge reverb</strong></li>
+<li><strong>MULTI mode with 2 preset voices and 2 LIVE voices</strong></li>
+<li><strong>Drum fractals morphed into geometric tails</strong></li>
+<li><strong>Simplified FM mode with a joystick controlling Amount</strong></li>
+<li><strong>Microtonal drone chords through stereo filtering and granular effects</strong></li>
+</ol>
+<p>If you want, I can also turn this into:</p>
+<ul>
+<li>a <strong>“best companion modules by budget” list</strong></li>
+<li>a <strong>genre-specific patch guide</strong> for ambient/techno/industrial</li>
+<li>or a <strong>10-patch recipe sheet</strong> with exact signal flow diagrams.</li>
+</ul>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

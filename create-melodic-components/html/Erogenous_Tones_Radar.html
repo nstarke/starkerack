@@ -1,0 +1,476 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erogenous_Tones_Radar</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erogenous Tones — Radar</h1>
+<ul>
+<li><a href="../../manuals/radar-instructions.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://erogenous-tones.com">Manual PDF</a></p>
+<h1>Erogenous Tones RADAR — melodic patch analysis</h1>
+<p>RADAR is not a voice or pitch sequencer by itself, but as a <strong>dense bank of 8 envelopes/LFOs</strong> it is extremely useful for building <strong>melodic motion</strong> when paired with oscillators, quantizers, VCAs, filters, wavefolders, switches, logic, and sequential controllers.</p>
+<h2>What RADAR gives you musically</h2>
+<p>From the manual, RADAR provides:</p>
+<ul>
+<li><strong>8 independent AD/AR/repeating envelopes</strong> in <strong>Envelope Mode</strong></li>
+<li><strong>2 groups of quadrature modulation</strong> in <strong>Quad Mode</strong></li>
+<li><strong>8 phase-offset modulation lanes</strong> in <strong>Oct Mode</strong></li>
+<li>Per-lane behavior:</li>
+<li><strong>Repeating</strong></li>
+<li><strong>AD</strong></li>
+<li><strong>AR</strong></li>
+<li>Envelope/LFO shaping:</li>
+<li><strong>Log / Lin / Exp</strong> and everything between</li>
+<li>Two response models:</li>
+<li><strong>Digital</strong></li>
+<li><strong>Analog modelling</strong></li>
+<li>Composite “max” outputs on:</li>
+<li><strong>Lane 4</strong> = max of lanes 3+4</li>
+<li><strong>Lane 8</strong> = max of lanes 6+7+8</li>
+<li>Trigger normalization down the lanes in Envelope Mode</li>
+</ul>
+<p>That means RADAR is best understood as a <strong>high-density modulation composer</strong>. For melody, that matters because melody in Eurorack is often built from:</p>
+<ul>
+<li><strong>pitch CV movement</strong></li>
+<li><strong>rhythmic articulation</strong></li>
+<li><strong>accent</strong></li>
+<li><strong>timbral contour</strong></li>
+<li><strong>phase-related modulation</strong></li>
+<li><strong>repetition with controlled variation</strong></li>
+</ul>
+<p>RADAR can drive all of those.</p>
+<hr />
+<h1>Best ways RADAR contributes to melodic components</h1>
+<h2>1. Envelope-shaped pitch modulation</h2>
+<p>One of the most direct melodic uses is sending RADAR outputs to an oscillator’s <strong>1V/oct input through an attenuator/attenuverter and ideally a quantizer</strong>.</p>
+<h3>Why this works</h3>
+<p>An envelope is just a control curve. If you:
+- trigger it rhythmically,
+- attenuate it to musically useful intervals,
+- and quantize the result,</p>
+<p>you get <strong>stepped or contour-derived melodic lines</strong>.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>RADAR lane 1 in <strong>AD mode</strong></li>
+<li>Trigger lane 1 from a clock or gate sequencer</li>
+<li>Lane 1 output → attenuverter → quantizer CV in → oscillator 1V/oct</li>
+<li>Same trigger also goes to your VCA envelope or LPG strike</li>
+</ul>
+<h3>Musical result</h3>
+<ul>
+<li>Short attack/short release = tight repeated notes</li>
+<li>Longer release = falling melodic tails</li>
+<li>Log/exp shapes create different pitch gestures:</li>
+<li><strong>EXP rise</strong> can feel like quick “snap-to-note”</li>
+<li><strong>LOG fall</strong> can feel like expressive downward bends</li>
+</ul>
+<h3>Best use</h3>
+<p>This is especially effective for:
+- acid-like lines
+- plucks with pitch sweep
+- pseudo-sequenced motifs from one trigger stream</p>
+<hr />
+<h2>2. AR mode as expressive note shaping</h2>
+<p>The manual notes that in <strong>AR mode</strong>, especially in <strong>analog modelling mode</strong>, the attack can depend on how long the incoming gate stays high.</p>
+<h3>Melodic implication</h3>
+<p>If gate length varies, pitch or timbre modulation varies too. That creates <strong>phrase-sensitive melody</strong>, not just static repeated notes.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Use a gate sequencer with variable gate lengths</li>
+<li>RADAR lane 2 in <strong>AR mode</strong>, analog modelling</li>
+<li>Lane 2 output → quantizer or oscillator FM/1V-oct (lightly attenuated)</li>
+<li>Same gate triggers your voice</li>
+</ul>
+<h3>Result</h3>
+<ul>
+<li>Short gates may not reach full envelope height</li>
+<li>Longer gates produce larger pitch movement</li>
+<li>This creates <strong>different interval sizes based on note duration</strong></li>
+</ul>
+<p>This is great for:
+- human-feeling lead lines
+- dynamic ornamentation
+- “the same rhythm, but different note behavior”</p>
+<hr />
+<h2>3. Repeating mode as melodic LFO source</h2>
+<p>RADAR’s repeating mode effectively turns lanes into LFOs. The manual notes:
+- triggers can reset the waveform
+- analog and digital behave differently
+- Quad/Oct modes provide phase offsets</p>
+<h3>Melodic use</h3>
+<p>A resettable LFO becomes a <strong>phrase-synchronous CV generator</strong>. If sent through a quantizer, it becomes a melody source.</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Lane 1 in <strong>Repeating</strong></li>
+<li>Output → quantizer → oscillator pitch</li>
+<li>Reset lane 1 from a bar clock or phrase trigger</li>
+<li>Adjust rise/fall time and shape for contour</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- cyclic melodies
+- phrase-locked repeating pitch patterns
+- evolving scalar motion if speed is modulated</p>
+<p>This is one of the strongest “RADAR as melody engine” uses.</p>
+<hr />
+<h2>4. Use multiple lanes as note, accent, and timbre layers</h2>
+<p>RADAR becomes particularly powerful when you stop thinking “one lane = one note envelope” and instead think:</p>
+<ul>
+<li>one lane for <strong>pitch movement</strong></li>
+<li>one lane for <strong>VCA level</strong></li>
+<li>one lane for <strong>filter cutoff</strong></li>
+<li>one lane for <strong>wavefolder/fm index</strong></li>
+<li>one lane for <strong>accent logic or secondary voice</strong></li>
+</ul>
+<h3>Example voice architecture</h3>
+<p>For one melodic voice:
+- <strong>Lane 1</strong> → VCA envelope
+- <strong>Lane 2</strong> → pitch contour
+- <strong>Lane 3</strong> → filter envelope
+- <strong>Lane 4</strong> → composite max envelope for accent or wavefolder depth</p>
+<h3>Why this matters</h3>
+<p>This makes each note feel composed:
+- pitch opens upward
+- amplitude swells
+- brightness blooms
+- accent changes selected notes</p>
+<p>That is how melodic parts become <strong>musically legible</strong>, not just CV movement.</p>
+<hr />
+<h1>Envelope Mode for melodic patching</h1>
+<p>Envelope Mode is the most straightforward mode for melody building.</p>
+<h2>Trigger normalization is very useful</h2>
+<p>Each trigger input is normalized to the next lane below it. So one trigger stream can cascade through lanes unless interrupted.</p>
+<h3>Musical advantage</h3>
+<p>You can create:
+- several related envelopes from one rhythm source
+- multiple contours for one voice
+- parallel envelopes for multiple voices sharing a pulse structure</p>
+<h3>Patch example: one rhythm, several melodic roles</h3>
+<ul>
+<li>Trigger into lane 1</li>
+<li>No trigger cables in lanes 2–4, so they inherit the same rhythm</li>
+<li>Lane 1 = amplitude</li>
+<li>Lane 2 = pitch sweep</li>
+<li>Lane 3 = filter motion</li>
+<li>Lane 4 = accent composite</li>
+</ul>
+<p>This makes RADAR ideal for <strong>one trigger, one voice, many expressive dimensions</strong>.</p>
+<hr />
+<h2>Composite outputs as accent/melodic emphasis tools</h2>
+<p>The manual says:</p>
+<ul>
+<li><strong>Lane 4 output</strong> can become the max of lanes 3 and 4</li>
+<li><strong>Lane 8 output</strong> can become the max of lanes 6, 7, and 8</li>
+</ul>
+<p>These are not summing outputs; they take the <strong>maximum</strong> instantaneous value.</p>
+<h3>Melodic use</h3>
+<p>This is excellent for:
+- accent extraction
+- “highest active contour wins” behavior
+- deriving a more animated envelope from multiple simpler envelopes</p>
+<h3>Patch idea</h3>
+<ul>
+<li>Lane 3 = short accent pulse</li>
+<li>Lane 4 = slower contour</li>
+<li>Lane 4 switched to composite output</li>
+<li>Output → filter cutoff or pitch modulation amount</li>
+</ul>
+<h3>Result</h3>
+<p>The contour gains selective emphasis without clipping into a constant maxed signal like a sum might.</p>
+<p>For melody this means:
+- certain notes brighten more
+- selected phrases jump out
+- contour complexity increases while staying controlled</p>
+<hr />
+<h1>Quad Mode for melodic relationships</h1>
+<p>Quad Mode is one of the most musically rich features in RADAR.</p>
+<p>The manual says:
+- it can operate as <strong>two quad envelopes</strong>, or <strong>one quad + four regular envelopes</strong>
+- the four lanes in a group are <strong>90° apart</strong>
+- lane 1 or 5 sets timing for the whole group
+- lanes 2/3/4 add CV roles like:
+  - <strong>SPEED</strong>
+  - <strong>GRAVITY</strong>
+  - <strong>SDELTA</strong>
+- Quad mode is <strong>digital only</strong></p>
+<h2>Why quadrature matters melodically</h2>
+<p>Four phase-related CVs are perfect for:
+- call-and-response pitch contours
+- canon-like melodic offsets
+- staggered accents
+- rotating voice allocation
+- chord arpeggiation from one contour source</p>
+<hr />
+<h2>5. Four-note cyclic melodies from quadrature + quantizer</h2>
+<h3>Patch</h3>
+<ul>
+<li>Quad Mode for lanes 1–4</li>
+<li>Outputs 1–4 → precision adder or CV mixer channels → quantizer inputs or switched quantizer destinations</li>
+<li>Or route each lane to four oscillators / four voices</li>
+</ul>
+<h3>Result</h3>
+<p>Because each lane is 90° apart, each voice receives the same contour at a different point in time:
+- lane 1 = note 1
+- lane 2 = note 2 offset in phase
+- lane 3 = note 3
+- lane 4 = note 4</p>
+<p>This gives:
+- rotating arpeggios
+- melodic rounds
+- interlocking lines</p>
+<p>If all lanes drive separate VCAs or LPGs, you get <strong>phase-derived poly-rhythmic melody</strong>.</p>
+<hr />
+<h2>6. Gravity as phrase warping</h2>
+<p>The manual describes <strong>GRAVITY</strong> as changing how the 90/180/270 degree waveforms are attracted or repelled in time relative to the first lane.</p>
+<h3>Musical meaning</h3>
+<p>This is not just simple phase shift — it changes the <strong>temporal relationship</strong> among voices.</p>
+<h3>Melodic use</h3>
+<p>Send the quad outputs through a quantizer and each lane becomes a related but differently warped pitch contour.</p>
+<p>This is fantastic for:
+- melodies that “lean” toward a central voice
+- flams in pitch timing
+- chorale-like inner motion
+- organic broken chord figures</p>
+<p>If lane 1 is the “lead phrase,” the others can become:
+- anticipations
+- delays
+- shadows
+- harmonic echoes</p>
+<hr />
+<h2>7. SDELTA for interval spread across voices</h2>
+<p>The manual defines <strong>SDELTA</strong> as shape delta, effectively creating an interpolated shape offset from first to last position.</p>
+<h3>Melodic use</h3>
+<p>If each phase output is quantized:
+- differing shapes create different contour trajectories
+- those trajectories quantize into different note sequences</p>
+<p>So one timing structure can yield:
+- lane 1 = smoother scalar contour
+- lane 2 = steeper note jumps
+- lane 3 = flatter movement
+- lane 4 = more dramatic leaps</p>
+<p>That is a very strong source of <strong>related but non-identical melodic material</strong>.</p>
+<hr />
+<h2>8. Speed modulation for phrase-rate transposition behavior</h2>
+<p>The SPEED parameter affects rise/fall proportionally across the quad.</p>
+<h3>Melodic implication</h3>
+<p>If a quantizer is sampling these CVs:
+- faster cycles = denser note repetition
+- slower cycles = broader phrase arcs</p>
+<p>If speed is modulated by another slow source, you get:
+- phrase acceleration/deceleration
+- ratcheting-like melodic compression
+- elastic looping melodies</p>
+<hr />
+<h1>Oct Mode for larger melodic systems</h1>
+<p>Oct Mode extends the quadrature idea to <strong>8 lanes at 45° spacing</strong>.</p>
+<p>This is excellent for:
+- long cyclic melodies
+- 8-step phase-derived pitch structures
+- pseudo-polyphonic counterpoint
+- distributing one contour across many events</p>
+<h2>9. Eight related notes from one moving shape</h2>
+<h3>Patch</h3>
+<ul>
+<li>Oct Mode</li>
+<li>Outputs 1–8 into:</li>
+<li>8 sample-and-holds triggered sequentially, or</li>
+<li>an 8-channel switch/scanner, or</li>
+<li>8 quantizer channels / polyphonic quantizer</li>
+<li>Each sampled/processed output drives a voice or sequence position</li>
+</ul>
+<h3>Result</h3>
+<p>You derive a full melodic system from one shape engine:
+- all notes are related
+- all have consistent contour DNA
+- phase spacing creates ordered variation</p>
+<p>This is superb for:
+- generative melody
+- marimba/minimalist patterns
+- evolving ostinati
+- pseudo-sequencer behavior without a traditional sequencer</p>
+<hr />
+<h1>Digital vs analog modelling in melodic practice</h1>
+<p>The manual’s distinction here is very important.</p>
+<h2>Digital mode</h2>
+<ul>
+<li>retriggers reset the envelope to zero</li>
+<li>repeating frequency is constant</li>
+<li>behavior is more sharply defined</li>
+</ul>
+<h3>Best melodic role</h3>
+<p>Use digital when you want:
+- precise rhythmic note articulation
+- consistent transients
+- repeatable phrase shapes
+- clock-tight melodic loops</p>
+<p>This is ideal for:
+- arpeggios
+- basslines
+- sequenced techno melodies
+- clocked patterns</p>
+<hr />
+<h2>Analog modelling mode</h2>
+<ul>
+<li>attacks can begin from the current level</li>
+<li>release behavior feels more capacitor-like</li>
+<li>short gates in AR may not reach full level</li>
+</ul>
+<h3>Best melodic role</h3>
+<p>Use analog modelling when you want:
+- legato-feeling pitch movement
+- less abrupt resets
+- natural contour carryover
+- expressive transition between notes</p>
+<p>This is ideal for:
+- lead lines
+- portamento-like contour behavior
+- semi-organic generative phrases
+- modulated drones with melodic emergence</p>
+<hr />
+<h1>Practical melodic patch recipes</h1>
+<h2>Patch 1: Quantized envelope melody</h2>
+<p><strong>Goal:</strong> turn RADAR into a melodic contour generator</p>
+<ul>
+<li>Envelope Mode</li>
+<li>Lane 1 in Repeating or AD</li>
+<li>Lane 1 out → attenuverter → quantizer → oscillator 1V/oct</li>
+<li>Trigger/reset from a clock divider</li>
+<li>Lane 2 out → VCA CV</li>
+<li>Lane 3 out → filter cutoff</li>
+</ul>
+<p><strong>Why it works:</strong><br />
+One contour creates notes, one shapes volume, one shapes brightness. This gives coherent melodic phrasing.</p>
+<hr />
+<h2>Patch 2: Variable-interval melody from gate length</h2>
+<p><strong>Goal:</strong> note duration changes pitch movement</p>
+<ul>
+<li>Lane 1 in AR, analog modelling</li>
+<li>Feed variable-length gates from sequencer</li>
+<li>Lane 1 out → attenuverter → quantizer → pitch</li>
+<li>Same gate to VCA envelope or LPG</li>
+</ul>
+<p><strong>Result:</strong><br />
+Short notes and long notes generate different melodic intervals naturally.</p>
+<hr />
+<h2>Patch 3: 4-voice canon melody</h2>
+<p><strong>Goal:</strong> one contour, four phase-shifted voices</p>
+<ul>
+<li>Quad Mode on lanes 1–4</li>
+<li>Each output → its own quantizer channel / oscillator</li>
+<li>Common voice architecture for all 4</li>
+<li>Use staggered VCAs or LPGs</li>
+</ul>
+<p><strong>Result:</strong><br />
+Interlocking melodic lines from one motion source. Great for ambient, minimalism, berlin-school, and rhythmic polyphony.</p>
+<hr />
+<h2>Patch 4: 8-step generative melody source</h2>
+<p><strong>Goal:</strong> use Oct Mode as a contour sequencer</p>
+<ul>
+<li>Oct Mode</li>
+<li>Outputs 1–8 sampled in sequence by a clocked switch or S&amp;H chain</li>
+<li>Quantize the resulting CV</li>
+<li>Use a bar reset for phrase restart</li>
+</ul>
+<p><strong>Result:</strong><br />
+A coherent but evolving 8-note melodic loop without programming a note sequencer directly.</p>
+<hr />
+<h2>Patch 5: Accent-driven melodic filter articulation</h2>
+<p><strong>Goal:</strong> make melody speak more clearly</p>
+<ul>
+<li>Lane 1 = amplitude envelope</li>
+<li>Lane 2 = pitch contour</li>
+<li>Lane 3 and 4 = different filter envelopes</li>
+<li>Lane 4 switched to max composite mode</li>
+<li>Lane 4 out → filter cutoff or resonance CV</li>
+</ul>
+<p><strong>Result:</strong><br />
+Some notes “pop” forward depending on which envelope dominates, making the melodic line more expressive.</p>
+<hr />
+<h2>Patch 6: Repeating lane as arpeggio oscillator</h2>
+<p><strong>Goal:</strong> LFO-driven arpeggio</p>
+<ul>
+<li>Lane 1 in repeating mode</li>
+<li>Sync/reset from master clock</li>
+<li>Lane 1 out → quantizer set to chord tones or scale</li>
+<li>Use a trigger sequencer to articulate notes separately via VCA</li>
+<li>Lane 2 slowly modulates shape or speed</li>
+</ul>
+<p><strong>Result:</strong><br />
+An arpeggio that loops with a recognizable phrase but morphs over time.</p>
+<hr />
+<h1>Best module pairings for melody</h1>
+<p>RADAR will be most effective with these kinds of modules:</p>
+<h2>Essential partners</h2>
+<ul>
+<li><strong>Quantizer</strong></li>
+<li>absolutely key for turning envelopes/LFOs into tuned notes</li>
+<li><strong>Attenuverters / CV mixers</strong></li>
+<li>necessary because RADAR CV often needs scaling and offset</li>
+<li><strong>Oscillator</strong></li>
+<li>destination for melodic pitch</li>
+<li><strong>VCA / LPG</strong></li>
+<li>articulation of notes</li>
+<li><strong>Trigger/gate sequencer or clock source</strong></li>
+<li>controls phrase timing</li>
+</ul>
+<h2>Strong advanced partners</h2>
+<ul>
+<li><strong>Sequential switch</strong></li>
+<li>scan among RADAR lanes for pseudo-sequencing</li>
+<li><strong>Sample &amp; hold</strong></li>
+<li>freeze envelope stages into discrete note values</li>
+<li><strong>Logic / comparators</strong></li>
+<li>derive triggers when envelopes cross thresholds</li>
+<li><strong>Precision adder</strong></li>
+<li>combine RADAR contour with transposition sequence</li>
+<li><strong>Matrix mixer</strong></li>
+<li>blend several RADAR lanes into composite melodic CV</li>
+</ul>
+<hr />
+<h1>Most musical strategies with RADAR</h1>
+<h2>Use RADAR as a contour sequencer, not just an envelope generator</h2>
+<p>The most productive melodic mindset is:
+- envelopes become note shapes
+- repeating envelopes become phrase oscillators
+- phase offsets become melodic relationships
+- max outputs become accent logic</p>
+<h2>Quantization unlocks melody</h2>
+<p>Without quantization, RADAR mostly gives expressive bends and glides. With quantization, it becomes:
+- a generative sequencer
+- an arpeggiator source
+- a counterpoint generator
+- a phrase morphing engine</p>
+<h2>Pair lanes by function</h2>
+<p>A strong melodic patch often uses:
+- one lane for pitch
+- one for articulation
+- one for timbre
+- one for accent</p>
+<p>Rather than trying to get all melody from one lane, RADAR shines when multiple lanes define a single musical line.</p>
+<hr />
+<h1>Summary</h1>
+<p>RADAR creates melodic components best by acting as a:</p>
+<ul>
+<li><strong>quantized pitch contour source</strong></li>
+<li><strong>resettable LFO melody generator</strong></li>
+<li><strong>phase-related multi-voice melody engine</strong></li>
+<li><strong>accent and timbre animator for notes</strong></li>
+<li><strong>generative control source for sequencer-like behavior</strong></li>
+</ul>
+<p>Its strongest melodic uses come from:</p>
+<ol>
+<li><strong>Envelope Mode</strong> for independent pitch/timbre/articulation contours  </li>
+<li><strong>Quad Mode</strong> for 4 related melodic voices or 4-step cyclic motion  </li>
+<li><strong>Oct Mode</strong> for larger generative melodic structures  </li>
+<li><strong>Analog modelling</strong> for fluid expressive phrases  </li>
+<li><strong>Digital mode</strong> for clock-tight melodic precision  </li>
+</ol>
+<p>On its own, RADAR is not a melody module in the conventional sense. But in a Eurorack system, it can absolutely become the <strong>core movement source behind melodies, arpeggios, counterpoint, and expressive note phrasing</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

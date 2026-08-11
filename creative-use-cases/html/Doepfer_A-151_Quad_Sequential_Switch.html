@@ -1,0 +1,508 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-151_Quad_Sequential_Switch</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-151 Quad Sequential Switch</h1>
+<ul>
+<li><a href="../../manuals/A151_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100_man/a151_man.pdf">Doepfer A-151 Quad Sequential Switch Manual (PDF)</a></p>
+<h1>Doepfer A-151 Quad Sequential Switch — creative patch ideas</h1>
+<p>The <strong>A-151</strong> is a <strong>4-step bidirectional sequential switch</strong>: each trigger advances the common jack to the next of four jacks, and reset returns it to step 1. In <strong>v2</strong>, you also get a <strong>2/3/4-step selector</strong> and full <strong>±12V</strong> signal handling. Practically, it can behave as:</p>
+<ul>
+<li><strong>4 inputs → 1 output</strong></li>
+<li><strong>1 input → 4 outputs</strong></li>
+<li>an <strong>audio router</strong></li>
+<li>a <strong>CV router</strong></li>
+<li>a <strong>rhythmic structure tool</strong></li>
+<li>a <strong>manual-seeming form generator</strong> when clocked and reset cleverly</li>
+</ul>
+<p>Because it is so simple, it becomes powerful when paired with clocks, gates, envelopes, VCAs, mixers, sequential voltage sources, logic, and sound sources.</p>
+<hr />
+<h2>What the manual tells us musically</h2>
+<p>Key takeaways from the manual:</p>
+<ul>
+<li>It advances on the <strong>rising edge</strong> of the trigger.</li>
+<li><strong>Reset</strong> instantly forces it back to <strong>I/O 1</strong>.</li>
+<li>It is <strong>bidirectional</strong>, so think both “multiple sources to one destination” and “one source to multiple destinations.”</li>
+<li>At high trigger rates, it can create <strong>audio-rate switching effects</strong>, effectively generating new timbres.</li>
+<li>The v2 <strong>2/3/4 step switch</strong> is very useful for phrase lengths and polyrhythms.</li>
+</ul>
+<p>That means the A-151 is not just a utility switch — it is a <strong>structure generator</strong>.</p>
+<hr />
+<h1>Best companion module types</h1>
+<p>If you want the A-151 to shine, pair it with:</p>
+<ul>
+<li><strong>Clock / trigger sources</strong><br />
+  e.g. Pamela’s New Workout, Tempi, 4ms QCD, Batumi in square mode, simple LFOs</li>
+<li><strong>Logic / trigger processing</strong><br />
+  e.g. Doepfer A-166, Joranalogue Compare 2, Mutable Kinks, OR combiners</li>
+<li><strong>Sequential voltages / sequencers</strong><br />
+  e.g. Doepfer A-155/A-154, Make Noise 0-CTRL, Metropolix, Pressure Points + Brains</li>
+<li><strong>Envelope generators</strong><br />
+  e.g. Doepfer A-140, Intellijel Quadrax, Befaco Rampage, Maths</li>
+<li><strong>VCAs / mixers</strong><br />
+  e.g. Veils, A-135, Happy Nerding 3xVCA, Mutable Blinds</li>
+<li><strong>Filters with multiple outputs</strong><br />
+  e.g. Doepfer A-121, XAOC Zagrzeb, QPAS, multi-mode filters generally</li>
+<li><strong>Oscillators with multiple simultaneous outputs</strong><br />
+  e.g. A-110, Dixie, STO + sub, analog VCOs with saw/pulse/triangle/sine outs</li>
+<li><strong>Effect modules</strong><br />
+  delays, resonators, wavefolders, frequency shifters, granular FX</li>
+<li><strong>Sample &amp; hold / slew / quantizers</strong><br />
+  e.g. A-148, A-170, O_C, uScale, Disting</li>
+</ul>
+<hr />
+<h1>Core patch concepts</h1>
+<h2>1. Waveform animator</h2>
+<p><strong>What to patch</strong>
+- VCO triangle/saw/pulse/sub into <strong>I/O 1–4</strong>
+- <strong>O/I</strong> to filter or VCA
+- Clock the <strong>Trig In</strong> with LFO, gate pattern, or another VCO square</p>
+<p><strong>Result</strong>
+- Slow clocks: stepped timbral changes
+- Medium clocks: rhythmic waveform alternation
+- Audio-rate clocks: new buzzy composite timbres, crude wavefolding-ish textures</p>
+<p><strong>Make it better</strong>
+- Put slightly different processing on each waveform before the A-151:
+  - one dry
+  - one filtered
+  - one wavefolded
+  - one ring modded
+- Then switch between “versions” of the same oscillator.</p>
+<p><strong>Recommended partners</strong>
+- Any analog VCO
+- Wavefolder like uFold / A-137
+- Filter with strong character
+- Fast square LFO or oscillator for triggering</p>
+<hr />
+<h2>2. One sequence, four destinations</h2>
+<p><strong>What to patch</strong>
+- Sequencer CV or modulation source into <strong>O/I</strong>
+- Outputs <strong>I/O 1–4</strong> to:
+  - VCO pitch
+  - filter cutoff CV input
+  - waveshaper amount
+  - effect parameter</p>
+<p>Clock the A-151 to rotate where the same CV goes.</p>
+<p><strong>Result</strong>
+A single melodic or modulation pattern gets “thrown” around the patch, creating animated arrangements from minimal material.</p>
+<p><strong>Variation</strong>
+Use different attenuators on each destination so the same source behaves differently each step.</p>
+<p><strong>Great with</strong>
+- precision adders
+- attenuverters
+- quantizers
+- modulation destinations that like stepped CV</p>
+<hr />
+<h2>3. Four envelopes, one voice</h2>
+<p>This is one of the manual’s examples and it’s genuinely excellent.</p>
+<p><strong>What to patch</strong>
+- Four envelopes into <strong>I/O 1–4</strong>
+- <strong>O/I</strong> to filter CV, VCA CV, wavefolder CV, or FM index CV
+- Same clock/gate triggers all four envelopes and also clocks the A-151</p>
+<p><strong>Result</strong>
+Each note uses a different envelope shape, even though the voice architecture stays the same.</p>
+<p><strong>Best use</strong>
+- Different filter plucks per step
+- Different VCA dynamics
+- Alternating long/short accents
+- Different FM index shapes for each note</p>
+<p><strong>Upgrade idea</strong>
+Use:
+- one AD envelope
+- one slow AR envelope
+- one snappy exponential envelope
+- one looping envelope</p>
+<p>Now the timbre cycles in a more performative way.</p>
+<hr />
+<h2>4. One envelope, four destinations</h2>
+<p>Reverse the prior idea.</p>
+<p><strong>What to patch</strong>
+- A single envelope into <strong>O/I</strong>
+- <strong>I/O 1–4</strong> to various CV destinations:
+  - filter
+  - VCA
+  - oscillator PWM
+  - FX send level</p>
+<p><strong>Result</strong>
+On each trigger, the envelope shapes a different aspect of the patch. This can make one voice feel like a whole arrangement.</p>
+<p><strong>Try</strong>
+Routing one envelope sequentially to:
+1. pitch sweep
+2. filter ping
+3. reverb amount
+4. wavefolder depth</p>
+<hr />
+<h2>5. Sequential effects chain selector</h2>
+<p><strong>What to patch</strong>
+- Voice or drum loop into <strong>O/I</strong>
+- <strong>I/O 1–4</strong> each go to a separate processor input path
+- Return processed outputs to mixer</p>
+<p>Or, depending on your routing options, feed:
+- four different processed versions of a sound into <strong>I/O 1–4</strong>
+- take <strong>O/I</strong> as the selected result</p>
+<p><strong>Example four paths</strong>
+- dry
+- delay
+- phaser
+- distortion</p>
+<p><strong>Result</strong>
+Per-step FX changes without needing a full matrix mixer.</p>
+<p><strong>Best with</strong>
+- compact stereo mixer
+- FX aid / Mimeophon / Magneto / Desmodus style processors
+- drum voices or drones</p>
+<hr />
+<h2>6. Filter mode sequencer</h2>
+<p>Also suggested by the manual.</p>
+<p><strong>What to patch</strong>
+- Use a multi-mode filter with several simultaneous outputs:
+  - LP
+  - BP
+  - HP
+  - notch
+- Patch those to <strong>I/O 1–4</strong>
+- <strong>O/I</strong> goes to VCA/output
+- Advance A-151 every note or every bar</p>
+<p><strong>Result</strong>
+The same source walks through different filter characters.</p>
+<p><strong>Why it works</strong>
+This keeps pitch/melody stable while changing the spectral role of the sound. Very useful in techno, electro, and generative patches.</p>
+<p><strong>Great companion filters</strong>
+- Doepfer A-121
+- Mutable Ripples
+- QPAS
+- any SEM-style or multimode filter</p>
+<hr />
+<h2>7. Phrase-length tricks with reset</h2>
+<p>The reset input is where a lot of the musical magic lives.</p>
+<p><strong>What to patch</strong>
+- Steady clock to <strong>Trig In</strong>
+- A different rhythm or gate pattern to <strong>Res. In</strong></p>
+<p><strong>Result</strong>
+Instead of a boring 1-2-3-4 loop, you get asymmetrical forms:
+- 1-2-1-2-3-1-2-3-4...
+- 1-2-3-1-2-3...
+- irregular restarts synced to another pattern</p>
+<p><strong>Creative sources for reset</strong>
+- gate from sequencer end-of-cycle
+- Euclidean rhythm
+- manual gate button
+- comparator output from slow CV
+- odd clock division</p>
+<p><strong>Very effective for</strong>
+- melody selection
+- timbral phrase resets
+- structured but non-repetitive modulation</p>
+<hr />
+<h2>8. 2-step / 3-step / 4-step polymeter engine</h2>
+<p>If you have <strong>v2</strong>, use the step selector musically.</p>
+<p><strong>Patch idea</strong>
+- Run one A-151 at 3 steps
+- Another sequential process elsewhere at 4 or 5 steps
+- Clock both together</p>
+<p><strong>Result</strong>
+Longer evolving cycles due to pattern interference.</p>
+<p><strong>With one A-151</strong>
+Even just switching the module between 2, 3, and 4 steps during a performance changes perceived phrase length instantly.</p>
+<p><strong>Use for</strong>
+- drum fills
+- bass variation
+- call/response structures
+- modulation loops that never line up the same way twice</p>
+<hr />
+<h2>9. Sequential transposition hub</h2>
+<p><strong>What to patch</strong>
+- Main pitch CV sequence into <strong>O/I</strong>
+- Outputs <strong>I/O 1–4</strong> to four precision adders or quantizer input chains, each with a different offset/transposition
+- Or reverse it: put four different transposed versions into <strong>I/O 1–4</strong> and take <strong>O/I</strong> to the oscillator</p>
+<p><strong>Result</strong>
+Same melody, different harmonic positions each step/bar.</p>
+<p><strong>Examples</strong>
+- root
+- +5th
+- octave
+- minor 3rd</p>
+<p><strong>Excellent with</strong>
+- quantizer
+- precision adder
+- buffered multiple
+- chord-capable oscillators</p>
+<hr />
+<h2>10. Drum voice rotation</h2>
+<p><strong>What to patch</strong>
+- One trigger stream into <strong>O/I</strong>
+- Outputs <strong>I/O 1–4</strong> to four drum trigger inputs</p>
+<p>Now each incoming trigger hits a different drum in sequence.</p>
+<p><strong>Result</strong>
+A single pulse train becomes a pattern spread over kick/snare/hat/clap or multiple voices.</p>
+<p><strong>Variation</strong>
+Send irregular triggers to the A-151 clock, and a master pulse stream through the switched path, or vice versa.</p>
+<p><strong>Advanced variation</strong>
+Route accent CV instead of triggers so different drums get the same accent pattern on different steps.</p>
+<hr />
+<h2>11. Accent distributor</h2>
+<p><strong>What to patch</strong>
+- Accent gate or accent envelope into <strong>O/I</strong>
+- <strong>I/O 1–4</strong> to:
+  - VCA CV boost
+  - filter accent
+  - FM amount accent
+  - delay feedback duck/accent path</p>
+<p><strong>Result</strong>
+Each accent lands on a different musical parameter, which gives far more life than a static accent lane.</p>
+<hr />
+<h2>12. Sequential clock divider / distributor feel</h2>
+<p>The A-151 is not a divider itself, but it can behave like a <strong>rotating clock destination</strong>.</p>
+<p><strong>What to patch</strong>
+- Master trigger into <strong>O/I</strong>
+- <strong>I/O 1–4</strong> to four envelope gates, drum triggers, or sequencer advance inputs
+- Clock A-151 with a slower pulse</p>
+<p><strong>Result</strong>
+A repeating trigger source gets sent to different modules over time, creating changing rhythmic emphasis.</p>
+<p><strong>Companion modules</strong>
+- clock dividers
+- Bernoulli gates
+- trigger delays
+- logic modules</p>
+<p>This is especially good in drum systems.</p>
+<hr />
+<h2>13. Address four modulation rates/shapes</h2>
+<p><strong>What to patch</strong>
+- Four modulation sources into <strong>I/O 1–4</strong>:
+  - slow sine LFO
+  - random stepped CV
+  - looping envelope
+  - sample &amp; hold
+- <strong>O/I</strong> to one destination like filter cutoff</p>
+<p><strong>Result</strong>
+That one destination behaves like it has a “macro arrangement” around it, with each section animated differently.</p>
+<p><strong>Best destination choices</strong>
+- filter cutoff
+- wavetable position
+- wavefolder depth
+- stereo spread
+- reverb size</p>
+<hr />
+<h2>14. Sequential feedback path selector</h2>
+<p>Excellent for experimental patches.</p>
+<p><strong>What to patch</strong>
+- Put the A-151 in a feedback network:
+  - mixer send or processor output into <strong>O/I</strong>
+  - <strong>I/O 1–4</strong> go to different feedback treatments:
+    - clean feedback
+    - filtered feedback
+    - distorted feedback
+    - delayed feedback
+- Selected path returns to mixer/effect input</p>
+<p><strong>Result</strong>
+Feedback character changes step by step. This can create very alive dub-techno and noise textures.</p>
+<p><strong>Be careful</strong>
+Levels can get intense quickly; a VCA or attenuator in the feedback loop helps a lot.</p>
+<hr />
+<h2>15. Sequential sample source selector for S&amp;H</h2>
+<p><strong>What to patch</strong>
+- Four CV sources into <strong>I/O 1–4</strong>
+- <strong>O/I</strong> to sample &amp; hold input
+- A-151 clocked slowly, S&amp;H clocked faster or differently</p>
+<p><strong>Result</strong>
+The S&amp;H draws from a rotating set of source voltages, producing much more structured random-ish behavior.</p>
+<p><strong>Example sources</strong>
+- offset voltage
+- sequencer row
+- noise through slew
+- envelope
+- slow LFO</p>
+<p><strong>Great with</strong>
+- quantizer for melodies
+- slew for glide
+- comparator for rhythm extraction</p>
+<hr />
+<h2>16. Audio-rate pseudo-granular or crude wavetable stepping</h2>
+<p><strong>What to patch</strong>
+- Four related audio signals into <strong>I/O 1–4</strong>
+  - same oscillator through 4 filters
+  - four phase-shifted signals
+  - four harmonic-rich sources
+- Clock A-151 from oscillator square or another audio-rate source</p>
+<p><strong>Result</strong>
+Harsh, digital-like spectral animation; metallic tones; animated drones.</p>
+<p><strong>Especially good with</strong>
+- fixed filter banks
+- phase shifters
+- ring mod
+- submixes of harmonics</p>
+<hr />
+<h2>17. Voice allocation / round robin</h2>
+<p><strong>What to patch</strong>
+- Pitch CV can be multed to several voices
+- Gate into <strong>O/I</strong>
+- <strong>I/O 1–4</strong> to four envelope/gate inputs for four voices</p>
+<p>Clock the A-151 with the same keyboard gate, or a derived trigger.</p>
+<p><strong>Result</strong>
+Each new note is assigned to the next voice, creating rotating pseudo-polyphony or layered variation.</p>
+<p><strong>Useful with</strong>
+- multiple identical voices
+- chord stacks
+- per-step different timbres</p>
+<hr />
+<h2>18. Sequential modulation of modulation</h2>
+<p>Use the A-151 not on the final sound path, but on the control path feeding another modulator.</p>
+<p><strong>What to patch</strong>
+- Four CV sources into <strong>I/O 1–4</strong>
+- <strong>O/I</strong> to FM amount CV, LFO rate CV, envelope decay CV, or clock rate CV</p>
+<p><strong>Result</strong>
+You’re changing the behavior of another modulator in steps, which creates deeper evolving systems.</p>
+<p><strong>Example</strong>
+Route 4 voltages to your LFO rate input:
+- very slow
+- medium
+- fast
+- near audio</p>
+<p>Now your filter modulation “changes gears” each phrase.</p>
+<hr />
+<h2>19. Build a 16-step sequence from 4-step parts</h2>
+<p>If you have multiple short sequencers or 4-step voltage rows:</p>
+<p><strong>What to patch</strong>
+- Four 4-step sequencer rows or voltage memories into <strong>I/O 1–4</strong>
+- <strong>O/I</strong> to oscillator pitch or filter CV
+- Advance A-151 every 4 notes using a clock divider</p>
+<p><strong>Result</strong>
+You effectively chain four short sequences into a longer form.</p>
+<p><strong>Excellent modules for this</strong>
+- Pressure Points
+- A-155 rows
+- Voltage Block channels
+- 0-CTRL rows
+- simple voltage sources plus attenuators</p>
+<hr />
+<h2>20. Morph between four “scenes”</h2>
+<p>Create four different complete versions of a sound or control idea, then use the A-151 to move through them.</p>
+<p><strong>Example scene sources</strong>
+1. dry bass
+2. filtered bass
+3. FM bass
+4. delayed bass</p>
+<p>or in CV terms:
+1. calm modulation
+2. rhythmic modulation
+3. random modulation
+4. extreme modulation</p>
+<p>The A-151 gives clean scene changes with a simple clock.</p>
+<hr />
+<h1>Particularly strong module pairings</h1>
+<h2>With Pamela’s New Workout</h2>
+<ul>
+<li>Use one channel as clock</li>
+<li>another as reset pattern</li>
+<li>another as stepped random trigger density</li>
+<li>another as Euclidean reset</li>
+</ul>
+<p>This turns the A-151 into a phrase and structure machine.</p>
+<h2>With Maths / function generators</h2>
+<ul>
+<li>Send four different envelopes or slews into the A-151</li>
+<li>or switch one Maths channel to four destinations</li>
+<li>use EOC/EOR outputs to trigger or reset the switch</li>
+</ul>
+<p>Very fertile for self-running patches.</p>
+<h2>With a quantizer</h2>
+<ul>
+<li>Rotate between four CV sources before quantization</li>
+<li>or rotate between four quantized pitch offsets after quantization</li>
+</ul>
+<p>This keeps melodies coherent while still changing.</p>
+<h2>With logic</h2>
+<ul>
+<li>Trigger from one rhythm</li>
+<li>reset from AND/XOR/OR-derived events</li>
+</ul>
+<p>This creates “composed” irregularity.</p>
+<h2>With a matrix mixer</h2>
+<p>Use the A-151 to select different sources or destinations, then use the matrix mixer to blend the consequences. Great for performance systems.</p>
+<h2>With another sequential switch</h2>
+<p>Two A-151s together are much more than double the power:
+- one selects pitch source
+- the other selects timbre source
+- different clocks/reset patterns create long cycles</p>
+<p>Or chain them to make more than 4 stages.</p>
+<hr />
+<h1>Performance-oriented ideas</h1>
+<h2>Manual reset as a fill button</h2>
+<p>Patch a button or gate controller to <strong>Res. In</strong>.<br />
+During performance, force the cycle back to step 1 to re-anchor the phrase.</p>
+<h2>Section changes with the step selector</h2>
+<p>On v2, move between:
+- 2-step for tight alternation
+- 3-step for lopsided groove
+- 4-step for full phrase</p>
+<p>It’s a simple but very effective performance gesture.</p>
+<h2>Create “lead voice spotlighting”</h2>
+<p>Send a shared modulation or effects send sequentially to different voices. Each bar, a different voice gets the spotlight.</p>
+<hr />
+<h1>Things to watch out for</h1>
+<ul>
+<li><strong>Version matters</strong>: older versions are more limited in signal range; v2 handles full <strong>±12V</strong>.</li>
+<li>Fast switching can click — but often that’s musically useful.</li>
+<li>If switching audio, matching levels between sources helps avoid ugly jumps unless you want them.</li>
+<li>Reset timing can strongly affect groove; try slightly shifted reset pulses for less rigid behavior.</li>
+<li>Because it’s passive in concept but active in use, attenuation and buffering around it can make patches more predictable.</li>
+</ul>
+<hr />
+<h1>My favorite high-value patch recipes</h1>
+<h2>A. Four-character bassline</h2>
+<ul>
+<li>One VCO to four differently processed paths</li>
+<li>A-151 selects path each note</li>
+<li>same sequencer pitch the whole time</li>
+<li>reset every 8 or 16 steps</li>
+</ul>
+<p>You get a bassline that sounds arranged rather than looped.</p>
+<h2>B. Modulation carousel</h2>
+<ul>
+<li>4 CV sources into A-151</li>
+<li>output to one important destination</li>
+<li>trigger every bar</li>
+<li>reset on phrase start</li>
+</ul>
+<p>Simple, elegant macro-evolution.</p>
+<h2>C. Rotating drum accents</h2>
+<ul>
+<li>Accent envelope through A-151 to kick/snare/hat/clap accent inputs</li>
+<li>clocked every 2 or 4 beats</li>
+</ul>
+<p>Small patch, big groove payoff.</p>
+<h2>D. Evolving drone switcher</h2>
+<ul>
+<li>4 filtered variants of same drone</li>
+<li>A-151 switched at sub-audio or audio rate</li>
+<li>occasional resets from random gate source</li>
+</ul>
+<p>Excellent for ambient, industrial, and electroacoustic work.</p>
+<h2>E. Four-envelope sequenced filter</h2>
+<ul>
+<li>the manual’s patch, but with wildly different envelope times and shapes</li>
+<li>use one super short pluck, one medium decay, one inverted envelope, one very slow sweep</li>
+</ul>
+<p>This makes a single sequence feel alive immediately.</p>
+<hr />
+<h1>Summary</h1>
+<p>The <strong>Doepfer A-151</strong> is deceptively powerful. It excels at:</p>
+<ul>
+<li><strong>rotating timbres</strong></li>
+<li><strong>distributing modulation</strong></li>
+<li><strong>building phrase structure with reset</strong></li>
+<li><strong>creating variation from minimal material</strong></li>
+<li><strong>audio-rate spectral switching</strong></li>
+<li><strong>turning one source into a multi-part arrangement</strong></li>
+</ul>
+<p>If you treat it as a <strong>compositional router</strong> rather than just a utility switch, it becomes one of the most musical low-HP modules in Eurorack.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

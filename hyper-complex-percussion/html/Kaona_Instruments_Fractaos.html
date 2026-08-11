@@ -1,0 +1,739 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kaona_Instruments_Fractaos</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Kaona Instruments — Fractaos</h1>
+<ul>
+<li><a href="../../manuals/DocFractaosEN-V1.5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://kaona.fr/wp-content/uploads/2025/08/Fractaos_Manual_1.5.pdf">Fractaos User Manual v1.5 (PDF)</a></p>
+<h1>Using Fractaos for densely rhythmic, hyper-complex percussion</h1>
+<p>Fractaos is unusually good for this because it is not just a “pretty poly oscillator” — it has:</p>
+<ul>
+<li><strong>4 voices</strong></li>
+<li><strong>4 trig inputs</strong></li>
+<li><strong>4 separate 1V/oct inputs</strong></li>
+<li><strong>5 dedicated drum fractals</strong></li>
+<li><strong>per-voice envelopes</strong></li>
+<li><strong>multitimbral mode</strong></li>
+<li><strong>driver/follower oscillator interactions</strong></li>
+<li><strong>LFO/one-shot primitive modulation</strong></li>
+<li><strong>texture/filter behavior</strong></li>
+<li><strong>drone and chord-spread behaviors for layered clusters</strong></li>
+</ul>
+<p>That means you can treat it like a <strong>4-part percussion synth</strong>, a <strong>polyrhythmic drum ensemble</strong>, or a <strong>hybrid drum+pitched fracture machine</strong>.</p>
+<hr />
+<h2>Best overall mindset</h2>
+<p>For hyper-complex percussion, think of Fractaos as:</p>
+<ul>
+<li><strong>Voice 1:</strong> kick / low thud / sub impact</li>
+<li><strong>Voice 2:</strong> snare / rim / metallic body</li>
+<li><strong>Voice 3:</strong> hat / shaker / granular tick stream</li>
+<li><strong>Voice 4:</strong> cymbal / tom / glitch accent / tonal stab</li>
+</ul>
+<p>Then drive those four voices from:</p>
+<ul>
+<li>separate triggers with <strong>different loop lengths</strong></li>
+<li>different clock divisions/multiplications</li>
+<li>separate pitch CV lanes</li>
+<li>different MIDI channels in <strong>MULTI</strong> mode</li>
+<li>or combinations of CV trig + MIDI note streams</li>
+</ul>
+<p>This is where the complexity comes from: <strong>independent voice timing + different timbres + different pitch behavior + different envelopes</strong>.</p>
+<hr />
+<h1>Core strategies</h1>
+<h2>1. Use the 5 Drum fractals as your starting percussion engine</h2>
+<p>The manual gives you these drum models:</p>
+<ul>
+<li><strong>Kick</strong></li>
+<li><strong>Tom</strong></li>
+<li><strong>Snare</strong></li>
+<li><strong>HiHat</strong></li>
+<li><strong>Cymbal</strong></li>
+</ul>
+<p>These are not samples. They are modeled one-shots with:</p>
+<ul>
+<li>excitation</li>
+<li>resonances</li>
+<li>filtered noise</li>
+<li>micro-variation</li>
+</ul>
+<p>That means they respond musically to parameter motion, rather than just replaying fixed samples.</p>
+<h3>Why this matters for complex rhythm</h3>
+<p>When you run dense irregular patterns, repeated hits can get boring fast. Fractaos avoids that because:</p>
+<ul>
+<li><strong>Chaos</strong> changes hit variation, instability, roughness, internal detuning</li>
+<li><strong>Depth</strong> changes decay/open-ness/tail</li>
+<li><strong>Morph</strong> can blend the drum with a geometric fractal</li>
+<li><strong>Texture</strong> can reshape resonance/formant behavior</li>
+<li><strong>Pitch CV / MIDI note</strong> still affects drum color</li>
+</ul>
+<p>So even a repeating trigger pattern can become <strong>constantly shifting percussion</strong>.</p>
+<hr />
+<h2>2. Make each voice a different rhythmic identity</h2>
+<p>Because Fractaos has <strong>4 trig inputs and 4 pitch inputs</strong>, use four separate sequencer lanes.</p>
+<p>Example setup:</p>
+<h3>Voice allocation</h3>
+<ul>
+<li><strong>Voice 1:</strong> Kick — sequence in 11 steps</li>
+<li><strong>Voice 2:</strong> Snare — sequence in 7 steps</li>
+<li><strong>Voice 3:</strong> HiHat — sequence in 13 steps</li>
+<li><strong>Voice 4:</strong> Cymbal/Tom — sequence in 5 steps</li>
+</ul>
+<p>This instantly creates a <strong>long non-repeating composite cycle</strong>.</p>
+<h3>Good clock/pattern ideas</h3>
+<ul>
+<li>Kick on a sparse Euclidean lane</li>
+<li>Snare with occasional ratchets</li>
+<li>HiHat on a fast clock with probability/skips</li>
+<li>Tom or Cymbal on odd accents every 5 or 9 pulses</li>
+</ul>
+<p>If your modular has:
+- clock dividers
+- burst generators
+- Euclidean sequencers
+- logic modules
+- probability triggers
+- sequential switches</p>
+<p>…Fractaos will reward all of them.</p>
+<hr />
+<h2>3. Use MULTI mode as a percussion kit</h2>
+<p>Fractaos’s <strong>MULTI mode</strong> is one of the best features for this use.</p>
+<p>In MULTI:</p>
+<ul>
+<li>each voice can load a <strong>different preset</strong></li>
+<li>each voice can listen on a <strong>different MIDI channel</strong></li>
+<li>LIVE voices can remain hands-on</li>
+<li>preset voices keep their own stored settings</li>
+</ul>
+<p>So you can build a <strong>4-piece percussion kit</strong>, where each voice is a distinct instrument patch.</p>
+<h3>Example percussion kit in MULTI</h3>
+<ul>
+<li><strong>Voice 1 preset:</strong> short Kick, low pitch, low morph, medium chaos</li>
+<li><strong>Voice 2 preset:</strong> noisy Snare blended with Cantor or Rule30</li>
+<li><strong>Voice 3 preset:</strong> sharp HiHat with short depth and high texture</li>
+<li><strong>Voice 4 preset:</strong> Cymbal blended with Hilbert for metallic upper noise</li>
+</ul>
+<p>Then sequence them separately by MIDI channel or trig/CV logic.</p>
+<h3>Why MULTI is powerful here</h3>
+<p>It lets you maintain:
+- distinct tone per voice
+- distinct volume per voice
+- stable roles in a composition
+- independent sequencing behavior</p>
+<p>This is ideal for <strong>polymetric percussion architecture</strong>.</p>
+<hr />
+<h1>Make Fractaos sound punchy and percussive</h1>
+<h2>4. Use short ADSR settings globally for impact</h2>
+<p>Fractaos shares ADSR settings across voices, so dial them with percussion in mind.</p>
+<h3>Percussive envelope starting point</h3>
+<ul>
+<li><strong>Attack:</strong> as low as possible</li>
+<li><strong>Decay:</strong> short to medium</li>
+<li><strong>Sustain:</strong> 0 or near 0</li>
+<li><strong>Release:</strong> short, but not always zero</li>
+<li><strong>Curve:</strong> exponential or logarithmic depending on desired snap</li>
+</ul>
+<h3>Important manual note</h3>
+<p>Even with <strong>Sustain = 0</strong>, Release still matters if the note is released before decay finishes.</p>
+<p>So for CV/gate percussion you can get useful expressive differences from gate length.</p>
+<h3>For punch</h3>
+<p>Use:
+- very fast attack
+- short decay
+- low sustain
+- short release
+- curve toward exponential feel</p>
+<p>This gives tighter transient emphasis.</p>
+<hr />
+<h2>5. Use Depth as your “drum open/close/length” macro</h2>
+<p>On drum fractals:</p>
+<ul>
+<li><strong>Depth</strong> mainly controls <strong>duration</strong></li>
+<li>on <strong>HiHat</strong>, it controls opening/closing</li>
+<li>on <strong>Kick/Tom/Cymbal</strong>, it changes tail length and resonance decay</li>
+</ul>
+<h3>Rhythmic application</h3>
+<p>Modulate or manually vary Depth between pattern sections:
+- short hats in busy fills
+- longer cymbals for phrase endings
+- tighter kick for dense passages
+- longer toms for sparse accents</p>
+<p>If your patch can’t CV Depth directly, save several presets with different depth states and use them in MULTI or preset changes.</p>
+<hr />
+<h2>6. Use Chaos for humanized instability and aggression</h2>
+<p>On drum fractals, <strong>Chaos</strong> affects:</p>
+<ul>
+<li>variation between hits</li>
+<li>roughness</li>
+<li>instability</li>
+<li>detuning</li>
+<li>explosiveness</li>
+</ul>
+<p>This is one of the best controls for “alive” percussion.</p>
+<h3>How to use it musically</h3>
+<ul>
+<li><strong>Low chaos:</strong> clean electro hits</li>
+<li><strong>Medium chaos:</strong> lively modular drums</li>
+<li><strong>High chaos:</strong> broken, unstable, splattering percussion</li>
+</ul>
+<h3>Great trick</h3>
+<p>Patch a stepped random CV or a slow modulation into:
+- <strong>F-Chaos</strong>
+- <strong>P-Chaos</strong></p>
+<p>Use attenuation carefully. Small amounts go far.</p>
+<p>That gives you:
+- slight hit-to-hit change
+- timbral drift over bar cycles
+- asymmetry across repeated figures</p>
+<p>For hyper-complex patterns, this prevents static machine-gun repetition.</p>
+<hr />
+<h2>7. Morph drums into pitched or metallic hybrids</h2>
+<p>This is where Fractaos gets special.</p>
+<p>Per the manual:
+- Drum curves can’t be FM’d
+- but <strong>Morph</strong> can blend a drum with the second geometric fractal</p>
+<p>So you can create:
+- percussive attack + tonal tail
+- snare transient + pitched body
+- cymbal hit + harmonic cloud
+- kick impact + distorted oscillator bloom</p>
+<h3>Excellent pairings</h3>
+<ul>
+<li><strong>Kick + Sierpinski/Koch</strong> = tight body with harmonic tone</li>
+<li><strong>Snare + Rule30</strong> = noisy fractured snare</li>
+<li><strong>HiHat + Hilbert</strong> = stepped metallic clockwork hat</li>
+<li><strong>Cymbal + Dragon/Rössler</strong> = unstable shimmering metal</li>
+<li><strong>Tom + Fibonacci</strong> = tunable melodic drum</li>
+</ul>
+<h3>For punch</h3>
+<p>Keep Morph low to medium:
+- enough to add body
+- not so much that you lose attack</p>
+<h3>For weird fills</h3>
+<p>Push Morph higher on selected voices or sections so percussion becomes part-note, part-impact.</p>
+<p>This is perfect in complex meters where you want the drums to blur into melodic rhythm.</p>
+<hr />
+<h1>Advanced rhythmic modulation techniques</h1>
+<h2>8. Use primitive LFO as a one-shot contour generator</h2>
+<p>The switches <strong>Loop</strong> and <strong>Trig</strong> are critical.</p>
+<p>From the manual:</p>
+<ul>
+<li><strong>Loop OFF + Trig ON</strong> = one-shot modulation restarted on each note</li>
+<li><strong>Loop ON + Trig ON</strong> = loops while note is held</li>
+<li><strong>Loop ON + Trig OFF</strong> = free-running</li>
+<li><strong>Loop OFF + Trig OFF</strong> = inactive except special modes like FM</li>
+</ul>
+<p>For percussion, the killer move is:</p>
+<h3>Use one-shot primitive modulation</h3>
+<p>Set:
+- <strong>Loop OFF</strong>
+- <strong>Trig ON</strong></p>
+<p>Now every hit retriggers the primitive-derived motion.</p>
+<p>Use switch targets:
+- <strong>Morph</strong>
+- <strong>Spread</strong>
+- <strong>Chaos</strong></p>
+<p>This turns each hit into a micro-event with internal motion.</p>
+<h3>Example uses</h3>
+<ul>
+<li><strong>Morph ON:</strong> each hit shifts from attack to tonal tail</li>
+<li><strong>Chaos ON:</strong> each hit blooms into instability</li>
+<li><strong>Spread ON:</strong> each hit detunes internally like flams or metallic wobble</li>
+</ul>
+<p>This is extremely useful for making percussion feel animated and “composed” rather than static.</p>
+<hr />
+<h2>9. Use Speed + Amount to make different rhythmic densities</h2>
+<p>The primitive modulation has:
+- <strong>Speed</strong> = rate
+- <strong>Amount</strong> = depth/intensity</p>
+<p>Since Speed goes very slow up to 12 Hz, you can use it two ways:</p>
+<h3>Slow modulation</h3>
+<p>For long-cycle form:
+- very slow Speed
+- medium Amount</p>
+<p>This makes the drum timbre evolve over many bars while your trigger patterns stay dense.</p>
+<h3>Fast modulation</h3>
+<p>For micro-rhythm:
+- higher Speed
+- modest Amount</p>
+<p>This creates:
+- buzzing hats
+- tearing snares
+- unstable metallic ticks
+- trembling kick harmonics</p>
+<p>With one-shot trig behavior, Speed becomes almost like the <strong>internal shape speed of each transient</strong>.</p>
+<hr />
+<h2>10. Use Spread as metallic detune or per-voice interval offset</h2>
+<p>Outside Drone mode, <strong>Spread</strong> introduces detune between driver and follower.</p>
+<p>For percussion this is excellent for:</p>
+<ul>
+<li>metallic broadening</li>
+<li>pseudo-flams</li>
+<li>pitch smear</li>
+<li>resonant shell complexity</li>
+</ul>
+<h3>Best applications</h3>
+<ul>
+<li><strong>Kick:</strong> tiny Spread for thicker low-end</li>
+<li><strong>Snare:</strong> medium Spread for shell/noise separation</li>
+<li><strong>HiHat/Cymbal:</strong> larger Spread for metal shimmer</li>
+<li><strong>Tom:</strong> tuned detune for dual-head-like motion</li>
+</ul>
+<p>If you modulate Spread with the primitive, it can create <strong>oscillating detune</strong> that feels like animated resonances.</p>
+<p>That’s useful for:
+- industrial hats
+- broken cymbals
+- tuned percussion swarms</p>
+<hr />
+<h2>11. Texture is your “resonant articulation” control</h2>
+<p>Texture is not just a filter amount. It affects:</p>
+<ul>
+<li>fractal filter resonance</li>
+<li>formant detection/application</li>
+<li>organic micro-detuning</li>
+<li>filter intensity</li>
+</ul>
+<p>This is huge for percussion.</p>
+<h3>Low Texture</h3>
+<ul>
+<li>tighter</li>
+<li>drier</li>
+<li>more direct</li>
+<li>better for kick/transient definition</li>
+</ul>
+<h3>Medium Texture</h3>
+<ul>
+<li>more body</li>
+<li>more resonant identity</li>
+<li>snappier spectral articulation</li>
+</ul>
+<h3>High Texture</h3>
+<ul>
+<li>ringing</li>
+<li>formant-y</li>
+<li>unstable</li>
+<li>can become self-oscillatory on some materials</li>
+</ul>
+<h3>Suggested use</h3>
+<ul>
+<li>Kick: low to medium</li>
+<li>Snare: medium</li>
+<li>HiHat: medium-high</li>
+<li>Cymbal: medium-high to high</li>
+<li>Experimental percussion: high with chaos modulation</li>
+</ul>
+<p>Texture is one of your main tools for moving from <strong>drum machine</strong> to <strong>alien percussion organism</strong>.</p>
+<hr />
+<h1>Best fractals for non-drum percussive synthesis</h1>
+<p>You do not have to stick to the drum algorithms.</p>
+<h2>12. Use geometric fractals as percussion voices</h2>
+<p>Some geometric fractals are very percussion-friendly.</p>
+<h3>Strong candidates</h3>
+<h4>Rule30</h4>
+<p>Manual says:
+- pseudo-random cellular automaton
+- dense granular spectrum
+- perfect for percussive sounds, basses, etc.</p>
+<p>Use it for:
+- glitch hats
+- digital snares
+- granular ticks
+- noisy tom transients</p>
+<h4>Collatz</h4>
+<ul>
+<li>stepped, jerky profile</li>
+<li>ideal for rhythmic textures</li>
+</ul>
+<p>Use it for:
+- click sequences
+- clave-like pulses
+- mechanical percussion</p>
+<h4>Hilbert</h4>
+<ul>
+<li>evolving rectangles</li>
+<li>stable plateaus with abrupt changes</li>
+</ul>
+<p>Use it for:
+- robotic percussion
+- hard-edged zaps
+- square-ish impact tones</p>
+<h4>Dragon</h4>
+<ul>
+<li>internal beating</li>
+<li>expressive under chaos modulation</li>
+</ul>
+<p>Use it for:
+- resonant metallic strikes
+- unstable mid percussion</p>
+<h4>Lorenz / Hénon / Logistic</h4>
+<p>These can become unstable and irregular. Great for:
+- ghost percussion
+- broken fills
+- non-repeating accent voices</p>
+<hr />
+<h2>13. Build synthetic percussion from non-drum fractals</h2>
+<p>Try this recipe:</p>
+<ul>
+<li>Fractal Type: Rule30 or Collatz</li>
+<li>Primitive: Hilbert or Koch</li>
+<li>Attack: very short</li>
+<li>Decay: short</li>
+<li>Sustain: 0</li>
+<li>Release: short</li>
+<li>Morph: low-medium</li>
+<li>Texture: medium-high</li>
+<li>Spread: medium</li>
+<li>Chaos: medium</li>
+</ul>
+<p>This often yields:
+- clicks
+- zaps
+- metallic taps
+- pseudo-snare textures
+- articulate glitch percussion</p>
+<p>It’s great when you want percussive sounds that don’t read as conventional drums.</p>
+<hr />
+<h1>Polyrhythm and odd meter patch ideas</h1>
+<h2>14. Four-lane polymeter patch</h2>
+<p>Patch:
+- 4 independent trigger streams into the 4 trig inputs
+- 4 independent pitch CV lanes into the 4 pitch inputs</p>
+<p>Pattern lengths:
+- Voice 1: 8
+- Voice 2: 5
+- Voice 3: 7
+- Voice 4: 11</p>
+<p>Voice roles:
+- V1 Kick
+- V2 Snare
+- V3 HiHat
+- V4 Tom/Cymbal hybrid</p>
+<p>Result:
+- long evolving composite rhythm
+- repeating only after large cycle length
+- excellent for techno, IDM, ritual polyrhythm, broken beat</p>
+<h3>Extra move</h3>
+<p>Slightly modulate Chaos or Texture globally so each cycle mutates.</p>
+<hr />
+<h2>15. Complex time-signature percussion ensemble</h2>
+<p>Use Fractaos voices as subgroups in different meters:</p>
+<ul>
+<li>Voice 1 accents 4/4 anchor</li>
+<li>Voice 2 runs 3 over 4</li>
+<li>Voice 3 runs 5-step hat phrase</li>
+<li>Voice 4 runs 7-step metallic fill</li>
+</ul>
+<p>Because Fractaos has distinct voices, this works much better than forcing one mono drum voice to do everything.</p>
+<h3>Good sound assignments</h3>
+<ul>
+<li>Anchor meter = Kick</li>
+<li>3-beat overlay = Snare/Tom</li>
+<li>5-beat overlay = HiHat</li>
+<li>7-beat overlay = Rule30/Cymbal glitch</li>
+</ul>
+<p>This gives the sensation of <strong>interlocking percussive logic</strong>.</p>
+<hr />
+<h2>16. Ratchet and burst patch</h2>
+<p>Use an external burst generator or ratcheting trigger sequencer.</p>
+<p>Assign:
+- Cymbal or HiHat drum fractal
+- short Depth
+- medium Chaos
+- high Texture
+- primitive one-shot on Chaos or Morph</p>
+<p>Now bursts become:
+- sizzling rolls
+- fractured hat swarms
+- metallic stutters</p>
+<p>With pitch CV changing during bursts, you can create <strong>spectral rolls</strong>, not just repeated hits.</p>
+<hr />
+<h2>17. Ghost-note architecture</h2>
+<p>Use two voices for “main drums” and two for ghost layers.</p>
+<p>Example:
+- Voice 1: Kick
+- Voice 2: Snare
+- Voice 3: low-level Rule30 or Snare ghost notes
+- Voice 4: subtle metallic hat/texture accents</p>
+<p>Lower the volume of ghost voices in MULTI.</p>
+<p>Then sequence them with:
+- denser patterns
+- lower velocities if using MIDI velocity
+- more randomness
+- shorter envelopes</p>
+<p>This creates dense internal motion without cluttering the front layer.</p>
+<hr />
+<h1>MIDI-based complexity ideas</h1>
+<h2>18. Use MIDI channels in MULTI for separate sequencer tracks</h2>
+<p>In <strong>multitimbral mode</strong>, each voice can listen on its own MIDI channel.</p>
+<p>So from a DAW, tracker, or advanced hardware sequencer:
+- CH1 = kick lane
+- CH2 = snare lane
+- CH3 = hat lane
+- CH4 = cymbal/glitch lane</p>
+<p>This is ideal if you want:
+- tuplets against tuplets
+- deliberately irrational-feeling timing
+- alternating accents
+- probability automation
+- per-lane velocity programming</p>
+<p>Since Fractaos supports <strong>MIDI velocity</strong> and <strong>aftertouch</strong>, you can add performance variation from the sequencer too.</p>
+<h3>Velocity use</h3>
+<p>If enabled, use velocity to emphasize:
+- downbeats
+- ghost notes
+- burst tails
+- phrase accents</p>
+<h3>Aftertouch use</h3>
+<p>Manual says aftertouch affects internal movement rather than pitch. Great for:
+- swelling cymbal complexity
+- live pressure-driven turbulence
+- expressive transitions in dense sequences</p>
+<hr />
+<h1>Sound design recipes</h1>
+<h2>19. Punchy modular kick</h2>
+<ul>
+<li>Drum: <strong>Kick</strong></li>
+<li>Depth: low-medium</li>
+<li>Chaos: low-medium</li>
+<li>Morph: very low</li>
+<li>Spread: tiny amount</li>
+<li>Texture: low-medium</li>
+<li>ADSR: fastest attack, short decay, sustain 0, short release</li>
+</ul>
+<p>Optional:
+- add slight pitch CV accents
+- occasional chaos CV for dirtier strikes</p>
+<p>Result: tight but alive low-end.</p>
+<hr />
+<h2>20. Fractured IDM snare</h2>
+<ul>
+<li>Drum: <strong>Snare</strong></li>
+<li>Primitive: <strong>Rule30</strong> or <strong>Hilbert</strong></li>
+<li>Morph: medium</li>
+<li>Chaos: medium-high</li>
+<li>Primitive Chaos: medium</li>
+<li>Texture: medium-high</li>
+<li>Switches: <strong>Trig ON</strong>, <strong>Loop OFF</strong>, <strong>Morph ON</strong> or <strong>Chaos ON</strong></li>
+<li>Speed: medium-fast</li>
+<li>Amount: moderate</li>
+</ul>
+<p>Result: snare hits with internal tearing motion and metallic fragmentation.</p>
+<hr />
+<h2>21. Metallic hat swarm</h2>
+<ul>
+<li>Drum: <strong>HiHat</strong></li>
+<li>Depth: short</li>
+<li>Chaos: medium-high</li>
+<li>Spread: medium-high</li>
+<li>Texture: high</li>
+<li>Primitive: <strong>Koch</strong> or <strong>Dragon</strong></li>
+<li>Trig one-shot modulation on Spread or Chaos</li>
+</ul>
+<p>Drive with:
+- fast clock
+- skip/probability
+- bursts</p>
+<p>Result: hyper-detailed animated hats.</p>
+<hr />
+<h2>22. Tuned tom matrix</h2>
+<ul>
+<li>Drum: <strong>Tom</strong></li>
+<li>Pitch CV sequence on odd pattern length</li>
+<li>Morph: low-medium with <strong>Fibonacci</strong> or <strong>Sierpinski</strong></li>
+<li>Spread: low-medium</li>
+<li>Texture: medium</li>
+<li>Chaos: low-medium</li>
+</ul>
+<p>Result: melodic percussive line that can lock into odd meters.</p>
+<hr />
+<h2>23. Cymbal cloud accent voice</h2>
+<ul>
+<li>Drum: <strong>Cymbal</strong></li>
+<li>Depth: medium-high</li>
+<li>Chaos: medium</li>
+<li>Texture: high</li>
+<li>Morph: medium with <strong>Dragon</strong> or <strong>Rössler</strong></li>
+<li>Speed: slow-medium</li>
+<li>Amount: moderate</li>
+</ul>
+<p>Use sparsely on a 5-, 7-, or 9-step cycle.</p>
+<p>Result: evolving metallic punctuation that feels larger than a normal cymbal hit.</p>
+<hr />
+<h1>Performance methods</h1>
+<h2>24. Save multiple percussion presets and rotate roles</h2>
+<p>Because Fractaos supports SD-card presets, build a percussion library:
+- short kick
+- long kick
+- tight snare
+- noise snare
+- closed hat
+- open hat
+- metallic burst
+- tuned tom
+- glitch accent</p>
+<p>In MULTI, assign these per voice for different sections.</p>
+<p>This is especially useful in live sets where you want:
+- verse/chorus rhythm kit changes
+- denser breakdown kits
+- sparse intro drones that become percussion
+- reloadable structured complexity</p>
+<hr />
+<h2>25. Exploit LIVE voices inside MULTI</h2>
+<p>Manual says LIVE voices in MULTI behave exactly like outside MULTI: panel controls still affect them.</p>
+<p>This is excellent live.</p>
+<h3>Practical setup</h3>
+<ul>
+<li>Voices 1–2 = preset percussion anchors</li>
+<li>Voices 3–4 = LIVE experimental percussion</li>
+</ul>
+<p>Then during performance:
+- twist Chaos
+- sweep Morph
+- animate Texture
+- push Spread
+- alter primitive behavior</p>
+<p>This gives you stable structure plus performable instability.</p>
+<hr />
+<h2>26. Use Drone mode for layered percussive clusters</h2>
+<p>Drone mode may not sound obviously “percussion-oriented,” but it can be very useful.</p>
+<p>In Drone mode:
+- all 8 oscillators play continuously
+- Spread can move through unison, octave spread, or predefined chords/microtunings</p>
+<h3>Percussive application</h3>
+<p>Patch external VCAs or gates after Fractaos and rhythmically chop the drone output.</p>
+<p>Then Fractaos becomes a <strong>continuously evolving cluster source</strong> for:
+- struck chord-noise bursts
+- metallic stabs
+- tuned industrial hits
+- complex harmonic percussion swells</p>
+<p>Especially effective with:
+- Cluster / Ensemble / Aliasing / Cymbal-like sources
+- chord Spread zone
+- odd trigger chopping patterns</p>
+<p>This is a different but powerful route to dense rhythm.</p>
+<hr />
+<h1>Best external module pairings</h1>
+<h2>27. Modules that make Fractaos shine for hyper-complex percussion</h2>
+<p>Pair it with:</p>
+<ul>
+<li><strong>Euclidean trigger sequencers</strong></li>
+<li><strong>polymeter step sequencers</strong></li>
+<li><strong>logic modules</strong> (AND, XOR, OR)</li>
+<li><strong>clock dividers/multipliers</strong></li>
+<li><strong>burst generators</strong></li>
+<li><strong>probability/skipping trigger tools</strong></li>
+<li><strong>sequential switches</strong></li>
+<li><strong>CV-addressed routers</strong></li>
+<li><strong>VCAs and LPGs after the outputs</strong></li>
+<li><strong>transient shapers / compressors</strong></li>
+<li><strong>wavefolders / distortion after output</strong></li>
+<li><strong>multiband or resonant filters downstream</strong></li>
+</ul>
+<h3>Why downstream shaping helps</h3>
+<p>Fractaos already generates intricate spectra, but external processing can make it more mix-ready:
+- VCA envelope for extra snap
+- LPG for woody articulation
+- distortion for transient edge
+- compression for punch
+- EQ for kick/snare separation</p>
+<hr />
+<h1>Important limitations to remember</h1>
+<h2>28. Things to keep in mind</h2>
+<ul>
+<li><strong>Depth is stepped and cannot be CV modulated</strong></li>
+<li><strong>ADSR settings are shared across voices</strong></li>
+<li><strong>FM has no effect on Drum curves</strong></li>
+<li><strong>Texture and drum models may use more computation</strong></li>
+<li><strong>Primitive cannot be a texture or drum model</strong></li>
+<li>in LOAD mode, pots/CVs do not control until returning to LIVE</li>
+</ul>
+<p>So for percussion architecture:
+- use <strong>MULTI presets</strong> for distinct drum voices
+- use triggers, pitch CV, Chaos CV, Morph CV, Spread CV, Texture CV for live variation
+- rely on external sequencing complexity more than expecting full internal modulation of every parameter</p>
+<hr />
+<h1>Best practical recipe for your goal</h1>
+<p>If your goal is <strong>densely rhythmic, hyper-complex percussion</strong>, I would use Fractaos like this:</p>
+<h2>Recommended master patch</h2>
+<ol>
+<li>Enter <strong>MULTI mode</strong></li>
+<li>Load:</li>
+<li>V1 Kick preset</li>
+<li>V2 Snare preset</li>
+<li>V3 HiHat preset</li>
+<li>V4 Cymbal/Rule30 hybrid preset</li>
+<li>Feed each voice:</li>
+<li>unique trigger stream</li>
+<li>unique pitch CV or MIDI lane</li>
+<li>Set global ADSR for short, punchy percussion</li>
+<li>Use primitive modulation as <strong>one-shot per-hit movement</strong></li>
+<li>Add mild CV to Chaos and Morph</li>
+<li>Use odd pattern lengths across voices</li>
+<li>Mix external accent logic and ratchets</li>
+<li>Process outputs with compression/distortion/filtering</li>
+<li>Perform with LIVE voices or reload alternate kits</li>
+</ol>
+<p>That will get you into:
+- polyrhythm
+- polymeter
+- glitch percussion
+- metallic drum complexity
+- animated hits
+- non-repeating structures</p>
+<hr />
+<h1>Short patch examples</h1>
+<h2>Patch A: Broken polyrhythmic techno</h2>
+<ul>
+<li>V1 Kick on 4-step / 16th accents</li>
+<li>V2 Snare on 7-step lane</li>
+<li>V3 HiHat on 11-step lane with skips</li>
+<li>V4 Rule30/Cymbal on 5-step sparse accents</li>
+<li>Chaos CV from slow random</li>
+<li>one-shot Morph modulation on snare and cymbal</li>
+</ul>
+<h2>Patch B: IDM drum lattice</h2>
+<ul>
+<li>all 4 voices in MULTI</li>
+<li>drum/geometric hybrids</li>
+<li>ratchets on hats</li>
+<li>pitch sequencing on tom/snare voices</li>
+<li>odd bar lengths: 13, 9, 15, 8</li>
+<li>high Texture on upper voices</li>
+<li>medium Spread on metallic voices</li>
+</ul>
+<h2>Patch C: Ritual/tribal alien ensemble</h2>
+<ul>
+<li>Kick, Tom, Tom, Cymbal</li>
+<li>long composite polymeter</li>
+<li>lower chaos on low voices</li>
+<li>higher chaos on cymbal voice</li>
+<li>occasional morph into Fibonacci/Dragon</li>
+<li>external reverb only on top voices</li>
+</ul>
+<hr />
+<h1>Final take</h1>
+<p>Fractaos is not just capable of percussion — it’s especially strong for <strong>percussion with internal motion</strong>, <strong>timbral instability</strong>, and <strong>hybrid drum/oscillator identities</strong>. For complicated rhythmic music, its strength is the combination of:</p>
+<ul>
+<li><strong>4 independently triggerable voices</strong></li>
+<li><strong>MULTI kit behavior</strong></li>
+<li><strong>drum fractals</strong></li>
+<li><strong>geometric fractals for synthetic percussion</strong></li>
+<li><strong>per-hit one-shot modulation</strong></li>
+<li><strong>chaos-driven micro-variation</strong></li>
+<li><strong>morphing between impact and pitched body</strong></li>
+</ul>
+<p>If you want, I can also give you:</p>
+<ol>
+<li>a <strong>4-voice Fractaos patch sheet</strong> for IDM/glitch percussion  </li>
+<li>a <strong>kick/snare/hat/cymbal preset design guide</strong>  </li>
+<li>a <strong>modular system pairing guide</strong> showing what kinds of sequencers and utilities work best with Fractaos</li>
+</ol>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

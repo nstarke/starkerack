@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-151_Quad_Sequential_Switch</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-151 Quad Sequential Switch</h1>
+<ul>
+<li><a href="../../manuals/A151_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100_man/A151_man.pdf">Manual PDF</a></p>
+<h1>Doepfer A-151 Quad Sequential Switch — Cheat Sheet</h1>
+<h2>What it does</h2>
+<p>The <strong>A-151</strong> is a <strong>4-step sequential switch</strong>: each trigger advances the connection between the <strong>common jack</strong> and the next one of <strong>4 switched jacks</strong>.</p>
+<p>Think of it as an electronic rotary switch for:
+- <strong>4 inputs → 1 output</strong>, or
+- <strong>1 input → 4 outputs</strong></p>
+<p>It is <strong>bi-directional</strong>, so either use case works.</p>
+<h2>Core behavior</h2>
+<ul>
+<li><strong>Each rising edge at Trigger In</strong> advances to the next step.</li>
+<li>Steps cycle:</li>
+<li><strong>1 → 2 → 3 → 4 → 1</strong></li>
+<li><strong>Reset In</strong> immediately returns the switch to <strong>step 1</strong>.</li>
+<li><strong>LEDs 1–4</strong> show the active step.</li>
+<li><strong>Version 2</strong> modules add a <strong>2/3/4 step selector</strong>.</li>
+</ul>
+<h2>Controls / Indicators</h2>
+<h3>LEDs</h3>
+<ul>
+<li><strong>LED 1–4</strong>: show which <strong>I/O 1–4</strong> is currently connected to the common jack.</li>
+</ul>
+<h3>Switch</h3>
+<ul>
+<li><strong>Steps switch</strong> <em>(Version 2 only)</em>:</li>
+<li><strong>2</strong> = alternate between I/O 1 and 2</li>
+<li><strong>3</strong> = cycle through I/O 1–3</li>
+<li><strong>4</strong> = full 4-step cycle</li>
+</ul>
+<h2>Jack Reference</h2>
+<h3>Inputs</h3>
+<ul>
+<li><strong>Trig. In</strong></li>
+<li>Function: advances the switch one step on each <strong>rising edge</strong></li>
+<li>Type: trigger input</li>
+<li>
+<p>Voltage range: not explicitly stated for trigger threshold in the manual</p>
+</li>
+<li>
+<p><strong>Res. In</strong></p>
+</li>
+<li>Function: resets immediately to <strong>I/O 1</strong> on rising edge</li>
+<li>Type: reset input</li>
+<li>Voltage range: not explicitly stated for reset threshold in the manual</li>
+</ul>
+<h3>Common jack</h3>
+<ul>
+<li><strong>O/I</strong></li>
+<li>Function: common <strong>output/input</strong></li>
+<li>Connects to the currently active <strong>I/O 1–4</strong></li>
+<li>Signal direction is patch-dependent</li>
+<li><strong>Voltage range:</strong><ul>
+<li><strong>Version 1:</strong> <strong>-8 V to +8 V</strong></li>
+<li><strong>Version 2:</strong> <strong>-12 V to +12 V</strong></li>
+</ul>
+</li>
+</ul>
+<h3>Switched jacks</h3>
+<ul>
+<li><strong>I/O 1</strong></li>
+<li><strong>I/O 2</strong></li>
+<li><strong>I/O 3</strong></li>
+<li><strong>I/O 4</strong></li>
+</ul>
+<p>Each is a bidirectional switched jack connected in sequence to <strong>O/I</strong>.</p>
+<p><strong>Voltage range for all I/O jacks:</strong>
+- <strong>Version 1:</strong> <strong>-8 V to +8 V</strong>
+- <strong>Version 2:</strong> <strong>-12 V to +12 V</strong></p>
+<h2>How to patch it</h2>
+<h3>1) Switch between 4 signal sources</h3>
+<p>Patch:
+- 4 different signals into <strong>I/O 1–4</strong>
+- Take output from <strong>O/I</strong>
+- Send clock/triggers to <strong>Trig. In</strong></p>
+<p>Result:
+- Each trigger selects the next source.</p>
+<p>Good for:
+- Oscillator waveform switching
+- Selecting different modulation sources
+- Switching among filter outputs</p>
+<h3>2) Send 1 signal to 4 destinations</h3>
+<p>Patch:
+- Signal into <strong>O/I</strong>
+- Destinations from <strong>I/O 1–4</strong>
+- Clock into <strong>Trig. In</strong></p>
+<p>Result:
+- One source is routed to a different destination each step.</p>
+<p>Good for:
+- Sending one CV to different modulation targets
+- Distributing gates or modulation in sequence</p>
+<h3>3) Shorter repeating sequences</h3>
+<p>Use either:
+- <strong>Version 2 Steps switch</strong> to set <strong>2, 3, or 4</strong> steps, or
+- <strong>Reset In</strong> to force return to step 1</p>
+<p>Example:
+- With reset timing, you can create <strong>1 → 2 → 3 → 1...</strong></p>
+<h2>Musical uses from the manual</h2>
+<ul>
+<li><strong>Waveform sequencing:</strong> switch between VCO waveform outputs</li>
+<li><strong>Audio-rate switching:</strong> very fast triggering can create new timbres / audio-rate modulation effects</li>
+<li><strong>Envelope sequencing:</strong> cycle through different envelopes affecting a filter</li>
+<li><strong>Filter mode stepping:</strong> switch among multimode filter outputs per note</li>
+</ul>
+<h2>Important notes / gotchas</h2>
+<ul>
+<li>The module is <strong>bi-directional</strong>: there is no fixed “input side” vs “output side” for the audio/CV path.</li>
+<li>On <strong>Version 1</strong>, signals outside <strong>-8 V to +8 V</strong> may cause malfunction.</li>
+<li><strong>Version 2</strong> supports the full A-100 signal range: <strong>-12 V to +12 V</strong>.</li>
+<li>Very fast triggers can push the switch into <strong>audio-rate behavior</strong>, which can be creatively useful.</li>
+</ul>
+<h2>Quick reference</h2>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Type</th>
+<th>Function</th>
+<th>Voltage Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trig. In</td>
+<td>Input</td>
+<td>Advance one step on rising edge</td>
+<td>Not specified</td>
+</tr>
+<tr>
+<td>Res. In</td>
+<td>Input</td>
+<td>Reset to step 1 on rising edge</td>
+<td>Not specified</td>
+</tr>
+<tr>
+<td>O/I</td>
+<td>Bidirectional jack</td>
+<td>Common jack connected to active step</td>
+<td>V1: -8 to +8 V, V2: -12 to +12 V</td>
+</tr>
+<tr>
+<td>I/O 1</td>
+<td>Bidirectional jack</td>
+<td>Step 1 jack</td>
+<td>V1: -8 to +8 V, V2: -12 to +12 V</td>
+</tr>
+<tr>
+<td>I/O 2</td>
+<td>Bidirectional jack</td>
+<td>Step 2 jack</td>
+<td>V1: -8 to +8 V, V2: -12 to +12 V</td>
+</tr>
+<tr>
+<td>I/O 3</td>
+<td>Bidirectional jack</td>
+<td>Step 3 jack</td>
+<td>V1: -8 to +8 V, V2: -12 to +12 V</td>
+</tr>
+<tr>
+<td>I/O 4</td>
+<td>Bidirectional jack</td>
+<td>Step 4 jack</td>
+<td>V1: -8 to +8 V, V2: -12 to +12 V</td>
+</tr>
+<tr>
+<td>LED 1–4</td>
+<td>Indicator</td>
+<td>Show active step</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Steps switch</td>
+<td>Toggle/selector</td>
+<td>Limit cycle to 2, 3, or 4 steps</td>
+<td>Version 2 only</td>
+</tr>
+</tbody>
+</table>
+<h2>In one sentence</h2>
+<p>Use the <strong>A-151</strong> whenever you want a clocked, resettable way to <strong>cycle one signal through 4 destinations</strong> or <strong>cycle through 4 sources into one destination</strong>.</p>
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

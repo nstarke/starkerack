@@ -1,0 +1,713 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erogenous_Tones_Radar</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Erogenous Tones — Radar</h1>
+<ul>
+<li><a href="../../manuals/radar-instructions.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="http://erogenous-tones.com">Manual PDF / Manufacturer Info</a></p>
+<h1>Using Erogenous Tones RADAR to build full-length songs in Eurorack</h1>
+<p>RADAR is easy to underestimate if you think of it as “just” an 8-channel envelope generator. In practice, it can be a <strong>song-structure engine</strong> because it gives you:</p>
+<ul>
+<li><strong>8 envelopes/LFOs at once</strong></li>
+<li><strong>independent or phase-related motion</strong></li>
+<li><strong>triggered events and repeating modulation</strong></li>
+<li><strong>AD / AR / looping behavior</strong></li>
+<li><strong>analog vs digital envelope behavior</strong></li>
+<li><strong>composite outputs</strong></li>
+<li><strong>quad/oct phase relationships</strong></li>
+</ul>
+<p>That combination makes RADAR very useful for solving the classic Eurorack problem:</p>
+<blockquote>
+<p>“I can make a great 8-bar loop, but I can’t make it evolve into a full song.”</p>
+</blockquote>
+<p>The key insight is this:</p>
+<h2>Think of RADAR as a macro-arrangement module, not only a voice utility</h2>
+<p>Instead of assigning RADAR only to VCA plucks, use its channels to control:</p>
+<ul>
+<li>section fades</li>
+<li>drum density</li>
+<li>bass entrance/exit</li>
+<li>melody emphasis</li>
+<li>filter narrative arcs</li>
+<li>FX sends</li>
+<li>modulation intensity</li>
+<li>clock-derived transitions</li>
+<li>crossfades between sequences</li>
+<li>phase-offset movement across multiple voices</li>
+</ul>
+<p>Because there are 8 lanes, you can dedicate some to <strong>per-note articulation</strong> and others to <strong>slow structural changes</strong> over many bars.</p>
+<hr />
+<h1>What the manual tells us, musically</h1>
+<p>From the manual, RADAR has 3 major modes:</p>
+<ul>
+<li><strong>Envelope Mode</strong>: 8 independent channels</li>
+<li><strong>Quad Mode</strong>: 2 groups of 4 phase-offset envelopes</li>
+<li><strong>Oct Mode</strong>: 8 phase-offset envelopes</li>
+</ul>
+<p>Each lane can act as:</p>
+<ul>
+<li><strong>Repeating</strong> = looping envelope / LFO</li>
+<li><strong>AD</strong></li>
+<li><strong>AR</strong></li>
+</ul>
+<p>Important musical behaviors:</p>
+<h2>1. Trigger normalization</h2>
+<p>Each channel trigger is normalized to the next channel below.</p>
+<p>This is huge for composition because one trigger stream can create a <strong>family of related modulations</strong>. You can drive several envelopes from one rhythm source, then vary times/shapes to create layered structure.</p>
+<h2>2. AD vs AR</h2>
+<ul>
+<li><strong>AD</strong> gives fixed transient shapes</li>
+<li><strong>AR</strong> lets gate length matter</li>
+</ul>
+<p>That means AR is especially good for:
+- longer held notes
+- phrase-level swells
+- section-dependent sustain
+- translating sequencer gate length into musical dynamics</p>
+<h2>3. Repeating mode</h2>
+<p>Looping envelopes can become:
+- LFOs
+- asymmetrical clocks
+- slow song-shape generators
+- pseudo-sidechain motion
+- repeating rises/falls that drive arrangement changes</p>
+<h2>4. Analog vs digital modeling</h2>
+<p>This is one of the most compositionally important features.</p>
+<ul>
+<li><strong>Digital</strong> resets to zero on retrigger</li>
+<li><strong>Analog</strong> can rise from current level and behaves more like capacitor charging/discharging</li>
+</ul>
+<p>Musically:
+- <strong>Digital mode</strong> is tighter, more percussive, more clock-locked
+- <strong>Analog mode</strong> is more organic, legato, evolving, and less “start-stop”</p>
+<p>For full songs, analog mode is often better for <strong>continuity between sections</strong>, while digital mode is better for <strong>clean groove articulation</strong>.</p>
+<h2>5. Envelope shape control</h2>
+<p>You can continuously vary between:
+- LOG
+- LIN
+- EXP</p>
+<p>And the release can be:
+- equal to attack shape
+- opposite shape</p>
+<p>This matters for arrangement because shape is not just timbre—it changes <strong>how tension and release feel over time</strong>.</p>
+<p>Examples:
+- <strong>EXP decay</strong> = punchy, percussive
+- <strong>LOG rise</strong> = gradual bloom
+- <strong>LIN</strong> = neutral transitions
+- <strong>opposite mode</strong> = more natural rise/fall contrast</p>
+<h2>6. Composite outputs on lanes 4 and 8</h2>
+<p>In Envelope Mode:
+- lane 4 can output the <strong>max</strong> of lanes 3+4
+- lane 8 can output the <strong>max</strong> of lanes 6+7+8</p>
+<p>This is excellent for making:
+- grouped drum accents
+- “highest energy wins” control voltages
+- combined section envelopes
+- dynamic bus modulation</p>
+<h2>7. Quad and Oct phase modes</h2>
+<p>These are maybe the most powerful “songfulness” tools in RADAR.</p>
+<ul>
+<li><strong>Quad Mode</strong>: 4 related envelopes 90° apart</li>
+<li><strong>Oct Mode</strong>: 8 related envelopes 45° apart</li>
+</ul>
+<p>This lets one timing structure create coordinated movement across:
+- drums
+- bass
+- pads
+- melody
+- FX
+- stereo image
+- filter banks
+- multiple sequencers</p>
+<p>Instead of all modulation happening at once, everything can take turns.</p>
+<p>That is exactly how you get from a loop to a song.</p>
+<hr />
+<h1>The main full-song strategy: use RADAR at multiple time scales</h1>
+<p>A good song in modular usually needs <strong>three time layers</strong>:</p>
+<h2>A. Fast layer: per-note articulation</h2>
+<p>Use RADAR for:
+- voice VCAs
+- filter plucks
+- FM index envelopes
+- wavefolder dynamics
+- LPG strikes</p>
+<p>This gives the groove its immediate character.</p>
+<h2>B. Mid layer: phrase evolution over 1–16 bars</h2>
+<p>Use RADAR for:
+- opening filter over 8 bars
+- increasing reverb send during fills
+- introducing ratchets or probability
+- changing bass envelope amount every phrase
+- changing sequence transpose depth</p>
+<p>This creates progression.</p>
+<h2>C. Slow layer: section arrangement over 16–64+ bars</h2>
+<p>Use RADAR in repeating mode or long AR envelopes for:
+- fade in percussion bus
+- slowly widen stereo field
+- raise distortion on climax
+- mute/unmute voices through VCAs
+- crossfade between sequencers
+- progressively increase modulation depth</p>
+<p>This creates actual song form.</p>
+<p>The beauty of RADAR is that a single module can cover all three layers at once.</p>
+<hr />
+<h1>Patch ideas for full-length songs</h1>
+<h2>1. RADAR as a section arranger</h2>
+<h3>Goal</h3>
+<p>Turn 2–4 voice loops into intro, verse, build, breakdown, and outro.</p>
+<h3>Patch</h3>
+<p>Use several RADAR channels to control VCAs placed after entire voice chains or submixes:</p>
+<ul>
+<li><strong>Lane 1</strong>: kick/submix level</li>
+<li><strong>Lane 2</strong>: hats/percussion level</li>
+<li><strong>Lane 3</strong>: bass level</li>
+<li><strong>Lane 4</strong>: melody level</li>
+<li><strong>Lane 5</strong>: pad/texture level</li>
+<li><strong>Lane 6</strong>: FX send amount</li>
+<li><strong>Lane 7</strong>: filter cutoff on full mix or bus</li>
+<li><strong>Lane 8</strong>: reverb/delay return VCA</li>
+</ul>
+<p>Trigger them from:
+- a master clock divider
+- a manual gate source
+- a sequential switch
+- a logic-derived section trigger</p>
+<h3>Why it works</h3>
+<p>Instead of muting manually, RADAR can <strong>fade sections in and out musically</strong>. Different attack/release times give each part a role:
+- percussion can snap in
+- pads can bloom
+- bass can ease in late
+- FX can trail into transitions</p>
+<h3>Best module partners</h3>
+<ul>
+<li>VCAs: Intellijel Quad VCA, Veils, Mutable Shades + VCA combo</li>
+<li>Mixers: Performance Mixer, Befaco Hexmix, Happy Nerding PanMix</li>
+<li>Clock dividers: Pamela’s Pro Workout, 4ms QCD, Temps Utile</li>
+<li>Gate sequencing: Steppy, Varigate, Eloquencer, Metron</li>
+</ul>
+<hr />
+<h2>2. Use AR mode to make sections depend on gate length</h2>
+<h3>Goal</h3>
+<p>Create verse-length and chorus-length events rather than tiny one-shot envelopes.</p>
+<h3>Patch</h3>
+<p>Send long gates from:
+- a gate sequencer
+- pressure controller
+- manual buttons
+- a macro sequencer
+- a clock divider with reset logic</p>
+<p>Use AR lanes to control:
+- master filter opening
+- melody voice VCA
+- wavetable position modulation depth
+- delay feedback amount
+- drum send to reverb</p>
+<h3>Why it works</h3>
+<p>A long gate can represent a musical section:
+- gate high = chorus
+- gate low = verse</p>
+<p>In <strong>analog modeling AR mode</strong>, shorter or changing gates feel especially organic because attack may not always fully complete before release starts. This gives transitions that feel less rigid and more “performed.”</p>
+<hr />
+<h2>3. Build transitions with repeating mode as slow cyclic structure</h2>
+<h3>Goal</h3>
+<p>Escape static loops without needing a full song sequencer.</p>
+<h3>Patch</h3>
+<p>Set 2–4 RADAR lanes to <strong>Repeating</strong> with very slow rates:
+- one cycling every 8 bars
+- one cycling every 16 bars
+- one cycling every 32 bars
+- one slightly offset in shape/time</p>
+<p>Patch them to:
+- probability amount on trigger modules
+- fill density on drums
+- sequence transposition CV depth
+- oscillator wavefold amount
+- noise level in percussion
+- reverb send amount
+- stereo panning CV attenuation
+- clock swing amount if supported</p>
+<h3>Why it works</h3>
+<p>If several parameters evolve at different long periods, your patch produces <strong>song-length variation automatically</strong>. The repeating envelopes become low-frequency arrangement curves.</p>
+<h3>Tip</h3>
+<p>Use:
+- <strong>digital repeating</strong> for stable exact cycles
+- <strong>analog repeating</strong> for more fluid return behavior and more lifelike transitions</p>
+<hr />
+<h2>4. Crossfade between two sequencers or two patterns</h2>
+<h3>Goal</h3>
+<p>Create verse/chorus or A/B sections.</p>
+<h3>Patch</h3>
+<p>Use one RADAR lane and an inverted copy of it to control two VCAs or a crossfader.</p>
+<p>For example:
+- Sequencer A -&gt; VCA 1 -&gt; quantizer/voice
+- Sequencer B -&gt; VCA 2 -&gt; quantizer/voice
+- RADAR lane opens VCA 1 while inverse closes VCA 2, or vice versa</p>
+<p>Or use RADAR to crossfade:
+- two drum submixes
+- two filter outputs
+- dry/wet textures
+- bassline variants
+- two modulation buses</p>
+<h3>Best partners</h3>
+<ul>
+<li>Happy Nerding 3xVCA / 4x Stereo Mix</li>
+<li>Joranalogue Morph 4</li>
+<li>Planar 2</li>
+<li>X-PAN</li>
+<li>any CV-controllable crossfader</li>
+</ul>
+<h3>Why it works</h3>
+<p>Crossfades create real arrangement changes while preserving continuity. A long RADAR envelope over 8–16 bars can make transitions feel composed rather than abruptly switched.</p>
+<hr />
+<h2>5. Use Quad Mode for phased multi-voice arrangement</h2>
+<h3>Goal</h3>
+<p>Make multiple voices evolve as parts of one larger form.</p>
+<h3>Patch</h3>
+<p>In <strong>Quad Mode</strong>, one group of four outputs is 90° apart.</p>
+<p>Assign outputs to:
+- bass filter
+- lead VCA level
+- pad timbre
+- percussion density</p>
+<p>Because each lane is phase shifted, each musical part peaks at different times.</p>
+<h3>Result</h3>
+<p>Instead of all voices becoming brighter/louder together, they <strong>trade focus</strong>:
+- bass dominates first
+- then melody
+- then percussion
+- then texture</p>
+<p>That feels like arrangement.</p>
+<h3>Great uses</h3>
+<ul>
+<li>4 voice techno progression</li>
+<li>4-part ambient ecosystem</li>
+<li>polyrhythmic percussion scene</li>
+<li>quadraphonic/stereo movement</li>
+</ul>
+<h3>Manual-based extra controls</h3>
+<p>In Quad Mode, lanes 2–4 can handle:
+- <strong>Speed</strong>
+- <strong>Gravity</strong>
+- <strong>SDelta</strong></p>
+<p>Musically:
+- <strong>Speed</strong> = phrase tempo of the whole evolving movement
+- <strong>Gravity</strong> = how tightly the other channels pull toward or away from the main phase reference
+- <strong>SDelta</strong> = shape spread across voices, making each lane articulate differently</p>
+<p>That lets you create “everyone changes together but not identically,” which is ideal for full-song development.</p>
+<hr />
+<h2>6. Use Oct Mode as an 8-scene evolving orchestra</h2>
+<h3>Goal</h3>
+<p>Create a whole-song modulation ecosystem.</p>
+<h3>Patch</h3>
+<p>In <strong>Oct Mode</strong>, all 8 outputs are 45° apart. Patch them to 8 destinations across the patch:</p>
+<ol>
+<li>kick decay or drum VCA</li>
+<li>snare tone</li>
+<li>hat density</li>
+<li>bass filter</li>
+<li>chordal voice amplitude</li>
+<li>lead timbre</li>
+<li>delay send</li>
+<li>reverb return or stereo width</li>
+</ol>
+<p>Now one modulation process distributes energy around the patch over time.</p>
+<h3>Why it works</h3>
+<p>This prevents the common modular problem where every modulation peaks simultaneously and the patch feels looped. Oct Mode creates <strong>rotating emphasis</strong>.</p>
+<h3>Great for</h3>
+<ul>
+<li>ambient</li>
+<li>IDM</li>
+<li>generative songs</li>
+<li>long-form techno</li>
+<li>soundtrack-style progression</li>
+</ul>
+<hr />
+<h2>7. Use normalized triggers to derive entire arrangements from one rhythm</h2>
+<h3>Goal</h3>
+<p>Take one gate stream and grow a whole composition from it.</p>
+<h3>Patch</h3>
+<p>Feed one trigger pattern into the top lane and use the normalization downward. Set each lane differently:
+- Lane 1: short AD for pluck
+- Lane 2: longer AD for filter
+- Lane 3: AR for sustained VCA
+- Lane 4: repeating for local tremolo
+- Lane 5: long AD for FX send
+- Lane 6: very slow envelope for transposition depth
+- Lane 7: repeating for pan motion
+- Lane 8: long release for mix glue</p>
+<h3>Why it works</h3>
+<p>One rhythmic motive can generate a <strong>hierarchy of musical consequences</strong>:
+- note attack
+- timbre bloom
+- ambience trail
+- phrase movement
+- section-level tension</p>
+<p>That’s how a simple sequence becomes compositional material.</p>
+<hr />
+<h2>8. Composite outputs as “energy buses”</h2>
+<h3>Goal</h3>
+<p>Build macro control signals that reflect activity in several lanes.</p>
+<p>In Envelope Mode:
+- lane 4 can output max(lane 3, lane 4)
+- lane 8 can output max(lane 6, lane 7, lane 8)</p>
+<h3>Patch ideas</h3>
+<p>Use lane 8 composite output to control:
+- master distortion amount
+- global filter brightness
+- sidechain ducking depth
+- delay send
+- compressor sidechain level
+- scene lighting in a performance patch</p>
+<h3>Why it works</h3>
+<p>The max function behaves like an <strong>energy detector</strong>: whichever source is most active dominates. That gives arrangement-level control without messy CV mixing.</p>
+<p>For example:
+- lane 6 = bass phrase intensity
+- lane 7 = lead phrase intensity
+- lane 8 = percussion accent envelope</p>
+<p>Composite output then opens a reverb send whenever any of those become active.</p>
+<p>That can make sections “bloom” naturally.</p>
+<hr />
+<h2>9. Use RADAR to automate fills and breakdowns</h2>
+<h3>Goal</h3>
+<p>Add song markers every 8 or 16 bars.</p>
+<h3>Patch</h3>
+<p>Take a long clock division or end-of-phrase trigger and fire a RADAR lane that modulates:
+- snare decay
+- burst generator density
+- ratchet amount
+- sample player start point
+- filter resonance
+- mute VCA on kick for a short breakdown</p>
+<h3>Example</h3>
+<p>Every 16 bars:
+- a RADAR AD envelope opens a VCA sending noise to percussion
+- another lane in repeating mode briefly increases delay send
+- another lane lowers bass level
+- then all return</p>
+<h3>Best partners</h3>
+<ul>
+<li>logic modules</li>
+<li>burst generators</li>
+<li>probabilistic triggers</li>
+<li>sample players</li>
+<li>sequential switches</li>
+</ul>
+<p>This is one of the easiest ways to get from “loop” to “track.”</p>
+<hr />
+<h1>Pairing RADAR with common module categories</h1>
+<h2>With sequencers</h2>
+<p>RADAR is extremely effective with:
+- Metropolix
+- Rene
+- Eloquencer
+- Hermod
+- Five12 Vector
+- NerdSEQ
+- Pamela’s Pro Workout as a trigger brain</p>
+<p>Use RADAR to animate:
+- gate length via VCAs/logic
+- sequence transpose
+- modulation lane depth
+- probability amount
+- step selection through sequential switch addressing</p>
+<h3>Song trick</h3>
+<p>Use one sequencer for notes and RADAR for <strong>everything that changes the meaning of those notes</strong> over time.</p>
+<hr />
+<h2>With sequential switches</h2>
+<p>A sequential switch plus RADAR is a song machine.</p>
+<p>Use RADAR to:
+- fade switched sources in/out
+- modulate which sequence is active
+- shape the transitions between switched timbres
+- control reset moments</p>
+<p>Modules:
+- Doepfer A-151
+- Vice Virga
+- Boss Bow Two
+- Verbos Sequence Selector</p>
+<h3>Example</h3>
+<p>4 melodic sequences feed a switch. Every 8 bars a new sequence is selected. RADAR fades filter and amplitude differently for each handoff.</p>
+<hr />
+<h2>With VCAs and mixers</h2>
+<p>This is probably the most important pairing.</p>
+<p>RADAR turns into an arranger when patched through lots of VCAs:
+- per-voice VCA
+- CV VCA
+- send-return VCA
+- submix VCA
+- master ducking VCA</p>
+<p>Remember: <strong>full songs in modular often come from voltage-controlled mixing, not just more sequencing</strong>.</p>
+<hr />
+<h2>With filters and low pass gates</h2>
+<p>Use different RADAR shapes to make repeated phrases feel less repetitive.</p>
+<p>Examples:
+- bass: short EXP decay for punch
+- chords: long LOG rise for swelling entrances
+- melody: AR with held gate for expressive sustain
+- percussion bus: repeating lane to animate filter opening over several bars</p>
+<hr />
+<h2>With effects</h2>
+<p>RADAR is excellent for arrangement through FX control.</p>
+<p>Patch lanes to:
+- delay send
+- reverb send
+- feedback amount
+- shimmer depth
+- bitcrusher mix
+- chorus depth
+- stereo width</p>
+<p>A full song often feels complete when space changes over sections. RADAR can automate those changes elegantly.</p>
+<hr />
+<h2>With logic and clock utilities</h2>
+<p>This is where song structure gets serious.</p>
+<p>Use:
+- AND / OR / XOR logic
+- clock dividers
+- trigger delays
+- comparators
+- Bernoulli gates
+- burst generators</p>
+<p>to create higher-level triggers that launch RADAR envelopes only:
+- every 4 bars
+- on fills
+- when a manual button is pressed
+- after probability conditions
+- when another envelope crosses a threshold</p>
+<p>This makes RADAR behave like an arrangement director.</p>
+<hr />
+<h1>Concrete full-song templates</h1>
+<h2>Template 1: Techno arrangement</h2>
+<h3>Voices</h3>
+<ul>
+<li>kick</li>
+<li>percussion</li>
+<li>bass</li>
+<li>stab/lead</li>
+</ul>
+<h3>RADAR assignment</h3>
+<ul>
+<li>Lane 1: kick bus ducking envelope</li>
+<li>Lane 2: bass filter envelope</li>
+<li>Lane 3: stab amplitude envelope</li>
+<li>Lane 4: percussion bus level over phrases</li>
+<li>Lane 5: repeating 16-bar build into lead filter</li>
+<li>Lane 6: AR controlling reverb send during breakdown gate</li>
+<li>Lane 7: repeating slow modulation to hi-hat density</li>
+<li>Lane 8: composite energy output to master saturation</li>
+</ul>
+<h3>Song form</h3>
+<ul>
+<li>intro: percussion + filtered stab only</li>
+<li>verse/groove: bass enters via long AR</li>
+<li>build: lane 5 opens lead filter over 16 bars</li>
+<li>breakdown: lane 6 raises reverb, lane 1 reduces kick dominance</li>
+<li>drop: digital retriggered envelopes tighten everything again</li>
+<li>outro: long releases remove bass and percussion gradually</li>
+</ul>
+<hr />
+<h2>Template 2: Ambient long-form piece</h2>
+<h3>Voices</h3>
+<ul>
+<li>drone</li>
+<li>harmonic voice</li>
+<li>soft pulses</li>
+<li>noise texture</li>
+</ul>
+<h3>RADAR assignment</h3>
+<p>Use <strong>Oct Mode</strong>:
+- each output controls one parameter in a distributed ecosystem</p>
+<p>Examples:
+- drone filter
+- drone amplitude
+- harmonic timbre
+- harmonic VCA
+- pulse rate modulation depth
+- pulse brightness
+- noise level
+- reverb send</p>
+<h3>Result</h3>
+<p>The patch never feels static because emphasis rotates slowly through the system.</p>
+<h3>Song form</h3>
+<p>Instead of rigid sections, the song becomes:
+- emergence
+- blooming
+- density
+- suspension
+- dissipation</p>
+<p>RADAR is perfect for this style.</p>
+<hr />
+<h2>Template 3: Song-like melodic modular patch</h2>
+<h3>Voices</h3>
+<ul>
+<li>drums</li>
+<li>bass</li>
+<li>chords</li>
+<li>lead</li>
+</ul>
+<h3>Structure idea</h3>
+<p>Use one “section gate sequencer” or manual controller.</p>
+<h3>RADAR lanes</h3>
+<ul>
+<li>Lane 1: drum bus level</li>
+<li>Lane 2: bass VCA</li>
+<li>Lane 3: chord VCA</li>
+<li>Lane 4: lead VCA</li>
+<li>Lane 5: chord filter sweep</li>
+<li>Lane 6: lead delay send</li>
+<li>Lane 7: transpose modulation depth</li>
+<li>Lane 8: outro fade/master texture send</li>
+</ul>
+<p>Use long AR gates for:
+- verse
+- pre-chorus
+- chorus
+- bridge</p>
+<p>This gives you actual section behavior, not just pattern chaining.</p>
+<hr />
+<h1>Best musical practices with RADAR for song writing</h1>
+<h2>1. Reserve some lanes for arrangement only</h2>
+<p>Don’t spend all 8 channels on per-note envelopes.</p>
+<p>A good rule:
+- 3–4 lanes for articulation
+- 2–3 lanes for phrase movement
+- 1–2 lanes for section control</p>
+<h2>2. Use long times unapologetically</h2>
+<p>A lot of modular patches stay “small” because modulation cycles are too short.</p>
+<p>Let some RADAR lanes span:
+- 4 bars
+- 8 bars
+- 16 bars
+- even 32+ bars</p>
+<p>That’s where songs start happening.</p>
+<h2>3. Mix digital and analog behavior intentionally</h2>
+<ul>
+<li><strong>Digital</strong> for drums, tight bass articulation, hard resets</li>
+<li><strong>Analog</strong> for pads, transitions, drones, legato changes</li>
+</ul>
+<h2>4. Use shape as narrative</h2>
+<ul>
+<li>LOG rise = suspense</li>
+<li>EXP decay = impact</li>
+<li>LIN = neutrality</li>
+<li>opposite mode = more natural asymmetry</li>
+</ul>
+<h2>5. Build one control lane per musical question</h2>
+<p>Examples:
+- “When does bass enter?”
+- “When does space increase?”
+- “When does melody become dominant?”
+- “How does density rise before the drop?”</p>
+<p>RADAR can answer each of these with a lane.</p>
+<h2>6. Let one lane modulate modulation depth</h2>
+<p>A classic full-song move:
+Use one RADAR lane to open a VCA that controls another modulation source.</p>
+<p>Example:
+- LFO -&gt; VCA -&gt; filter FM
+- RADAR controls that VCA</p>
+<p>Now modulation itself appears only in later sections.</p>
+<p>That’s very song-like.</p>
+<hr />
+<h1>Especially powerful combinations</h1>
+<h2>RADAR + Pamela’s Pro Workout</h2>
+<p>Pam provides:
+- clocks
+- divisions
+- logic-ish trigger patterns
+- long gates
+- synced timing</p>
+<p>RADAR provides:
+- contour
+- shape
+- phrase motion
+- arrangement fades</p>
+<p>Together, they can build complete evolving structures.</p>
+<h2>RADAR + Metropolix or Vector</h2>
+<p>Sequencer handles notes and pattern switching.
+RADAR handles:
+- voice entrances
+- timbral evolution
+- transition envelopes
+- buildup/release arcs</p>
+<h2>RADAR + matrix mixer</h2>
+<p>A matrix mixer lets one RADAR lane influence several destinations in controlled amounts.</p>
+<p>One long envelope can simultaneously:
+- increase cutoff
+- increase reverb
+- reduce bass
+- widen stereo field</p>
+<p>That is pure arrangement power.</p>
+<h2>RADAR + performance mixer</h2>
+<p>Use RADAR to animate what would otherwise be manual fader moves. Great for recording whole performances into coherent tracks.</p>
+<hr />
+<h1>A practical “full song patch” recipe</h1>
+<p>If you want one immediately useful setup:</p>
+<h2>Core modules</h2>
+<ul>
+<li>RADAR</li>
+<li>1 drum voice or drum system</li>
+<li>1 bass voice</li>
+<li>1 melodic/chord voice</li>
+<li>1 sequencer</li>
+<li>clock source/divider</li>
+<li>several VCAs</li>
+<li>mixer</li>
+<li>reverb/delay</li>
+<li>optional sequential switch</li>
+</ul>
+<h2>Patch</h2>
+<h3>Articulation</h3>
+<ul>
+<li>Lane 1 -&gt; bass VCA envelope</li>
+<li>Lane 2 -&gt; melody VCA envelope</li>
+<li>Lane 3 -&gt; melody filter envelope</li>
+</ul>
+<h3>Phrase</h3>
+<ul>
+<li>Lane 4 -&gt; drum submix VCA or drum filter</li>
+<li>Lane 5 repeating slow -&gt; bass filter modulation depth</li>
+<li>Lane 6 repeating slow -&gt; melody delay send</li>
+</ul>
+<h3>Section</h3>
+<ul>
+<li>Lane 7 AR -&gt; pad/chord voice level from a long gate</li>
+<li>Lane 8 AR or AD -&gt; master FX bloom / outro fade</li>
+</ul>
+<h3>Control</h3>
+<ul>
+<li>Sequencer triggers notes</li>
+<li>Clock divider sends phrase triggers every 8/16 bars</li>
+<li>Manual gate button or sequencer track defines chorus/breakdown sections</li>
+</ul>
+<h2>Result</h2>
+<p>You now have:
+- note-level dynamics
+- phrase-level change
+- section-level form</p>
+<p>That is the architecture of a song.</p>
+<hr />
+<h1>Final takeaway</h1>
+<p>RADAR helps create full-length songs because it can function as:</p>
+<ul>
+<li>an <strong>8-channel articulation source</strong></li>
+<li>a <strong>slow modulation bank</strong></li>
+<li>a <strong>phase-based arrangement engine</strong></li>
+<li>a <strong>macro fade/transition controller</strong></li>
+<li>a <strong>section-performance assistant</strong></li>
+</ul>
+<p>The reason many modular patches remain loops is not lack of notes, but lack of <strong>hierarchical control over time</strong>. RADAR gives you exactly that hierarchy.</p>
+<p>If you approach it as:
+- some lanes for notes,
+- some lanes for phrases,
+- some lanes for sections,</p>
+<p>then it becomes much more than an envelope generator: it becomes a <strong>song form module</strong>.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

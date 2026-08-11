@@ -1,0 +1,541 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Doepfer_A-151_Quad_Sequential_Switch</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Doepfer — A-151 Quad Sequential Switch</h1>
+<ul>
+<li><a href="../../manuals/A151_man.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="https://doepfer.de/a100_man/A151_man.pdf">Doepfer A-151 Quad Sequential Switch Manual (PDF)</a></p>
+<h1>Doepfer A-151 Quad Sequential Switch — Sound Design Ideas</h1>
+<p>The <strong>Doepfer A-151</strong> is a <strong>4-step sequential switch</strong>. Every trigger advances the connection from the common jack to the next of four I/O jacks. That sounds simple, but in a modular patch it becomes a <strong>rhythm router, waveform scanner, modulation sequencer, pattern breaker, and timbral animator</strong>.</p>
+<p>A few key things from the manual that matter musically:</p>
+<ul>
+<li>It is <strong>bi-directional</strong>:</li>
+<li><strong>4 inputs → 1 output</strong></li>
+<li>or <strong>1 input → 4 outputs</strong></li>
+<li>It advances on the <strong>rising edge</strong> of a trigger at <strong>Trig In</strong></li>
+<li>A pulse to <strong>Reset In</strong> returns it immediately to <strong>step 1</strong></li>
+<li><strong>Version 2</strong> adds a <strong>2 / 3 / 4 step switch</strong></li>
+<li>Early versions handle about <strong>-8V to +8V</strong></li>
+<li>Later versions handle the full <strong>A-100 range: -12V to +12V</strong></li>
+<li>Very fast triggering can create <strong>audio-rate switching effects</strong>, which is where things get especially wild</li>
+</ul>
+<hr />
+<h2>What the A-151 is best at</h2>
+<p>Think of the A-151 as a way to make one thing become many things over time:</p>
+<ul>
+<li>one oscillator becomes a rotating set of waveforms</li>
+<li>one envelope becomes a rotating set of destinations</li>
+<li>one audio path becomes a rotating set of distortions</li>
+<li>one clock becomes evolving phrasing through reset tricks</li>
+<li>one sustained sound becomes a shifting pad through stepped timbre changes</li>
+</ul>
+<p>Because it is a <strong>hard switch</strong>, not a crossfader, the sonic results can be:
+- abrupt
+- glitchy
+- percussive
+- formant-like
+- aggressive
+- rhythmically complex</p>
+<p>That makes it especially good for:
+- <strong>distorted percussion</strong>
+- <strong>dubstep / DnB bass movement</strong>
+- <strong>haunted evolving atmospheres</strong></p>
+<hr />
+<h1>General modulation strategies</h1>
+<h2>1. Trigger it at musically meaningful rates</h2>
+<p>Use different trigger sources into <strong>Trig In</strong>:</p>
+<ul>
+<li><strong>Clock divider</strong> for rhythmic pattern switching</li>
+<li><strong>Gate from sequencer</strong> for note-by-note changes</li>
+<li><strong>LFO square</strong> for slower movement</li>
+<li><strong>Envelope end-of-cycle / trigger out</strong> for self-evolving patches</li>
+<li><strong>VCO square wave</strong> for audio-rate timbral destruction</li>
+</ul>
+<p>This one choice massively changes the character:
+- <strong>slow triggers</strong> = structural variation
+- <strong>medium triggers</strong> = rhythmic articulation
+- <strong>audio-rate triggers</strong> = new composite timbres / digital tearing / harshness</p>
+<hr />
+<h2>2. Use Reset In for pattern control</h2>
+<p>Reset is one of the most important creative features.</p>
+<p>If you clock the A-151 in 4-step mode but send a reset every 3 clocks, you get:
+- <strong>1 → 2 → 3 → reset</strong>
+instead of
+- <strong>1 → 2 → 3 → 4</strong></p>
+<p>That means:
+- uneven phrasing
+- accents that feel “broken”
+- loop lengths that don’t match the main clock
+- pseudo-polyrhythms</p>
+<p>For bass music, this is gold.</p>
+<p>Try:
+- reset every <strong>5th</strong>, <strong>7th</strong>, or <strong>irregular</strong> pulse
+- reset from a <strong>probability gate</strong>
+- reset from a <strong>manual gate button</strong> during performance</p>
+<hr />
+<h2>3. Use the 2/3/4 step switch musically</h2>
+<p>If your version has the step switch:</p>
+<ul>
+<li><strong>2-step</strong> = alternating A/B behavior, great for kick/snare, wobble/open-close</li>
+<li><strong>3-step</strong> = asymmetry, instantly more interesting</li>
+<li><strong>4-step</strong> = full cycle variation</li>
+</ul>
+<p>A strong performance trick:
+- patch a 4-source timbre chain
+- switch between <strong>2-step</strong> and <strong>3-step</strong> during playback
+- the whole groove shifts without changing pitch sequencing</p>
+<hr />
+<h2>4. Remember it is bi-directional</h2>
+<p>This is huge.</p>
+<h3>4 inputs → 1 output</h3>
+<p>Use when you want to <strong>select between sound sources</strong> or modulation sources.</p>
+<h3>1 input → 4 outputs</h3>
+<p>Use when you want one source to <strong>strike different destinations in sequence</strong>.</p>
+<p>For example:
+- one trigger routed to 4 different envelopes
+- one envelope routed sequentially to 4 modulation targets
+- one audio source routed to 4 different processing chains</p>
+<p>This is where patches become animated and “composed.”</p>
+<hr />
+<h1>Patch ideas for distorted percussive sounds</h1>
+<h2>1. Rotating drum voice architecture</h2>
+<p>Use one trigger sequence to advance the A-151 while one noise/oscillator source feeds the common input.</p>
+<h3>Patch</h3>
+<ul>
+<li>Put a sound source into <strong>O/I</strong></li>
+<li>white noise</li>
+<li>sine or triangle oscillator</li>
+<li>short FM blip source</li>
+<li>Patch <strong>I/O 1–4</strong> to four different processing chains:</li>
+<li>LPG or VCA with short decay</li>
+<li>wavefolder or distortion</li>
+<li>bandpass filter with high resonance</li>
+<li>ring mod or FM input path</li>
+<li>Use the outputs of those chains to your mixer or combine downstream depending on routing scheme</li>
+</ul>
+<p>Alternative approach:
+- send <strong>4 sound sources</strong> into <strong>I/O 1–4</strong>
+- take <strong>O/I</strong> as the selected output</p>
+<h3>Result</h3>
+<p>Each hit rotates to a different timbre:
+- kick-ish thud
+- metallic crack
+- tearing snare
+- noisy zap</p>
+<h3>Make it more brutal</h3>
+<ul>
+<li>Trigger A-151 with the same rhythm driving your percussion envelope</li>
+<li>Use a reset every 3 or 5 triggers</li>
+<li>Add distortion after the A-151 output so the abrupt switching creates transients that get exaggerated</li>
+</ul>
+<p>This can create really strong <strong>industrial percussion</strong> and <strong>broken beat textures</strong>.</p>
+<hr />
+<h2>2. Sequential transient designer</h2>
+<p>Route one trigger source to different envelope generators or decay shapes.</p>
+<h3>Patch</h3>
+<ul>
+<li>Put a trigger stream into <strong>O/I</strong></li>
+<li>Route <strong>I/O 1–4</strong> to:</li>
+<li>short snappy envelope</li>
+<li>medium decay envelope</li>
+<li>ultra-short click envelope</li>
+<li>envelope with attack for reverse-like swell</li>
+<li>Each envelope controls either:</li>
+<li>VCA amplitude</li>
+<li>filter cutoff</li>
+<li>FM index</li>
+<li>distortion amount</li>
+</ul>
+<h3>Result</h3>
+<p>Each note has a different contour. Even a simple oscillator becomes:
+- punch
+- slap
+- bite
+- smear</p>
+<p>For distorted percussion this matters a lot, because distortion responds differently to different envelope shapes.</p>
+<hr />
+<h2>3. Audio-rate switched noise percussion</h2>
+<p>The manual specifically notes very fast trigger rates can create audio-frequency modulation.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send <strong>noise</strong> or a harmonically rich oscillator into <strong>O/I</strong></li>
+<li>Put 4 different filtered versions of the sound on <strong>I/O 1–4</strong>, or vice versa</li>
+<li>Trigger <strong>Trig In</strong> with:</li>
+<li>fast square LFO</li>
+<li>audio-rate VCO square output</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- tearing digital-like edges
+- zippering textures
+- metallic alias-style percussion
+- strange formant bursts</p>
+<p>Add:
+- short VCA envelope after the switch
+- hard clipping
+- resonant HPF/BPF</p>
+<p>This produces fantastic:
+- snare layers
+- glitch hats
+- neuro percussive stabs</p>
+<hr />
+<h2>4. Rotating feedback percussion</h2>
+<p>If your system supports careful feedback patching:</p>
+<h3>Patch</h3>
+<ul>
+<li>Source oscillator/noise into A-151</li>
+<li>Each stage feeds a different effect:</li>
+<li>clean</li>
+<li>overdrive</li>
+<li>filter feedback loop</li>
+<li>wavefolder</li>
+<li>Mix some output back into the input path</li>
+</ul>
+<h3>Result</h3>
+<p>The A-151 changes the topology of the feedback path on each hit. This can yield:
+- unstable clanks
+- explosive hits
+- screaming transients
+- “machine breaking” sounds</p>
+<p>Keep levels under control. This can get loud fast.</p>
+<hr />
+<h1>Patch ideas for dubstep / drum &amp; bass basslines</h1>
+<h2>1. Waveform scanner bass</h2>
+<p>This is directly suggested by the manual: switch between VCO waveforms.</p>
+<h3>Patch</h3>
+<ul>
+<li>Patch one oscillator’s <strong>saw, pulse, triangle, sub</strong> into <strong>I/O 1–4</strong></li>
+<li>Take <strong>O/I</strong> to filter → VCA → distortion</li>
+<li>Trigger <strong>Trig In</strong> from:</li>
+<li>sequencer gate</li>
+<li>clock division of the note rhythm</li>
+<li>fast LFO for rolling movement</li>
+</ul>
+<h3>Why it works</h3>
+<p>Each waveform hits the downstream distortion and filter differently:
+- saw = bright/aggressive
+- pulse = nasal/hollow
+- triangle = smoother body
+- sub = weight</p>
+<h3>Bass music trick</h3>
+<p>Run the switched waveform into:
+- wavefolder
+- aggressive lowpass with resonance
+- parallel clean sub underneath</p>
+<p>The A-151 becomes a <strong>hard-stepped wavetable selector</strong>.</p>
+<hr />
+<h2>2. Sequential modulation-source selector for wobble bass</h2>
+<p>Instead of switching audio, switch <strong>control voltages</strong>.</p>
+<h3>Patch</h3>
+<p>Send 4 modulation sources into <strong>I/O 1–4</strong>:
+1. slow triangle LFO
+2. envelope with snappy attack
+3. stepped random
+4. inverted envelope or slewed random</p>
+<p>Take <strong>O/I</strong> to:
+- filter cutoff CV
+- wavetable position CV
+- FM amount CV
+- VCA CV amount
+- distortion CV if available</p>
+<p>Trigger the A-151 from the bass rhythm.</p>
+<h3>Result</h3>
+<p>Every note or every beat has a different movement pattern:
+- wobble
+- stab
+- glitch
+- growl</p>
+<p>This is one of the best uses of the module for <strong>neuro / reese / dubstep</strong> style design.</p>
+<hr />
+<h2>3. Sequential distortion topology</h2>
+<p>Use the A-151 to select different pre- or post-distortion paths.</p>
+<h3>Patch</h3>
+<p>Bass source into <strong>O/I</strong>, then switch among 4 different routes:
+1. direct to overdrive
+2. filtered before distortion
+3. wavefolded before distortion
+4. ring mod or FM sidechain before distortion</p>
+<p>Or reverse:
+- 4 different parallel processing outputs into <strong>I/O 1–4</strong>
+- <strong>O/I</strong> to final VCA/mix bus</p>
+<h3>Result</h3>
+<p>One bassline becomes many basslines:
+- guttural
+- nasal
+- crunchy
+- ripped apart</p>
+<h3>Performance note</h3>
+<p>Resetting at odd intervals creates those “mutating but still looped” bass phrases common in DnB.</p>
+<hr />
+<h2>4. 3-step bass phrasing against 4/4 drums</h2>
+<p>If your version has the <strong>3-step mode</strong>, use it constantly.</p>
+<h3>Patch</h3>
+<ul>
+<li>Sequence a normal 16-step bassline</li>
+<li>Advance the A-151 every quarter note or every note gate</li>
+<li>Put 3 different modulation or audio variants on steps 1–3</li>
+</ul>
+<h3>Result</h3>
+<p>Because the timbre cycle is 3 while the bar is 4, the phrase drifts:
+- bars feel less repetitive
+- accents move
+- bass seems to “evolve” without changing notes</p>
+<p>This is excellent for:
+- rolling DnB
+- halftime dubstep
+- broken neuro phrases</p>
+<hr />
+<h2>5. Audio-rate trigger for monstrous bass grit</h2>
+<p>This is one of the most extreme uses.</p>
+<h3>Patch</h3>
+<ul>
+<li>Bass oscillator waveforms into the A-151</li>
+<li>Trigger <strong>Trig In</strong> from another VCO square wave</li>
+<li>Tune the trigger VCO to harmonic or inharmonic relationships</li>
+</ul>
+<h3>Result</h3>
+<p>The switching itself becomes part of the spectrum:
+- harsh digital edge
+- phasey tearing
+- vocal-like movement
+- unstable upper harmonics</p>
+<p>Then run through:
+- lowpass filter with envelope
+- heavy saturation
+- sub oscillator in parallel</p>
+<p>This can produce <strong>devastating reese-style textures</strong>.</p>
+<hr />
+<h1>Patch ideas for haunting atmospheric pads</h1>
+<p>The A-151 is often thought of as rhythmic, but it can be excellent for pads if you use it more slowly and structurally.</p>
+<h2>1. Rotating filter character pad</h2>
+<p>The manual gives an example of switching filter outputs. This is perfect for atmospheres.</p>
+<h3>Patch</h3>
+<ul>
+<li>Send one rich drone or chord source into a multimode filter</li>
+<li>Patch several filter outputs into <strong>I/O 1–4</strong></li>
+<li>lowpass</li>
+<li>bandpass</li>
+<li>highpass</li>
+<li>notch or second filter output</li>
+<li>Take <strong>O/I</strong> to reverb and delay</li>
+<li>Trigger A-151 slowly:</li>
+<li>very slow clock</li>
+<li>manual gate</li>
+<li>sparse random pulse</li>
+</ul>
+<h3>Result</h3>
+<p>The pad shifts between spectral personalities:
+- warm
+- hollow
+- distant
+- ghostly</p>
+<p>With enough reverb, the hard switching becomes a dramatic timbral scene change rather than a click.</p>
+<hr />
+<h2>2. Sequential envelope-to-modulation routing</h2>
+<p>Use one modulation source and send it to different destinations in sequence.</p>
+<h3>Patch</h3>
+<ul>
+<li>Put a slow envelope or LFO into <strong>O/I</strong></li>
+<li>Send <strong>I/O 1–4</strong> to:</li>
+<li>filter cutoff</li>
+<li>oscillator PWM</li>
+<li>FM depth</li>
+<li>effect send or reverb CV</li>
+</ul>
+<p>Trigger the switch very slowly.</p>
+<h3>Result</h3>
+<p>The same movement migrates through the patch:
+- first brightness rises
+- then pulse width drifts
+- then FM bloom appears
+- then the reverb tail swells</p>
+<p>This makes a patch feel <strong>alive and intentional</strong>, not just “LFO on everything.”</p>
+<hr />
+<h2>3. Chord or oscillator layer selector</h2>
+<p>If you have multiple sound sources or chord voicings:</p>
+<h3>Patch</h3>
+<ul>
+<li>Put 4 different related timbres into <strong>I/O 1–4</strong></li>
+<li>detuned saw layer</li>
+<li>sine + fifth</li>
+<li>filtered noise layer</li>
+<li>FM bell-ish layer</li>
+<li>Take <strong>O/I</strong> into a shared ambience chain</li>
+<li>Trigger occasionally or from sparse random</li>
+</ul>
+<h3>Result</h3>
+<p>The pad morphs between identities while staying in one harmonic world.</p>
+<p>For haunting sounds, keep the source relationships close:
+- same root
+- octave/fifth clusters
+- slight detuning differences</p>
+<hr />
+<h2>4. Reset for phrase-based ambience</h2>
+<p>Use reset as a “return to memory.”</p>
+<h3>Patch</h3>
+<ul>
+<li>Advance slowly through 4 timbral stages</li>
+<li>Send a reset at the start of every 8 or 16 bars</li>
+</ul>
+<h3>Result</h3>
+<p>The atmosphere wanders, then returns to a recognizable opening state. This creates:
+- narrative motion
+- tension and release
+- cinematic structure</p>
+<hr />
+<h2>5. Unstable spectral shimmer with audio-rate switching</h2>
+<p>For darker ambient or horror textures:</p>
+<h3>Patch</h3>
+<ul>
+<li>Feed four slightly different versions of a drone into <strong>I/O 1–4</strong></li>
+<li>one filtered</li>
+<li>one ring modded</li>
+<li>one wavefolded lightly</li>
+<li>one with feedback delay coloration</li>
+<li>Trigger A-151 at medium to high rate with a square LFO or oscillator</li>
+<li>Put the output through long reverb</li>
+</ul>
+<h3>Result</h3>
+<p>You get:
+- spectral flutter
+- metallic shimmer
+- broken choir textures
+- uncanny digital halo</p>
+<p>Use attenuation if needed, especially if working with older A-151 voltage limits.</p>
+<hr />
+<h1>Best modulation sources to pair with the A-151</h1>
+<h2>For percussion</h2>
+<ul>
+<li>clock dividers</li>
+<li>trigger sequencers</li>
+<li>burst generators</li>
+<li>random gates</li>
+<li>envelope triggers</li>
+<li>audio-rate square VCOs</li>
+</ul>
+<h2>For bass</h2>
+<ul>
+<li>note gates from sequencer</li>
+<li>swung clocks</li>
+<li>reset patterns from logic</li>
+<li>stepped random CV sources</li>
+<li>envelopes and function generators</li>
+<li>synced LFOs</li>
+</ul>
+<h2>For pads</h2>
+<ul>
+<li>very slow square LFO</li>
+<li>manual gate/button</li>
+<li>Bernoulli/probability gate</li>
+<li>end-of-rise/end-of-cycle triggers</li>
+<li>sparse generative clocks</li>
+</ul>
+<hr />
+<h1>Important sonic behaviors to exploit</h1>
+<h2>Hard switching clicks can be useful</h2>
+<p>Because the A-151 is switching abruptly, transitions may click depending on the material.</p>
+<p>Usually that’s a problem, but for your goals it can be an advantage:
+- added attack on percussion
+- nasty transient on bass
+- haunted artifact in ambient patches</p>
+<p>If you want cleaner results:
+- switch at envelope zero-crossing moments
+- place a VCA after the switch
+- filter after switching
+- use slower or masked transitions with reverb/delay</p>
+<hr />
+<h2>Switching modulation is often more powerful than switching audio</h2>
+<p>A lot of people first use sequential switches for audio selection, but for complex music, CV switching is often deeper.</p>
+<p>Examples:
+- different envelopes to one filter
+- different LFOs to one wavetable position
+- one envelope routed to changing destinations
+- different sequencer rows selected per note</p>
+<p>This gives movement without needing four totally separate voices.</p>
+<hr />
+<h2>Audio-rate triggering is a signature trick</h2>
+<p>The manual explicitly points out that very fast trigger repetition can create audio-frequency effects.</p>
+<p>This is one of the A-151’s secret weapons:
+- pseudo-waveshaping
+- digital-sounding aggression
+- composite waveform generation
+- metallic timbral breakup</p>
+<p>For bass music and experimental percussion, this is one of the most valuable techniques in the module.</p>
+<hr />
+<h1>Three full patch recipes</h1>
+<h2>1. Distorted neuro snare machine</h2>
+<p><strong>Goal:</strong> metallic, crushed, changing snare hits</p>
+<ul>
+<li>Noise + sine osc mixed together</li>
+<li>Into A-151 common I/O</li>
+<li>Four destinations:</li>
+<li>bandpass filter</li>
+<li>wavefolder</li>
+<li>hard clipper</li>
+<li>ring mod input chain</li>
+<li>Trigger A-151 from 16th-note clock</li>
+<li>Envelope/VCA after switch with short decay</li>
+<li>Heavy compression or saturation after VCA</li>
+<li>Reset every 3 or 5 hits</li>
+</ul>
+<p><strong>Result:</strong> rotating snare identities with aggressive transient differences</p>
+<hr />
+<h2>2. Dubstep bass mutator</h2>
+<p><strong>Goal:</strong> filthy evolving bassline</p>
+<ul>
+<li>VCO waveforms to A-151 inputs:</li>
+<li>saw</li>
+<li>pulse</li>
+<li>sub</li>
+<li>FM output or second detuned VCO</li>
+<li>A-151 output to lowpass filter → distortion → VCA</li>
+<li>Trigger from note gate or divided clock</li>
+<li>Send another A-151 or modulation source to switch between filter-envelope shapes</li>
+<li>Use 3-step mode for drift</li>
+<li>Reset at phrase boundaries</li>
+</ul>
+<p><strong>Result:</strong> constantly shifting bass timbre with coherent musical repetition</p>
+<hr />
+<h2>3. Haunted pad engine</h2>
+<p><strong>Goal:</strong> dark evolving cinematic texture</p>
+<ul>
+<li>Rich oscillator or chord source into multimode filter</li>
+<li>Filter outputs into A-151</li>
+<li>A-151 output into chorus/delay/reverb</li>
+<li>Advance switch every few seconds with slow square LFO</li>
+<li>Route reset from sparse random or bar-start pulse</li>
+<li>Add a second slow modulation source to detune or FM depth</li>
+</ul>
+<p><strong>Result:</strong> spectral scene changes that feel ghostly and alive</p>
+<hr />
+<h1>Practical warnings from the manual</h1>
+<ul>
+<li>If you have an <strong>older version</strong>, watch signal range:</li>
+<li>roughly <strong>-8V to +8V</strong></li>
+<li><strong>Version 2</strong> can handle <strong>-12V to +12V</strong></li>
+<li>If something behaves strangely, excessive voltage may be the cause</li>
+<li>Fast switching can be intentionally dirty, but also unpredictable depending on source material and downstream gain staging</li>
+</ul>
+<hr />
+<h1>Final creative advice</h1>
+<p>The A-151 is most exciting when you stop thinking of it as just a utility and start treating it like a <strong>compositional timbre sequencer</strong>.</p>
+<p>For your goals:</p>
+<ul>
+<li><strong>Distorted percussion:</strong> switch audio paths and envelope shapes per hit</li>
+<li><strong>Dubstep / DnB bass:</strong> switch waveforms, modulation sources, and distortion chains with resets for phrase control</li>
+<li><strong>Haunting pads:</strong> switch filter outputs and slowly migrate modulation destinations</li>
+</ul>
+<p>If you want, I can also give you:
+1. a set of <strong>10 specific patch recipes</strong> using common Eurorack modules, or<br />
+2. a <strong>genre-focused patch sheet</strong> for <strong>dubstep</strong>, <strong>drum &amp; bass</strong>, or <strong>dark ambient</strong> built around the A-151.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>

@@ -1,0 +1,785 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kaona_Instruments_Fractaos</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Kaona Instruments — Fractaos</h1>
+<ul>
+<li><a href="../../manuals/DocFractaosEN-V1.5.pdf">Manual PDF</a></li>
+</ul>
+<hr />
+<p><a href="manual">Fractaos User Manual PDF</a></p>
+<h1>Using Kaona Fractaos to Build Full-Length Eurorack Songs</h1>
+<p>Fractaos is not just a “cool sound source.” It is unusually well-suited to <strong>song construction</strong> because it combines:</p>
+<ul>
+<li><strong>4 voices of polyphony</strong></li>
+<li><strong>multitimbral operation</strong></li>
+<li><strong>preset recall</strong></li>
+<li><strong>drone/chord behavior</strong></li>
+<li><strong>per-voice envelopes and filters</strong></li>
+<li><strong>MIDI and CV polyphonic access</strong></li>
+<li><strong>very wide timbral range</strong> from tonal to noisy to percussive</li>
+</ul>
+<p>That means it can function as a <strong>central composition voice</strong> rather than only a texture oscillator.</p>
+<p>Below is a practical musician-focused analysis of how to use it to make <strong>complete, evolving tracks</strong> instead of short loops.</p>
+<hr />
+<h2>Why Fractaos is unusually good for song building</h2>
+<p>A lot of eurorack patches stall because they are excellent at one of these:</p>
+<ul>
+<li>one strong bass loop</li>
+<li>one interesting sequence</li>
+<li>one evolving drone</li>
+<li>one drum groove</li>
+</ul>
+<p>But songs require:</p>
+<ul>
+<li><strong>section contrast</strong></li>
+<li><strong>voice management</strong></li>
+<li><strong>recallable states</strong></li>
+<li><strong>arrangement control</strong></li>
+<li><strong>foreground/background roles</strong></li>
+<li><strong>transitions</strong></li>
+<li><strong>variation without repatching everything</strong></li>
+</ul>
+<p>Fractaos directly addresses several of these pain points.</p>
+<h3>1. It can cover multiple musical roles at once</h3>
+<p>From the manual:</p>
+<ul>
+<li>4 polyphonic voices</li>
+<li>each voice = driver + follower oscillator</li>
+<li>one resonant fractal filter per voice</li>
+<li>geometric, texture, and drum fractals</li>
+<li>multitimbral mode with different presets per voice</li>
+</ul>
+<p>So one module can be:</p>
+<ul>
+<li>bass</li>
+<li>chord bed</li>
+<li>lead</li>
+<li>metallic percussion</li>
+<li>noise wash</li>
+<li>drone layer</li>
+</ul>
+<p>That reduces the need to repatch entire systems between sections.</p>
+<h3>2. It has presets and LIVE mode</h3>
+<p>A big problem in eurorack song writing is inability to return to a previous “scene.” Fractaos stores presets on SD card and also supports <strong>MULTI</strong> voice assignment plus <strong>LIVE</strong> operation.</p>
+<p>This means you can structure songs around:</p>
+<ul>
+<li>intro preset</li>
+<li>verse preset</li>
+<li>chorus preset</li>
+<li>breakdown preset</li>
+<li>outro preset</li>
+</ul>
+<p>Or assign different voices to fixed roles while keeping one or two voices “live” for performance.</p>
+<h3>3. Drone mode and Spread can create harmonic sections</h3>
+<p>Drone mode is not just a sustain button. It changes Spread into:</p>
+<ul>
+<li>unison</li>
+<li>octave spread</li>
+<li>predefined chords/microtunings</li>
+</ul>
+<p>This is very powerful for arrangement because one knob can create:</p>
+<ul>
+<li>tension build</li>
+<li>harmonic widening</li>
+<li>transition from monophonic focus into massive chordal wash</li>
+<li>breakdown drones</li>
+<li>ending pads</li>
+</ul>
+<hr />
+<h1>Best ways to use Fractaos in full-song composition</h1>
+<h2>1. Use Fractaos as the harmonic center of the track</h2>
+<p>Because it is 4-voice polyphonic and multitimbral, Fractaos can carry the <strong>harmony</strong> of a whole song.</p>
+<h3>Patch idea</h3>
+<p>Use:
+- a MIDI-to-CV/polyphonic sequencer or keyboard
+- Fractaos as the central harmonic voice
+- external drums and utility modules around it</p>
+<h3>Song role assignment</h3>
+<p>Example:</p>
+<ul>
+<li><strong>Voice 1:</strong> bass preset</li>
+<li><strong>Voice 2:</strong> chord/pad preset</li>
+<li><strong>Voice 3:</strong> lead/pluck preset</li>
+<li><strong>Voice 4:</strong> texture/noise or percussion preset</li>
+</ul>
+<p>In MULTI mode each voice can be on its own MIDI channel, so a sequencer like:
+- Squarp Hermod+
+- OXI One
+- Intellijel Metropolix with MIDI/CV helpers
+- Five12 Vector Sequencer
+- Polyend Tracker/Play via MIDI
+- Elektron box sending MIDI</p>
+<p>can sequence each Fractaos voice independently.</p>
+<h3>Why this helps songs</h3>
+<p>Instead of making one loop and trying to “expand” it later, you can compose:</p>
+<ul>
+<li>a bass line on one channel</li>
+<li>chord progression on another</li>
+<li>hook melody on another</li>
+<li>fills/noise accents on another</li>
+</ul>
+<p>That is already the skeleton of a full arrangement.</p>
+<hr />
+<h2>2. Build songs by sections using presets</h2>
+<p>Fractaos’s preset system is one of its most song-friendly features.</p>
+<p>Each preset stores:
+- the main panel values
+- switch states
+- envelope settings</p>
+<p>So rather than repatching for every section, create a <strong>bank of section timbres</strong>.</p>
+<h3>Recommended preset strategy</h3>
+<p>Create groups such as:</p>
+<ul>
+<li><code>01_INTRO_PAD</code></li>
+<li><code>02_VERSE_BASS</code></li>
+<li><code>03_VERSE_CHORD</code></li>
+<li><code>04_CHORUS_WIDE</code></li>
+<li><code>05_BREAK_GLASS</code></li>
+<li><code>06_DROP_KICK</code></li>
+<li><code>07_OUTRO_DRONE</code></li>
+</ul>
+<p>Then use:
+- LOAD mode for whole-module recall in performance
+- MULTI mode to assign different presets per voice</p>
+<h3>Song workflow</h3>
+<p>For instance:</p>
+<h4>Intro</h4>
+<ul>
+<li>Voice 1 LIVE texture</li>
+<li>Voice 2 preset pad</li>
+<li>Voice 3 muted</li>
+<li>Voice 4 noise/cluster preset</li>
+</ul>
+<h4>Verse</h4>
+<ul>
+<li>Voice 1 bass preset</li>
+<li>Voice 2 chord preset</li>
+<li>Voice 3 subtle counterline</li>
+<li>Voice 4 percussion accent</li>
+</ul>
+<h4>Chorus</h4>
+<ul>
+<li>same pitch material, but:</li>
+<li>raise Texture</li>
+<li>different preset with brighter fractal</li>
+<li>wider Spread</li>
+<li>more Morph movement</li>
+<li>longer ADSR</li>
+</ul>
+<h4>Breakdown</h4>
+<ul>
+<li>Drone mode on</li>
+<li>chord Spread in microtuning area</li>
+<li>no external drums</li>
+<li>long reverb</li>
+<li>slow modulations</li>
+</ul>
+<h4>Final chorus/outro</h4>
+<ul>
+<li>return to note-triggered mode</li>
+<li>bring back drums</li>
+<li>open texture/noise voices</li>
+<li>slowly move to drone chord ending</li>
+</ul>
+<p>This preset-based workflow is much closer to how songs are actually arranged.</p>
+<hr />
+<h2>3. Use Fractaos as a “band in a box” inside eurorack</h2>
+<p>Because it includes tonal fractals, textures, and drum models, you can treat it as a mini ensemble.</p>
+<h3>Internal role possibilities</h3>
+<p>From the manual:</p>
+<ul>
+<li><strong>Geometric fractals</strong> = stable musical tones, basses, leads, harmonics</li>
+<li><strong>Texture fractals</strong> = pads, ambiences, noisy beds</li>
+<li><strong>Drum fractals</strong> = kick, tom, snare, hihat, cymbal</li>
+</ul>
+<p>That means Fractaos can contribute both <strong>pitched</strong> and <strong>percussive</strong> material.</p>
+<h3>Practical use</h3>
+<p>In MULTI mode:</p>
+<ul>
+<li>Voice 1 = Kick or Tom</li>
+<li>Voice 2 = Snare/metallic percussion</li>
+<li>Voice 3 = Bass geometric fractal</li>
+<li>Voice 4 = Chord or pad</li>
+</ul>
+<p>Then surround it with:
+- external VCAs
+- mutes
+- effects
+- sequencers
+- drum reinforcement</p>
+<p>This gives you a song-ready core very quickly.</p>
+<h3>Caveat</h3>
+<p>I would not rely on Fractaos alone for an entire drum section in every genre. But its drum models are excellent for:
+- synthetic percussion
+- fills
+- transitions
+- hybrid drum layering
+- glitch rhythm beds</p>
+<p>A dedicated kick/snare module or sample drum module can provide the anchor while Fractaos adds character.</p>
+<hr />
+<h1>Specific full-song patch strategies</h1>
+<h2>Strategy A: Techno / IDM arrangement engine</h2>
+<h3>Supporting modules</h3>
+<p>Pair Fractaos with:
+- a multi-track sequencer: Hermod+, Vector, OXI One
+- drum modules: Basimilus, BIA, WMD-style drum voices, sample player, or Squid Salmple
+- mixer with mutes: Performance Mixer, Cosmix Pro, Befaco Hexmix
+- effects: Mimeophon, FX Aid, Desmodus Versio, beads/granular, delay/reverb
+- modulation: Pam’s Pro Workout, Batumi, Zadar, Stages
+- utilities: VCAs, switches, sequential switch, logic, clock divider</p>
+<h3>Arrangement method</h3>
+<h4>Intro</h4>
+<ul>
+<li>texture fractal like Cloud, Storm, Cluster</li>
+<li>very slow Speed</li>
+<li>moderate Texture</li>
+<li>Drone mode ON</li>
+<li>external high-pass filter slowly opening</li>
+<li>send to large reverb</li>
+</ul>
+<h4>Groove enters</h4>
+<ul>
+<li>bring in external kick</li>
+<li>Fractaos voice 1 plays bass on MIDI/CV channel 1</li>
+<li>voice 2 adds metallic stab on offbeats</li>
+<li>voice 3 stays drone/pad</li>
+<li>voice 4 sporadic hihat-like Drum fractal hits</li>
+</ul>
+<h4>Mid-section development</h4>
+<p>Use switches:
+- enable Chaos LFO modulation
+- then Spread modulation
+- then Morph/FM mode on selected section</p>
+<p>This creates strong section changes without changing notes.</p>
+<h4>Breakdown</h4>
+<ul>
+<li>mute kick and bass</li>
+<li>Drone mode</li>
+<li>Spread into chord zone</li>
+<li>use Just intonation, 7-limit flavor, or 19-TET slice for alien harmony</li>
+<li>feed into long delay and reverb</li>
+<li>modulate Pitch slowly with attenuated CV for rising instability</li>
+</ul>
+<h4>Drop</h4>
+<ul>
+<li>exit drone</li>
+<li>restore rhythmic envelopes</li>
+<li>preset load to brighter/aggressive bass tone</li>
+<li>reintroduce kick and percussion</li>
+<li>tighten release</li>
+</ul>
+<p>This produces a real song arc: density, removal, rebuild, release.</p>
+<hr />
+<h2>Strategy B: Ambient / drone / longform evolving composition</h2>
+<p>Fractaos may be even stronger here.</p>
+<h3>Supporting modules</h3>
+<p>Ideal companions:
+- slow CV generators: Batumi, Quadrax, Maths, Zadar
+- random with memory: Marbles, Sapèl, Source of Uncertainty
+- matrix mixer: A-138m, AI Matrix Mixer
+- spectral or resonant processing: QPAS, Ikarie, Three Sisters, Morpheus
+- lush effects: reverb, shimmer, granular, looping delay
+- manual performance tools: Planar 2, joysticks, mute mixer, faders</p>
+<h3>Patch concept</h3>
+<p>Use Fractaos as four simultaneous layers:</p>
+<ul>
+<li>Voice 1: stable low drone</li>
+<li>Voice 2: midrange evolving harmonic body</li>
+<li>Voice 3: high shimmering crystalline partials</li>
+<li>Voice 4: intermittent noisy texture or cymbal-like breath</li>
+</ul>
+<h3>How to make it a full-length piece</h3>
+<p>A longform ambient piece needs macro-structure.</p>
+<p>Use external modulation to define 4 large phases:</p>
+<ol>
+<li><strong>Arrival</strong>  </li>
+<li>low Morph</li>
+<li>low Chaos</li>
+<li>low Texture</li>
+<li>
+<p>little Spread</p>
+</li>
+<li>
+<p><strong>Bloom</strong>  </p>
+</li>
+<li>slowly increase Depth</li>
+<li>open filter externally</li>
+<li>increase LFO Amount</li>
+<li>
+<p>more movement in primitive</p>
+</li>
+<li>
+<p><strong>Disorientation</strong>  </p>
+</li>
+<li>switch to Lorenz, Hénon, Rule30, Cluster, Storm</li>
+<li>introduce aftertouch or CV gestures</li>
+<li>
+<p>move Spread into nonstandard chord/microtuning zone</p>
+</li>
+<li>
+<p><strong>Resolution</strong>  </p>
+</li>
+<li>reduce Chaos</li>
+<li>reduce Texture</li>
+<li>move to unison cluster or just intonation</li>
+<li>longer release / lower density</li>
+</ol>
+<h3>Powerful trick</h3>
+<p>Put one or two voices in fixed MULTI presets and leave another in LIVE mode.<br />
+That way:</p>
+<ul>
+<li>fixed voices = continuity across the entire piece</li>
+<li>LIVE voice = your active improvisational foreground</li>
+</ul>
+<p>That balance is excellent for keeping a long piece coherent.</p>
+<hr />
+<h2>Strategy C: Polyphonic song writing with external sequencer</h2>
+<p>If you want actual verse/chorus songwriting, Fractaos becomes much more useful when driven by a sequencer capable of separate tracks or polyphonic MIDI.</p>
+<h3>Best pairing</h3>
+<ul>
+<li>OXI One</li>
+<li>Squarp Hapax or Hermod+</li>
+<li>Five12 Vector</li>
+<li>NerdSEQ with expanders</li>
+<li>external DAW via MIDI</li>
+<li>Elektron Digitakt/Digitone/Syntakt sending MIDI</li>
+</ul>
+<h3>Recommended role split</h3>
+<h4>Voice 1</h4>
+<p>Bass line</p>
+<h4>Voice 2</h4>
+<p>Chord progression root/inversion note</p>
+<h4>Voice 3</h4>
+<p>Chord extension or melody</p>
+<h4>Voice 4</h4>
+<p>Lead, arpeggio, or FX accent</p>
+<h3>Song form example</h3>
+<h4>Verse</h4>
+<ul>
+<li>minimal bass</li>
+<li>short envelope on chord voices</li>
+<li>low Morph</li>
+<li>low Texture</li>
+<li>narrow Spread</li>
+</ul>
+<h4>Pre-chorus</h4>
+<ul>
+<li>increase Release</li>
+<li>increase primitive Speed</li>
+<li>automate Morph switch/LFO behavior</li>
+<li>add tension with Chaos modulation</li>
+</ul>
+<h4>Chorus</h4>
+<ul>
+<li>wider Spread</li>
+<li>brighter fractal selection</li>
+<li>more Texture</li>
+<li>longer ADSR</li>
+<li>layered delay/reverb</li>
+</ul>
+<h4>Bridge</h4>
+<ul>
+<li>switch one voice to Drum or Texture fractal</li>
+<li>keep bass sparse</li>
+<li>move chords to Drone mode</li>
+<li>use alternate chord/microtuning spread</li>
+</ul>
+<h4>Outro</h4>
+<ul>
+<li>remove trig-based motion</li>
+<li>keep only drone/chord voices</li>
+<li>reduce amplitude and harmonic density</li>
+</ul>
+<p>The reason this works is that Fractaos can retain a unified sonic identity while still changing enough between sections.</p>
+<hr />
+<h1>Best module combinations for song-building with Fractaos</h1>
+<h2>1. Sequencers: the arrangement brain</h2>
+<p>To make full songs, Fractaos wants a sequencer that can do more than 16-step looping.</p>
+<h3>Strong pairings</h3>
+<ul>
+<li><strong>Squarp Hermod+</strong>: excellent for MIDI/poly sequencing and section changes</li>
+<li><strong>OXI One</strong>: ideal for multitrack song mode and polymetric composition</li>
+<li><strong>Five12 Vector</strong>: great for arranged phrases and per-track control</li>
+<li><strong>NerdSEQ</strong>: tracker-style composition, excellent for full structures</li>
+<li><strong>DAW + MIDI</strong>: easiest if you want formal songs fast</li>
+</ul>
+<h3>Why</h3>
+<p>Fractaos provides timbral complexity; the sequencer must provide:
+- section recall
+- clip changes
+- transposition
+- mutes
+- probability variation
+- phrase lengths</p>
+<p>Without that, you may still end up in loop-land.</p>
+<hr />
+<h2>2. Performance mixers and VCAs: essential for sections</h2>
+<p>Full songs come from <strong>bringing parts in and out</strong>.</p>
+<p>Pair with:
+- WMD Performance Mixer
+- Befaco Hexmix
+- Toppobrillo Stereo Mix
+- Cosmix / Cosmix Pro
+- multiple VCAs and mute modules</p>
+<h3>Use</h3>
+<p>Send Fractaos voices or processed copies to separate channels if possible:
+- dry Fractaos
+- delayed Fractaos
+- reverb return
+- filtered resample
+- bass-specific processing lane</p>
+<p>Then create sections by:
+- muting layers
+- changing send levels
+- automating VCA levels
+- fading percussion layers up/down</p>
+<p>Even if Fractaos is internally rich, external level control is what turns ideas into arrangements.</p>
+<hr />
+<h2>3. Effects: make sections feel larger than timbre changes</h2>
+<p>Fractaos naturally produces complex spectra. Effects turn those timbres into <strong>section identities</strong>.</p>
+<h3>Good matches</h3>
+<ul>
+<li><strong>Delay:</strong> Mimeophon, Chronoblob, Rainmaker</li>
+<li><strong>Reverb:</strong> Desmodus Versio, MercuryX, FX Aid, Erbe-Verb</li>
+<li><strong>Granular/texture:</strong> Arbhar, Beads, Morphagene</li>
+<li><strong>Stereo imaging:</strong> anything widening/panning/modulating</li>
+<li><strong>Saturation/distortion:</strong> Ruina Versio, tanh modules, wavefolders, analog drive</li>
+</ul>
+<h3>Song use</h3>
+<ul>
+<li>verse = dry and centered</li>
+<li>chorus = wide stereo delay and reverb</li>
+<li>breakdown = granular freeze/resample</li>
+<li>outro = filtered feedback trails only</li>
+</ul>
+<p>This can be more musically effective than changing fractal type every section.</p>
+<hr />
+<h2>4. Filters and dynamics processors: shape role separation</h2>
+<p>Since Fractaos can fill a lot of spectral space, external processing helps it sit in a mix.</p>
+<h3>Pair with</h3>
+<ul>
+<li>LPGs for plucky lines</li>
+<li>multimode filters for bass/chords separation</li>
+<li>compressors/sidechain tools</li>
+<li>transient shapers if using drum fractals</li>
+<li>EQ/saturation modules</li>
+</ul>
+<h3>Example</h3>
+<ul>
+<li>bass voice → low-pass filter + saturation</li>
+<li>pad voice → stereo high-pass + reverb</li>
+<li>percussion voice → band-pass + transient accent</li>
+<li>lead voice → delay and moderate compression</li>
+</ul>
+<p>This makes one module feel like several distinct instruments.</p>
+<hr />
+<h1>Practical song-building methods with Fractaos</h1>
+<h2>Method 1: One module, four song functions</h2>
+<p>Assign:</p>
+<ul>
+<li>Voice 1 = bass</li>
+<li>Voice 2 = chords</li>
+<li>Voice 3 = lead</li>
+<li>Voice 4 = FX/percussion</li>
+</ul>
+<p>Then build arrangement only by:
+- sequencer mutes
+- Fractaos preset changes
+- external mixer fades
+- Drone mode for breaks
+- effects sends</p>
+<p>This is probably the fastest route to full songs.</p>
+<hr />
+<h2>Method 2: Fixed backbone + live improvisation</h2>
+<p>A very strong eurorack songwriting approach is:</p>
+<ul>
+<li>2 voices in fixed MULTI presets</li>
+<li>1 voice in LIVE mode</li>
+<li>1 voice for percussion or texture events</li>
+</ul>
+<p>The fixed voices provide:
+- harmonic continuity
+- repeatable identity
+- reliable structure</p>
+<p>The live voice provides:
+- performance gestures
+- transitions
+- fills
+- improvisation</p>
+<p>This avoids the common modular problem of “everything changes, so nothing feels like a song.”</p>
+<hr />
+<h2>Method 3: Build sections with envelope and modulation logic</h2>
+<p>Fractaos changes character a lot depending on:</p>
+<ul>
+<li>ADSR</li>
+<li>Morph</li>
+<li>Spread</li>
+<li>Chaos</li>
+<li>Texture</li>
+<li>primitive-trigger behavior</li>
+</ul>
+<p>So instead of always changing notes, change <strong>behavior per section</strong>.</p>
+<h3>Example section map</h3>
+<h4>Intro</h4>
+<ul>
+<li>long attack/release</li>
+<li>Loop ON</li>
+<li>Trig OFF</li>
+<li>low Amount</li>
+</ul>
+<h4>Verse</h4>
+<ul>
+<li>short attack</li>
+<li>medium decay</li>
+<li>Triggered primitive</li>
+<li>low Spread</li>
+<li>modest Texture</li>
+</ul>
+<h4>Chorus</h4>
+<ul>
+<li>more Morph</li>
+<li>more Spread</li>
+<li>higher Texture</li>
+<li>brighter fractal</li>
+<li>more external reverb</li>
+</ul>
+<h4>Bridge</h4>
+<ul>
+<li>FM mode</li>
+<li>more Chaos</li>
+<li>weird fractal</li>
+<li>less bass</li>
+<li>more microtonal spread</li>
+</ul>
+<p>The notes may remain similar, but the song still evolves.</p>
+<hr />
+<h2>Method 4: Use Drone mode for transitions, not just ambient pieces</h2>
+<p>A lot of users will think Drone mode is only for drone music. It is actually fantastic for <strong>transitions</strong>.</p>
+<h3>Transition examples</h3>
+<ul>
+<li>verse ends on held chord</li>
+<li>turn Drone ON</li>
+<li>widen Spread into chord zone</li>
+<li>mute drums</li>
+<li>send to reverb</li>
+<li>slowly adjust Morph and Texture</li>
+<li>bring in a new sequencer pattern</li>
+<li>switch Drone OFF into the next section</li>
+</ul>
+<p>That creates a musically convincing bridge between sections.</p>
+<h3>Especially useful chord choices</h3>
+<p>From the manual:
+- Maj triad spread
+- Min triad spread
+- Major 7th
+- Minor 7th
+- Add 9
+- Add 11
+- Add 13
+- Just intonation
+- 7-limit flavor
+- 19-TET slice
+- Bohlen-Pierce subset</p>
+<p>These are not just tuning novelties. They are <strong>arrangement devices</strong>:
+- triads/7ths for stable chorus moments
+- add9/add11/add13 for lush expansions
+- just intonation for consonant resolution
+- 19-TET/Bohlen-Pierce for alien interludes or breakdowns</p>
+<hr />
+<h1>Genre-specific ideas</h1>
+<h2>Techno</h2>
+<p>Use Fractaos for:
+- bass
+- metallic percussion
+- dub chords
+- break drones</p>
+<p>Best companions:
+- kick module
+- sequencer with mutes
+- delay/reverb
+- sidechain compressor</p>
+<p>Song tactic:
+- keep bass and kick constant
+- use Fractaos presets for section identity
+- use Drone mode for breakdowns
+- use texture/drum fractals for risers and fills</p>
+<hr />
+<h2>Ambient</h2>
+<p>Use it as:
+- the whole harmonic and atmospheric core</p>
+<p>Best companions:
+- slow modulation
+- stereo processing
+- random voltages
+- field recording or granular support</p>
+<p>Song tactic:
+- create 3–5 macro sections with different fractal families
+- use microtonal spread as emotional turning points
+- keep one repeating motif to maintain form</p>
+<hr />
+<h2>IDM / Experimental</h2>
+<p>Use:
+- Rule30, Lorenz, Hénon, Cluster, Aliasing, Drum fractals</p>
+<p>Best companions:
+- clock modulation
+- probability sequencers
+- logic and switches
+- sample-and-hold
+- glitch effects</p>
+<p>Song tactic:
+- alternate stable grooves and fractured passages
+- let Fractaos handle timbral complexity
+- use a strict drum backbone externally so the song remains legible</p>
+<hr />
+<h2>Synth-pop / cinematic / melodic</h2>
+<p>Use Fractaos for:
+- poly chords
+- moving bass
+- hook lead
+- textural transitions</p>
+<p>Best companions:
+- MIDI keyboard or arranger sequencer
+- reverb/delay
+- mixer
+- compressor
+- maybe an additional analog mono lead voice</p>
+<p>Song tactic:
+- write actual chord progressions
+- keep presets consistent across verse/chorus
+- increase width and harmonic complexity in choruses
+- use Fractaos as the identifiable “signature” sound of the track</p>
+<hr />
+<h1>Limitations to be aware of when trying to make songs</h1>
+<h2>1. The panel is shared</h2>
+<p>In MULTI mode, LIVE voices respond to the panel directly, while preset voices retain saved values in certain ways. That is useful, but it also means you should decide whether the module is acting more as:</p>
+<ul>
+<li>a fixed multitimbral instrument</li>
+<li>or a performable live voice</li>
+</ul>
+<p>Trying to do both at once without planning can get confusing.</p>
+<h2>2. Preset transitions are timbral, not arrangement by themselves</h2>
+<p>Presets help, but they do not replace:
+- mutes
+- sequencer scene changes
+- modulation planning
+- dynamic mixing</p>
+<p>You still need a larger performance architecture.</p>
+<h2>3. Fractaos is dense</h2>
+<p>Its sounds can occupy a lot of bandwidth. For full songs, leave room by using:
+- filtering
+- VCAs
+- EQ
+- sparse sequencing
+- strategic muting</p>
+<p>Don’t run all voices fully active all the time.</p>
+<hr />
+<h1>A highly effective “full song” system around Fractaos</h1>
+<p>If I were building a song-focused rack around this module, I would pair it with:</p>
+<ul>
+<li><strong>Sequencer:</strong> OXI One / Hermod+ / Vector</li>
+<li><strong>Clocking/modulation:</strong> Pam’s Pro Workout</li>
+<li><strong>Complex envelopes/modulation:</strong> Zadar or Quadrax</li>
+<li><strong>Mixer:</strong> performance mixer with mutes</li>
+<li><strong>Effects:</strong> stereo delay + big reverb</li>
+<li><strong>Utility:</strong> VCAs, attenuverters, sequential switch</li>
+<li><strong>Drums:</strong> one anchor kick + one sample drum module</li>
+<li><strong>Optional:</strong> external compressor/sidechain</li>
+</ul>
+<h3>Why this works</h3>
+<ul>
+<li>Fractaos = harmonic/timbral identity</li>
+<li>sequencer = structure</li>
+<li>mixer = arrangement</li>
+<li>FX = spatial section changes</li>
+<li>drums = anchor</li>
+<li>VCAs/switches = movement and transitions</li>
+</ul>
+<p>That is enough for intros, verses, choruses, drops, breakdowns, and outros.</p>
+<hr />
+<h1>Example complete song blueprint</h1>
+<h2>Intro</h2>
+<ul>
+<li>Fractaos in Drone mode</li>
+<li>Texture fractal + slow movement</li>
+<li>reverb high</li>
+<li>no drums</li>
+<li>Spread on Add9 or Just Intonation</li>
+</ul>
+<h2>Verse A</h2>
+<ul>
+<li>Drone off</li>
+<li>bass voice enters</li>
+<li>simple chord stabs</li>
+<li>minimal kick and hat</li>
+<li>lead muted</li>
+</ul>
+<h2>Verse B</h2>
+<ul>
+<li>subtle extra voice</li>
+<li>more Texture</li>
+<li>percussion fractal accents</li>
+<li>delay send up slightly</li>
+</ul>
+<h2>Pre-chorus</h2>
+<ul>
+<li>release longer</li>
+<li>Chaos modulation increases</li>
+<li>drums thin out</li>
+<li>pitch rise via sequencer transpose or CV</li>
+</ul>
+<h2>Chorus</h2>
+<ul>
+<li>wide Spread</li>
+<li>brighter chord preset</li>
+<li>full drums</li>
+<li>lead voice active</li>
+<li>stereo effects increased</li>
+</ul>
+<h2>Breakdown</h2>
+<ul>
+<li>mute drums and bass</li>
+<li>Drone mode on</li>
+<li>move to 7-limit or 19-TET spread</li>
+<li>granular or long delay processing</li>
+</ul>
+<h2>Final chorus</h2>
+<ul>
+<li>return to tonal spread</li>
+<li>strongest bass preset</li>
+<li>all main voices active</li>
+<li>manual Morph/Texture performance</li>
+</ul>
+<h2>Outro</h2>
+<ul>
+<li>remove rhythmic voices</li>
+<li>leave drone/chord wash</li>
+<li>reduce Chaos</li>
+<li>fade to unison cluster</li>
+</ul>
+<p>This is a genuinely achievable eurorack song architecture using Fractaos as centerpiece.</p>
+<hr />
+<h1>Final takeaway</h1>
+<p>Fractaos is especially good for full-length songs because it solves three core modular problems at once:</p>
+<ol>
+<li><strong>not enough voices</strong>  </li>
+<li><strong>not enough recall</strong>  </li>
+<li><strong>not enough section contrast without repatching</strong></li>
+</ol>
+<p>Its strongest songwriting uses are:</p>
+<ul>
+<li><strong>multitimbral voice assignment</strong></li>
+<li><strong>preset-based section design</strong></li>
+<li><strong>drone/chord transitions</strong></li>
+<li><strong>one module covering bass/chords/lead/textures/percussion</strong></li>
+<li><strong>external sequencer + mixer + effects for arrangement</strong></li>
+</ul>
+<p>If you treat it not merely as an oscillator but as a <strong>4-part fractal instrument with scenes</strong>, it becomes a powerful foundation for complete tracks.</p>
+<hr />
+<p><a href="https://github.com/nstarke/eurorack-processor">Generated With Eurorack Processor</a></p>
+</body>
+</html>
