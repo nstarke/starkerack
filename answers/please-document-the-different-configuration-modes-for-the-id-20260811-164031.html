@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>please-document-the-different-configuration-modes-for-the-id-20260811-164031</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Question</h1>
+<p>Please document the different configuration modes for the IDUM module and how to access the configuration mode selection UI</p>
+<h2>Modules In Scope</h2>
+<ul>
+<li>Mystic Circuits IDUM</li>
+</ul>
+<hr />
+<h1>Answer</h1>
+<h1>Mystic Circuits IDUM — Configuration (Setup Menu) Modes</h1>
+<p>The IDUM's hidden configuration options live in its <strong>Setup Menu</strong> (the manual also calls it the "MENU" or "Set Up Mode"). These are global settings, separate from the eight performance modification modes (Bouncing Ball, Rotate, Gate Delay, etc.) selected during normal operation.</p>
+<h2>How to Access the Setup Menu</h2>
+<ol>
+<li><strong>Long press the REMOVE MODE button</strong> (upper-right button, labelled "HOLD 4 MENU" on the panel) to enter the Setup Menu. The MODE ring of LEDs and the LOOP LED switch to displaying the <em>current configuration</em> — a lit LED means that option is enabled/selected.</li>
+<li><strong>Turn the MODE knob</strong> to point at the option you want to change. Option names are faintly printed on the panel next to each mode LED position (e.g. <code>PARAM RESOLUTION</code>, <code>LENGTH RESOLUTION</code>, <code>SLOW CL</code>, <code>SPLIT</code>, <code>ODD</code>/<code>EVEN</code>/<code>POW2</code>).</li>
+<li><strong>Short press (tap) REMOVE MODE</strong> to toggle/select the option the dial is pointing at.</li>
+<li><strong>Long press REMOVE MODE again</strong> to exit and return to normal operation.</li>
+</ol>
+<p>Settings are saved on exiting the menu and <strong>persist across power cycles</strong>.</p>
+<blockquote>
+<p>⚠️ <strong>Important:</strong> Unplug (or mute) any modulation patched into the <strong>MODE CV input</strong> before using the menu — mode CV shifts where the processor thinks the dial is pointing, so you could toggle the wrong option.</p>
+</blockquote>
+<h2>Configuration Options</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Sub-settings</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Parameter Resolution</strong></td>
+<td>ODD / EVEN / POW2</td>
+<td>Restricts the values selectable with the PARAM knob in BURST, MULTIPLY/DIVIDE, and clock-skip modes. <strong>ODD</strong> = any value 1–8; <strong>EVEN</strong> = only 1, 2, 4, 6, 8; <strong>POW2</strong> = only powers of two (1, 2, 4, 8). Useful for keeping tempo-synced manipulations predictable.</td>
+</tr>
+<tr>
+<td><strong>Length Resolution</strong></td>
+<td>ODD / EVEN / POW2</td>
+<td>Same restriction scheme, but applied to the LENGTH slider: <strong>ODD</strong> = 1–8, <strong>EVEN</strong> = 1, 2, 4, 6, 8, <strong>POW2</strong> = 1, 2, 4, 8.</td>
+</tr>
+<tr>
+<td><strong>Slow Clock</strong> (SLOW CL)</td>
+<td>LED on / off</td>
+<td>Sets the speed of the clock bursts IDUM uses to re-synchronize sequencers on its clock output. LED <strong>off</strong> = slow bursts — best for slower/digital sequencer modules. LED <strong>on</strong> = fast bursts — best for fast analog sequencers (e.g. Mystic Circuits Tree). If cycle/skipping behavior misbehaves, turn this off.</td>
+</tr>
+<tr>
+<td><strong>16 Step</strong></td>
+<td>—</td>
+<td><em>Unimplemented in firmware v1.0.</em> Will extend the looper and modification lengths to 16 steps, controlled via the CYCLE switch (labelled "16 STEP" in Setup Mode).</td>
+</tr>
+<tr>
+<td><strong>Split</strong></td>
+<td>—</td>
+<td><em>Unimplemented in firmware v1.0.</em> Will eventually let each trigger channel choose when it applies a modification, and which one, independently.</td>
+</tr>
+<tr>
+<td><strong>Loop</strong> (gate input behavior)</td>
+<td>Toggle / Momentary</td>
+<td>Press the <strong>LOOP button while inside the Setup Menu</strong> to change how the LOOP gate input behaves. LED <strong>off</strong> = incoming gates <em>toggle</em> the looper on/off with each rising edge. LED <strong>on</strong> = gates <em>momentarily</em> engage the looper only while the gate input is high.</td>
+</tr>
+</tbody>
+</table>
+<h2>Notes</h2>
+<ul>
+<li>In Setup Mode, the <strong>CYCLE switch</strong> is reassigned to the 8-step/16-step selection (labelled "16 STEP") — not yet functional in firmware v1.0.</li>
+<li>The Setup Menu is summarized in the "Getting Started" section (step 8, p. 17) and detailed in the <strong>SETUP MENU</strong> (p. 32) and <strong>SETUP MENU OPTIONS</strong> (p. 34) sections of the manual.</li>
+</ul>
+</body>
+</html>
