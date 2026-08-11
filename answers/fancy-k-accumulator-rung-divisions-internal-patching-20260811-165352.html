@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>fancy-k-accumulator-rung-divisions-internal-patching-20260811-165352</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Question</h1>
+<p>Please document how the Fancyyyyy Synthesis K-Accumulator and Rung Divisions can be used together when they are connected internally.  The interal connection documentation can be found here: https://www.fancysynthesis.net/_files/ugd/2321ab_c6527117434d46138fc2b65b06566496.pdf</p>
+<h2>Modules In Scope</h2>
+<ul>
+<li>Fancyyyyy K-Accumulator Digital Complex Oscillator</li>
+<li>Fancyyyyy Rung Divisions V2 Clock Divider + Shift Register</li>
+</ul>
+<hr />
+<h1>Answer</h1>
+<p>I've read both manuals fully, but I was unable to retrieve the internal-connection PDF: WebFetch isn't authorized in this session and network commands via curl were also blocked. Rather than guess at that document's contents, here is what I can document honestly — what each manual actually says about inter-module connection points, and how the two modules pair musically.</p>
+<h1>Fancyyyyy K-Accumulator + Rung Divisions: Using Them Together</h1>
+<h2>⚠️ A note about the internal connection document</h2>
+<p>I could not access the linked PDF (<code>fancysynthesis.net/_files/ugd/2321ab_c6527117434d46138fc2b65b06566496.pdf</code>) from this environment — web access was not permitted in this session. <strong>Neither of the two manuals I was given describes an internal (behind-the-panel) connection between these two specific modules</strong>, so everything below about the internal link is limited to what the manuals verifiably state, plus front-panel usage that is fully documented. I have not invented details from the unretrievable PDF; please re-run with web access granted (or drop the PDF into the manuals repo) and I can complete that section.</p>
+<h2>What the manuals do document about internal connectivity</h2>
+<p><strong>Rung Divisions (manual, p.10 "Installation and Calibration"):</strong>
+- The module has <strong>four pin headers on the rear</strong>. Only the header labelled "POWER" may receive power — connecting power to any other header can irreversibly damage the module.
+- The other headers are labelled in the manual's rear-panel diagram as <strong>"Expander headers 2 &amp; 3"</strong> and <strong>"Expander header 4"</strong>. These are the module's designated internal-connection points.
+- The <strong>"Expanders" chapter is a placeholder ("Coming soon")</strong> in this manual revision — the expander/internal-connection protocol is exactly what the separate PDF you linked would cover.</p>
+<p><strong>K-Accumulator (Quickstart v1.02):</strong>
+- Requires <strong>two Eurorack power connections</strong> (both headers must be connected). The quickstart does not document any expander/internal header, and notes a full technical manual covering the architecture in depth is still in progress.</p>
+<p>So the plausible internal link is Rung Divisions' expander headers connecting behind the panel to the K-Accumulator — but the pinout, cable, and which signals are carried are only in the document I couldn't fetch.</p>
+<h2>How the two modules complement each other (documented behavior)</h2>
+<p>Even without the internal-connection details, the manuals make the intended pairing clear. Rung Divisions is a <strong>poly-rhythmic gate generator and Benjolin/Rungler-derived stepped-CV source</strong>; the K-Accumulator is a <strong>complex oscillator whose every CV input expects exactly this kind of signal</strong>. The natural signal routings (whether made with patch cables or provided by the internal connection) are:</p>
+<h3>1. Rung Divisions as clock/trigger source for the K-Accumulator</h3>
+<table>
+<thead>
+<tr>
+<th>Rung Divisions output</th>
+<th>K-Accumulator destination</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bus1 / Bus2 (mixed clock divisions)</td>
+<td><strong>Δ-Σ Clock input</strong></td>
+<td>Poly-rhythmic stepping of the Δ-Σ pattern generator. Patching this jack breaks the internal UFG normalization, so the pattern generator now steps on Rung Divisions' composite rhythm.</td>
+</tr>
+<tr>
+<td>/2–/8 divider outputs</td>
+<td><strong>UFG Trig input</strong></td>
+<td>Triggers the function generator in single-shot mode (envelopes/pulsar windows) on any division; the Type button selects hard sync, reversal, or sustain trigger responses.</td>
+</tr>
+<tr>
+<td>1-Bit output</td>
+<td><strong>OSC Ext. input (Sync mode)</strong></td>
+<td>The buffered first-bit gate acts as an external damped-sync source, overriding the UFG.</td>
+</tr>
+</tbody>
+</table>
+<h3>2. Rung Divisions as CV source for the K-Accumulator</h3>
+<table>
+<thead>
+<tr>
+<th>Rung Divisions output</th>
+<th>K-Accumulator destination</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8-Bit output (±5V "sequencer" DAC)</td>
+<td><strong>1V (Root)</strong> or <strong>1V/TZ (OSC)</strong></td>
+<td>Random/looping pitch sequences. The Root input is 1V/Oct calibrated and can be quantised to 21 TET or JI scales — this tames the Rungler's chaos into melodies. The 1V/TZ input auto-detects stepped vs. audio-rate signals, so a sub-audio 8-Bit pattern is treated as pitch CV and an audio-rate one becomes through-zero FM.</td>
+</tr>
+<tr>
+<td>3-Bit output ("rungler", contrapuntal reverse-encoded)</td>
+<td><strong>Shift / Depth / Shape / Morph CV inputs</strong></td>
+<td>Stepped animation of the waveshaping matrix. The 3-Bit and 8-Bit outputs move in contrary motion, so using both on different destinations gives complementary voices/timbre motion.</td>
+</tr>
+<tr>
+<td>Noise output</td>
+<td>Any attenuverted CV input</td>
+<td>Analogue noise modulation.</td>
+</tr>
+</tbody>
+</table>
+<p>Every OSC-row CV input on the K-Accumulator has an internal normalization from its own UFG or Δ-Σ; <strong>plugging Rung Divisions into any of these jacks overrides that normalization</strong>, replacing internal modulation with Rung Divisions' external patterns.</p>
+<h3>3. K-Accumulator as clock/animator for Rung Divisions</h3>
+<ul>
+<li>The <strong>UFG gate output</strong> (pulse width set by Skew) is an ideal clock for Rung Divisions' Clock input — and because Rung Divisions runs from 0–40 kHz, the UFG can sweep it from slow poly-rhythms into audio-rate sub-harmonic/PWM territory. A PWM'd clock (Skew under CV) dynamically changes all gate output lengths, as described in the Rung Divisions Clock Division chapter.</li>
+<li>The <strong>Δ-Σ output</strong> can drive Rung Divisions' Length, Chance, or Direction CV inputs, so the oscillator's pattern generator reshapes the shift register's loop point and randomness in time.</li>
+</ul>
+<h3>4. Cross-feedback (chaos patch)</h3>
+<p>The Rung Divisions manual explicitly recommends feeding the <strong>3-Bit or 8-Bit output back to a CV input of its clock source</strong>. With the K-Accumulator's UFG clocking Rung Divisions and the 8-Bit output patched to the UFG Time CV (1V/Oct), the pair forms a two-module chaotic system — "burst-like" from the 3-Bit output, more random-with-strange-attractors from the 8-Bit — with the Chance knob dialling in slowly evolving chaotic patterns.</p>
+<h2>Summary</h2>
+<p>The verifiable picture: Rung Divisions exposes dedicated expander headers on its rear PCB for exactly this kind of internal pairing, and the two modules are designed as a rhythmic-brain + complex-voice combination — Rung Divisions supplying clocks, gates, and Rungler CV; the K-Accumulator supplying quantised pitch, envelopes, and audio, with every relevant jack's normalization documented to yield gracefully to the other module's signals. For the exact internal cable pinout and which of these routings the internal connection hard-wires, I'd need access to the linked PDF — happy to fold that in if you can grant web access or add the file to <code>/home/nick/Documents/git/eurorack-manuals-repo/</code>.</p>
+</body>
+</html>
