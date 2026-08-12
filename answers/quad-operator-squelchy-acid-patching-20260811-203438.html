@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>quad-operator-squelchy-acid-patching-20260811-203438</title>
+  <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+<h1>Question</h1>
+<p>How can I configure the 'Quad Operator' FM Oscillator to produce squelching melodic acid tones?</p>
+<h2>Modules In Scope</h2>
+<ul>
+<li>Humble Audio Quad Operator</li>
+<li>Humble Audio Quad Operator Algo Extension</li>
+</ul>
+<hr />
+<h1>Answer</h1>
+<p>I've read the full Quad Operator manual (and its Algo expander section). Here's a patch recipe built from the module's actual controls.</p>
+<h1>Squelchy Acid Tones on the Humble Audio Quad Operator</h1>
+<p>The trick to acid sounds on an FM oscillator: there's no filter, so the <strong>"squelch" comes from sweeping the modulation index</strong> — an envelope into a <strong>Gain CV</strong> input stands in for the filter-cutoff envelope of a 303, and <strong>operator feedback</strong> stands in for resonance.</p>
+<h2>1. Start from the manual's "Neutral Position"</h2>
+<p>Per the <em>Achieving Harmonic Frequency Modulation Results</em> section:</p>
+<ul>
+<li><strong>VCO/LFO switch</strong> → VCO</li>
+<li><strong>All four operators</strong> → <strong>Lock</strong> state (integer ratios to master tuning — essential for harmonic, melodic results)</li>
+<li><strong>All Detune knobs</strong> → 12 o'clock</li>
+<li><strong>All Shape knobs</strong> → full counterclockwise (sine)</li>
+<li><strong>All Mod sends</strong> → full counterclockwise (no modulation yet)</li>
+</ul>
+<h2>2. Build a two-operator acid voice</h2>
+<p>Use <strong>Op 1 as the carrier</strong> and <strong>Op 2 as the modulator</strong>:</p>
+<ul>
+<li><strong>Ratio 1</strong> → ×1 (carrier at the fundamental)</li>
+<li><strong>Ratio 2</strong> → ×1 or ×2. A 1:1 ratio gives a saw-like spectrum (very 303); 2:1 gives a hollower, square-ish tone</li>
+<li>On <strong>Op 2's row, turn up the "Mod 1" knob</strong> — this is the send from Op 2 into Op 1's frequency. Set it around 10–1 o'clock as your baseline "cutoff" level</li>
+<li>Take your audio from the <strong>Op 1 output</strong> only</li>
+</ul>
+<p>Optionally nudge <strong>Shape 1</strong> slightly toward triangle/saw for extra bite, but keep Op 2 a sine — modulating with overtone-rich shapes gets noisy/aliased fast (the manual warns about this).</p>
+<h2>3. The squelch: envelope → Gain 2 CV</h2>
+<p>This is the key move. From the manual: <em>"Gain CV — affects both the output level of the operator signal as well as how intensely it modulates other operators via its modulation sends. Normals to gain of 1."</em></p>
+<ul>
+<li>Patch a <strong>snappy decay envelope</strong> (fast attack, short-medium decay) into <strong>Gain 2</strong>. Note Gain CV expects <strong>0–5 V</strong>; once patched, it replaces the normalled full gain</li>
+<li>Now every gate closes Op 2's virtual VCA: each note starts bright (high FM index) and sweeps dark as the envelope falls — exactly the wah/squelch of a filter envelope</li>
+<li><strong>Decay time</strong> = your "cutoff sweep" speed; <strong>Mod 1 send level</strong> = your "cutoff/env amount"</li>
+<li>For <strong>accents</strong>, use a sequencer accent output to raise the envelope level (or mix a second envelope into Gain 2) on accented steps — louder envelope = brighter, harder squelch</li>
+</ul>
+<p>Put a regular VCA + amp envelope on the Op 1 output after the module, as usual.</p>
+<h2>4. "Resonance": operator feedback</h2>
+<ul>
+<li>On <strong>Op 2's row, also turn up "Mod 2"</strong> — Op 2 modulating itself. Small amounts add a growly, resonant edge that reads like filter resonance; too much tips into noise (easy to ride live)</li>
+<li>Because Gain 2 scales <em>all</em> of Op 2's sends, your envelope sweeps the feedback and the carrier modulation together — the squelch and the "resonance" breathe as one, which is very acid</li>
+<li>For more extreme resonance-style effects, the manual suggests the <strong>AR FM input</strong>: take an operator output, process it externally (e.g., through a wavefolder or filter), patch it back into <strong>AR FM</strong>, and use the AR FM row's Mod sends. Watch the red clipping LED and trim the <strong>Gain AR FM</strong> knob</li>
+</ul>
+<h2>5. Melodic sequencing, slides, and consistency</h2>
+<ul>
+<li><strong>Pitch sequence</strong> → the <strong>1V/Oct</strong> input (controls all locked operators together, so the whole FM stack tracks in tune)</li>
+<li><strong>Slides</strong> (the other half of the acid formula) → use your sequencer's glide/portamento on the 1V/Oct CV; alternatively patch a slewed CV into <strong>LF FM</strong> (±6 semitones) for bend effects</li>
+<li>Patch your gate/trigger into <strong>Reset</strong> to restart operator phase on each note — this keeps the FM transient identical note-to-note for a tight, consistent pluck</li>
+</ul>
+<h2>6. Bonus: Algo expander as a macro "filter knob"</h2>
+<p>Save a <strong>dark algorithm</strong> (low Mod sends) into slot <strong>A</strong> and a <strong>screaming one</strong> (high sends + feedback) into slot <strong>B</strong>, then use the <strong>Crossfade</strong> knob or its CV input to morph between them — a one-knob acid "cutoff macro" you can sweep or sequence over the pattern, or crossfade against the <strong>Live</strong> knob positions while you tweak.</p>
+<p><strong>Quick summary:</strong> Op 2 (sine, ratio 1–2×, in lock) FMs Op 1 via the Mod 1 send; a fast decay envelope into Gain 2 sweeps the FM index for the squelch; a touch of Mod 2 self-feedback fakes resonance; sequence via 1V/Oct with glide, trigger Reset per note, and take audio from Op 1.</p>
+</body>
+</html>
